@@ -2,7 +2,7 @@
 
 Generated from `AGENT-ASSET-REGISTRY.json`; do not edit manually.
 
-Revision: **2**  
+Revision: **2**
 Updated: **2026-07-30T22:50:31Z**
 
 | Kind | Name | Version | Visibility | Scope | Owner agent | Accountable owner | Status | Locator |
