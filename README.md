@@ -119,10 +119,17 @@ The source of truth for versions is each skill's `SKILL.md → metadata.version`
 ├── plugin/                           # generated aggregate cross-host package
 ├── scripts/                          # deterministic generation and validation
 ├── docs/
+│   ├── AGENT-METASKILLS-ANALYSIS.md # applying metaskill patterns to agents
+│   └── prompts/                     # reusable agent-oriented skill prompts
 └── .github/workflows/validate.yml
 ```
 
 Never edit `plugin/`, `plugins/`, or platform marketplace manifests manually. Change canonical skills or catalog configuration, regenerate, validate, and review the resulting diff.
+
+The agent-oriented portfolio analysis and reusable creation prompts are
+documented in [docs/AGENT-METASKILLS-ANALYSIS.md](docs/AGENT-METASKILLS-ANALYSIS.md)
+and [docs/prompts/README.md](docs/prompts/README.md). These are design inputs, not
+active agent definitions or automatically installed skills.
 
 ## Development workflow
 
