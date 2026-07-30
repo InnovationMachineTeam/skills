@@ -1,7 +1,9 @@
 # Единый план: команды агентов, skills mapping и Agent OS
 
-Статус: **proposal for review**  
-Дата: **2026-07-30**  
+Статус: **proposal for review**
+
+Дата: **2026-07-30**
+
 Scope: agent-oriented skills, project-local `.agents`, registries, team workflows,
 model selection, docs/memory и будущая Agent OS.
 
