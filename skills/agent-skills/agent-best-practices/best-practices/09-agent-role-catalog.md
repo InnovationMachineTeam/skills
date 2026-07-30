@@ -153,4 +153,3 @@ canary owner. Изменение не проходит production gate без re
 
 Separation of duties особенно важен для денег, персональных данных, security,
 production и compliance.
-

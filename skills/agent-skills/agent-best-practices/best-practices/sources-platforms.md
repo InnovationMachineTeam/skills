@@ -175,4 +175,3 @@ plane.
 Least privilege, typed payloads, descriptive errors, parallelism, human
 approvals; MCP для tools/data, A2A для cross-platform opaque agents; users должны
 видеть collaboration и иметь cancel/skip.
-

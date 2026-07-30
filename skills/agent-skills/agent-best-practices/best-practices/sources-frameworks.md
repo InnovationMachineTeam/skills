@@ -78,4 +78,3 @@
 - Project-specific opinions не переносились как универсальные правила без
   risk/scope qualification.
 - Численные platform limits не закреплялись как invariant.
-

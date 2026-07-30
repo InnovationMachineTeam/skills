@@ -196,4 +196,3 @@ Governance решает alignment и accountability, а не повторяет 
 - version drift detection;
 - periodic access recertification;
 - revoke stale/unowned agents.
-

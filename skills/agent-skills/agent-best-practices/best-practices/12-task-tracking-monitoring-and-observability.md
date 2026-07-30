@@ -196,4 +196,3 @@ Append-only audit содержит кто/что/когда/почему:
 - emergency revoke и mass cancel.
 
 Runbook считается готовым только после упражнения или test simulation.
-

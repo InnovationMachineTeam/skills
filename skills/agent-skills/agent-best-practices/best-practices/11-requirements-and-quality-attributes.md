@@ -154,4 +154,3 @@ risk-based levels и traceability, как в BMAD Test Architect.
 - конфликтующие источники разрешены или помечены;
 - source, owner и verification связаны;
 - human judgment отмечен там, где automation недостаточна.
-

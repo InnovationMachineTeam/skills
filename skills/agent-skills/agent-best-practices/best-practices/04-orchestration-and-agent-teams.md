@@ -172,4 +172,3 @@ cascading retries и orphan jobs. Microsoft рекомендует учитыв�
 
 Применяйте correlation IDs, idempotency keys, leases, heartbeats, durable queue,
 dead-letter state, backpressure, circuit breakers и reconciliation jobs.
-

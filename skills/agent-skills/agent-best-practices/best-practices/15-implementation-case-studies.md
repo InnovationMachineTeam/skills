@@ -234,4 +234,3 @@ assurance policy должна превращать critical gaps в blocking gat
 5. GSD thin orchestration, fresh contexts, waves и verification.
 6. GSD Pi extension registry, durable state и safety.
 7. gstack product/quality/operations specialist suite и measured routing.
-

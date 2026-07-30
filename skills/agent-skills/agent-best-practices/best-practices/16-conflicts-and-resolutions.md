@@ -171,4 +171,3 @@ runtime capability matrix и выбирать более строгие внут
 4. Для trade-off использовать eval evidence и reversible default.
 5. Для high-impact ambiguity — human decision и ADR.
 6. Зафиксировать исключение, owner и review date.
-

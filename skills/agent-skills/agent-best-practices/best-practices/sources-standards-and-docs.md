@@ -96,4 +96,3 @@ consequences, status, consulted/informed и confirmation. Решения superse
 Если platform docs конфликтуют с repository behavior, фиксируется версия и
 проверяется live runtime. Если два подхода выражают trade-off, решение выбирается
 по risk tier и eval evidence, а не по авторитету бренда.
-

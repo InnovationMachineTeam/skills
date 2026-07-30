@@ -177,4 +177,3 @@ Checkpoint содержит контекст, варианты, последст
 Pause сохраняет current task, branch/worktree, commits, decisions, blockers,
 active jobs, expected artifacts, verify/resume commands. Resume проверяет drift
 и не принимает старое состояние на веру.
-
