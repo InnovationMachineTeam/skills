@@ -120,6 +120,7 @@ The source of truth for versions is each skill's `SKILL.md → metadata.version`
 ├── scripts/                          # deterministic generation and validation
 ├── docs/
 │   ├── AGENT-METASKILLS-ANALYSIS.md # applying metaskill patterns to agents
+│   ├── AGENT-TEAM-AND-AGENT-OS-PLAN.md # proposed team and platform roadmap
 │   └── prompts/                     # reusable agent-oriented skill prompts
 └── .github/workflows/validate.yml
 ```
@@ -130,6 +131,9 @@ The agent-oriented portfolio analysis and reusable creation prompts are
 documented in [docs/AGENT-METASKILLS-ANALYSIS.md](docs/AGENT-METASKILLS-ANALYSIS.md)
 and [docs/prompts/README.md](docs/prompts/README.md). These are design inputs, not
 active agent definitions or automatically installed skills.
+
+The proposed registry, team, model-selection, knowledge, and Agent OS roadmap is
+in [docs/AGENT-TEAM-AND-AGENT-OS-PLAN.md](docs/AGENT-TEAM-AND-AGENT-OS-PLAN.md).
 
 ## Development workflow
 

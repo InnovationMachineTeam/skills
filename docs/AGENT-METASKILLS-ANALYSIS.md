@@ -307,3 +307,9 @@ source либо оставить отдельным managed corpus. Предпо
 - поддерживает rollback, deprecation и retirement;
 - не дублирует существующий metaskill и не превращает skill в неявного
   автономного агента.
+
+## Продолжение
+
+Единый phased plan для project-local agent teams, registries, skill mapping,
+model selection, docs/memory и Agent OS находится в
+[AGENT-TEAM-AND-AGENT-OS-PLAN.md](AGENT-TEAM-AND-AGENT-OS-PLAN.md).
