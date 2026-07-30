@@ -27,6 +27,10 @@ OpenAI, Anthropic, Claude Code, Cursor, Google ADK, A2A, MCP и Microsoft с
    [10-lifecycle-and-orchestration-processes.md](10-lifecycle-and-orchestration-processes.md).
 7. Требования, наблюдаемость, безопасность и evals разобраны в файлах 11–14.
 8. Практические реализации и разрешённые противоречия — в файлах 15–16.
+9. Для углублённого проектирования используйте каталоги паттернов агентов,
+   Agent OS и skills в файлах 17–19.
+10. Циклы, lifecycle, ролевое разделение и operating model находятся в файлах
+    20–22.
 
 ## Основной принцип
 
@@ -79,9 +83,16 @@ OpenAI, Anthropic, Claude Code, Cursor, Google ADK, A2A, MCP и Microsoft с
 | `14-evaluation-and-continuous-improvement.md` | Evals агентов, команд, маршрутизации и production |
 | `15-implementation-case-studies.md` | Сравнение семи исследованных репозиториев |
 | `16-conflicts-and-resolutions.md` | Противоречия практик и принятые решения |
+| `17-agent-and-orchestration-pattern-catalog.md` | Паттерны одного агента, делегирования, оркестраторов и команд |
+| `18-agent-os-and-runtime-pattern-catalog.md` | Control/execution/knowledge/assurance/operations patterns Agent OS |
+| `19-skill-design-pattern-catalog.md` | Atomic, composite, adapter, script, eval и lifecycle patterns skills |
+| `20-agentic-cycles-and-lifecycles.md` | ReAct, OODA, MAPE-K, PDCA, ADLC и lifecycle assets |
+| `21-role-patterns-and-separation-of-duties.md` | Ролевые архетипы, accountability и separation of duties |
+| `22-operating-model-and-pattern-selection.md` | Selection model, recipes, risk tiers и maturity |
 | `sources-platforms.md` | Платформенные и протокольные источники |
 | `sources-frameworks.md` | Репозитории и практические реализации |
 | `sources-standards-and-docs.md` | Стандарты, безопасность и документация |
+| `sources-patterns-and-cycles.md` | Каталоги паттернов, циклы и operating sources |
 
 ## Что этот каталог не утверждает
 

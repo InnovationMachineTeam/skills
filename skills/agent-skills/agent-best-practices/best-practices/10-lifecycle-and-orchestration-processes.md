@@ -1,5 +1,9 @@
 # Процессы жизненного цикла и оркестрации
 
+Этот файл описывает end-to-end процессы. Сравнение runtime, improvement,
+delivery, risk и learning loops, а также lifecycle отдельных сущностей вынесено
+в [20-agentic-cycles-and-lifecycles.md](20-agentic-cycles-and-lifecycles.md).
+
 ## Универсальный контур
 
 ```text

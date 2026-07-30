@@ -1,5 +1,9 @@
 # Каталог типовых агентов
 
+Этот файл перечисляет прикладные специализации. Ролевые архетипы, lifecycle
+accountability, human oversight и separation of duties описаны в
+[21-role-patterns-and-separation-of-duties.md](21-role-patterns-and-separation-of-duties.md).
+
 ## Как пользоваться каталогом
 
 Роль — не обязательный отдельный агент. Сначала определите capability и
