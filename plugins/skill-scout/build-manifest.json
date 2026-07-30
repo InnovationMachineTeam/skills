@@ -1,0 +1,153 @@
+{
+  "format": 2,
+  "plugin": "skill-scout",
+  "version": "1.0.0",
+  "source_layout": "skills/",
+  "bundle_layout": "skills/<name>/",
+  "platforms": [
+    "claude-code",
+    "codex",
+    "cursor"
+  ],
+  "skills": [
+    "skill-scout"
+  ],
+  "excluded_patterns": [
+    ".DS_Store",
+    "__pycache__",
+    "*.pyc",
+    ".git"
+  ],
+  "files": [
+    {
+      "path": ".claude-plugin/plugin.json",
+      "sha256": "41d587ad3f15f5bcd8e6dbe5084da2206bff890d68955a8e2954de049110981c",
+      "bytes": 438
+    },
+    {
+      "path": ".codex-plugin/plugin.json",
+      "sha256": "2593dc01c1218579d19cacf685976c742992d368ee22835dde13477b7dac8238",
+      "bytes": 1385
+    },
+    {
+      "path": ".cursor-plugin/plugin.json",
+      "sha256": "e3ee2a2c67498fa8fe6cdb2eef8187726163a6df0eb7a65b8cb95fec28f32159",
+      "bytes": 648
+    },
+    {
+      "path": "README.md",
+      "sha256": "1d7c2fd286479002b5b34e0a3c3fe2314afc67a66483cacb8253fcb6a83c05db",
+      "bytes": 535
+    },
+    {
+      "path": "skills/skill-scout/README.md",
+      "sha256": "3bad785f50a258fc84d066b97f329c4722ed44a6cf0fbbd6975f59f1d8200111",
+      "bytes": 1563
+    },
+    {
+      "path": "skills/skill-scout/SKILL.md",
+      "sha256": "9370b57b3b0b6c750402e6eabdb4131e6b885789d2a36c8d73a09fec3d9d9dab",
+      "bytes": 6639
+    },
+    {
+      "path": "skills/skill-scout/agents/openai.yaml",
+      "sha256": "6e439c459b156268cda89a5945e7099127dc82568129f25a2cda26e97924fd36",
+      "bytes": 240
+    },
+    {
+      "path": "skills/skill-scout/evals/behavior.json",
+      "sha256": "aa7da156ad4a4a9df23cbb141b3aae8eb6845a3cb8945b6650fac7632225877d",
+      "bytes": 2870
+    },
+    {
+      "path": "skills/skill-scout/evals/routing.json",
+      "sha256": "8ec3b78f1c77207b9ff541af8f83710173e4f80fed1ba8997953f630b5065179",
+      "bytes": 2598
+    },
+    {
+      "path": "skills/skill-scout/prompts/base.md",
+      "sha256": "b253995d033fbd34f0f5e8b0807b47325aaadca25ca6279a97cb4b4590b9f967",
+      "bytes": 755
+    },
+    {
+      "path": "skills/skill-scout/prompts/corpus-mining.md",
+      "sha256": "091144b7f162cec4c6d562928f2121b9b5dc93a8e340a61329949b9fa008d439",
+      "bytes": 458
+    },
+    {
+      "path": "skills/skill-scout/prompts/existing-coverage.md",
+      "sha256": "b15cd0073267f54d1df2a41d862ff2fe158753addbb6e1f483f4c354e504e6e8",
+      "bytes": 487
+    },
+    {
+      "path": "skills/skill-scout/prompts/feasibility-context.md",
+      "sha256": "01bf66732936de82c6ac25db9ed2e857ca60a055acee04a5774c50f457770ff7",
+      "bytes": 452
+    },
+    {
+      "path": "skills/skill-scout/prompts/handoff.md",
+      "sha256": "be7aac2407ebfe0f91a14258a139ca5ff85c82597515a15322d697bd917f26a0",
+      "bytes": 555
+    },
+    {
+      "path": "skills/skill-scout/prompts/portfolio-prioritization.md",
+      "sha256": "a9a8d2e4ce33480a6ce796bdd84aeae434a2a4de113c4127798da178239b3345",
+      "bytes": 408
+    },
+    {
+      "path": "skills/skill-scout/prompts/session-insights.md",
+      "sha256": "f1555e9bf5f106f4c78b04efabc517ca2c6563566dd74eed220667a3062d521b",
+      "bytes": 486
+    },
+    {
+      "path": "skills/skill-scout/references/context-and-maintenance.md",
+      "sha256": "468c6101145c5478400420bd14084f4bbd180f32b585e0b03a9657336b83ea85",
+      "bytes": 544
+    },
+    {
+      "path": "skills/skill-scout/references/coordination.md",
+      "sha256": "1570e6fe3f14167fb83a7a911a37e9f3ad4b6765effeddad18c097539b299ab7",
+      "bytes": 639
+    },
+    {
+      "path": "skills/skill-scout/references/evidence-session-privacy.md",
+      "sha256": "431fc84f2cd10d2a6c34b8636fe167d80c2b3d8d8a5343864ff9488e007499e8",
+      "bytes": 695
+    },
+    {
+      "path": "skills/skill-scout/references/existing-coverage.md",
+      "sha256": "bac2d810ba9a48618642ccefc63537b3fa0bd1a7153edcd6c22cc2e79d41ebde",
+      "bytes": 607
+    },
+    {
+      "path": "skills/skill-scout/references/opportunity-taxonomy.md",
+      "sha256": "ff050941b208be7e2b0c44a7b4c0dd1114f7fd59396bb857381c46c12414a27a",
+      "bytes": 846
+    },
+    {
+      "path": "skills/skill-scout/references/output-schema.md",
+      "sha256": "b56ba9a5c37d9f47984f4699282c279e9396d100d9ca0faf5ac7c3048418836f",
+      "bytes": 960
+    },
+    {
+      "path": "skills/skill-scout/references/worth-a-skill.md",
+      "sha256": "0c9bbd2157106923de76a3baf5ac83952549e274df94a4b2d131a9f4409e0bae",
+      "bytes": 691
+    },
+    {
+      "path": "skills/skill-scout/scripts/check_evals.py",
+      "sha256": "9c78e65695e8268bad7c5baeadc6149f1fe41fbe83d75ca07aa00c130afdebb2",
+      "bytes": 4092
+    },
+    {
+      "path": "skills/skill-scout/scripts/rank_opportunities.py",
+      "sha256": "4ee9c07a947fb78f1d4d420ca03338a0f5cbccc84bc60fe8806cfeab6b24dcf2",
+      "bytes": 2077
+    },
+    {
+      "path": "skills/skill-scout/scripts/validate_opportunities.py",
+      "sha256": "3b97a860ad8aca8c588f0a775caf05358f45da2c5488929f092549d3622734cc",
+      "bytes": 7009
+    }
+  ]
+}

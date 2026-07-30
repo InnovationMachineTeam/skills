@@ -1,5 +1,9 @@
 * @stanislavus86
 /.claude-plugin/ @stanislavus86
+/.agents/plugins/ @stanislavus86
+/.cursor-plugin/ @stanislavus86
 /catalog/ @stanislavus86
+/plugins/ @stanislavus86
+/plugin/ @stanislavus86
 /scripts/ @stanislavus86
 /skills/metaskills/ @stanislavus86

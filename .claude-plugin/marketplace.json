@@ -5,15 +5,14 @@
   },
   "metadata": {
     "description": "InnovationMachine Agent Skills marketplace",
-    "version": "1.0.0",
-    "pluginRoot": "./"
+    "version": "1.1.0"
   },
   "plugins": [
     {
       "name": "optimize-master-prompts",
-      "source": "./",
+      "source": "./plugins/optimize-master-prompts",
       "strict": false,
-      "description": "Designs, audits, and improves durable master, system, and developer prompts for agents.",
+      "description": "Designs, audits, and improves durable master, system, and developer prompts for agents",
       "version": "1.0.0",
       "author": {
         "name": "InnovationMachine",
@@ -23,16 +22,15 @@
       "tags": [
         "agent-skills",
         "metaskills",
-        "prompts",
-        "optimization"
-      ],
-      "skills": "./skills/metaskills/optimize-master-prompts"
+        "optimization",
+        "prompts"
+      ]
     },
     {
       "name": "skill-architect",
-      "source": "./",
+      "source": "./plugins/skill-architect",
       "strict": false,
-      "description": "Classifies skill ideas and supplied material, chooses among knowledge, workflow, tool-integration, script-backed, artifact-template, evaluator, orchestrator, and meta/router archetypes, then designs, creates, or updates the skill through...",
+      "description": "Classifies skill ideas and supplied material, chooses among knowledge, workflow, tool-integration, script-backed, artifact-template, evaluator, orchestrator, and meta/router archetypes, then designs, creates, or updates the skill...",
       "version": "1.0.0",
       "author": {
         "name": "InnovationMachine",
@@ -41,17 +39,16 @@
       "category": "metaskills",
       "tags": [
         "agent-skills",
-        "metaskills",
+        "architecture",
         "creation",
-        "architecture"
-      ],
-      "skills": "./skills/metaskills/skill-architect"
+        "metaskills"
+      ]
     },
     {
       "name": "skill-best-practices",
-      "source": "./",
+      "source": "./plugins/skill-best-practices",
       "strict": false,
-      "description": "Maintains and queries an evidence-linked, updateable corpus of best practices for creating, routing, evaluating, securing, optimizing, distributing, and governing agent skills.",
+      "description": "Maintains and queries an evidence-linked, updateable corpus of best practices for creating, routing, evaluating, securing, optimizing, distributing, and governing agent skills",
       "version": "1.0.1",
       "author": {
         "name": "InnovationMachine",
@@ -60,17 +57,16 @@
       "category": "metaskills",
       "tags": [
         "agent-skills",
+        "governance",
         "metaskills",
-        "research",
-        "governance"
-      ],
-      "skills": "./skills/metaskills/skill-best-practices"
+        "research"
+      ]
     },
     {
       "name": "skill-builder",
-      "source": "./",
+      "source": "./plugins/skill-builder",
       "strict": false,
-      "description": "Orchestrates complete, evidence-backed agent-skill workflows across skill-scout, skill-harvester, skill-architect, skill-evaluator, skill-doctor, skill-optimizer, skill-refactor, skill-manager, and optimize-master-prompts.",
+      "description": "Orchestrates complete, evidence-backed agent-skill workflows across skill-scout, skill-harvester, skill-architect, skill-evaluator, skill-doctor, skill-optimizer, skill-refactor, skill-manager, and optimize-master-prompts",
       "version": "1.0.0",
       "author": {
         "name": "InnovationMachine",
@@ -82,14 +78,13 @@
         "metaskills",
         "orchestration",
         "workflow"
-      ],
-      "skills": "./skills/metaskills/skill-builder"
+      ]
     },
     {
       "name": "skill-doctor",
-      "source": "./",
+      "source": "./plugins/skill-doctor",
       "strict": false,
-      "description": "Diagnoses unhealthy, broken, unsafe, or inconsistently behaving SKILL.md-based agent skills and verifies minimal repairs.",
+      "description": "Diagnoses unhealthy, broken, unsafe, or inconsistently behaving SKILL.md-based agent skills and verifies minimal repairs",
       "version": "1.0.0",
       "author": {
         "name": "InnovationMachine",
@@ -98,17 +93,16 @@
       "category": "metaskills",
       "tags": [
         "agent-skills",
-        "metaskills",
         "diagnostics",
+        "metaskills",
         "repair"
-      ],
-      "skills": "./skills/metaskills/skill-doctor"
+      ]
     },
     {
       "name": "skill-evaluator",
-      "source": "./",
+      "source": "./plugins/skill-evaluator",
       "strict": false,
-      "description": "Designs, writes, audits, runs, and compares trustworthy evaluations for SKILL.md-based agent skills, including routing and trigger datasets, behavioral and output-quality cases, script and tool tests, security and authority probes, catal...",
+      "description": "Designs, writes, audits, runs, and compares trustworthy evaluations for SKILL.md-based agent skills, including routing and trigger datasets, behavioral and output-quality cases, script and tool tests, security and authority probes...",
       "version": "1.0.0",
       "author": {
         "name": "InnovationMachine",
@@ -117,17 +111,16 @@
       "category": "metaskills",
       "tags": [
         "agent-skills",
-        "metaskills",
         "evaluation",
+        "metaskills",
         "testing"
-      ],
-      "skills": "./skills/metaskills/skill-evaluator"
+      ]
     },
     {
       "name": "skill-harvester",
-      "source": "./",
+      "source": "./plugins/skill-harvester",
       "strict": false,
-      "description": "Discovers, extracts, normalizes, compares, and synthesizes reusable agent-skill components from an explicitly named current codebase, local paths, public GitHub repositories, mixed document folders, sessions, prompts, scripts, evals, tra...",
+      "description": "Discovers, extracts, normalizes, compares, and synthesizes reusable agent-skill components from an explicitly named current codebase, local paths, public GitHub repositories, mixed document folders, sessions, prompts, scripts, evals...",
       "version": "1.0.0",
       "author": {
         "name": "InnovationMachine",
@@ -136,17 +129,16 @@
       "category": "metaskills",
       "tags": [
         "agent-skills",
+        "extraction",
         "metaskills",
-        "research",
-        "extraction"
-      ],
-      "skills": "./skills/metaskills/skill-harvester"
+        "research"
+      ]
     },
     {
       "name": "skill-manager",
-      "source": "./",
+      "source": "./plugins/skill-manager",
       "strict": false,
-      "description": "Inventories, governs, installs, updates, enables, disables, quarantines, retires, and coordinates SKILL.md-based agent skills across explicitly scoped roots.",
+      "description": "Inventories, governs, installs, updates, enables, disables, quarantines, retires, and coordinates SKILL.md-based agent skills across explicitly scoped roots",
       "version": "1.0.0",
       "author": {
         "name": "InnovationMachine",
@@ -155,17 +147,16 @@
       "category": "metaskills",
       "tags": [
         "agent-skills",
-        "metaskills",
+        "governance",
         "lifecycle",
-        "governance"
-      ],
-      "skills": "./skills/metaskills/skill-manager"
+        "metaskills"
+      ]
     },
     {
       "name": "skill-marketplace-manager",
-      "source": "./",
+      "source": "./plugins/skill-marketplace-manager",
       "strict": false,
-      "description": "Design, inventory, scaffold, curate, build, validate, migrate, release, and audit repositories that distribute Agent Skills through skill.sh-compatible catalogs and plugin harnesses such as Claude Code.",
+      "description": "Design, inventory, scaffold, curate, build, validate, migrate, release, and audit repositories that distribute Agent Skills through skill.sh-compatible catalogs and plugin harnesses such as Claude Code",
       "version": "1.0.0",
       "author": {
         "name": "InnovationMachine",
@@ -174,17 +165,16 @@
       "category": "metaskills",
       "tags": [
         "agent-skills",
-        "metaskills",
+        "distribution",
         "marketplace",
-        "distribution"
-      ],
-      "skills": "./skills/metaskills/skill-marketplace-manager"
+        "metaskills"
+      ]
     },
     {
       "name": "skill-optimizer",
-      "source": "./",
+      "source": "./plugins/skill-optimizer",
       "strict": false,
-      "description": "Measures and improves a healthy existing SKILL.md-based agent skill while preserving intended behavior, capability boundary, and authority.",
+      "description": "Measures and improves a healthy existing SKILL.md-based agent skill while preserving intended behavior, capability boundary, and authority",
       "version": "1.0.0",
       "author": {
         "name": "InnovationMachine",
@@ -196,14 +186,13 @@
         "metaskills",
         "optimization",
         "quality"
-      ],
-      "skills": "./skills/metaskills/skill-optimizer"
+      ]
     },
     {
       "name": "skill-refactor",
-      "source": "./",
+      "source": "./plugins/skill-refactor",
       "strict": false,
-      "description": "Assesses and safely changes capability boundaries across existing SKILL.md-based agent skills by composing, merging, splitting, extracting references or subskills, and creating compatibility facades.",
+      "description": "Assesses and safely changes capability boundaries across existing SKILL.md-based agent skills by composing, merging, splitting, extracting references or subskills, and creating compatibility facades",
       "version": "1.0.0",
       "author": {
         "name": "InnovationMachine",
@@ -215,14 +204,13 @@
         "metaskills",
         "refactoring",
         "topology"
-      ],
-      "skills": "./skills/metaskills/skill-refactor"
+      ]
     },
     {
       "name": "skill-scout",
-      "source": "./",
+      "source": "./plugins/skill-scout",
       "strict": false,
-      "description": "Identifies and prioritizes worthwhile agent-skill opportunities from the current session, explicitly supplied session exports, task histories, documents, repositories, observations, and recurring user work.",
+      "description": "Identifies and prioritizes worthwhile agent-skill opportunities from the current session, explicitly supplied session exports, task histories, documents, repositories, observations, and recurring user work",
       "version": "1.0.0",
       "author": {
         "name": "InnovationMachine",
@@ -231,11 +219,10 @@
       "category": "metaskills",
       "tags": [
         "agent-skills",
-        "metaskills",
         "discovery",
+        "metaskills",
         "planning"
-      ],
-      "skills": "./skills/metaskills/skill-scout"
+      ]
     }
   ]
 }

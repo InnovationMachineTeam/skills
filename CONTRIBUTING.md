@@ -6,7 +6,7 @@
 2. Preserve the skill's capability and authority boundary unless the change explicitly redesigns it.
 3. Update or add routing, behavior, script, security, and regression evals as appropriate.
 4. Bump `metadata.version` when installed content changes.
-5. Regenerate marketplace and aggregate plugin artifacts.
+5. Regenerate all marketplace manifests, individual plugin packages, and the aggregate plugin.
 6. Run repository and harness-native validators.
 7. Include evidence and rollback notes in the pull request.
 
@@ -17,13 +17,16 @@
 - Add its name and tags to `catalog/entries.json`.
 - Add its catalog row to `README.md`.
 - Regenerate distribution artifacts.
-- Demonstrate skill.sh discovery and Claude Code installation in an isolated scope.
+- Demonstrate Skills CLI discovery plus representative Claude Code, Codex, and Cursor loading in isolated scopes.
 
 ## Generated artifacts
 
 Do not manually edit:
 
 - `.claude-plugin/marketplace.json`;
+- `.agents/plugins/marketplace.json`;
+- `.cursor-plugin/marketplace.json`;
+- `plugins/`;
 - `plugin/`;
 - `plugin/build-manifest.json`.
 

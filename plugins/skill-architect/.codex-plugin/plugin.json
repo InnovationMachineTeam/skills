@@ -1,0 +1,32 @@
+{
+  "name": "skill-architect",
+  "version": "1.0.0",
+  "description": "Classifies skill ideas and supplied material, chooses among knowledge, workflow, tool-integration, script-backed, artifact-template, evaluator, orchestrator, and meta/router archetypes, then designs, creates, or updates the skill...",
+  "homepage": "https://github.com/InnovationMachineTeam/skills",
+  "repository": "https://github.com/InnovationMachineTeam/skills",
+  "license": "Proprietary",
+  "keywords": [
+    "agent-skills",
+    "architecture",
+    "creation",
+    "metaskills"
+  ],
+  "skills": "./skills/",
+  "author": {
+    "name": "InnovationMachine",
+    "email": "stanislav.usoltsev@gmail.com",
+    "url": "https://github.com/InnovationMachineTeam"
+  },
+  "interface": {
+    "displayName": "Skill Architect",
+    "shortDescription": "Classifies skill ideas and supplied material, chooses among knowledge, workflow, tool-integration, script-backed…",
+    "longDescription": "Classifies skill ideas and supplied material, chooses among knowledge, workflow, tool-integration, script-backed, artifact-template, evaluator, orchestrator, and meta/router archetypes, then designs, creates, or updates the skill...",
+    "developerName": "InnovationMachine",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Guidance"
+    ],
+    "websiteURL": "https://github.com/InnovationMachineTeam/skills",
+    "defaultPrompt": "Use Skill Architect for this task."
+  }
+}

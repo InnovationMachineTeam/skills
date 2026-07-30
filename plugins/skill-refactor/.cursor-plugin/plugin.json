@@ -1,0 +1,19 @@
+{
+  "name": "skill-refactor",
+  "version": "1.0.0",
+  "description": "Assesses and safely changes capability boundaries across existing SKILL.md-based agent skills by composing, merging, splitting, extracting references or subskills, and creating compatibility facades",
+  "homepage": "https://github.com/InnovationMachineTeam/skills",
+  "repository": "https://github.com/InnovationMachineTeam/skills",
+  "license": "Proprietary",
+  "keywords": [
+    "agent-skills",
+    "metaskills",
+    "refactoring",
+    "topology"
+  ],
+  "skills": "./skills/",
+  "author": {
+    "name": "InnovationMachine",
+    "email": "stanislav.usoltsev@gmail.com"
+  }
+}

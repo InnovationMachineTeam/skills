@@ -4,17 +4,19 @@
 
 1. Update canonical skill and evals.
 2. Bump `metadata.version` using SemVer.
-3. Regenerate `.claude-plugin/marketplace.json`.
-4. Rebuild aggregate plugin and update its version if bundled content changed.
-5. Run static, discovery, behavior, security, clean-install, and upgrade checks.
+3. Rebuild `plugins/` and regenerate Claude Code, Codex, and Cursor marketplace manifests.
+4. Rebuild the aggregate plugin and update its version if bundled content or host support changed.
+5. Run static, discovery, behavior, security, native-manifest, clean-install, and upgrade checks.
 6. Obtain required review.
 7. Merge to protected `main`.
 8. Create an immutable tag and release notes.
-9. Verify installation from the repository rather than the local checkout.
+9. Verify installation from the repository rather than the local checkout in every release host.
 
 ## Initial private release
 
-Recommended tag: `v1.0.0`. The release is accepted when all 12 individual entries are discoverable, representative skills load in Claude Code, Skills CLI lists all 12, and rollback to the archived pre-marketplace source is documented.
+The release is accepted when all 12 individual entries are discoverable in all three generated marketplaces, representative skills load in Claude Code and Codex, Skills CLI lists all 12 for Cursor and portable clients, generated artifacts have no drift, and rollback is documented.
+
+Native Cursor Marketplace publication is not part of the private release. Cursor's documented submission workflow requires a public Git repository and platform review; use Skills CLI for the private phase and retain `.cursor-plugin` artifacts as publication-ready inputs.
 
 ## Rollback
 

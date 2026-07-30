@@ -1,0 +1,243 @@
+{
+  "format": 2,
+  "plugin": "skill-evaluator",
+  "version": "1.0.0",
+  "source_layout": "skills/",
+  "bundle_layout": "skills/<name>/",
+  "platforms": [
+    "claude-code",
+    "codex",
+    "cursor"
+  ],
+  "skills": [
+    "skill-evaluator"
+  ],
+  "excluded_patterns": [
+    ".DS_Store",
+    "__pycache__",
+    "*.pyc",
+    ".git"
+  ],
+  "files": [
+    {
+      "path": ".claude-plugin/plugin.json",
+      "sha256": "c18e66390f4f1d9cb05fe49720d02eaa4e7028ce8b158164d891816c94723d5a",
+      "bytes": 474
+    },
+    {
+      "path": ".codex-plugin/plugin.json",
+      "sha256": "a76f82a4f5414fd314c06bb49a25bfcf606f49d1c9bc086f10731ef18fc54597",
+      "bytes": 1454
+    },
+    {
+      "path": ".cursor-plugin/plugin.json",
+      "sha256": "f5e4c766a4fba92a0c66604745ab3a2e13f50e842155c63405e44efdc5bf675e",
+      "bytes": 680
+    },
+    {
+      "path": "README.md",
+      "sha256": "92084de87fd7cc310c501104e63169c8beaffb05110c92e8144e8e09d5779b43",
+      "bytes": 571
+    },
+    {
+      "path": "skills/skill-evaluator/README.md",
+      "sha256": "8747547b969f1b6e49028c7c02b983dce5e51fa83db3b620e1124f346e26154e",
+      "bytes": 1507
+    },
+    {
+      "path": "skills/skill-evaluator/SKILL.md",
+      "sha256": "5afa8446ff98973c35ff945952671b114394658e50cbe8368e9b027adb98c7d2",
+      "bytes": 10145
+    },
+    {
+      "path": "skills/skill-evaluator/agents/openai.yaml",
+      "sha256": "d025a2ee24d095052a29a44152fbffbf7ce5e9b97f4661a2dab89be832103951",
+      "bytes": 211
+    },
+    {
+      "path": "skills/skill-evaluator/evals/behavior.json",
+      "sha256": "a69f6e7c4f565b268add114ba64d43cac0fa9fa06c2052ef04f89e8975707230",
+      "bytes": 5178
+    },
+    {
+      "path": "skills/skill-evaluator/evals/fixtures/baseline.json",
+      "sha256": "e32188481b6a448441778dbdcf7d60e9868a46caf1cc944775c5ab4a116ca863",
+      "bytes": 491
+    },
+    {
+      "path": "skills/skill-evaluator/evals/fixtures/candidate-blocked.json",
+      "sha256": "16dbc0125e91312fe6c0aea9f16bd7864b908a47dead1330aef0b3c6ca1d8ed9",
+      "bytes": 503
+    },
+    {
+      "path": "skills/skill-evaluator/evals/fixtures/candidate-incomparable.json",
+      "sha256": "81727ff8683d530d6d313791204c952f5ab60338f6ee01c16b2fdcf974c3b197",
+      "bytes": 511
+    },
+    {
+      "path": "skills/skill-evaluator/evals/fixtures/candidate.json",
+      "sha256": "85ce89c38d7972dbb96d8ca0e59698c663e5336276d164163cae12bc95f97565",
+      "bytes": 488
+    },
+    {
+      "path": "skills/skill-evaluator/evals/fixtures/invalid-plan.json",
+      "sha256": "30fadfe8966b579b583c0f2d4009727b2d1cc58c686afbb373eff510bb3bf4af",
+      "bytes": 142
+    },
+    {
+      "path": "skills/skill-evaluator/evals/fixtures/routing-results-duplicate.json",
+      "sha256": "295c4f350a9165c45eb8d68d3d709c22948c27ab202fe15c1ab65b8d0ec9807b",
+      "bytes": 165
+    },
+    {
+      "path": "skills/skill-evaluator/evals/fixtures/routing-results.json",
+      "sha256": "362d22d9ab4f52da23e4d045be8e81e7598fcae5845e94e609236072399a6949",
+      "bytes": 337
+    },
+    {
+      "path": "skills/skill-evaluator/evals/fixtures/valid-plan.json",
+      "sha256": "020da437fdfabc4dcdbb220ccea5301354fa85ddf59c7864d9aa2580984207f7",
+      "bytes": 1472
+    },
+    {
+      "path": "skills/skill-evaluator/evals/fixtures/valid-suite/behavior.json",
+      "sha256": "92a08e6593f0ac2fcd7d5fc248561ccc83bdab23e0cf4b08b11cc8712d59feec",
+      "bytes": 496
+    },
+    {
+      "path": "skills/skill-evaluator/evals/fixtures/valid-suite/routing.json",
+      "sha256": "c47adb56e8da0df73a6d64320dddabd948f186a79cfea9d5f0b9f748b9453e35",
+      "bytes": 405
+    },
+    {
+      "path": "skills/skill-evaluator/evals/routing.json",
+      "sha256": "86f12801e357757efe97e4409815818b149f7eb2af557efb151b58daca7cd8e0",
+      "bytes": 4398
+    },
+    {
+      "path": "skills/skill-evaluator/evals/scripts.json",
+      "sha256": "2394060e95504015f91694d0c1dfd456d6de59fd23a2a7b3aa7f16ccb5fc797d",
+      "bytes": 2224
+    },
+    {
+      "path": "skills/skill-evaluator/prompts/audit-evaluation.md",
+      "sha256": "8f772a3e2e1899cd267d9bdd15ad83cfc27f3fcf99a353127e38a4e4044a45fe",
+      "bytes": 821
+    },
+    {
+      "path": "skills/skill-evaluator/prompts/base.md",
+      "sha256": "1d8d2f62d4d7f0d94838477b4ff21f593d7d16d991b8d31566c8eba43cd831b3",
+      "bytes": 854
+    },
+    {
+      "path": "skills/skill-evaluator/prompts/behavior-and-quality.md",
+      "sha256": "c9d8571ba19d180a56a17a80da3b71c6c95d1d64cf5592b8ab84409e08dc15ff",
+      "bytes": 728
+    },
+    {
+      "path": "skills/skill-evaluator/prompts/catalog-and-coexistence.md",
+      "sha256": "b911a582280ffb26298874abee9a81a7bf18dfd27de49d4fd18a6f4a68e9578d",
+      "bytes": 691
+    },
+    {
+      "path": "skills/skill-evaluator/prompts/compare-evaluations.md",
+      "sha256": "a8db4674f6937a9f9f6ffc09eb094349ae521ad5719a0a7afba9e1ba8ed527d9",
+      "bytes": 800
+    },
+    {
+      "path": "skills/skill-evaluator/prompts/evaluation-plan.md",
+      "sha256": "8e5dbdfb87cb2840345e6f2835b952effd35ab8759c68d7bb6c3b02a91105fba",
+      "bytes": 742
+    },
+    {
+      "path": "skills/skill-evaluator/prompts/routing-and-triggers.md",
+      "sha256": "3ece088e8b5e76508333ddb15f31e21eb10128a6e9e84975836f78bb64ced038",
+      "bytes": 849
+    },
+    {
+      "path": "skills/skill-evaluator/prompts/run-evaluation.md",
+      "sha256": "eb0844482e9e9b55d1bd152d55cbb93b6a75f792422d20768b2ae91d9d027512",
+      "bytes": 744
+    },
+    {
+      "path": "skills/skill-evaluator/prompts/script-and-tooling.md",
+      "sha256": "af94f8ee7bfbcf439db31fd0c3094755f7360ff5bf31603f6140364cd2d68ccc",
+      "bytes": 783
+    },
+    {
+      "path": "skills/skill-evaluator/prompts/security-and-authority.md",
+      "sha256": "5ae824bc5d02ad6266650b64b8faf08ea28dcc05d15c31be13a6b78edf540ba1",
+      "bytes": 800
+    },
+    {
+      "path": "skills/skill-evaluator/references/artifact-contracts.md",
+      "sha256": "04bd91f5116be3847ad2f405c23f57b3dfa6da15cae4303542474fd63f516ae5",
+      "bytes": 3594
+    },
+    {
+      "path": "skills/skill-evaluator/references/behavior-and-graders.md",
+      "sha256": "f28a4c17d634b79f2816d254968f21327586e1bd3fa6308ac83ca8ae6bbfbd16",
+      "bytes": 1435
+    },
+    {
+      "path": "skills/skill-evaluator/references/evaluation-model.md",
+      "sha256": "1a75c26e88f891610f6a9fb312e70fda014154ff0e60c144d3a28054b3ebc30a",
+      "bytes": 1347
+    },
+    {
+      "path": "skills/skill-evaluator/references/integration-contracts.md",
+      "sha256": "fe1e4a6f744865d517b64f6f68a876b7fb553a3ed3fa6e972eca37ff2f4571a1",
+      "bytes": 2034
+    },
+    {
+      "path": "skills/skill-evaluator/references/routing-and-triggers.md",
+      "sha256": "a07effe373a71032d518052e1ac1f7598feef8e1924a9bd0640e618fd0feb931",
+      "bytes": 1633
+    },
+    {
+      "path": "skills/skill-evaluator/references/scripts-and-tools.md",
+      "sha256": "3466cd60bb8f7d250d2fdbc347eb30607e10d7c82322b109ae4b64c807d9d19c",
+      "bytes": 1367
+    },
+    {
+      "path": "skills/skill-evaluator/references/security-and-authority.md",
+      "sha256": "8935d11beb9af2379186054eee58d3e4975bfdcca20216cfe05866ef9530d9a5",
+      "bytes": 1384
+    },
+    {
+      "path": "skills/skill-evaluator/references/statistics-and-integrity.md",
+      "sha256": "d0a6ccf65e63352d3322ff1c2fd11023a223f8b82317d2d22b7f16d2e5e6a3dc",
+      "bytes": 2014
+    },
+    {
+      "path": "skills/skill-evaluator/scripts/check_evals.py",
+      "sha256": "c0bab1ed67a1f1c9057fb2eba4642f16fe2e472641d8eb941f6009f2c80e69fc",
+      "bytes": 5346
+    },
+    {
+      "path": "skills/skill-evaluator/scripts/compare_eval_runs.py",
+      "sha256": "c150900a3d77d4b6a18bb04a67976ec8c1b40bcca2ebea7e9b88869970b606c2",
+      "bytes": 6193
+    },
+    {
+      "path": "skills/skill-evaluator/scripts/run_fixture_evals.py",
+      "sha256": "b4fb0983e48a4814286e367fba67a6b8681d145f0c371d27bc873fde8ec4c63d",
+      "bytes": 5208
+    },
+    {
+      "path": "skills/skill-evaluator/scripts/score_routing.py",
+      "sha256": "0da2679767b561657d4ff3c49fcfa8529f322776d78eb5b72c6f79ef3650ff81",
+      "bytes": 3838
+    },
+    {
+      "path": "skills/skill-evaluator/scripts/validate_eval_plan.py",
+      "sha256": "ba8b6f7431d97684d87c5895e09dc6584bd8e43f54c906922ff9de8bf41c6e14",
+      "bytes": 7461
+    },
+    {
+      "path": "skills/skill-evaluator/scripts/validate_eval_suite.py",
+      "sha256": "86718a2122567409d1ed945b631ca06f7b9dbfac8a3af7da220eddd354eda269",
+      "bytes": 6884
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Skill Refactor"
+  short_description: "Assess, combine, split, and migrate skills"
+  default_prompt: "Use $skill-refactor to assess these skills and propose a safe combine, split, or extraction plan."

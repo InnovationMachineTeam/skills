@@ -1,0 +1,193 @@
+{
+  "format": 2,
+  "plugin": "skill-builder",
+  "version": "1.0.0",
+  "source_layout": "skills/",
+  "bundle_layout": "skills/<name>/",
+  "platforms": [
+    "claude-code",
+    "codex",
+    "cursor"
+  ],
+  "skills": [
+    "skill-builder"
+  ],
+  "excluded_patterns": [
+    ".DS_Store",
+    "__pycache__",
+    "*.pyc",
+    ".git"
+  ],
+  "files": [
+    {
+      "path": ".claude-plugin/plugin.json",
+      "sha256": "97e2f82910a1506894cdc56e741fe84da73d98a396ce4c1fee3faf33f4fccef9",
+      "bytes": 458
+    },
+    {
+      "path": ".codex-plugin/plugin.json",
+      "sha256": "8f0bce90b67edaf19f25ee78ce131f515c1e1fcfc7f7f1e0b7ab339094787144",
+      "bytes": 1423
+    },
+    {
+      "path": ".cursor-plugin/plugin.json",
+      "sha256": "0e2a8524bf62147022f7749afa426e7f9600e91aa28f13ad9a647bb446d49e85",
+      "bytes": 670
+    },
+    {
+      "path": "README.md",
+      "sha256": "a4b801112045379fc191764ad58888cb47eeb6b6504a8c489ba043a1332067e2",
+      "bytes": 555
+    },
+    {
+      "path": "skills/skill-builder/README.md",
+      "sha256": "ed882f013f67384d2cdf187b20d1d8b09a0e5c1263be8bcbb13a570355ec9eae",
+      "bytes": 1994
+    },
+    {
+      "path": "skills/skill-builder/SKILL.md",
+      "sha256": "a6ee0d94e3e6d2ad683284277dd83bc198844bf03b43aa44b91336f8caf51fb1",
+      "bytes": 11588
+    },
+    {
+      "path": "skills/skill-builder/agents/openai.yaml",
+      "sha256": "e1e7b5fae794499b12bea00855a7766e1618cdcc89a302d4b5e22906c9d1ab05",
+      "bytes": 208
+    },
+    {
+      "path": "skills/skill-builder/evals/behavior.json",
+      "sha256": "ad1f97ef36f53cd69009dd1fc70f4c21ae742a3d1fc789ac6854ec5a5a682b0f",
+      "bytes": 6106
+    },
+    {
+      "path": "skills/skill-builder/evals/routing.json",
+      "sha256": "070b57cd2d481669007f855e4167b0477015eda1676db6fbce5ff5661388b2aa",
+      "bytes": 5906
+    },
+    {
+      "path": "skills/skill-builder/prompts/base.md",
+      "sha256": "3863d58696d4f02897e8dd6a67bf94cd07d61221b172412f55a836fb18fcf723",
+      "bytes": 1805
+    },
+    {
+      "path": "skills/skill-builder/prompts/compare-and-refactor.md",
+      "sha256": "9a26eb7e2f3327aee2ac4e7983f7e8b16ebb9c4449936e12fef6489a136dd057",
+      "bytes": 1309
+    },
+    {
+      "path": "skills/skill-builder/prompts/create-from-spec.md",
+      "sha256": "6496bfeb872496a96d3db61eb916b7ec6b1452dd3abe55c8d0d928f81e861f55",
+      "bytes": 1099
+    },
+    {
+      "path": "skills/skill-builder/prompts/discover-opportunities.md",
+      "sha256": "87c7a0780fe9517a9d3da973d3a024b73fa94ca5d4686cd5e2ac6fc42fba37f2",
+      "bytes": 778
+    },
+    {
+      "path": "skills/skill-builder/prompts/evaluate-skill.md",
+      "sha256": "4b205f4310821d1a4df40f36ed0decce36f1eaf8299c06d1b23eccc9a5479472",
+      "bytes": 1674
+    },
+    {
+      "path": "skills/skill-builder/prompts/external-skill-adoption.md",
+      "sha256": "7c75fbac98a1e76ff6c502b4d4252ee2112e397d6befe96d51d852267dba64a5",
+      "bytes": 1297
+    },
+    {
+      "path": "skills/skill-builder/prompts/full-lifecycle.md",
+      "sha256": "4440d4fc4eb6df87d36a93a9dac96736b6affa2af4d98344a25d8febf111c37e",
+      "bytes": 1528
+    },
+    {
+      "path": "skills/skill-builder/prompts/master-prompt-development.md",
+      "sha256": "07e920cdfd422a0e50cdbdeb8652bcb7eafa0dbdcf260489bf077b7c957ebfb6",
+      "bytes": 996
+    },
+    {
+      "path": "skills/skill-builder/prompts/optimize-existing.md",
+      "sha256": "d4c49ad18669b4e239bb01fc62ee04bbedc84c12b9821eb1ba2e453d38be0eb7",
+      "bytes": 1036
+    },
+    {
+      "path": "skills/skill-builder/prompts/portfolio-governance.md",
+      "sha256": "aa90ddf4fe63ec5b1a36e2afb677bdb341409ece62581f47a3d0655215fbab54",
+      "bytes": 1120
+    },
+    {
+      "path": "skills/skill-builder/prompts/repair-and-improve.md",
+      "sha256": "aa2b8ba542d0b17b5dd31192d63c3fb2861e409560847679f3b14e88ee4ea5a3",
+      "bytes": 1107
+    },
+    {
+      "path": "skills/skill-builder/prompts/research-to-skill.md",
+      "sha256": "9a177e642477afda7093ffd873a3bea286a3f5e30573281b81a805f0bdbb9ed7",
+      "bytes": 1205
+    },
+    {
+      "path": "skills/skill-builder/prompts/resume-build.md",
+      "sha256": "6d585ea558fe0df04847079e5fa69e344edd742efd0dc3d14900a07c3929e7dc",
+      "bytes": 951
+    },
+    {
+      "path": "skills/skill-builder/prompts/specialist-dispatch.md",
+      "sha256": "ceed440e06aaaff46a91ebd4420c3c44f9bf75eeac3bf476b09a3a7379c7c3a3",
+      "bytes": 891
+    },
+    {
+      "path": "skills/skill-builder/prompts/split-and-migrate.md",
+      "sha256": "2b53fe984978302fc3e2a7edd7ed58ce5e30b25562a79143922c313914d8fcc5",
+      "bytes": 1188
+    },
+    {
+      "path": "skills/skill-builder/references/authority-and-lifecycle.md",
+      "sha256": "7a325e89c1af6a182ead438fd716aec32ce7c252918b6be980eb581f715d2ddd",
+      "bytes": 1610
+    },
+    {
+      "path": "skills/skill-builder/references/clarification.md",
+      "sha256": "9d06f8b5aacce8819548e01d00ceaf503e84869171337b14a098e05a0bb08993",
+      "bytes": 1467
+    },
+    {
+      "path": "skills/skill-builder/references/evaluation-and-completion.md",
+      "sha256": "72fa3c072c494d948d8483af88a241fe04828c680a66594cfb1e6df0b2a4e0aa",
+      "bytes": 3009
+    },
+    {
+      "path": "skills/skill-builder/references/handoff-contracts.md",
+      "sha256": "406e3ac5e695039dd2f756d43ee718832646b39473c3f86c2968b178176a01dd",
+      "bytes": 3239
+    },
+    {
+      "path": "skills/skill-builder/references/scenario-catalog.md",
+      "sha256": "fc495f41e8f0a79cecf7a97db96e2eeb16aadae1bcfcb5132ca59f49ae6841a3",
+      "bytes": 4561
+    },
+    {
+      "path": "skills/skill-builder/references/skillify-patterns.md",
+      "sha256": "a8dcaccf6614cbc362fe1983635455e597161e0071393f2f8b5d2e22186b2ded",
+      "bytes": 3310
+    },
+    {
+      "path": "skills/skill-builder/references/state-and-checkpoints.md",
+      "sha256": "94c6ab4faafbc10427e4aade1df6648cd4fef805f0f6066c5993d6aea1af3a58",
+      "bytes": 1996
+    },
+    {
+      "path": "skills/skill-builder/scripts/check_evals.py",
+      "sha256": "55e1b17a4d208375664e764d623a1a0eeeb9bd214d788ac7004338859714c08e",
+      "bytes": 4859
+    },
+    {
+      "path": "skills/skill-builder/scripts/summarize_build_state.py",
+      "sha256": "c6dcd6c9cd234ae901991e066077cbf86bd32320a2e5f59dc6de2b158ca7ba50",
+      "bytes": 2572
+    },
+    {
+      "path": "skills/skill-builder/scripts/validate_build_state.py",
+      "sha256": "01891e3608df999b4d93766fe2a48fd099f59332445e89aa44da24324907f7f4",
+      "bytes": 7466
+    }
+  ]
+}

@@ -1,0 +1,303 @@
+{
+  "format": 2,
+  "plugin": "skill-best-practices",
+  "version": "1.0.1",
+  "source_layout": "skills/",
+  "bundle_layout": "skills/<name>/",
+  "platforms": [
+    "claude-code",
+    "codex",
+    "cursor"
+  ],
+  "skills": [
+    "skill-best-practices"
+  ],
+  "excluded_patterns": [
+    ".DS_Store",
+    "__pycache__",
+    "*.pyc",
+    ".git"
+  ],
+  "files": [
+    {
+      "path": ".claude-plugin/plugin.json",
+      "sha256": "f68512338e31463e0b4c2ac232cb8d58a75a7af1ee5a5ad5687d23ff983cdba7",
+      "bytes": 426
+    },
+    {
+      "path": ".codex-plugin/plugin.json",
+      "sha256": "f54570c9d4dbc6d06539fd48d8003655c790cafaa0b030091cf7b26a7ab05d5f",
+      "bytes": 1347
+    },
+    {
+      "path": ".cursor-plugin/plugin.json",
+      "sha256": "552adf50459bde08a716af07ddb3c19264cf30390f94551154f9589e1487c6af",
+      "bytes": 628
+    },
+    {
+      "path": "README.md",
+      "sha256": "99d46e91ac2d9be7a31759a24433bbd5c5708e1d75cf619039c0f712f9d35a22",
+      "bytes": 523
+    },
+    {
+      "path": "skills/skill-best-practices/README.md",
+      "sha256": "56616182e2a43bdb85a1b4f7a9ce51b437256a59654a45a6c68a2079caf62dff",
+      "bytes": 1677
+    },
+    {
+      "path": "skills/skill-best-practices/SKILL.md",
+      "sha256": "6fc6647337690203fb3b90b84f8f261f5a21136d8cc594a3ba91134540b63cd2",
+      "bytes": 11084
+    },
+    {
+      "path": "skills/skill-best-practices/agents/openai.yaml",
+      "sha256": "39b02d6e89f66af42b7cdc861a6a141dfacd8b211de3671d434a5330c82d935c",
+      "bytes": 252
+    },
+    {
+      "path": "skills/skill-best-practices/best-practices/01-specification-and-portability.md",
+      "sha256": "3a17f5551418427f097fe16f9f7a184d39ad5314167b65274ef413204195e3c3",
+      "bytes": 1912
+    },
+    {
+      "path": "skills/skill-best-practices/best-practices/02-authoring-and-progressive-disclosure.md",
+      "sha256": "4da81084bc6a9798577f20f4eebdf2f193a819e34f9ce31738ba204de0d72bbc",
+      "bytes": 1758
+    },
+    {
+      "path": "skills/skill-best-practices/best-practices/03-descriptions-discovery-and-routing.md",
+      "sha256": "feda5d48fbb8228747e140f5c7992efd7f741424989c2f6c4d65f509fbccac8a",
+      "bytes": 1802
+    },
+    {
+      "path": "skills/skill-best-practices/best-practices/04-workflows-scripts-and-tools.md",
+      "sha256": "7d2791f64d9fb9396d67ac491149a03295940afff2ffb5bee1b9507a731f68ea",
+      "bytes": 1643
+    },
+    {
+      "path": "skills/skill-best-practices/best-practices/05-evaluation-and-optimization.md",
+      "sha256": "6a5809494eb5168c67c1be9cbf1c2251ba104416f8d4a60f00d3922b7b66584c",
+      "bytes": 1757
+    },
+    {
+      "path": "skills/skill-best-practices/best-practices/06-security-and-authority.md",
+      "sha256": "8d137cad34e5c4eb1c164785a2e43ca8130630d6eae5dd6a8c42ed8981faa30c",
+      "bytes": 1637
+    },
+    {
+      "path": "skills/skill-best-practices/best-practices/07-client-implementation.md",
+      "sha256": "d238a477ba553cb61852365e5bdaeda4eaa37ea8dcb68deeac5cf939c7c1748e",
+      "bytes": 1466
+    },
+    {
+      "path": "skills/skill-best-practices/best-practices/08-enterprise-lifecycle-and-governance.md",
+      "sha256": "e32d75beb7827ab948d1b7395446d99979b2f1a1e66604b229a1f3a8b97102ee",
+      "bytes": 1533
+    },
+    {
+      "path": "skills/skill-best-practices/best-practices/09-meta-skills-and-orchestration.md",
+      "sha256": "f6972c83b700163c5f75c574196ca9dd1c36158391de845c05354c899532c07a",
+      "bytes": 1467
+    },
+    {
+      "path": "skills/skill-best-practices/best-practices/10-conflicts-and-decisions.md",
+      "sha256": "c47999248b903c603e09416afe97cda59aafbe0a813420e57777d38ab76a7c67",
+      "bytes": 2065
+    },
+    {
+      "path": "skills/skill-best-practices/best-practices/11-checklists.md",
+      "sha256": "f2a41bdfe899a660df39a25197cbc01d1a5615b2bc63fbed26923de214a20685",
+      "bytes": 2568
+    },
+    {
+      "path": "skills/skill-best-practices/best-practices/INDEX.md",
+      "sha256": "55d9d69cd91dce9aa09381116324a6c96fc97a41afa3fd7cc247fffff712b753",
+      "bytes": 2353
+    },
+    {
+      "path": "skills/skill-best-practices/best-practices/claims.json",
+      "sha256": "f28d4a879982ff978e530a243b02be918376c5a29f4257cc4018933379e2585b",
+      "bytes": 14530
+    },
+    {
+      "path": "skills/skill-best-practices/evals/behavior.json",
+      "sha256": "ae905168e66ff06ccd0ffc6b331c9c2cee7a1069be9aefef5343e5e6d29ebb24",
+      "bytes": 7203
+    },
+    {
+      "path": "skills/skill-best-practices/evals/routing.json",
+      "sha256": "375b03612c908ac90ef3aac12c1720045553c23ea4140a938b29b699b51f44ee",
+      "bytes": 3500
+    },
+    {
+      "path": "skills/skill-best-practices/generated/modify-managed-skills.md",
+      "sha256": "d92965ed3950616ed2637087f456f70220b0ac779d964fb023d822afdfbf1137",
+      "bytes": 6230
+    },
+    {
+      "path": "skills/skill-best-practices/generated/practices-validation.json",
+      "sha256": "62a95c51fddbae1b44de66489b834bf586179ffa69e78a01ee032104cebd5b95",
+      "bytes": 307
+    },
+    {
+      "path": "skills/skill-best-practices/managed-skills.json",
+      "sha256": "e277596055821e84edd72831f0c05b391e92ca47e13e133fb52283e043b6eda0",
+      "bytes": 3726
+    },
+    {
+      "path": "skills/skill-best-practices/managed-skills.md",
+      "sha256": "a8ec13e96856e3a1f3393a1147927efa28766d0558ef31edd4cbd25229d2f616",
+      "bytes": 1716
+    },
+    {
+      "path": "skills/skill-best-practices/prompts/apply-practices.md",
+      "sha256": "82d3afc26116292b5ec4828b644ae0dd1344ba4e925277683bc4060162615f77",
+      "bytes": 1008
+    },
+    {
+      "path": "skills/skill-best-practices/prompts/base.md",
+      "sha256": "279ffbd1a1c4663714b554ab59dbff5f2f1398489ea6e2e6b367bda055207800",
+      "bytes": 1459
+    },
+    {
+      "path": "skills/skill-best-practices/prompts/full-refresh.md",
+      "sha256": "854468fa8de491f321afeaaa9c4f661fb3fd405d817ba8bed4f597031b0bf4ea",
+      "bytes": 810
+    },
+    {
+      "path": "skills/skill-best-practices/prompts/generate-modification-prompt.md",
+      "sha256": "6361dcb2458ed291006abcd8bbbc8d335c7e2f82f3bde283726910ad82fe7f9b",
+      "bytes": 1073
+    },
+    {
+      "path": "skills/skill-best-practices/prompts/modify-managed-skills.md",
+      "sha256": "13abaf56e5b83692a65de64c556f89c102339ab497c52485bde4c90c6328fdb6",
+      "bytes": 3348
+    },
+    {
+      "path": "skills/skill-best-practices/prompts/query-practices.md",
+      "sha256": "64eced5a838a232db17fe2eba98628b6555339e788270737d31fb0df37d5f737",
+      "bytes": 1157
+    },
+    {
+      "path": "skills/skill-best-practices/prompts/rebuild-practices.md",
+      "sha256": "95e70de108135bb680abd42ddbfea08f832d4b77f65c4c976be594bb8e113fbe",
+      "bytes": 903
+    },
+    {
+      "path": "skills/skill-best-practices/prompts/reconcile-practices.md",
+      "sha256": "6b8c0f7ed04fc83d515f872d2a72c22bb04ba418252c5219424e0911a323ddb8",
+      "bytes": 730
+    },
+    {
+      "path": "skills/skill-best-practices/prompts/refresh-sources.md",
+      "sha256": "6a596c240b34011fcfe5411bd831dbdbc18a2c7795c1ec9b665b381b8effcc6d",
+      "bytes": 770
+    },
+    {
+      "path": "skills/skill-best-practices/prompts/source-audit.md",
+      "sha256": "ac6ac7aa3fc15e18eeda407d4b98f3fc4805e7bc8f646ed2586e5c3196fb42e0",
+      "bytes": 611
+    },
+    {
+      "path": "skills/skill-best-practices/references/evaluation-and-completion.md",
+      "sha256": "511612c62db2b75aff4c94d1ff025ea9e2c86ff06c87891b66e71492da1133fe",
+      "bytes": 1490
+    },
+    {
+      "path": "skills/skill-best-practices/references/evidence-and-precedence.md",
+      "sha256": "368095680c2c1dd473980849aeb1c11e7cad832fdb721117ccbbc8e33d39df8c",
+      "bytes": 1778
+    },
+    {
+      "path": "skills/skill-best-practices/references/rebuild-contract.md",
+      "sha256": "82fe51acfe3d939b1d78a110e001919f5548d71cfbdead15c3517cb9d69457ce",
+      "bytes": 1907
+    },
+    {
+      "path": "skills/skill-best-practices/references/snapshot-and-claims-schema.md",
+      "sha256": "277be8e79fe204ebaf96d51ff00fbf3f155aa18f0730f22938d9ef1f32d2da8a",
+      "bytes": 2054
+    },
+    {
+      "path": "skills/skill-best-practices/references/source-refresh-protocol.md",
+      "sha256": "ffb597cd413caaf23810bc5af89ba69d636eb4ac330fb54c398c156c4f6526cf",
+      "bytes": 1770
+    },
+    {
+      "path": "skills/skill-best-practices/references/workflow-and-routing.md",
+      "sha256": "015d2b7fc684bf788bda5d987a751cb7b091b2e41ac38d6829600c11699f6375",
+      "bytes": 2504
+    },
+    {
+      "path": "skills/skill-best-practices/scripts/build_modification_prompt.py",
+      "sha256": "e7a34609990760da6c51f8aa51f163e333ffb15af6058be3021d1e1ecf2f4ca7",
+      "bytes": 11225
+    },
+    {
+      "path": "skills/skill-best-practices/scripts/check_evals.py",
+      "sha256": "cc30ca4945439643d46cfa06493c58925074a334ab2d513cf26412a2e5b80aac",
+      "bytes": 4357
+    },
+    {
+      "path": "skills/skill-best-practices/scripts/compare_source_snapshots.py",
+      "sha256": "3316aecf92a4221a25ed3d9dec482254901b2488825023b8b141f061c7e0e4a4",
+      "bytes": 5599
+    },
+    {
+      "path": "skills/skill-best-practices/scripts/validate_practices.py",
+      "sha256": "9953445a94c213c217ad654cf7260fe9bd6695234a3ee8641c1fc3006bed0231",
+      "bytes": 11116
+    },
+    {
+      "path": "skills/skill-best-practices/scripts/validate_source_registry.py",
+      "sha256": "b9940878e8d55235002ff90ec917f07b15a371dcdfcd645a717a1a878c31de95",
+      "bytes": 5142
+    },
+    {
+      "path": "skills/skill-best-practices/sources/anthropic.md",
+      "sha256": "54914bf480ac20c304600681d9c20c6e3365b515e3ffedfd2ddad7a5eab30de4",
+      "bytes": 1802
+    },
+    {
+      "path": "skills/skill-best-practices/sources/baseline-snapshot.json",
+      "sha256": "287bd9bbc0e04741d95621083958ab2341c01e624c08d0ef66583293566a5583",
+      "bytes": 7615
+    },
+    {
+      "path": "skills/skill-best-practices/sources/exemplars.md",
+      "sha256": "3ae70eefc9a7fff8e9fd3f4fe3b2a358a53b18e7ce1b7077be46d5d72e860239",
+      "bytes": 1609
+    },
+    {
+      "path": "skills/skill-best-practices/sources/local-and-derived.md",
+      "sha256": "e75d6884489259744b85c71df625a0382099c4581fbcfeb103e471edfaa4e59e",
+      "bytes": 1168
+    },
+    {
+      "path": "skills/skill-best-practices/sources/open-standard.md",
+      "sha256": "b5bd9a49fdd2d7c819e64ddd18aa130afbeb3f2740952adea1d87933bde53c44",
+      "bytes": 2476
+    },
+    {
+      "path": "skills/skill-best-practices/sources/openai.md",
+      "sha256": "c14337e24043d554ec9d2a772714ac66269bcc1d3e6e33d7ec1d1dea0c70e959",
+      "bytes": 1460
+    },
+    {
+      "path": "skills/skill-best-practices/sources/reconciliation-status.json",
+      "sha256": "280e59b67f8bce2bc63736e398c1d7446a0bd874e371b6ca155933d2db5a0348",
+      "bytes": 824
+    },
+    {
+      "path": "skills/skill-best-practices/sources/registry.json",
+      "sha256": "8edfb92d3bcd8bd65f05c2f80482e2129ab555bcc4914816f92827fe8af265f6",
+      "bytes": 11956
+    },
+    {
+      "path": "skills/skill-best-practices/sources/resources.md",
+      "sha256": "d3386eb4d514b573d50bcb151ab782a3816c9f00c43818c0bab4247191ea468f",
+      "bytes": 4046
+    }
+  ]
+}

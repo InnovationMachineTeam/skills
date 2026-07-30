@@ -1,0 +1,13 @@
+{
+  "name": "skill-harvester",
+  "displayName": "Skill Harvester",
+  "version": "1.0.0",
+  "description": "Discovers, extracts, normalizes, compares, and synthesizes reusable agent-skill components from an explicitly named current codebase, local paths, public GitHub repositories, mixed document folders, sessions, prompts, scripts, evals...",
+  "skills": [
+    "./skills"
+  ],
+  "author": {
+    "name": "InnovationMachine",
+    "email": "stanislav.usoltsev@gmail.com"
+  }
+}

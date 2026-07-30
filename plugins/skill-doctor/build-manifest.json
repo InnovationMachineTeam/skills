@@ -1,0 +1,153 @@
+{
+  "format": 2,
+  "plugin": "skill-doctor",
+  "version": "1.0.0",
+  "source_layout": "skills/",
+  "bundle_layout": "skills/<name>/",
+  "platforms": [
+    "claude-code",
+    "codex",
+    "cursor"
+  ],
+  "skills": [
+    "skill-doctor"
+  ],
+  "excluded_patterns": [
+    ".DS_Store",
+    "__pycache__",
+    "*.pyc",
+    ".git"
+  ],
+  "files": [
+    {
+      "path": ".claude-plugin/plugin.json",
+      "sha256": "9254edf197fdd9d6f0d01bd97a955494d2e35e33390cb812879ffab22fb2ce5e",
+      "bytes": 355
+    },
+    {
+      "path": ".codex-plugin/plugin.json",
+      "sha256": "ec7200450a03077506d6cb98ded7ea519ea4f25c6b8b62724c4ab24806f80b5c",
+      "bytes": 1218
+    },
+    {
+      "path": ".cursor-plugin/plugin.json",
+      "sha256": "5b8756813b652a31940447c095255923b6111fc1acb2e83b8b8b7c4d122c1cf8",
+      "bytes": 564
+    },
+    {
+      "path": "README.md",
+      "sha256": "22d36f60041a39820cafb887c9dae468e537f43cd564f72b6aa14ea8dafd6197",
+      "bytes": 452
+    },
+    {
+      "path": "skills/skill-doctor/README.md",
+      "sha256": "3a5c54cf4e19fe7bed976d0580c222e5d9b7913b197c2c943f0d35eff79906e0",
+      "bytes": 2101
+    },
+    {
+      "path": "skills/skill-doctor/SKILL.md",
+      "sha256": "4292eb382c9d9820fd59c81a5c2fc5497b248b0dc720648aa4cd369d0682d697",
+      "bytes": 8688
+    },
+    {
+      "path": "skills/skill-doctor/agents/openai.yaml",
+      "sha256": "abffac82fcd95d045683af124e612f0517351ca00f1648d8aa8b82829bd53451",
+      "bytes": 210
+    },
+    {
+      "path": "skills/skill-doctor/evals/behavior.json",
+      "sha256": "756570a17d7b196dc358156df6bbdd7cf0c56280e4b9af09358cf37369ac8851",
+      "bytes": 4742
+    },
+    {
+      "path": "skills/skill-doctor/evals/routing.json",
+      "sha256": "135064f58b4add50e5a0912b51e0b54c282cf64d917d80494a27ca9812e13599",
+      "bytes": 3635
+    },
+    {
+      "path": "skills/skill-doctor/prompts/base.md",
+      "sha256": "a80c8898566459c71da13be23a4527f71e79a8f6ab4fe7ecf0d7b415427b906d",
+      "bytes": 3455
+    },
+    {
+      "path": "skills/skill-doctor/prompts/context-resources.md",
+      "sha256": "14abfbaf81a9aa4bbc5ec59f4314e6147210bf272537bd999db04cf5d8f4545c",
+      "bytes": 709
+    },
+    {
+      "path": "skills/skill-doctor/prompts/evals-regressions.md",
+      "sha256": "898e0b56bd3a6a61449605dafdf89f81b57b72eef710426deb653ed9bb2d7adc",
+      "bytes": 662
+    },
+    {
+      "path": "skills/skill-doctor/prompts/metadata-discovery.md",
+      "sha256": "f5f4c3c6a6d346e45b91ef224bb5837d4620ef894c3e980a6d766a1dafca8728",
+      "bytes": 703
+    },
+    {
+      "path": "skills/skill-doctor/prompts/packaging-portability.md",
+      "sha256": "2f77bd06b5d6ed1a3859440b2b661ebec5b6e33200a6660b6ff646f939d45a97",
+      "bytes": 655
+    },
+    {
+      "path": "skills/skill-doctor/prompts/scripts-dependencies.md",
+      "sha256": "1ad43d1d8070038e942df8082e6e0fe7bb59ce8eb1bc8d2f70b4c87c07287505",
+      "bytes": 752
+    },
+    {
+      "path": "skills/skill-doctor/prompts/security-authority.md",
+      "sha256": "009311ee406cb5dc53d6af0a87f3998e481a55fa93adfb22f548a9dad39e8ae1",
+      "bytes": 751
+    },
+    {
+      "path": "skills/skill-doctor/prompts/tools-environment.md",
+      "sha256": "1ca96552cd75a3d79dff38450eec4d71eab76480170b4294f0d9d661c6509e22",
+      "bytes": 771
+    },
+    {
+      "path": "skills/skill-doctor/prompts/workflow-state.md",
+      "sha256": "c633488f9e168d3e7db6f541a56b3788941e7a5ce62b68cc6d6c0d4929a2b144",
+      "bytes": 685
+    },
+    {
+      "path": "skills/skill-doctor/references/diagnostic-taxonomy.md",
+      "sha256": "446edc8d50008492063e2b690c65ab6e549005da667e4bff681a86eb7b7abed9",
+      "bytes": 2315
+    },
+    {
+      "path": "skills/skill-doctor/references/environment-and-portability.md",
+      "sha256": "0cc2018a3c824a73c8d0d0fe1c89ce5dbd8e96ee5d276502419aae91187974fc",
+      "bytes": 1278
+    },
+    {
+      "path": "skills/skill-doctor/references/repair-safety.md",
+      "sha256": "07eceef2edb03215424ebe732c30fb402d70fa3bced80c2c7d802529d998aa2b",
+      "bytes": 1221
+    },
+    {
+      "path": "skills/skill-doctor/references/triage-and-root-cause.md",
+      "sha256": "b822531b443b550ebb7277b2bc658da7c9fbf9a70e1941b1ec21045a8b80dcb5",
+      "bytes": 1350
+    },
+    {
+      "path": "skills/skill-doctor/references/verification-and-recovery.md",
+      "sha256": "7d6e5ca4c97cb453ca8fed29008cb13b39766c620a0886327efa5945d0a59206",
+      "bytes": 1266
+    },
+    {
+      "path": "skills/skill-doctor/scripts/check_evals.py",
+      "sha256": "43d8099d3d1df5af14886ca333e0835c17fbd486c915a95cef8b2c009cabc599",
+      "bytes": 4605
+    },
+    {
+      "path": "skills/skill-doctor/scripts/compare_health_reports.py",
+      "sha256": "2be433073bca1bbf89b4485ee0772c5218ff45bef28d90e6949d11287ca60dc5",
+      "bytes": 4088
+    },
+    {
+      "path": "skills/skill-doctor/scripts/doctor_skill.py",
+      "sha256": "30dd9e9f4aba672088dfc5d2cf032192436ea6b0e57e610a76e784ac9e78f2fd",
+      "bytes": 13567
+    }
+  ]
+}

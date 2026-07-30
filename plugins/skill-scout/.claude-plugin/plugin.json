@@ -1,0 +1,13 @@
+{
+  "name": "skill-scout",
+  "displayName": "Skill Scout",
+  "version": "1.0.0",
+  "description": "Identifies and prioritizes worthwhile agent-skill opportunities from the current session, explicitly supplied session exports, task histories, documents, repositories, observations, and recurring user work",
+  "skills": [
+    "./skills"
+  ],
+  "author": {
+    "name": "InnovationMachine",
+    "email": "stanislav.usoltsev@gmail.com"
+  }
+}

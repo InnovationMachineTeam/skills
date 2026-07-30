@@ -35,6 +35,18 @@ def main() -> int:
         config["publisher"]["brand"],
         "--author-email",
         config["reviewer"]["email"],
+        "--author-url",
+        config["publisher"]["url"],
+        "--repository-url",
+        config["distribution"]["repository_url"],
+        "--license",
+        config["distribution"]["license"],
+        "--codex-category",
+        config["distribution"]["codex_category"],
+        "--keyword",
+        "agent-skills",
+        "--keyword",
+        config["category"],
     ]
     return subprocess.run(command, check=False).returncode
 

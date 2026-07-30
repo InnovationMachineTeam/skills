@@ -1,0 +1,30 @@
+{
+  "name": "im-skills-all",
+  "version": "1.1.0",
+  "description": "Complete InnovationMachine Agent Skills toolkit",
+  "homepage": "https://github.com/InnovationMachineTeam/skills",
+  "repository": "https://github.com/InnovationMachineTeam/skills",
+  "license": "Proprietary",
+  "keywords": [
+    "agent-skills",
+    "metaskills"
+  ],
+  "skills": "./skills/",
+  "author": {
+    "name": "InnovationMachine",
+    "email": "stanislav.usoltsev@gmail.com",
+    "url": "https://github.com/InnovationMachineTeam"
+  },
+  "interface": {
+    "displayName": "IM Skills — All",
+    "shortDescription": "Complete InnovationMachine Agent Skills toolkit",
+    "longDescription": "Complete InnovationMachine Agent Skills toolkit",
+    "developerName": "InnovationMachine",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Guidance"
+    ],
+    "websiteURL": "https://github.com/InnovationMachineTeam/skills",
+    "defaultPrompt": "Use IM Skills — All for this task."
+  }
+}

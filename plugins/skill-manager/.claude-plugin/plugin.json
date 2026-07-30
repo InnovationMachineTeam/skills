@@ -1,0 +1,13 @@
+{
+  "name": "skill-manager",
+  "displayName": "Skill Manager",
+  "version": "1.0.0",
+  "description": "Inventories, governs, installs, updates, enables, disables, quarantines, retires, and coordinates SKILL.md-based agent skills across explicitly scoped roots",
+  "skills": [
+    "./skills"
+  ],
+  "author": {
+    "name": "InnovationMachine",
+    "email": "stanislav.usoltsev@gmail.com"
+  }
+}

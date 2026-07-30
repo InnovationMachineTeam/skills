@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run deterministic repository-level marketplace checks."""
+"""Run deterministic cross-host repository and marketplace checks."""
 
 from __future__ import annotations
 
@@ -7,7 +7,7 @@ import json
 import re
 import subprocess
 import sys
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 
 sys.dont_write_bytecode = True
 
@@ -15,6 +15,101 @@ from validate_marketplace import validate_marketplace
 
 
 LOCAL_PATH = re.compile(r"(?:/Users/|/home/|[A-Za-z]:\\\\)")
+
+
+def load_object(path: Path, failures: list[str]) -> dict:
+    try:
+        value = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        failures.append(f"invalid JSON {path}: {exc}")
+        return {}
+    if not isinstance(value, dict):
+        failures.append(f"JSON object required: {path}")
+        return {}
+    return value
+
+
+def safe_relative_path(value: object) -> bool:
+    if not isinstance(value, str) or not value:
+        return False
+    pure = PurePosixPath(value.removeprefix("./"))
+    return not pure.is_absolute() and ".." not in pure.parts
+
+
+def compare_trees(source: Path, bundled: Path, failures: list[str], label: str) -> None:
+    source_files = {
+        path.relative_to(source).as_posix(): path
+        for path in source.rglob("*")
+        if path.is_file() and path.name not in {".DS_Store"} and path.suffix != ".pyc"
+    }
+    bundle_files = {
+        path.relative_to(bundled).as_posix(): path
+        for path in bundled.rglob("*")
+        if path.is_file() and path.name not in {".DS_Store"} and path.suffix != ".pyc"
+    }
+    if source_files.keys() != bundle_files.keys():
+        failures.append(f"{label}: bundled file inventory differs from canonical source")
+        return
+    for relative, source_path in source_files.items():
+        if source_path.read_bytes() != bundle_files[relative].read_bytes():
+            failures.append(f"{label}: bundled content drift at {relative}")
+
+
+def validate_marketplace_names(path: Path, expected: set[str], failures: list[str]) -> dict:
+    data = load_object(path, failures)
+    plugins = data.get("plugins")
+    if not isinstance(plugins, list):
+        failures.append(f"{path}: plugins[] is required")
+        return data
+    names = [item.get("name") for item in plugins if isinstance(item, dict)]
+    if len(names) != len(set(names)):
+        failures.append(f"{path}: plugin names must be unique")
+    if set(names) != expected:
+        failures.append(f"{path}: entries do not match canonical skills")
+    return data
+
+
+def validate_plugin_bundle(
+    root: Path,
+    plugin_root: Path,
+    expected_names: list[str],
+    versions: dict[str, str],
+    failures: list[str],
+    expected_plugin_name: str | None = None,
+) -> None:
+    label = plugin_root.relative_to(root).as_posix()
+    for platform in ("claude", "codex", "cursor"):
+        manifest = plugin_root / f".{platform}-plugin" / "plugin.json"
+        data = load_object(manifest, failures)
+        expected_name = expected_plugin_name or plugin_root.name
+        if data.get("name") != expected_name:
+            failures.append(f"{label}: {platform} manifest name must be {expected_name!r}")
+        if data.get("version") != versions.get(expected_name, data.get("version")):
+            failures.append(f"{label}: {platform} manifest version differs from canonical skill")
+        paths = data.get("skills", "./skills/")
+        values = paths if isinstance(paths, list) else [paths]
+        for value in values:
+            if not safe_relative_path(value):
+                failures.append(f"{label}: unsafe {platform} skills path {value!r}")
+        if platform == "codex":
+            if not isinstance(data.get("author"), dict) or not isinstance(data.get("interface"), dict):
+                failures.append(f"{label}: Codex manifest requires author and interface metadata")
+            if data.get("skills", "").rstrip("/") != "./skills":
+                failures.append(f"{label}: Codex skills path must resolve to ./skills/")
+        if platform == "cursor":
+            if not data.get("description") or not isinstance(data.get("author"), dict):
+                failures.append(f"{label}: Cursor manifest requires description and author metadata")
+
+    actual_names = sorted(path.parent.name for path in (plugin_root / "skills").glob("*/SKILL.md"))
+    if actual_names != sorted(expected_names):
+        failures.append(f"{label}: expected bundled skills {sorted(expected_names)}, found {actual_names}")
+    for name in expected_names:
+        compare_trees(
+            root / "skills" / "metaskills" / name,
+            plugin_root / "skills" / name,
+            failures,
+            f"{label}/{name}",
+        )
 
 
 def main() -> int:
@@ -25,21 +120,67 @@ def main() -> int:
     skills = inventory["skills"]
     if len(skills) != 12:
         failures.append(f"expected 12 skills, found {len(skills)}")
+    expected = {item["name"] for item in skills}
+    versions = {item["name"]: item["version"] for item in skills}
 
-    manifest = json.loads((root / ".claude-plugin" / "marketplace.json").read_text(encoding="utf-8"))
-    plugins = manifest.get("plugins", [])
-    if len(plugins) != len(skills):
-        failures.append(f"expected {len(skills)} marketplace entries, found {len(plugins)}")
-    if {item["name"] for item in plugins} != {item["name"] for item in skills}:
-        failures.append("marketplace entries do not match canonical skills")
+    claude_path = root / ".claude-plugin" / "marketplace.json"
+    codex_path = root / ".agents" / "plugins" / "marketplace.json"
+    cursor_path = root / ".cursor-plugin" / "marketplace.json"
+    claude = validate_marketplace_names(claude_path, expected, failures)
+    codex = validate_marketplace_names(codex_path, expected, failures)
+    cursor = validate_marketplace_names(cursor_path, expected, failures)
+
+    for item in claude.get("plugins", []):
+        if not isinstance(item, dict) or item.get("source") != f"./plugins/{item.get('name')}":
+            failures.append(f"{claude_path}: every entry must point to its self-contained plugin bundle")
+    for item in codex.get("plugins", []):
+        if not isinstance(item, dict):
+            continue
+        source = item.get("source")
+        policy = item.get("policy")
+        if source != {"source": "local", "path": f"./plugins/{item.get('name')}"}:
+            failures.append(f"{codex_path}: invalid local source for {item.get('name')}")
+        if policy != {"installation": "AVAILABLE", "authentication": "ON_INSTALL"}:
+            failures.append(f"{codex_path}: explicit install/auth policy required for {item.get('name')}")
+        if not item.get("category"):
+            failures.append(f"{codex_path}: category required for {item.get('name')}")
+    for item in cursor.get("plugins", []):
+        if not isinstance(item, dict):
+            continue
+        if item.get("source") != f"plugins/{item.get('name')}":
+            failures.append(f"{cursor_path}: invalid source for {item.get('name')}")
+        if not item.get("description"):
+            failures.append(f"{cursor_path}: description required for {item.get('name')}")
+
+    plugins_root = root / "plugins"
+    actual_plugin_names = {path.name for path in plugins_root.iterdir() if path.is_dir()} if plugins_root.is_dir() else set()
+    if actual_plugin_names != expected:
+        failures.append("plugins/ must contain exactly one generated package per canonical skill")
+    for name in sorted(expected & actual_plugin_names):
+        validate_plugin_bundle(root, plugins_root / name, [name], versions, failures)
+
+    aggregate = root / "plugin"
+    release = load_object(root / "catalog" / "release.json", failures)
+    aggregate_name = release.get("aggregate_plugin", {}).get("name") if isinstance(release.get("aggregate_plugin"), dict) else None
+    aggregate_version = release.get("aggregate_plugin", {}).get("version") if isinstance(release.get("aggregate_plugin"), dict) else None
+    if aggregate_name and aggregate_version:
+        aggregate_versions = {aggregate_name: aggregate_version}
+        validate_plugin_bundle(
+            root,
+            aggregate,
+            sorted(expected),
+            aggregate_versions,
+            failures,
+            expected_plugin_name=aggregate_name,
+        )
 
     for path in root.rglob("*"):
         relative = path.relative_to(root)
-        if relative.parts and relative.parts[0] == "build":
+        if relative.parts and relative.parts[0] in {".git", "build"}:
             continue
         if path.is_symlink():
             failures.append(f"symlink is not allowed: {relative}")
-        if path.name in {".DS_Store"} or path.name == "__pycache__" or path.suffix == ".pyc":
+        if path.name == ".DS_Store" or path.name == "__pycache__" or path.suffix == ".pyc":
             failures.append(f"non-runtime artifact: {relative}")
         if path.is_file() and "evals" not in relative.parts and path.suffix in {".json", ".yaml", ".yml"}:
             text = path.read_text(encoding="utf-8", errors="replace")
@@ -59,7 +200,7 @@ def main() -> int:
         for failure in failures:
             print(f"FAIL {failure}")
         return 1
-    print(f"PASS repository: {len(skills)} skills, {len(plugins)} individual marketplace entries")
+    print(f"PASS repository: {len(skills)} skills, three marketplaces, {len(actual_plugin_names)} individual plugins")
     return 0
 
 

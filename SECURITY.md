@@ -11,6 +11,9 @@ Do not open a public issue for a suspected vulnerability, credential leak, malic
 - Never store credentials in skills, prompts, fixtures, manifests, generated bundles, or logs.
 - Run scripts with least privilege and inspect them before first execution.
 - Reject symlinks, traversal, absolute local runtime paths, and hidden executable payloads.
+- Declare hooks, MCP servers, commands, agents, apps, or variables only when their files exist and have a platform-specific trust review.
+- Keep secrets out of manifests and repositories; use host-supported variables and placeholders for future integrations.
+- Review generated Codex and Cursor manifests for unexpected capabilities before each release.
 - Use a pilot scope before organization-wide activation.
 
 ## Response

@@ -1,0 +1,141 @@
+{
+  "schema_version": "1.0",
+  "skill": "skill-manager",
+  "purpose": "Evaluate manager discovery, lifecycle routing, clarification, and specialist boundaries.",
+  "cases": [
+    {
+      "id": "explicit-no-scope",
+      "input": "Use $skill-manager to organize my skills.",
+      "expected_trigger": true,
+      "expected_action": "clarify",
+      "expected_primary_route": null
+    },
+    {
+      "id": "inventory-explicit-roots",
+      "input": "Inventory /workspace/team-skills and /workspace/personal-skills, report duplicates, and make no changes.",
+      "expected_trigger": true,
+      "expected_action": "inventory",
+      "expected_primary_route": "inventory-discovery"
+    },
+    {
+      "id": "install-reviewed-bundle",
+      "input": "Plan installation of this reviewed skill bundle into the explicit project skill root; show the manifest and rollback first.",
+      "expected_trigger": true,
+      "expected_action": "plan-change",
+      "expected_primary_route": "install-update"
+    },
+    {
+      "id": "disable-exact-skill",
+      "input": "Disable the exact legacy-reporting skill in this host without deleting it, then verify it is no longer surfaced.",
+      "expected_trigger": true,
+      "expected_action": "plan-change",
+      "expected_primary_route": "enable-disable"
+    },
+    {
+      "id": "duplicate-name",
+      "input": "Two explicit roots contain different skills named deploy-helper. Determine precedence and propose a non-destructive resolution.",
+      "expected_trigger": true,
+      "expected_action": "inventory",
+      "expected_primary_route": "conflict-resolution"
+    },
+    {
+      "id": "supply-chain-review",
+      "input": "Review the provenance, licenses, scripts, dependencies, and update channel of these third-party skills before adoption.",
+      "expected_trigger": true,
+      "expected_action": "inventory",
+      "expected_primary_route": "dependencies-supply-chain"
+    },
+    {
+      "id": "portfolio-governance",
+      "input": "Define ownership, approval policy, lifecycle states, and review cadence for our organization skill portfolio.",
+      "expected_trigger": true,
+      "expected_action": "plan-change",
+      "expected_primary_route": "governance-portfolio"
+    },
+    {
+      "id": "recoverable-retirement",
+      "input": "Prepare a recoverable retirement and consumer migration plan for these three named legacy skills.",
+      "expected_trigger": true,
+      "expected_action": "plan-change",
+      "expected_primary_route": "retirement-recovery"
+    },
+    {
+      "id": "coordinate-specialists",
+      "input": "Triage this portfolio: create the missing skill, doctor the broken one, optimize the healthy slow one, and consolidate the evidence.",
+      "expected_trigger": true,
+      "expected_action": "route-specialist",
+      "expected_primary_route": "dispatch-coordination"
+    },
+    {
+      "id": "new-skill-only",
+      "input": "Create a new skill for invoice reconciliation.",
+      "expected_trigger": false,
+      "expected_action": "route-specialist",
+      "expected_specialist": "skill-architect",
+      "expected_primary_route": null
+    },
+    {
+      "id": "broken-skill-only",
+      "input": "Diagnose and repair why this skill crashes when parsing its config.",
+      "expected_trigger": false,
+      "expected_action": "route-specialist",
+      "expected_specialist": "skill-doctor",
+      "expected_primary_route": null
+    },
+    {
+      "id": "healthy-optimization-only",
+      "input": "This healthy skill passes its tests; reduce token cost and latency without changing behavior.",
+      "expected_trigger": false,
+      "expected_action": "route-specialist",
+      "expected_specialist": "skill-optimizer",
+      "expected_primary_route": null
+    },
+    {
+      "id": "independent-evaluation-only",
+      "input": "Write routing, behavior, and script evals for this skill, run a frozen holdout, and return a release verdict without installing it.",
+      "expected_trigger": false,
+      "expected_action": "route-specialist",
+      "expected_specialist": "skill-evaluator",
+      "expected_primary_route": null
+    },
+    {
+      "id": "ordinary-file-management",
+      "input": "Organize the photos in my Downloads folder by date.",
+      "expected_trigger": false,
+      "expected_action": "do-not-trigger",
+      "expected_primary_route": null
+    },
+    {
+      "id": "opportunity-discovery-only",
+      "input": "Analyze these sessions and recommend which new skills are worth creating.",
+      "expected_trigger": false,
+      "expected_action": "route-specialist",
+      "expected_specialist": "skill-scout",
+      "expected_primary_route": null
+    },
+    {
+      "id": "harvest-comparison-only",
+      "input": "Compare these two skills read-only and extract reusable patterns.",
+      "expected_trigger": false,
+      "expected_action": "route-specialist",
+      "expected_specialist": "skill-harvester",
+      "expected_primary_route": null
+    },
+    {
+      "id": "topology-refactor-only",
+      "input": "Assess and split this multi-domain skill while preserving a compatibility facade.",
+      "expected_trigger": false,
+      "expected_action": "route-specialist",
+      "expected_specialist": "skill-refactor",
+      "expected_primary_route": null
+    },
+    {
+      "id": "end-to-end-build-workflow",
+      "input": "Take this recurring task from opportunity research through skill creation, validation, and optional activation.",
+      "expected_trigger": false,
+      "expected_action": "route-specialist",
+      "expected_specialist": "skill-builder",
+      "expected_primary_route": null
+    }
+  ]
+}

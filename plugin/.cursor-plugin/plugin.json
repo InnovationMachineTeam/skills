@@ -1,0 +1,17 @@
+{
+  "name": "im-skills-all",
+  "version": "1.1.0",
+  "description": "Complete InnovationMachine Agent Skills toolkit",
+  "homepage": "https://github.com/InnovationMachineTeam/skills",
+  "repository": "https://github.com/InnovationMachineTeam/skills",
+  "license": "Proprietary",
+  "keywords": [
+    "agent-skills",
+    "metaskills"
+  ],
+  "skills": "./skills/",
+  "author": {
+    "name": "InnovationMachine",
+    "email": "stanislav.usoltsev@gmail.com"
+  }
+}

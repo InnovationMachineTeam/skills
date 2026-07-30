@@ -25,6 +25,10 @@ jobs:
         run: python3 scripts/validate_marketplace.py .
       - name: Check marketplace generation drift
         run: python3 scripts/generate_marketplace.py . --check
+      - name: Rebuild individual cross-host plugins
+        run: python3 scripts/build_individual_plugins.py . build/plugins
+      - name: Check individual plugin drift
+        run: diff -ru plugins build/plugins
       - name: Rebuild aggregate plugin
         run: python3 scripts/build_aggregate.py . build/im-skills-all
       - name: Check aggregate plugin drift

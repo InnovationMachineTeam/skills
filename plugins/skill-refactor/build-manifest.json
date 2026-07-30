@@ -1,0 +1,153 @@
+{
+  "format": 2,
+  "plugin": "skill-refactor",
+  "version": "1.0.0",
+  "source_layout": "skills/",
+  "bundle_layout": "skills/<name>/",
+  "platforms": [
+    "claude-code",
+    "codex",
+    "cursor"
+  ],
+  "skills": [
+    "skill-refactor"
+  ],
+  "excluded_patterns": [
+    ".DS_Store",
+    "__pycache__",
+    "*.pyc",
+    ".git"
+  ],
+  "files": [
+    {
+      "path": ".claude-plugin/plugin.json",
+      "sha256": "7b4abffacbaae4bd2ef7968e8afedf0c379660ef28f563c467dc0c5b6227f52c",
+      "bytes": 437
+    },
+    {
+      "path": ".codex-plugin/plugin.json",
+      "sha256": "c5019fca321ab6cde937d7fd0f5ef82ac1a1e8d4909de51845b5f93be6f7fdd3",
+      "bytes": 1380
+    },
+    {
+      "path": ".cursor-plugin/plugin.json",
+      "sha256": "7e469ce09685ba495b30fc327d276b24be7bbccd36be8cfd0f3c23249b3c0352",
+      "bytes": 646
+    },
+    {
+      "path": "README.md",
+      "sha256": "e6eb0ebe9ec17aa52cf27a543a810d3eec00cb95d6bb1691a61cd4de03a9695a",
+      "bytes": 534
+    },
+    {
+      "path": "skills/skill-refactor/README.md",
+      "sha256": "5e7c25892cacf68445565fa08e6332587533f41a20b1a892f00edd1035304448",
+      "bytes": 1236
+    },
+    {
+      "path": "skills/skill-refactor/SKILL.md",
+      "sha256": "79ab0b13a408336975c3da8ecf580cef7443bd3ff0f553f2a89c8d596ec7cad6",
+      "bytes": 7338
+    },
+    {
+      "path": "skills/skill-refactor/agents/openai.yaml",
+      "sha256": "452e7bfa246bd9811544fa1d4984a5ee3e07d174289564c8e5fffeb714dcb562",
+      "bytes": 228
+    },
+    {
+      "path": "skills/skill-refactor/evals/behavior.json",
+      "sha256": "71e060ab85c869db4da10ab06ddb26488e3a75f6da23fdfd4ebbe0168295ae17",
+      "bytes": 2851
+    },
+    {
+      "path": "skills/skill-refactor/evals/routing.json",
+      "sha256": "2211d01a16f19623949be38d89088b4acd7f0d1978ecac1ca5ff3db6eceac5c0",
+      "bytes": 3240
+    },
+    {
+      "path": "skills/skill-refactor/prompts/base.md",
+      "sha256": "2674a8933e5377fb2cd255a701d634937f7ab1c23cb19f1628ca736831b51d73",
+      "bytes": 644
+    },
+    {
+      "path": "skills/skill-refactor/prompts/boundary-assessment.md",
+      "sha256": "a70683b3a022159c3f418a5f93e48458766e2abe0b43778ef3d53acaabd11aa9",
+      "bytes": 443
+    },
+    {
+      "path": "skills/skill-refactor/prompts/compose.md",
+      "sha256": "1a3358fa21a28bd3df0da63e4ac4979b456b6ae580fa45b091bf621ffdef3b53",
+      "bytes": 382
+    },
+    {
+      "path": "skills/skill-refactor/prompts/facade-migration.md",
+      "sha256": "bf79b164ab99978f3d52b0d720f1eb5e52878fa8f96668562ea634dce1db1e83",
+      "bytes": 441
+    },
+    {
+      "path": "skills/skill-refactor/prompts/merge.md",
+      "sha256": "d1a6d32316600fba762363fbd90a35abee004cf257e467e5e5781fe178ca845e",
+      "bytes": 455
+    },
+    {
+      "path": "skills/skill-refactor/prompts/reference-extraction.md",
+      "sha256": "13cd0d40f05d648f5150216c3b31b540c8f348676b3d57783ef30c236fd6e32a",
+      "bytes": 397
+    },
+    {
+      "path": "skills/skill-refactor/prompts/split-extract.md",
+      "sha256": "d4840e937aa22275158e3807cd99309a8f027a46936d77966e84a27780a0ffaf",
+      "bytes": 460
+    },
+    {
+      "path": "skills/skill-refactor/references/boundary-model.md",
+      "sha256": "bb14f6f980cba68cb66a52694f56caa0d5a0b5b3e3c1c3091be54650ba2608da",
+      "bytes": 615
+    },
+    {
+      "path": "skills/skill-refactor/references/compatibility-and-migration.md",
+      "sha256": "3e94c19488d15d6ab1c73214adeeb263c0fefe9c49b9cb5adec0c257814dca2b",
+      "bytes": 512
+    },
+    {
+      "path": "skills/skill-refactor/references/composition-and-merge.md",
+      "sha256": "ccd46cc5d0a0f14feeb47cbcff87126e63dedb848ee64470af9fe9aba1a64e56",
+      "bytes": 579
+    },
+    {
+      "path": "skills/skill-refactor/references/evaluation-and-acceptance.md",
+      "sha256": "9288eedfa3d329af05e3f8efdd6084e572fe7fc4529b67ba8ff7917e0a0d0347",
+      "bytes": 508
+    },
+    {
+      "path": "skills/skill-refactor/references/output-schema.md",
+      "sha256": "f77812b04a8aba5e706c6d9b42d3dc3e1bab59c7f9d624cf54d0c0795907c082",
+      "bytes": 783
+    },
+    {
+      "path": "skills/skill-refactor/references/split-and-extract.md",
+      "sha256": "eecd0757da391c56770c4fdf7caf5133a3ca8517898abb2de484e0b6d863f29f",
+      "bytes": 516
+    },
+    {
+      "path": "skills/skill-refactor/scripts/analyze_boundaries.py",
+      "sha256": "767f9241584211ff34bfdb29970c8ab7be164723a1a1331dbb4070332f7d78a1",
+      "bytes": 5176
+    },
+    {
+      "path": "skills/skill-refactor/scripts/check_evals.py",
+      "sha256": "02086227a27685ffb7043a85c87a821976bde34d7362c453a72af932a028014b",
+      "bytes": 4067
+    },
+    {
+      "path": "skills/skill-refactor/scripts/compare_boundaries.py",
+      "sha256": "87551a9f0c8a1ead4bbf7a2677f1aa428ab78275670fb80440dbe1cf50d01d3d",
+      "bytes": 2443
+    },
+    {
+      "path": "skills/skill-refactor/scripts/validate_refactor_plan.py",
+      "sha256": "2e21104d722f0190ab283899cc4869cb655544bd90237d17b988ed1d86c6af48",
+      "bytes": 4256
+    }
+  ]
+}

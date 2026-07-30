@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build a self-contained aggregate Claude Code plugin into a new directory."""
+"""Build one self-contained Claude Code, Codex, and Cursor plugin bundle."""
 
 from __future__ import annotations
 
@@ -24,6 +24,151 @@ def sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
+def write_json(path: Path, value: dict) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(value, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
+def compact_text(value: str, limit: int) -> str:
+    if len(value) <= limit:
+        return value
+    shortened = value[: limit - 1].rsplit(" ", 1)[0].rstrip(" ,;:-")
+    return shortened + "…"
+
+
+def build_bundle(
+    *,
+    root: Path,
+    output: Path,
+    plugin_name: str,
+    display_name: str,
+    version: str,
+    description: str,
+    author_name: str,
+    author_email: str,
+    author_url: str,
+    repository_url: str,
+    license_name: str,
+    codex_category: str,
+    keywords: list[str],
+    skill_names: list[str] | None = None,
+) -> None:
+    skills_root = root / "skills"
+    if not skills_root.is_dir():
+        raise ValueError(f"missing canonical skills directory: {skills_root}")
+    if output.exists():
+        raise ValueError(f"output already exists; use a new staging directory: {output}")
+    if output == root or output == skills_root or skills_root in output.parents:
+        raise ValueError("output must not replace or be nested inside the canonical skills tree")
+    if not PLUGIN_NAME.fullmatch(plugin_name):
+        raise ValueError("plugin name must be lowercase kebab-case")
+    if not SEMVER.fullmatch(version):
+        raise ValueError("version must be SemVer")
+
+    symlinks = [path for path in skills_root.rglob("*") if path.is_symlink()]
+    if symlinks:
+        raise ValueError(f"source contains symlinks; first: {symlinks[0]}")
+
+    available: dict[str, Path] = {}
+    for skill_file in sorted(skills_root.rglob("SKILL.md")):
+        parts = skill_file.relative_to(skills_root).parts
+        if len(parts) not in (2, 3):
+            raise ValueError("only flat or one-category canonical skill layouts are supported")
+        name = skill_file.parent.name
+        if name in available:
+            raise ValueError(f"duplicate canonical skill name: {name}")
+        available[name] = skill_file.parent
+    selected = sorted(skill_names or available)
+    missing = sorted(set(selected) - set(available))
+    if missing:
+        raise ValueError(f"unknown skills: {missing}")
+    if not selected:
+        raise ValueError("no skills selected")
+
+    output.mkdir(parents=True)
+    excluded_patterns = [".DS_Store", "__pycache__", "*.pyc", ".git"]
+    for name in selected:
+        shutil.copytree(
+            available[name],
+            output / "skills" / name,
+            ignore=shutil.ignore_patterns(*excluded_patterns),
+        )
+
+    common = {
+        "name": plugin_name,
+        "version": version,
+        "description": description,
+        "homepage": repository_url,
+        "repository": repository_url,
+        "license": license_name,
+        "keywords": sorted(set(keywords)),
+        "skills": "./skills/",
+    }
+    claude = {
+        "name": plugin_name,
+        "displayName": display_name,
+        "version": version,
+        "description": description,
+        "skills": ["./skills"],
+        "author": {"name": author_name, "email": author_email},
+    }
+    codex = {
+        **common,
+        "author": {"name": author_name, "email": author_email, "url": author_url},
+        "interface": {
+            "displayName": display_name,
+            "shortDescription": compact_text(description, 120),
+            "longDescription": description,
+            "developerName": author_name,
+            "category": codex_category,
+            "capabilities": ["Guidance"],
+            "websiteURL": repository_url,
+            "defaultPrompt": f"Use {display_name} for this task.",
+        },
+    }
+    cursor = {
+        **common,
+        "author": {"name": author_name, "email": author_email},
+    }
+    write_json(output / ".claude-plugin" / "plugin.json", claude)
+    write_json(output / ".codex-plugin" / "plugin.json", codex)
+    write_json(output / ".cursor-plugin" / "plugin.json", cursor)
+
+    bundled = "\n".join(f"- `{name}`" for name in selected)
+    readme = (
+        f"# {display_name}\n\n"
+        f"{description}\n\n"
+        "This generated package is installable by Claude Code, Codex, and Cursor. "
+        "Its canonical source lives under `skills/` in the repository root; do not edit this bundle directly.\n\n"
+        "## Bundled skills\n\n"
+        f"{bundled}\n\n"
+        "No credentials or host-specific absolute paths are included. Review bundled scripts before execution.\n"
+    )
+    (output / "README.md").write_text(readme, encoding="utf-8")
+
+    files = []
+    for path in sorted(item for item in output.rglob("*") if item.is_file()):
+        files.append(
+            {
+                "path": path.relative_to(output).as_posix(),
+                "sha256": sha256(path),
+                "bytes": path.stat().st_size,
+            }
+        )
+    build_manifest = {
+        "format": 2,
+        "plugin": plugin_name,
+        "version": version,
+        "source_layout": "skills/",
+        "bundle_layout": "skills/<name>/",
+        "platforms": ["claude-code", "codex", "cursor"],
+        "skills": selected,
+        "excluded_patterns": excluded_patterns,
+        "files": files,
+    }
+    write_json(output / "build-manifest.json", build_manifest)
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("root", type=Path, help="Marketplace root containing canonical skills/")
@@ -32,72 +177,39 @@ def main() -> int:
     parser.add_argument("--display-name")
     parser.add_argument("--version", required=True)
     parser.add_argument("--description", default="Portable Agent Skills bundle")
-    parser.add_argument("--author-name")
-    parser.add_argument("--author-email")
+    parser.add_argument("--author-name", required=True)
+    parser.add_argument("--author-email", required=True)
+    parser.add_argument("--author-url", required=True)
+    parser.add_argument("--repository-url", required=True)
+    parser.add_argument("--license", dest="license_name", required=True)
+    parser.add_argument("--codex-category", required=True)
+    parser.add_argument("--keyword", action="append", default=[])
+    parser.add_argument("--skill", action="append", dest="skill_names")
     args = parser.parse_args()
 
-    root = args.root.resolve()
-    output = args.output.resolve()
-    skills = root / "skills"
-    if not skills.is_dir():
-        parser.error(f"missing canonical skills directory: {skills}")
-    if output.exists():
-        parser.error(f"output already exists; use a new staging directory: {output}")
-    if output == root or output == skills or skills in output.parents:
-        parser.error("output must not replace or be nested inside the canonical skills tree")
-    if not PLUGIN_NAME.fullmatch(args.plugin_name):
-        parser.error("plugin name must be lowercase kebab-case")
-    if not SEMVER.fullmatch(args.version):
-        parser.error("version must be SemVer")
-    symlinks = [path for path in skills.rglob("*") if path.is_symlink()]
-    if symlinks:
-        parser.error(f"source contains symlinks; first: {symlinks[0]}")
-
-    skill_files = sorted(skills.rglob("SKILL.md"))
-    if not skill_files:
-        parser.error("no skills found")
-    relative_parts = [path.relative_to(skills).parts for path in skill_files]
-    if any(len(parts) not in (2, 3) for parts in relative_parts):
-        parser.error("only flat or one-category skill layouts are supported")
-
-    output.mkdir(parents=True)
-    excluded_patterns = [".DS_Store", "__pycache__", "*.pyc", ".git"]
-    shutil.copytree(skills, output / "skills", ignore=shutil.ignore_patterns(*excluded_patterns))
-    manifest_dir = output / ".claude-plugin"
-    manifest_dir.mkdir()
-
-    direct_skills = any(len(parts) == 2 for parts in relative_parts)
-    categories = sorted({parts[0] for parts in relative_parts if len(parts) == 3})
-    skill_paths = (["./skills"] if direct_skills else []) + [f"./skills/{category}" for category in categories]
-    manifest = {
-        "name": args.plugin_name,
-        "displayName": args.display_name or args.plugin_name.replace("-", " ").title(),
-        "version": args.version,
-        "description": args.description,
-        "skills": skill_paths,
-    }
-    if args.author_name:
-        manifest["author"] = {"name": args.author_name}
-        if args.author_email:
-            manifest["author"]["email"] = args.author_email
-    (manifest_dir / "plugin.json").write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
-
-    files = []
-    for path in sorted(p for p in output.rglob("*") if p.is_file()):
-        files.append({"path": path.relative_to(output).as_posix(), "sha256": sha256(path), "bytes": path.stat().st_size})
-    build_manifest = {
-        "format": 1,
-        "plugin": args.plugin_name,
-        "version": args.version,
-        "source_layout": "skills/",
-        "skills": len(skill_files),
-        "excluded_patterns": excluded_patterns,
-        "files": files,
-    }
-    (output / "build-manifest.json").write_text(json.dumps(build_manifest, indent=2) + "\n", encoding="utf-8")
-    print(f"Built {args.plugin_name}@{args.version} with {len(skill_files)} skills at {output}")
+    build_bundle(
+        root=args.root.resolve(),
+        output=args.output.resolve(),
+        plugin_name=args.plugin_name,
+        display_name=args.display_name or args.plugin_name.replace("-", " ").title(),
+        version=args.version,
+        description=args.description,
+        author_name=args.author_name,
+        author_email=args.author_email,
+        author_url=args.author_url,
+        repository_url=args.repository_url,
+        license_name=args.license_name,
+        codex_category=args.codex_category,
+        keywords=args.keyword,
+        skill_names=args.skill_names,
+    )
+    print(f"Built {args.plugin_name}@{args.version} for Claude Code, Codex, and Cursor at {args.output.resolve()}")
     return 0
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    try:
+        sys.exit(main())
+    except (OSError, KeyError, TypeError, ValueError, json.JSONDecodeError) as exc:
+        print(f"ERROR {exc}", file=sys.stderr)
+        sys.exit(1)

@@ -1,10 +1,10 @@
 {
   "name": "im-skills-all",
-  "displayName": "IM Skills \u2014 All",
-  "version": "1.0.0",
+  "displayName": "IM Skills — All",
+  "version": "1.1.0",
   "description": "Complete InnovationMachine Agent Skills toolkit",
   "skills": [
-    "./skills/metaskills"
+    "./skills"
   ],
   "author": {
     "name": "InnovationMachine",

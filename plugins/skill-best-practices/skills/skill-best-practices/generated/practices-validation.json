@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "valid": true,
+  "count": 0,
+  "practices_revision": "2026-07-30-initial",
+  "corpus_hash": "sha256:d57c188c2794169f1bb6c2be528d4fdd7426d2d94043b5ba010166e49ca28eef",
+  "registry_hash": "sha256:8edfb92d3bcd8bd65f05c2f80482e2129ab555bcc4914816f92827fe8af265f6",
+  "findings": []
+}

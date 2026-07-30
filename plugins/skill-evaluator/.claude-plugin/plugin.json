@@ -1,0 +1,13 @@
+{
+  "name": "skill-evaluator",
+  "displayName": "Skill Evaluator",
+  "version": "1.0.0",
+  "description": "Designs, writes, audits, runs, and compares trustworthy evaluations for SKILL.md-based agent skills, including routing and trigger datasets, behavioral and output-quality cases, script and tool tests, security and authority probes...",
+  "skills": [
+    "./skills"
+  ],
+  "author": {
+    "name": "InnovationMachine",
+    "email": "stanislav.usoltsev@gmail.com"
+  }
+}

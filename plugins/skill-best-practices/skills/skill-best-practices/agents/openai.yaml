@@ -1,0 +1,4 @@
+interface:
+  display_name: "Skill Best Practices"
+  short_description: "Refresh and apply skill best practices"
+  default_prompt: "Use $skill-best-practices to check the source registry, reconcile changes, and rebuild the skill best-practices corpus."

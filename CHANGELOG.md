@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.1.0 — 2026-07-30
+
+- Added native Codex repo marketplace metadata at `.agents/plugins/marketplace.json`.
+- Added native Cursor multi-plugin metadata at `.cursor-plugin/marketplace.json`.
+- Added 12 generated self-contained packages under `plugins/`, each with Claude Code, Codex, and Cursor manifests.
+- Upgraded the aggregate plugin to the same three-host package layout.
+- Added deterministic cross-host build, drift, metadata, path, policy, and bundle-integrity checks.
+- Documented private Cursor limitations and public-publication gates.
+
 ## 1.0.0 — 2026-07-30
 
 - Created the private `im-skills` marketplace for `InnovationMachineTeam/skills`.

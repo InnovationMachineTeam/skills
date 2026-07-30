@@ -1,34 +1,59 @@
 # Architecture
 
-## Distribution views
+## One source, four distribution views
 
 ```text
-skills/metaskills/*
+skills/metaskills/<name>/                canonical source of truth
         │
-        ├── generate_marketplace.py ──> .claude-plugin/marketplace.json
-        │                                one entry per skill
+        ├── build_individual_plugins.py ──> plugins/<name>/
+        │                                  ├── .claude-plugin/plugin.json
+        │                                  ├── .codex-plugin/plugin.json
+        │                                  ├── .cursor-plugin/plugin.json
+        │                                  └── skills/<name>/...
         │
-        └── build_plugin_bundle.py ───> plugin/
-                                         aggregate local plugin
+        ├── generate_marketplace.py ──────> .claude-plugin/marketplace.json
+        │                                  .agents/plugins/marketplace.json
+        │                                  .cursor-plugin/marketplace.json
+        │
+        └── build_aggregate.py ───────────> plugin/ (all skills, three manifests)
 ```
 
-The canonical tree is compatible with skill.sh's one-category discovery model. Claude Code receives individual shared-root entries for selective installation. The aggregate plugin is a generated self-contained copy for local and integration testing.
+The canonical tree keeps the one-category layout used by skill.sh and other Agent Skills clients. Generated plugin bundles flatten the category so every `SKILL.md` is an immediate child of the package's `skills/` directory, as required by Codex plugin ingestion and used by Cursor component discovery.
 
-## Naming
+## Host contracts
 
-- Marketplace: `im-skills`.
-- Individual entry: exact skill name.
-- Aggregate plugin: `im-skills-all`.
-- Category: `metaskills`.
+| Host | Repository entry point | Package manifest | Selective install |
+|---|---|---|---|
+| Claude Code | `.claude-plugin/marketplace.json` | `.claude-plugin/plugin.json` | one entry per skill |
+| Codex | `.agents/plugins/marketplace.json` | `.codex-plugin/plugin.json` | one entry per skill |
+| Cursor | `.cursor-plugin/marketplace.json` | `.cursor-plugin/plugin.json` | one entry per skill after native publication; Skills CLI while private |
+| Agent Skills clients | `skills/metaskills/*/SKILL.md` | skill frontmatter | client-specific |
 
-Install example: `skill-architect@im-skills`.
+The three plugin marketplaces all resolve to the same generated `plugins/<name>/` package. This avoids platform forks while allowing each host to receive its native manifest.
 
-Category is not part of the skill identity and does not prevent collisions. Every skill name must be globally unique across the aggregate plugin.
+## Generated artifact policy
 
-## Version authority
+- `skills/metaskills/` and `catalog/` are authoritative.
+- `plugins/`, `plugin/`, and all three marketplace manifests are generated and committed.
+- Generated packages contain real files, never symlinks or references outside the package.
+- CI rebuilds artifacts in `build/` and rejects any diff.
+- Every generated manifest gets the same plugin name and SemVer as the canonical skill.
+- The aggregate has independent SemVer because its installed contract changes whenever its composition or host support changes.
 
-Individual entry versions are generated from `metadata.version`. The aggregate plugin has an independent release version because it is a distinct installable/test artifact. CI checks generated drift, and releases include an upgrade test from the previous known-good version.
+## Naming and categories
+
+- Marketplace identifier: `im-skills` on all hosts.
+- Individual plugin identifier: exact globally unique skill name.
+- Aggregate plugin identifier: `im-skills-all`.
+- Canonical and Cursor category: `metaskills`.
+- Codex install-surface category: `Developer Tools`.
+
+Categories are presentation metadata, not identity boundaries. Skill and plugin names must remain globally unique inside an installed host scope.
+
+## Trust boundary
+
+Manifests declare only components that exist. Bundles do not include MCP servers, hooks, agents, commands, or variables unless those components are intentionally added and validated for every target host. Secrets are never embedded; future configurable integrations must use host-supported variable declarations and placeholders.
 
 ## Portability
 
-Each installed skill must contain all required scripts, references, prompts, assets, evals, and host metadata. Parent references, absolute local runtime paths, symlinks, `.DS_Store`, bytecode, and VCS internals are excluded or rejected.
+Each installed skill contains all required scripts, references, prompts, assets, evals, and host metadata. Parent references, absolute local runtime paths, symlinks, OS metadata, bytecode, VCS internals, and undeclared executable payloads are excluded or rejected.

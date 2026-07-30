@@ -1,0 +1,158 @@
+{
+  "format": 2,
+  "plugin": "skill-optimizer",
+  "version": "1.0.0",
+  "source_layout": "skills/",
+  "bundle_layout": "skills/<name>/",
+  "platforms": [
+    "claude-code",
+    "codex",
+    "cursor"
+  ],
+  "skills": [
+    "skill-optimizer"
+  ],
+  "excluded_patterns": [
+    ".DS_Store",
+    "__pycache__",
+    "*.pyc",
+    ".git"
+  ],
+  "files": [
+    {
+      "path": ".claude-plugin/plugin.json",
+      "sha256": "c0dd006f78f876e5cecf73b8dd2a2cefa33be3d6a8a0d78ec3dd7c86e97f9776",
+      "bytes": 379
+    },
+    {
+      "path": ".codex-plugin/plugin.json",
+      "sha256": "3efac3187d96b26981d7e1232fa43f782138bf68c3d442cabcad133bb2230d10",
+      "bytes": 1262
+    },
+    {
+      "path": ".cursor-plugin/plugin.json",
+      "sha256": "8bd102c27219b76929a9cdb3d4293c193fa634856685b5b1a66ddcbc2f2e857c",
+      "bytes": 587
+    },
+    {
+      "path": "README.md",
+      "sha256": "b05d825243e28e9201ce9c68e652ef5fe3818c2ef30c7e9932a85d68aa0d2cef",
+      "bytes": 476
+    },
+    {
+      "path": "skills/skill-optimizer/README.md",
+      "sha256": "335367fd87ac9d2e83d327b0917bef45a819998b288bced432dcc7be5399871b",
+      "bytes": 2504
+    },
+    {
+      "path": "skills/skill-optimizer/SKILL.md",
+      "sha256": "78db9aea702f22bf06e097d590313e27d8763c1df6dba295dda0d61fd707fde2",
+      "bytes": 8846
+    },
+    {
+      "path": "skills/skill-optimizer/agents/openai.yaml",
+      "sha256": "f96a9b5720fda9b55500567c80287ab4b77880bea3be3b0c4e54d6505dba9316",
+      "bytes": 229
+    },
+    {
+      "path": "skills/skill-optimizer/evals/behavior.json",
+      "sha256": "c76e87f97216c65e08fbc71cda51a3bda5b786ae8ef1828d66f92c5c41d6d57b",
+      "bytes": 5962
+    },
+    {
+      "path": "skills/skill-optimizer/evals/routing.json",
+      "sha256": "8abb3fca700c95862a8404c74a07f881b2b7f86c00f5543570e26da1c240f599",
+      "bytes": 4385
+    },
+    {
+      "path": "skills/skill-optimizer/prompts/base.md",
+      "sha256": "36bbbda6cc51097f9bb415f5bf4cfbe96f1f0f2929b2e1e8e11818c9036a854c",
+      "bytes": 4514
+    },
+    {
+      "path": "skills/skill-optimizer/prompts/context-architecture.md",
+      "sha256": "2acf654dc7dbfb44f045c8bf2101aff2112e600320266278148d0f722bd2eb69",
+      "bytes": 1005
+    },
+    {
+      "path": "skills/skill-optimizer/prompts/evaluation-regression.md",
+      "sha256": "970ebaa09c7f8aa26806621f645cb1a3b1d154efd9eab57e3588af48f1c2755a",
+      "bytes": 963
+    },
+    {
+      "path": "skills/skill-optimizer/prompts/performance-cost.md",
+      "sha256": "c0ab6c239f9a06d100a3e10c144e647f3576b13413354b23bae701aec79cb0bd",
+      "bytes": 1034
+    },
+    {
+      "path": "skills/skill-optimizer/prompts/portability-packaging.md",
+      "sha256": "e1672da3b1beecb6d296e83206fda2efbff757be6a2faec8ae188079ea93e224",
+      "bytes": 983
+    },
+    {
+      "path": "skills/skill-optimizer/prompts/routing-discovery.md",
+      "sha256": "84d0de255ab8874f66cd2b23c17449fd670109dd661fa10434409fbc7e79a8c4",
+      "bytes": 1049
+    },
+    {
+      "path": "skills/skill-optimizer/prompts/safety-authority.md",
+      "sha256": "6e4d97a31dd3b88039af3b713ed55ec19647d69cfcada5d922e39e0beda9898d",
+      "bytes": 1095
+    },
+    {
+      "path": "skills/skill-optimizer/prompts/scripts-tools.md",
+      "sha256": "341bb57d20e8854f96e089b42b7e61dc6c2e053666d724bd4b6b9e968d45ef73",
+      "bytes": 1176
+    },
+    {
+      "path": "skills/skill-optimizer/prompts/workflow-reliability.md",
+      "sha256": "4e4e75c2dbffa94d6f6bb4df138f9594fbb2201f3d257676c7ca2728e5832c30",
+      "bytes": 1006
+    },
+    {
+      "path": "skills/skill-optimizer/references/context-and-resources.md",
+      "sha256": "ab1da1a08be3156b5d86815f11e779245b5570f74d250fc7676df3ff4c2d65e6",
+      "bytes": 1870
+    },
+    {
+      "path": "skills/skill-optimizer/references/description-and-routing.md",
+      "sha256": "ef29b953d1683ec59222ed59c8c63e7b0ecc3b315416733429f236a778440064",
+      "bytes": 1750
+    },
+    {
+      "path": "skills/skill-optimizer/references/evaluation-methods.md",
+      "sha256": "909f84711deb52cec898f69b2c72b6734ce6e6fd52b04e24c9e3c0220ac844eb",
+      "bytes": 1545
+    },
+    {
+      "path": "skills/skill-optimizer/references/experimental-method.md",
+      "sha256": "5409c5ab629dd2fd4cd1d262a9a16403787c5c584fcc2f9735898c144f19d296",
+      "bytes": 1982
+    },
+    {
+      "path": "skills/skill-optimizer/references/optimization-taxonomy.md",
+      "sha256": "b42b2b848843a360d5e2a822cd6fadedecc4c7fb920891b427427022d011a778",
+      "bytes": 3366
+    },
+    {
+      "path": "skills/skill-optimizer/references/safety-and-portability.md",
+      "sha256": "542bdc97efc8eb267fbae954f22e5212184e9f1f36891ecbd9bca1c05979fdef",
+      "bytes": 1527
+    },
+    {
+      "path": "skills/skill-optimizer/scripts/analyze_skill.py",
+      "sha256": "1e606e162e17bab110678c66d908ff05f8de48982c0d32ae149ac75b99016f9b",
+      "bytes": 12743
+    },
+    {
+      "path": "skills/skill-optimizer/scripts/check_evals.py",
+      "sha256": "9f134fc6ccbcf674ef24487f90961c503a87c538c0030ed8a602c453f7d16387",
+      "bytes": 5121
+    },
+    {
+      "path": "skills/skill-optimizer/scripts/compare_reports.py",
+      "sha256": "833682f29fd9b0e315f8241c3f68807ee1c0ab353dae95af99ba6caf9ec73523",
+      "bytes": 3956
+    }
+  ]
+}

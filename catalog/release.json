@@ -8,7 +8,8 @@
   },
   "publisher": {
     "name": "InnovationMachineTeam",
-    "brand": "InnovationMachine"
+    "brand": "InnovationMachine",
+    "url": "https://github.com/InnovationMachineTeam"
   },
   "reviewer": {
     "github": "stanislavus86",
@@ -17,8 +18,14 @@
   "aggregate_plugin": {
     "name": "im-skills-all",
     "display_name": "IM Skills — All",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "Complete InnovationMachine Agent Skills toolkit"
   },
-  "category": "metaskills"
+  "category": "metaskills",
+  "distribution": {
+    "repository_url": "https://github.com/InnovationMachineTeam/skills",
+    "license": "Proprietary",
+    "codex_category": "Developer Tools",
+    "cursor_category": "metaskills"
+  }
 }

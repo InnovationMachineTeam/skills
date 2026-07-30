@@ -1,0 +1,208 @@
+{
+  "format": 2,
+  "plugin": "skill-harvester",
+  "version": "1.0.0",
+  "source_layout": "skills/",
+  "bundle_layout": "skills/<name>/",
+  "platforms": [
+    "claude-code",
+    "codex",
+    "cursor"
+  ],
+  "skills": [
+    "skill-harvester"
+  ],
+  "excluded_patterns": [
+    ".DS_Store",
+    "__pycache__",
+    "*.pyc",
+    ".git"
+  ],
+  "files": [
+    {
+      "path": ".claude-plugin/plugin.json",
+      "sha256": "4a9fef229dc2de1f60a9e6d5c2a7e784332c639156f8cdec7a1905df2332e635",
+      "bytes": 476
+    },
+    {
+      "path": ".codex-plugin/plugin.json",
+      "sha256": "79ad70d2f9651ca28839d3c2a042ad7b9317139091fc4a7b84341e897888acce",
+      "bytes": 1456
+    },
+    {
+      "path": ".cursor-plugin/plugin.json",
+      "sha256": "9a4da826ddd8f023f209691669486b68ce4d6916933fed2182acdf8218dfb478",
+      "bytes": 683
+    },
+    {
+      "path": "README.md",
+      "sha256": "f76894ce5f45efdab9734091152c2853aa96ed1013d64f5e45e0cb6f69df06f7",
+      "bytes": 573
+    },
+    {
+      "path": "skills/skill-harvester/README.md",
+      "sha256": "5f45e577f90a093f8cf2faac69762a6123e95a5741e93352ba0c50a28589a537",
+      "bytes": 4118
+    },
+    {
+      "path": "skills/skill-harvester/SKILL.md",
+      "sha256": "6c47705c6e5f278a097c87063eb9424f15ccfc425180aefa23519294e4031b65",
+      "bytes": 10537
+    },
+    {
+      "path": "skills/skill-harvester/agents/openai.yaml",
+      "sha256": "d4752813465da25dc133911fff11198fb55962b80ec8308d481cbd8d9fe8c37e",
+      "bytes": 248
+    },
+    {
+      "path": "skills/skill-harvester/evals/behavior.json",
+      "sha256": "70e14919b8b32d173b605e937fe51c49cb7343b7b68555e432d748a09c001e57",
+      "bytes": 7455
+    },
+    {
+      "path": "skills/skill-harvester/evals/routing.json",
+      "sha256": "6bfdedd021e6b207137fd9e0e0427f4f9b7baccb746f1ba8025940561fff8154",
+      "bytes": 4586
+    },
+    {
+      "path": "skills/skill-harvester/prompts/base.md",
+      "sha256": "73910003e4ffa63295620ce2c3b2bab27a6f4dcf063215e892c144ff7f303ef2",
+      "bytes": 1467
+    },
+    {
+      "path": "skills/skill-harvester/prompts/context-build.md",
+      "sha256": "7e4fc1f29d81c309a12191277624397c3a4685a01681bbbcb0b710cb5e9026df",
+      "bytes": 1122
+    },
+    {
+      "path": "skills/skill-harvester/prompts/evals-failures.md",
+      "sha256": "24b7f7096f3fb2be913e41db6a535b8c262a5ca9a8b351ad8056eb212cc4bfb2",
+      "bytes": 600
+    },
+    {
+      "path": "skills/skill-harvester/prompts/external-skill-intake.md",
+      "sha256": "c92ea0c38419006ff6dc93f6b5c4c4b3ff1df66647776420e0d0a89acbedc648",
+      "bytes": 871
+    },
+    {
+      "path": "skills/skill-harvester/prompts/integration-dispatch.md",
+      "sha256": "5f5db09eee17045bd7570d5b26060e870094bb67bfbc8a812386be009ceab261",
+      "bytes": 686
+    },
+    {
+      "path": "skills/skill-harvester/prompts/knowledge-references.md",
+      "sha256": "60577496f622d7fcdff745637c78363918281031bd3f8f81f718d64790ab50a1",
+      "bytes": 585
+    },
+    {
+      "path": "skills/skill-harvester/prompts/pairwise-skill-comparison.md",
+      "sha256": "f777e62bdbd1c337c57ce2b5cb8d94694d7f03fbd0b82422b74a0cc10971da9f",
+      "bytes": 744
+    },
+    {
+      "path": "skills/skill-harvester/prompts/patterns-workflows.md",
+      "sha256": "8422d306a620a76618990a5762c034cb346c58027989527cf02676d621c6a91a",
+      "bytes": 531
+    },
+    {
+      "path": "skills/skill-harvester/prompts/prompts-templates.md",
+      "sha256": "15505833e13cc4ee4b3ba1f0f0ccf8af890375d481bf6d823ce63580dbc13bb5",
+      "bytes": 607
+    },
+    {
+      "path": "skills/skill-harvester/prompts/scripts-tools.md",
+      "sha256": "f6503ff02638f14719782853514b5dedde795b4fc6f5061798b7802cb26c1044",
+      "bytes": 538
+    },
+    {
+      "path": "skills/skill-harvester/prompts/source-inventory.md",
+      "sha256": "0d2ab3f2209182d40eed981bb70bd7b4e3286fc124b842b8c86d3c6733603a1f",
+      "bytes": 600
+    },
+    {
+      "path": "skills/skill-harvester/prompts/synthesis-dedup.md",
+      "sha256": "8f4b97e429b1b9226b48aef1e8abb0357fb65988d30d78ad2b315a2b4a7bd7d0",
+      "bytes": 575
+    },
+    {
+      "path": "skills/skill-harvester/references/coordination.md",
+      "sha256": "50421acca7ba840257e003030582f9325469b277f76cf59f0e667b3cde29f781",
+      "bytes": 1330
+    },
+    {
+      "path": "skills/skill-harvester/references/evidence-and-provenance.md",
+      "sha256": "6b9d72a8b9e5a96092c21986f0713340b2b754ab423d58ee30d51285c53b803c",
+      "bytes": 1698
+    },
+    {
+      "path": "skills/skill-harvester/references/extraction-and-normalization.md",
+      "sha256": "1b26bc97fdc5e01ecc1780aacbbda73115403603c026e939ec3909311a94dd71",
+      "bytes": 1545
+    },
+    {
+      "path": "skills/skill-harvester/references/harvest-taxonomy.md",
+      "sha256": "098db3831b038024fd5d37f37530d29dfacd8b1d878069d19420d34a1a0f4fa6",
+      "bytes": 1928
+    },
+    {
+      "path": "skills/skill-harvester/references/inbox-protocol.md",
+      "sha256": "b1340819bc51a6c27d1c636b3476a57f0fa3c9af4e2e3f5ef42cfc07335747c8",
+      "bytes": 689
+    },
+    {
+      "path": "skills/skill-harvester/references/output-schema.md",
+      "sha256": "51ddcea856041f7d49b149210d35cce6eeca44215a64cd89b43fe97398d2a8da",
+      "bytes": 1606
+    },
+    {
+      "path": "skills/skill-harvester/references/repository-intake.md",
+      "sha256": "2d8357aa69dffd85817e49a2e56cd8029c9b26321e6d1235ee36fcec67891d7e",
+      "bytes": 831
+    },
+    {
+      "path": "skills/skill-harvester/references/safety-rights-and-secrets.md",
+      "sha256": "21cbdcf0538fbc265262fc8d1dc26505d47a5cfc13a61a9b305b2d584cb142b6",
+      "bytes": 1647
+    },
+    {
+      "path": "skills/skill-harvester/references/skill-comparison.md",
+      "sha256": "a107c20d02d2924dc20faf6bd256785fb6f7e595fdf8e6357adf8507baee6624",
+      "bytes": 799
+    },
+    {
+      "path": "skills/skill-harvester/references/source-types-and-extraction.md",
+      "sha256": "2f04a0d49800a159a2b5d76ec82982a5216fe68caf5070d5412fc6f30135db72",
+      "bytes": 1379
+    },
+    {
+      "path": "skills/skill-harvester/references/synthesis-and-quality.md",
+      "sha256": "26c405686abe14c357f62734858f4cbb3ceea61547ae4f8a5784bb1fb67803ca",
+      "bytes": 1603
+    },
+    {
+      "path": "skills/skill-harvester/scripts/build_inbox_index.py",
+      "sha256": "a075e3b49bdc5996147c489c66c1494b9532d5a28d46e93a9368c73dbcf44070",
+      "bytes": 2948
+    },
+    {
+      "path": "skills/skill-harvester/scripts/check_evals.py",
+      "sha256": "5927ed9bb63cec6c3b7d7e8ae24e2b5a395e0f4db1b19cabdb152446b0321c4c",
+      "bytes": 4596
+    },
+    {
+      "path": "skills/skill-harvester/scripts/extract_documents.py",
+      "sha256": "94da2d9404a219483d36aac63103e332022970e1699e35d4fd748a2bf78d155d",
+      "bytes": 8852
+    },
+    {
+      "path": "skills/skill-harvester/scripts/inventory_sources.py",
+      "sha256": "ddc70f429fcb55e342aac15ac8273c8674bf7b63c60b4ac61aefaf7f4ed6cf46",
+      "bytes": 11097
+    },
+    {
+      "path": "skills/skill-harvester/scripts/validate_harvest.py",
+      "sha256": "4853d7c05d3e8c9e9c2b16b7707ace9cb31ba8be3a0d8a4383a1e752de7f9160",
+      "bytes": 8236
+    }
+  ]
+}

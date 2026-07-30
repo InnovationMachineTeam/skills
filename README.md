@@ -5,8 +5,9 @@ Private Agent Skills marketplace maintained by **InnovationMachineTeam** for **I
 - Marketplace: `im-skills`
 - Repository: `InnovationMachineTeam/skills`
 - Category: `metaskills`
-- Entries: one installable entry per skill
-- Aggregate local plugin: `im-skills-all`
+- Entries: one installable cross-host plugin per skill
+- Supported hosts: Claude Code, Codex, Cursor, and Agent Skills clients
+- Aggregate local plugin: `im-skills-all` (`1.1.0`)
 - Current visibility: private
 - Lead maintainer and required reviewer: [@stanislavus86](https://github.com/stanislavus86)
 
@@ -30,6 +31,29 @@ claude plugin install skill-architect@im-skills
 
 Replace `skill-architect` with any entry from the catalog below. Each entry installs exactly one skill.
 
+## Install with Codex
+
+Add the private repository as a repo marketplace, then install one entry:
+
+```bash
+codex plugin marketplace add InnovationMachineTeam/skills
+codex plugin add skill-architect@im-skills
+```
+
+Use `codex plugin marketplace list` and `codex plugin list --json` to verify the resolved marketplace and installed package. Repository access must already work for the current Git identity.
+
+## Use with Cursor
+
+During the private phase, use the Agent Skills channel for installation:
+
+```bash
+npx skills add InnovationMachineTeam/skills \
+  --skill skill-architect \
+  --agent cursor
+```
+
+The repository also contains Cursor-native `.cursor-plugin/plugin.json` files and a root `.cursor-plugin/marketplace.json`. They are kept ready for local testing and later Cursor Marketplace submission. Cursor's publication flow requires a public Git repository, so native marketplace publication remains intentionally disabled while this repository is private.
+
 ## Install with Skills CLI / skill.sh
 
 List repository skills:
@@ -44,20 +68,21 @@ Install one skill for selected agents:
 npx skills add InnovationMachineTeam/skills \
   --skill skill-architect \
   --agent claude-code \
-  --agent codex
+  --agent codex \
+  --agent cursor
 ```
 
 Do not activate the same skill through both marketplace and Skills CLI in the same host scope. Choose one channel per skill and scope.
 
 ## Test the complete toolkit locally
 
-The committed `plugin/` directory is generated from canonical `skills/`:
+The committed `plugin/` directory is a generated aggregate package with Claude Code, Codex, and Cursor manifests:
 
 ```bash
 claude --plugin-dir ./plugin
 ```
 
-The aggregate plugin is intended for local integration testing and full-toolkit development. Individual marketplace entries remain the supported selective-install path.
+The aggregate plugin is intended for local integration testing and full-toolkit development. Individual marketplace entries remain the supported selective-install path. For Codex, use the repo marketplace rather than loading the aggregate directly; for Cursor, use the individual package or Agent Skills flow.
 
 ## Catalog
 
@@ -82,37 +107,46 @@ The source of truth for versions is each skill's `SKILL.md → metadata.version`
 
 ```text
 .
-├── .claude-plugin/marketplace.json   # generated individual entries
+├── .claude-plugin/marketplace.json   # Claude Code marketplace
+├── .agents/plugins/marketplace.json  # Codex repo marketplace
+├── .cursor-plugin/marketplace.json   # Cursor multi-plugin marketplace
 ├── catalog/
 │   ├── entries.json                  # tags and declared entry inventory
 │   └── release.json                  # governance and aggregate release config
 ├── skills/metaskills/                # canonical source of truth
-├── plugin/                           # generated aggregate Claude Code plugin
+├── plugins/<skill>/                  # generated per-skill cross-host packages
+├── plugin/                           # generated aggregate cross-host package
 ├── scripts/                          # deterministic generation and validation
 ├── docs/
 └── .github/workflows/validate.yml
 ```
 
-Never edit `plugin/` or `.claude-plugin/marketplace.json` manually. Change canonical skills or catalog configuration, regenerate, validate, and review the resulting diff.
+Never edit `plugin/`, `plugins/`, or platform marketplace manifests manually. Change canonical skills or catalog configuration, regenerate, validate, and review the resulting diff.
 
 ## Development workflow
 
 1. Edit the canonical package under `skills/metaskills/<name>/`.
 2. Bump that skill's `metadata.version` according to SemVer.
-3. Regenerate individual marketplace entries:
+3. Rebuild individual cross-host plugin packages into a new staging directory:
+
+   ```bash
+   python3 scripts/build_individual_plugins.py . build/plugins
+   ```
+
+4. Regenerate all three marketplace manifests:
 
    ```bash
    python3 scripts/generate_marketplace.py .
    ```
 
-4. Rebuild the aggregate plugin into a new staging directory:
+5. Rebuild the aggregate plugin into a new staging directory:
 
    ```bash
    python3 scripts/build_aggregate.py . build/im-skills-all
    ```
 
-5. Replace the committed `plugin/` only after the staged candidate passes validation.
-6. Run:
+6. Replace committed generated directories only after staged candidates pass validation.
+7. Run:
 
    ```bash
    python3 scripts/validate_repository.py .
@@ -120,15 +154,18 @@ Never edit `plugin/` or `.claude-plugin/marketplace.json` manually. Change canon
    npx skills add . --list
    claude plugin validate .
    claude plugin validate ./plugin --strict
+   codex plugin marketplace add .
+   codex plugin list --available --json
    ```
 
-7. Obtain review from `@stanislavus86` before release.
+8. Run the Codex plugin validator against `plugin/` and every directory under `plugins/`. Validate Cursor paths and manifests with the repository validator, then locally test a representative plugin before public submission.
+9. Obtain review from `@stanislavus86` before release.
 
 ## Version policy
 
 - Individual skill and marketplace entry: the skill's `metadata.version`.
 - Aggregate plugin: independent SemVer in `catalog/release.json`.
-- Marketplace metadata: repository catalog format version, currently `1.0.0`.
+- Marketplace metadata: repository catalog format version, currently `1.1.0`.
 
 Bump an individual skill version whenever its installed contents or contract change. Bump the aggregate plugin when any bundled skill or aggregate install contract changes. A release is blocked if generated manifests or bundle hashes drift from canonical sources.
 

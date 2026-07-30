@@ -1,0 +1,19 @@
+{
+  "name": "skill-manager",
+  "version": "1.0.0",
+  "description": "Inventories, governs, installs, updates, enables, disables, quarantines, retires, and coordinates SKILL.md-based agent skills across explicitly scoped roots",
+  "homepage": "https://github.com/InnovationMachineTeam/skills",
+  "repository": "https://github.com/InnovationMachineTeam/skills",
+  "license": "Proprietary",
+  "keywords": [
+    "agent-skills",
+    "governance",
+    "lifecycle",
+    "metaskills"
+  ],
+  "skills": "./skills/",
+  "author": {
+    "name": "InnovationMachine",
+    "email": "stanislav.usoltsev@gmail.com"
+  }
+}

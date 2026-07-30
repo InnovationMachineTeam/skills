@@ -1,0 +1,148 @@
+{
+  "format": 2,
+  "plugin": "skill-marketplace-manager",
+  "version": "1.0.0",
+  "source_layout": "skills/",
+  "bundle_layout": "skills/<name>/",
+  "platforms": [
+    "claude-code",
+    "codex",
+    "cursor"
+  ],
+  "skills": [
+    "skill-marketplace-manager"
+  ],
+  "excluded_patterns": [
+    ".DS_Store",
+    "__pycache__",
+    "*.pyc",
+    ".git"
+  ],
+  "files": [
+    {
+      "path": ".claude-plugin/plugin.json",
+      "sha256": "bdf48a7a787726f28819f9661d02d512325bfedf0ca07aaff9a4c89220b894ea",
+      "bytes": 462
+    },
+    {
+      "path": ".codex-plugin/plugin.json",
+      "sha256": "c8cadb6c7358416e9563338a0500feb401f4256fb456f1666db0b0f567c19fcc",
+      "bytes": 1424
+    },
+    {
+      "path": ".cursor-plugin/plugin.json",
+      "sha256": "30367422ad1de048359cd3c4b4559540b28705d556853b914fc32ab127278a4c",
+      "bytes": 664
+    },
+    {
+      "path": "README.md",
+      "sha256": "e1c716976045209ba22afe46a9afaffd301e0a51cfe25c7c09c5691f8454eea0",
+      "bytes": 559
+    },
+    {
+      "path": "skills/skill-marketplace-manager/README.md",
+      "sha256": "bd1d248f517ae8a95666a5e0bb5b6bcb5a6a6e63e24d95f03e038ef9d85ba5df",
+      "bytes": 11253
+    },
+    {
+      "path": "skills/skill-marketplace-manager/SKILL.md",
+      "sha256": "b77169832486b313ceb9984afbd59881a1b7292613924a4c4daeec467482eb0a",
+      "bytes": 8721
+    },
+    {
+      "path": "skills/skill-marketplace-manager/agents/openai.yaml",
+      "sha256": "06bccee378c6760ed36b83ea445c7822051e93047778cb6bfe6edb0db540c287",
+      "bytes": 245
+    },
+    {
+      "path": "skills/skill-marketplace-manager/evals/behavior.json",
+      "sha256": "c52a54a220f5fde24da40641b7ca39912adcb35531560d3057d983b11a1b5938",
+      "bytes": 3677
+    },
+    {
+      "path": "skills/skill-marketplace-manager/evals/routing.json",
+      "sha256": "f7ea4912f3e322b7082b31adf6c3d23ba50f449834af5a950fdb88a73b3dc368",
+      "bytes": 3287
+    },
+    {
+      "path": "skills/skill-marketplace-manager/prompts/architecture-design.md",
+      "sha256": "b67738b43eae572fac70c3b88f684f4473f955ac996c39ec42fa72006c832758",
+      "bytes": 705
+    },
+    {
+      "path": "skills/skill-marketplace-manager/prompts/base.md",
+      "sha256": "4cb3180af54e40bf9ce0e7ed8025def6b6a99d971d17846319b92190585afd02",
+      "bytes": 881
+    },
+    {
+      "path": "skills/skill-marketplace-manager/prompts/build-sync.md",
+      "sha256": "a180fd217f7e02a543c9fb8982c0baa6bd844b0e74af7919c5e82a969f6ba931",
+      "bytes": 607
+    },
+    {
+      "path": "skills/skill-marketplace-manager/prompts/catalog-curation.md",
+      "sha256": "824c7c91e5e210742a7323156514751570a8e221f0b513359604c50c2af949d9",
+      "bytes": 566
+    },
+    {
+      "path": "skills/skill-marketplace-manager/prompts/inventory-audit.md",
+      "sha256": "08e744a86d51a3cc5e30d44f7cd459c63aa12d6661524abf5769285459665b4d",
+      "bytes": 676
+    },
+    {
+      "path": "skills/skill-marketplace-manager/prompts/migration.md",
+      "sha256": "e18a549cb37917b7658d7735a213acefa60e8cee5beb4841c934d118c42c83e0",
+      "bytes": 573
+    },
+    {
+      "path": "skills/skill-marketplace-manager/prompts/release-distribution.md",
+      "sha256": "7c27100ecb07d83143b9a284d8a47b731d2aafca4ce30a775a751ff134ade89e",
+      "bytes": 551
+    },
+    {
+      "path": "skills/skill-marketplace-manager/prompts/scaffold-marketplace.md",
+      "sha256": "f374da6aab0b0ca4cd5b4ef78715fe29c288085b269b54eb1f4c2d5108afd967",
+      "bytes": 572
+    },
+    {
+      "path": "skills/skill-marketplace-manager/prompts/validate-compatibility.md",
+      "sha256": "8c70f7e733384c181f707af8f537b3cbf68a78461580705dce68750902829408",
+      "bytes": 558
+    },
+    {
+      "path": "skills/skill-marketplace-manager/references/best-practices.md",
+      "sha256": "985ec8c76f9a456ec0c71c247d68409d374bb4a524ce3da7a86115f502a73279",
+      "bytes": 20323
+    },
+    {
+      "path": "skills/skill-marketplace-manager/references/integration-contracts.md",
+      "sha256": "803cfb20f42c833acad8d584d88a50845e412e95c51c2c80945299047a7ff515",
+      "bytes": 1339
+    },
+    {
+      "path": "skills/skill-marketplace-manager/references/manifest-patterns.md",
+      "sha256": "fd8906d8ec06900a1e7b54db11ef03240526a5179753b83465d2a583d76c3ef5",
+      "bytes": 1946
+    },
+    {
+      "path": "skills/skill-marketplace-manager/references/migration-contract.md",
+      "sha256": "c64d3fb4c7277620add68288fbb355a0231f65dffc60f90a1f996ee358fc2ffc",
+      "bytes": 1843
+    },
+    {
+      "path": "skills/skill-marketplace-manager/scripts/build_plugin_bundle.py",
+      "sha256": "37f64f8e47a7f1334c8226cb421872002aa72c4fe9127004c6e7ba619f71463a",
+      "bytes": 3880
+    },
+    {
+      "path": "skills/skill-marketplace-manager/scripts/check_evals.py",
+      "sha256": "deabd8a4bf768da6f99e0dea1c14336406a538639b12ed387fe68af5079e7f45",
+      "bytes": 2075
+    },
+    {
+      "path": "skills/skill-marketplace-manager/scripts/validate_marketplace.py",
+      "sha256": "6bbf45fa6046c22e1435acf8ec92e51e75c499fe58fbf473c7e052e5c9dfb71c",
+      "bytes": 9221
+    }
+  ]
+}
