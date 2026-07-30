@@ -36,4 +36,9 @@ Migrated 12 skill packages from the Codex project output area into the canonical
 
 ## Publication and archive state
 
-The local repository is complete. GitHub publication and legacy-source archival remain coupled: archive the previous source only after the private remote accepts the initial commit. Retain the archive for at least 14 days or two successful release cycles, whichever is longer.
+- Private GitHub repository: `https://github.com/InnovationMachineTeam/skills`.
+- Initial published commit: `35151c4e7f8d719061b36f8f9be5d9cd7927d2d5` on `main`.
+- Remote Skills CLI discovery cloned the private repository and found all 12 skills.
+- Historical source packages were moved, not deleted, to `outputs/archive/pre-marketplace-2026-07-30/` in the migration workspace.
+
+Retain the archive for at least 14 days or two successful release cycles, whichever is longer.
