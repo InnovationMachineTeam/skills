@@ -2,7 +2,7 @@
 name: skill-scout
 description: Identifies and prioritizes worthwhile agent-skill opportunities from the current session, explicitly supplied session exports, task histories, documents, repositories, observations, and recurring user work. Use when a user asks what skills they should create, whether repeated tasks or insights justify a reusable skill, what an article or corpus could become, or which gaps in an existing skill portfolio deserve investment. Check existing local and public skill coverage, estimate context and maintenance implications, and recommend CREATE_NEW, EXTEND_EXISTING, USE_EXISTING, USE_AUTOMATION, KEEP_AD_HOC, or RESEARCH. Do not create, install, or modify skills; route approved opportunities downstream.
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
 ---
 
 # Scout Skill Opportunities
@@ -43,6 +43,11 @@ Read [references/opportunity-taxonomy.md](references/opportunity-taxonomy.md). L
 - portfolio gaps not adequately served by an existing skill.
 
 Do not recommend a skill solely because a topic appears once, is interesting, or could be documented.
+
+For agent-system opportunities, distinguish among an agent-oriented skill,
+existing agent reuse, deterministic code/workflow, a private capability and a
+new runtime agent. Record the recommended asset form in `next_step`; do not
+create a public skill or agent from a repeated keyword alone.
 
 ## Select one primary route
 

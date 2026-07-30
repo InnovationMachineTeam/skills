@@ -5,8 +5,10 @@
 
 ## Promotion gate
 
-`PROMOTE_PUBLIC` разрешён при втором independent consumer либо independent
-owner/contract/release cadence. Удали owner-agent assumptions, stage public
+`PROMOTE_PUBLIC` разрешён только когда approved independent consumer существует,
+contract обобщён за пределы исходного agent, а independent
+owner/evals/release cadence/lifecycle оправдывают public surface. Второй
+consumer запускает assessment, но не даёт автоматического promotion. Удали owner-agent assumptions, stage public
 candidate, назначь public identity/version, обнови registry/map/adapters,
 проверь coexistence и consumers, затем retire private source через manager.
 

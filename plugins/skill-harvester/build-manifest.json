@@ -1,7 +1,7 @@
 {
   "format": 2,
   "plugin": "skill-harvester",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "source_layout": "skills/",
   "bundle_layout": "skills/<name>/",
   "platforms": [
@@ -21,17 +21,17 @@
   "files": [
     {
       "path": ".claude-plugin/plugin.json",
-      "sha256": "4a9fef229dc2de1f60a9e6d5c2a7e784332c639156f8cdec7a1905df2332e635",
+      "sha256": "747671c2e3883bff96002d26b04c7393001aeb206c982adaf5c6f4a09a059fbf",
       "bytes": 476
     },
     {
       "path": ".codex-plugin/plugin.json",
-      "sha256": "79ad70d2f9651ca28839d3c2a042ad7b9317139091fc4a7b84341e897888acce",
+      "sha256": "7a2e654555578e1ebc8f13eeaa10adae9d32801b902362a555d049ab9f995daf",
       "bytes": 1456
     },
     {
       "path": ".cursor-plugin/plugin.json",
-      "sha256": "9a4da826ddd8f023f209691669486b68ce4d6916933fed2182acdf8218dfb478",
+      "sha256": "cb9535f198038b6c81be7fd33a01d5665b44b66a02287a96f71f76eabfc80ae8",
       "bytes": 683
     },
     {
@@ -46,8 +46,8 @@
     },
     {
       "path": "skills/skill-harvester/SKILL.md",
-      "sha256": "6c47705c6e5f278a097c87063eb9424f15ccfc425180aefa23519294e4031b65",
-      "bytes": 10537
+      "sha256": "0e6f972130d45fee3501570e53afe66f82dbaec324974d42a99ce65d9ea8753e",
+      "bytes": 11100
     },
     {
       "path": "skills/skill-harvester/agents/openai.yaml",
@@ -141,8 +141,8 @@
     },
     {
       "path": "skills/skill-harvester/references/harvest-taxonomy.md",
-      "sha256": "098db3831b038024fd5d37f37530d29dfacd8b1d878069d19420d34a1a0f4fa6",
-      "bytes": 1928
+      "sha256": "0a25d177c5a9308cc635bf2dbb165ec589d815e2415e16e92afbc24d45f7e3e6",
+      "bytes": 2296
     },
     {
       "path": "skills/skill-harvester/references/inbox-protocol.md",

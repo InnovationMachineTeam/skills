@@ -1,7 +1,7 @@
 {
   "format": 2,
   "plugin": "skill-architect",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "source_layout": "skills/",
   "bundle_layout": "skills/<name>/",
   "platforms": [
@@ -21,17 +21,17 @@
   "files": [
     {
       "path": ".claude-plugin/plugin.json",
-      "sha256": "b807c9050ae28cf7350379a3393453c8385adc767881d87892bb2e9367d30159",
+      "sha256": "16f2fdf7bd57a257774f48c0224d87a57409ac9bed01b163fddf3bb0e72802b5",
       "bytes": 476
     },
     {
       "path": ".codex-plugin/plugin.json",
-      "sha256": "e5106302b48b29d8b938ccf83b41c592a7091395e787de879841b22978efdb8c",
+      "sha256": "82a307c6f33b5d95e37f8549ffeaabc3b002de3a83e270098c2f3ba4053db87b",
       "bytes": 1451
     },
     {
       "path": ".cursor-plugin/plugin.json",
-      "sha256": "b00a39bc4d6926314a8cae684f954dd55ae8e69ff22b68c011038d906ea537df",
+      "sha256": "a8e1c2504bdb5114d955a128f7e3d3ff79a207d519489366db041aebc67e4654",
       "bytes": 685
     },
     {
@@ -46,8 +46,8 @@
     },
     {
       "path": "skills/skill-architect/SKILL.md",
-      "sha256": "c5749c87fc2a413dd24368131218b3c9308c01a3629edd9286e4f7fc2414a30b",
-      "bytes": 10732
+      "sha256": "525043427c363f168b7bd06f312fb961b1251f6e572b30e4dc579bf725a21ccc",
+      "bytes": 11073
     },
     {
       "path": "skills/skill-architect/agents/openai.yaml",
@@ -96,8 +96,8 @@
     },
     {
       "path": "skills/skill-architect/prompts/placement-and-registration.md",
-      "sha256": "55fc1fac4a5f5a7307626742627b3c09a2f1ca1d4e04bb2ba3b188787e7c237a",
-      "bytes": 2207
+      "sha256": "9c676da39f0bee23f65f60d8988ca629b160b2728f8660488bd7ddb9dd69157c",
+      "bytes": 2508
     },
     {
       "path": "skills/skill-architect/prompts/script-automation.md",
@@ -141,8 +141,8 @@
     },
     {
       "path": "skills/skill-architect/references/visibility-and-registry.md",
-      "sha256": "0d10925c45314cf4e7b38f0cd8e02e68030199b6ef4b5e22375b7539ad0c413a",
-      "bytes": 4197
+      "sha256": "64eb1fb2dcdb01262f9d909f3cb77079164772a3c80aa527117bc8ecbcb61b34",
+      "bytes": 4950
     },
     {
       "path": "skills/skill-architect/scripts/validate_skill.py",

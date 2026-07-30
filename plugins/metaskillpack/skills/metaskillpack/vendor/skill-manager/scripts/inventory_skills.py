@@ -113,8 +113,8 @@ def placement(skill_dir: Path) -> dict[str, object]:
                     "visibility": "private",
                     "scope": "agent",
                     "discoverability": "agent_scoped",
-                    "owner_agent_ref": f"agent://project/{agent_id}",
-                    "allowed_consumers": [f"agent://project/{agent_id}"],
+                    "owner_agent_ref": f"asset://project/agent/{agent_id}",
+                    "allowed_consumers": [f"asset://project/agent/{agent_id}"],
                     "placement_evidence": "canonical-agent-private-path",
                 }
     return {

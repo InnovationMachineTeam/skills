@@ -1,0 +1,44 @@
+{
+  "$schema": "../../../../docs/schemas/agent-skills-map.schema.json",
+  "schema_version": 1,
+  "revision": 1,
+  "updated_at": "2026-07-31T00:00:00Z",
+  "bindings": [
+    {
+      "id": "binding://project/code-reviewer/shared-review",
+      "agent_ref": "asset://project/agent/code-reviewer@1.0.0",
+      "capability_ref": "asset://project/skill/shared-review@1.0.0",
+      "mode": "required",
+      "capabilities": ["evidence-first-review"],
+      "activation": "always",
+      "constraints": ["read-only"],
+      "evidence": ["fixture"],
+      "status": "verified",
+      "accountable_owner": "@stanislavus86"
+    },
+    {
+      "id": "binding://project/code-reviewer/private-check",
+      "agent_ref": "asset://project/agent/code-reviewer@1.0.0",
+      "capability_ref": "asset://project/skill/private-check@1.0.0",
+      "mode": "required",
+      "capabilities": ["protected-path-review"],
+      "activation": "on_intent",
+      "constraints": ["owner-only", "read-only"],
+      "evidence": ["fixture"],
+      "status": "verified",
+      "accountable_owner": "@stanislavus86"
+    },
+    {
+      "id": "binding://project/code-reviewer/review-handoff",
+      "agent_ref": "asset://project/agent/code-reviewer@1.0.0",
+      "capability_ref": "asset://project/command/review-handoff@1.0.0",
+      "mode": "required",
+      "capabilities": ["structured-handoff"],
+      "activation": "explicit",
+      "constraints": ["owner-only"],
+      "evidence": ["fixture"],
+      "status": "verified",
+      "accountable_owner": "@stanislavus86"
+    }
+  ]
+}

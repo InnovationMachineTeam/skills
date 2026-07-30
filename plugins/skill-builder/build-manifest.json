@@ -1,7 +1,7 @@
 {
   "format": 2,
   "plugin": "skill-builder",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "source_layout": "skills/",
   "bundle_layout": "skills/<name>/",
   "platforms": [
@@ -21,17 +21,17 @@
   "files": [
     {
       "path": ".claude-plugin/plugin.json",
-      "sha256": "97e2f82910a1506894cdc56e741fe84da73d98a396ce4c1fee3faf33f4fccef9",
+      "sha256": "8a890a2c105df810ccbbc691e33601877472f1150db174004d6e830567ffc059",
       "bytes": 458
     },
     {
       "path": ".codex-plugin/plugin.json",
-      "sha256": "8f0bce90b67edaf19f25ee78ce131f515c1e1fcfc7f7f1e0b7ab339094787144",
+      "sha256": "2249349b7bdbb0139f6e56c3f11d3caaca7644fbff5484c8a11f9416297af140",
       "bytes": 1423
     },
     {
       "path": ".cursor-plugin/plugin.json",
-      "sha256": "0e2a8524bf62147022f7749afa426e7f9600e91aa28f13ad9a647bb446d49e85",
+      "sha256": "b47c5ae82bec45a17b1068064a08bfd67fda0f2d6701044c0c023654efaa082c",
       "bytes": 670
     },
     {
@@ -46,8 +46,8 @@
     },
     {
       "path": "skills/skill-builder/SKILL.md",
-      "sha256": "a6ee0d94e3e6d2ad683284277dd83bc198844bf03b43aa44b91336f8caf51fb1",
-      "bytes": 11588
+      "sha256": "74989870d3ef5ac1fad3d74af5445bfca5d25caed9fdb26379d44114fa0cf4e8",
+      "bytes": 12021
     },
     {
       "path": "skills/skill-builder/agents/openai.yaml",
@@ -61,8 +61,13 @@
     },
     {
       "path": "skills/skill-builder/evals/routing.json",
-      "sha256": "070b57cd2d481669007f855e4167b0477015eda1676db6fbce5ff5661388b2aa",
-      "bytes": 5906
+      "sha256": "1502a770eda8a2d646066201a42ddc956dc15e1c44a82f3cbc8ba8fb5da78b88",
+      "bytes": 6312
+    },
+    {
+      "path": "skills/skill-builder/prompts/agent-system-capability.md",
+      "sha256": "7120c576087b4913efd3c581e22c1a51291b9550023fc69614df928fe33f7e84",
+      "bytes": 1500
     },
     {
       "path": "skills/skill-builder/prompts/base.md",
@@ -161,8 +166,8 @@
     },
     {
       "path": "skills/skill-builder/references/scenario-catalog.md",
-      "sha256": "fc495f41e8f0a79cecf7a97db96e2eeb16aadae1bcfcb5132ca59f49ae6841a3",
-      "bytes": 4561
+      "sha256": "cc60e8a70467413db96d02c2019402e60a287e1dfe8188fa77e657b634ebc703",
+      "bytes": 5174
     },
     {
       "path": "skills/skill-builder/references/skillify-patterns.md",
@@ -176,8 +181,8 @@
     },
     {
       "path": "skills/skill-builder/scripts/check_evals.py",
-      "sha256": "55e1b17a4d208375664e764d623a1a0eeeb9bd214d788ac7004338859714c08e",
-      "bytes": 4859
+      "sha256": "5f13c9378c7be90e03df502308abc2d39ac92d00fdccc0c41ebdaeafaaf13adc",
+      "bytes": 4890
     },
     {
       "path": "skills/skill-builder/scripts/summarize_build_state.py",

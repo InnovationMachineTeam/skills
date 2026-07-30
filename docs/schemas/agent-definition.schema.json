@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/InnovationMachineTeam/skills/docs/schemas/agent-definition.schema.json",
+  "title": "Agent Definition",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "id", "name", "version", "accountable_owner", "mission", "risk_tier", "model_policy", "tools", "permissions", "public_skill_refs", "private_skill_refs", "private_command_refs", "runtime", "lifecycle"],
+  "properties": {
+    "$schema": {"type": "string"},
+    "schema_version": {"const": 1},
+    "id": {"type": "string", "pattern": "^asset://(project|repository)/agent/[a-z0-9][a-z0-9-]*$"},
+    "name": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+    "version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "accountable_owner": {"type": "string", "minLength": 1},
+    "mission": {"type": "object", "required": ["goal", "non_goals"], "properties": {"goal": {"type": "string", "minLength": 1}, "non_goals": {"type": "array", "items": {"type": "string"}}},
+    "risk_tier": {"enum": ["R0", "R1", "R2", "R3"]},
+    "model_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["quality_tier", "preferred", "fallback"],
+      "properties": {
+        "quality_tier": {"enum": ["fast", "balanced", "strong", "frontier"]},
+        "preferred": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["codex", "claude-code", "cursor"],
+          "properties": {
+            "codex": {"type": "string", "minLength": 1},
+            "claude-code": {"type": "string", "minLength": 1},
+            "cursor": {"type": "string", "minLength": 1}
+          }
+        },
+        "fallback": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "tools": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+    "permissions": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+    "public_skill_refs": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+    "private_skill_refs": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+    "private_command_refs": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+    "runtime": {"type": "object", "required": ["loop", "budgets", "stop_conditions"], "properties": {"loop": {"type": "string"}, "budgets": {"type": "object"}, "stop_conditions": {"type": "array", "items": {"type": "string"}}}},
+    "lifecycle": {"type": "object", "required": ["status", "replacement"], "properties": {"status": {"enum": ["draft", "candidate", "verified", "approved", "active", "suspended", "deprecated", "retired"]}, "replacement": {"type": ["string", "null"]}}
+  }
+}

@@ -1,7 +1,7 @@
 {
   "name": "skill-architect",
   "displayName": "Skill Architect",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Classifies skill ideas and supplied material, selects an archetype and the minimum viable placement—inline instruction, private agent command, private agent skill, or public skill—then designs, creates, registers, or updates the...",
   "skills": [
     "./skills"

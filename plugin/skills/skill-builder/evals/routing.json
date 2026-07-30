@@ -107,6 +107,14 @@
       "expected_action": "route"
     },
     {
+      "id": "implicit-agent-system-capability",
+      "input": "Create an agent-team-builder skill from our approved master prompt, including private capability placement, registry transactions, host adapters, and independent evaluation.",
+      "expected_trigger": true,
+      "explicit_scenario": false,
+      "expected_scenario": "agent-system-capability",
+      "expected_action": "route"
+    },
+    {
       "id": "implicit-resume",
       "input": "Resume the paused skill build from this skill-build-state.json and do not repeat completed installs.",
       "expected_trigger": true,

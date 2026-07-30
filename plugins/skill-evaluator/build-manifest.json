@@ -1,7 +1,7 @@
 {
   "format": 2,
   "plugin": "skill-evaluator",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "source_layout": "skills/",
   "bundle_layout": "skills/<name>/",
   "platforms": [
@@ -21,17 +21,17 @@
   "files": [
     {
       "path": ".claude-plugin/plugin.json",
-      "sha256": "c18e66390f4f1d9cb05fe49720d02eaa4e7028ce8b158164d891816c94723d5a",
+      "sha256": "3f569c595bfb606b61820408aa050c42934304ebab2e7f9df1ac0d451aa60ed8",
       "bytes": 474
     },
     {
       "path": ".codex-plugin/plugin.json",
-      "sha256": "a76f82a4f5414fd314c06bb49a25bfcf606f49d1c9bc086f10731ef18fc54597",
+      "sha256": "ed4d193638700ccb33def18e5ab6610e683b82e111c4f275e66be8bcc0c96505",
       "bytes": 1454
     },
     {
       "path": ".cursor-plugin/plugin.json",
-      "sha256": "f5e4c766a4fba92a0c66604745ab3a2e13f50e842155c63405e44efdc5bf675e",
+      "sha256": "f86803b6f06f00aaaf79bd21d57c2328f6cc0bcc6c393b14a0af8d023ffce429",
       "bytes": 680
     },
     {
@@ -46,8 +46,8 @@
     },
     {
       "path": "skills/skill-evaluator/SKILL.md",
-      "sha256": "5afa8446ff98973c35ff945952671b114394658e50cbe8368e9b027adb98c7d2",
-      "bytes": 10145
+      "sha256": "b85fbe4b48ae159ced77256ef73240e504cc5202a93fed4833153f3e852b6054",
+      "bytes": 10478
     },
     {
       "path": "skills/skill-evaluator/agents/openai.yaml",
@@ -111,13 +111,18 @@
     },
     {
       "path": "skills/skill-evaluator/evals/routing.json",
-      "sha256": "86f12801e357757efe97e4409815818b149f7eb2af557efb151b58daca7cd8e0",
-      "bytes": 4398
+      "sha256": "9d0f5381dc6a2edcd5cfbe1460cdee95e16b2f1abc4ab3a59fa2b7057138a06b",
+      "bytes": 4717
     },
     {
       "path": "skills/skill-evaluator/evals/scripts.json",
       "sha256": "2394060e95504015f91694d0c1dfd456d6de59fd23a2a7b3aa7f16ccb5fc797d",
       "bytes": 2224
+    },
+    {
+      "path": "skills/skill-evaluator/prompts/agent-assets-and-access.md",
+      "sha256": "b951ed884b4cc14b0a924011581009ef10a5695d9587d58cc6411aae1b672d87",
+      "bytes": 1321
     },
     {
       "path": "skills/skill-evaluator/prompts/audit-evaluation.md",
@@ -211,8 +216,8 @@
     },
     {
       "path": "skills/skill-evaluator/scripts/check_evals.py",
-      "sha256": "c0bab1ed67a1f1c9057fb2eba4642f16fe2e472641d8eb941f6009f2c80e69fc",
-      "bytes": 5346
+      "sha256": "119f89cc3c005ed04a086b6d39320d01610b3c245122fbb31375ce0494baf25d",
+      "bytes": 5373
     },
     {
       "path": "skills/skill-evaluator/scripts/compare_eval_runs.py",

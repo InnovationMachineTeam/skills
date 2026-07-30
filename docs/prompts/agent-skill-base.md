@@ -87,8 +87,10 @@ authority, topology, lifecycle state или acceptance criteria. Иначе за
 hardest constraint. Agent-system concerns применяй как profile поверх типа.
 
 Visibility также применяй как profile поверх primary archetype. Для private
-capability требуй owner agent и allowed consumers. Public skill оправдан двумя
-или более независимыми consumers либо самостоятельным owner/lifecycle.
+capability требуй owner agent, accountable human/team owner и allow-list только
+из owner agent. Independent consumer запускает promotion assessment, но public
+skill создавай только после generalized owner-independent contract и
+обоснования отдельного owner/lifecycle/evals/release cadence.
 
 ## Agent asset contract
 
@@ -233,8 +235,12 @@ run. Holdout answers не передавай mutating specialist.
    risk tier.
 10. Forward-test сложный skill в fresh context без expected-answer leakage.
 11. Передай immutable candidate независимому evaluator.
-12. Создай schema-valid candidate registry/map update с version/hash,
-    visibility, owner и consumers; не помечай asset active без lifecycle gate.
+12. Создай schema-valid candidate update для
+    `docs/AGENT-ASSET-REGISTRY.json` и `docs/AGENT-SKILLS-MAP.json` с version
+    strategy/revision/hash, visibility, technical owner, accountable owner и
+    consumers. Применяй пару одной expected-revision транзакцией с rollback; не
+    помечай asset active без lifecycle gate. Private command наследует SemVer
+    owner agent и имеет собственные revision/hash, но не independent SemVer.
 13. Верни artifact/evidence ledger и следующий authorized handoff.
 
 ## Completion gates

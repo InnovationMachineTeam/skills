@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "builder": "skill-builder",
+  "build_id": "agent-system-foundation-2026-07-31",
+  "scenario": "portfolio-governance",
+  "goal": "Implement the approved agent asset registry, private capability adapters, validation and walking skeleton before building agent-team skills.",
+  "status": "in_progress",
+  "scope": [
+    "docs/",
+    "scripts/",
+    "tests/fixtures/agent-assets/",
+    ".github/workflows/validate.yml",
+    "skills/metaskills/skill-architect",
+    "skills/metaskills/skill-manager",
+    "skills/metaskills/skill-refactor",
+    "skills/metaskills/skill-builder",
+    "skills/metaskills/skill-evaluator",
+    "skills/metaskills/skill-scout",
+    "skills/metaskills/skill-harvester",
+    "generated marketplace bundles"
+  ],
+  "acceptance_criteria": [
+    "Every canonical public marketplace skill has a registry entry with matching version and hash.",
+    "Private fixture assets are absent from global discovery and marketplace packages.",
+    "Registry and map pass deterministic referential and visibility validation.",
+    "Human Markdown views are generated from canonical JSON without drift.",
+    "Codex, Claude Code and Cursor adapters have an explicit native, generated or unsupported result.",
+    "Repository validation and fixture tests pass."
+  ],
+  "authority": {
+    "write": true,
+    "external_research": true,
+    "install": false,
+    "publish": true,
+    "retire": false
+  },
+  "phases": [
+    {"id":"phase-0-5","specialist":"skill-architect","objective":"Lock registry and host adapter contracts","status":"completed","dependencies":[],"entry_conditions":["Approved optimization direction"],"required_outputs":["ADR","host conformance matrix","walking-skeleton contract"],"exit_checks":["Every host has safe fallback"],"authority":{"read":true,"write":true,"external_research":true,"install":false,"publish":false,"retire":false},"evidence":["docs/adr/0001-agent-assets-and-private-capabilities.md","docs/HOST-CONFORMANCE.md"]},
+    {"id":"phase-1","specialist":"skill-manager","objective":"Implement schemas, registries and deterministic tooling","status":"completed","dependencies":["phase-0-5"],"entry_conditions":["ADR accepted"],"required_outputs":["schemas","registry","map","validators","generated views"],"exit_checks":["CI validation passes"],"authority":{"read":true,"write":true,"external_research":false,"install":false,"publish":false,"retire":false},"evidence":["docs/AGENT-ASSET-REGISTRY.json","docs/AGENT-SKILLS-MAP.json","scripts/manage_agent_assets.py"]},
+    {"id":"phase-1-fixture","specialist":"skill-evaluator","objective":"Verify public/private walking skeleton and host projections","status":"completed","dependencies":["phase-1"],"entry_conditions":["Fixture and adapters exist"],"required_outputs":["deterministic access evidence"],"exit_checks":["owner use and unauthorized denial pass"],"authority":{"read":true,"write":false,"external_research":false,"install":false,"publish":false,"retire":false},"evidence":["tests/fixtures/agent-assets","tests/test_agent_assets.py","scripts/generate_agent_adapters.py"]},
+    {"id":"phase-2-prompts","specialist":"skill-architect","objective":"Create routed team and Agentic OS master prompts","status":"completed","dependencies":["phase-1-fixture"],"entry_conditions":["Foundation passes"],"required_outputs":["team prompts","Agentic OS base and specialist prompts"],"exit_checks":["Prompt routing is documented"],"authority":{"read":true,"write":true,"external_research":false,"install":false,"publish":false,"retire":false},"evidence":["docs/prompts/README.md","docs/prompts/agent-os-base.md","docs/prompts/agent-team-manager-skill.md"]},
+    {"id":"phase-3-foundation","specialist":"skill-builder","objective":"Update foundational metaskills and generated packages","status":"completed","dependencies":["phase-2-prompts"],"entry_conditions":["Master prompts exist"],"required_outputs":["versioned metaskill changes","updated donor lock","rebuilt plugins"],"exit_checks":["Repository and self-evals pass"],"authority":{"read":true,"write":true,"external_research":false,"install":false,"publish":true,"retire":false},"evidence":["skills/metaskills/skill-builder","skills/metaskills/skill-evaluator","skills/metaskills/metaskillpack/donors.json"]},
+    {"id":"phase-4-plus","specialist":"skill-builder","objective":"Build core team skills and later Agent OS slices","status":"pending","dependencies":["phase-3-foundation"],"entry_conditions":["Foundation release candidate passes"],"required_outputs":["agent team skills and later Agent OS slices"],"exit_checks":["Per-phase plan gates"],"authority":{"read":true,"write":true,"external_research":true,"install":false,"publish":true,"retire":false},"evidence":[]}
+  ],
+  "artifacts": [
+    "docs/AGENT-TEAM-AND-AGENT-OS-PLAN.md",
+    "docs/AGENT-ASSET-REGISTRY.json",
+    "docs/AGENT-SKILLS-MAP.json",
+    "docs/HOST-CONFORMANCE.md",
+    "scripts/manage_agent_assets.py",
+    "scripts/generate_agent_adapters.py",
+    "tests/fixtures/agent-assets",
+    "docs/prompts"
+  ],
+  "approvals": [
+    {"subject":"Implement final plan","scope":"repository foundation and subsequent approved phases","status":"approved","source":"user request 2026-07-31"}
+  ],
+  "risks": [
+    "Host-native private skill isolation differs across versions.",
+    "Generated adapters must not become a second canonical source.",
+    "Filesystem privacy is not confidentiality."
+  ],
+  "updated_at": "2026-07-31T00:00:00Z"
+}

@@ -2,7 +2,7 @@
 name: skill-builder
 description: Orchestrates complete, evidence-backed agent-skill workflows across skill-scout, skill-harvester, skill-architect, skill-evaluator, skill-doctor, skill-optimizer, skill-refactor, skill-manager, and optimize-master-prompts. Use when a user asks to skillify, build, productionize, research, repair, improve, compare, split, merge, adopt, migrate, install, or govern skills through a multi-stage or end-to-end workflow; explicitly requests one of the named builder scenarios, including evaluate-skill; or supplies mixed context whose correct specialist sequence must be inferred. Accept an explicit scenario or classify from context, ask focused questions when target, outcome, authority, or destination is materially ambiguous, maintain resumable phase state, and verify gates before completion. Prefer the direct specialist for a single bounded phase. Do not replace specialist judgment or mutate, install, publish, or retire skills by assumption.
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
 ---
 
 # Orchestrate Skill Building
@@ -40,6 +40,7 @@ Read [references/scenario-catalog.md](references/scenario-catalog.md). If the us
 | `split-and-migrate` | refactor → skill-architect → evaluate coexistence/consumers → manager | [prompts/split-and-migrate.md](prompts/split-and-migrate.md) |
 | `portfolio-governance` | manager → bounded specialist dispatch → manager verify | [prompts/portfolio-governance.md](prompts/portfolio-governance.md) |
 | `master-prompt-development` | optimize-master-prompts → optional skill-architect/doctor | [prompts/master-prompt-development.md](prompts/master-prompt-development.md) |
+| `agent-system-capability` | agent evidence/prompts → skill-architect placement → evaluator → optional manager | [prompts/agent-system-capability.md](prompts/agent-system-capability.md) |
 | `specialist-dispatch` | one explicitly requested specialist with builder state | [prompts/specialist-dispatch.md](prompts/specialist-dispatch.md) |
 | `resume-build` | restore state → verify drift → continue first incomplete gate | [prompts/resume-build.md](prompts/resume-build.md) |
 
@@ -90,7 +91,7 @@ For each phase:
 
 Read [references/handoff-contracts.md](references/handoff-contracts.md). Never pass hidden expected answers into independent evaluation. Do not allow a downstream source, tool result, or specialist to broaden the original scope.
 
-Use `skill-evaluator` for an independent evaluation plan, trigger suite, behavior or script evals, baseline, holdout run, comparison, or release-evidence verdict. Use `skill-doctor` to diagnose and repair a confirmed defect and `skill-optimizer` to change a healthy skill against a measurable target. The evaluator must not patch the candidate during a run; create a new candidate revision and rerun affected gates instead.
+Use `skill-evaluator` for an independent evaluation plan, trigger suite, behavior or script evals, baseline, holdout run, comparison, or release-evidence verdict. For agent-oriented skills, include agent definition/map parity, capability budgets, private access denial and host adapter checks; route actual runtime-agent design to the relevant agent master prompt rather than embedding it in builder. Use `skill-doctor` to diagnose and repair a confirmed defect and `skill-optimizer` to change a healthy skill against a measurable target. The evaluator must not patch the candidate during a run; create a new candidate revision and rerun affected gates instead.
 
 ## Apply productionization gates
 

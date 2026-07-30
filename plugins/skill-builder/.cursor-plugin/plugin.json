@@ -1,6 +1,6 @@
 {
   "name": "skill-builder",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Orchestrates complete, evidence-backed agent-skill workflows across skill-scout, skill-harvester, skill-architect, skill-evaluator, skill-doctor, skill-optimizer, skill-refactor, skill-manager, and optimize-master-prompts",
   "homepage": "https://github.com/InnovationMachineTeam/skills",
   "repository": "https://github.com/InnovationMachineTeam/skills",

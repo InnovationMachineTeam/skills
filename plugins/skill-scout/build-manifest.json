@@ -1,7 +1,7 @@
 {
   "format": 2,
   "plugin": "skill-scout",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "source_layout": "skills/",
   "bundle_layout": "skills/<name>/",
   "platforms": [
@@ -21,17 +21,17 @@
   "files": [
     {
       "path": ".claude-plugin/plugin.json",
-      "sha256": "41d587ad3f15f5bcd8e6dbe5084da2206bff890d68955a8e2954de049110981c",
+      "sha256": "d8fc293b2c9e225c23e349420a68a1651857f41c672219aaa2c353c9488f32f0",
       "bytes": 438
     },
     {
       "path": ".codex-plugin/plugin.json",
-      "sha256": "2593dc01c1218579d19cacf685976c742992d368ee22835dde13477b7dac8238",
+      "sha256": "6dd3346d6ff67ac4bfefded9ecd96c408c2ebda3a45f3875d4dff48c8bd1846a",
       "bytes": 1385
     },
     {
       "path": ".cursor-plugin/plugin.json",
-      "sha256": "e3ee2a2c67498fa8fe6cdb2eef8187726163a6df0eb7a65b8cb95fec28f32159",
+      "sha256": "132ac0d67522ed1e2e49b4fe9d9ae9b3196871b2418af385f26c998403a19303",
       "bytes": 648
     },
     {
@@ -46,8 +46,8 @@
     },
     {
       "path": "skills/skill-scout/SKILL.md",
-      "sha256": "9370b57b3b0b6c750402e6eabdb4131e6b885789d2a36c8d73a09fec3d9d9dab",
-      "bytes": 6639
+      "sha256": "c97919952dd4c87af7d5c24dd538a379ac774426821c4c8d3addb3013b271d11",
+      "bytes": 6931
     },
     {
       "path": "skills/skill-scout/agents/openai.yaml",
@@ -126,8 +126,8 @@
     },
     {
       "path": "skills/skill-scout/references/output-schema.md",
-      "sha256": "b56ba9a5c37d9f47984f4699282c279e9396d100d9ca0faf5ac7c3048418836f",
-      "bytes": 960
+      "sha256": "4d4f7fc74faaf34b39e9404a05881c85c1fed5e2ea01fec90440a26aae345cfc",
+      "bytes": 1339
     },
     {
       "path": "skills/skill-scout/references/worth-a-skill.md",
@@ -146,8 +146,8 @@
     },
     {
       "path": "skills/skill-scout/scripts/validate_opportunities.py",
-      "sha256": "3b97a860ad8aca8c588f0a775caf05358f45da2c5488929f092549d3622734cc",
-      "bytes": 7009
+      "sha256": "e43b306c5f59929bea66c4e45f754cdafbf74b460d9263bfcefed77aad59d652",
+      "bytes": 7025
     }
   ]
 }

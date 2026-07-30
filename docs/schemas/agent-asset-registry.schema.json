@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/InnovationMachineTeam/skills/docs/schemas/agent-asset-registry.schema.json",
+  "title": "Agent Asset Registry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "revision", "updated_at", "assets"],
+  "properties": {
+    "$schema": {"type": "string"},
+    "schema_version": {"const": 1},
+    "revision": {"type": "integer", "minimum": 0},
+    "updated_at": {"type": "string", "format": "date-time"},
+    "assets": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/asset"}
+    }
+  },
+  "$defs": {
+    "semver": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:-[0-9A-Za-z.-]+)?(?:\\+[0-9A-Za-z.-]+)?$"},
+    "assetRef": {"type": "string", "pattern": "^asset://(repository|project|user|organization)/(agent|skill|command|workflow|team)/[a-z0-9][a-z0-9./-]*$"},
+    "asset": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "kind", "name", "version", "revision", "version_strategy", "content_sha256", "locator", "visibility", "scope", "discoverability", "owner_agent_ref", "allowed_consumers", "accountable_owner", "source_type", "provenance", "trust_status", "lifecycle_status", "host_compatibility", "eval_evidence", "replacement"],
+      "properties": {
+        "id": {"$ref": "#/$defs/assetRef"},
+        "kind": {"enum": ["agent", "skill", "command", "workflow", "team"]},
+        "name": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+        "version": {"oneOf": [{"$ref": "#/$defs/semver"}, {"type": "null"}]},
+        "revision": {"type": "integer", "minimum": 1},
+        "version_strategy": {"enum": ["independent", "inherit_agent"]},
+        "parent_version_ref": {"type": ["string", "null"]},
+        "content_sha256": {"type": "string", "pattern": "^sha256:[a-f0-9]{64}$"},
+        "locator": {"type": "string", "minLength": 1},
+        "visibility": {"enum": ["public", "private"]},
+        "scope": {"enum": ["repository", "project", "agent", "user", "organization"]},
+        "discoverability": {"enum": ["global", "project", "agent_scoped"]},
+        "owner_agent_ref": {"oneOf": [{"$ref": "#/$defs/assetRef"}, {"type": "null"}]},
+        "allowed_consumers": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/assetRef"}},
+        "accountable_owner": {"type": "string", "minLength": 1},
+        "source_type": {"enum": ["project", "installed", "locked", "marketplace", "external", "generated"]},
+        "provenance": {"type": "object"},
+        "trust_status": {"enum": ["unreviewed", "verified", "quarantined", "revoked"]},
+        "lifecycle_status": {"enum": ["draft", "candidate", "verified", "approved", "registered", "active", "suspended", "deprecated", "retired", "rejected"]},
+        "host_compatibility": {"type": "array", "uniqueItems": true, "items": {"enum": ["codex", "claude-code", "cursor", "agent-skills"]}},
+        "eval_evidence": {"type": "array", "items": {"type": "string"}},
+        "replacement": {"oneOf": [{"$ref": "#/$defs/assetRef"}, {"type": "null"}]}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"visibility": {"const": "private"}}, "required": ["visibility"]},
+          "then": {
+            "properties": {
+              "scope": {"const": "agent"},
+              "discoverability": {"const": "agent_scoped"},
+              "owner_agent_ref": {"$ref": "#/$defs/assetRef"},
+              "allowed_consumers": {"minItems": 1}
+            }
+          }
+        },
+        {
+          "if": {"properties": {"kind": {"const": "command"}}, "required": ["kind"]},
+          "then": {
+            "required": ["parent_version_ref"],
+            "properties": {
+              "version": {"type": "null"},
+              "version_strategy": {"const": "inherit_agent"},
+              "parent_version_ref": {"type": "string", "minLength": 1}
+            }
+          }
+        },
+        {
+          "if": {"properties": {"kind": {"enum": ["agent", "skill", "workflow", "team"]}}, "required": ["kind"]},
+          "then": {
+            "properties": {
+              "version": {"$ref": "#/$defs/semver"},
+              "version_strategy": {"const": "independent"}
+            }
+          }
+        }
+      ]
+    }
+  }
+}

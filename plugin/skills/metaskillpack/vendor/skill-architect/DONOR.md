@@ -2,7 +2,7 @@
 name: skill-architect
 description: Classifies skill ideas and supplied material, selects an archetype and the minimum viable placement—inline instruction, private agent command, private agent skill, or public skill—then designs, creates, registers, or updates the capability through routed master prompts. Use when the user explicitly invokes $skill-architect, asks for skill-archetype, resource, visibility, placement, or registration decisions, requests the routed master-prompt workflow, or arrives through an exact creation handoff from skill-builder, skill-scout, skill-harvester, or skill-refactor. Do not claim generic unnamed “create or update a skill” requests that need no architecture decision; leave those to the bundled skill-creator. Route independent evaluation of an existing skill to skill-evaluator, opportunity discovery to skill-scout, research extraction to skill-harvester, topology or visibility migration to skill-refactor, lifecycle changes to skill-manager, and end-to-end productionization to skill-builder.
 metadata:
-  version: "1.1.0"
+  version: "1.2.0"
 ---
 
 # Architect Agent Skills
@@ -38,7 +38,7 @@ Read [references/visibility-and-registry.md](references/visibility-and-registry.
 | Tool/script | The hard part is deterministic execution rather than model guidance. |
 | Workflow | Durable multi-stage state and coordination dominate the capability. |
 
-Treat `private` as agent-scoped discovery and authorization, not confidentiality. Folder placement alone is never a security boundary. A private capability remains reviewable, versioned, registered, and subject to repository access controls.
+Treat `private` as agent-scoped discovery and authorization, not confidentiality. Folder placement alone is never a security boundary. A private skill remains reviewable and independently versioned. A private command inherits its owning agent's SemVer and keeps only a revision and content hash. Both are registered and subject to repository access controls.
 
 For this repository convention, public project skills live under `skills/<category>/<skill>/` or `.agents/skills/<skill>/`; private capabilities live under `.agents/definitions/<agent-id>/skills/<skill>/` or `.agents/definitions/<agent-id>/commands/<command>.md`. Use a host adapter when the runtime requires another layout. Global discovery must exclude the canonical private roots.
 
@@ -90,8 +90,8 @@ Do not merely reproduce the master prompt. Execute its workflow to create or upd
 5. Keep `SKILL.md` procedural and concise. Put detailed or conditional material one level away in resources.
 6. Test every added executable on representative positive and failure cases.
 7. Run structural validation and behavioral checks proportional to risk.
-8. Register every created skill as a candidate with identity, version, hash, visibility, scope, locator, owner, consumers, provenance, trust, and lifecycle fields. Register private commands in the owning agent definition and registry extension used by the project.
-9. Verify that public discovery excludes private roots and that only the owning agent or explicitly allowed consumers can bind a private skill.
+8. Register every created skill or command as a candidate in `docs/AGENT-ASSET-REGISTRY.json` with identity, version strategy, revision, hash, visibility, scope, locator, technical owner, accountable human/team owner, consumers, provenance, trust, and lifecycle fields. Update `docs/AGENT-SKILLS-MAP.json` in the same revision-checked transaction.
+9. Verify that public discovery excludes private roots and that only the owning agent can bind a private capability. A second independent consumer requires a promotion assessment, not an expanded private allow-list.
 10. Forward-test complex skills with fresh context and without leaking the expected answer.
 11. Iterate until blocking defects are resolved or explicitly reported.
 
@@ -113,7 +113,7 @@ python3 scripts/validate_skill.py path/to/skill --format json
 
 Treat mechanical checks as a floor, not proof of behavioral quality. Use [evals/routing.json](evals/routing.json) for trigger and classification tests and [evals/behavior.json](evals/behavior.json) for functional and adversarial behavior.
 
-For visibility-aware bundles, include negative access cases: global search must not surface private assets, another agent must not bind them, and a missing owner or registry write must fail closed. Also test private-to-public promotion with consumer inventory, generalized contracts, versioning, registry/map migration, and rollback.
+For visibility-aware bundles, include negative access cases: global search must not surface private assets, another agent must not bind them, and a missing owner or failed registry transaction must fail closed. Also test private-to-public promotion with consumer inventory, a generalized owner-independent contract, independent lifecycle justification, versioning, registry/map migration, and rollback.
 
 For substantial, high-risk, or release-bound bundles, hand the immutable candidate to `skill-evaluator` for an independent plan, holdout, layered verdict, and catalog-level evidence. The **Evaluation/review** archetype above creates a skill whose product is evaluation; it does not make architect the independent evaluator of the bundle being created.
 

@@ -1,7 +1,7 @@
 {
   "format": 2,
   "plugin": "skill-refactor",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "source_layout": "skills/",
   "bundle_layout": "skills/<name>/",
   "platforms": [
@@ -21,17 +21,17 @@
   "files": [
     {
       "path": ".claude-plugin/plugin.json",
-      "sha256": "192b515e24f29cab453e3f7684f3a7e82c643cb660a6c343916dacdae9ec90c4",
+      "sha256": "9eb20f55bc82fd77e9c2f966b4723fb4da0ee99596c87fa26eabffa6c30ec8b0",
       "bytes": 472
     },
     {
       "path": ".codex-plugin/plugin.json",
-      "sha256": "933c3a24a9e3f8903fa6207606c50c69b57d2fcb5d6678c81cab863e1e02b2c1",
+      "sha256": "158d743db5a583027f06d80e468f498b33fd573f0fcbd2ff27b59501ce592d4c",
       "bytes": 1446
     },
     {
       "path": ".cursor-plugin/plugin.json",
-      "sha256": "cf5f4c1f50e3115a2ddd9b45aaa24526f6e398532e402ead3da2db76f016a9ed",
+      "sha256": "ec8ebde8298c21299a012f29f9c223921b2f491b014b7eb834144b874c09e721",
       "bytes": 681
     },
     {
@@ -46,7 +46,7 @@
     },
     {
       "path": "skills/skill-refactor/SKILL.md",
-      "sha256": "9ceef04945d61d0871d92e7a37ed329b3e4876decaf3d2590c527cc4edaf658e",
+      "sha256": "3f80275e01402f0ff09a360eb6f31f46f5b166ea18801d4c2f5057a593df6628",
       "bytes": 7864
     },
     {
@@ -101,8 +101,8 @@
     },
     {
       "path": "skills/skill-refactor/prompts/visibility-migration.md",
-      "sha256": "a529d85289cc812f891097c77217e98b7ef189d31e6affa3c63a2c40d71c1642",
-      "bytes": 1002
+      "sha256": "3891d92444decfa72eca0354468edc60f7604ff768f270e7b4c06583b8e299f4",
+      "bytes": 1154
     },
     {
       "path": "skills/skill-refactor/references/boundary-model.md",
@@ -136,8 +136,8 @@
     },
     {
       "path": "skills/skill-refactor/references/visibility-migration.md",
-      "sha256": "bc126712d9493d7f51913f8216041526914843d64947909b47637239c6a1f821",
-      "bytes": 1302
+      "sha256": "bbd5e6c62714a32e6edb516c81c1e71dbf1e153004b8fba071d38d22df1230f6",
+      "bytes": 1456
     },
     {
       "path": "skills/skill-refactor/scripts/analyze_boundaries.py",

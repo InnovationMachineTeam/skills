@@ -2,9 +2,11 @@
 
 ## Promote private to public
 
-Promotion is justified when a second independent consumer exists or the
-capability has a useful contract, owner, release cadence, and lifecycle outside
-its original agent. First remove owner-agent assumptions from prompts,
+Promotion is justified only when an approved independent consumer exists, the
+contract is generalized beyond the original agent, and ownership, release
+cadence, evaluation, and lifecycle outside the original agent justify a public
+surface. A second consumer triggers assessment but does not automatically
+authorize promotion. First remove owner-agent assumptions from prompts,
 resources, paths, permissions, and evals. Stage a public candidate, preserve a
 compatibility period, migrate registry/map references and consumers, verify
 global discovery plus old/new behavior, then retire the private copy.

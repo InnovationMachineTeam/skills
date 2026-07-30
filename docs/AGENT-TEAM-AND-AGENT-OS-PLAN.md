@@ -1,8 +1,8 @@
 # Единый план: команды агентов, skills mapping и Agent OS
 
-Статус: **proposal for review**
+Статус: **approved for phased implementation**
 
-Дата: **2026-07-30**
+Дата: **2026-07-31**
 
 Scope: agent-oriented skills, project-local `.agents`, registries, team workflows,
 model selection, docs/memory и будущая Agent OS.
@@ -16,7 +16,7 @@ model selection, docs/memory и будущая Agent OS.
    builder неизбежно станет mega-skill.
 3. Не создавать `agent-harvester` на первом этапе. Расширить `agent-context` и
    использовать `skill-harvester` для generic source intake.
-4. Использовать JSON как canonical registry/map, JSON Schema для validation и
+4. Использовать JSON как canonical asset registry/map, JSON Schema для validation и
    генерировать Markdown-представления для людей, LLM Wiki и Obsidian.
 5. Хранить project-local definitions, teams, workflows, prompts и skills в
    `.agents/`; не хранить там secrets и durable runtime history.
@@ -28,15 +28,22 @@ model selection, docs/memory и будущая Agent OS.
    создавать один всемогущий `agent-os` skill.
 9. Сначала создать schemas, validators и read-only inventory; только потом
    разрешить builders/mappers менять agent definitions.
-10. Изменения существующих metaskills выполнять отдельными кандидатами после
-    утверждения этого плана.
+10. Изменения существующих metaskills выполнять отдельными кандидатами с
+    SemVer, evals, generated rebuild и rollback.
+11. Использовать `docs/AGENT-ASSET-REGISTRY.json` как canonical discriminated
+    registry для agents, skills, commands, workflows и teams. Старое имя
+    `AGENT-SKILLS-REGISTRY` не создавать как второй source of truth.
+12. Private command наследует версию agent definition и имеет собственные
+    revision/content hash; private/public skill сохраняет собственный SemVer.
+13. `owner_agent_ref` задаёт technical consumer, а `accountable_owner` —
+    ответственного человека или команду; agent не является governance owner.
 
 ## 2. Текущее состояние
 
 - `.agents/` содержит только Codex marketplace manifest.
 - `skills-lock.json` в repository сейчас отсутствует; любые skills-lock formats
   должны discover/validate, а не предполагаться.
-- `docs/AGENT-SKILLS-REGISTRY.*` и `docs/AGENT-SKILLS-MAP.*` отсутствуют.
+- `docs/AGENT-ASSET-REGISTRY.*` и `docs/AGENT-SKILLS-MAP.*` создаются в Phase 1.
 - Agent best-practices corpus существует в
   `skills/agent-skills/agent-best-practices/best-practices/`.
 - Общий base и master prompts для agent-oriented skills существуют в
@@ -316,17 +323,17 @@ indexes. Не является runtime conversation memory и не разреш�
 
 Canonical:
 
-- `docs/AGENT-SKILLS-REGISTRY.json`;
+- `docs/AGENT-ASSET-REGISTRY.json`;
 - `docs/AGENT-SKILLS-MAP.json`.
 
 Generated human views:
 
-- `docs/AGENT-SKILLS-REGISTRY.md`;
+- `docs/AGENT-ASSET-REGISTRY.md`;
 - `docs/AGENT-SKILLS-MAP.md`.
 
 Schemas:
 
-- `docs/schemas/agent-skills-registry.schema.json`;
+- `docs/schemas/agent-asset-registry.schema.json`;
 - `docs/schemas/agent-skills-map.schema.json`;
 - `docs/schemas/agent-team-spec.schema.json`;
 - `docs/schemas/agent-definition.schema.json`.
@@ -339,21 +346,23 @@ referential integrity и atomic validation. Почему не YAML canonical: у
 
 ### 6.2 Registry contract
 
-Registry хранит inventory и lifecycle, а не runtime state:
+Asset registry хранит typed inventory и lifecycle, а не runtime state. Stable
+ID не зависит от locator; file move не меняет identity:
 
 ```json
 {
   "schema_version": 1,
   "revision": 1,
   "updated_at": "2026-07-30T00:00:00Z",
-  "agents": [
+  "assets": [
     {
-      "id": "agent://project/code-reviewer",
+      "id": "asset://project/agent/code-reviewer",
+      "kind": "agent",
       "name": "code-reviewer",
       "version": "1.0.0",
       "content_sha256": "sha256:...",
       "source": ".agents/definitions/code-reviewer/agent.json",
-      "owner": "team-or-person",
+      "accountable_owner": "team-or-person",
       "status": "candidate",
       "risk_tier": "R1",
       "model_policy_ref": "model-policy://code-reviewer-v1",
@@ -361,11 +370,10 @@ Registry хранит inventory и lifecycle, а не runtime state:
       "workflow_refs": [],
       "eval_evidence": [],
       "replacement": null
-    }
-  ],
-  "skills": [
+    },
     {
-      "id": "skill://project/code-review",
+      "id": "asset://project/skill/code-review",
+      "kind": "skill",
       "name": "code-review",
       "version": "1.0.0",
       "source_type": "project|installed|locked|marketplace|external",
@@ -376,24 +384,28 @@ Registry хранит inventory и lifecycle, а не runtime state:
       "discoverability": "global|project|agent_scoped",
       "owner_agent_ref": null,
       "allowed_consumers": [],
+      "accountable_owner": "team-or-person",
       "provenance": {},
       "host_compatibility": [],
       "trust_status": "unreviewed|verified|quarantined|revoked",
       "lifecycle_status": "candidate"
-    }
-  ],
-  "commands": [
+    },
     {
-      "id": "command://project/code-reviewer/handoff",
+      "id": "asset://project/command/code-reviewer/handoff",
+      "kind": "command",
       "name": "handoff",
-      "version": "1.0.0",
+      "version": null,
+      "revision": 1,
+      "version_strategy": "inherit_agent",
+      "parent_version_ref": "asset://project/agent/code-reviewer@1.0.0",
       "content_sha256": "sha256:...",
       "locator": ".agents/definitions/code-reviewer/commands/handoff.md",
       "visibility": "private",
       "scope": "agent",
       "discoverability": "agent_scoped",
-      "owner_agent_ref": "agent://project/code-reviewer",
-      "allowed_consumers": ["agent://project/code-reviewer"],
+      "owner_agent_ref": "asset://project/agent/code-reviewer",
+      "allowed_consumers": ["asset://project/agent/code-reviewer"],
+      "accountable_owner": "team-or-person",
       "lifecycle_status": "candidate"
     }
   ]
@@ -403,7 +415,7 @@ Registry хранит inventory и lifecycle, а не runtime state:
 Discovered unregistered asset добавляется как candidate/unreviewed только в
 staged inventory; обнаружение не означает trust, assignment или activation.
 
-Для private skill `owner_agent_ref` обязателен, `allowed_consumers` включает
+Для private skill/command `owner_agent_ref` обязателен, `allowed_consumers` включает
 owner, locator находится внутри canonical agent-private root, а
 `discoverability` равен `agent_scoped`. Validator запрещает public entry в
 private root и private binding для неразрешённого agent.
@@ -420,8 +432,8 @@ Map — canonical binding source. Host adapters render embedded skill lists from
   "bindings": [
     {
       "id": "binding://code-reviewer/code-review",
-      "agent_ref": "agent://project/code-reviewer@1.1.0",
-      "skill_ref": "skill://project/code-review@^1.0.0",
+      "agent_ref": "asset://project/agent/code-reviewer@1.1.0",
+      "capability_ref": "asset://project/skill/code-review@^1.0.0",
       "mode": "required|optional|fallback",
       "capabilities": ["review.code.correctness"],
       "activation": "always|on_intent|by_orchestrator",
@@ -594,8 +606,8 @@ memory или rapidly changing scheduler state.
 ```text
 docs/
 ├── INDEX.md
-├── AGENT-SKILLS-REGISTRY.json
-├── AGENT-SKILLS-REGISTRY.md
+├── AGENT-ASSET-REGISTRY.json
+├── AGENT-ASSET-REGISTRY.md
 ├── AGENT-SKILLS-MAP.json
 ├── AGENT-SKILLS-MAP.md
 ├── agents/
@@ -820,7 +832,7 @@ Builder дополнительно создаёт role prompts для:
 - public/private canonical roots, owner/consumer validation and access evals.
 
 Созданный skill регистрируется в
-`docs/AGENT-SKILLS-REGISTRY.json`; Markdown view генерируется. Если registry не
+`docs/AGENT-ASSET-REGISTRY.json`; Markdown view генерируется. Если registry не
 существует, initializer создаёт schema-valid candidate only after destination
 and authority are resolved.
 
@@ -970,9 +982,9 @@ consumer inventory
 → retire source
 ```
 
-## 14. Phased implementation plan
+## 14. Final phased implementation plan
 
-### Phase 0 — Review and decision lock
+### Phase 0 — Decision lock — approved
 
 Deliverables:
 
@@ -986,11 +998,33 @@ Deliverables:
 
 Exit: ADR records decisions; no active mutation.
 
-### Phase 1 — Schemas, registries and deterministic tooling
+### Phase 0.5 — Host conformance and walking-skeleton contract — completed
 
 Create:
 
-- four JSON schemas;
+- ADR для asset registry, visibility, version inheritance и ownership;
+- current host capability matrix for Codex, Claude Code and Cursor;
+- canonical-to-host adapter contract with `native`, `generated` and
+  `unsupported` outcomes;
+- one fixture containing public skill, private skill, private command and one
+  owning agent;
+- deny-by-default tests proving private roots are not global discovery roots.
+
+Codex adapter: project agents live in `.codex/agents/*.toml`; exact private
+skill path is enabled through agent-local `skills.config`. Claude adapter:
+preload does not restrict later Skill access, so strict private mode removes
+the Skill tool and embeds a hash-labelled projection. Cursor adapter uses the
+same conservative generated projection until native per-agent isolation is
+verified by a fixture on the target version.
+
+Exit: host assumptions are explicit and every unsupported native feature has a
+safe generated fallback or a blocking status.
+
+### Phase 1 — Schemas, registries and deterministic tooling — completed
+
+Create:
+
+- five JSON schemas, including revision-checked asset transactions;
 - empty schema-valid registry/map;
 - Markdown view generator;
 - inventory/reconciliation scripts;
@@ -1004,21 +1038,23 @@ skill, mapping cycle, generated-view drift, private asset without owner,
 unauthorized private binding, public asset in private root, global private
 discovery and partial atomic update.
 
-Exit: read-only inventory works on a repository with and without
-`skills-lock.json`.
+Exit: canonical inventory, fixture adapters, access-denial checks, transaction
+rollback, generated-view checks and repository validation pass. Installed-skill
+reconciliation with `skills-lock.json` remains a Phase 3 `skill-manager` route,
+not a blocker for the registry foundation.
 
-### Phase 2 — Master prompts
+### Phase 2 — Master prompts — completed
 
-Create team prompts from section 11 and Agent OS prompts from section 10.
-Update `docs/prompts/README.md` routing. Add positive, negative and collision
-cases before authoring skills.
+Team prompts from section 11 and Agent OS prompts from section 10 are stored in
+`docs/prompts/` and routed by `docs/prompts/README.md`. Positive, negative and
+collision cases are required inputs before authoring each skill in Phase 4–7.
 
 Exit: prompts pass lint, authority, boundary and forward review.
 
 Placement/private/migration prompts from section 11 are already drafted and
 must be used as executable inputs for Phase 3–4 rather than copied into skills.
 
-### Phase 3 — Modify foundational metaskills
+### Phase 3 — Modify foundational metaskills — completed
 
 Candidate changes:
 
@@ -1034,10 +1070,16 @@ Candidate changes:
 Each skill gets SemVer bump, routing/behavior/script evals, generated plugin
 rebuild and independent release evidence.
 
+Implemented in the `1.4.0` marketplace candidate: `skill-architect`,
+`skill-manager`, `skill-refactor`, `skill-scout`, `skill-harvester`,
+`skill-evaluator` and `skill-builder` now share the asset registry, owner-private
+placement and agent-system evaluation/orchestration contracts. `metaskillpack`
+was rebuilt from the updated read-only donor snapshots.
+
 Exit: created skill and agent candidates register atomically; active registries
 are unchanged on failed validation.
 
-### Phase 4 — Core team design skills
+### Phase 4 — Core team design skills — next
 
 Build in order:
 

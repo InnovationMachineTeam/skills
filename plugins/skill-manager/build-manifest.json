@@ -1,7 +1,7 @@
 {
   "format": 2,
   "plugin": "skill-manager",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "source_layout": "skills/",
   "bundle_layout": "skills/<name>/",
   "platforms": [
@@ -21,17 +21,17 @@
   "files": [
     {
       "path": ".claude-plugin/plugin.json",
-      "sha256": "a45aee3e2bcd672d2e38162d0d1a474419bf6d6b6c45863d3f6c6c517ad08e4c",
+      "sha256": "419b9f0159efc34ecfce907597358565628e5fc2965f742d0b9b1d716da16a0a",
       "bytes": 432
     },
     {
       "path": ".codex-plugin/plugin.json",
-      "sha256": "3de03ee2b01b95a12ec7aa6dbaae0766c6002422ce80039a345365f71b333eb4",
+      "sha256": "1e42f7d6af6c7d859eff72fc3e87ab6a219540153bdf36636109c40a416c7a33",
       "bytes": 1363
     },
     {
       "path": ".cursor-plugin/plugin.json",
-      "sha256": "d3efad46bf437ceb519cfeec02671cfe64610375f92b2680f115908e8df9c824",
+      "sha256": "c63f72e516188a7e3fc5545dd9237ee17c89f60b305da20bae09c7626eceb530",
       "bytes": 642
     },
     {
@@ -46,7 +46,7 @@
     },
     {
       "path": "skills/skill-manager/SKILL.md",
-      "sha256": "3168e4e17c184aa4dbdc6a6a573eec451312f1764cf6fedf317937390d339ce8",
+      "sha256": "2d17b7bef3fe968b1e8fcc51884996cab189c3cfe2f8da206061a148a619cebb",
       "bytes": 11024
     },
     {
@@ -141,8 +141,8 @@
     },
     {
       "path": "skills/skill-manager/references/visibility-and-access.md",
-      "sha256": "b4f4c0ac3a472ce4579840ff4ca99c5868fe0c26300887fa2c2339226837bad5",
-      "bytes": 1389
+      "sha256": "effce1cac50a5bb66e728e70badbf4fd57241116eaba9a4a877ff8e17b8c74b4",
+      "bytes": 1755
     },
     {
       "path": "skills/skill-manager/scripts/check_evals.py",
@@ -156,8 +156,8 @@
     },
     {
       "path": "skills/skill-manager/scripts/inventory_skills.py",
-      "sha256": "a01256177c7f44db507b98d59fb6dd1e25ae211d976e0ddeace0f81798eddea0",
-      "bytes": 12257
+      "sha256": "ddf8554079ddf30d4410c1b65f4e69d119bb1c16fc3737ef4745201129833f68",
+      "bytes": 12269
     }
   ]
 }

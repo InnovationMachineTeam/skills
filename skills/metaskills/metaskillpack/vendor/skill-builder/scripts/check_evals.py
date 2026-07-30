@@ -24,6 +24,7 @@ SCENARIOS = {
     "split-and-migrate",
     "portfolio-governance",
     "master-prompt-development",
+    "agent-system-capability",
     "specialist-dispatch",
     "resume-build",
 }

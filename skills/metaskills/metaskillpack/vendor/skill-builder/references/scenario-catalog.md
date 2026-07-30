@@ -16,6 +16,7 @@ Choose the scenario by the user's observable outcome, not by whichever input fil
 | `split-and-migrate` | mega-skill, separate capabilities, extract subskill | exact skill and compatibility requirements | staged topology and verified migration |
 | `portfolio-governance` | installed skills, versions, conflicts, rollout, retirement | explicit roots and target host | verified lifecycle state or plan |
 | `master-prompt-development` | system/developer/master prompt is the artifact | prompt or governing objective | created/audited/improved prompt and evals |
+| `agent-system-capability` | create a skill for designing, building, mapping, evaluating or operating agents/teams/Agent OS | exact agent-system outcome, target hosts and authority | minimal placed skill candidate with registry/access evidence |
 | `specialist-dispatch` | explicit single specialist, bounded result | specialist target and objective | one specialist result |
 | `resume-build` | continue, resume, checkpoint, state file | state or prior ledger | continued or safely reconstructed flow |
 
@@ -30,6 +31,7 @@ Choose the scenario by the user's observable outcome, not by whichever input fil
 7. Prefer `discover-opportunities` when the user asks what to build rather than to build it.
 8. Within builder, prefer `evaluate-skill` when evaluation is explicitly named, needs durable builder state, or is one gate in a larger requested lifecycle. Otherwise invoke `skill-evaluator` directly for a single bounded evaluation phase.
 9. Prefer `specialist-dispatch` when one non-scenario specialist phase can satisfy the entire request.
+10. Prefer `agent-system-capability` when the product is an agent-oriented skill; use the direct agent master prompt when the product is an agent definition rather than a skill.
 
 ## Ambiguous examples
 
@@ -39,6 +41,7 @@ Choose the scenario by the user's observable outcome, not by whichever input fil
 - “Create a skill from this complete spec.” Use `create-from-spec`, skipping scout and broad harvest.
 - “Write routing and script evals for this skill, then run them.” Use `evaluate-skill`; do not repair failures unless separately authorized.
 - “Skillify our repeated incident-response work.” Use `full-lifecycle`; scout may decide an automation or existing skill is better.
+- “Create a skill that builds approved agent-team specs into private/public capabilities.” Use `agent-system-capability`; apply the team-builder master prompt through skill-architect.
 
 ## Non-triggers
 

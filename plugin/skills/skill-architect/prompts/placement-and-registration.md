@@ -21,20 +21,24 @@ the next simpler form is insufficient.
 
 - Place private skills under the owning agent's canonical `skills/` directory
   and private commands under its `commands/` directory.
-- Require a stable owner-agent reference and explicit allowed consumers.
+- Require a stable owner-agent reference, one accountable human/team owner, and
+  an allow-list containing only that owner agent.
 - Keep private roots out of global discovery; pass only the current agent's
   approved root to the host adapter.
 - Do not describe folder placement as secrecy or a complete security boundary.
 - Give a private skill its own version and evaluation evidence; version the
-  owner agent when behavior changes.
+  owner agent when behavior changes. Give a private command only a revision and
+  hash; its `parent_version_ref` must equal the exact owner-agent version.
 
 ## Registration
 
-Create or update a candidate registry entry containing identity, name, version,
-hash, locator, visibility, scope, discoverability, owner, allowed consumers,
-source/provenance, trust, lifecycle, and evidence. Update the canonical binding
-map for assigned skills. Validate references and generated views before any
-activation. On partial failure, leave neither an unregistered active asset nor a
+Create or update a candidate in `docs/AGENT-ASSET-REGISTRY.json` containing
+identity, kind, name, version strategy, revision, hash, locator, visibility,
+scope, discoverability, technical owner, accountable owner, allowed consumers,
+source/provenance, trust, lifecycle, and evidence. Update
+`docs/AGENT-SKILLS-MAP.json` in the same revision-checked transaction. Validate
+references and generated views before activation. On failure, roll back both
+documents and their views; never leave an unregistered active asset or a
 registry entry pointing to a missing asset.
 
 ## Evaluation

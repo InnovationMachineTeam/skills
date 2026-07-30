@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.4.0 — 2026-07-31
+
+- Added a typed agent asset registry, versioned capability map, transaction
+  schema, deterministic Markdown views, and access-control validation.
+- Added generated project-agent adapters for Codex, Claude Code, and Cursor
+  with a tested owner-private walking skeleton.
+- Added team-lifecycle and Agentic OS master prompts under `docs/prompts/`.
+- Updated foundational metaskills for private capability placement,
+  owner/accountability, agent-system evaluation, and orchestration.
+
 ## 1.2.0 — 2026-07-30
 
 - Added the explicitly invoked `metaskillpack` composite with 19 canonical modes, nine aliases, and pinned read-only snapshots of all 12 metaskills.

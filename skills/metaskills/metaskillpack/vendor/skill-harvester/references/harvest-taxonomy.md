@@ -34,6 +34,14 @@ Authority boundaries, approval gates, data handling, prompt-injection defenses, 
 
 A tempting pattern that failed, creates unacceptable risk, duplicates a stronger pattern, or cannot be reused under available rights.
 
+### Agent-system contract
+
+Role and capability boundaries, agent definitions, task/context/handoff
+envelopes, team topologies, model policies, worktree/write-set rules, runtime
+state transitions, policy points, observability and Agentic OS plane contracts.
+Always attach source host/version and separate canonical definition from runtime
+state or generated adapters.
+
 ## Maturity
 
 - `observed`: appears in at least one source.

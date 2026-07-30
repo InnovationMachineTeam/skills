@@ -32,6 +32,45 @@ agent-domain procedure. Не объединяйте все prompts в один m
 | Поддерживает evidence corpus практик | [agent-best-practices-skill.md](agent-best-practices-skill.md) |
 | Собирает explicit composite toolkit | [agentkit-composite-skill.md](agentkit-composite-skill.md) |
 
+## Team lifecycle prompts
+
+Эти prompts также применяются после `agent-skill-base.md`:
+
+| Желаемый skill | Prompt |
+|---|---|
+| Проектирует роли, topology и team contract | [agent-team-architect-skill.md](agent-team-architect-skill.md) |
+| Управляет lifecycle и specialist routes | [agent-team-manager-skill.md](agent-team-manager-skill.md) |
+| Материализует approved team spec | [agent-team-builder-skill.md](agent-team-builder-skill.md) |
+| Исполняет approved team task graph | [agent-team-orchestrator-skill.md](agent-team-orchestrator-skill.md) |
+| Сопоставляет agents и skills | [agent-skill-mapper-skill.md](agent-skill-mapper-skill.md) |
+| Выбирает актуальные модели под роли | [agent-model-selector-skill.md](agent-model-selector-skill.md) |
+| Управляет worktrees/workspaces | [agent-workspace-manager-skill.md](agent-workspace-manager-skill.md) |
+| Управляет docs/wiki/graph knowledge | [agent-knowledge-manager-skill.md](agent-knowledge-manager-skill.md) |
+
+## Agentic OS prompts
+
+Для platform capability используй композицию:
+
+```text
+agent-skill-base.md + agent-os-base.md + ровно один Agentic OS specialist
+```
+
+| Plane/capability | Prompt |
+|---|---|
+| Architecture and ADRs | [agent-os-architect-skill.md](agent-os-architect-skill.md) |
+| Walking skeleton bootstrap | [agent-os-bootstrapper-skill.md](agent-os-bootstrapper-skill.md) |
+| Asset desired-state registry | [agent-registry-manager-skill.md](agent-registry-manager-skill.md) |
+| Durable task/runtime lifecycle | [agent-runtime-manager-skill.md](agent-runtime-manager-skill.md) |
+| Policy, approvals and credentials | [agent-policy-manager-skill.md](agent-policy-manager-skill.md) |
+| Telemetry, SLO and incidents | [agent-observer-skill.md](agent-observer-skill.md) |
+| Multi-model routing | [agent-model-router-skill.md](agent-model-router-skill.md) |
+| MCP/A2A/host adapters | [agent-protocol-manager-skill.md](agent-protocol-manager-skill.md) |
+| Independent platform evaluation | [agent-os-evaluator-skill.md](agent-os-evaluator-skill.md) |
+
+Knowledge plane использует `agent-knowledge-manager-skill.md` с invariants из
+`agent-os-base.md`; не создавай второй дублирующий knowledge skill без отдельного
+permission/state/SLO boundary.
+
 ## Placement overlays
 
 Перед созданием capability для конкретного agent запустите

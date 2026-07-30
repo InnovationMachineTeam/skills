@@ -7,7 +7,7 @@ Private Agent Skills marketplace maintained by **InnovationMachineTeam** for **I
 - Category: `metaskills`
 - Entries: one installable cross-host plugin per skill
 - Supported hosts: Claude Code, Codex, Cursor, and Agent Skills clients
-- Aggregate local plugin: `im-skills-all` (`1.2.0`)
+- Aggregate local plugin: `im-skills-all` (`1.4.0`)
 - Current visibility: private
 - Lead maintainer and required reviewer: [@stanislavus86](https://github.com/stanislavus86)
 
@@ -88,19 +88,19 @@ The aggregate plugin is intended for local integration testing and full-toolkit 
 
 | Entry | Purpose | Version |
 |---|---|---|
-| `metaskillpack` | Run the complete metaskill toolkit from one explicit command | 1.0.0 |
+| `metaskillpack` | Run the complete metaskill toolkit from one explicit command | 1.1.0 |
 | `optimize-master-prompts` | Design and improve durable controlling prompts | 1.0.0 |
-| `skill-architect` | Classify and create skill architectures | 1.0.0 |
+| `skill-architect` | Classify and create skill architectures | 1.2.0 |
 | `skill-best-practices` | Maintain an evidence-linked practices corpus | 1.0.1 |
-| `skill-builder` | Orchestrate end-to-end skill workflows | 1.0.0 |
+| `skill-builder` | Orchestrate end-to-end skill workflows | 1.1.0 |
 | `skill-doctor` | Diagnose and repair unhealthy skills | 1.0.0 |
-| `skill-evaluator` | Design and run skill evaluations | 1.0.0 |
-| `skill-harvester` | Extract reusable skill components and evidence | 1.0.0 |
-| `skill-manager` | Govern installed skill lifecycle | 1.0.0 |
+| `skill-evaluator` | Design and run skill evaluations | 1.1.0 |
+| `skill-harvester` | Extract reusable skill components and evidence | 1.1.0 |
+| `skill-manager` | Govern installed skill lifecycle | 1.2.0 |
 | `skill-marketplace-manager` | Design and operate skill marketplaces | 1.0.0 |
 | `skill-optimizer` | Improve healthy skills with measured evidence | 1.0.0 |
-| `skill-refactor` | Merge, split, extract, and reshape capabilities | 1.0.0 |
-| `skill-scout` | Discover and prioritize skill opportunities | 1.0.0 |
+| `skill-refactor` | Merge, split, extract, and reshape capabilities | 1.2.0 |
+| `skill-scout` | Discover and prioritize skill opportunities | 1.1.0 |
 
 The source of truth for versions is each skill's `SKILL.md → metadata.version`. Marketplace entry versions are generated from those values.
 
@@ -119,9 +119,13 @@ The source of truth for versions is each skill's `SKILL.md → metadata.version`
 ├── plugin/                           # generated aggregate cross-host package
 ├── scripts/                          # deterministic generation and validation
 ├── docs/
+│   ├── AGENT-ASSET-REGISTRY.json     # canonical typed asset inventory
+│   ├── AGENT-SKILLS-MAP.json         # versioned capability bindings
+│   ├── HOST-CONFORMANCE.md            # Codex/Claude/Cursor adapter contract
 │   ├── AGENT-METASKILLS-ANALYSIS.md # applying metaskill patterns to agents
-│   ├── AGENT-TEAM-AND-AGENT-OS-PLAN.md # proposed team and platform roadmap
+│   ├── AGENT-TEAM-AND-AGENT-OS-PLAN.md # approved phased implementation plan
 │   └── prompts/                     # reusable agent-oriented skill prompts
+├── tests/fixtures/agent-assets/      # public/private walking skeleton
 └── .github/workflows/validate.yml
 ```
 
@@ -132,8 +136,11 @@ documented in [docs/AGENT-METASKILLS-ANALYSIS.md](docs/AGENT-METASKILLS-ANALYSIS
 and [docs/prompts/README.md](docs/prompts/README.md). These are design inputs, not
 active agent definitions or automatically installed skills.
 
-The proposed registry, team, model-selection, knowledge, and Agent OS roadmap is
+The approved registry, team, model-selection, knowledge, and Agent OS roadmap is
 in [docs/AGENT-TEAM-AND-AGENT-OS-PLAN.md](docs/AGENT-TEAM-AND-AGENT-OS-PLAN.md).
+The implemented foundation is described in
+[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) and
+[docs/HOST-CONFORMANCE.md](docs/HOST-CONFORMANCE.md).
 
 ## Development workflow
 
@@ -163,6 +170,9 @@ in [docs/AGENT-TEAM-AND-AGENT-OS-PLAN.md](docs/AGENT-TEAM-AND-AGENT-OS-PLAN.md).
    ```bash
    python3 scripts/validate_repository.py .
    python3 scripts/validate_marketplace.py .
+   python3 scripts/manage_agent_assets.py validate .
+   python3 scripts/generate_agent_adapters.py tests/fixtures/agent-assets --check
+   python3 -B -m unittest discover -s tests -p 'test_*.py' -v
    npx skills add . --list
    claude plugin validate .
    claude plugin validate ./plugin --strict
@@ -177,7 +187,7 @@ in [docs/AGENT-TEAM-AND-AGENT-OS-PLAN.md](docs/AGENT-TEAM-AND-AGENT-OS-PLAN.md).
 
 - Individual skill and marketplace entry: the skill's `metadata.version`.
 - Aggregate plugin: independent SemVer in `catalog/release.json`.
-- Marketplace metadata: repository catalog format version, currently `1.2.0`.
+- Marketplace metadata: repository catalog format version, currently `1.4.0`.
 
 Bump an individual skill version whenever its installed contents or contract change. Bump the aggregate plugin when any bundled skill or aggregate install contract changes. A release is blocked if generated manifests or bundle hashes drift from canonical sources.
 

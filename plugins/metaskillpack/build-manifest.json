@@ -51,7 +51,7 @@
     },
     {
       "path": "skills/metaskillpack/donors.json",
-      "sha256": "9e104c057a2da0cb7b31dd5b07981c90e690f91507a3a05d4fc8436141e4f24b",
+      "sha256": "6a43da30c52c980cd68b841ffdb32a57bda9760254dc17aad4627022a006df60",
       "bytes": 4557
     },
     {
@@ -161,8 +161,8 @@
     },
     {
       "path": "skills/metaskillpack/vendor/skill-architect/DONOR.md",
-      "sha256": "c5749c87fc2a413dd24368131218b3c9308c01a3629edd9286e4f7fc2414a30b",
-      "bytes": 10732
+      "sha256": "525043427c363f168b7bd06f312fb961b1251f6e572b30e4dc579bf725a21ccc",
+      "bytes": 11073
     },
     {
       "path": "skills/metaskillpack/vendor/skill-architect/README.md",
@@ -216,8 +216,8 @@
     },
     {
       "path": "skills/metaskillpack/vendor/skill-architect/prompts/placement-and-registration.md",
-      "sha256": "55fc1fac4a5f5a7307626742627b3c09a2f1ca1d4e04bb2ba3b188787e7c237a",
-      "bytes": 2207
+      "sha256": "9c676da39f0bee23f65f60d8988ca629b160b2728f8660488bd7ddb9dd69157c",
+      "bytes": 2508
     },
     {
       "path": "skills/metaskillpack/vendor/skill-architect/prompts/script-automation.md",
@@ -261,8 +261,8 @@
     },
     {
       "path": "skills/metaskillpack/vendor/skill-architect/references/visibility-and-registry.md",
-      "sha256": "0d10925c45314cf4e7b38f0cd8e02e68030199b6ef4b5e22375b7539ad0c413a",
-      "bytes": 4197
+      "sha256": "64eb1fb2dcdb01262f9d909f3cb77079164772a3c80aa527117bc8ecbcb61b34",
+      "bytes": 4950
     },
     {
       "path": "skills/metaskillpack/vendor/skill-architect/scripts/validate_skill.py",
@@ -531,8 +531,8 @@
     },
     {
       "path": "skills/metaskillpack/vendor/skill-builder/DONOR.md",
-      "sha256": "a6ee0d94e3e6d2ad683284277dd83bc198844bf03b43aa44b91336f8caf51fb1",
-      "bytes": 11588
+      "sha256": "74989870d3ef5ac1fad3d74af5445bfca5d25caed9fdb26379d44114fa0cf4e8",
+      "bytes": 12021
     },
     {
       "path": "skills/metaskillpack/vendor/skill-builder/README.md",
@@ -551,8 +551,13 @@
     },
     {
       "path": "skills/metaskillpack/vendor/skill-builder/evals/routing.json",
-      "sha256": "070b57cd2d481669007f855e4167b0477015eda1676db6fbce5ff5661388b2aa",
-      "bytes": 5906
+      "sha256": "1502a770eda8a2d646066201a42ddc956dc15e1c44a82f3cbc8ba8fb5da78b88",
+      "bytes": 6312
+    },
+    {
+      "path": "skills/metaskillpack/vendor/skill-builder/prompts/agent-system-capability.md",
+      "sha256": "7120c576087b4913efd3c581e22c1a51291b9550023fc69614df928fe33f7e84",
+      "bytes": 1500
     },
     {
       "path": "skills/metaskillpack/vendor/skill-builder/prompts/base.md",
@@ -651,8 +656,8 @@
     },
     {
       "path": "skills/metaskillpack/vendor/skill-builder/references/scenario-catalog.md",
-      "sha256": "fc495f41e8f0a79cecf7a97db96e2eeb16aadae1bcfcb5132ca59f49ae6841a3",
-      "bytes": 4561
+      "sha256": "cc60e8a70467413db96d02c2019402e60a287e1dfe8188fa77e657b634ebc703",
+      "bytes": 5174
     },
     {
       "path": "skills/metaskillpack/vendor/skill-builder/references/skillify-patterns.md",
@@ -666,8 +671,8 @@
     },
     {
       "path": "skills/metaskillpack/vendor/skill-builder/scripts/check_evals.py",
-      "sha256": "55e1b17a4d208375664e764d623a1a0eeeb9bd214d788ac7004338859714c08e",
-      "bytes": 4859
+      "sha256": "5f13c9378c7be90e03df502308abc2d39ac92d00fdccc0c41ebdaeafaaf13adc",
+      "bytes": 4890
     },
     {
       "path": "skills/metaskillpack/vendor/skill-builder/scripts/summarize_build_state.py",
@@ -791,8 +796,8 @@
     },
     {
       "path": "skills/metaskillpack/vendor/skill-evaluator/DONOR.md",
-      "sha256": "5afa8446ff98973c35ff945952671b114394658e50cbe8368e9b027adb98c7d2",
-      "bytes": 10145
+      "sha256": "b85fbe4b48ae159ced77256ef73240e504cc5202a93fed4833153f3e852b6054",
+      "bytes": 10478
     },
     {
       "path": "skills/metaskillpack/vendor/skill-evaluator/README.md",
@@ -861,13 +866,18 @@
     },
     {
       "path": "skills/metaskillpack/vendor/skill-evaluator/evals/routing.json",
-      "sha256": "86f12801e357757efe97e4409815818b149f7eb2af557efb151b58daca7cd8e0",
-      "bytes": 4398
+      "sha256": "9d0f5381dc6a2edcd5cfbe1460cdee95e16b2f1abc4ab3a59fa2b7057138a06b",
+      "bytes": 4717
     },
     {
       "path": "skills/metaskillpack/vendor/skill-evaluator/evals/scripts.json",
       "sha256": "2394060e95504015f91694d0c1dfd456d6de59fd23a2a7b3aa7f16ccb5fc797d",
       "bytes": 2224
+    },
+    {
+      "path": "skills/metaskillpack/vendor/skill-evaluator/prompts/agent-assets-and-access.md",
+      "sha256": "b951ed884b4cc14b0a924011581009ef10a5695d9587d58cc6411aae1b672d87",
+      "bytes": 1321
     },
     {
       "path": "skills/metaskillpack/vendor/skill-evaluator/prompts/audit-evaluation.md",
@@ -961,8 +971,8 @@
     },
     {
       "path": "skills/metaskillpack/vendor/skill-evaluator/scripts/check_evals.py",
-      "sha256": "c0bab1ed67a1f1c9057fb2eba4642f16fe2e472641d8eb941f6009f2c80e69fc",
-      "bytes": 5346
+      "sha256": "119f89cc3c005ed04a086b6d39320d01610b3c245122fbb31375ce0494baf25d",
+      "bytes": 5373
     },
     {
       "path": "skills/metaskillpack/vendor/skill-evaluator/scripts/compare_eval_runs.py",
@@ -991,8 +1001,8 @@
     },
     {
       "path": "skills/metaskillpack/vendor/skill-harvester/DONOR.md",
-      "sha256": "6c47705c6e5f278a097c87063eb9424f15ccfc425180aefa23519294e4031b65",
-      "bytes": 10537
+      "sha256": "0e6f972130d45fee3501570e53afe66f82dbaec324974d42a99ce65d9ea8753e",
+      "bytes": 11100
     },
     {
       "path": "skills/metaskillpack/vendor/skill-harvester/README.md",
@@ -1091,8 +1101,8 @@
     },
     {
       "path": "skills/metaskillpack/vendor/skill-harvester/references/harvest-taxonomy.md",
-      "sha256": "098db3831b038024fd5d37f37530d29dfacd8b1d878069d19420d34a1a0f4fa6",
-      "bytes": 1928
+      "sha256": "0a25d177c5a9308cc635bf2dbb165ec589d815e2415e16e92afbc24d45f7e3e6",
+      "bytes": 2296
     },
     {
       "path": "skills/metaskillpack/vendor/skill-harvester/references/inbox-protocol.md",
@@ -1156,7 +1166,7 @@
     },
     {
       "path": "skills/metaskillpack/vendor/skill-manager/DONOR.md",
-      "sha256": "3168e4e17c184aa4dbdc6a6a573eec451312f1764cf6fedf317937390d339ce8",
+      "sha256": "2d17b7bef3fe968b1e8fcc51884996cab189c3cfe2f8da206061a148a619cebb",
       "bytes": 11024
     },
     {
@@ -1256,8 +1266,8 @@
     },
     {
       "path": "skills/metaskillpack/vendor/skill-manager/references/visibility-and-access.md",
-      "sha256": "b4f4c0ac3a472ce4579840ff4ca99c5868fe0c26300887fa2c2339226837bad5",
-      "bytes": 1389
+      "sha256": "effce1cac50a5bb66e728e70badbf4fd57241116eaba9a4a877ff8e17b8c74b4",
+      "bytes": 1755
     },
     {
       "path": "skills/metaskillpack/vendor/skill-manager/scripts/check_evals.py",
@@ -1271,8 +1281,8 @@
     },
     {
       "path": "skills/metaskillpack/vendor/skill-manager/scripts/inventory_skills.py",
-      "sha256": "a01256177c7f44db507b98d59fb6dd1e25ae211d976e0ddeace0f81798eddea0",
-      "bytes": 12257
+      "sha256": "ddf8554079ddf30d4410c1b65f4e69d119bb1c16fc3737ef4745201129833f68",
+      "bytes": 12269
     },
     {
       "path": "skills/metaskillpack/vendor/skill-marketplace-manager/DONOR.md",
@@ -1496,7 +1506,7 @@
     },
     {
       "path": "skills/metaskillpack/vendor/skill-refactor/DONOR.md",
-      "sha256": "9ceef04945d61d0871d92e7a37ed329b3e4876decaf3d2590c527cc4edaf658e",
+      "sha256": "3f80275e01402f0ff09a360eb6f31f46f5b166ea18801d4c2f5057a593df6628",
       "bytes": 7864
     },
     {
@@ -1556,8 +1566,8 @@
     },
     {
       "path": "skills/metaskillpack/vendor/skill-refactor/prompts/visibility-migration.md",
-      "sha256": "a529d85289cc812f891097c77217e98b7ef189d31e6affa3c63a2c40d71c1642",
-      "bytes": 1002
+      "sha256": "3891d92444decfa72eca0354468edc60f7604ff768f270e7b4c06583b8e299f4",
+      "bytes": 1154
     },
     {
       "path": "skills/metaskillpack/vendor/skill-refactor/references/boundary-model.md",
@@ -1591,8 +1601,8 @@
     },
     {
       "path": "skills/metaskillpack/vendor/skill-refactor/references/visibility-migration.md",
-      "sha256": "bc126712d9493d7f51913f8216041526914843d64947909b47637239c6a1f821",
-      "bytes": 1302
+      "sha256": "bbd5e6c62714a32e6edb516c81c1e71dbf1e153004b8fba071d38d22df1230f6",
+      "bytes": 1456
     },
     {
       "path": "skills/metaskillpack/vendor/skill-refactor/scripts/analyze_boundaries.py",
@@ -1616,8 +1626,8 @@
     },
     {
       "path": "skills/metaskillpack/vendor/skill-scout/DONOR.md",
-      "sha256": "9370b57b3b0b6c750402e6eabdb4131e6b885789d2a36c8d73a09fec3d9d9dab",
-      "bytes": 6639
+      "sha256": "c97919952dd4c87af7d5c24dd538a379ac774426821c4c8d3addb3013b271d11",
+      "bytes": 6931
     },
     {
       "path": "skills/metaskillpack/vendor/skill-scout/README.md",
@@ -1701,8 +1711,8 @@
     },
     {
       "path": "skills/metaskillpack/vendor/skill-scout/references/output-schema.md",
-      "sha256": "b56ba9a5c37d9f47984f4699282c279e9396d100d9ca0faf5ac7c3048418836f",
-      "bytes": 960
+      "sha256": "4d4f7fc74faaf34b39e9404a05881c85c1fed5e2ea01fec90440a26aae345cfc",
+      "bytes": 1339
     },
     {
       "path": "skills/metaskillpack/vendor/skill-scout/references/worth-a-skill.md",
@@ -1721,8 +1731,8 @@
     },
     {
       "path": "skills/metaskillpack/vendor/skill-scout/scripts/validate_opportunities.py",
-      "sha256": "3b97a860ad8aca8c588f0a775caf05358f45da2c5488929f092549d3622734cc",
-      "bytes": 7009
+      "sha256": "e43b306c5f59929bea66c4e45f754cdafbf74b460d9263bfcefed77aad59d652",
+      "bytes": 7025
     }
   ]
 }

@@ -1,6 +1,52 @@
 # Architecture
 
-## One source, four distribution views
+## Two planes: marketplace distribution and project agent assets
+
+The repository separates globally distributable marketplace skills from
+project-scoped agent assets. This is a capability boundary, not a claim that
+private content is secret.
+
+```text
+skills/metaskills/*                         public canonical skills
+        │
+        └── marketplace builders ─────────> plugins/ and plugin/
+
+.agents/definitions/<agent>/agent.json     canonical agent definition
+.agents/definitions/<agent>/skills/*       owner-only private skills
+.agents/definitions/<agent>/commands/*     owner-only private commands
+        │
+        ├── AGENT-ASSET-REGISTRY.json      identity, hash, ownership, lifecycle
+        ├── AGENT-SKILLS-MAP.json           versioned capability bindings
+        └── adapter generator ─────────────> .codex/.claude/.cursor agent views
+```
+
+`docs/AGENT-ASSET-REGISTRY.json` and `docs/AGENT-SKILLS-MAP.json` are the
+machine-readable sources of truth. Their Markdown counterparts are generated
+review views. All registry/map mutations use optimistic revision preconditions,
+candidate validation, and rollback through `manage_agent_assets.py
+apply-transaction`.
+
+The `register` command only renders a candidate asset record. It intentionally
+refuses `--write`; place the record and its binding change in an
+`apply-transaction` document. `sync-public` is the bounded reconciliation path
+for unbound canonical marketplace skills.
+
+Private skills and commands:
+
+- live only below their owning agent definition;
+- declare exactly one allowed consumer, equal to `owner_agent_ref`;
+- are excluded from marketplace packaging;
+- fail validation if orphaned, mapped to another agent, or moved into a public
+  discovery root;
+- are projected per host using the enforcement described in
+  [HOST-CONFORMANCE.md](HOST-CONFORMANCE.md).
+
+Agent definitions declare a capability budget. Registry validation rejects map
+drift, version drift, duplicate bindings, orphan private capabilities, and
+budgets that are exceeded. Private commands inherit the owning agent's SemVer
+and keep only their own revision and content hash.
+
+## Marketplace: one source, four distribution views
 
 ```text
 skills/metaskills/<name>/                canonical source of truth
@@ -53,6 +99,11 @@ Categories are presentation metadata, not identity boundaries. Skill and plugin 
 ## Trust boundary
 
 Manifests declare only components that exist. Bundles do not include MCP servers, hooks, agents, commands, or variables unless those components are intentionally added and validated for every target host. Secrets are never embedded; future configurable integrations must use host-supported variable declarations and placeholders.
+
+The marketplace builders only read `skills/`; they never package
+`.agents/definitions/`. Repository validation independently verifies this
+separation. Host projections are generated runtime/configuration artifacts and
+must not be treated as a second canonical source.
 
 ## Portability
 

@@ -1,0 +1,410 @@
+{
+  "schema_version": 1,
+  "revision": 2,
+  "updated_at": "2026-07-30T22:50:31Z",
+  "assets": [
+    {
+      "id": "asset://repository/skill/metaskillpack",
+      "kind": "skill",
+      "name": "metaskillpack",
+      "version": "1.1.0",
+      "revision": 2,
+      "version_strategy": "independent",
+      "parent_version_ref": null,
+      "content_sha256": "sha256:283e80ccd73410db0eae447f01847e1d4e401e2fd7799a577f7867b25255131b",
+      "locator": "skills/metaskills/metaskillpack",
+      "visibility": "public",
+      "scope": "repository",
+      "discoverability": "global",
+      "owner_agent_ref": null,
+      "allowed_consumers": [],
+      "accountable_owner": "InnovationMachineTeam",
+      "source_type": "project",
+      "provenance": {
+        "repository": "InnovationMachineTeam/skills"
+      },
+      "trust_status": "verified",
+      "lifecycle_status": "registered",
+      "host_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "eval_evidence": [],
+      "replacement": null
+    },
+    {
+      "id": "asset://repository/skill/optimize-master-prompts",
+      "kind": "skill",
+      "name": "optimize-master-prompts",
+      "version": "1.0.0",
+      "revision": 1,
+      "version_strategy": "independent",
+      "parent_version_ref": null,
+      "content_sha256": "sha256:6312cff4914f6d4b0eb225465019082f2c513577a9b73d8ccac1eb0c4532c0c3",
+      "locator": "skills/metaskills/optimize-master-prompts",
+      "visibility": "public",
+      "scope": "repository",
+      "discoverability": "global",
+      "owner_agent_ref": null,
+      "allowed_consumers": [],
+      "accountable_owner": "InnovationMachineTeam",
+      "source_type": "project",
+      "provenance": {
+        "repository": "InnovationMachineTeam/skills"
+      },
+      "trust_status": "verified",
+      "lifecycle_status": "registered",
+      "host_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "eval_evidence": [],
+      "replacement": null
+    },
+    {
+      "id": "asset://repository/skill/skill-architect",
+      "kind": "skill",
+      "name": "skill-architect",
+      "version": "1.2.0",
+      "revision": 2,
+      "version_strategy": "independent",
+      "parent_version_ref": null,
+      "content_sha256": "sha256:eb4662c3a1e88ab3413b09d0bf6c4ec3eb3d30328b5f67c19377916fd2a68086",
+      "locator": "skills/metaskills/skill-architect",
+      "visibility": "public",
+      "scope": "repository",
+      "discoverability": "global",
+      "owner_agent_ref": null,
+      "allowed_consumers": [],
+      "accountable_owner": "InnovationMachineTeam",
+      "source_type": "project",
+      "provenance": {
+        "repository": "InnovationMachineTeam/skills"
+      },
+      "trust_status": "verified",
+      "lifecycle_status": "registered",
+      "host_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "eval_evidence": [],
+      "replacement": null
+    },
+    {
+      "id": "asset://repository/skill/skill-best-practices",
+      "kind": "skill",
+      "name": "skill-best-practices",
+      "version": "1.0.1",
+      "revision": 1,
+      "version_strategy": "independent",
+      "parent_version_ref": null,
+      "content_sha256": "sha256:e33b69acb91e655bf2b8c206f9303f9f057882f8e7d354b05976aa2b315f56d4",
+      "locator": "skills/metaskills/skill-best-practices",
+      "visibility": "public",
+      "scope": "repository",
+      "discoverability": "global",
+      "owner_agent_ref": null,
+      "allowed_consumers": [],
+      "accountable_owner": "InnovationMachineTeam",
+      "source_type": "project",
+      "provenance": {
+        "repository": "InnovationMachineTeam/skills"
+      },
+      "trust_status": "verified",
+      "lifecycle_status": "registered",
+      "host_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "eval_evidence": [],
+      "replacement": null
+    },
+    {
+      "id": "asset://repository/skill/skill-builder",
+      "kind": "skill",
+      "name": "skill-builder",
+      "version": "1.1.0",
+      "revision": 2,
+      "version_strategy": "independent",
+      "parent_version_ref": null,
+      "content_sha256": "sha256:9f9638f672170cf344ea999b4bc19e2d399abbe44e622fb872f237a319cd21de",
+      "locator": "skills/metaskills/skill-builder",
+      "visibility": "public",
+      "scope": "repository",
+      "discoverability": "global",
+      "owner_agent_ref": null,
+      "allowed_consumers": [],
+      "accountable_owner": "InnovationMachineTeam",
+      "source_type": "project",
+      "provenance": {
+        "repository": "InnovationMachineTeam/skills"
+      },
+      "trust_status": "verified",
+      "lifecycle_status": "registered",
+      "host_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "eval_evidence": [],
+      "replacement": null
+    },
+    {
+      "id": "asset://repository/skill/skill-doctor",
+      "kind": "skill",
+      "name": "skill-doctor",
+      "version": "1.0.0",
+      "revision": 1,
+      "version_strategy": "independent",
+      "parent_version_ref": null,
+      "content_sha256": "sha256:6402e993c93784f83a293a819efc14b2188af1942526b938b5f95cd473df8107",
+      "locator": "skills/metaskills/skill-doctor",
+      "visibility": "public",
+      "scope": "repository",
+      "discoverability": "global",
+      "owner_agent_ref": null,
+      "allowed_consumers": [],
+      "accountable_owner": "InnovationMachineTeam",
+      "source_type": "project",
+      "provenance": {
+        "repository": "InnovationMachineTeam/skills"
+      },
+      "trust_status": "verified",
+      "lifecycle_status": "registered",
+      "host_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "eval_evidence": [],
+      "replacement": null
+    },
+    {
+      "id": "asset://repository/skill/skill-evaluator",
+      "kind": "skill",
+      "name": "skill-evaluator",
+      "version": "1.1.0",
+      "revision": 2,
+      "version_strategy": "independent",
+      "parent_version_ref": null,
+      "content_sha256": "sha256:14fd916eea7d1d74e1f4bffc465a3a5bef8951b4d275cbe07f2ca312d9296bae",
+      "locator": "skills/metaskills/skill-evaluator",
+      "visibility": "public",
+      "scope": "repository",
+      "discoverability": "global",
+      "owner_agent_ref": null,
+      "allowed_consumers": [],
+      "accountable_owner": "InnovationMachineTeam",
+      "source_type": "project",
+      "provenance": {
+        "repository": "InnovationMachineTeam/skills"
+      },
+      "trust_status": "verified",
+      "lifecycle_status": "registered",
+      "host_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "eval_evidence": [],
+      "replacement": null
+    },
+    {
+      "id": "asset://repository/skill/skill-harvester",
+      "kind": "skill",
+      "name": "skill-harvester",
+      "version": "1.1.0",
+      "revision": 2,
+      "version_strategy": "independent",
+      "parent_version_ref": null,
+      "content_sha256": "sha256:1c8becb66004f811c940e0e6b20568f02ae523ec2caa8516ff700b6822a51801",
+      "locator": "skills/metaskills/skill-harvester",
+      "visibility": "public",
+      "scope": "repository",
+      "discoverability": "global",
+      "owner_agent_ref": null,
+      "allowed_consumers": [],
+      "accountable_owner": "InnovationMachineTeam",
+      "source_type": "project",
+      "provenance": {
+        "repository": "InnovationMachineTeam/skills"
+      },
+      "trust_status": "verified",
+      "lifecycle_status": "registered",
+      "host_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "eval_evidence": [],
+      "replacement": null
+    },
+    {
+      "id": "asset://repository/skill/skill-manager",
+      "kind": "skill",
+      "name": "skill-manager",
+      "version": "1.2.0",
+      "revision": 2,
+      "version_strategy": "independent",
+      "parent_version_ref": null,
+      "content_sha256": "sha256:11beb5db3897dc41cf14ec89ea40e8e0e5b5455a2ad16cd939600e178d552ea1",
+      "locator": "skills/metaskills/skill-manager",
+      "visibility": "public",
+      "scope": "repository",
+      "discoverability": "global",
+      "owner_agent_ref": null,
+      "allowed_consumers": [],
+      "accountable_owner": "InnovationMachineTeam",
+      "source_type": "project",
+      "provenance": {
+        "repository": "InnovationMachineTeam/skills"
+      },
+      "trust_status": "verified",
+      "lifecycle_status": "registered",
+      "host_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "eval_evidence": [],
+      "replacement": null
+    },
+    {
+      "id": "asset://repository/skill/skill-marketplace-manager",
+      "kind": "skill",
+      "name": "skill-marketplace-manager",
+      "version": "1.0.0",
+      "revision": 1,
+      "version_strategy": "independent",
+      "parent_version_ref": null,
+      "content_sha256": "sha256:b47986899d301ff6f7bbb99fd0874288e26bd907a3f353b6cf6edbfa35b4c452",
+      "locator": "skills/metaskills/skill-marketplace-manager",
+      "visibility": "public",
+      "scope": "repository",
+      "discoverability": "global",
+      "owner_agent_ref": null,
+      "allowed_consumers": [],
+      "accountable_owner": "InnovationMachineTeam",
+      "source_type": "project",
+      "provenance": {
+        "repository": "InnovationMachineTeam/skills"
+      },
+      "trust_status": "verified",
+      "lifecycle_status": "registered",
+      "host_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "eval_evidence": [],
+      "replacement": null
+    },
+    {
+      "id": "asset://repository/skill/skill-optimizer",
+      "kind": "skill",
+      "name": "skill-optimizer",
+      "version": "1.0.0",
+      "revision": 1,
+      "version_strategy": "independent",
+      "parent_version_ref": null,
+      "content_sha256": "sha256:f123b811df139a7a0f85d867e263a12f997fc41762a48e4e306fa93b2ab94ef4",
+      "locator": "skills/metaskills/skill-optimizer",
+      "visibility": "public",
+      "scope": "repository",
+      "discoverability": "global",
+      "owner_agent_ref": null,
+      "allowed_consumers": [],
+      "accountable_owner": "InnovationMachineTeam",
+      "source_type": "project",
+      "provenance": {
+        "repository": "InnovationMachineTeam/skills"
+      },
+      "trust_status": "verified",
+      "lifecycle_status": "registered",
+      "host_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "eval_evidence": [],
+      "replacement": null
+    },
+    {
+      "id": "asset://repository/skill/skill-refactor",
+      "kind": "skill",
+      "name": "skill-refactor",
+      "version": "1.2.0",
+      "revision": 2,
+      "version_strategy": "independent",
+      "parent_version_ref": null,
+      "content_sha256": "sha256:3ebd1cd421eda4f5044030a3c42ece674c0c42824ebf82c9ca54957ea53e5107",
+      "locator": "skills/metaskills/skill-refactor",
+      "visibility": "public",
+      "scope": "repository",
+      "discoverability": "global",
+      "owner_agent_ref": null,
+      "allowed_consumers": [],
+      "accountable_owner": "InnovationMachineTeam",
+      "source_type": "project",
+      "provenance": {
+        "repository": "InnovationMachineTeam/skills"
+      },
+      "trust_status": "verified",
+      "lifecycle_status": "registered",
+      "host_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "eval_evidence": [],
+      "replacement": null
+    },
+    {
+      "id": "asset://repository/skill/skill-scout",
+      "kind": "skill",
+      "name": "skill-scout",
+      "version": "1.1.0",
+      "revision": 2,
+      "version_strategy": "independent",
+      "parent_version_ref": null,
+      "content_sha256": "sha256:d37de3da286cbd3d74df099ded7ce358ece2eea73c1c3bf30750f2b3066a72dd",
+      "locator": "skills/metaskills/skill-scout",
+      "visibility": "public",
+      "scope": "repository",
+      "discoverability": "global",
+      "owner_agent_ref": null,
+      "allowed_consumers": [],
+      "accountable_owner": "InnovationMachineTeam",
+      "source_type": "project",
+      "provenance": {
+        "repository": "InnovationMachineTeam/skills"
+      },
+      "trust_status": "verified",
+      "lifecycle_status": "registered",
+      "host_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "eval_evidence": [],
+      "replacement": null
+    }
+  ]
+}

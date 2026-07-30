@@ -10,7 +10,7 @@ from dataclasses import asdict, dataclass
 from pathlib import Path
 
 
-TYPES = {"knowledge", "workflow", "tool", "artifact", "evaluation", "safety", "routing", "portfolio"}
+TYPES = {"knowledge", "workflow", "tool", "artifact", "evaluation", "safety", "routing", "portfolio", "agent-system"}
 DECISIONS = {"CREATE_NEW", "EXTEND_EXISTING", "USE_EXISTING", "USE_AUTOMATION", "KEEP_AD_HOC", "RESEARCH"}
 CONFIDENCE = {"high", "medium", "low"}
 SCORES = {"frequency", "leverage", "repeatability", "specificity", "gap", "evalability", "risk", "maintenance"}

@@ -1,0 +1,36 @@
+{
+  "$schema": "../../../../../../docs/schemas/agent-definition.schema.json",
+  "schema_version": 1,
+  "id": "asset://project/agent/code-reviewer",
+  "name": "code-reviewer",
+  "version": "1.0.0",
+  "accountable_owner": "@stanislavus86",
+  "mission": {
+    "goal": "Review code for correctness, security regressions, and missing tests; report evidence before recommendations.",
+    "non_goals": [
+      "Do not modify implementation files.",
+      "Do not approve a change without evidence."
+    ]
+  },
+  "risk_tier": "R1",
+  "model_policy": {
+    "quality_tier": "strong",
+    "preferred": {
+      "codex": "gpt-5.4",
+      "claude-code": "opus",
+      "cursor": "auto"
+    },
+    "fallback": ["balanced host-default model"]
+  },
+  "tools": ["read", "search", "test"],
+  "permissions": ["repository:read", "tests:execute"],
+  "public_skill_refs": ["asset://project/skill/shared-review@1.0.0"],
+  "private_skill_refs": ["asset://project/skill/private-check@1.0.0"],
+  "private_command_refs": ["asset://project/command/review-handoff@1.0.0"],
+  "runtime": {
+    "loop": "inspect-plan-review-verify",
+    "budgets": {"max_capabilities": 3, "max_delegations": 0, "max_repair_cycles": 1},
+    "stop_conditions": ["review scope exhausted", "required evidence unavailable"]
+  },
+  "lifecycle": {"status": "verified", "replacement": null}
+}

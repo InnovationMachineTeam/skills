@@ -12,6 +12,7 @@ from pathlib import Path, PurePosixPath
 sys.dont_write_bytecode = True
 
 from validate_marketplace import validate_marketplace
+from manage_agent_assets import validate as validate_agent_assets
 
 
 LOCAL_PATH = re.compile(r"(?:/Users/|/home/|[A-Za-z]:\\\\)")
@@ -115,6 +116,7 @@ def validate_plugin_bundle(
 def main() -> int:
     root = Path(sys.argv[1] if len(sys.argv) > 1 else ".").resolve()
     failures: list[str] = []
+    failures.extend(validate_agent_assets(root))
     findings, inventory = validate_marketplace(root)
     failures.extend(f"{item.code}: {item.path}: {item.message}" for item in findings if item.level == "FAIL")
     skills = inventory["skills"]

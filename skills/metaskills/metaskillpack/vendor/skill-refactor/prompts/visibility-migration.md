@@ -7,6 +7,8 @@ boundary assessment prove that current visibility is wrong.
    current discovery behavior, desired visibility, and mutation authority.
 2. Compare owner assumptions, triggers, permissions, data, resources, versions,
    release cadence, and evaluation criteria.
+   Treat a second consumer as evidence to assess; require a generalized,
+   owner-independent contract and justified public lifecycle before promotion.
 3. Stage the destination candidate without removing the source.
 4. Produce exact registry, binding, agent-definition, consumer, adapter, and
    version changes.

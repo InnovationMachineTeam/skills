@@ -11,7 +11,7 @@ from pathlib import Path
 from typing import Any
 
 
-ROUTES = {"evaluation-plan", "routing-and-triggers", "behavior-and-quality", "script-and-tooling", "security-and-authority", "catalog-and-coexistence", "run-evaluation", "audit-evaluation", "compare-evaluations"}
+ROUTES = {"evaluation-plan", "routing-and-triggers", "behavior-and-quality", "script-and-tooling", "security-and-authority", "catalog-and-coexistence", "agent-assets-and-access", "run-evaluation", "audit-evaluation", "compare-evaluations"}
 
 
 @dataclass

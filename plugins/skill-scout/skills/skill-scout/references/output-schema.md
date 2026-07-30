@@ -15,6 +15,12 @@ Each candidate requires:
 - eight integer scores from 0 to 5: `frequency`, `leverage`, `repeatability`, `specificity`, `gap`, `evalability`, `risk`, `maintenance`;
 - `decision`, `confidence`, and `next_step`.
 
+`opportunity_type` may be `agent-system` when the missing product could be an
+agent-oriented skill, runtime agent, private capability, deterministic workflow
+or existing agent reuse. In that case `next_step` must name the recommended
+asset form and responsible specialist; the ordinary decision still records
+whether to create, extend, reuse, automate, keep ad hoc or research.
+
 Allowed decisions: `CREATE_NEW`, `EXTEND_EXISTING`, `USE_EXISTING`, `USE_AUTOMATION`, `KEEP_AD_HOC`, `RESEARCH`.
 
 Use `scripts/validate_opportunities.py` before ranking. A valid manifest does not prove demand or ROI.

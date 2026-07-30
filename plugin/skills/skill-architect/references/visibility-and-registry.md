@@ -21,9 +21,10 @@ Choose the least costly durable form:
 2. Use a private command for one agent's narrow named action or output template.
 3. Use a private skill for one agent's reusable capability that needs routing,
    references, scripts, evals, or its own version.
-4. Use a public skill when there are at least two independent consumers, or the
-   capability has an owner, release cadence, contract, and value independent of
-   one agent.
+4. Consider a public skill when an approved independent consumer exists and the
+   contract has been generalized beyond the original agent. Promote only when
+   independent ownership, release cadence, evaluation, and reuse value justify
+   the larger public surface.
 5. Use a deterministic tool/script when exact transformation is the hard part.
 6. Use a workflow when durable multi-stage state, coordination, or recovery is
    the hard part.
@@ -51,7 +52,8 @@ Register every skill, including private ones. A registry entry should contain:
 
 ```json
 {
-  "id": "skill://project/code-reviewer/check-changelog",
+  "id": "asset://project/skill/check-changelog",
+  "kind": "skill",
   "name": "check-changelog",
   "version": "1.0.0",
   "content_sha256": "sha256:...",
@@ -59,8 +61,9 @@ Register every skill, including private ones. A registry entry should contain:
   "visibility": "private",
   "scope": "agent",
   "discoverability": "agent_scoped",
-  "owner_agent_ref": "agent://project/code-reviewer",
-  "allowed_consumers": ["agent://project/code-reviewer"],
+  "owner_agent_ref": "asset://project/agent/code-reviewer",
+  "allowed_consumers": ["asset://project/agent/code-reviewer"],
+  "accountable_owner": "team-or-person",
   "source_type": "project",
   "provenance": {},
   "trust_status": "unreviewed",
@@ -73,10 +76,14 @@ Public entries use `visibility: public`, a repository or project scope,
 remains the canonical binding source. Registry presence does not imply trust,
 activation, or runtime availability.
 
-Validate uniqueness, path containment, version/hash parity, existing owner
-agent, allowed consumer references, and map authorization. Reject a private
-entry without an owner, a public entry inside a private root, or a private
-binding to an unlisted agent.
+Use `docs/AGENT-ASSET-REGISTRY.json` and `docs/AGENT-SKILLS-MAP.json` as the
+canonical machine-readable pair. Apply their changes as one optimistic,
+revision-checked transaction; regenerate Markdown views only after candidate
+validation. Validate uniqueness, path containment, version/hash parity,
+existing owner agent, accountable owner, allowed consumer references, and map
+authorization. Reject a private entry without an owner, any private allow-list
+member other than the owner, a public skill inside a private root, or a private
+binding to another agent.
 
 ## Version coupling
 
@@ -88,11 +95,16 @@ to its owner agent's behavior, update the agent definition too:
 - major for removal, replacement, authority, permission, input/output, or
   compatibility changes.
 
+A private command does not receive independent SemVer. It inherits the owning
+agent version through `parent_version_ref` and carries its own positive
+`revision` plus `content_sha256` for audit and drift detection.
+
 ## Promotion and demotion
 
-Promote private to public when a second independent consumer is approved, the
+Promote private to public only when an independent consumer is approved, the
 contract no longer assumes the original agent, and independent ownership,
-versioning, evals, and lifecycle are justified. Inventory consumers, stage the
+versioning, evals, and lifecycle are justified. A second consumer alone is
+evidence for assessment, not automatic promotion. Inventory consumers, stage the
 public candidate, migrate registry/map references, test coexistence and access,
 then retire the private copy after rollback is proven.
 

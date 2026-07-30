@@ -9,8 +9,11 @@ description и release lifecycle полноценного skill не нужны.
 Создай `.agents/definitions/<agent-id>/commands/<command>.md` с purpose,
 arguments, preconditions, allowed tools/effects, procedure, output contract,
 failure/stop behavior и examples. Зарегистрируй command в agent definition и в
-registry extension проекта с owner, version/hash, visibility private и allowed
-consumers.
+`docs/AGENT-ASSET-REGISTRY.json` с technical owner, accountable human/team
+owner, `revision`, hash, `visibility: private`, единственным allowed consumer и
+`parent_version_ref`, равным точной версии owner agent. Command не получает
+самостоятельный SemVer. Обнови `docs/AGENT-SKILLS-MAP.json` в той же
+revision-checked транзакции.
 
 Command не должен:
 

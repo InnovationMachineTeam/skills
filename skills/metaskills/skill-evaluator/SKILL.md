@@ -2,7 +2,7 @@
 name: skill-evaluator
 description: Designs, writes, audits, runs, and compares trustworthy evaluations for SKILL.md-based agent skills, including routing and trigger datasets, behavioral and output-quality cases, script and tool tests, security and authority probes, catalog coexistence, portability, lifecycle, cost, latency, and regression evidence. Use when a user asks to evaluate or benchmark a skill, create evals or trigger fixtures, test whether a description routes correctly, validate bundled scripts, review evaluation coverage or leakage, compare a candidate with a baseline, or provide an independent release verdict. Keep evaluation separate from diagnosis, repair, optimization, architecture, and activation; route those to skill-doctor, skill-optimizer, skill-architect, skill-refactor, or skill-manager.
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
 ---
 
 # Evaluate Agent Skills
@@ -34,6 +34,7 @@ Read [references/evaluation-model.md](references/evaluation-model.md), then [pro
 | `script-and-tooling` | safe executable, dependency, failure, and side-effect tests | [prompts/script-and-tooling.md](prompts/script-and-tooling.md) |
 | `security-and-authority` | adversarial, permission, exfiltration, and recovery probes | [prompts/security-and-authority.md](prompts/security-and-authority.md) |
 | `catalog-and-coexistence` | neighbor collision, composition, and catalog-budget evidence | [prompts/catalog-and-coexistence.md](prompts/catalog-and-coexistence.md) |
+| `agent-assets-and-access` | agent definition/map parity, private access, budgets, adapters | [prompts/agent-assets-and-access.md](prompts/agent-assets-and-access.md) |
 | `run-evaluation` | raw run artifacts and layer-specific verdicts | [prompts/run-evaluation.md](prompts/run-evaluation.md) |
 | `audit-evaluation` | coverage, leakage, grader, and evidence-integrity findings | [prompts/audit-evaluation.md](prompts/audit-evaluation.md) |
 | `compare-evaluations` | baseline/candidate delta and regression decision | [prompts/compare-evaluations.md](prompts/compare-evaluations.md) |
@@ -53,6 +54,8 @@ Evaluate each applicable layer independently:
 7. **Portability** — claimed hosts, runtimes, models, filesystems, and dependency surfaces.
 8. **Lifecycle** — discovery, version identity, pinning, activation, rollback, and retirement behavior.
 9. **User outcome** — whether representative users receive a useful result at acceptable cost and latency.
+10. **Agent assets and access** — definitions, registry/map versions, capability
+    budgets, owner-only private bindings, host projections and runtime denials.
 
 A structural pass does not imply behavioral quality. A passing script does not prove safe orchestration. Never collapse layer failures into one flattering aggregate score.
 

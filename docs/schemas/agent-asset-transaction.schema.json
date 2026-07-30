@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/InnovationMachineTeam/skills/docs/schemas/agent-asset-transaction.schema.json",
+  "title": "Agent Asset Transaction",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "id", "expected_revisions", "assets", "bindings"],
+  "properties": {
+    "$schema": {"type": "string"},
+    "schema_version": {"const": 1},
+    "id": {"type": "string", "pattern": "^transaction://[a-z0-9][a-z0-9./-]*$"},
+    "expected_revisions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["registry", "map"],
+      "properties": {
+        "registry": {"type": "integer", "minimum": 0},
+        "map": {"type": "integer", "minimum": 0}
+      }
+    },
+    "assets": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["upsert", "remove"],
+      "properties": {
+        "upsert": {"type": "array", "items": {"type": "object"}},
+        "remove": {"type": "array", "uniqueItems": true, "items": {"type": "string"}}
+      }
+    },
+    "bindings": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["upsert", "remove"],
+      "properties": {
+        "upsert": {"type": "array", "items": {"type": "object"}},
+        "remove": {"type": "array", "uniqueItems": true, "items": {"type": "string"}}
+      }
+    }
+  }
+}

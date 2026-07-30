@@ -15,7 +15,10 @@ allowed consumers, target host adapter и candidate registry/map update.
 Entry содержит identity, name, semantic version, content hash, locator,
 `visibility: private`, `scope: agent`, `discoverability: agent_scoped`,
 `owner_agent_ref`, `allowed_consumers`, provenance, trust, lifecycle и evidence.
-Agent definition ссылается на skill через canonical map. Behavior-changing
+`allowed_consumers` содержит только owner agent; отдельно укажи accountable
+human/team owner. Agent definition ссылается на skill через canonical map.
+Registry и map обновляются одной revision-checked транзакцией с rollback.
+Behavior-changing
 skill update увеличивает agent version по compatibility policy.
 
 ## Loader и tests

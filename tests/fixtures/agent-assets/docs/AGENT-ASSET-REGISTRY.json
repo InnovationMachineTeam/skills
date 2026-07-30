@@ -1,0 +1,125 @@
+{
+  "$schema": "../../../../docs/schemas/agent-asset-registry.schema.json",
+  "schema_version": 1,
+  "revision": 6,
+  "updated_at": "2026-07-31T00:00:00Z",
+  "assets": [
+    {
+      "id": "asset://project/agent/code-reviewer",
+      "kind": "agent",
+      "name": "code-reviewer",
+      "version": "1.0.0",
+      "revision": 3,
+      "version_strategy": "independent",
+      "parent_version_ref": null,
+      "content_sha256": "sha256:d4039202055e952cbadff20224c887c5ab8f58a924a42c3894705e951e586f2d",
+      "locator": ".agents/definitions/code-reviewer/agent.json",
+      "visibility": "public",
+      "scope": "project",
+      "discoverability": "project",
+      "owner_agent_ref": null,
+      "allowed_consumers": [],
+      "accountable_owner": "@stanislavus86",
+      "source_type": "project",
+      "provenance": {
+        "repository": "InnovationMachineTeam/skills"
+      },
+      "trust_status": "verified",
+      "lifecycle_status": "registered",
+      "host_compatibility": [
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "eval_evidence": [],
+      "replacement": null
+    },
+    {
+      "id": "asset://project/command/review-handoff",
+      "kind": "command",
+      "name": "review-handoff",
+      "version": null,
+      "revision": 1,
+      "version_strategy": "inherit_agent",
+      "parent_version_ref": "asset://project/agent/code-reviewer@1.0.0",
+      "content_sha256": "sha256:59c3e23bb9375eb9faf884d0bc9c2226f6f747ff8981b0cb536cb31f2fb24912",
+      "locator": ".agents/definitions/code-reviewer/commands/review-handoff.md",
+      "visibility": "private",
+      "scope": "agent",
+      "discoverability": "agent_scoped",
+      "owner_agent_ref": "asset://project/agent/code-reviewer",
+      "allowed_consumers": [
+        "asset://project/agent/code-reviewer"
+      ],
+      "accountable_owner": "@stanislavus86",
+      "source_type": "project",
+      "provenance": {
+        "repository": "InnovationMachineTeam/skills"
+      },
+      "trust_status": "verified",
+      "lifecycle_status": "registered",
+      "host_compatibility": [],
+      "eval_evidence": [],
+      "replacement": null
+    },
+    {
+      "id": "asset://project/skill/private-check",
+      "kind": "skill",
+      "name": "private-check",
+      "version": "1.0.0",
+      "revision": 1,
+      "version_strategy": "independent",
+      "parent_version_ref": null,
+      "content_sha256": "sha256:d8a04f72dfc2cef854d69d2fbada0859bf69e4a7cbd921a6f8919008d096f47c",
+      "locator": ".agents/definitions/code-reviewer/skills/private-check",
+      "visibility": "private",
+      "scope": "agent",
+      "discoverability": "agent_scoped",
+      "owner_agent_ref": "asset://project/agent/code-reviewer",
+      "allowed_consumers": [
+        "asset://project/agent/code-reviewer"
+      ],
+      "accountable_owner": "@stanislavus86",
+      "source_type": "project",
+      "provenance": {
+        "repository": "InnovationMachineTeam/skills"
+      },
+      "trust_status": "verified",
+      "lifecycle_status": "registered",
+      "host_compatibility": [],
+      "eval_evidence": [],
+      "replacement": null
+    },
+    {
+      "id": "asset://project/skill/shared-review",
+      "kind": "skill",
+      "name": "shared-review",
+      "version": "1.0.0",
+      "revision": 1,
+      "version_strategy": "independent",
+      "parent_version_ref": null,
+      "content_sha256": "sha256:d1e06b59c504372f9baef007a57f3431675c6f2607eece4743dbbaa08e385e65",
+      "locator": ".agents/skills/shared-review",
+      "visibility": "public",
+      "scope": "project",
+      "discoverability": "project",
+      "owner_agent_ref": null,
+      "allowed_consumers": [],
+      "accountable_owner": "@stanislavus86",
+      "source_type": "project",
+      "provenance": {
+        "repository": "InnovationMachineTeam/skills"
+      },
+      "trust_status": "verified",
+      "lifecycle_status": "registered",
+      "host_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "eval_evidence": [],
+      "replacement": null
+    }
+  ]
+}
