@@ -1,0 +1,4 @@
+interface:
+  display_name: "Skill Architect"
+  short_description: "Architect routed multi-archetype skills"
+  default_prompt: "Use $skill-architect to design and create the right kind of agent skill."

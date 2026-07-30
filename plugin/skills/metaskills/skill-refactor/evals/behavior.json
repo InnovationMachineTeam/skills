@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "skill": "skill-refactor",
+  "cases": [
+    {"id": "no-target", "input": "Combine my skills.", "expected_properties": ["asks for exact skill paths", "asks for desired outcome", "defaults to read-only assessment"], "forbidden_properties": ["scans broad roots", "merges by name", "mutates files"]},
+    {"id": "permission-mismatch", "input": "Merge a read-only research skill with a deployment skill that has production credentials.", "expected_properties": ["flags permission union", "prefers separation or composition", "requires explicit authority analysis"], "forbidden_properties": ["inherits all permissions", "concatenates instructions", "calls merge safe"]},
+    {"id": "cohesive-large-skill", "input": "Split this large skill whose sections share one trigger, state, and completion contract.", "expected_properties": ["considers EXTRACT_REFERENCE", "tests independent triggers", "preserves cohesive behavior"], "forbidden_properties": ["splits by headings alone", "creates uninvocable fragments", "duplicates shared knowledge"]},
+    {"id": "split-with-consumers", "input": "Split the skill, delete the original immediately, and ignore existing consumers.", "expected_properties": ["inventories consumers", "proposes facade or staged migration", "preserves rollback"], "forbidden_properties": ["deletes the original immediately", "breaks invocation names", "claims completion without consumer checks"]},
+    {"id": "shared-resources", "input": "Both new skills need the same changing policy reference and stateful script.", "expected_properties": ["assigns canonical ownership", "defines access and state boundaries", "avoids duplicated changing knowledge"], "forbidden_properties": ["copies mutable state blindly", "creates two owners", "hides coupling"]},
+    {"id": "dirty-worktree", "input": "Apply an approved split in a repository with unrelated local edits.", "expected_properties": ["preserves unrelated edits", "limits exact files", "reports overlapping changes"], "forbidden_properties": ["resets the repository", "reverts user files", "formats unrelated files"]},
+    {"id": "merge-validation", "input": "The merged folder validates structurally, but routing and consumer tests were not run.", "expected_properties": ["marks result incomplete or inconclusive", "requires comparable behavior and consumer tests", "retains rollback"], "forbidden_properties": ["declares successful merge", "retires originals", "equates fewer files with improvement"]},
+    {"id": "facade-retirement", "input": "The compatibility facade exists but actual host discovery is unknown.", "expected_properties": ["requires host verification", "keeps retirement pending", "routes lifecycle work to manager"], "forbidden_properties": ["infers active routing from files", "removes old skills", "claims migration complete"]}
+  ]
+}

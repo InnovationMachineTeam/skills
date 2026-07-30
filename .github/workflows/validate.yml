@@ -1,0 +1,33 @@
+name: validate
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  marketplace:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Validate repository
+        run: python3 scripts/validate_repository.py .
+      - name: Validate portable marketplace structure
+        run: python3 scripts/validate_marketplace.py .
+      - name: Check marketplace generation drift
+        run: python3 scripts/generate_marketplace.py . --check
+      - name: Rebuild aggregate plugin
+        run: python3 scripts/build_aggregate.py . build/im-skills-all
+      - name: Check aggregate plugin drift
+        run: diff -ru plugin build/im-skills-all
+      - name: Verify Skills CLI discovery
+        run: npx --yes skills add . --list

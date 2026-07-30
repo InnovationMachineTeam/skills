@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "reconciliation_id": "2026-07-30-initial-reconciliation",
+  "snapshot_id": "2026-07-30-initial",
+  "snapshot_hash": "sha256:287bd9bbc0e04741d95621083958ab2341c01e624c08d0ef66583293566a5583",
+  "registry_hash": "sha256:8edfb92d3bcd8bd65f05c2f80482e2129ab555bcc4914816f92827fe8af265f6",
+  "practices_revision": "2026-07-30-initial",
+  "status": "accepted-baseline",
+  "counts": {
+    "supported": 35,
+    "changed": 0,
+    "new": 0,
+    "conflict": 0,
+    "deprecated": 0,
+    "unverified": 2,
+    "exemplar-only": 2
+  },
+  "unresolved_conflicts": [],
+  "unverified_sources": ["SRC-DER-001", "SRC-LOCAL-001"],
+  "notes": "Initial reconciled corpus migrated to a portable marketplace. Runtime-local and legacy-derived sources remain explicitly unverified until resolved in the active environment."
+}

@@ -1,0 +1,13 @@
+{
+  "name": "im-skills-all",
+  "displayName": "IM Skills \u2014 All",
+  "version": "1.0.0",
+  "description": "Complete InnovationMachine Agent Skills toolkit",
+  "skills": [
+    "./skills/metaskills"
+  ],
+  "author": {
+    "name": "InnovationMachine",
+    "email": "stanislav.usoltsev@gmail.com"
+  }
+}

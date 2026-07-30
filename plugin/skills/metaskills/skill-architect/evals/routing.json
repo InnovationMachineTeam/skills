@@ -1,0 +1,143 @@
+{
+  "schema_version": "1.0",
+  "skill": "skill-architect",
+  "purpose": "Evaluate discovery, clarification, and primary-archetype routing.",
+  "cases": [
+    {
+      "id": "explicit-no-input",
+      "input": "Use $skill-architect.",
+      "expected_trigger": true,
+      "expected_action": "clarify",
+      "expected_primary_archetype": null,
+      "required_properties": [
+        "Ask what capability the user wants.",
+        "Ask for concrete trigger examples.",
+        "Do not create files yet."
+      ]
+    },
+    {
+      "id": "knowledge-policy-skill",
+      "input": "Use $skill-architect to create a skill that answers employee leave-policy questions from our supplied handbook and cites the relevant section.",
+      "expected_trigger": true,
+      "expected_action": "classify-and-create",
+      "expected_primary_archetype": "knowledge-reference"
+    },
+    {
+      "id": "workflow-incident-skill",
+      "input": "Use $skill-architect to build a reusable incident-response skill with triage, escalation, recovery, and postmortem checkpoints.",
+      "expected_trigger": true,
+      "expected_action": "classify-and-create",
+      "expected_primary_archetype": "workflow-procedure"
+    },
+    {
+      "id": "tool-linear-skill",
+      "input": "Use $skill-architect to create a skill for reading and updating Linear issues through the installed MCP server. Ask before closing an issue.",
+      "expected_trigger": true,
+      "expected_action": "classify-and-create",
+      "expected_primary_archetype": "tool-integration"
+    },
+    {
+      "id": "script-csv-skill",
+      "input": "Use $skill-architect to create a skill that deterministically normalizes large CSV files with a reusable command-line script and schema checks.",
+      "expected_trigger": true,
+      "expected_action": "classify-and-create",
+      "expected_primary_archetype": "script-automation"
+    },
+    {
+      "id": "artifact-deck-skill",
+      "input": "Use $skill-architect to create a skill that turns an outline into a branded presentation using our PPTX template and verifies rendered slides.",
+      "expected_trigger": true,
+      "expected_action": "classify-and-create",
+      "expected_primary_archetype": "artifact-template"
+    },
+    {
+      "id": "evaluation-security-skill",
+      "input": "Use $skill-architect to create a skill that audits pull requests for security defects and returns severity-ranked findings without fixing them.",
+      "expected_trigger": true,
+      "expected_action": "classify-and-create",
+      "expected_primary_archetype": "evaluation-review"
+    },
+    {
+      "id": "orchestrator-release-skill",
+      "input": "Use $skill-architect to create a skill that coordinates documentation, tests, security review, and packaging agents before a release.",
+      "expected_trigger": true,
+      "expected_action": "classify-and-create",
+      "expected_primary_archetype": "orchestration"
+    },
+    {
+      "id": "meta-router-skill",
+      "input": "Use $skill-architect to create a skill that classifies support requests and dispatches them to billing, technical, or account specialists.",
+      "expected_trigger": true,
+      "expected_action": "classify-and-create",
+      "expected_primary_archetype": "meta-router"
+    },
+    {
+      "id": "ambiguous-pdf",
+      "input": "Use $skill-architect to create a skill for working with PDFs.",
+      "expected_trigger": true,
+      "expected_action": "clarify",
+      "expected_primary_archetype": null,
+      "required_properties": [
+        "Ask which PDF outcomes are required.",
+        "Resolve whether the dominant type is tool, script, workflow, or artifact before scaffolding."
+      ]
+    },
+    {
+      "id": "hybrid-tool-script",
+      "input": "Use $skill-architect to create a GitHub skill that queries merged pull requests with gh and uses a bundled script to generate local release notes.",
+      "expected_trigger": true,
+      "expected_action": "classify-and-create",
+      "expected_primary_archetype": "tool-integration",
+      "expected_secondary_traits": ["script-automation", "workflow-procedure"]
+    },
+    {
+      "id": "update-existing-skill",
+      "input": "Use $skill-architect to improve the supplied SKILL.md description and add routing regression cases without changing its operational behavior.",
+      "expected_trigger": true,
+      "expected_action": "inspect-classify-and-update",
+      "expected_primary_archetype": "derive-from-existing-skill"
+    },
+    {
+      "id": "implicit-architecture-decision",
+      "input": "Classify whether a capability that reads Linear through MCP and uses a deterministic formatter should be a workflow, tool-integration, or script-backed skill; choose its resource architecture and run the appropriate master prompt.",
+      "expected_trigger": true,
+      "expected_action": "classify-and-create",
+      "expected_primary_archetype": "tool-integration"
+    },
+    {
+      "id": "explicit-bundled-creator",
+      "input": "Use $skill-creator to create a minimal Codex skill.",
+      "expected_trigger": false,
+      "expected_action": "route-to-bundled-skill-creator",
+      "expected_primary_archetype": null
+    },
+    {
+      "id": "unnamed-basic-create",
+      "input": "Create a minimal Codex skill from these complete requirements.",
+      "expected_trigger": false,
+      "expected_action": "route-to-bundled-skill-creator",
+      "expected_primary_archetype": null
+    },
+    {
+      "id": "neighbor-one-off-prompt",
+      "input": "Write a one-off prompt that summarizes this meeting transcript.",
+      "expected_trigger": false,
+      "expected_action": "do-not-trigger",
+      "expected_primary_archetype": null
+    },
+    {
+      "id": "neighbor-use-existing-skill",
+      "input": "Use the installed PDF skill to extract text from this document.",
+      "expected_trigger": false,
+      "expected_action": "do-not-trigger",
+      "expected_primary_archetype": null
+    },
+    {
+      "id": "neighbor-end-to-end-skillify",
+      "input": "Discover whether this repeated work deserves a skill, research it, create it, verify it, and prepare activation.",
+      "expected_trigger": false,
+      "expected_action": "route-to-skill-builder",
+      "expected_primary_archetype": null
+    }
+  ]
+}

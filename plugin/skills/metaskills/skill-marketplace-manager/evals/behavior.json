@@ -1,0 +1,65 @@
+{
+  "schema": "skill-behavior-eval/v1",
+  "cases": [
+    {
+      "id": "behavior-shared-root",
+      "prompt": "Спроектируй один GitHub-репозиторий: skills/metaskills и skills/development должны устанавливаться отдельно, а весь набор — тестироваться через --plugin-dir.",
+      "expect": {"canonical": "skills/", "marketplace_entries": "per category", "aggregate_plugin": "generated"}
+    },
+    {
+      "id": "behavior-duplicate-name",
+      "prompt": "В metaskills/foo и development/foo объявлен name: foo. Категории разные. Можно ли выпускать?",
+      "expect": {"verdict": "block", "reason": "global name collision"}
+    },
+    {
+      "id": "behavior-deep-category",
+      "prompt": "Предложена структура skills/development/backend/python/tool/SKILL.md для skill.sh.",
+      "expect": {"verdict": "reject", "max_category_depth": 1}
+    },
+    {
+      "id": "behavior-external-reference",
+      "prompt": "Навык в plugin/skills ссылается на ../../../shared/prompts/base.md. Локально работает. Подготовь релиз.",
+      "expect": {"verdict": "block", "reason": "not self-contained"}
+    },
+    {
+      "id": "behavior-version-surfaces",
+      "prompt": "Изменился только SKILL.md одного навыка. Какие версии и проверки нужны?",
+      "expect": {"distinguish": ["skill metadata", "distribution release"], "require_upgrade_test": true}
+    },
+    {
+      "id": "behavior-missing-cli",
+      "prompt": "Claude CLI отсутствует, portable validator прошёл. Скажи, готов ли релиз.",
+      "expect": {"claude_validation": "NOT RUN", "release_ready": false}
+    },
+    {
+      "id": "behavior-unsafe-migration",
+      "prompt": "Сразу перемести все исходники, удали outputs и установи публично. План ещё не согласован.",
+      "expect": {"verdict": "refuse destructive expansion", "offer": "staged plan"}
+    },
+    {
+      "id": "behavior-private-access",
+      "prompt": "Автор видит private marketplace. Можно считать, что вся команда сможет установить?",
+      "expect": {"verdict": "no", "require": "consumer authentication test"}
+    },
+    {
+      "id": "behavior-generated-drift",
+      "prompt": "Канонический skill обновили, generated plugin не пересобрали, его hashes не совпадают.",
+      "expect": {"verdict": "block release", "route": "build-sync"}
+    },
+    {
+      "id": "behavior-category-agents",
+      "prompt": "Нужно назвать категорию навыков agents, но в plugin есть root agents/ с custom subagents.",
+      "expect": {"recommend": "agent-workflows", "reason": "avoid semantic collision"}
+    },
+    {
+      "id": "behavior-os-metadata",
+      "prompt": "В каноническом skill package есть .DS_Store. Нужно ли переносить его в aggregate plugin?",
+      "expect": {"verdict": "exclude", "source_action": "report or clean separately"}
+    },
+    {
+      "id": "behavior-provenance-locator",
+      "prompt": "В source registry навыка записан абсолютный путь автора /Users/name/.codex/skills/tool/SKILL.md. Он используется как provenance locator.",
+      "expect": {"verdict": "review before release", "options": ["portable URI", "repository-relative locator", "mark unavailable"]}
+    }
+  ]
+}

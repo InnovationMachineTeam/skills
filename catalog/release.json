@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "marketplace": {
+    "name": "im-skills",
+    "repository": "InnovationMachineTeam/skills",
+    "visibility": "private",
+    "owner": "InnovationMachineTeam"
+  },
+  "publisher": {
+    "name": "InnovationMachineTeam",
+    "brand": "InnovationMachine"
+  },
+  "reviewer": {
+    "github": "stanislavus86",
+    "email": "stanislav.usoltsev@gmail.com"
+  },
+  "aggregate_plugin": {
+    "name": "im-skills-all",
+    "display_name": "IM Skills — All",
+    "version": "1.0.0",
+    "description": "Complete InnovationMachine Agent Skills toolkit"
+  },
+  "category": "metaskills"
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Master Prompt Optimizer"
+  short_description: "Design and improve reliable master prompts"
+  default_prompt: "Use $optimize-master-prompts to audit and improve this master prompt."

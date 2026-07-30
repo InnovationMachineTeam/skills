@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "registry_id": "locally-created-meta-skills",
+  "last_updated": "2026-07-30",
+  "practices_revision": "2026-07-30-initial",
+  "skills": [
+    {
+      "name": "optimize-master-prompts",
+      "role": "Create, audit, adapt, and evaluate durable master prompts",
+      "source_hint": "https://github.com/InnovationMachineTeam/skills/tree/main/skills/metaskills/optimize-master-prompts",
+      "risk": "medium",
+      "default_action": "audit"
+    },
+    {
+      "name": "skill-builder",
+      "role": "Orchestrate end-to-end and resumable skill workflows",
+      "source_hint": "https://github.com/InnovationMachineTeam/skills/tree/main/skills/metaskills/skill-builder",
+      "risk": "high",
+      "default_action": "audit"
+    },
+    {
+      "name": "skill-architect",
+      "role": "Classify, architect, and create coherent skill bundles",
+      "source_hint": "https://github.com/InnovationMachineTeam/skills/tree/main/skills/metaskills/skill-architect",
+      "risk": "high",
+      "default_action": "audit"
+    },
+    {
+      "name": "skill-doctor",
+      "role": "Diagnose unhealthy skills and verify minimal repairs",
+      "source_hint": "https://github.com/InnovationMachineTeam/skills/tree/main/skills/metaskills/skill-doctor",
+      "risk": "high",
+      "default_action": "audit"
+    },
+    {
+      "name": "skill-evaluator",
+      "role": "Design, run, audit, and compare independent skill evaluations",
+      "source_hint": "https://github.com/InnovationMachineTeam/skills/tree/main/skills/metaskills/skill-evaluator",
+      "risk": "high",
+      "default_action": "audit"
+    },
+    {
+      "name": "skill-harvester",
+      "role": "Harvest evidence and reusable components from explicit sources",
+      "source_hint": "https://github.com/InnovationMachineTeam/skills/tree/main/skills/metaskills/skill-harvester",
+      "risk": "high",
+      "default_action": "audit"
+    },
+    {
+      "name": "skill-manager",
+      "role": "Manage versions, installation, activation, governance, and retirement",
+      "source_hint": "https://github.com/InnovationMachineTeam/skills/tree/main/skills/metaskills/skill-manager",
+      "risk": "high",
+      "default_action": "audit"
+    },
+    {
+      "name": "skill-optimizer",
+      "role": "Run measured improvements on healthy skills",
+      "source_hint": "https://github.com/InnovationMachineTeam/skills/tree/main/skills/metaskills/skill-optimizer",
+      "risk": "high",
+      "default_action": "audit"
+    },
+    {
+      "name": "skill-refactor",
+      "role": "Change capability topology through compose, merge, split, and extraction",
+      "source_hint": "https://github.com/InnovationMachineTeam/skills/tree/main/skills/metaskills/skill-refactor",
+      "risk": "high",
+      "default_action": "audit"
+    },
+    {
+      "name": "skill-scout",
+      "role": "Discover and prioritize worthwhile skill opportunities",
+      "source_hint": "https://github.com/InnovationMachineTeam/skills/tree/main/skills/metaskills/skill-scout",
+      "risk": "medium",
+      "default_action": "audit"
+    },
+    {
+      "name": "skill-marketplace-manager",
+      "role": "Design, validate, migrate, and release portable skill marketplaces",
+      "source_hint": "https://github.com/InnovationMachineTeam/skills/tree/main/skills/metaskills/skill-marketplace-manager",
+      "risk": "high",
+      "default_action": "audit"
+    },
+    {
+      "name": "skill-best-practices",
+      "role": "Refresh the evidence corpus and generate bounded portfolio guidance",
+      "source_hint": ".",
+      "risk": "high",
+      "default_action": "staged-audit-only",
+      "notes": "Never self-modify the active installed copy; rebuild a sibling review bundle."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "schema": "skill-routing-eval/v1",
+  "cases": [
+    {
+      "id": "route-inventory",
+      "prompt": "Проверь read-only репозиторий с 40 навыками: найди дубликаты имён, глубину категорий и manifest drift.",
+      "expect": {"route": "inventory-audit", "mode": "inspect", "must_not": ["edit", "publish"]}
+    },
+    {
+      "id": "route-architecture",
+      "prompt": "Предложи структуру каталога для skill.sh и Claude Code с выборочной установкой категорий.",
+      "expect": {"route": "architecture-design", "mode": "plan"}
+    },
+    {
+      "id": "route-scaffold",
+      "prompt": "Создай локальный каркас нового marketplace с категориями metaskills и development, но не публикуй.",
+      "expect": {"route": "scaffold-marketplace", "mode": "apply", "must_not": ["publish"]}
+    },
+    {
+      "id": "route-curation",
+      "prompt": "Добавь эти три проверенных навыка в каталог, назначь одну категорию каждому и проверь коллизии.",
+      "expect": {"route": "catalog-curation"}
+    },
+    {
+      "id": "route-build",
+      "prompt": "Собери самодостаточный aggregate plugin в новый staging-каталог и сформируй hashes.",
+      "expect": {"route": "build-sync", "mode": "apply", "must_not": ["install", "publish"]}
+    },
+    {
+      "id": "route-validation",
+      "prompt": "Проверь, обнаруживаются ли навыки через skills CLI и Claude plugin, ничего не исправляй.",
+      "expect": {"route": "validate-compatibility", "mode": "verify"}
+    },
+    {
+      "id": "route-migration-plan",
+      "prompt": "Составь детальный план переноса outputs/* в marketplace с rollback. Пока не переноси.",
+      "expect": {"route": "migration", "mode": "plan", "must_not": ["move", "delete", "publish"]}
+    },
+    {
+      "id": "route-release",
+      "prompt": "Подготовь candidate release 1.2.0 и пилотную установку; публикацию вынеси на checkpoint.",
+      "expect": {"route": "release-distribution", "requires_checkpoint": true}
+    },
+    {
+      "id": "negative-single-skill-authoring",
+      "prompt": "Напиши новый skill для анализа SQL-запросов.",
+      "expect": {"route_away": "skill-architect"}
+    },
+    {
+      "id": "negative-single-skill-eval",
+      "prompt": "Оцени качество триггеров одного навыка и напиши holdout evals.",
+      "expect": {"route_away": "skill-evaluator"}
+    },
+    {
+      "id": "clarify-release-target",
+      "prompt": "Опубликуй marketplace.",
+      "expect": {"route": "release-distribution", "clarify": ["repository", "visibility", "version", "channel"]}
+    },
+    {
+      "id": "collision-install-channels",
+      "prompt": "Установи один и тот же skill через skill.sh и Claude marketplace в project scope.",
+      "expect": {"warn": "duplicate install channel", "must_not": ["install both"]}
+    }
+  ]
+}

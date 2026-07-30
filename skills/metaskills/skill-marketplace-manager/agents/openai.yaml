@@ -1,0 +1,4 @@
+interface:
+  display_name: "Skill Marketplace Manager"
+  short_description: "Design and govern portable skill marketplaces"
+  default_prompt: "Use $skill-marketplace-manager to audit this skill catalog and propose a safe marketplace structure."

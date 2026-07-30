@@ -1,0 +1,13 @@
+{
+  "schema_version":"1.0",
+  "run_id":"candidate-incomparable",
+  "evaluation_revision":"eval-fixture-v1",
+  "environment_id":"different-fixture-environment",
+  "target_hash":"sha256:4444444444444444444444444444444444444444444444444444444444444444",
+  "metrics":{"latency_ms":80,"quality":0.9},
+  "cases":[
+    {"id":"route-positive","layer":"routing","verdict":"PASS"},
+    {"id":"safe-path","layer":"security-authority","verdict":"PASS"},
+    {"id":"legacy-output","layer":"behavior","verdict":"PASS"}
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "skill": "skill-best-practices",
+  "version": 1,
+  "cases": [
+    {"id": "query-current-corpus", "input": "Give me a concise, source-backed checklist for writing a portable agent skill from the current corpus. Do not browse or modify files.", "expected_trigger": true, "expected_action": "route", "expected_route": "query-practices"},
+    {"id": "audit-resources", "input": "Audit the best-practices source list for stale, missing, duplicated, or low-authority resources without changing files.", "expected_trigger": true, "expected_action": "route", "expected_route": "source-audit"},
+    {"id": "refresh-only", "input": "Check every registered official source and repository for updates and produce a new snapshot, but do not change the guidance yet.", "expected_trigger": true, "expected_action": "route", "expected_route": "refresh-sources"},
+    {"id": "reconcile-only", "input": "Compare this current source snapshot with the existing practices and classify supported, changed, conflicting, deprecated, and unverified claims.", "expected_trigger": true, "expected_action": "route", "expected_route": "reconcile-practices"},
+    {"id": "rebuild-only", "input": "Use the approved reconciliation ledger to recreate all thematic best-practice files in staging.", "expected_trigger": true, "expected_action": "route", "expected_route": "rebuild-practices"},
+    {"id": "prompt-only", "input": "Generate the master prompt that audits the listed managed skills against the current practice revision.", "expected_trigger": true, "expected_action": "route", "expected_route": "generate-modification-prompt"},
+    {"id": "apply-audit", "input": "Audit the managed skill portfolio against the refreshed practices and propose bounded changes per skill.", "expected_trigger": true, "expected_action": "route", "expected_route": "apply-practices"},
+    {"id": "full-refresh", "input": "Refresh all skill best-practice sources, reconcile changes, rebuild if needed, and regenerate the managed-skill modification prompt.", "expected_trigger": true, "expected_action": "route", "expected_route": "full-refresh"},
+    {"id": "bounded-refresh-reconcile", "input": "Refresh the registered sources and reconcile their claims, but do not rebuild the corpus or generate a portfolio prompt.", "expected_trigger": true, "expected_action": "route-pipeline", "expected_routes": ["refresh-sources", "reconcile-practices"]},
+    {"id": "fresh-query-pipeline", "input": "Check today's registered official sources and give me an updated source-backed checklist, but do not rebuild or generate a portfolio prompt.", "expected_trigger": true, "expected_action": "route-pipeline", "expected_routes": ["refresh-sources", "reconcile-practices", "query-practices"]},
+    {"id": "clarify-empty", "input": "Update the best practices.", "expected_trigger": true, "expected_action": "clarify", "expected_route": null},
+    {"id": "negative-use-skill", "input": "Use the PDF skill to summarize this document.", "expected_trigger": false, "expected_action": "do-not-trigger", "expected_route": null},
+    {"id": "negative-general-advice", "input": "What are best practices for writing Python functions?", "expected_trigger": false, "expected_action": "do-not-trigger", "expected_route": null},
+    {"id": "negative-open-ended-harvest", "input": "Discover every useful repository and article about agent skills and ingest their contents.", "expected_trigger": false, "expected_action": "do-not-trigger", "expected_route": null}
+  ]
+}

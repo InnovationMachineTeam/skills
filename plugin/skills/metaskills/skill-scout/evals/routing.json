@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "skill": "skill-scout",
+  "cases": [
+    {"id": "explicit-no-evidence", "input": "Use $skill-scout and tell me what skill to build.", "expected_trigger": true, "expected_action": "clarify", "expected_primary_route": null},
+    {"id": "current-session", "input": "Analyze this conversation and suggest reusable skill opportunities from repeated work.", "expected_trigger": true, "expected_action": "scout", "expected_primary_route": "session-insights"},
+    {"id": "session-corpus", "input": "Mine these exported sessions and task reports for recurring capability gaps.", "expected_trigger": true, "expected_action": "scout", "expected_primary_route": "corpus-mining"},
+    {"id": "check-existing", "input": "Before recommending a new skill, check local roots and skills.sh for actual coverage.", "expected_trigger": true, "expected_action": "scout", "expected_primary_route": "existing-coverage"},
+    {"id": "context-impact", "input": "Is this idea worth a skill, and how would it affect loaded context, tools, permissions, and maintenance?", "expected_trigger": true, "expected_action": "scout", "expected_primary_route": "feasibility-context"},
+    {"id": "rank-portfolio", "input": "Rank these twelve skill ideas and reject the ones that should remain scripts or ad hoc work.", "expected_trigger": true, "expected_action": "scout", "expected_primary_route": "portfolio-prioritization"},
+    {"id": "prepare-creator-input", "input": "Prepare a bounded creator handoff for the approved opportunity, but do not create it.", "expected_trigger": true, "expected_action": "route-specialist", "expected_primary_route": "handoff"},
+    {"id": "find-only", "input": "Find an installable React performance skill.", "expected_trigger": false, "expected_action": "route-specialist", "expected_specialist": "find-skills", "expected_primary_route": null},
+    {"id": "create-only", "input": "Create a new skill from these finalized requirements.", "expected_trigger": false, "expected_action": "route-specialist", "expected_specialist": "skill-architect", "expected_primary_route": null},
+    {"id": "ordinary-brainstorm", "input": "Suggest names for my new coffee shop.", "expected_trigger": false, "expected_action": "do-not-trigger", "expected_primary_route": null},
+    {"id": "discover-through-activation", "input": "Find the best skill opportunity in these sessions, research it, build it, verify it, and prepare activation.", "expected_trigger": false, "expected_action": "route-specialist", "expected_specialist": "skill-builder", "expected_primary_route": null}
+  ]
+}

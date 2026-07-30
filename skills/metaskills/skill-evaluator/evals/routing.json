@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "skill": "skill-evaluator",
+  "holdout_policy": {"mode":"external-protected","exposure_rule":"Release holdout answers are stored outside the distributed skill and exposed only after candidate and gates are frozen."},
+  "cases": [
+    {"id":"plan-only","input":"Design a versioned evaluation plan and acceptance gates for this skill, but do not run anything.","expected_trigger":true,"expected_action":"route","expected_route":"evaluation-plan","split":"train"},
+    {"id":"write-triggers","input":"Write positive, negative, ambiguous, typo, and neighboring-skill trigger evals for this SKILL.md.","expected_trigger":true,"expected_action":"route","expected_route":"routing-and-triggers","split":"train"},
+    {"id":"behavior-suite","input":"Create functional and output-quality evals with assertions and a calibrated rubric for this skill.","expected_trigger":true,"expected_action":"route","expected_route":"behavior-and-quality","split":"validation"},
+    {"id":"script-tests","input":"Evaluate every bundled script on positive, failure, path, symlink, determinism, and cleanup cases.","expected_trigger":true,"expected_action":"route","expected_route":"script-and-tooling","split":"validation"},
+    {"id":"security-probes","input":"Create adversarial evals for prompt injection, authority expansion, secret exfiltration, and rollback failure.","expected_trigger":true,"expected_action":"route","expected_route":"security-and-authority","split":"regression"},
+    {"id":"catalog-collision","input":"Test this skill in the real catalog against its built-in and semantic neighbors, including common compositions.","expected_trigger":true,"expected_action":"route","expected_route":"catalog-and-coexistence","split":"validation"},
+    {"id":"run-frozen-plan","input":"Run this approved evaluation manifest against the exact target hash and preserve raw artifacts.","expected_trigger":true,"expected_action":"route","expected_route":"run-evaluation","split":"train"},
+    {"id":"audit-existing-evals","input":"Audit these evals for coverage gaps, expected-answer leakage, invalid metrics, and grader bias without rerunning them.","expected_trigger":true,"expected_action":"route","expected_route":"audit-evaluation","split":"regression"},
+    {"id":"compare-runs","input":"Compare the baseline and candidate evaluation reports and identify improvements, regressions, and incomparable cases.","expected_trigger":true,"expected_action":"route","expected_route":"compare-evaluations","split":"validation"},
+    {"id":"clarify-unsafe-run","input":"Evaluate this production skill by running all its scripts.","expected_trigger":true,"expected_action":"clarify","expected_route":null,"split":"validation"},
+    {"id":"russian-write-evals","input":"Напиши evals и триггеры для этого навыка, включая негативные и соседние случаи.","expected_trigger":true,"expected_action":"route","expected_route":"routing-and-triggers","split":"validation"},
+    {"id":"typo-evaluate-plan","input":"Create an evluation paln and releas gates for this skill without running it.","expected_trigger":true,"expected_action":"route","expected_route":"evaluation-plan","split":"regression"},
+    {"id":"compound-external-production","input":"Inspect this public GitHub skill, run all installers and tests, write evals and triggers, and tell me whether to install it in production.","expected_trigger":true,"expected_action":"clarify","expected_route":null,"split":"regression"},
+    {"id":"negative-fix-defect","input":"Fix the broken path handling in this unhealthy skill.","expected_trigger":false,"expected_action":"route-to-skill-doctor","expected_route":null,"split":"train"},
+    {"id":"negative-optimize","input":"Improve this healthy skill's trigger recall and reduce latency.","expected_trigger":false,"expected_action":"route-to-skill-optimizer","expected_route":null,"split":"regression"},
+    {"id":"negative-create","input":"Use $skill-architect to design and create a new tool-integration skill.","expected_trigger":false,"expected_action":"route-to-skill-architect","expected_route":null,"split":"validation"},
+    {"id":"negative-use-domain-skill","input":"Use the installed PDF skill to rotate this document.","expected_trigger":false,"expected_action":"do-not-trigger","expected_route":null,"split":"regression"}
+  ]
+}

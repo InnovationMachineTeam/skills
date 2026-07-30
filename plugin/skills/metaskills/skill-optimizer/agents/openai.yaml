@@ -1,0 +1,4 @@
+interface:
+  display_name: "Skill Optimizer"
+  short_description: "Measure and improve existing agent skills"
+  default_prompt: "Use $skill-optimizer to audit and improve this agent skill without changing its intended behavior."

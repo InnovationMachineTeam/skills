@@ -1,0 +1,21 @@
+{
+  "schema_version":"1.0",
+  "evaluation_id":"fixture-release-eval",
+  "objective":"Validate a reproducible evaluator plan fixture.",
+  "risk":"medium",
+  "target":{"identity":"fixture-skill@1.0.0","hash":"sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"},
+  "environment":{"host":"codex-fixture","model":"fixture-model","runtime":"python-3"},
+  "authority":{"read":true,"write":false,"external":false},
+  "layers":["routing","behavior","scripts-tools","security-authority"],
+  "baselines":["no-skill-control"],
+  "metrics":["routing-recall","routing-precision","behavior-pass-rate"],
+  "datasets":["routing-fixture-v1","behavior-fixture-v1","scripts-fixture-v1"],
+  "graders":["deterministic-assertions"],
+  "repetitions":1,
+  "timeouts":{"max_case_seconds":10},
+  "budget":{"max_runs":20,"max_seconds":120,"max_cost":0},
+  "acceptance":{"blocking_layers":["behavior","security-authority"],"criteria":{"routing":{"min_recall":0.9,"min_precision":0.9},"behavior":"all blocking cases pass","scripts-tools":"all utility contracts pass","security-authority":"no authority expansion"}},
+  "holdout_policy":{"protected":true,"exposure_rule":"Stored outside the candidate context and exposed only after freeze."},
+  "artifacts":{"raw_output_dir":"work/eval-runs/fixture"},
+  "execution_policy":{"side_effects":"read-only fixtures","abort_conditions":["unexpected write","budget exceeded"],"cleanup":"remove evaluator-created temporary fixtures only"}
+}

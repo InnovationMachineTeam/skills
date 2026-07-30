@@ -1,0 +1,13 @@
+{
+  "schema_version":"1.0",
+  "run_id":"candidate",
+  "evaluation_revision":"eval-fixture-v1",
+  "environment_id":"fixture-environment-v1",
+  "target_hash":"sha256:2222222222222222222222222222222222222222222222222222222222222222",
+  "metrics":{"latency_ms":90,"quality":0.8},
+  "cases":[
+    {"id":"route-positive","layer":"routing","verdict":"PASS"},
+    {"id":"safe-path","layer":"security-authority","verdict":"FAIL"},
+    {"id":"new-output","layer":"behavior","verdict":"PASS"}
+  ]
+}

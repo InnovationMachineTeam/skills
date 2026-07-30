@@ -1,0 +1,158 @@
+{
+  "skill": "skill-builder",
+  "version": 1,
+  "cases": [
+    {
+      "id": "explicit-full-lifecycle",
+      "input": "Use skill-builder scenario full-lifecycle to turn this recurring workflow into a production-ready skill.",
+      "expected_trigger": true,
+      "explicit_scenario": true,
+      "expected_scenario": "full-lifecycle",
+      "expected_action": "route"
+    },
+    {
+      "id": "implicit-create-spec",
+      "input": "The skill specification, triggers, permissions, output schema, and destination are complete. Build and validate the bundle, but do not install it.",
+      "expected_trigger": true,
+      "explicit_scenario": false,
+      "expected_scenario": "create-from-spec",
+      "expected_action": "route"
+    },
+    {
+      "id": "implicit-discovery",
+      "input": "Review these session exports and tell me which recurring tasks deserve skills and which should stay ad hoc.",
+      "expected_trigger": true,
+      "explicit_scenario": false,
+      "expected_scenario": "discover-opportunities",
+      "expected_action": "route"
+    },
+    {
+      "id": "implicit-research",
+      "input": "Use this repository and the PDF folder to research the domain, build SKILL_CONTEXT.md, and then create a tested skill.",
+      "expected_trigger": true,
+      "explicit_scenario": false,
+      "expected_scenario": "research-to-skill",
+      "expected_action": "route"
+    },
+    {
+      "id": "implicit-external",
+      "input": "Assess this public GitHub skill, adapt it for Codex if safe, and prepare a staged installation plan.",
+      "expected_trigger": true,
+      "explicit_scenario": false,
+      "expected_scenario": "external-skill-adoption",
+      "expected_action": "route"
+    },
+    {
+      "id": "explicit-evaluate-scenario",
+      "input": "Use skill-builder scenario evaluate-skill to design routing, behavior, script, and security evals for this skill and preserve resumable state.",
+      "expected_trigger": true,
+      "explicit_scenario": true,
+      "expected_scenario": "evaluate-skill",
+      "expected_action": "route"
+    },
+    {
+      "id": "implicit-repair",
+      "input": "This skill stopped triggering after an update. Repair it, prove recovery, then reduce its false positives.",
+      "expected_trigger": true,
+      "explicit_scenario": false,
+      "expected_scenario": "repair-and-improve",
+      "expected_action": "route"
+    },
+    {
+      "id": "implicit-optimize",
+      "input": "The skill is healthy. Reduce context cost by 20 percent without changing outputs or permissions.",
+      "expected_trigger": true,
+      "explicit_scenario": false,
+      "expected_scenario": "optimize-existing",
+      "expected_action": "route"
+    },
+    {
+      "id": "implicit-compare-refactor",
+      "input": "Compare these two skills and, if justified, compose or merge them without breaking consumers.",
+      "expected_trigger": true,
+      "explicit_scenario": false,
+      "expected_scenario": "compare-and-refactor",
+      "expected_action": "route"
+    },
+    {
+      "id": "implicit-split",
+      "input": "Split this mega-skill into coherent skills and migrate existing users through a compatibility facade.",
+      "expected_trigger": true,
+      "explicit_scenario": false,
+      "expected_scenario": "split-and-migrate",
+      "expected_action": "route"
+    },
+    {
+      "id": "implicit-portfolio",
+      "input": "Inventory our skill roots, resolve version conflicts, and prepare a safe rollout and retirement plan.",
+      "expected_trigger": true,
+      "explicit_scenario": false,
+      "expected_scenario": "portfolio-governance",
+      "expected_action": "route"
+    },
+    {
+      "id": "implicit-master-prompt",
+      "input": "Create and adversarially evaluate a durable developer prompt, then decide whether it should become a skill.",
+      "expected_trigger": true,
+      "explicit_scenario": false,
+      "expected_scenario": "master-prompt-development",
+      "expected_action": "route"
+    },
+    {
+      "id": "explicit-specialist",
+      "input": "Use skill-builder specialist-dispatch to run skill-doctor in read-only check-up mode on this path.",
+      "expected_trigger": true,
+      "explicit_scenario": true,
+      "expected_scenario": "specialist-dispatch",
+      "expected_action": "route"
+    },
+    {
+      "id": "implicit-resume",
+      "input": "Resume the paused skill build from this skill-build-state.json and do not repeat completed installs.",
+      "expected_trigger": true,
+      "explicit_scenario": false,
+      "expected_scenario": "resume-build",
+      "expected_action": "route"
+    },
+    {
+      "id": "clarify-empty",
+      "input": "Build me a skill.",
+      "expected_trigger": true,
+      "explicit_scenario": false,
+      "expected_scenario": null,
+      "expected_action": "clarify"
+    },
+    {
+      "id": "clarify-ambiguous-target",
+      "input": "Update it and deploy it everywhere.",
+      "expected_trigger": true,
+      "explicit_scenario": false,
+      "expected_scenario": null,
+      "expected_action": "clarify"
+    },
+    {
+      "id": "negative-domain-task",
+      "input": "Summarize this PDF and write a three-paragraph executive brief.",
+      "expected_trigger": false,
+      "explicit_scenario": false,
+      "expected_scenario": null,
+      "expected_action": "do-not-trigger"
+    },
+    {
+      "id": "negative-use-finished-skill",
+      "input": "Use the installed spreadsheet skill to total this CSV.",
+      "expected_trigger": false,
+      "explicit_scenario": false,
+      "expected_scenario": null,
+      "expected_action": "do-not-trigger"
+    },
+    {
+      "id": "negative-direct-evaluator",
+      "input": "Write routing and script evals for this one skill and return an independent verdict without fixing it.",
+      "expected_trigger": false,
+      "explicit_scenario": false,
+      "expected_scenario": null,
+      "expected_action": "do-not-trigger"
+    }
+  ]
+}

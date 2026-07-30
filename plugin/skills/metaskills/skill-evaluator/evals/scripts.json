@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "skill": "skill-evaluator",
+  "purpose": "Executable self-tests for bundled evaluator utilities; target-skill script matrices are authored per evaluation plan.",
+  "holdout_policy": {"mode":"external-protected","exposure_rule":"Release holdout answers are stored outside the distributed skill; these utility cases are public regressions."},
+  "cases": [
+    {"id":"plan-valid","script":"scripts/validate_eval_plan.py","args":["evals/fixtures/valid-plan.json"],"expected_exit":0,"side_effect_policy":"read-only","split":"train"},
+    {"id":"plan-invalid","script":"scripts/validate_eval_plan.py","args":["evals/fixtures/invalid-plan.json"],"expected_exit":1,"side_effect_policy":"read-only","split":"validation"},
+    {"id":"suite-valid","script":"scripts/validate_eval_suite.py","args":["evals/fixtures/valid-suite"],"expected_exit":0,"side_effect_policy":"read-only","split":"train"},
+    {"id":"routing-score","script":"scripts/score_routing.py","args":["evals/fixtures/routing-results.json"],"expected_exit":0,"side_effect_policy":"stdout-only unless explicit output","split":"validation"},
+    {"id":"routing-duplicate-rejected","script":"scripts/score_routing.py","args":["evals/fixtures/routing-results-duplicate.json"],"expected_exit":1,"side_effect_policy":"stderr-only","split":"regression"},
+    {"id":"compare-regression","script":"scripts/compare_eval_runs.py","args":["evals/fixtures/baseline.json","evals/fixtures/candidate.json"],"expected_exit":0,"side_effect_policy":"stdout-only unless explicit output","split":"regression","expected_json":{"decision":"REJECT"}},
+    {"id":"compare-blocked","script":"scripts/compare_eval_runs.py","args":["evals/fixtures/baseline.json","evals/fixtures/candidate-blocked.json"],"expected_exit":0,"side_effect_policy":"stdout-only unless explicit output","split":"regression","expected_json":{"decision":"BLOCKED"}},
+    {"id":"compare-incomparable","script":"scripts/compare_eval_runs.py","args":["evals/fixtures/baseline.json","evals/fixtures/candidate-incomparable.json"],"expected_exit":0,"side_effect_policy":"stdout-only unless explicit output","split":"regression","expected_json":{"comparable":false,"decision":"INCONCLUSIVE"}}
+  ]
+}
