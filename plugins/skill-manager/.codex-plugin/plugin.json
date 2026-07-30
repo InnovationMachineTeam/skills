@@ -1,7 +1,7 @@
 {
   "name": "skill-manager",
-  "version": "1.0.0",
-  "description": "Inventories, governs, installs, updates, enables, disables, quarantines, retires, and coordinates SKILL.md-based agent skills across explicitly scoped roots",
+  "version": "1.1.0",
+  "description": "Inventories, governs, installs, updates, surfaces, scopes, quarantines, retires, and coordinates public and agent-private SKILL.md-based capabilities across explicitly scoped roots and registries",
   "homepage": "https://github.com/InnovationMachineTeam/skills",
   "repository": "https://github.com/InnovationMachineTeam/skills",
   "license": "Proprietary",
@@ -19,8 +19,8 @@
   },
   "interface": {
     "displayName": "Skill Manager",
-    "shortDescription": "Inventories, governs, installs, updates, enables, disables, quarantines, retires, and coordinates SKILL.md-based agent…",
-    "longDescription": "Inventories, governs, installs, updates, enables, disables, quarantines, retires, and coordinates SKILL.md-based agent skills across explicitly scoped roots",
+    "shortDescription": "Inventories, governs, installs, updates, surfaces, scopes, quarantines, retires, and coordinates public and…",
+    "longDescription": "Inventories, governs, installs, updates, surfaces, scopes, quarantines, retires, and coordinates public and agent-private SKILL.md-based capabilities across explicitly scoped roots and registries",
     "developerName": "InnovationMachine",
     "category": "Developer Tools",
     "capabilities": [

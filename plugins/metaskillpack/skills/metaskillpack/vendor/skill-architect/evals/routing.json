@@ -138,6 +138,38 @@
       "expected_trigger": false,
       "expected_action": "route-to-skill-builder",
       "expected_primary_archetype": null
+    },
+    {
+      "id": "private-agent-skill-placement",
+      "input": "Use $skill-architect to create a reusable deployment-check capability only for agent release-manager. It needs references and evals and must not appear in project-wide skill discovery.",
+      "expected_trigger": true,
+      "expected_action": "classify-place-register-and-create",
+      "expected_primary_archetype": "workflow-procedure",
+      "expected_capability_form": "private-agent-skill"
+    },
+    {
+      "id": "private-command-placement",
+      "input": "Use $skill-architect to add a narrow /handoff command template used only by agent incident-lead; it has no scripts or independent eval lifecycle.",
+      "expected_trigger": true,
+      "expected_action": "classify-place-register-and-create",
+      "expected_primary_archetype": "artifact-template",
+      "expected_capability_form": "private-command"
+    },
+    {
+      "id": "public-reuse-placement",
+      "input": "Use $skill-architect to design one changelog-check skill for three independent release agents and project users.",
+      "expected_trigger": true,
+      "expected_action": "classify-place-register-and-create",
+      "expected_primary_archetype": "workflow-procedure",
+      "expected_capability_form": "public-skill"
+    },
+    {
+      "id": "inline-instead-of-skill",
+      "input": "Use $skill-architect to package the single rule 'always include the issue ID in the title' for only one agent; it has no resources or tests.",
+      "expected_trigger": true,
+      "expected_action": "recommend-inline-instruction",
+      "expected_primary_archetype": null,
+      "expected_capability_form": "inline-instruction"
     }
   ]
 }

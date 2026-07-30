@@ -15,6 +15,9 @@ agents, subagents, orchestrators и teams.
 - `compose` — создать orchestrated topology без физического merge;
 - `facade` — compatibility router/handoff bridge;
 - `migrate` — staged consumer/runtime transition.
+- `promote-public` — private capability становится independently reusable;
+- `demote-private` — public capability с единственным owner agent перестаёт
+  участвовать в global discovery.
 
 Topology mutation требует evidence-backed decision и approval. Обычная prompt
 optimization остаётся у `agent-optimizer`.
@@ -60,6 +63,10 @@ same authority и unified completion contract. Similar prompts сами по с�
 - Drain/cancel/migrate active runs явно.
 - Не копируй memory без provenance, consent и retention review.
 - Revoke old routes/credentials только после verified migration.
+- Visibility migration меняет registry/map, host adapters, owner agent version,
+  consumers и evals; folder move недостаточен.
+- Promotion требует второго independent consumer или самостоятельного
+  lifecycle; demotion требует доказанного единственного owner.
 
 ## Evaluation
 
@@ -69,6 +76,7 @@ coexistence, rollback и removal of deprecated dependencies.
 
 ## Output
 
-Верни `KEEP`, `COMPOSE`, `MERGE`, `SPLIT`, `EXTRACT`, `FACADE` или `REJECT`,
+Верни `KEEP`, `COMPOSE`, `MERGE`, `SPLIT`, `EXTRACT`, `FACADE`,
+`PROMOTE_PUBLIC`, `DEMOTE_PRIVATE` или `REJECT`,
 decision evidence, topology plan, staged candidate, migration/rollback evidence
 и unresolved risks. Не скрывай rejection только потому, что user suggested merge.

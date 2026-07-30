@@ -23,6 +23,13 @@ reviewable immutable agent-system candidate. Он не активирует runt
 решение. Не создавай отдельного agent только для persona, красивого имени или
 одной роли без отдельного state/tools/permissions boundary.
 
+После role/capability graph запусти
+[agent-capability-placement.md](agent-capability-placement.md) для каждой новой
+capability. Не создавай public skill, если capability нужна только одному agent
+и может жить inline, private command или private skill. В agent definition
+зафиксируй private roots, commands и allowed capability refs; не расширяй global
+discovery.
+
 ## Pattern selection
 
 Оцени uncertainty, coupling, parallelism, duration, side effects, reversibility,
@@ -55,6 +62,7 @@ forces/consequences:
 - failure model, retries, compensation и recovery;
 - telemetry/SLO/runbook requirements;
 - evaluation contract и release thresholds;
+- public/private skill bindings, private commands и registry/map references;
 - version, compatibility, migration и retirement.
 
 Для team добавь mission charter, lead, write-sets, shared artifacts,

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "pack": "metaskillpack",
-  "pack_version": "1.0.0",
+  "pack_version": "1.1.0",
   "donors": [
     {
       "name": "optimize-master-prompts",
@@ -18,8 +18,8 @@
     },
     {
       "name": "skill-architect",
-      "version": "1.0.0",
-      "tree_sha256": "d02c1c1e446d24813d72d6788bbd0c9fd60f855229ebf8ed011815e624a8e908",
+      "version": "1.1.0",
+      "tree_sha256": "64dfeda2777d1ba5e9b468cbf5d8d6acfbfd804af733dd56ae74eb4e2e33aae8",
       "source": "../skill-architect",
       "vendored_path": "vendor/skill-architect",
       "modes": [
@@ -108,8 +108,8 @@
     },
     {
       "name": "skill-manager",
-      "version": "1.0.0",
-      "tree_sha256": "9683b7629ead950aa4bbbe7e12a50c387d02c11c8aa4f401fc7a25298981913f",
+      "version": "1.1.0",
+      "tree_sha256": "10f60f1d9bd2859800ac8693eb025681962abab121b0564a1dbd80795e8a407e",
       "source": "../skill-manager",
       "vendored_path": "vendor/skill-manager",
       "modes": [
@@ -147,8 +147,8 @@
     },
     {
       "name": "skill-refactor",
-      "version": "1.0.0",
-      "tree_sha256": "be7933468ba43b240b790e1f13747a63950323f83fe19b1b14e527b8ea9ef9a3",
+      "version": "1.1.0",
+      "tree_sha256": "6166c1d2bebed98611cc9249254e4dc092234e851277431618b7197629f18129",
       "source": "../skill-refactor",
       "vendored_path": "vendor/skill-refactor",
       "modes": [

@@ -6,14 +6,14 @@
   },
   "metadata": {
     "description": "InnovationMachine Agent Skills marketplace",
-    "version": "1.2.0"
+    "version": "1.3.0"
   },
   "plugins": [
     {
       "name": "metaskillpack",
       "source": "plugins/metaskillpack",
       "description": "Provides a self-contained, explicitly invoked toolkit for creating, discovering, researching, optimizing, diagnosing, governing, harvesting, refactoring, evaluating, packaging, and orchestrating agent skills through isolated snapshots...",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "author": {
         "name": "InnovationMachine",
         "email": "stanislav.usoltsev@gmail.com"
@@ -64,8 +64,8 @@
     {
       "name": "skill-architect",
       "source": "plugins/skill-architect",
-      "description": "Classifies skill ideas and supplied material, chooses among knowledge, workflow, tool-integration, script-backed, artifact-template, evaluator, orchestrator, and meta/router archetypes, then designs, creates, or updates the skill...",
-      "version": "1.0.0",
+      "description": "Classifies skill ideas and supplied material, selects an archetype and the minimum viable placement—inline instruction, private agent command, private agent skill, or public skill—then designs, creates, registers, or updates the...",
+      "version": "1.1.0",
       "author": {
         "name": "InnovationMachine",
         "email": "stanislav.usoltsev@gmail.com"
@@ -220,8 +220,8 @@
     {
       "name": "skill-manager",
       "source": "plugins/skill-manager",
-      "description": "Inventories, governs, installs, updates, enables, disables, quarantines, retires, and coordinates SKILL.md-based agent skills across explicitly scoped roots",
-      "version": "1.0.0",
+      "description": "Inventories, governs, installs, updates, surfaces, scopes, quarantines, retires, and coordinates public and agent-private SKILL.md-based capabilities across explicitly scoped roots and registries",
+      "version": "1.1.0",
       "author": {
         "name": "InnovationMachine",
         "email": "stanislav.usoltsev@gmail.com"
@@ -298,8 +298,8 @@
     {
       "name": "skill-refactor",
       "source": "plugins/skill-refactor",
-      "description": "Assesses and safely changes capability boundaries across existing SKILL.md-based agent skills by composing, merging, splitting, extracting references or subskills, and creating compatibility facades",
-      "version": "1.0.0",
+      "description": "Assesses and safely changes capability boundaries and visibility across existing SKILL.md-based agent skills by composing, merging, splitting, extracting references or subskills, promoting private skills to public, demoting unused...",
+      "version": "1.1.0",
       "author": {
         "name": "InnovationMachine",
         "email": "stanislav.usoltsev@gmail.com"

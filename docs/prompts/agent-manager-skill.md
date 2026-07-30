@@ -16,6 +16,7 @@ agent definitions. Он не проектирует behavior и не выдаё�
 - `deprecate/retire` — replacement, drain, revoke and archive;
 - `audit` — drift, orphan, conflict, stale owner/evidence;
 - `reconcile` — desired versus observed state.
+- `scope-audit` — public/private placement, owner and allowed-consumer parity.
 
 Default mode is read-only inventory/plan. Registry write, activation, traffic,
 credentials, production state и retirement — distinct permissions.
@@ -38,6 +39,11 @@ credentials, production state и retirement — distinct permissions.
 
 Discovery не означает authorization. Filesystem presence не доказывает
 registration, routing или active behavior.
+
+Для skill assets дополнительно сохраняй `visibility`, `scope`,
+`discoverability`, `owner_agent_ref`, `allowed_consumers` и canonical locator.
+Private assets не входят в global discovery: runtime получает только private
+root выбранного agent. `private` не является classification секретности.
 
 ## Lifecycle
 
@@ -64,8 +70,10 @@ postconditions и recovery. Нельзя перепрыгивать blocking gat
 6. Validate provenance, compatibility, eval evidence and policy.
 7. Apply idempotently через supported runtime interface.
 8. Verify observed registry/routing/runtime state.
-9. Monitor observation window.
-10. Promote, pause or rollback; preserve audit.
+9. Для private capability verify owner use, unauthorized-agent denial и global
+   non-discovery.
+10. Monitor observation window.
+11. Promote, pause or rollback; preserve audit.
 
 ## Runtime safety
 

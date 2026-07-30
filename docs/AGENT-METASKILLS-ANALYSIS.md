@@ -262,7 +262,8 @@ handoff contracts, traces, eval datasets, runbooks, policies, incident reports
 ### `skill-manager`
 
 Не расширять его до управления runtime agents: это нарушит capability boundary
-и permissions. Он может управлять только установленными agent-oriented skills.
+и permissions. Он может управлять public и agent-private agent-oriented skills,
+их visibility, registry parity и lifecycle, но не runtime agent instances.
 Runtime agents должен обслуживать отдельный `agent-manager`.
 
 ### `skill-best-practices`
@@ -282,6 +283,36 @@ source либо оставить отдельным managed corpus. Предпо
 - «оцени этого агента» → будущий `agent-evaluator`;
 - «установи agent-oriented skill» → `skill-manager`;
 - «активируй agent definition» → `agent-manager` с отдельным approval.
+
+## Public/private capability optimization
+
+Идея хранить single-agent skills и commands внутри agent directory
+целесообразна как **scope-minimization pattern**. Она уменьшает global routing
+surface, collision risk и число independently published packages. При этом
+folder nesting не является security boundary: `private` означает scoped loader
+и allowed consumers, а не confidentiality.
+
+Visibility не следует добавлять как primary archetype. После выбора mechanism
+используется placement profile:
+
+1. inline rule для tiny instruction;
+2. private command для narrow named action одного agent;
+3. private skill для reusable complex capability одного agent;
+4. public skill для нескольких independent consumers или independent lifecycle;
+5. tool/script либо workflow, если skill abstraction не является минимальной.
+
+Все skills регистрируются. Private entry содержит owner agent, allowed
+consumers, canonical locator и `agent_scoped` discoverability. Agent definition
+получает binding из canonical map; global loader не сканирует
+`.agents/definitions/*/skills`. Promotion/demotion выполняет `skill-refactor`
+как versioned consumer migration с evals и rollback.
+
+Новые исполняемые prompts находятся в `docs/prompts/`:
+
+- `agent-capability-placement.md`;
+- `agent-private-skill.md`;
+- `agent-private-command.md`;
+- `agent-skill-visibility-migration.md`.
 
 ## Recommended rollout
 

@@ -11,6 +11,8 @@
 - `EXTRACT_REFERENCE`
 - `EXTRACT_SUBSKILL`
 - `CREATE_FACADE`
+- `PROMOTE_PUBLIC`
+- `DEMOTE_PRIVATE`
 
 По умолчанию навык выполняет read-only assessment. Мутации требуют точного плана, разрешения, validation и rollback.
 
@@ -24,3 +26,6 @@ python3 scripts/check_evals.py evals
 ```
 
 Структурная валидность и уменьшение числа файлов не доказывают корректность routing, поведения, consumers или host discovery.
+
+Visibility migration учитывает registry/map, owner-agent version, consumers и
+host discovery. `private` означает agent-scoped binding, а не секретность.

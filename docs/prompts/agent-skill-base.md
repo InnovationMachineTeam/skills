@@ -11,8 +11,9 @@ discoverable, portable и проверяемый skill bundle, который в
 coherent capability по работе с agents, subagents, orchestrators, teams или
 Agent OS.
 
-Результатом является skill, а не production agent. Не запускай, не регистрируй,
-не активируй, не публикуй и не выдавай credentials агенту без отдельного явного
+Результатом является reviewable capability candidate, а не production agent.
+Регистрация candidate входит в authoring contract, если registry находится в
+scope; activation, publication и выдача credentials требуют отдельного явного
 разрешения.
 
 ## Базовые принципы
@@ -30,6 +31,9 @@ Agent OS.
    postcondition.
 9. Behavior claims подтверждаются evals/traces, не наличием файлов.
 10. Lifecycle включает deprecation и retirement, не заканчивается activation.
+11. Выбирай минимальную форму capability: inline rule, private command, private
+    skill, public skill, tool/script или workflow.
+12. `private` означает agent-scoped discovery/binding, а не секретность файлов.
 
 ## Intake
 
@@ -45,6 +49,8 @@ Agent OS.
 - risk tier, reversibility и human oversight;
 - behavior, interfaces и consumers, которые нужно сохранить;
 - destination, installation и publication intent.
+- intended consumers, visibility, owner agent, public/private roots и canonical
+  registry/map paths.
 
 Задай один–три focused questions только если пробел меняет target, boundary,
 authority, topology, lifecycle state или acceptance criteria. Иначе зафиксируй
@@ -60,9 +66,9 @@ authority, topology, lifecycle state или acceptance criteria. Иначе за
 - объединены ли unrelated triggers, owners, permissions или eval criteria;
 - создаёт ли skill управляемую capability, а не persona без контракта.
 
-Допустимые решения: `CREATE`, `EXTEND`, `USE_EXISTING`, `USE_AUTOMATION`,
-`KEEP_AD_HOC`, `RESEARCH`, `REJECT`. При не-`CREATE`/`EXTEND` верни обоснованное
-решение и не создавай bundle по инерции.
+Допустимые решения: `INLINE`, `PRIVATE_COMMAND`, `PRIVATE_SKILL`,
+`PUBLIC_SKILL`, `USE_EXISTING`, `TOOL_SCRIPT`, `WORKFLOW`, `RESEARCH`, `REJECT`.
+При решении без skill верни обоснование и не создавай bundle по инерции.
 
 ## Skill architecture
 
@@ -79,6 +85,10 @@ authority, topology, lifecycle state или acceptance criteria. Иначе за
 
 Укажи один primary archetype и secondary traits. Выбери тип, определяющий
 hardest constraint. Agent-system concerns применяй как profile поверх типа.
+
+Visibility также применяй как profile поверх primary archetype. Для private
+capability требуй owner agent и allowed consumers. Public skill оправдан двумя
+или более независимыми consumers либо самостоятельным owner/lifecycle.
 
 ## Agent asset contract
 
@@ -139,6 +149,18 @@ skill-name/
 ├── evals/                      # если принято в target portfolio
 └── assets/                     # только output templates
 ```
+
+Canonical project placement:
+
+```text
+.agents/skills/<skill>/SKILL.md
+.agents/definitions/<agent-id>/skills/<skill>/SKILL.md
+.agents/definitions/<agent-id>/commands/<command>.md
+```
+
+Первый путь public, последние два private. Repository marketplace может
+использовать `skills/<category>/<skill>/`. Host-specific layout генерируется
+adapter-ом; global loader исключает private roots.
 
 - `SKILL.md` содержит core flow, routing и invariants.
 - Детальная условная информация находится на один уровень в references.
@@ -211,7 +233,9 @@ run. Holdout answers не передавай mutating specialist.
    risk tier.
 10. Forward-test сложный skill в fresh context без expected-answer leakage.
 11. Передай immutable candidate независимому evaluator.
-12. Верни artifact/evidence ledger и следующий authorized handoff.
+12. Создай schema-valid candidate registry/map update с version/hash,
+    visibility, owner и consumers; не помечай asset active без lifecycle gate.
+13. Верни artifact/evidence ledger и следующий authorized handoff.
 
 ## Completion gates
 

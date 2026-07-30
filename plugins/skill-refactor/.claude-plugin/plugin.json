@@ -1,8 +1,8 @@
 {
   "name": "skill-refactor",
   "displayName": "Skill Refactor",
-  "version": "1.0.0",
-  "description": "Assesses and safely changes capability boundaries across existing SKILL.md-based agent skills by composing, merging, splitting, extracting references or subskills, and creating compatibility facades",
+  "version": "1.1.0",
+  "description": "Assesses and safely changes capability boundaries and visibility across existing SKILL.md-based agent skills by composing, merging, splitting, extracting references or subskills, promoting private skills to public, demoting unused...",
   "skills": [
     "./skills"
   ],

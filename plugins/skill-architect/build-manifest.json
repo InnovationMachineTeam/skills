@@ -1,7 +1,7 @@
 {
   "format": 2,
   "plugin": "skill-architect",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "source_layout": "skills/",
   "bundle_layout": "skills/<name>/",
   "platforms": [
@@ -21,33 +21,33 @@
   "files": [
     {
       "path": ".claude-plugin/plugin.json",
-      "sha256": "bc2a8088ac75cfaa456372ffde4da91741cb6d280757e55fa3c52cf98182c2c3",
-      "bytes": 473
+      "sha256": "b807c9050ae28cf7350379a3393453c8385adc767881d87892bb2e9367d30159",
+      "bytes": 476
     },
     {
       "path": ".codex-plugin/plugin.json",
-      "sha256": "4c47489fa705139cb33946d2cdcd2c9a53d7c94869785f39f302e91cc8582731",
-      "bytes": 1449
+      "sha256": "e5106302b48b29d8b938ccf83b41c592a7091395e787de879841b22978efdb8c",
+      "bytes": 1451
     },
     {
       "path": ".cursor-plugin/plugin.json",
-      "sha256": "24c83b5f9ae628c6c7a99933d77956b26de9cd041302ccaf2633a04b793b8a6f",
-      "bytes": 682
+      "sha256": "b00a39bc4d6926314a8cae684f954dd55ae8e69ff22b68c011038d906ea537df",
+      "bytes": 685
     },
     {
       "path": "README.md",
-      "sha256": "7955857cfee4ff83ef3ed8e8e8af1d4e9579cc07d8f672e1073a691fe14fd464",
-      "bytes": 570
+      "sha256": "e26af931860e48bf87948836fcf0565af1971fe3a58c493a65eb2edb6a70523a",
+      "bytes": 573
     },
     {
       "path": "skills/skill-architect/README.md",
-      "sha256": "668d3984c0848a128a76890b3ed0a4e0befab17c07d60f0927d5997a6550a55a",
-      "bytes": 3100
+      "sha256": "f542040f3659518c960b1903fb9bc663f00168b2393cd65a1bf2a414fa432dc4",
+      "bytes": 3656
     },
     {
       "path": "skills/skill-architect/SKILL.md",
-      "sha256": "13f45d53090beb174e8682f2c4edab49bff287ece5753ed4a82036cc909de65e",
-      "bytes": 7671
+      "sha256": "c5749c87fc2a413dd24368131218b3c9308c01a3629edd9286e4f7fc2414a30b",
+      "bytes": 10732
     },
     {
       "path": "skills/skill-architect/agents/openai.yaml",
@@ -56,13 +56,13 @@
     },
     {
       "path": "skills/skill-architect/evals/behavior.json",
-      "sha256": "9147c6eec5d3e003d5a3a17a9b37aec2f99f3e28e2a42cae21b13b3f056cdb58",
-      "bytes": 5027
+      "sha256": "84144b901a180cf69aee5c555b935e8942213223e34041aeb6d9a89d7218b730",
+      "bytes": 6457
     },
     {
       "path": "skills/skill-architect/evals/routing.json",
-      "sha256": "15e9880e652120ae8fc541d5fe05feb47541dc5d9a33c2efff50dc1fd8313204",
-      "bytes": 6252
+      "sha256": "2db98c29943bde284d741fbd6f66c905d468449d2188e07b13991a875c01c24c",
+      "bytes": 7925
     },
     {
       "path": "skills/skill-architect/prompts/artifact-template.md",
@@ -93,6 +93,11 @@
       "path": "skills/skill-architect/prompts/orchestration.md",
       "sha256": "c9956ccc636bdc699d288633f2b0ed06cdf8cdb8046c2a9c3b3b418c8a674f26",
       "bytes": 1643
+    },
+    {
+      "path": "skills/skill-architect/prompts/placement-and-registration.md",
+      "sha256": "55fc1fac4a5f5a7307626742627b3c09a2f1ca1d4e04bb2ba3b188787e7c237a",
+      "bytes": 2207
     },
     {
       "path": "skills/skill-architect/prompts/script-automation.md",
@@ -135,9 +140,14 @@
       "bytes": 5232
     },
     {
+      "path": "skills/skill-architect/references/visibility-and-registry.md",
+      "sha256": "0d10925c45314cf4e7b38f0cd8e02e68030199b6ef4b5e22375b7539ad0c413a",
+      "bytes": 4197
+    },
+    {
       "path": "skills/skill-architect/scripts/validate_skill.py",
-      "sha256": "acde0b29c36acd2c8aee8f6f9259eda83c6366d87116a01ae058adaf31022062",
-      "bytes": 16219
+      "sha256": "92e9cef1675fdbf90ad2def6f2379e876bb5a2de14433aeb0f9f61efcb4a51df",
+      "bytes": 17098
     }
   ]
 }

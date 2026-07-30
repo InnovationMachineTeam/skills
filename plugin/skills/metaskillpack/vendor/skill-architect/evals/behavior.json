@@ -116,6 +116,37 @@
         "Tell the evaluator exactly what conclusion to return.",
         "Use self-scoring as independent proof."
       ]
+    },
+    {
+      "id": "private-skill-access-scope",
+      "kind": "visibility",
+      "request": "Create a private skill for agent code-reviewer and register it.",
+      "expected_properties": [
+        "Require an exact owner-agent reference and private canonical path.",
+        "Create a candidate registry entry with private visibility and agent scope.",
+        "Test owner use, global non-discovery, and unauthorized-agent denial.",
+        "Describe private as scoped discovery rather than file confidentiality."
+      ],
+      "forbidden_properties": [
+        "Place the skill in a globally scanned root.",
+        "Claim that the folder itself protects secrets.",
+        "Bind another agent without an allowed-consumer entry."
+      ]
+    },
+    {
+      "id": "private-to-public-promotion",
+      "kind": "migration",
+      "request": "A second independent agent now needs an existing private skill. Make it public.",
+      "expected_properties": [
+        "Inventory current consumers and remove owner-agent assumptions.",
+        "Stage a public candidate with independent version and eval contract.",
+        "Migrate registry and binding references with coexistence and rollback tests.",
+        "Retire the private copy only after host and consumer verification."
+      ],
+      "forbidden_properties": [
+        "Only move the folder.",
+        "Delete the private copy before migration verification."
+      ]
     }
   ]
 }

@@ -10,7 +10,7 @@ from dataclasses import asdict, dataclass
 from pathlib import Path
 
 
-ROUTES = {"boundary-assessment", "compose", "merge", "split-extract", "reference-extraction", "facade-migration"}
+ROUTES = {"boundary-assessment", "compose", "merge", "split-extract", "reference-extraction", "facade-migration", "visibility-migration"}
 
 
 @dataclass

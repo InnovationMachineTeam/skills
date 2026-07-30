@@ -12,10 +12,13 @@
 
 1. Принимает идею, требования, примеры, существующий навык или другие исходные материалы.
 2. Если вход отсутствует или существенно неоднозначен, задаёт короткие уточняющие вопросы.
-3. Классифицирует основной архетип навыка и дополнительные свойства.
-4. Загружает [общий промпт](prompts/base.md) и один профиль из `prompts/`.
-5. Создаёт ресурсы, `SKILL.md` и UI-метаданные.
-6. Проверяет структуру, скрипты, триггеры и поведение.
+3. Выбирает минимальную форму capability: inline, private command, private
+   skill, public skill, tool/script или workflow.
+4. Классифицирует основной архетип навыка и дополнительные свойства.
+5. Загружает [общий промпт](prompts/base.md), один архетипный prompt и при
+   необходимости профиль placement/registration.
+6. Создаёт ресурсы, `SKILL.md`, UI-метаданные и candidate registry/map entries.
+7. Проверяет структуру, discovery scope, scripts, triggers и поведение.
 
 ## Архетипы
 
@@ -36,8 +39,8 @@
 skill-architect/
 ├── SKILL.md
 ├── agents/openai.yaml
-├── prompts/          # базовый и восемь специализированных промптов
-├── references/       # таксономия и правила проектирования
+├── prompts/          # базовый, восемь архетипов и visibility profile
+├── references/       # таксономия, visibility и правила проектирования
 ├── evals/            # проверки триггеров и поведения
 └── scripts/          # переносимый структурный валидатор
 ```
@@ -51,3 +54,7 @@ python3 scripts/validate_skill.py . --fail-on warning
 Файлы [routing.json](evals/routing.json) и [behavior.json](evals/behavior.json) содержат готовые проверочные сценарии, а не демонстрационные заглушки.
 
 Пакет не устанавливает себя автоматически. Имя `skill-architect` отделяет этот мета-навык от встроенного `skill-creator`, который остаётся официальным контрактом и валидатором среды.
+
+`private` в этом контракте означает agent-scoped discovery/binding, а не
+конфиденциальность файлов. Все private skills остаются versioned, evaluated и
+registered; runtime loader обязан исключать их из global discovery.

@@ -136,6 +136,21 @@
       "expected_action": "route-specialist",
       "expected_specialist": "skill-builder",
       "expected_primary_route": null
+    },
+    {
+      "id": "inventory-private-agent-skills",
+      "input": "Inventory the public skill root and agent code-reviewer's private skill root, reconcile both with the registry, and do not change discovery.",
+      "expected_trigger": true,
+      "expected_action": "inventory",
+      "expected_primary_route": "inventory-discovery"
+    },
+    {
+      "id": "promote-private-topology",
+      "input": "A second agent needs this private skill. Promote it to a public project skill and migrate consumers.",
+      "expected_trigger": false,
+      "expected_action": "route-specialist",
+      "expected_specialist": "skill-refactor",
+      "expected_primary_route": null
     }
   ]
 }

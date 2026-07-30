@@ -18,6 +18,8 @@ skills. Он не переimplements specialists и не активирует ag
 | `optimize-existing` | evaluator baseline → optimizer → evaluator compare |
 | `compare-and-refactor` | context/compare → refactor → evaluator → manager |
 | `portfolio-governance` | manager → bounded specialists → manager verify |
+| `place-agent-capability` | placement → architect/private-command → evaluator → register |
+| `promote-or-demote-capability` | inventory → refactor → evaluator → manager |
 | `incident-recovery` | doctor/triage → recovery gate → manager → post-incident eval |
 | `resume` | restore state → verify drift → first valid incomplete phase |
 
@@ -92,6 +94,12 @@ Include proportionally:
 - observation window and rollback;
 - SLO/runbook/incident readiness;
 - deprecation/retirement readiness.
+- capability placement, registry/map parity и private access-denial gate.
+
+При build agent definition включай только approved public bindings и private
+capabilities его own/allowed scope. Проверяй, что private root не попал в global
+host adapter. Partial build не должен оставлять активный asset без registry или
+registry reference на отсутствующий asset.
 
 ## Failure behavior
 

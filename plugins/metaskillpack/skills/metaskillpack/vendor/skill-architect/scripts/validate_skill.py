@@ -13,6 +13,7 @@ from pathlib import Path
 
 
 NAME_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
+SEMVER_RE = re.compile(r"^\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?(?:\+[0-9A-Za-z.-]+)?$")
 LINK_RE = re.compile(r"\[[^\]]*\]\(([^)]+)\)")
 PLACEHOLDER_RE = re.compile(r"\b(?:TODO|FIXME|TBD)\b|\[TODO[^\]]*\]", re.IGNORECASE)
 ARCHETYPES = {
@@ -57,14 +58,27 @@ def parse_frontmatter(text: str) -> tuple[dict[str, str], str | None]:
         return {}, "SKILL.md frontmatter is not closed."
 
     data: dict[str, str] = {}
+    parent: str | None = None
     for number, line in enumerate(lines[1:end], start=2):
         if not line.strip() or line.lstrip().startswith("#"):
             continue
+        indent = len(line) - len(line.lstrip())
         if ":" not in line:
             return {}, f"Unsupported frontmatter syntax on line {number}."
         key, value = line.split(":", 1)
         key = key.strip()
         value = value.strip()
+        if indent == 0 and not value:
+            if key != "metadata":
+                return {}, f"Unsupported mapping {key!r} on line {number}."
+            parent = key
+            continue
+        if indent > 0:
+            if parent != "metadata" or key != "version":
+                return {}, f"Unsupported nested key on line {number}."
+            key = "metadata.version"
+        else:
+            parent = None
         if not key or not value:
             return {}, f"Empty frontmatter key or value on line {number}."
         if value[:1] == value[-1:] and value[:1] in {'"', "'"}:
@@ -81,19 +95,20 @@ def validate_frontmatter(root: Path, skill_file: Path, findings: list[Finding]) 
         return None
 
     keys = set(frontmatter)
-    required = {"name", "description"}
+    required = {"name", "description", "metadata.version"}
     if keys != required:
         add(
             findings,
             "error",
             "frontmatter-keys",
-            "Frontmatter must contain exactly name and description; found: "
+            "Frontmatter must contain exactly name, description, and metadata.version; found: "
             + ", ".join(sorted(keys)),
             skill_file,
         )
 
     name = frontmatter.get("name")
     description = frontmatter.get("description", "")
+    version = frontmatter.get("metadata.version", "")
     if name:
         if len(name) > 63 or not NAME_RE.fullmatch(name):
             add(
@@ -120,6 +135,14 @@ def validate_frontmatter(root: Path, skill_file: Path, findings: list[Finding]) 
             "error",
             "description",
             "Description is too short to explain capability and trigger context.",
+            skill_file,
+        )
+    if not SEMVER_RE.fullmatch(version):
+        add(
+            findings,
+            "error",
+            "version",
+            "metadata.version must be SemVer.",
             skill_file,
         )
 

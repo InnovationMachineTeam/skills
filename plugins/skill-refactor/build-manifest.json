@@ -1,7 +1,7 @@
 {
   "format": 2,
   "plugin": "skill-refactor",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "source_layout": "skills/",
   "bundle_layout": "skills/<name>/",
   "platforms": [
@@ -21,33 +21,33 @@
   "files": [
     {
       "path": ".claude-plugin/plugin.json",
-      "sha256": "7b4abffacbaae4bd2ef7968e8afedf0c379660ef28f563c467dc0c5b6227f52c",
-      "bytes": 437
+      "sha256": "192b515e24f29cab453e3f7684f3a7e82c643cb660a6c343916dacdae9ec90c4",
+      "bytes": 472
     },
     {
       "path": ".codex-plugin/plugin.json",
-      "sha256": "c5019fca321ab6cde937d7fd0f5ef82ac1a1e8d4909de51845b5f93be6f7fdd3",
-      "bytes": 1380
+      "sha256": "933c3a24a9e3f8903fa6207606c50c69b57d2fcb5d6678c81cab863e1e02b2c1",
+      "bytes": 1446
     },
     {
       "path": ".cursor-plugin/plugin.json",
-      "sha256": "7e469ce09685ba495b30fc327d276b24be7bbccd36be8cfd0f3c23249b3c0352",
-      "bytes": 646
+      "sha256": "cf5f4c1f50e3115a2ddd9b45aaa24526f6e398532e402ead3da2db76f016a9ed",
+      "bytes": 681
     },
     {
       "path": "README.md",
-      "sha256": "e6eb0ebe9ec17aa52cf27a543a810d3eec00cb95d6bb1691a61cd4de03a9695a",
-      "bytes": 534
+      "sha256": "72862b2144b00021c9c5ca6cefd478badb6ec2595b9bb566e23d207bd2c579e7",
+      "bytes": 569
     },
     {
       "path": "skills/skill-refactor/README.md",
-      "sha256": "5e7c25892cacf68445565fa08e6332587533f41a20b1a892f00edd1035304448",
-      "bytes": 1236
+      "sha256": "e5e65181dd8061d542d7b6dc992db243fd098980dec0c7a28398b9e396552c62",
+      "bytes": 1460
     },
     {
       "path": "skills/skill-refactor/SKILL.md",
-      "sha256": "79ab0b13a408336975c3da8ecf580cef7443bd3ff0f553f2a89c8d596ec7cad6",
-      "bytes": 7338
+      "sha256": "9ceef04945d61d0871d92e7a37ed329b3e4876decaf3d2590c527cc4edaf658e",
+      "bytes": 7864
     },
     {
       "path": "skills/skill-refactor/agents/openai.yaml",
@@ -56,13 +56,13 @@
     },
     {
       "path": "skills/skill-refactor/evals/behavior.json",
-      "sha256": "71e060ab85c869db4da10ab06ddb26488e3a75f6da23fdfd4ebbe0168295ae17",
-      "bytes": 2851
+      "sha256": "ce2de109d1c2f8c4cb8990559366bec5742affb84c4643c5b2c1b2375ec3328a",
+      "bytes": 3747
     },
     {
       "path": "skills/skill-refactor/evals/routing.json",
-      "sha256": "2211d01a16f19623949be38d89088b4acd7f0d1978ecac1ca5ff3db6eceac5c0",
-      "bytes": 3240
+      "sha256": "c92a2b7463efe8992fdf988a03052a14bdd98739022eb0a0211879530c2c9e6c",
+      "bytes": 3911
     },
     {
       "path": "skills/skill-refactor/prompts/base.md",
@@ -100,6 +100,11 @@
       "bytes": 460
     },
     {
+      "path": "skills/skill-refactor/prompts/visibility-migration.md",
+      "sha256": "a529d85289cc812f891097c77217e98b7ef189d31e6affa3c63a2c40d71c1642",
+      "bytes": 1002
+    },
+    {
       "path": "skills/skill-refactor/references/boundary-model.md",
       "sha256": "bb14f6f980cba68cb66a52694f56caa0d5a0b5b3e3c1c3091be54650ba2608da",
       "bytes": 615
@@ -130,14 +135,19 @@
       "bytes": 516
     },
     {
+      "path": "skills/skill-refactor/references/visibility-migration.md",
+      "sha256": "bc126712d9493d7f51913f8216041526914843d64947909b47637239c6a1f821",
+      "bytes": 1302
+    },
+    {
       "path": "skills/skill-refactor/scripts/analyze_boundaries.py",
       "sha256": "767f9241584211ff34bfdb29970c8ab7be164723a1a1331dbb4070332f7d78a1",
       "bytes": 5176
     },
     {
       "path": "skills/skill-refactor/scripts/check_evals.py",
-      "sha256": "02086227a27685ffb7043a85c87a821976bde34d7362c453a72af932a028014b",
-      "bytes": 4067
+      "sha256": "6421de4e1ce8a70f0d5c6b73197398cc75158f7599c95a6646d8c20bd9d8560c",
+      "bytes": 4091
     },
     {
       "path": "skills/skill-refactor/scripts/compare_boundaries.py",

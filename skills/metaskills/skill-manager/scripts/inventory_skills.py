@@ -13,6 +13,7 @@ from pathlib import Path
 
 
 NAME_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
+SEMVER_RE = re.compile(r"^\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?(?:\+[0-9A-Za-z.-]+)?$")
 SKIP_DIRS = {".git", ".svn", "node_modules", "__pycache__", ".cache", "dist", "build"}
 SKIP_FILES = {".DS_Store"}
 
@@ -26,14 +27,27 @@ def parse_frontmatter(text: str) -> tuple[dict[str, str], str | None]:
     except StopIteration:
         return {}, "missing closing frontmatter delimiter"
     values: dict[str, str] = {}
+    parent: str | None = None
     for number, line in enumerate(lines[1:end], start=2):
         if not line.strip() or line.lstrip().startswith("#"):
             continue
+        indent = len(line) - len(line.lstrip())
         if ":" not in line:
             return {}, f"unsupported frontmatter syntax on line {number}"
         key, value = line.split(":", 1)
         key = key.strip()
         value = value.strip()
+        if indent == 0 and not value:
+            if key != "metadata":
+                return {}, f"unsupported mapping {key!r} on line {number}"
+            parent = key
+            continue
+        if indent > 0:
+            if parent != "metadata" or key != "version":
+                return {}, f"unsupported nested key on line {number}"
+            key = "metadata.version"
+        else:
+            parent = None
         if value[:1] == value[-1:] and value[:1] in {'"', "'"}:
             value = value[1:-1]
         values[key] = value
@@ -89,6 +103,30 @@ def discover(root: Path, max_depth: int) -> list[Path]:
     return sorted(set(path.resolve() for path in found), key=str)
 
 
+def placement(skill_dir: Path) -> dict[str, object]:
+    parts = skill_dir.resolve().parts
+    for index in range(len(parts) - 4):
+        if parts[index : index + 2] == (".agents", "definitions"):
+            agent_id = parts[index + 2]
+            if parts[index + 3] == "skills":
+                return {
+                    "visibility": "private",
+                    "scope": "agent",
+                    "discoverability": "agent_scoped",
+                    "owner_agent_ref": f"agent://project/{agent_id}",
+                    "allowed_consumers": [f"agent://project/{agent_id}"],
+                    "placement_evidence": "canonical-agent-private-path",
+                }
+    return {
+        "visibility": "public",
+        "scope": "repository_or_project",
+        "discoverability": "global_or_project",
+        "owner_agent_ref": None,
+        "allowed_consumers": [],
+        "placement_evidence": "non-private-skill-root",
+    }
+
+
 def inspect_skill(skill_dir: Path, root: Path, root_index: int) -> dict[str, object]:
     skill_file = skill_dir / "SKILL.md"
     text = skill_file.read_text(encoding="utf-8", errors="replace")
@@ -96,17 +134,20 @@ def inspect_skill(skill_dir: Path, root: Path, root_index: int) -> dict[str, obj
     errors: list[str] = []
     if error:
         errors.append(error)
-    if set(metadata) != {"name", "description"}:
-        errors.append("frontmatter must contain exactly name and description")
+    if set(metadata) != {"name", "description", "metadata.version"}:
+        errors.append("frontmatter must contain name, description, and metadata.version")
     name = metadata.get("name", "")
     description = metadata.get("description", "")
+    version = metadata.get("metadata.version", "")
     if not NAME_RE.fullmatch(name) or len(name) > 63:
         errors.append("invalid skill name")
     if name and skill_dir.name != name:
         errors.append("folder name does not match declared name")
     if not 20 <= len(description) <= 1024:
         errors.append("description length is outside 20-1024 characters")
-    return {
+    if not SEMVER_RE.fullmatch(version):
+        errors.append("metadata.version must be SemVer")
+    result = {
         "identity_key": f"{name or '<invalid>'}@{skill_dir}",
         "name": name or None,
         "folder_name": skill_dir.name,
@@ -114,12 +155,15 @@ def inspect_skill(skill_dir: Path, root: Path, root_index: int) -> dict[str, obj
         "root": str(root),
         "root_index": root_index,
         "description": description or None,
+        "version": version or None,
         "display_name": display_name(skill_dir),
         "manifest_sha256": manifest_hash(skill_dir),
         "structurally_valid": not errors,
         "errors": errors,
         "predicted_lifecycle": "UNKNOWN",
     }
+    result.update(placement(skill_dir))
+    return result
 
 
 def inventory(roots: list[Path], max_depth: int) -> dict[str, object]:
@@ -220,7 +264,7 @@ def render_text(payload: dict[str, object]) -> str:
     for item in skills:
         assert isinstance(item, dict)
         lines.append(
-            f"- {item.get('name') or '<invalid>'}: {item['predicted_lifecycle']} — {item['path']}"
+        f"- {item.get('name') or '<invalid>'}: {item['predicted_lifecycle']} / {item['visibility']} — {item['path']}"
         )
         for error in item["errors"]:
             lines.append(f"  error: {error}")
@@ -264,4 +308,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     sys.exit(main())
-

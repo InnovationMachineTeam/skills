@@ -32,6 +32,22 @@ agent-domain procedure. Не объединяйте все prompts в один m
 | Поддерживает evidence corpus практик | [agent-best-practices-skill.md](agent-best-practices-skill.md) |
 | Собирает explicit composite toolkit | [agentkit-composite-skill.md](agentkit-composite-skill.md) |
 
+## Placement overlays
+
+Перед созданием capability для конкретного agent запустите
+[agent-capability-placement.md](agent-capability-placement.md). Он выбирает
+inline rule, private command, private skill, public skill, tool/script или
+workflow.
+
+| Решение | Дополнительный prompt |
+|---|---|
+| Private agent skill | [agent-private-skill.md](agent-private-skill.md) после base + primary archetype |
+| Private agent command | [agent-private-command.md](agent-private-command.md) |
+| Promotion/demotion | [agent-skill-visibility-migration.md](agent-skill-visibility-migration.md) через `skill-refactor` |
+
+Visibility overlay не является новым primary archetype. `private` означает
+agent-scoped discovery/binding; он не делает файлы секретными.
+
 ## Входной envelope
 
 Перед запуском нормализуйте запрос:

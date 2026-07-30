@@ -1,8 +1,8 @@
 ---
 name: skill-refactor
-description: Assesses and safely changes capability boundaries across existing SKILL.md-based agent skills by composing, merging, splitting, extracting references or subskills, and creating compatibility facades. Use when a user asks whether two or more skills should be combined, wants one oversized or multi-domain skill divided, needs reusable capabilities extracted, or must migrate consumers while preserving triggers, authority, resources, tests, and rollback. Produce an evidence-backed boundary decision before mutation. Do not use for read-only comparison alone, independent evaluation, ordinary optimization, new unrelated skill creation, or installation; route those to skill-harvester, skill-evaluator, skill-optimizer, skill-architect, or skill-manager.
+description: Assesses and safely changes capability boundaries and visibility across existing SKILL.md-based agent skills by composing, merging, splitting, extracting references or subskills, promoting private skills to public, demoting unused public skills to agent-private, and creating compatibility facades. Use when a user asks whether skills should be combined, divided, extracted, shared across agents, narrowed to one agent, or migrated while preserving triggers, authority, resources, tests, consumers, registry bindings, and rollback. Produce an evidence-backed boundary decision before mutation. Do not use for read-only comparison alone, independent evaluation, ordinary optimization, new unrelated skill creation, or installation; route those to skill-harvester, skill-evaluator, skill-optimizer, skill-architect, or skill-manager.
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
 ---
 
 # Refactor Skill Boundaries
@@ -48,6 +48,8 @@ Read [references/boundary-model.md](references/boundary-model.md). Choose exactl
 - `EXTRACT_REFERENCE`
 - `EXTRACT_SUBSKILL`
 - `CREATE_FACADE`
+- `PROMOTE_PUBLIC`
+- `DEMOTE_PRIVATE`
 
 Evaluate trigger cohesion, user outcome, workflow and state, permissions, tools, resources, context architecture, evaluation criteria, ownership, release cadence, consumers, and failure blast radius.
 
@@ -63,6 +65,7 @@ Different permissions, users, lifecycle, or completion criteria strongly favor s
 | Split or subskill extraction | [prompts/split-extract.md](prompts/split-extract.md) |
 | Reference extraction | [prompts/reference-extraction.md](prompts/reference-extraction.md) |
 | Facade and migration | [prompts/facade-migration.md](prompts/facade-migration.md) |
+| Public/private visibility migration | [prompts/visibility-migration.md](prompts/visibility-migration.md) |
 
 Read [prompts/base.md](prompts/base.md) completely, then the selected route prompt. Load relevant references:
 
@@ -70,7 +73,8 @@ Read [prompts/base.md](prompts/base.md) completely, then the selected route prom
 - [references/split-and-extract.md](references/split-and-extract.md) before dividing a skill;
 - [references/compatibility-and-migration.md](references/compatibility-and-migration.md) for consumers, aliases, and rollout;
 - [references/evaluation-and-acceptance.md](references/evaluation-and-acceptance.md) for before/after evidence;
-- [references/output-schema.md](references/output-schema.md) for a machine-readable plan.
+- [references/output-schema.md](references/output-schema.md) for a machine-readable plan;
+- [references/visibility-migration.md](references/visibility-migration.md) for owner scope, registry/map changes, and promotion/demotion gates.
 
 Execute the combined prompt rather than returning it.
 
@@ -96,6 +100,7 @@ Show every create, update, move, copy, keep, and delete operation. Reconfirm if 
 - Update relative links and resource routing deterministically.
 - Preserve old entry points with a facade or explicit migration when consumers may depend on them.
 - Do not remove the original until replacement discovery, routing, behavior, consumers, and rollback are verified.
+- Never implement promotion or demotion as a folder move alone; migrate registry and binding identities, host adapters, consumers, and owner-agent versions.
 
 Use `skill-architect` to scaffold newly extracted skill packages when needed, then apply the approved migration plan. Use `skill-manager` for activation and retirement.
 

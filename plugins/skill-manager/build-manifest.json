@@ -1,7 +1,7 @@
 {
   "format": 2,
   "plugin": "skill-manager",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "source_layout": "skills/",
   "bundle_layout": "skills/<name>/",
   "platforms": [
@@ -21,33 +21,33 @@
   "files": [
     {
       "path": ".claude-plugin/plugin.json",
-      "sha256": "c724de76ef06dc4794a414590f4b24a354f6c02f6df1c3465117e5a3870a5174",
-      "bytes": 393
+      "sha256": "a45aee3e2bcd672d2e38162d0d1a474419bf6d6b6c45863d3f6c6c517ad08e4c",
+      "bytes": 432
     },
     {
       "path": ".codex-plugin/plugin.json",
-      "sha256": "26564f566b318913fd5005dbaae1e64c5287d93d17ac94f6e4a9cee59b11b989",
-      "bytes": 1296
+      "sha256": "3de03ee2b01b95a12ec7aa6dbaae0766c6002422ce80039a345365f71b333eb4",
+      "bytes": 1363
     },
     {
       "path": ".cursor-plugin/plugin.json",
-      "sha256": "2fa5c86bfde0fd1c18016f708a997ea6b596c60d95007a7760ee2f5ca1d9b95e",
-      "bytes": 603
+      "sha256": "d3efad46bf437ceb519cfeec02671cfe64610375f92b2680f115908e8df9c824",
+      "bytes": 642
     },
     {
       "path": "README.md",
-      "sha256": "b679cdf7aa837c4cb2c9c3711a5129f5a3539fe6451418e8c66e6d54790f6675",
-      "bytes": 490
+      "sha256": "74ea00093f1d08a2905d05a1771171ea879b817e98bd2f116ac7f34b518d9db0",
+      "bytes": 529
     },
     {
       "path": "skills/skill-manager/README.md",
-      "sha256": "13d2a64e0423260eb904dcad68c78c8247d1d10803faa250fc7a4fb9caf1ea0f",
-      "bytes": 3525
+      "sha256": "0c463b916266ee65257b66b28e3dff0d0a99eb14917e89f5f6c983ccc2c0752f",
+      "bytes": 3883
     },
     {
       "path": "skills/skill-manager/SKILL.md",
-      "sha256": "b8873a5eca28bb9a1e466f9b54111925b56cd9f927e4fefc1f05064dfcd7be52",
-      "bytes": 10036
+      "sha256": "3168e4e17c184aa4dbdc6a6a573eec451312f1764cf6fedf317937390d339ce8",
+      "bytes": 11024
     },
     {
       "path": "skills/skill-manager/agents/openai.yaml",
@@ -56,13 +56,13 @@
     },
     {
       "path": "skills/skill-manager/evals/behavior.json",
-      "sha256": "900a0a1a9fed49b921007f9a38c245d69e75dfe6d0d2102a9e3c1b0115d40d4d",
-      "bytes": 5382
+      "sha256": "10cdd590502d1ae9a65409da153f5ef95bf8c23ad1c29c56535633cda3a193ef",
+      "bytes": 6326
     },
     {
       "path": "skills/skill-manager/evals/routing.json",
-      "sha256": "544afc1f66623292d2833b896d3efc81651eee0dbaddc0e9312349f4973ee130",
-      "bytes": 5627
+      "sha256": "fde90261e0cb4ef335b87690ce0e1b3ff5ab633e10342293c9b6780ce123993c",
+      "bytes": 6303
     },
     {
       "path": "skills/skill-manager/prompts/base.md",
@@ -101,8 +101,8 @@
     },
     {
       "path": "skills/skill-manager/prompts/inventory-discovery.md",
-      "sha256": "b2e3a7f0a89fdf5c4f4b79dede4fbf0597942216ee9b1c50cd3e5eef9cdf9693",
-      "bytes": 589
+      "sha256": "489130bd0c51929750862fc259d76293a1fe82b00b1b9a99dc0e567a6fb2459a",
+      "bytes": 987
     },
     {
       "path": "skills/skill-manager/prompts/retirement-recovery.md",
@@ -140,6 +140,11 @@
       "bytes": 1998
     },
     {
+      "path": "skills/skill-manager/references/visibility-and-access.md",
+      "sha256": "b4f4c0ac3a472ce4579840ff4ca99c5868fe0c26300887fa2c2339226837bad5",
+      "bytes": 1389
+    },
+    {
       "path": "skills/skill-manager/scripts/check_evals.py",
       "sha256": "cb52640503685d2a57530499bd5000fe6070ea9d8b7d3961942282998fbab4cb",
       "bytes": 4615
@@ -151,8 +156,8 @@
     },
     {
       "path": "skills/skill-manager/scripts/inventory_skills.py",
-      "sha256": "16772ee5b3f262a3cd617a64eb971577ecfb2b21e7b57a57c3ece13f04f086b7",
-      "bytes": 10434
+      "sha256": "a01256177c7f44db507b98d59fb6dd1e25ae211d976e0ddeace0f81798eddea0",
+      "bytes": 12257
     }
   ]
 }

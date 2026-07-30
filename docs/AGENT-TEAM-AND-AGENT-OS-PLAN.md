@@ -75,6 +75,36 @@ flowchart TD
 может довести end-to-end запрос до результата через specialists, но не
 реализует их работу внутри себя.
 
+### 3.1 Оптимизация роста skills: public и agent-private capabilities
+
+Решение: принять идею с уточнением semantics. `private` означает
+**agent-scoped discovery и binding**, но не secrecy. Процесс с filesystem access
+может прочитать файл; confidentiality обеспечивают repository ACL, sandbox,
+runtime identity/policy и раздельные credentials.
+
+Visibility — отдельный profile поверх primary archetype, а не новый тип skill.
+Перед созданием каждого capability применяется placement gate:
+
+| Decision | Критерий |
+|---|---|
+| `INLINE` | короткое stable правило без resources, tests и lifecycle |
+| `PRIVATE_COMMAND` | один agent, narrow named action/template |
+| `PRIVATE_SKILL` | один agent, reusable multi-step capability с resources/scripts/evals |
+| `PUBLIC_SKILL` | два independent consumers или independent owner/contract/release lifecycle |
+| `TOOL_SCRIPT` | deterministic execution — главный constraint |
+| `WORKFLOW` | durable stages/state/coordination — главный constraint |
+| `USE_EXISTING`/`REJECT` | duplication или insufficient value |
+
+Это предотвращает uncontrolled public skill sprawl и разрастание непрозрачных
+mega-prompts внутри agents. Private skill сохраняет identity, SemVer, evals и
+registry entry; private command имеет облегчённый contract и регистрируется как
+owned agent asset.
+
+Promotion `private → public` выполняется при появлении второго independent
+consumer либо самостоятельного lifecycle. Demotion `public → private` допустим
+только после consumer inventory, доказавшего одного remaining owner. Обе
+операции являются topology migrations через `skill-refactor`, а не folder move.
+
 ## 4. Границы новых навыков
 
 ### 4.1 `agent-team-architect` — добавить
@@ -341,9 +371,29 @@ Registry хранит inventory и lifecycle, а не runtime state:
       "source_type": "project|installed|locked|marketplace|external",
       "locator": ".agents/skills/code-review",
       "content_sha256": "sha256:...",
+      "visibility": "public|private",
+      "scope": "repository|project|agent",
+      "discoverability": "global|project|agent_scoped",
+      "owner_agent_ref": null,
+      "allowed_consumers": [],
       "provenance": {},
       "host_compatibility": [],
       "trust_status": "unreviewed|verified|quarantined|revoked",
+      "lifecycle_status": "candidate"
+    }
+  ],
+  "commands": [
+    {
+      "id": "command://project/code-reviewer/handoff",
+      "name": "handoff",
+      "version": "1.0.0",
+      "content_sha256": "sha256:...",
+      "locator": ".agents/definitions/code-reviewer/commands/handoff.md",
+      "visibility": "private",
+      "scope": "agent",
+      "discoverability": "agent_scoped",
+      "owner_agent_ref": "agent://project/code-reviewer",
+      "allowed_consumers": ["agent://project/code-reviewer"],
       "lifecycle_status": "candidate"
     }
   ]
@@ -352,6 +402,11 @@ Registry хранит inventory и lifecycle, а не runtime state:
 
 Discovered unregistered asset добавляется как candidate/unreviewed только в
 staged inventory; обнаружение не означает trust, assignment или activation.
+
+Для private skill `owner_agent_ref` обязателен, `allowed_consumers` включает
+owner, locator находится внутри canonical agent-private root, а
+`discoverability` равен `agent_scoped`. Validator запрещает public entry в
+private root и private binding для неразрешённого agent.
 
 ### 6.3 Mapping contract
 
@@ -403,12 +458,16 @@ generated host bindings.
 │   └── <agent>/
 │       ├── agent.json
 │       ├── prompt.md
+│       ├── skills/              # private, scoped to this agent
+│       │   └── <skill>/SKILL.md
+│       ├── commands/            # private lightweight named actions
+│       │   └── <command>.md
 │       └── adapters/            # only required host projections
 ├── teams/
 │   └── <team>/team.json
 ├── workflows/
 │   └── <workflow>/workflow.json
-├── skills/                      # project-local skills only
+├── skills/                      # public project-local skills
 │   └── <skill>/SKILL.md
 ├── prompts/                     # generated role/team/OS prompts
 ├── policies/                    # project policy refs, no secrets
@@ -429,6 +488,12 @@ Rules:
 - Platform-specific file names/locations are adapters and MUST be verified
   against current host docs before generation.
 - Generated projections contain source/hash headers and are not manually edited.
+- Global loaders scan only approved public roots. Runtime attaches an agent's
+  private root after identity/policy resolution; wildcard scan of
+  `definitions/*/skills` is forbidden.
+- Every public/private skill and private command is registered. Path placement
+  is evidence, while registry plus observed loader behavior form the enforced
+  contract.
 
 ## 8. Model recommendation policy
 
@@ -713,7 +778,11 @@ measured retrieval failures and available operator ownership.
 5. `agent-skill-mapper-skill.md`;
 6. `agent-model-selector-skill.md`;
 7. `agent-workspace-manager-skill.md`;
-8. `agent-knowledge-manager-skill.md`.
+8. `agent-knowledge-manager-skill.md`;
+9. `agent-capability-placement.md`;
+10. `agent-private-skill.md`;
+11. `agent-private-command.md`;
+12. `agent-skill-visibility-migration.md`.
 
 Каждый применяется после existing `agent-skill-base.md`. Team prompts не должны
 дублировать plane-specific Agent OS prompts; team работает в проектном scope,
@@ -746,12 +815,17 @@ Builder дополнительно создаёт role prompts для:
 - creation record с version/hash/owner/status/provenance;
 - generated Markdown projection update;
 - rollback, conflict and missing-registry behavior;
-- routing exclusions between skill и runtime agent changes.
+- routing exclusions between skill и runtime agent changes;
+- placement gate and visibility profile;
+- public/private canonical roots, owner/consumer validation and access evals.
 
 Созданный skill регистрируется в
 `docs/AGENT-SKILLS-REGISTRY.json`; Markdown view генерируется. Если registry не
 существует, initializer создаёт schema-valid candidate only after destination
 and authority are resolved.
+
+Baseline реализован в `skill-architect@1.1.0`: visibility остаётся overlay, а
+не девятым archetype; Phase 1 добавляет shared schema и atomic registry tooling.
 
 ### 12.2 `agent-architect` master prompt
 
@@ -789,11 +863,21 @@ master prompts. Он создаёт skills, а не активирует agents.
 Управляет installed skills и `skills-lock.json`, но не runtime agents. Передаёт
 verified installed inventory mapper-у; не меняет agent bindings.
 
+Добавить separate inventory public/private roots, registry parity, owner and
+allowed-consumer enforcement. Private activation означает scoped attachment, а
+не copy в public root. Baseline реализован в `skill-manager@1.1.0`.
+
 ### 12.8 `agent-best-practices`
 
 Когда будет создан, он владеет refresh current provider/model/host guidance и
 формирует modification prompts. Current static corpus остаётся source, но не
 автоматически переписывает active agents.
+
+### 12.9 `skill-refactor`
+
+Добавить decisions `PROMOTE_PUBLIC` и `DEMOTE_PRIVATE`, consumer gate,
+registry/map/adapter migration, owner-agent SemVer impact, coexistence и access
+evals. Baseline реализован в `skill-refactor@1.1.0`.
 
 ## 13. Основные workflows
 
@@ -805,6 +889,7 @@ scope and authority
 → agent/skill worth gates
 → context research if gaps
 → task/capability graph
+→ capability placement: inline/private command/private skill/public/tool/workflow
 → roles/topology/workflow/worktree alternatives
 → model selection + skill mapping
 → approved team spec
@@ -859,6 +944,32 @@ one bounded production use case
 
 Не начинать с универсальной multi-tenant platform до walking skeleton.
 
+### 13.5 Создание private capability
+
+```text
+capability contract + consumers
+→ agent-capability-placement
+→ private command OR base + archetype + agent-private-skill
+→ staged owner-agent definition + registry/map candidate
+→ structural/routing/behavior/access evals
+→ independent evaluator
+→ manager register/attach
+→ verify owner use + global non-discovery + unauthorized denial
+```
+
+### 13.6 Promotion или demotion
+
+```text
+consumer inventory
+→ skill-refactor visibility decision
+→ stage destination candidate
+→ registry/map/agent/adapters migration plan
+→ coexistence + access + rollback evals
+→ manager rollout
+→ observed host/consumer verification
+→ retire source
+```
+
 ## 14. Phased implementation plan
 
 ### Phase 0 — Review and decision lock
@@ -868,6 +979,7 @@ Deliverables:
 - approve skill boundaries and names;
 - approve JSON canonical + Markdown projections;
 - approve `.agents` layout;
+- approve public/private semantics, canonical roots and promotion threshold;
 - choose first target hosts/runtimes;
 - choose whether external provider models are allowed;
 - designate owners/approvers/operators.
@@ -884,10 +996,13 @@ Create:
 - inventory/reconciliation scripts;
 - definition/map/version parity validator;
 - source/hash/provenance conventions;
+- visibility/scope/owner/allowed-consumer fields and private path containment;
 - `.agents/state` retention/gitignore policy.
 
 Tests: malformed refs, duplicates, missing asset, version mismatch, untrusted
-skill, mapping cycle, generated-view drift, partial atomic update.
+skill, mapping cycle, generated-view drift, private asset without owner,
+unauthorized private binding, public asset in private root, global private
+discovery and partial atomic update.
 
 Exit: read-only inventory works on a repository with and without
 `skills-lock.json`.
@@ -900,6 +1015,9 @@ cases before authoring skills.
 
 Exit: prompts pass lint, authority, boundary and forward review.
 
+Placement/private/migration prompts from section 11 are already drafted and
+must be used as executable inputs for Phase 3–4 rather than copied into skills.
+
 ### Phase 3 — Modify foundational metaskills
 
 Candidate changes:
@@ -909,7 +1027,9 @@ Candidate changes:
 - `skill-harvester` agent source units;
 - `skill-evaluator` agent-control profile;
 - `skill-builder` agent-skill scenario;
-- `agent-architect` prompt registry integration.
+- `agent-architect` prompt registry integration;
+- `skill-manager` visibility-aware inventory and lifecycle;
+- `skill-refactor` promotion/demotion topology routes.
 
 Each skill gets SemVer bump, routing/behavior/script evals, generated plugin
 rebuild and independent release evidence.
@@ -928,7 +1048,8 @@ Build in order:
 5. `agent-team-manager` facade.
 
 Exit: sample project produces approved spec and staged `.agents` candidate with
-no runtime activation.
+no runtime activation; unnecessary single-agent capabilities remain inline or
+private instead of becoming public skills.
 
 ### Phase 5 — Evaluation and runtime orchestration
 
@@ -992,6 +1113,9 @@ Exit: validators and target-host E2E tests pass; rollback and ownership proven.
 | Worktree | overlap, stale base, orphan, merge conflict, safe cleanup |
 | Skill mapping | positive, negative, collision, missing, incompatible, revoked |
 | Registry | atomic update, drift, duplicate ID, hash/version mismatch |
+| Visibility | owner use, global non-discovery, unauthorized denial, path/registry mismatch |
+| Placement | inline, private command, private skill, public, tool/workflow, duplication |
+| Migration | private→public, public→private, coexistence, consumers, rollback |
 | Model choice | quality, safety, variance, latency, cost, deprecation, fallback |
 | Memory/docs | provenance, stale fact, poisoning, deletion, conflict, no source |
 | Agent OS | duplicate event, expired lease, partition, backpressure, recovery |
@@ -1009,7 +1133,8 @@ Stop implementation when:
 - required data/tools cannot be accessed safely;
 - builder would need to edit active definitions without staged rollback;
 - GraphRAG has no measured need or operator;
-- new skill duplicates an existing coherent capability.
+- new skill duplicates an existing coherent capability;
+- private capability has no stable owner or enforceable scoped loader.
 
 Avoid:
 
@@ -1018,6 +1143,10 @@ Avoid:
 - registry and agent definitions maintained independently;
 - skills assigned by name similarity;
 - auto-install of discovered skills;
+- private folder described as confidentiality boundary;
+- wildcard discovery of `.agents/definitions/*/skills`;
+- public skill created for every single-agent helper;
+- private/public migration implemented as folder move only;
 - model assigned by prestige or context-window size alone;
 - frontier model for every subtask;
 - worktree as sandbox;
@@ -1039,6 +1168,8 @@ Avoid:
 8. Назначить owners registry, knowledge, runtime, policy и release.
 9. Выбрать threshold/criteria для Qdrant и Neo4j/GraphRAG setup.
 10. После review разрешить Phase 1; не начинать сразу со всех skills.
+11. Подтвердить placement gate и правило promotion при втором independent
+    consumer либо independent lifecycle.
 
 ## 18. Рекомендуемое решение
 
