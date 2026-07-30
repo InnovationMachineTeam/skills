@@ -1,0 +1,32 @@
+{
+  "name": "metaskillpack",
+  "version": "1.0.0",
+  "description": "Provides a self-contained, explicitly invoked toolkit for creating, discovering, researching, optimizing, diagnosing, governing, harvesting, refactoring, evaluating, packaging, and orchestrating agent skills through isolated snapshots...",
+  "homepage": "https://github.com/InnovationMachineTeam/skills",
+  "repository": "https://github.com/InnovationMachineTeam/skills",
+  "license": "Proprietary",
+  "keywords": [
+    "agent-skills",
+    "composite",
+    "metaskills",
+    "orchestration"
+  ],
+  "skills": "./skills/",
+  "author": {
+    "name": "InnovationMachine",
+    "email": "stanislav.usoltsev@gmail.com",
+    "url": "https://github.com/InnovationMachineTeam"
+  },
+  "interface": {
+    "displayName": "Metaskillpack",
+    "shortDescription": "Provides a self-contained, explicitly invoked toolkit for creating, discovering, researching, optimizing, diagnosing…",
+    "longDescription": "Provides a self-contained, explicitly invoked toolkit for creating, discovering, researching, optimizing, diagnosing, governing, harvesting, refactoring, evaluating, packaging, and orchestrating agent skills through isolated snapshots...",
+    "developerName": "InnovationMachine",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Guidance"
+    ],
+    "websiteURL": "https://github.com/InnovationMachineTeam/skills",
+    "defaultPrompt": "Use Metaskillpack for this task."
+  }
+}

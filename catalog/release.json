@@ -2,6 +2,7 @@
   "schema_version": 1,
   "marketplace": {
     "name": "im-skills",
+    "version": "1.2.0",
     "repository": "InnovationMachineTeam/skills",
     "visibility": "private",
     "owner": "InnovationMachineTeam"
@@ -18,7 +19,7 @@
   "aggregate_plugin": {
     "name": "im-skills-all",
     "display_name": "IM Skills — All",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "description": "Complete InnovationMachine Agent Skills toolkit"
   },
   "category": "metaskills",

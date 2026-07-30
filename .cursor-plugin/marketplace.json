@@ -6,9 +6,35 @@
   },
   "metadata": {
     "description": "InnovationMachine Agent Skills marketplace",
-    "version": "1.1.0"
+    "version": "1.2.0"
   },
   "plugins": [
+    {
+      "name": "metaskillpack",
+      "source": "plugins/metaskillpack",
+      "description": "Provides a self-contained, explicitly invoked toolkit for creating, discovering, researching, optimizing, diagnosing, governing, harvesting, refactoring, evaluating, packaging, and orchestrating agent skills through isolated snapshots...",
+      "version": "1.0.0",
+      "author": {
+        "name": "InnovationMachine",
+        "email": "stanislav.usoltsev@gmail.com"
+      },
+      "homepage": "https://github.com/InnovationMachineTeam/skills",
+      "repository": "https://github.com/InnovationMachineTeam/skills",
+      "license": "Proprietary",
+      "keywords": [
+        "agent-skills",
+        "composite",
+        "metaskills",
+        "orchestration"
+      ],
+      "category": "metaskills",
+      "tags": [
+        "agent-skills",
+        "composite",
+        "metaskills",
+        "orchestration"
+      ]
+    },
     {
       "name": "optimize-master-prompts",
       "source": "plugins/optimize-master-prompts",

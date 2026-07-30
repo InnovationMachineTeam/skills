@@ -7,7 +7,7 @@ Private Agent Skills marketplace maintained by **InnovationMachineTeam** for **I
 - Category: `metaskills`
 - Entries: one installable cross-host plugin per skill
 - Supported hosts: Claude Code, Codex, Cursor, and Agent Skills clients
-- Aggregate local plugin: `im-skills-all` (`1.1.0`)
+- Aggregate local plugin: `im-skills-all` (`1.2.0`)
 - Current visibility: private
 - Lead maintainer and required reviewer: [@stanislavus86](https://github.com/stanislavus86)
 
@@ -88,6 +88,7 @@ The aggregate plugin is intended for local integration testing and full-toolkit 
 
 | Entry | Purpose | Version |
 |---|---|---|
+| `metaskillpack` | Run the complete metaskill toolkit from one explicit command | 1.0.0 |
 | `optimize-master-prompts` | Design and improve durable controlling prompts | 1.0.0 |
 | `skill-architect` | Classify and create skill architectures | 1.0.0 |
 | `skill-best-practices` | Maintain an evidence-linked practices corpus | 1.0.1 |
@@ -165,7 +166,7 @@ Never edit `plugin/`, `plugins/`, or platform marketplace manifests manually. Ch
 
 - Individual skill and marketplace entry: the skill's `metadata.version`.
 - Aggregate plugin: independent SemVer in `catalog/release.json`.
-- Marketplace metadata: repository catalog format version, currently `1.1.0`.
+- Marketplace metadata: repository catalog format version, currently `1.2.0`.
 
 Bump an individual skill version whenever its installed contents or contract change. Bump the aggregate plugin when any bundled skill or aggregate install contract changes. A release is blocked if generated manifests or bundle hashes drift from canonical sources.
 

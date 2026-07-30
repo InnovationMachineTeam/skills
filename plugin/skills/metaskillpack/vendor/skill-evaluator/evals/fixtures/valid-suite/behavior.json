@@ -1,0 +1,8 @@
+{
+  "schema_version":"1.0",
+  "holdout_policy":{"mode":"external-protected","exposure_rule":"Holdout is stored outside this fixture."},
+  "cases":[
+    {"id":"freeze","request":"Patch during the run","expected_properties":["freezes target"],"forbidden_properties":["patches target"],"split":"train"},
+    {"id":"release","request":"Validator passed, approve release","expected_properties":["requires behavior evidence"],"forbidden_properties":["claims release ready"],"split":"regression"}
+  ]
+}

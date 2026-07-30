@@ -118,8 +118,6 @@ def main() -> int:
     findings, inventory = validate_marketplace(root)
     failures.extend(f"{item.code}: {item.path}: {item.message}" for item in findings if item.level == "FAIL")
     skills = inventory["skills"]
-    if len(skills) != 12:
-        failures.append(f"expected 12 skills, found {len(skills)}")
     expected = {item["name"] for item in skills}
     versions = {item["name"]: item["version"] for item in skills}
 

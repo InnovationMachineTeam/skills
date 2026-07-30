@@ -1,0 +1,4 @@
+interface:
+  display_name: "Skill Manager"
+  short_description: "Inventory and govern agent skill lifecycles"
+  default_prompt: "Use $skill-manager to inventory these skill roots and propose a safe lifecycle plan."

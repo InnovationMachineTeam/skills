@@ -1,0 +1,4 @@
+interface:
+  display_name: "Skill Doctor"
+  short_description: "Diagnose and repair unhealthy agent skills"
+  default_prompt: "Use $skill-doctor to diagnose this agent skill and repair only confirmed defects."

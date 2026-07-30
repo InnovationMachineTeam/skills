@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.2.0 — 2026-07-30
+
+- Added the explicitly invoked `metaskillpack` composite with 19 canonical modes, nine aliases, and pinned read-only snapshots of all 12 metaskills.
+- Added deterministic command routing, donor version and tree-digest checks, staged snapshot rebuilding, and no-op or blocked upgrade behavior.
+- Added routing and behavior eval fixtures covering donor isolation, progressive loading, workflow selection, missing donors, same-version drift, and recursion guards.
+- Added `metaskillpack` as an individually installable Claude Code, Codex, Cursor, and Agent Skills entry and upgraded the aggregate catalog to `1.2.0`.
+
 ## 1.1.0 — 2026-07-30
 
 - Added native Codex repo marketplace metadata at `.agents/plugins/marketplace.json`.

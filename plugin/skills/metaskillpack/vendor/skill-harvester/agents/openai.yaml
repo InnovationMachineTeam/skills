@@ -1,0 +1,4 @@
+interface:
+  display_name: "Skill Harvester"
+  short_description: "Harvest reusable patterns from skill sources"
+  default_prompt: "Use $skill-harvester to inspect these sources and produce an evidence-backed harvest of reusable skill components."

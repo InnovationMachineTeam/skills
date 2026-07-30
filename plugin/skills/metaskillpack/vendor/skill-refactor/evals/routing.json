@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "skill": "skill-refactor",
+  "cases": [
+    {"id": "explicit-no-target", "input": "Use $skill-refactor to reorganize my skills.", "expected_trigger": true, "expected_action": "clarify", "expected_primary_route": null},
+    {"id": "assess-topology", "input": "Assess whether these two skills should stay separate, compose, or merge; make no changes.", "expected_trigger": true, "expected_action": "assess", "expected_primary_route": "boundary-assessment"},
+    {"id": "compose-independent", "input": "Keep both skills independently invocable but create a bounded workflow that coordinates them.", "expected_trigger": true, "expected_action": "plan-refactor", "expected_primary_route": "compose"},
+    {"id": "merge-overlap", "input": "These two skills have the same users, triggers, authority, and tests. Plan one canonical merged skill.", "expected_trigger": true, "expected_action": "plan-refactor", "expected_primary_route": "merge"},
+    {"id": "split-domains", "input": "Split this multi-domain skill into independently triggered skills and preserve the old entry point.", "expected_trigger": true, "expected_action": "plan-refactor", "expected_primary_route": "split-extract"},
+    {"id": "extract-reference", "input": "The workflow is cohesive but SKILL.md contains 700 lines of conditional schemas and examples. Extract references.", "expected_trigger": true, "expected_action": "plan-refactor", "expected_primary_route": "reference-extraction"},
+    {"id": "compatibility-facade", "input": "Create a temporary compatibility facade and consumer migration plan for the renamed skills.", "expected_trigger": true, "expected_action": "plan-refactor", "expected_primary_route": "facade-migration"},
+    {"id": "read-only-diff", "input": "Compare these two skills and list shared patterns, differences, and good decisions without changing topology.", "expected_trigger": false, "expected_action": "route-specialist", "expected_specialist": "skill-harvester", "expected_primary_route": null},
+    {"id": "ordinary-optimization", "input": "Reduce context cost in this healthy skill without changing its capability boundary.", "expected_trigger": false, "expected_action": "route-specialist", "expected_specialist": "skill-optimizer", "expected_primary_route": null},
+    {"id": "new-unrelated", "input": "Create a new skill for invoice reconciliation.", "expected_trigger": false, "expected_action": "route-specialist", "expected_specialist": "skill-architect", "expected_primary_route": null},
+    {"id": "install-only", "input": "Install and activate this existing skill.", "expected_trigger": false, "expected_action": "route-specialist", "expected_specialist": "skill-manager", "expected_primary_route": null},
+    {"id": "code-refactor", "input": "Refactor these two Python classes into one module.", "expected_trigger": false, "expected_action": "do-not-trigger", "expected_primary_route": null},
+    {"id": "compare-refactor-migrate", "input": "Compare these skills, choose a topology, create any extracted bundles, migrate consumers, and roll out safely.", "expected_trigger": false, "expected_action": "route-specialist", "expected_specialist": "skill-builder", "expected_primary_route": null}
+  ]
+}

@@ -41,6 +41,7 @@ def main() -> int:
     release = read_json(root / "catalog" / "release.json")
     entries_config = read_json(root / "catalog" / "entries.json")
     marketplace = release["marketplace"]
+    marketplace_version = marketplace["version"]
     distribution = release["distribution"]
     category = release["category"]
     category_root = root / "skills" / category
@@ -77,7 +78,7 @@ def main() -> int:
         "owner": {"name": marketplace["owner"]},
         "metadata": {
             "description": "InnovationMachine Agent Skills marketplace",
-            "version": "1.1.0",
+            "version": marketplace_version,
         },
         "plugins": [
             {
@@ -111,7 +112,7 @@ def main() -> int:
         "owner": {"name": marketplace["owner"], "email": release["reviewer"]["email"]},
         "metadata": {
             "description": "InnovationMachine Agent Skills marketplace",
-            "version": "1.1.0",
+            "version": marketplace_version,
         },
         "plugins": [
             {

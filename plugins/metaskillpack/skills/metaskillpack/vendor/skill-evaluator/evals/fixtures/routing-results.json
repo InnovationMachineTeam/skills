@@ -1,0 +1,8 @@
+{
+  "cases":[
+    {"id":"positive-pass","expected_trigger":true,"observed_trigger":true},
+    {"id":"positive-miss","expected_trigger":true,"observed_trigger":false},
+    {"id":"negative-pass","expected_trigger":false,"observed_trigger":false},
+    {"id":"negative-false-positive","expected_trigger":false,"observed_trigger":true}
+  ]
+}

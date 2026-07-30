@@ -1,0 +1,6 @@
+interface:
+  display_name: "Metaskillpack"
+  short_description: "Run the metaskill toolkit from one explicit command"
+  default_prompt: "Use $metaskillpack help to choose a mode or route a metaskill workflow."
+policy:
+  allow_implicit_invocation: false

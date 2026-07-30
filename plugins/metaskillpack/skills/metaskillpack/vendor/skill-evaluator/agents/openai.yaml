@@ -1,0 +1,4 @@
+interface:
+  display_name: "Skill Evaluator"
+  short_description: "Design and run trustworthy skill evals"
+  default_prompt: "Use $skill-evaluator to design and run an evidence-backed evaluation of this skill."

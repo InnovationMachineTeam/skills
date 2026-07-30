@@ -1,0 +1,8 @@
+{
+  "schema_version":"1.0",
+  "holdout_policy":{"mode":"external-protected","exposure_rule":"Holdout is stored outside this fixture."},
+  "cases":[
+    {"id":"positive","input":"Evaluate this skill","expected_trigger":true,"expected_action":"route","split":"train"},
+    {"id":"negative","input":"Summarize this PDF","expected_trigger":false,"expected_action":"do-not-trigger","split":"regression"}
+  ]
+}

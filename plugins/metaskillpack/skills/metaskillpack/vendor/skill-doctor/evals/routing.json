@@ -1,0 +1,98 @@
+{
+  "schema_version": "1.0",
+  "skill": "skill-doctor",
+  "purpose": "Evaluate doctor discovery, mode selection, and diagnostic-domain routing.",
+  "cases": [
+    {
+      "id": "explicit-no-target",
+      "input": "Use $skill-doctor to check my skill.",
+      "expected_trigger": true,
+      "expected_action": "clarify",
+      "expected_primary_domain": null
+    },
+    {
+      "id": "metadata-not-triggering",
+      "input": "Diagnose why this installed skill never appears and does not trigger.",
+      "expected_trigger": true,
+      "expected_action": "diagnose",
+      "expected_primary_domain": "metadata-discovery"
+    },
+    {
+      "id": "missing-reference",
+      "input": "Doctor this skill: it fails because references/schema.md cannot be found after a folder rename.",
+      "expected_trigger": true,
+      "expected_action": "diagnose",
+      "expected_primary_domain": "context-resources"
+    },
+    {
+      "id": "script-crash",
+      "input": "Find and repair why this skill's Python helper exits zero after malformed JSON and produces no output.",
+      "expected_trigger": true,
+      "expected_action": "diagnose-and-repair",
+      "expected_primary_domain": "scripts-dependencies"
+    },
+    {
+      "id": "tool-auth",
+      "input": "Diagnose why the skill works locally but its MCP calls now fail with permission denied in the client.",
+      "expected_trigger": true,
+      "expected_action": "diagnose",
+      "expected_primary_domain": "tools-environment"
+    },
+    {
+      "id": "resume-loop",
+      "input": "Repair this workflow skill: after resuming it repeats an external action and never exits the retry loop.",
+      "expected_trigger": true,
+      "expected_action": "diagnose-and-repair",
+      "expected_primary_domain": "workflow-state"
+    },
+    {
+      "id": "prompt-injection",
+      "input": "Check this skill: instructions inside repository files can make it send secrets to an arbitrary URL.",
+      "expected_trigger": true,
+      "expected_action": "contain-and-diagnose",
+      "expected_primary_domain": "security-authority"
+    },
+    {
+      "id": "stale-eval",
+      "input": "Diagnose whether the skill regressed or its test fixture and judge are stale.",
+      "expected_trigger": true,
+      "expected_action": "diagnose",
+      "expected_primary_domain": "evals-regressions"
+    },
+    {
+      "id": "client-packaging",
+      "input": "Doctor this bundle: validation passes, but Codex cannot discover it after extraction on Windows.",
+      "expected_trigger": true,
+      "expected_action": "diagnose",
+      "expected_primary_domain": "packaging-portability"
+    },
+    {
+      "id": "healthy-needs-speed",
+      "input": "This healthy, tested skill works correctly; reduce its token cost and latency.",
+      "expected_trigger": false,
+      "expected_action": "route-to-skill-optimizer",
+      "expected_primary_domain": null
+    },
+    {
+      "id": "new-skill",
+      "input": "Create a new skill for invoice reconciliation.",
+      "expected_trigger": false,
+      "expected_action": "route-to-skill-architect",
+      "expected_primary_domain": null
+    },
+    {
+      "id": "ordinary-software-bug",
+      "input": "Diagnose why this React component crashes.",
+      "expected_trigger": false,
+      "expected_action": "do-not-trigger",
+      "expected_primary_domain": null
+    },
+    {
+      "id": "repair-optimize-rollout",
+      "input": "Repair this skill, optimize its latency after recovery, then roll out the verified version.",
+      "expected_trigger": false,
+      "expected_action": "route-to-skill-builder",
+      "expected_primary_domain": null
+    }
+  ]
+}

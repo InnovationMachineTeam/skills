@@ -1,0 +1,4 @@
+interface:
+  display_name: "Skill Builder"
+  short_description: "Orchestrate end-to-end skill workflows"
+  default_prompt: "Use $skill-builder to choose and run the right end-to-end skill-building scenario."

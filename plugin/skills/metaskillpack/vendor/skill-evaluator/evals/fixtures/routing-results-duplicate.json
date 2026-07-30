@@ -1,0 +1,6 @@
+{
+  "cases":[
+    {"id":"duplicate","expected_trigger":true,"observed_trigger":true},
+    {"id":"duplicate","expected_trigger":false,"observed_trigger":false}
+  ]
+}

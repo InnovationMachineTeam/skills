@@ -6,6 +6,7 @@ This generated package is installable by Claude Code, Codex, and Cursor. Its can
 
 ## Bundled skills
 
+- `metaskillpack`
 - `optimize-master-prompts`
 - `skill-architect`
 - `skill-best-practices`

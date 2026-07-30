@@ -1,0 +1,4 @@
+interface:
+  display_name: "Skill Scout"
+  short_description: "Discover high-value skill opportunities"
+  default_prompt: "Use $skill-scout to analyze these sessions or materials and recommend which skill opportunities are worth pursuing."

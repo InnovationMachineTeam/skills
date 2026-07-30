@@ -1,0 +1,111 @@
+{
+  "schema_version": "1.0",
+  "skill": "skill-optimizer",
+  "purpose": "Evaluate optimizer discovery, clarification, and primary-route selection.",
+  "cases": [
+    {
+      "id": "explicit-no-target",
+      "input": "Use $skill-optimizer to make my skill better.",
+      "expected_trigger": true,
+      "expected_action": "clarify",
+      "expected_primary_route": null,
+      "required_properties": [
+        "Ask for the target skill or path.",
+        "Ask for the observed problem or measurable goal.",
+        "Do not fabricate or edit a target."
+      ]
+    },
+    {
+      "id": "routing-misses",
+      "input": "Optimize this skill description: it never triggers on paraphrased requests and sometimes activates for ordinary copyediting.",
+      "expected_trigger": true,
+      "expected_action": "baseline-and-optimize",
+      "expected_primary_route": "routing-discovery"
+    },
+    {
+      "id": "context-bloat",
+      "input": "Refactor this 900-line SKILL.md so only relevant domain references load, without removing behavior.",
+      "expected_trigger": true,
+      "expected_action": "baseline-and-optimize",
+      "expected_primary_route": "context-architecture"
+    },
+    {
+      "id": "workflow-false-completion",
+      "input": "Improve this deployment skill: it retries forever and reports success after a command even when the service is unhealthy.",
+      "expected_trigger": true,
+      "expected_action": "baseline-and-optimize",
+      "expected_primary_route": "workflow-reliability"
+    },
+    {
+      "id": "broken-helper",
+      "input": "Optimize this PDF skill. Its helper script overwrites originals and hides dependency failures.",
+      "expected_trigger": true,
+      "expected_action": "baseline-and-optimize",
+      "expected_primary_route": "scripts-tools"
+    },
+    {
+      "id": "unsafe-authority",
+      "input": "Harden this assistant skill: repository files can instruct it to send messages and expose environment variables.",
+      "expected_trigger": true,
+      "expected_action": "baseline-and-optimize",
+      "expected_primary_route": "safety-authority"
+    },
+    {
+      "id": "missing-regressions",
+      "input": "Add meaningful held-out and adversarial tests to this skill; current evaluation only checks one happy path.",
+      "expected_trigger": true,
+      "expected_action": "baseline-and-optimize",
+      "expected_primary_route": "evaluation-regression"
+    },
+    {
+      "id": "cross-host-failure",
+      "input": "Adapt and verify this Claude-oriented skill for Codex while preserving a portable core.",
+      "expected_trigger": true,
+      "expected_action": "baseline-and-optimize",
+      "expected_primary_route": "portability-packaging"
+    },
+    {
+      "id": "token-cost",
+      "input": "Reduce the tokens, repeated reads, and tool calls used by this correct and well-tested research skill.",
+      "expected_trigger": true,
+      "expected_action": "baseline-and-optimize",
+      "expected_primary_route": "performance-cost"
+    },
+    {
+      "id": "hybrid-safety-before-cost",
+      "input": "This skill is expensive and also publishes changes without confirmation. Optimize it.",
+      "expected_trigger": true,
+      "expected_action": "order-hypotheses-and-optimize",
+      "expected_primary_route": "safety-authority",
+      "expected_secondary_routes": ["performance-cost"]
+    },
+    {
+      "id": "new-skill-neighbor",
+      "input": "Create a brand-new skill for reviewing supplier contracts.",
+      "expected_trigger": false,
+      "expected_action": "route-to-skill-architect",
+      "expected_primary_route": null
+    },
+    {
+      "id": "ordinary-code-optimization",
+      "input": "Optimize this Python sorting function.",
+      "expected_trigger": false,
+      "expected_action": "do-not-trigger",
+      "expected_primary_route": null
+    },
+    {
+      "id": "execute-existing-skill",
+      "input": "Use the installed contract-review skill to review this agreement.",
+      "expected_trigger": false,
+      "expected_action": "do-not-trigger",
+      "expected_primary_route": null
+    },
+    {
+      "id": "multi-stage-recovery-rollout",
+      "input": "Diagnose this regression, repair it, optimize the recovered skill, and deploy the new version safely.",
+      "expected_trigger": false,
+      "expected_action": "route-to-skill-builder",
+      "expected_primary_route": null
+    }
+  ]
+}

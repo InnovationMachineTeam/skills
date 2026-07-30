@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "skill": "skill-harvester",
+  "purpose": "Evaluate harvest triggering, route selection, clarification, and downstream boundaries.",
+  "cases": [
+    {"id": "explicit-no-source", "input": "Use $skill-harvester to find reusable ideas.", "expected_trigger": true, "expected_action": "clarify", "expected_primary_route": null},
+    {"id": "inventory-corpus", "input": "Inventory these three skill repositories, hash the files, map duplicates, and do not extract yet.", "expected_trigger": true, "expected_action": "inventory", "expected_primary_route": "source-inventory"},
+    {"id": "mine-workflows", "input": "Mine these skills for recurring decision gates, recovery loops, and clarification patterns.", "expected_trigger": true, "expected_action": "harvest", "expected_primary_route": "patterns-workflows"},
+    {"id": "distill-knowledge", "input": "Extract reusable domain rules and schemas from these references with freshness and authority notes.", "expected_trigger": true, "expected_action": "harvest", "expected_primary_route": "knowledge-references"},
+    {"id": "harvest-prompts", "input": "Collect the best intake forms, prompt overlays, and output contracts from this corpus.", "expected_trigger": true, "expected_action": "harvest", "expected_primary_route": "prompts-templates"},
+    {"id": "harvest-scripts", "input": "Identify reusable validation scripts and tool-integration patterns without executing source code.", "expected_trigger": true, "expected_action": "harvest", "expected_primary_route": "scripts-tools"},
+    {"id": "harvest-evals", "input": "Extract negative triggers, failure modes, regression cases, and grading rubrics from these artifacts.", "expected_trigger": true, "expected_action": "harvest", "expected_primary_route": "evals-failures"},
+    {"id": "deduplicate-patterns", "input": "Cluster the harvested candidates, distinguish copied repetition from independent evidence, and preserve contradictions.", "expected_trigger": true, "expected_action": "harvest", "expected_primary_route": "synthesis-dedup"},
+    {"id": "prepare-handoffs", "input": "Turn these selected candidate IDs into bounded handoffs for creator, doctor, optimizer, and manager.", "expected_trigger": true, "expected_action": "route-specialist", "expected_primary_route": "integration-dispatch"},
+    {"id": "build-context", "input": "Research this skill idea iteratively, collect explicit local and web sources in an inbox, then synthesize SKILL_CONTEXT.md.", "expected_trigger": true, "expected_action": "harvest", "expected_primary_route": "context-build"},
+    {"id": "compare-two-skills", "input": "Compare these two skill folders, find shared and different decisions, and recommend improvements without modifying either.", "expected_trigger": true, "expected_action": "harvest", "expected_primary_route": "pairwise-skill-comparison"},
+    {"id": "intake-github-skill", "input": "Inspect this public GitHub skill repository for reusable patterns, provenance, license, scripts, and safety without installing it.", "expected_trigger": true, "expected_action": "harvest", "expected_primary_route": "external-skill-intake"},
+    {"id": "create-only", "input": "Create a production-ready invoice skill from these requirements.", "expected_trigger": false, "expected_action": "route-specialist", "expected_specialist": "skill-architect", "expected_primary_route": null},
+    {"id": "repair-only", "input": "Fix the broken parser in this existing skill.", "expected_trigger": false, "expected_action": "route-specialist", "expected_specialist": "skill-doctor", "expected_primary_route": null},
+    {"id": "optimize-only", "input": "This healthy skill passes all tests; reduce its context cost.", "expected_trigger": false, "expected_action": "route-specialist", "expected_specialist": "skill-optimizer", "expected_primary_route": null},
+    {"id": "install-only", "input": "Install and enable this reviewed skill bundle.", "expected_trigger": false, "expected_action": "route-specialist", "expected_specialist": "skill-manager", "expected_primary_route": null},
+    {"id": "ordinary-summary", "input": "Summarize this meeting transcript for the participants.", "expected_trigger": false, "expected_action": "do-not-trigger", "expected_primary_route": null},
+    {"id": "research-create-activate", "input": "Research this corpus, create a skill from the context, validate it, and prepare safe activation.", "expected_trigger": false, "expected_action": "route-specialist", "expected_specialist": "skill-builder", "expected_primary_route": null}
+  ]
+}

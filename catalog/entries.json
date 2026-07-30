@@ -1,6 +1,7 @@
 {
   "schema_version": 1,
   "entries": [
+    {"name": "metaskillpack", "tags": ["orchestration", "composite", "metaskills"]},
     {"name": "optimize-master-prompts", "tags": ["prompts", "optimization"]},
     {"name": "skill-architect", "tags": ["creation", "architecture"]},
     {"name": "skill-best-practices", "tags": ["research", "governance"]},

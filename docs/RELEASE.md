@@ -14,7 +14,7 @@
 
 ## Initial private release
 
-The release is accepted when all 12 individual entries are discoverable in all three generated marketplaces, representative skills load in Claude Code and Codex, Skills CLI lists all 12 for Cursor and portable clients, generated artifacts have no drift, and rollback is documented.
+The release is accepted when all 13 individual entries are discoverable in all three generated marketplaces, representative skills load in Claude Code and Codex, Skills CLI lists all 13 for Cursor and portable clients, generated artifacts have no drift, and rollback is documented.
 
 Native Cursor Marketplace publication is not part of the private release. Cursor's documented submission workflow requires a public Git repository and platform review; use Skills CLI for the private phase and retain `.cursor-plugin` artifacts as publication-ready inputs.
 

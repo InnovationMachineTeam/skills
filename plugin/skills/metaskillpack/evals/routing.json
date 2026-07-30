@@ -1,0 +1,32 @@
+{
+  "skill": "metaskillpack",
+  "version": 1,
+  "cases": [
+    {"id": "create", "command": ["create", "invoice-reviewer", "from this approved specification"], "expected_status": "ready", "expected_canonical_mode": "create", "expected_donor": "skill-architect", "expected_donor_route": null},
+    {"id": "scout", "command": ["scout", "these session exports"], "expected_status": "ready", "expected_canonical_mode": "scout", "expected_donor": "skill-scout", "expected_donor_route": null},
+    {"id": "research-context-build", "command": ["research", "invoice-reviewer", "use docs/ and the repository"], "expected_status": "ready", "expected_canonical_mode": "research", "expected_donor": "skill-harvester", "expected_donor_route": "context-build"},
+    {"id": "optimize", "command": ["optimize", "invoice-reviewer", "reduce false triggers"], "expected_status": "ready", "expected_canonical_mode": "optimize", "expected_donor": "skill-optimizer", "expected_donor_route": null},
+    {"id": "doctor", "command": ["doctor", "invoice-reviewer", "script fails on empty CSV"], "expected_status": "ready", "expected_canonical_mode": "doctor", "expected_donor": "skill-doctor", "expected_donor_route": null},
+    {"id": "manage", "command": ["manage", "invoice-reviewer", "preview an upgrade"], "expected_status": "ready", "expected_canonical_mode": "manage", "expected_donor": "skill-manager", "expected_donor_route": null},
+    {"id": "harvest", "command": ["harvest", "https://github.com/example/public-repo", "extract patterns read-only"], "expected_status": "ready", "expected_canonical_mode": "harvest", "expected_donor": "skill-harvester", "expected_donor_route": null},
+    {"id": "refactor", "command": ["refactor", "skills/a", "split into two coherent skills"], "expected_status": "ready", "expected_canonical_mode": "refactor", "expected_donor": "skill-refactor", "expected_donor_route": null},
+    {"id": "evaluate", "command": ["evaluate", "invoice-reviewer", "write routing and script evals"], "expected_status": "ready", "expected_canonical_mode": "evaluate", "expected_donor": "skill-evaluator", "expected_donor_route": null},
+    {"id": "run", "command": ["run", "turn this research into a production-ready skill"], "expected_status": "ready", "expected_canonical_mode": "run", "expected_donor": "skill-builder", "expected_donor_route": null},
+    {"id": "compare", "command": ["compare", "skills/a", "skills/b"], "expected_status": "ready", "expected_canonical_mode": "compare", "expected_donor": "skill-harvester", "expected_donor_route": "pairwise-skill-comparison"},
+    {"id": "intake", "command": ["intake", "https://github.com/example/skill"], "expected_status": "ready", "expected_canonical_mode": "intake", "expected_donor": "skill-harvester", "expected_donor_route": "external-skill-intake"},
+    {"id": "prompt", "command": ["prompt", "create a durable release-review master prompt"], "expected_status": "ready", "expected_canonical_mode": "prompt", "expected_donor": "optimize-master-prompts", "expected_donor_route": null},
+    {"id": "practices", "command": ["practices", "audit source freshness"], "expected_status": "ready", "expected_canonical_mode": "practices", "expected_donor": "skill-best-practices", "expected_donor_route": null},
+    {"id": "marketplace", "command": ["marketplace", "validate Codex and Cursor manifests"], "expected_status": "ready", "expected_canonical_mode": "marketplace", "expected_donor": "skill-marketplace-manager", "expected_donor_route": null},
+    {"id": "status", "command": ["status"], "expected_status": "ready", "expected_canonical_mode": "status", "expected_donor": null, "expected_donor_route": "native"},
+    {"id": "route", "command": ["route", "I have two overlapping skills and may merge them"], "expected_status": "ready", "expected_canonical_mode": "route", "expected_donor": null, "expected_donor_route": "native"},
+    {"id": "upgrade", "command": ["upgrade", "--donor-root", "skills/metaskills"], "expected_status": "ready", "expected_canonical_mode": "upgrade", "expected_donor": null, "expected_donor_route": "native"},
+    {"id": "help", "command": ["help", "research"], "expected_status": "ready", "expected_canonical_mode": "help", "expected_donor": null, "expected_donor_route": "native"},
+    {"id": "alias-context", "command": ["context", "invoice-reviewer", "research edge cases"], "expected_status": "ready", "expected_canonical_mode": "research", "expected_donor": "skill-harvester", "expected_donor_route": "context-build"},
+    {"id": "alias-fix", "command": ["fix", "invoice-reviewer", "repair the loader"], "expected_status": "ready", "expected_canonical_mode": "doctor", "expected_donor": "skill-doctor", "expected_donor_route": null},
+    {"id": "alias-skillify", "command": ["skillify", "this recurring workflow"], "expected_status": "ready", "expected_canonical_mode": "run", "expected_donor": "skill-builder", "expected_donor_route": null},
+    {"id": "prefixed-command", "command": ["$metaskillpack", "test", "invoice-reviewer"], "expected_status": "ready", "expected_canonical_mode": "evaluate", "expected_donor": "skill-evaluator", "expected_donor_route": null},
+    {"id": "missing-mode", "command": [], "expected_status": "clarify", "expected_canonical_mode": "help", "expected_exit": 2},
+    {"id": "missing-target", "command": ["doctor"], "expected_status": "clarify", "expected_canonical_mode": "doctor", "expected_donor": "skill-doctor", "expected_donor_route": null, "expected_exit": 2},
+    {"id": "compare-one-target", "command": ["compare", "skills/a"], "expected_status": "clarify", "expected_canonical_mode": "compare", "expected_donor": "skill-harvester", "expected_donor_route": "pairwise-skill-comparison", "expected_exit": 2}
+  ]
+}
