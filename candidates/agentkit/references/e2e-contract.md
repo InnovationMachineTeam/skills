@@ -31,6 +31,12 @@ the candidate bundle or generated public cases.
 7. Classify findings by `agentkit`, exact donor, `environment`, or `test`.
 8. Produce recommendations; do not repair during the evaluation run.
 
+For a real workflow observation, the frozen suite may select one of the named
+workflow profiles from `scripts/scaffold_e2e_run.py`. Preserve semantic command
+outputs and artifact hashes, then finalize once with
+`scripts/record_real_workflow.py`. The finalizer rejects synthetic router
+outputs, donor drift, incomplete evidence, changed authority and donor writes.
+
 ## Donor-improvement gate
 
 For a donor-owned finding, show:

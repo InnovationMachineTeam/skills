@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0",
+  "evaluation_id": "agentkit-candidate-0.2.0",
+  "objective": "Decide whether the non-discoverable agentkit candidate has sufficient behavior, E2E, recovery and maturity evidence for promotion after donor stability cycle 2.",
+  "risk": "medium",
+  "target": {
+    "identity": "agentkit",
+    "version": "0.2.0",
+    "hash": "sha256:102613a93687e616498e4981c71b1d9e45828c9ead07c6fc3b72af055ff8fe3d",
+    "locator": "candidates/agentkit"
+  },
+  "baseline": "agentkit candidate 0.1.0 plus direct invocation of the ten donor skills",
+  "environment": {
+    "repository": "InnovationMachineTeam/skills",
+    "hosts": ["portable repository evaluation"],
+    "runtime": "python-3 deterministic fixtures and current user-authorized semantic workflows"
+  },
+  "authority": {
+    "read": true,
+    "write_candidate_and_evaluation_artifacts": true,
+    "edit_donors": false,
+    "install": false,
+    "publish_marketplace": false,
+    "external": false
+  },
+  "layers": ["structure", "routing", "behavior", "scripts-tools", "security-authority", "coexistence", "lifecycle", "user-outcome"],
+  "datasets": [
+    "candidates/agentkit/evals/routing.json",
+    "candidates/agentkit/evals/behavior.json",
+    "candidates/agentkit/evals/scripts.json",
+    "docs/agents/evals/agentkit-pack-holdout-v1.json",
+    "docs/agents/evals/agentkit-real-workflows"
+  ],
+  "graders": ["deterministic assertions", "observable-properties-v1", "artifact-bound semantic review"],
+  "repetitions": 1,
+  "acceptance": {
+    "blocking_layers": ["structure", "routing", "behavior", "scripts-tools", "security-authority", "coexistence", "lifecycle"],
+    "criteria": {
+      "structure": "official validator passes and all resources resolve",
+      "routing": "explicit agentkit requests route while direct specialist, team and Agentic OS requests do not",
+      "behavior": "three real workflows produce verified artifacts through exact locked donors",
+      "scripts-tools": "synthetic/real separation, false completion, contract hashes and rollback plan pass",
+      "security-authority": "donors remain unchanged and lifecycle effects require separate authority",
+      "coexistence": "candidate remains outside discovery until promotion",
+      "lifecycle": "two stable donor cycles and frozen upgrade, rollback and holdout contracts exist",
+      "user-outcome": "the current request obtains a promotable stable composite without false host-activation claims"
+    }
+  },
+  "holdout_policy": {
+    "protected": true,
+    "location": "docs/agents/evals/agentkit-pack-holdout-v1.json",
+    "rule": "The suite is outside the distributed pack and is rotated if exposure changes candidate behavior."
+  },
+  "execution_policy": {
+    "side_effects": "repository-local candidate, evaluation and generated staging only",
+    "abort_conditions": ["donor drift", "authority expansion", "synthetic evidence relabeling", "blocking holdout failure"],
+    "cleanup": "remove only evaluator-created temporary staging"
+  },
+  "artifacts": {
+    "result": "docs/agents/evals/agentkit-candidate-0.2.0-results.json",
+    "maturity_ledger": "docs/agents/evals/individual-agent-stability-cycles.json"
+  }
+}

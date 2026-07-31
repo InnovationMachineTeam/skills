@@ -1,0 +1,15 @@
+{
+  "case_id": "e2e-02-context",
+  "command": "context",
+  "selected_donor": "agent-context",
+  "donor_version": "1.0.0",
+  "donor_hash": "sha256:631b46cddc7fb387cebfbdab4b54de1c4f70f9eeffa5584f91a8e4ec46ed6011",
+  "execution_kind": "semantic-donor-run",
+  "real_workflow_observation": true,
+  "semantic_result": "Repository sources, maturity constraints, authority limits and failure cases were synthesized with provenance and no external research.",
+  "evidence": ["artifacts/AGENT_CONTEXT.md"],
+  "authority_preserved": true,
+  "canonical_donor_modified": false,
+  "vendored_donor_modified": false,
+  "verdict": "PASS"
+}

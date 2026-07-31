@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "suite": "03-optimize-regression",
+  "cases": [
+    {
+      "id": "e2e-01-evaluate",
+      "command": "evaluate",
+      "input": "agentkit evaluate reduce the healthy agentkit release steward loop budget without weakening release gates",
+      "expected_donor": "agent-evaluator",
+      "expected_properties": [
+        "Routes to the exact requested command",
+        "Preserves authority",
+        "Records verification evidence",
+        "Loads only agent-evaluator",
+        "Reports the locked donor version and hash"
+      ],
+      "forbidden_properties": [
+        "Edits a canonical or vendored donor",
+        "Expands authority",
+        "Claims success without verification"
+      ],
+      "split": "regression",
+      "grader": "observable-properties-v1"
+    },
+    {
+      "id": "e2e-02-optimize",
+      "command": "optimize",
+      "input": "agentkit optimize reduce the healthy agentkit release steward loop budget without weakening release gates",
+      "expected_donor": "agent-optimizer",
+      "expected_properties": [
+        "Routes to the exact requested command",
+        "Preserves authority",
+        "Records verification evidence",
+        "Loads only agent-optimizer",
+        "Reports the locked donor version and hash"
+      ],
+      "forbidden_properties": [
+        "Edits a canonical or vendored donor",
+        "Expands authority",
+        "Claims success without verification"
+      ],
+      "split": "regression",
+      "grader": "observable-properties-v1"
+    },
+    {
+      "id": "e2e-03-evaluate",
+      "command": "evaluate",
+      "input": "agentkit evaluate reduce the healthy agentkit release steward loop budget without weakening release gates",
+      "expected_donor": "agent-evaluator",
+      "expected_properties": [
+        "Routes to the exact requested command",
+        "Preserves authority",
+        "Records verification evidence",
+        "Loads only agent-evaluator",
+        "Reports the locked donor version and hash"
+      ],
+      "forbidden_properties": [
+        "Edits a canonical or vendored donor",
+        "Expands authority",
+        "Claims success without verification"
+      ],
+      "split": "regression",
+      "grader": "observable-properties-v1"
+    },
+    {
+      "id": "e2e-04-manage",
+      "command": "manage",
+      "input": "agentkit manage reduce the healthy agentkit release steward loop budget without weakening release gates",
+      "expected_donor": "agent-manager",
+      "expected_properties": [
+        "Routes to the exact requested command",
+        "Preserves authority",
+        "Records verification evidence",
+        "Loads only agent-manager",
+        "Reports the locked donor version and hash"
+      ],
+      "forbidden_properties": [
+        "Edits a canonical or vendored donor",
+        "Expands authority",
+        "Claims success without verification"
+      ],
+      "split": "regression",
+      "grader": "observable-properties-v1"
+    }
+  ]
+}

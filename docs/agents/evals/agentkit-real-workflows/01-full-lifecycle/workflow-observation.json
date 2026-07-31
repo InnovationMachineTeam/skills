@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "workflow_id": "agentkit-real-01-full-lifecycle",
+  "user_request_ref": "2026-07-31 continue agentkit development to a stable version within current constraints",
+  "task": "Design an evidence-bounded agentkit release steward candidate for this repository.",
+  "target": "agentkit-release-steward@0.1.0 evaluation candidate",
+  "observed_at": "2026-07-31T13:02:15Z",
+  "execution_context": {
+    "executor": "Codex current user-authorized development task",
+    "semantic_execution": true,
+    "fresh_context": false,
+    "external_models": false,
+    "notes": "Acceptance and cases were scaffolded before semantic artifacts; deterministic donor validators were used where available."
+  },
+  "commands": [
+    {
+      "command": "scout",
+      "donor": "agent-scout"
+    },
+    {
+      "command": "context",
+      "donor": "agent-context"
+    },
+    {
+      "command": "architect",
+      "donor": "agent-architect"
+    },
+    {
+      "command": "evaluate",
+      "donor": "agent-evaluator"
+    },
+    {
+      "command": "manage",
+      "donor": "agent-manager"
+    }
+  ],
+  "outcome": {
+    "verdict": "PASS",
+    "observable_result": "The explicit agentkit workflow produced a validated candidate, independently separated evaluation result and a fail-closed lifecycle decision without modifying donors or active state.",
+    "limitations": [
+      "Same-task semantic executor; no cross-model or host activation claim."
+    ]
+  },
+  "evidence": [
+    {
+      "case_id": "e2e-01-scout",
+      "output": "raw/e2e-01-scout.json",
+      "output_sha256": "sha256:e35562a480445fa5db8684ffc2eeed50743ca7c1d045590c58dae85308fd71d9",
+      "artifacts": [
+        {
+          "locator": "artifacts/opportunity.md",
+          "sha256": "sha256:a5b3176f88f276374f49e6518b94e3d6b78cbb3c15b58ba51282d315860d1951"
+        }
+      ]
+    },
+    {
+      "case_id": "e2e-02-context",
+      "output": "raw/e2e-02-context.json",
+      "output_sha256": "sha256:8bb29ab28c1f70afcc304bbf813ae5f455ee2ff35e1e4fb45c48fdc9fa5e4312",
+      "artifacts": [
+        {
+          "locator": "artifacts/AGENT_CONTEXT.md",
+          "sha256": "sha256:c64b41a246dfbb4fae0c5deec7f11cb7a22bda395606563a92058cb9b7aa39e4"
+        }
+      ]
+    },
+    {
+      "case_id": "e2e-03-architect",
+      "output": "raw/e2e-03-architect.json",
+      "output_sha256": "sha256:7fb79e96ca3f0c9e401169ea56c32980bdd99e6e96002e20953123bc520e445a",
+      "artifacts": [
+        {
+          "locator": "artifacts/agent-v0.1.0.json",
+          "sha256": "sha256:cfdbc8cb4952cdd5f365475474213f4941f84cc21586a7d4b33892591eed673b"
+        }
+      ]
+    },
+    {
+      "case_id": "e2e-04-evaluate",
+      "output": "raw/e2e-04-evaluate.json",
+      "output_sha256": "sha256:46af197e73d55d8f2a7ac48dbf3a8b98ad6fce59f59755b6efd06510978e8fa4",
+      "artifacts": [
+        {
+          "locator": "artifacts/evaluation-plan.json",
+          "sha256": "sha256:6562e7c86025a05c04131bcf38afd59db3cf76be3ba9a0ac5ebda4844917303d"
+        },
+        {
+          "locator": "artifacts/evaluation-result.json",
+          "sha256": "sha256:2e58ff64202e70d807926b784b1d6afd63e874fc46b68a8c5b6c2071ef41b40e"
+        }
+      ]
+    },
+    {
+      "case_id": "e2e-05-manage",
+      "output": "raw/e2e-05-manage.json",
+      "output_sha256": "sha256:fcc8d82ac85abdd020e9b1d73ad6efa4de69d8b57443a0e8b792b3478e0ada68",
+      "artifacts": [
+        {
+          "locator": "artifacts/lifecycle-plan.md",
+          "sha256": "sha256:9adb00727c4f4c2bb07801b2c0a8d372118c578d05e81f1918558c6ed6ad24cb"
+        }
+      ]
+    }
+  ],
+  "donor_manifest_sha256": "sha256:ccb818b7f24f576eac5a264e0659cf23268ea1a134f0926f9daf3d61c4278a8d"
+}

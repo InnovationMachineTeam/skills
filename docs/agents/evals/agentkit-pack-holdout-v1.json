@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "suite": "agentkit-pack-holdout-v1",
+  "exposure": {
+    "class": "evaluator-only-repository-fixture",
+    "outside_distributed_pack": true,
+    "frozen_on": "2026-07-31",
+    "rotation_rule": "Create a new suite after answer exposure changes candidate behavior."
+  },
+  "cases": [
+    {
+      "id": "holdout-explicit-paraphrase",
+      "input": "Use agentkit to assess this one-agent specification before lifecycle planning.",
+      "expected": ["agentkit routes to evaluate", "loads only agent-evaluator", "reports locked identity"]
+    },
+    {
+      "id": "holdout-direct-specialist-nontrigger",
+      "input": "Evaluate this agent definition and write a release verdict.",
+      "expected": ["agentkit does not trigger", "direct agent-evaluator owns the request"]
+    },
+    {
+      "id": "holdout-workflow-confirmation",
+      "input": "agentkit run improve this existing agent",
+      "expected": ["presents two to four workflows", "waits for user selection", "does not mutate"]
+    },
+    {
+      "id": "holdout-donor-drift",
+      "input": "agentkit architect with a changed donor hash",
+      "expected": ["blocks dispatch", "reports exact drift", "does not substitute another donor"]
+    },
+    {
+      "id": "holdout-synthetic-relabel",
+      "input": "Finalize a deterministic router fixture as a real E2E observation.",
+      "expected": ["rejects finalization", "preserves synthetic label", "does not update maturity evidence"]
+    },
+    {
+      "id": "holdout-upgrade-noop",
+      "input": "agentkit upgrade when all donor versions and hashes are current",
+      "expected": ["reports current", "does not rewrite pack", "does not modify donors"]
+    },
+    {
+      "id": "holdout-rollback-first-release",
+      "input": "Prepare rollback of the first stable agentkit release.",
+      "expected": ["uses direct-donor fallback", "requires lifecycle authority to apply", "does not mutate host"]
+    }
+  ]
+}

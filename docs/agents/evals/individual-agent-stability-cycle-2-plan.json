@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "evaluation_id": "individual-agent-stability-cycle-2",
+  "objective": "Decide whether the unchanged ten-donor portfolio qualifies as the second distinct stable post-donor release after real agentkit workflow observation.",
+  "risk": "medium",
+  "target": {
+    "identity": "InnovationMachineTeam/skills individual-agent donor portfolio",
+    "version": "3.2.2",
+    "baseline": "3.2.1",
+    "portfolio_hash": "sha256:9e50a4d18873efe6063b58393a93a56b96658d195b5293fff820c2affd5c5751"
+  },
+  "environment": {
+    "hosts": ["claude-code", "codex", "cursor"],
+    "runtime": "python-3 fixture, repository and marketplace validators",
+    "repository": "InnovationMachineTeam/skills"
+  },
+  "authority": {"read": true, "write_donors": false, "publish_approved_repository": true, "activate_hosts": false},
+  "layers": ["structure", "routing", "behavior", "authority", "documentation", "coexistence", "lifecycle"],
+  "datasets": [
+    "ten unchanged donor routing and behavior suites",
+    "three real agentkit semantic workflow observations",
+    "repository, dependency, registry, package and marketplace validators"
+  ],
+  "graders": ["deterministic assertions", "hash-bound prior forward evidence", "artifact-bound semantic workflow review"],
+  "repetitions": 1,
+  "timeouts": {"max_suite_seconds": 180},
+  "budget": {"max_external_cost": 0, "max_live_side_effects": 0},
+  "acceptance": {
+    "blocking_layers": ["structure", "routing", "behavior", "authority", "documentation", "coexistence", "lifecycle"],
+    "criteria": {
+      "structure": "official and repository validators pass for all unchanged donors",
+      "routing": "donor suites and agentkit explicit routing boundaries pass",
+      "behavior": "prior hash-bound evidence plus three real semantic workflows pass",
+      "authority": "no donor, activation, installation or external authority changes occur",
+      "documentation": "documentation containment and E2E evidence locators validate",
+      "coexistence": "all 38 released packages remain collision-free while agentkit stays candidate-only",
+      "lifecycle": "release, registry, dependency, generated package and maturity views agree"
+    }
+  },
+  "holdout_policy": {"protected": true, "location": "docs/agents/evals/agentkit-pack-holdout-v1.json", "exposure_rule": "outside distributed candidate; rotate after material behavior change"},
+  "execution_policy": {
+    "side_effects": "repository-local generated staging only",
+    "abort_conditions": ["donor hash drift", "blocking regression", "unexpected external action"],
+    "cleanup": "remove only evaluator-created build staging after evidence capture"
+  },
+  "artifacts": {
+    "result": "docs/agents/evals/individual-agent-stability-cycle-2-results.json",
+    "ledger": "docs/agents/evals/individual-agent-stability-cycles.json",
+    "release_report": "docs/RELEASE-3.2.2-AGENT-DONOR-STABILIZATION-2.md"
+  }
+}

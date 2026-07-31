@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "evaluation_id": "agentkit-release-steward-0.1.0",
+  "target_hash": "sha256:cfdbc8cb4952cdd5f365475474213f4941f84cc21586a7d4b33892591eed673b",
+  "verdict": "FAIL",
+  "layer_verdicts": {
+    "definition": "PASS",
+    "routing": "PASS",
+    "tools-authority": "FAIL",
+    "documentation": "PASS",
+    "lifecycle": "PASS"
+  },
+  "blocking_findings": [
+    {
+      "id": "authority-001",
+      "evidence": "permissions includes repository:write while the mission requires only read access plus bounded evaluation-document writes",
+      "responsible_specialist": "agent-doctor"
+    }
+  ],
+  "mutation_during_run": false,
+  "release_recommendation": "REPAIR_THEN_REEVALUATE"
+}

@@ -1,0 +1,15 @@
+{
+  "case_id": "e2e-01-scout",
+  "command": "scout",
+  "selected_donor": "agent-scout",
+  "donor_version": "1.0.0",
+  "donor_hash": "sha256:48fbc8daea44703c12b3deb826fdebe3e904f924c74c2dbdeddf7597515238f1",
+  "execution_kind": "semantic-donor-run",
+  "real_workflow_observation": true,
+  "semantic_result": "The release-steward agent is justified only as an evaluation candidate; deterministic scripts retain generation and validation authority.",
+  "evidence": ["artifacts/opportunity.md"],
+  "authority_preserved": true,
+  "canonical_donor_modified": false,
+  "vendored_donor_modified": false,
+  "verdict": "PASS"
+}

@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "evaluation_id": "agentkit-candidate-0.2.0",
+  "run_id": "agentkit-candidate-2026-07-31-r2",
+  "target_hash": "sha256:102613a93687e616498e4981c71b1d9e45828c9ead07c6fc3b72af055ff8fe3d",
+  "verdict": "PASS",
+  "release_recommendation": "PROMOTE_AFTER_STABILITY_CYCLE_2",
+  "layer_verdicts": {
+    "structure": "PASS",
+    "routing": "PASS",
+    "behavior": "PASS",
+    "scripts-tools": "PASS",
+    "security-authority": "PASS",
+    "coexistence": "PASS",
+    "lifecycle": "PASS",
+    "user-outcome": "PASS"
+  },
+  "evidence": {
+    "locked_donors": "10/10 current by version, source hash and vendor hash",
+    "real_workflows": "3/3 PASS with semantic-donor-run evidence and artifact hashes",
+    "synthetic_separation": "deterministic router outputs cannot be finalized as real observations",
+    "release_contracts": "upgrade, rollback and external holdout hashes PASS",
+    "rollback_rehearsal": "first-release direct-donor fallback plan contains all ten routes and performs no host mutation",
+    "coexistence": "candidate remains absent from catalog, plugins and all marketplaces before promotion"
+  },
+  "blocking_findings": [],
+  "limitations": [
+    "The three semantic workflows used the current user-authorized task executor rather than an external model.",
+    "No live host installation, activation, stochastic latency or cost claim is made.",
+    "Publication requires a separate exact stable-package build and lifecycle validation."
+  ],
+  "next_trigger": "Complete donor stability cycle 2, build agentkit 1.0.0 from the exact candidate, rerun package and marketplace gates, then publish only the repository release."
+}

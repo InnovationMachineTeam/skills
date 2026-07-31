@@ -81,7 +81,7 @@ class AgentkitCandidateTests(unittest.TestCase):
             self.assertEqual(0, result.returncode, result.stderr)
             self.assertEqual(0, subprocess.run([str(validate), str(run)], check=False).returncode)
             cases = load(run / "cases.json")["cases"]
-            self.assertEqual({"context", "architect", "evaluate", "manage"}, {item["command"] for item in cases})
+            self.assertEqual({"scout", "context", "architect", "evaluate", "manage"}, {item["command"] for item in cases})
             runner = CANDIDATE / "scripts/run_router_fixture.py"
             self.assertEqual(0, subprocess.run([
                 str(runner), "--run", str(run), "--manifest", str(CANDIDATE / "donors.json")
@@ -106,6 +106,47 @@ class AgentkitCandidateTests(unittest.TestCase):
             state["cases"][0].update({"status": "completed", "verdict": "PASS", "output_locator": "../escape.json"})
             (run / "run-state.json").write_text(json.dumps(state), encoding="utf-8")
             self.assertNotEqual(0, subprocess.run([str(validate), str(run)], check=False).returncode)
+
+    def test_real_workflow_and_release_contracts_fail_closed(self) -> None:
+        scaffold = CANDIDATE / "scripts/scaffold_e2e_run.py"
+        finalize = CANDIDATE / "scripts/record_real_workflow.py"
+        verify = CANDIDATE / "scripts/verify_release_contracts.py"
+        rollback = CANDIDATE / "scripts/build_rollback_plan.py"
+        self.assertEqual(0, subprocess.run([
+            str(verify), "--pack-root", str(CANDIDATE), "--repository-root", str(ROOT)
+        ], check=False).returncode)
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            run = root / "run"
+            self.assertEqual(0, subprocess.run([
+                str(scaffold), "--output", str(run), "--scope", "command", "--command", "status",
+                "--task", "report the exact agentkit donor lock state",
+            ], check=False).returncode)
+            spec = root / "spec.json"
+            spec.write_text(json.dumps({
+                "schema_version": 1,
+                "workflow_id": "synthetic-relabel",
+                "task": "report the exact agentkit donor lock state",
+                "execution_context": {"executor": "test", "semantic_execution": True},
+                "cases": [{"case_id": "e2e-01-status", "output_locator": "raw/e2e-01-status.json"}],
+                "outcome": {"verdict": "PASS", "observable_result": "status reported"},
+            }), encoding="utf-8")
+            runner = CANDIDATE / "scripts/run_router_fixture.py"
+            self.assertEqual(0, subprocess.run([
+                str(runner), "--run", str(run), "--manifest", str(CANDIDATE / "donors.json")
+            ], check=False).returncode)
+            self.assertNotEqual(0, subprocess.run([
+                str(finalize), "--run", str(run), "--manifest", str(CANDIDATE / "donors.json"), "--spec", str(spec)
+            ], check=False).returncode)
+            plan = root / "rollback.json"
+            self.assertEqual(0, subprocess.run([
+                str(rollback), "--manifest", str(CANDIDATE / "donors.json"), "--output", str(plan),
+                "--reason", "release rehearsal",
+            ], check=False).returncode)
+            payload = load(plan)
+            self.assertEqual("direct-donor-dispatch", payload["fallback_mode"])
+            self.assertFalse(payload["mutates_host"])
+            self.assertEqual(10, len(payload["routes"]))
 
     def test_donor_finding_requires_matching_user_approval(self) -> None:
         classify = CANDIDATE / "scripts/classify_e2e_findings.py"

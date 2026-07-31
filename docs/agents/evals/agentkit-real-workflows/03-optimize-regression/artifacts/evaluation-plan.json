@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "evaluation_id": "agentkit-release-steward-0.2.0-optimization",
+  "target": {
+    "id": "asset://repository/agent/agentkit-release-steward",
+    "version": "0.2.0",
+    "hash": "sha256:30224e52206569d992b4dcc41aec9422c74d9cfdd36dbc60615db51a2e776dfc"
+  },
+  "environment": {"host": "repository fixture", "model": "not executed", "runtime": "python-3 deterministic comparison"},
+  "authority": {"read": true, "write": false, "external": false},
+  "layers": ["definition", "routing", "tools-authority", "budgets", "documentation", "recovery", "lifecycle"],
+  "acceptance": {
+    "criteria": {
+      "definition": "schema validator passes",
+      "routing": "mission and non-goals equal the healthy baseline",
+      "tools-authority": "tools and permissions equal the healthy baseline",
+      "budgets": "max_cycles changes from 6 to exactly 4 and no retry or mutation budget expands",
+      "documentation": "documentation contract equals the healthy baseline",
+      "recovery": "0.1.1 remains immutable and addressable",
+      "lifecycle": "candidate remains unregistered and inactive"
+    }
+  },
+  "holdout_policy": {"protected": true, "location": "external-protected", "exposure_rule": "not available to the optimizer"},
+  "artifacts": {"raw_output_dir": "docs/agents/evals/agentkit-real-workflows/03-optimize-regression/raw"}
+}

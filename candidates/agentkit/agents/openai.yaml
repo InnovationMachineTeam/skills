@@ -1,4 +1,4 @@
 interface:
-  display_name: "Agentkit Candidate"
+  display_name: "Agentkit Candidate 0.2"
   short_description: "Route explicit agentkit commands through locked agent lifecycle donors"
   default_prompt: "Use $agentkit only for this explicit agentkit command and preserve donor authority boundaries."

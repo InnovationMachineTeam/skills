@@ -9,7 +9,8 @@ Reviewer: @stanislavus86
 Create the individual-agent lifecycle portfolio under `skills/agent-skills/`
 without duplicating the existing team and Agentic OS portfolios. Every skill is
 selectively installable, versioned, registered, evaluated and documentation
-aware. `agentkit` remains deferred until its donor maturity gate passes.
+aware. `agentkit` remains outside discovery until its now-passing donor maturity
+gate is converted into a separately validated stable package.
 
 ## Capability boundaries
 
@@ -29,13 +30,13 @@ aware. `agentkit` remains deferred until its donor maturity gate passes.
 5. Registry, dependencies, marketplace generation and release validation.
 6. Two stable donor release cycles, then a separate `agentkit` decision.
 
-Progress: release `3.2.1` completed stability cycle 1 of 2. Cycle 2 and the
-separate `agentkit` decision remain pending.
+Progress: release `3.2.2` completed stability cycle 2 of 2. The separate stable
+`agentkit` promotion is in progress.
 
-An experimental, non-discoverable `agentkit@0.1.0` candidate now provides the
+An experimental, non-discoverable `agentkit@0.2.0` candidate now provides the
 `e2e` evidence-collection command. It is not a stable cycle, catalog entry or
-published skill. Promotion remains gated by the remaining real workflows,
-cycle 2, frozen upgrade/rollback contracts and pack holdout.
+published skill. Three real workflows and frozen upgrade, rollback and pack
+holdout contracts now permit a separate exact promotion decision.
 
 ## Completion gates
 
@@ -48,4 +49,5 @@ cycle 2, frozen upgrade/rollback contracts and pack holdout.
 - individual install remains available on Claude Code, Codex and Cursor;
 - generated agents declare documentation read/write roots, artifact ownership,
   decision paths, freshness and verification;
-- `agentkit` is not published before two consecutive stable donor releases.
+- `agentkit` is not published before two consecutive stable donor releases;
+  that prerequisite now passes and does not itself authorize host activation.

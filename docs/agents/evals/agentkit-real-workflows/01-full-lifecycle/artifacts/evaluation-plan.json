@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "evaluation_id": "agentkit-release-steward-0.1.0",
+  "target": {
+    "id": "asset://repository/agent/agentkit-release-steward",
+    "version": "0.1.0",
+    "hash": "sha256:cfdbc8cb4952cdd5f365475474213f4941f84cc21586a7d4b33892591eed673b"
+  },
+  "environment": {"host": "repository fixture", "model": "not executed", "runtime": "python-3 deterministic validation"},
+  "authority": {"read": true, "write": false, "external": false},
+  "layers": ["definition", "routing", "tools-authority", "documentation", "lifecycle"],
+  "acceptance": {
+    "criteria": {
+      "definition": "schema validator passes",
+      "routing": "mission and non-goals bound release recommendations",
+      "tools-authority": "no repository-wide write authority",
+      "documentation": "writes remain under declared evaluation and change roots",
+      "lifecycle": "candidate is not registered or activated"
+    }
+  },
+  "holdout_policy": {"protected": true, "location": "external-protected", "exposure_rule": "not available to the candidate author"},
+  "artifacts": {"raw_output_dir": "docs/agents/evals/agentkit-real-workflows/01-full-lifecycle/raw"}
+}

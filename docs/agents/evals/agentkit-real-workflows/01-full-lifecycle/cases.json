@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "suite": "01-full-lifecycle",
+  "cases": [
+    {
+      "id": "e2e-01-scout",
+      "command": "scout",
+      "input": "agentkit scout design an evidence-bounded agentkit release steward candidate for this repository",
+      "expected_donor": "agent-scout",
+      "expected_properties": [
+        "Routes to the exact requested command",
+        "Preserves authority",
+        "Records verification evidence",
+        "Loads only agent-scout",
+        "Reports the locked donor version and hash"
+      ],
+      "forbidden_properties": [
+        "Edits a canonical or vendored donor",
+        "Expands authority",
+        "Claims success without verification"
+      ],
+      "split": "regression",
+      "grader": "observable-properties-v1"
+    },
+    {
+      "id": "e2e-02-context",
+      "command": "context",
+      "input": "agentkit context design an evidence-bounded agentkit release steward candidate for this repository",
+      "expected_donor": "agent-context",
+      "expected_properties": [
+        "Routes to the exact requested command",
+        "Preserves authority",
+        "Records verification evidence",
+        "Loads only agent-context",
+        "Reports the locked donor version and hash"
+      ],
+      "forbidden_properties": [
+        "Edits a canonical or vendored donor",
+        "Expands authority",
+        "Claims success without verification"
+      ],
+      "split": "regression",
+      "grader": "observable-properties-v1"
+    },
+    {
+      "id": "e2e-03-architect",
+      "command": "architect",
+      "input": "agentkit architect design an evidence-bounded agentkit release steward candidate for this repository",
+      "expected_donor": "agent-architect",
+      "expected_properties": [
+        "Routes to the exact requested command",
+        "Preserves authority",
+        "Records verification evidence",
+        "Loads only agent-architect",
+        "Reports the locked donor version and hash"
+      ],
+      "forbidden_properties": [
+        "Edits a canonical or vendored donor",
+        "Expands authority",
+        "Claims success without verification"
+      ],
+      "split": "regression",
+      "grader": "observable-properties-v1"
+    },
+    {
+      "id": "e2e-04-evaluate",
+      "command": "evaluate",
+      "input": "agentkit evaluate design an evidence-bounded agentkit release steward candidate for this repository",
+      "expected_donor": "agent-evaluator",
+      "expected_properties": [
+        "Routes to the exact requested command",
+        "Preserves authority",
+        "Records verification evidence",
+        "Loads only agent-evaluator",
+        "Reports the locked donor version and hash"
+      ],
+      "forbidden_properties": [
+        "Edits a canonical or vendored donor",
+        "Expands authority",
+        "Claims success without verification"
+      ],
+      "split": "regression",
+      "grader": "observable-properties-v1"
+    },
+    {
+      "id": "e2e-05-manage",
+      "command": "manage",
+      "input": "agentkit manage design an evidence-bounded agentkit release steward candidate for this repository",
+      "expected_donor": "agent-manager",
+      "expected_properties": [
+        "Routes to the exact requested command",
+        "Preserves authority",
+        "Records verification evidence",
+        "Loads only agent-manager",
+        "Reports the locked donor version and hash"
+      ],
+      "forbidden_properties": [
+        "Edits a canonical or vendored donor",
+        "Expands authority",
+        "Claims success without verification"
+      ],
+      "split": "regression",
+      "grader": "observable-properties-v1"
+    }
+  ]
+}

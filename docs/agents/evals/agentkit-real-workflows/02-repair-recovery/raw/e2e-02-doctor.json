@@ -1,0 +1,15 @@
+{
+  "case_id": "e2e-02-doctor",
+  "command": "doctor",
+  "selected_donor": "agent-doctor",
+  "donor_version": "1.0.0",
+  "donor_hash": "sha256:ceda961c89134cb08373a7f1818044ebd2148d8fad73c1a4e6333a9c725bd4a7",
+  "execution_kind": "semantic-donor-run",
+  "real_workflow_observation": true,
+  "semantic_result": "The root cause was excessive repository write authority; a patch-only 0.1.1 candidate replaced it with bounded evaluation-document write authority.",
+  "evidence": ["artifacts/diagnosis.md", "artifacts/agent-v0.1.1.json"],
+  "authority_preserved": true,
+  "canonical_donor_modified": false,
+  "vendored_donor_modified": false,
+  "verdict": "PASS"
+}

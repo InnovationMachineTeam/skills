@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "workflow_id": "agentkit-real-03-optimize-regression",
+  "user_request_ref": "2026-07-31 continue agentkit development to a stable version within current constraints",
+  "task": "Reduce the healthy agentkit release steward loop budget without weakening release gates.",
+  "target": "agentkit-release-steward 0.1.1 to 0.2.0 staged optimization",
+  "execution_context": {
+    "executor": "Codex current user-authorized development task",
+    "semantic_execution": true,
+    "fresh_context": false,
+    "external_models": false,
+    "notes": "One optimization hypothesis was frozen before the candidate comparison; active state was outside scope."
+  },
+  "cases": [
+    {"case_id": "e2e-01-evaluate", "output_locator": "raw/e2e-01-evaluate.json"},
+    {"case_id": "e2e-02-optimize", "output_locator": "raw/e2e-02-optimize.json"},
+    {"case_id": "e2e-03-evaluate", "output_locator": "raw/e2e-03-evaluate.json"},
+    {"case_id": "e2e-04-manage", "output_locator": "raw/e2e-04-manage.json"}
+  ],
+  "outcome": {
+    "verdict": "PASS",
+    "observable_result": "The explicit agentkit optimization workflow established a healthy baseline, changed one measurable budget, compared the immutable candidate, and preserved lifecycle authority.",
+    "limitations": ["The metric is definition-level and deterministic; no stochastic runtime latency or cost claim is made."]
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "target": "agentkit-release-steward@0.1.0",
+  "agent_locator": "../01-full-lifecycle/artifacts/agent-v0.1.0.json",
+  "agent_sha256": "sha256:cfdbc8cb4952cdd5f365475474213f4941f84cc21586a7d4b33892591eed673b",
+  "evaluation_locator": "../01-full-lifecycle/artifacts/evaluation-result.json",
+  "reproduced_finding": "authority-001: repository:write exceeds the mission",
+  "baseline_mutated": false
+}

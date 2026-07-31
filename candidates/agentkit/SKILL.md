@@ -2,7 +2,7 @@
 name: agentkit
 description: Explicit composite toolkit for the version-locked individual-agent lifecycle skills. Use only when the user invokes `$agentkit`, writes an `agentkit` command, asks for the agentkit command surface, or requests an agentkit E2E, upgrade, or status run. Route one explicit command to one read-only vendored donor, or use `run` for a confirmed multi-stage workflow. Do not trigger for ordinary agent design, evaluation, repair, optimization, team, Agentic OS, or direct `agent-*` requests; those belong to the corresponding specialist skills.
 metadata:
-  version: "0.1.0"
+  version: "0.2.0"
 ---
 
 # Operate the Agentkit Candidate
@@ -61,7 +61,10 @@ and create an isolated run with `scripts/scaffold_e2e_run.py`. Execute the
 generated cases through the normal command router, preserve raw outputs, and
 validate the run with `scripts/validate_e2e_run.py`.
 
-Classify every finding with `scripts/classify_e2e_findings.py`:
+For semantic runs, finalize the frozen evidence with
+`scripts/record_real_workflow.py`; never relabel a deterministic router fixture
+as a real observation. Classify every finding with
+`scripts/classify_e2e_findings.py`:
 
 - candidate-owned defects may produce a new staged `agentkit` revision;
 - donor-owned defects or improvements require an exact user approval before
@@ -80,6 +83,9 @@ candidate and requires a separate promotion decision.
 commands. `upgrade` follows [upgrade-contract.md](references/upgrade-contract.md):
 compare first, build only in staging, evaluate the complete candidate, and
 preserve the prior pack. Never update the active or canonical source in place.
+Use [rollback-contract.md](references/rollback-contract.md) and
+`scripts/build_rollback_plan.py` for a read-only recovery plan. Verify frozen
+upgrade, rollback and external holdout hashes before a release decision.
 
 ## Complete safely
 

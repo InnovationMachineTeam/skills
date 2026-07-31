@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "target": "agentkit-release-steward@0.1.1",
+  "target_sha256": "sha256:0877ef69d1d21ec6c7bc992d06da7b5de93fc6c6865ae52332bdfc220b8190d3",
+  "health_verdict": "PASS",
+  "primary_metric": {"name": "maximum release-analysis cycles", "value": 6, "direction": "lower"},
+  "blocking_guardrails": ["mission unchanged", "authority unchanged", "all release gates retained", "stop conditions unchanged"],
+  "comparable_environment": "repository fixture with deterministic definition assertions"
+}

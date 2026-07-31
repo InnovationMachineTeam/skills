@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "evaluation_id": "agentkit-release-steward-0.2.0-optimization",
+  "target_hash": "sha256:30224e52206569d992b4dcc41aec9422c74d9cfdd36dbc60615db51a2e776dfc",
+  "baseline_hash": "sha256:0877ef69d1d21ec6c7bc992d06da7b5de93fc6c6865ae52332bdfc220b8190d3",
+  "verdict": "PASS",
+  "primary_metric": {"baseline": 6, "candidate": 4, "delta": -2},
+  "layer_verdicts": {
+    "definition": "PASS",
+    "routing": "PASS",
+    "tools-authority": "PASS",
+    "budgets": "PASS",
+    "documentation": "PASS",
+    "recovery": "PASS",
+    "lifecycle": "PASS"
+  },
+  "blocking_findings": [],
+  "mutation_during_run": false,
+  "release_recommendation": "ACCEPT_STAGED_OPTIMIZATION"
+}

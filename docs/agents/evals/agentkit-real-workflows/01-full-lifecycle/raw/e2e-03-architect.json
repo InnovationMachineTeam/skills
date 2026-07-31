@@ -1,0 +1,15 @@
+{
+  "case_id": "e2e-03-architect",
+  "command": "architect",
+  "selected_donor": "agent-architect",
+  "donor_version": "1.0.0",
+  "donor_hash": "sha256:07a0253ccaf58623dd0c77bd434e4eb505699617a45aed5d02b0727be471a9b2",
+  "execution_kind": "semantic-donor-run",
+  "real_workflow_observation": true,
+  "semantic_result": "An immutable agentkit-release-steward 0.1.0 definition was created and passed the donor schema validator.",
+  "evidence": ["artifacts/agent-v0.1.0.json"],
+  "authority_preserved": true,
+  "canonical_donor_modified": false,
+  "vendored_donor_modified": false,
+  "verdict": "PASS"
+}

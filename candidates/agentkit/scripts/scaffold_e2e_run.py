@@ -14,6 +14,12 @@ COMMANDS = (
     "help", "route", "status", "upgrade", "scout", "context", "architect",
     "evaluate", "doctor", "optimize", "refactor", "manage", "run", "practices",
 )
+WORKFLOWS = {
+    "full-lifecycle": ["scout", "context", "architect", "evaluate", "manage"],
+    "repair-recovery": ["evaluate", "doctor", "evaluate", "manage"],
+    "optimize-regression": ["evaluate", "optimize", "evaluate", "manage"],
+    "refactor-migration": ["context", "refactor", "architect", "evaluate", "manage"],
+}
 DONORS = {
     "scout": "agent-scout", "context": "agent-context", "architect": "agent-architect",
     "evaluate": "agent-evaluator", "doctor": "agent-doctor", "optimize": "agent-optimizer",
@@ -33,7 +39,7 @@ def safe_new_directory(path: Path) -> Path:
     return resolved
 
 
-def case(command: str, task: str) -> dict:
+def case(command: str, task: str, index: int) -> dict:
     donor = DONORS.get(command)
     expected = ["Routes to the exact requested command", "Preserves authority", "Records verification evidence"]
     if donor:
@@ -41,7 +47,7 @@ def case(command: str, task: str) -> dict:
     if command == "run":
         expected.extend(["Presents two to four workflows", "Waits for workflow selection"])
     return {
-        "id": f"e2e-{command}",
+        "id": f"e2e-{index:02d}-{command}",
         "command": command,
         "input": f"agentkit {command} {task}".strip(),
         "expected_donor": donor,
@@ -57,6 +63,7 @@ def main() -> int:
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--scope", choices=("all", "command", "workflow"), default="all")
     parser.add_argument("--command", choices=COMMANDS)
+    parser.add_argument("--workflow", choices=tuple(WORKFLOWS), default="full-lifecycle")
     parser.add_argument("--task", default="exercise the command with a representative isolated fixture")
     parser.add_argument("--pack-version", default="0.1.0")
     args = parser.parse_args()
@@ -67,9 +74,9 @@ def main() -> int:
     if args.scope == "command":
         selected = [args.command]
     elif args.scope == "workflow":
-        selected = ["context", "architect", "evaluate", "manage"]
+        selected = WORKFLOWS[args.workflow]
 
-    cases = [case(command, args.task) for command in selected]
+    cases = [case(command, args.task, index) for index, command in enumerate(selected, start=1)]
     run_id = output.name
     created_at = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
     plan = {

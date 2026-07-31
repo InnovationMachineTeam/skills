@@ -1,0 +1,15 @@
+{
+  "case_id": "e2e-04-evaluate",
+  "command": "evaluate",
+  "selected_donor": "agent-evaluator",
+  "donor_version": "1.0.0",
+  "donor_hash": "sha256:3d92cca26900a0736c45c5e9bd90dd2b9d14c1da5ecca3541dccfdc3dff9d3cf",
+  "execution_kind": "semantic-donor-run",
+  "real_workflow_observation": true,
+  "semantic_result": "The frozen candidate failed the tools-authority layer because repository:write exceeded the bounded documentation mission; no repair occurred during evaluation.",
+  "evidence": ["artifacts/evaluation-plan.json", "artifacts/evaluation-result.json"],
+  "authority_preserved": true,
+  "canonical_donor_modified": false,
+  "vendored_donor_modified": false,
+  "verdict": "PASS"
+}

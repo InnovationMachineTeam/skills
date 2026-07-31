@@ -17,7 +17,7 @@
     "Single-agent, team and Agentic OS routing boundaries do not collide.",
     "Generated agent definitions include a validated documentation contract.",
     "Repository, marketplace, eval and forward-test gates pass.",
-    "Agentkit remains deferred until donor maturity evidence exists."
+    "Agentkit is promoted only after two stable donor cycles, three real workflows, and frozen upgrade, rollback and holdout contracts."
   ],
   "authority": {
     "write": true,
@@ -150,25 +150,35 @@
       "id": "phase-6-stability-cycle-2",
       "specialist": "skill-evaluator",
       "objective": "Observe and certify a second distinct stable donor release.",
-      "status": "pending",
+      "status": "completed",
       "dependencies": ["phase-5b-agentkit-candidate"],
-      "entry_conditions": ["A later release observation and real workflow evidence exist"],
+      "entry_conditions": ["A distinct later observation and three real workflow evidence records exist"],
       "required_outputs": ["second cycle result", "updated stability ledger"],
       "exit_checks": ["All blocking layers pass without reusing stale evidence"],
-      "authority": {"read": true, "write": false, "external_research": false, "install": false, "publish": false, "retire": false},
-      "evidence": []
+      "authority": {"read": true, "write": true, "external_research": false, "install": false, "publish": true, "retire": false},
+      "evidence": [
+        "docs/agents/evals/individual-agent-stability-cycle-2-plan.json",
+        "docs/agents/evals/individual-agent-stability-cycle-2-results.json",
+        "docs/RELEASE-3.2.2-AGENT-DONOR-STABILIZATION-2.md",
+        "docs/agents/evals/agentkit-real-workflows/01-full-lifecycle/workflow-observation.json",
+        "docs/agents/evals/agentkit-real-workflows/02-repair-recovery/workflow-observation.json",
+        "docs/agents/evals/agentkit-real-workflows/03-optimize-regression/workflow-observation.json"
+      ]
     },
     {
       "id": "phase-7-agentkit",
       "specialist": "skill-builder",
       "objective": "Assess and optionally create the agentkit composite.",
-      "status": "pending",
+      "status": "in_progress",
       "dependencies": ["phase-6-stability-cycle-2"],
-      "entry_conditions": ["Two consecutive stable releases after all donors exist"],
-      "required_outputs": ["maturity decision"],
-      "exit_checks": ["Donor locks and real workflows justify the composite"],
-      "authority": {"read": true, "write": false, "external_research": false, "install": false, "publish": false, "retire": false},
-      "evidence": []
+      "entry_conditions": ["Two stable releases, three real workflows, and frozen pack contracts exist"],
+      "required_outputs": ["agentkit 1.0.0 stable bundle", "catalog and plugin entries", "release evidence"],
+      "exit_checks": ["Stable bundle, rollback, holdout, repository, marketplace and host package validators pass"],
+      "authority": {"read": true, "write": true, "external_research": false, "install": false, "publish": true, "retire": false},
+      "evidence": [
+        "docs/agents/evals/agentkit-candidate-0.2.0-plan.json",
+        "docs/agents/evals/agentkit-candidate-0.2.0-results.json"
+      ]
     }
   ],
   "artifacts": [
@@ -176,11 +186,15 @@
     "docs/AGENTKIT-READINESS.md",
     "docs/RELEASE-3.2.0-INDIVIDUAL-AGENT-SKILLS.md",
     "docs/RELEASE-3.2.1-AGENT-DONOR-STABILIZATION-1.md",
+    "docs/RELEASE-3.2.2-AGENT-DONOR-STABILIZATION-2.md",
     "docs/agents/evals/individual-agent-stability-cycles.json",
     "candidates/agentkit",
     "tests/test_agentkit_candidate.py",
     "docs/agents/evals/agentkit-candidate-0.1.0-plan.json",
     "docs/agents/evals/agentkit-candidate-0.1.0-results.json",
+    "docs/agents/evals/agentkit-candidate-0.2.0-plan.json",
+    "docs/agents/evals/agentkit-candidate-0.2.0-results.json",
+    "docs/agents/evals/agentkit-pack-holdout-v1.json",
     "skills/agent-skills/agent-architect",
     "skills/agent-skills/agent-best-practices",
     "skills/agent-skills/agent-builder",
@@ -204,6 +218,12 @@
       "scope": "Non-discoverable candidate only; no donor mutation, installation or marketplace activation",
       "status": "approved",
       "source": "user request 2026-07-31"
+    },
+    {
+      "subject": "Develop agentkit to a stable version within current constraints",
+      "scope": "Complete maturity evidence, promote the exact stable package, publish the repository release; no host installation or activation",
+      "status": "approved",
+      "source": "user request 2026-07-31"
     }
   ],
   "risks": [
@@ -211,5 +231,5 @@
     "Documentation conventions can become empty taxonomy without consumers.",
     "A premature composite can freeze unstable donor interfaces."
   ],
-  "updated_at": "2026-07-31T17:30:00Z"
+  "updated_at": "2026-07-31T13:08:00Z"
 }

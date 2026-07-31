@@ -7,7 +7,7 @@ import hashlib
 import json
 import re
 import sys
-from datetime import date
+from datetime import datetime
 from pathlib import Path
 
 
@@ -130,7 +130,7 @@ def validate(root: Path, ledger_path: Path) -> list[str]:
     previous_release = stability_epoch
     stable_count = 0
     cycle_ids: set[str] = set()
-    observation_dates: list[date] = []
+    observation_times: list[datetime] = []
     for cycle in cycles:
         cycle_id = cycle.get("id")
         if not cycle_id or cycle_id in cycle_ids:
@@ -162,19 +162,49 @@ def validate(root: Path, ledger_path: Path) -> list[str]:
             if not isinstance(locator, str) or not locator or not (root / locator).exists():
                 failures.append(f"{cycle_id}: missing evidence locator {locator!r}")
         try:
-            observed = date.fromisoformat(cycle.get("observed_on", ""))
-            observation_dates.append(observed)
-        except ValueError:
-            failures.append(f"{cycle_id}: observed_on must be an ISO date")
+            observed = datetime.fromisoformat(cycle.get("observed_at", "").replace("Z", "+00:00"))
+            if observed.tzinfo is None:
+                raise ValueError("timezone required")
+            observation_times.append(observed)
+        except (AttributeError, ValueError):
+            failures.append(f"{cycle_id}: observed_at must be a timezone-aware ISO timestamp")
 
-    if any(later <= earlier for earlier, later in zip(observation_dates, observation_dates[1:])):
-        failures.append("stable cycles require distinct increasing observation dates")
+    if any(later <= earlier for earlier, later in zip(observation_times, observation_times[1:])):
+        failures.append("stable cycles require distinct increasing observation timestamps")
 
     gate = ledger.get("agentkit_gate", {})
     completed = gate.get("stable_cycles_completed")
     if completed != stable_count:
         failures.append("agentkit_gate stable cycle count does not match ledger")
     workflows = gate.get("real_workflows_observed", [])
+    if isinstance(workflows, list):
+        workflow_ids: set[str] = set()
+        for workflow in workflows:
+            if not isinstance(workflow, dict) or not workflow.get("id") or workflow.get("id") in workflow_ids:
+                failures.append("real workflow observations require unique object identities")
+                continue
+            workflow_ids.add(workflow["id"])
+            evidence = workflow.get("evidence")
+            if not isinstance(evidence, str) or not (root / evidence).is_file():
+                failures.append(f"{workflow['id']}: missing workflow evidence")
+                continue
+            actual_evidence_hash = f"sha256:{hashlib.sha256((root / evidence).read_bytes()).hexdigest()}"
+            if workflow.get("sha256") != actual_evidence_hash:
+                failures.append(f"{workflow['id']}: evidence hash drift")
+            try:
+                observation = load(root / evidence)
+                run_root = (root / evidence).parent
+                run_state = load(run_root / "run-state.json")
+                if observation.get("workflow_id") != workflow["id"]:
+                    failures.append(f"{workflow['id']}: evidence identity differs")
+                if observation.get("outcome", {}).get("verdict") != "PASS":
+                    failures.append(f"{workflow['id']}: observation outcome must PASS")
+                if run_state.get("real_workflow_observation") is not True or run_state.get("execution_kind") != "semantic-donor-run":
+                    failures.append(f"{workflow['id']}: synthetic runs cannot satisfy maturity")
+                if run_state.get("verdict") != "PASS":
+                    failures.append(f"{workflow['id']}: run must PASS")
+            except (OSError, json.JSONDecodeError) as exc:
+                failures.append(f"{workflow['id']}: {exc}")
     contracts = (
         gate.get("upgrade_contract_frozen") is True,
         gate.get("rollback_contract_frozen") is True,
@@ -191,8 +221,10 @@ def validate(root: Path, ledger_path: Path) -> list[str]:
     agentkit_exists = (root / "skills" / "agent-skills" / "agentkit" / "SKILL.md").exists()
     if agentkit_exists and not mature:
         failures.append("agentkit bundle exists before maturity gate passes")
-    if gate.get("status") == "ready" and not mature:
+    if gate.get("status") in {"ready", "released"} and not mature:
         failures.append("agentkit cannot be ready without cycles, workflows and frozen contracts")
+    if mature and gate.get("status") not in {"ready", "released"}:
+        failures.append("mature agentkit gate must be ready or released")
 
     candidate = gate.get("candidate")
     candidate_root = root / "candidates" / "agentkit"
@@ -258,8 +290,8 @@ def validate(root: Path, ledger_path: Path) -> list[str]:
         failures.append("agentkit candidate exists but is not declared in the maturity ledger")
 
     current_release = release.get("marketplace", {}).get("version")
-    if cycles and current_release != cycles[-1].get("release"):
-        failures.append("catalog release must match the latest stability cycle")
+    if cycles and semver(current_release) < semver(cycles[-1].get("release")):
+        failures.append("catalog release cannot precede the latest stability cycle")
     if release.get("aggregate_plugin", {}).get("version") != current_release:
         failures.append("aggregate and marketplace release versions must match")
     return failures

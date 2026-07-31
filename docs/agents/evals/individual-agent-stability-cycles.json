@@ -22,6 +22,7 @@
       "release": "3.2.1",
       "baseline_release": "3.2.0",
       "observed_on": "2026-07-31",
+      "observed_at": "2026-07-31T12:08:32Z",
       "status": "stable",
       "portfolio_hash": "sha256:9e50a4d18873efe6063b58393a93a56b96658d195b5293fff820c2affd5c5751",
       "changed_donor_hashes": [],
@@ -43,29 +44,75 @@
         "tests/test_individual_agent_skills.py",
         "scripts/validate_agent_donor_stability.py"
       ]
+    },
+    {
+      "id": "stability-cycle-2",
+      "release": "3.2.2",
+      "baseline_release": "3.2.1",
+      "observed_on": "2026-07-31",
+      "observed_at": "2026-07-31T13:08:00Z",
+      "status": "stable",
+      "portfolio_hash": "sha256:9e50a4d18873efe6063b58393a93a56b96658d195b5293fff820c2affd5c5751",
+      "changed_donor_hashes": [],
+      "layer_verdicts": {
+        "structure": "PASS",
+        "routing": "PASS",
+        "behavior": "PASS",
+        "authority": "PASS",
+        "documentation": "PASS",
+        "coexistence": "PASS",
+        "lifecycle": "PASS"
+      },
+      "blocking_findings": [],
+      "evidence": [
+        "docs/agents/evals/individual-agent-stability-cycle-2-plan.json",
+        "docs/agents/evals/individual-agent-stability-cycle-2-results.json",
+        "docs/agents/evals/individual-agent-portfolio-results.json",
+        "docs/RELEASE-3.2.2-AGENT-DONOR-STABILIZATION-2.md",
+        "docs/agents/evals/agentkit-real-workflows/01-full-lifecycle/workflow-observation.json",
+        "docs/agents/evals/agentkit-real-workflows/02-repair-recovery/workflow-observation.json",
+        "docs/agents/evals/agentkit-real-workflows/03-optimize-regression/workflow-observation.json",
+        "tests/test_agentkit_candidate.py",
+        "scripts/validate_agent_donor_stability.py"
+      ]
     }
   ],
   "agentkit_gate": {
-    "status": "deferred",
-    "stable_cycles_completed": 1,
-    "real_workflows_observed": [],
-    "upgrade_contract_frozen": false,
-    "rollback_contract_frozen": false,
-    "pack_holdout_frozen": false,
+    "status": "ready",
+    "stable_cycles_completed": 2,
+    "real_workflows_observed": [
+      {
+        "id": "agentkit-real-01-full-lifecycle",
+        "observed_at": "2026-07-31T13:02:15Z",
+        "evidence": "docs/agents/evals/agentkit-real-workflows/01-full-lifecycle/workflow-observation.json",
+        "sha256": "sha256:acc29a0bed94c536a9c3b04b0daf07a83dc3aae7a73b76a3df0d9526e5a66d31"
+      },
+      {
+        "id": "agentkit-real-02-repair-recovery",
+        "observed_at": "2026-07-31T13:04:43Z",
+        "evidence": "docs/agents/evals/agentkit-real-workflows/02-repair-recovery/workflow-observation.json",
+        "sha256": "sha256:a363443d50f6d31fb590c5fe8fcc56d07dc848bd3b2714ca091c8289244a7309"
+      },
+      {
+        "id": "agentkit-real-03-optimize-regression",
+        "observed_at": "2026-07-31T13:07:05Z",
+        "evidence": "docs/agents/evals/agentkit-real-workflows/03-optimize-regression/workflow-observation.json",
+        "sha256": "sha256:bc765e19c42aeb9ae7cbdb81b38dc10ae92ccc17bd498dac4458a366c5d076ab"
+      }
+    ],
+    "upgrade_contract_frozen": true,
+    "rollback_contract_frozen": true,
+    "pack_holdout_frozen": true,
     "candidate": {
       "status": "experimental",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "locator": "candidates/agentkit",
-      "content_sha256": "sha256:bb014bfcc41bdbde43b47bc085232ad7ecf2fc3e6dc0889584dc701fdad7db10",
+      "content_sha256": "sha256:102613a93687e616498e4981c71b1d9e45828c9ead07c6fc3b72af055ff8fe3d",
       "discoverable": false,
       "e2e_command": "agentkit e2e",
-      "evaluation_plan": "docs/agents/evals/agentkit-candidate-0.1.0-plan.json",
-      "evaluation_result": "docs/agents/evals/agentkit-candidate-0.1.0-results.json"
+      "evaluation_plan": "docs/agents/evals/agentkit-candidate-0.2.0-plan.json",
+      "evaluation_result": "docs/agents/evals/agentkit-candidate-0.2.0-results.json"
     },
-    "remaining_requirements": [
-      "complete one more distinct post-donor stable release",
-      "observe at least three real end-to-end workflows",
-      "freeze donor upgrade and rollback contracts"
-    ]
+    "remaining_requirements": ["promote and evaluate the exact stable package in a separate release"]
   }
 }

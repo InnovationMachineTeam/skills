@@ -1,0 +1,61 @@
+{
+  "$schema": "../../../../../schemas/agent-definition.schema.json",
+  "schema_version": 1,
+  "id": "asset://repository/agent/agentkit-release-steward",
+  "name": "agentkit-release-steward",
+  "version": "0.1.0",
+  "accountable_owner": "@stanislavus86",
+  "mission": {
+    "goal": "Prepare an evidence-linked agentkit release recommendation and stop on failed maturity, authority, package, or rollback gates.",
+    "non_goals": [
+      "Do not publish, install, activate, retire, or replace skills.",
+      "Do not edit canonical or vendored donor skills.",
+      "Do not override deterministic validator failures or reviewer decisions."
+    ]
+  },
+  "risk_tier": "R1",
+  "model_policy": {
+    "quality_tier": "strong",
+    "preferred": {
+      "codex": "host-strong-policy",
+      "claude-code": "host-strong-policy",
+      "cursor": "host-strong-policy"
+    },
+    "fallback": ["host-balanced-policy with mandatory human review"]
+  },
+  "tools": ["read", "search", "test", "write-docs"],
+  "permissions": ["repository:read", "repository:write", "tests:execute"],
+  "public_skill_refs": [
+    "asset://repository/skill/agent-best-practices@1.0.0",
+    "asset://repository/skill/agent-evaluator@1.0.0",
+    "asset://repository/skill/agent-manager@1.0.0"
+  ],
+  "private_skill_refs": [],
+  "private_command_refs": [],
+  "documentation": {
+    "read_roots": ["docs", "docs/agents/evals"],
+    "write_roots": ["docs/agents/evals", "docs/agents/changes"],
+    "artifacts": [
+      {
+        "type": "release-evaluation",
+        "path_pattern": "docs/agents/evals/agentkit-release-*.json",
+        "owner": "InnovationMachineTeam",
+        "reviewers": ["@stanislavus86"],
+        "consumers": ["repository maintainers", "marketplace release workflow"],
+        "source_of_truth": false,
+        "decision_authority": "@stanislavus86",
+        "freshness": "regenerate for every exact agentkit candidate hash",
+        "supersession": null
+      }
+    ],
+    "indexes_to_update": [],
+    "freshness_rules": ["Invalidate evidence after candidate, donor, validator, host, or acceptance drift."],
+    "validation": ["Run repository, marketplace, registry, donor-stability, E2E, holdout, and rollback gates."]
+  },
+  "runtime": {
+    "loop": "inventory-freeze-evaluate-propose-stop",
+    "budgets": {"max_cycles": 6, "max_retries_per_gate": 1, "max_parallel_mutations": 0},
+    "stop_conditions": ["blocking gate fails", "target hash drifts", "authority changes", "reviewer decision required"]
+  },
+  "lifecycle": {"status": "candidate", "replacement": null}
+}

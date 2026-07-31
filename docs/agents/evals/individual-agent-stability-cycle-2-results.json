@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "evaluation_id": "individual-agent-stability-cycle-2",
+  "run_id": "stability-cycle-2-2026-07-31T13:08:00Z",
+  "evaluation_revision": "cycle-2-plan-v1",
+  "target_version": "3.2.2",
+  "baseline_version": "3.2.1",
+  "target_portfolio_hash": "sha256:9e50a4d18873efe6063b58393a93a56b96658d195b5293fff820c2affd5c5751",
+  "candidate_changed_donor_hashes": [],
+  "verdict": "PASS",
+  "release_recommendation": "STABLE_CYCLE_2",
+  "layer_verdicts": {
+    "structure": "PASS",
+    "routing": "PASS",
+    "behavior": "PASS",
+    "authority": "PASS",
+    "documentation": "PASS",
+    "coexistence": "PASS",
+    "lifecycle": "PASS"
+  },
+  "evidence": {
+    "official_skill_validator": "10/10 PASS",
+    "unit_tests": "57/57 PASS",
+    "individual_agent_eval_fixtures": "10/10 PASS",
+    "real_agentkit_workflows": "3/3 PASS",
+    "repository_validator": "38 skills and 38 individual plugins PASS before agentkit promotion",
+    "marketplace_generator_check": "3 manifests with 38 entries each PASS before promotion",
+    "dependency_graph": "unchanged donor declarations validate",
+    "agent_asset_registry": "frozen donor hashes and generated views validate"
+  },
+  "reused_forward_evidence": {
+    "source": "docs/agents/evals/individual-agent-portfolio-results.json",
+    "reason": "All ten donor content hashes remain byte-for-byte unchanged from the independently reviewed 3.2.0 target.",
+    "scope": ["routing", "behavior", "authority", "documentation", "coexistence", "lifecycle"]
+  },
+  "blocking_findings": [],
+  "limitations": [
+    "No host activation or installation was attempted.",
+    "The real workflow executor was the current user-authorized task, not an external model.",
+    "Agentkit promotion and stable package validation remain a separate 3.3.0 lifecycle change."
+  ]
+}

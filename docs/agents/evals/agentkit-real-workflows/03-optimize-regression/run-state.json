@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "run_id": "03-optimize-regression",
+  "status": "completed",
+  "verdict": "PASS",
+  "cases": [
+    {
+      "id": "e2e-01-evaluate",
+      "status": "completed",
+      "verdict": "PASS",
+      "output_locator": "raw/e2e-01-evaluate.json"
+    },
+    {
+      "id": "e2e-02-optimize",
+      "status": "completed",
+      "verdict": "PASS",
+      "output_locator": "raw/e2e-02-optimize.json"
+    },
+    {
+      "id": "e2e-03-evaluate",
+      "status": "completed",
+      "verdict": "PASS",
+      "output_locator": "raw/e2e-03-evaluate.json"
+    },
+    {
+      "id": "e2e-04-manage",
+      "status": "completed",
+      "verdict": "PASS",
+      "output_locator": "raw/e2e-04-manage.json"
+    }
+  ],
+  "updated_at": "2026-07-31T13:07:05Z",
+  "execution_kind": "semantic-donor-run",
+  "real_workflow_observation": true,
+  "workflow_id": "agentkit-real-03-optimize-regression"
+}

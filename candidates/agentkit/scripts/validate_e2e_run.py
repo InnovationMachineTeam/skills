@@ -66,6 +66,23 @@ def validate(run: Path) -> list[str]:
             failures.append("root PASS requires every case to PASS")
         if any(item.get("severity") in {"BLOCK", "HIGH"} for item in findings):
             failures.append("root PASS cannot contain blocking findings")
+    if state.get("real_workflow_observation") is True:
+        if state.get("execution_kind") != "semantic-donor-run":
+            failures.append("real workflow requires semantic-donor-run execution")
+        observation_path = run / "workflow-observation.json"
+        if not observation_path.is_file():
+            failures.append("real workflow requires workflow-observation.json")
+        else:
+            try:
+                observation = load(observation_path)
+                if observation.get("workflow_id") != state.get("workflow_id"):
+                    failures.append("workflow observation identity differs from run-state")
+                if observation.get("outcome", {}).get("verdict") != "PASS":
+                    failures.append("real workflow observation requires a PASS outcome")
+                if len(observation.get("evidence", [])) != len(cases):
+                    failures.append("real workflow observation evidence must cover every case")
+            except (OSError, json.JSONDecodeError) as exc:
+                failures.append(str(exc))
     return failures
 
 

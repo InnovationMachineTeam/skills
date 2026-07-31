@@ -1,0 +1,15 @@
+{
+  "case_id": "e2e-01-evaluate",
+  "command": "evaluate",
+  "selected_donor": "agent-evaluator",
+  "donor_version": "1.0.0",
+  "donor_hash": "sha256:3d92cca26900a0736c45c5e9bd90dd2b9d14c1da5ecca3541dccfdc3dff9d3cf",
+  "execution_kind": "semantic-donor-run",
+  "real_workflow_observation": true,
+  "semantic_result": "The exact 0.1.1 baseline was confirmed healthy and the maximum-cycle metric was frozen at 6 with non-compensable guardrails.",
+  "evidence": ["artifacts/baseline.json"],
+  "authority_preserved": true,
+  "canonical_donor_modified": false,
+  "vendored_donor_modified": false,
+  "verdict": "PASS"
+}

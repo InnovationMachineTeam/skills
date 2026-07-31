@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "workflow_id": "agentkit-real-02-repair-recovery",
+  "user_request_ref": "2026-07-31 continue agentkit development to a stable version within current constraints",
+  "task": "Repair the least-privilege defect found in the agentkit release steward candidate and re-evaluate it.",
+  "target": "agentkit-release-steward 0.1.0 to 0.1.1 staged recovery",
+  "observed_at": "2026-07-31T13:04:43Z",
+  "execution_context": {
+    "executor": "Codex current user-authorized development task",
+    "semantic_execution": true,
+    "fresh_context": false,
+    "external_models": false,
+    "notes": "The baseline hash and failure were frozen before the repair; the repaired hash was evaluated without mutation."
+  },
+  "commands": [
+    {
+      "command": "evaluate",
+      "donor": "agent-evaluator"
+    },
+    {
+      "command": "doctor",
+      "donor": "agent-doctor"
+    },
+    {
+      "command": "evaluate",
+      "donor": "agent-evaluator"
+    },
+    {
+      "command": "manage",
+      "donor": "agent-manager"
+    }
+  ],
+  "outcome": {
+    "verdict": "PASS",
+    "observable_result": "The explicit agentkit repair workflow reproduced a real authority defect, produced a minimal immutable repair, verified recovery, and stopped before registration or activation.",
+    "limitations": [
+      "Same-task semantic executor; no live runtime or host activation was evaluated."
+    ]
+  },
+  "evidence": [
+    {
+      "case_id": "e2e-01-evaluate",
+      "output": "raw/e2e-01-evaluate.json",
+      "output_sha256": "sha256:d6adb30805aa877271cdfce51d2d0817586f32c188cf53ac91b5c8267cd890a0",
+      "artifacts": [
+        {
+          "locator": "artifacts/baseline-reference.json",
+          "sha256": "sha256:ddd36701fa28c3a9d437fef7408629b7e135c9416d3708f30d74430281320659"
+        }
+      ]
+    },
+    {
+      "case_id": "e2e-02-doctor",
+      "output": "raw/e2e-02-doctor.json",
+      "output_sha256": "sha256:529a49b98a26343a28dd78c8f5592e7d7b8b6dc959c6b5c6b0a12ee66c0043c0",
+      "artifacts": [
+        {
+          "locator": "artifacts/diagnosis.md",
+          "sha256": "sha256:945a767e3bdcf379b5934d0eedd5088c5f8304078e4b64dd74b6ddcd5dbe8a01"
+        },
+        {
+          "locator": "artifacts/agent-v0.1.1.json",
+          "sha256": "sha256:0877ef69d1d21ec6c7bc992d06da7b5de93fc6c6865ae52332bdfc220b8190d3"
+        }
+      ]
+    },
+    {
+      "case_id": "e2e-03-evaluate",
+      "output": "raw/e2e-03-evaluate.json",
+      "output_sha256": "sha256:44fdc723f647b2f59b4fab5beb0ad039f202b27767131bac764349c6241f0bd2",
+      "artifacts": [
+        {
+          "locator": "artifacts/evaluation-plan.json",
+          "sha256": "sha256:cc845c4529aed147cb4417206c908a1c96ebb618eb53b282849304614db93a01"
+        },
+        {
+          "locator": "artifacts/evaluation-result.json",
+          "sha256": "sha256:84f15c6f4d119725065b90944b7133ccb8c3e80d99487b433a12bc32531df43d"
+        }
+      ]
+    },
+    {
+      "case_id": "e2e-04-manage",
+      "output": "raw/e2e-04-manage.json",
+      "output_sha256": "sha256:43d34a2209034fd4889f5a7533ff1602a45f1de34580144fb82e6ed49a644c1e",
+      "artifacts": [
+        {
+          "locator": "artifacts/lifecycle-plan.md",
+          "sha256": "sha256:17f044300649e565d4e5a57ce5335501ea556aa6ecc32d342d1e9a198519dcd2"
+        }
+      ]
+    }
+  ],
+  "donor_manifest_sha256": "sha256:ccb818b7f24f576eac5a264e0659cf23268ea1a134f0926f9daf3d61c4278a8d"
+}

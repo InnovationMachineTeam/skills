@@ -1,0 +1,15 @@
+{
+  "case_id": "e2e-04-manage",
+  "command": "manage",
+  "selected_donor": "agent-manager",
+  "donor_version": "1.0.0",
+  "donor_hash": "sha256:05c82ba43e0a1a5d9fe2820c3f228e81ba94f86269c3dbbcb25d9446e798b22b",
+  "execution_kind": "semantic-donor-run",
+  "real_workflow_observation": true,
+  "semantic_result": "The optimized candidate was retained as evidence only; registry, map, host and runtime states remained unchanged.",
+  "evidence": ["artifacts/lifecycle-plan.md"],
+  "authority_preserved": true,
+  "canonical_donor_modified": false,
+  "vendored_donor_modified": false,
+  "verdict": "PASS"
+}

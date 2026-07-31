@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "workflow_id": "agentkit-real-03-optimize-regression",
+  "user_request_ref": "2026-07-31 continue agentkit development to a stable version within current constraints",
+  "task": "Reduce the healthy agentkit release steward loop budget without weakening release gates.",
+  "target": "agentkit-release-steward 0.1.1 to 0.2.0 staged optimization",
+  "observed_at": "2026-07-31T13:07:05Z",
+  "execution_context": {
+    "executor": "Codex current user-authorized development task",
+    "semantic_execution": true,
+    "fresh_context": false,
+    "external_models": false,
+    "notes": "One optimization hypothesis was frozen before the candidate comparison; active state was outside scope."
+  },
+  "commands": [
+    {
+      "command": "evaluate",
+      "donor": "agent-evaluator"
+    },
+    {
+      "command": "optimize",
+      "donor": "agent-optimizer"
+    },
+    {
+      "command": "evaluate",
+      "donor": "agent-evaluator"
+    },
+    {
+      "command": "manage",
+      "donor": "agent-manager"
+    }
+  ],
+  "outcome": {
+    "verdict": "PASS",
+    "observable_result": "The explicit agentkit optimization workflow established a healthy baseline, changed one measurable budget, compared the immutable candidate, and preserved lifecycle authority.",
+    "limitations": [
+      "The metric is definition-level and deterministic; no stochastic runtime latency or cost claim is made."
+    ]
+  },
+  "evidence": [
+    {
+      "case_id": "e2e-01-evaluate",
+      "output": "raw/e2e-01-evaluate.json",
+      "output_sha256": "sha256:bc9c66d1275e3717d809cc17136de823d9372748abd3a6097720fcf8fb8a88ab",
+      "artifacts": [
+        {
+          "locator": "artifacts/baseline.json",
+          "sha256": "sha256:640f350f81ab70b0707dedc2e2c931bcd6ca158dbc513378095dc1cae54ba109"
+        }
+      ]
+    },
+    {
+      "case_id": "e2e-02-optimize",
+      "output": "raw/e2e-02-optimize.json",
+      "output_sha256": "sha256:e96d49f28cb30cb6dcf6073a97eeceb1a4adb5cad68f28dc749987d9e5424d8d",
+      "artifacts": [
+        {
+          "locator": "artifacts/optimization-plan.md",
+          "sha256": "sha256:4c554e2d7eda5f8c3142957ad8ee0f8a79a65d000d276500dcd051b5aba57ba4"
+        },
+        {
+          "locator": "artifacts/agent-v0.2.0.json",
+          "sha256": "sha256:30224e52206569d992b4dcc41aec9422c74d9cfdd36dbc60615db51a2e776dfc"
+        }
+      ]
+    },
+    {
+      "case_id": "e2e-03-evaluate",
+      "output": "raw/e2e-03-evaluate.json",
+      "output_sha256": "sha256:b03bf4ea5211f68522ec2b622898a92d9c41a15ffd5283df1232e8be7a4cf992",
+      "artifacts": [
+        {
+          "locator": "artifacts/evaluation-plan.json",
+          "sha256": "sha256:609fa9ba100828fa9ea69c116b7e4de5903508c8241e8d5a979a0f5c53536ab0"
+        },
+        {
+          "locator": "artifacts/evaluation-result.json",
+          "sha256": "sha256:08d9a41ae8ce81e68e9827831c83e7cafb5b3c4467588bf64673abb5f1b47eb4"
+        }
+      ]
+    },
+    {
+      "case_id": "e2e-04-manage",
+      "output": "raw/e2e-04-manage.json",
+      "output_sha256": "sha256:ed90cd40a60d9ddc5bcc91827ddccce1e8751cfa4c1840727b078b3fe07171fb",
+      "artifacts": [
+        {
+          "locator": "artifacts/lifecycle-plan.md",
+          "sha256": "sha256:067af0df963d4cccf68677d68606f439e490defc620334a58dd8d8a3dcc77006"
+        }
+      ]
+    }
+  ],
+  "donor_manifest_sha256": "sha256:ccb818b7f24f576eac5a264e0659cf23268ea1a134f0926f9daf3d61c4278a8d"
+}

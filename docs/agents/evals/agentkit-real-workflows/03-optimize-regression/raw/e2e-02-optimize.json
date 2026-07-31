@@ -1,0 +1,15 @@
+{
+  "case_id": "e2e-02-optimize",
+  "command": "optimize",
+  "selected_donor": "agent-optimizer",
+  "donor_version": "1.0.0",
+  "donor_hash": "sha256:e718fe42e4aee1c3eec3484133f9a85d9e0aee59cec68a738d996d264cdd83ea",
+  "execution_kind": "semantic-donor-run",
+  "real_workflow_observation": true,
+  "semantic_result": "One bounded hypothesis reduced max_cycles from 6 to 4 in a staged 0.2.0 candidate while preserving mission, tools, authority, documentation and stop conditions.",
+  "evidence": ["artifacts/optimization-plan.md", "artifacts/agent-v0.2.0.json"],
+  "authority_preserved": true,
+  "canonical_donor_modified": false,
+  "vendored_donor_modified": false,
+  "verdict": "PASS"
+}
