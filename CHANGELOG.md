@@ -11,6 +11,9 @@
 - Added deterministic validators and adversarial tests for unapproved
   bootstrap, production activation, policy replay, stale revisions, false
   success, duplicate/unredacted telemetry and release with a blocking failure.
+- Completed the private canary with collision and selective-package gates;
+  installed and enabled all seven new plugins from the GitHub-backed Codex
+  marketplace and recorded cross-host evidence, ownership and rollback.
 - Reused existing team, knowledge and marketplace capabilities and explicitly
   rejected production queues, service mesh, GraphRAG and dynamic model routing
   from the minimum slice.

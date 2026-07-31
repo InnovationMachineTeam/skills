@@ -4,7 +4,7 @@
   "build_id": "agent-system-foundation-2026-07-31",
   "scenario": "portfolio-governance",
   "goal": "Implement the approved agent asset foundation and core agent-team design, mapping, build and lifecycle skills before runtime orchestration.",
-  "status": "in_progress",
+  "status": "completed",
   "scope": [
     "docs/",
     "scripts/",
@@ -59,7 +59,7 @@
     {"id":"phase-5-runtime","specialist":"skill-builder","objective":"Build evaluation and runtime orchestration slice","status":"completed","dependencies":["phase-4-core-team"],"entry_conditions":["Phase 4 release passes"],"required_outputs":["agent-team-orchestrator","agent-workspace-manager","team-level eval suite","durable runtime and recovery contracts"],"exit_checks":["Sequential, parallel, failure, conflict, budget, cancellation, resume and cleanup cases pass"],"authority":{"read":true,"write":true,"external_research":false,"install":false,"publish":true,"retire":false},"evidence":["skills/metaskills/agent-team-orchestrator","skills/metaskills/agent-workspace-manager","tests/test_phase5_runtime_skills.py"]},
     {"id":"phase-6-knowledge","specialist":"skill-builder","objective":"Build curated knowledge and memory plane","status":"completed","dependencies":["phase-5-runtime"],"entry_conditions":["Runtime release passes"],"required_outputs":["docs conventions","agent-knowledge-manager","Graphify projection","retrieval provenance tests"],"exit_checks":["Unverified facts cannot publish silently","Freshness and provenance are enforced"],"authority":{"read":true,"write":true,"external_research":false,"install":false,"publish":true,"retire":false},"evidence":["skills/metaskills/agent-knowledge-manager","docs/KNOWLEDGE-PLANE.md","docs/generated/knowledge-graph.json","tests/test_phase6_knowledge_skill.py"]},
     {"id":"phase-7-agent-os","specialist":"skill-builder","objective":"Build one bounded minimal Agentic OS walking skeleton","status":"completed","dependencies":["phase-6-knowledge"],"entry_conditions":["Knowledge release passes","Private marketplace release use case selected"],"required_outputs":["Agentic OS architecture and bootstrap","registry/runtime/policy/observer/evaluator slices","one policy-gated durable run"],"exit_checks":["Trace, evaluation, recovery and retirement pass"],"authority":{"read":true,"write":true,"external_research":false,"install":false,"publish":true,"retire":false},"evidence":["docs/agent-os/PRIVATE-MARKETPLACE-WALKING-SKELETON.md","tests/fixtures/agent-os-marketplace-release","tests/test_phase7_agent_os.py","skills/metaskills/agent-os-architect","skills/metaskills/agent-os-bootstrapper","skills/metaskills/agent-registry-manager","skills/metaskills/agent-runtime-manager","skills/metaskills/agent-policy-manager","skills/metaskills/agent-observer","skills/metaskills/agent-os-evaluator"]},
-    {"id":"phase-8-release","specialist":"skill-builder","objective":"Run portfolio collision, selective-install and private-canary release gates","status":"pending","dependencies":["phase-7-agent-os"],"entry_conditions":["Agentic OS candidate passes"],"required_outputs":["catalog collision evidence","individual install evidence","private canary report"],"exit_checks":["All agent and skill metaskills coexist and remain selectively installable"],"authority":{"read":true,"write":true,"external_research":false,"install":true,"publish":true,"retire":false},"evidence":[]}
+    {"id":"phase-8-release","specialist":"skill-builder","objective":"Run portfolio collision, selective-install and private-canary release gates","status":"completed","dependencies":["phase-7-agent-os"],"entry_conditions":["Agentic OS candidate passes"],"required_outputs":["catalog collision evidence","individual install evidence","private canary report"],"exit_checks":["All agent and skill metaskills coexist and remain selectively installable"],"authority":{"read":true,"write":true,"external_research":false,"install":true,"publish":true,"retire":false},"evidence":["tests/test_phase8_portfolio_release.py","docs/agent-os/PRIVATE-CANARY-REPORT.md","Codex private marketplace install 2026-07-31"]}
   ],
   "artifacts": [
     "docs/AGENT-TEAM-AND-AGENT-OS-PLAN.md",
@@ -85,7 +85,9 @@
     "tests/test_phase6_knowledge_skill.py",
     "docs/agent-os/PRIVATE-MARKETPLACE-WALKING-SKELETON.md",
     "tests/fixtures/agent-os-marketplace-release",
-    "tests/test_phase7_agent_os.py"
+    "tests/test_phase7_agent_os.py",
+    "tests/test_phase8_portfolio_release.py",
+    "docs/agent-os/PRIVATE-CANARY-REPORT.md"
   ],
   "approvals": [
     {"subject":"Implement final plan","scope":"repository foundation and subsequent approved phases","status":"approved","source":"user request 2026-07-31"}
@@ -95,5 +97,5 @@
     "Generated adapters must not become a second canonical source.",
     "Filesystem privacy is not confidentiality."
   ],
-  "updated_at": "2026-07-31T00:00:00Z"
+  "updated_at": "2026-07-31T09:02:58Z"
 }

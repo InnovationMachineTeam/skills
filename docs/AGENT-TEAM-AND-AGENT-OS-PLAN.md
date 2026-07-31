@@ -1160,7 +1160,7 @@ fixture links architecture, bootstrap, desired-state reconciliation, policy,
 durable execution, telemetry and independent release evidence; combined
 adversarial failures are validated without deploying infrastructure.
 
-### Phase 8 — Marketplace and portfolio release — next
+### Phase 8 — Marketplace and portfolio release — completed
 
 - package each skill independently;
 - category `skills/agents` or current marketplace equivalent;
@@ -1171,6 +1171,15 @@ adversarial failures are validated without deploying infrastructure.
 - private canary before public release.
 
 Exit: validators and target-host E2E tests pass; rollback and ownership proven.
+
+Completed for private marketplace release `1.8.0`. The portfolio suite proves
+collision-free coexistence and one-skill package isolation across all 28
+entries. All packages pass repository and Claude Code validation; the seven new
+Agentic OS plugins were selectively installed and enabled from the private
+GitHub-backed marketplace in Codex, then compared with their canonical package
+trees. Cursor passed the supported structural contract. Evidence, rollback and
+ownership are recorded in
+[`docs/agent-os/PRIVATE-CANARY-REPORT.md`](agent-os/PRIVATE-CANARY-REPORT.md).
 
 ## 15. Evaluation matrix
 
