@@ -221,6 +221,8 @@ def validate(root: Path, ledger_path: Path) -> list[str]:
     agentkit_exists = (root / "skills" / "agent-skills" / "agentkit" / "SKILL.md").exists()
     if agentkit_exists and not mature:
         failures.append("agentkit bundle exists before maturity gate passes")
+    if agentkit_exists and gate.get("status") != "released":
+        failures.append("published agentkit requires released maturity state")
     if gate.get("status") in {"ready", "released"} and not mature:
         failures.append("agentkit cannot be ready without cycles, workflows and frozen contracts")
     if mature and gate.get("status") not in {"ready", "released"}:
@@ -288,6 +290,61 @@ def validate(root: Path, ledger_path: Path) -> list[str]:
                 failures.append(f"experimental agentkit candidate leaked into {marketplace}")
     elif candidate_root.exists():
         failures.append("agentkit candidate exists but is not declared in the maturity ledger")
+
+    released = gate.get("release")
+    if gate.get("status") == "released":
+        if not isinstance(released, dict):
+            failures.append("released agentkit requires a release declaration")
+        else:
+            stable_root = root / str(released.get("locator", ""))
+            if released.get("locator") != "skills/agent-skills/agentkit" or not (stable_root / "SKILL.md").is_file():
+                failures.append("released agentkit locator is missing or invalid")
+            else:
+                if released.get("version") != "1.0.0":
+                    failures.append("first stable agentkit release must be 1.0.0")
+                if tree_hash(stable_root) != released.get("content_sha256"):
+                    failures.append("released agentkit content hash drift")
+                asset = registered.get("agentkit", {})
+                if asset.get("version") != released.get("version") or asset.get("content_sha256") != released.get("content_sha256"):
+                    failures.append("released agentkit registry identity drift")
+                try:
+                    lock = load(stable_root / "donors.json")
+                    locked = {item.get("name"): item for item in lock.get("donors", [])}
+                    if set(locked) != set(DONORS) or lock.get("pack_version") != released.get("version"):
+                        failures.append("released agentkit donor lock identity drift")
+                    for donor in donors:
+                        entry = locked.get(donor.get("name"), {})
+                        if entry.get("version") != donor.get("version") or entry.get("source_tree_sha256") != donor.get("content_sha256"):
+                            failures.append(f"released agentkit donor drift: {donor.get('name')}")
+                    if list((stable_root / "vendor").rglob("SKILL.md")):
+                        failures.append("released agentkit vendor contains nested discoverable SKILL.md")
+                except (OSError, json.JSONDecodeError) as exc:
+                    failures.append(f"invalid released agentkit lock: {exc}")
+                for artifact_key in ("evaluation_plan", "evaluation_result"):
+                    artifact = root / str(released.get(artifact_key, ""))
+                    if not artifact.is_file():
+                        failures.append(f"released agentkit missing {artifact_key}")
+                        continue
+                    try:
+                        artifact_data = load(artifact)
+                        artifact_hash = artifact_data.get("target", {}).get("hash") if artifact_key == "evaluation_plan" else artifact_data.get("target_hash")
+                        if artifact_hash != released.get("content_sha256"):
+                            failures.append(f"released agentkit {artifact_key} hash drift")
+                    except json.JSONDecodeError as exc:
+                        failures.append(f"invalid released agentkit {artifact_key}: {exc}")
+            catalog = load(root / "catalog" / "entries.json")
+            if "agentkit" not in {item.get("name") for item in catalog.get("entries", [])}:
+                failures.append("released agentkit is missing from catalog")
+            if not (root / "plugins" / "agentkit").is_dir():
+                failures.append("released agentkit is missing its generated plugin")
+            for marketplace in (
+                root / ".claude-plugin" / "marketplace.json",
+                root / ".agents" / "plugins" / "marketplace.json",
+                root / ".cursor-plugin" / "marketplace.json",
+            ):
+                manifest = load(marketplace)
+                if "agentkit" not in {item.get("name") for item in manifest.get("plugins", [])}:
+                    failures.append(f"released agentkit missing from {marketplace}")
 
     current_release = release.get("marketplace", {}).get("version")
     if cycles and semver(current_release) < semver(cycles[-1].get("release")):

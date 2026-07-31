@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "InnovationMachine Agent Skills marketplace",
-    "version": "3.2.2"
+    "version": "3.3.0"
   },
   "plugins": [
     {
@@ -468,6 +468,25 @@
         "agents",
         "workspaces",
         "worktrees"
+      ]
+    },
+    {
+      "name": "agentkit",
+      "source": "./plugins/agentkit",
+      "strict": false,
+      "description": "Explicit composite toolkit for the version-locked individual-agent lifecycle skills",
+      "version": "1.0.0",
+      "author": {
+        "name": "InnovationMachine",
+        "email": "stanislav.usoltsev@gmail.com"
+      },
+      "category": "agent-skills",
+      "tags": [
+        "agent-skills",
+        "agents",
+        "composite",
+        "lifecycle",
+        "orchestration"
       ]
     },
     {

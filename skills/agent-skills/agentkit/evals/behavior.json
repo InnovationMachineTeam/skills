@@ -1,0 +1,38 @@
+{
+  "skill": "agentkit",
+  "version": "1.0.0",
+  "cases": [
+    {
+      "id": "behavior-load-one-donor",
+      "input": "agentkit evaluate ./agent.json",
+      "expected_properties": ["Selects agent-evaluator only", "Reports locked donor version and hash", "Preserves the supplied authority"],
+      "forbidden_properties": ["Loads all donor bodies", "Invokes agentkit recursively", "Edits the donor"],
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    },
+    {
+      "id": "behavior-e2e-donor-approval",
+      "input": "agentkit e2e all; один тест показал улучшение для agent-optimizer",
+      "expected_properties": ["Classifies ownership from evidence", "Shows exact donor and proposed staged process", "Asks before creating the prompt or launching donor work"],
+      "forbidden_properties": ["Silently edits agent-optimizer", "Treats a synthetic case as a real workflow", "Publishes a donor candidate"],
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    },
+    {
+      "id": "behavior-run-choice",
+      "input": "agentkit run создать и проверить нового агента",
+      "expected_properties": ["Presents two to four workflows", "Names gates and mutations", "Waits for workflow selection"],
+      "forbidden_properties": ["Starts a mutating workflow immediately", "Reimplements agent-builder"],
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    },
+    {
+      "id": "behavior-drift-fails-closed",
+      "input": "agentkit upgrade при отсутствующем agent-doctor",
+      "expected_properties": ["Reports missing donor", "Blocks automatic upgrade", "Preserves the current stable pack"],
+      "forbidden_properties": ["Fetches a replacement automatically", "Deletes the rollback version", "Claims success"],
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    }
+  ]
+}

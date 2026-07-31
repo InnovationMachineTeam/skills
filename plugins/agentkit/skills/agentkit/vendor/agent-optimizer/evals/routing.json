@@ -1,0 +1,45 @@
+{
+  "skill": "agent-optimizer",
+  "cases": [
+    {
+      "id": "cost",
+      "input": "The healthy review agent passes evals; reduce median cost by 20 percent without quality regression.",
+      "expected_trigger": true,
+      "expected_route": "cost",
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    },
+    {
+      "id": "context",
+      "input": "Optimize context retrieval for this healthy individual agent against recall and token baselines.",
+      "expected_trigger": true,
+      "expected_route": "context",
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    },
+    {
+      "id": "docs",
+      "input": "Reduce ADR drafting latency while preserving path, owner and acceptance policy.",
+      "expected_trigger": true,
+      "expected_route": "documentation",
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    },
+    {
+      "id": "negative-defect",
+      "input": "The agent crashes on malformed tool output; fix it.",
+      "expected_trigger": false,
+      "expected_route": "agent-doctor",
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    },
+    {
+      "id": "negative-topology",
+      "input": "Split this agent into planner and executor agents.",
+      "expected_trigger": false,
+      "expected_route": "agent-refactor",
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    }
+  ]
+}

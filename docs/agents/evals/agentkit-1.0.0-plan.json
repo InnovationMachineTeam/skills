@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0",
+  "evaluation_id": "agentkit-1.0.0-release",
+  "objective": "Decide whether the exact agentkit 1.0.0 stable bundle is safe to register and publish as one selectively installable marketplace entry.",
+  "risk": "medium",
+  "target": {
+    "identity": "agentkit",
+    "version": "1.0.0",
+    "hash": "sha256:00ccb553f68ab3450cee156f31b6475dfd20aa4d7c578d674fdbd9f5e67a9886",
+    "locator": "skills/agent-skills/agentkit"
+  },
+  "baseline": "non-discoverable agentkit 0.2.0 candidate at release 3.2.2",
+  "environment": {
+    "repository": "InnovationMachineTeam/skills",
+    "hosts": ["claude-code package", "codex package", "cursor package", "agent-skills layout"],
+    "runtime": "python-3 repository validators plus official quick validator through isolated uv dependency"
+  },
+  "authority": {
+    "read": true,
+    "write_repository_release": true,
+    "edit_donors": false,
+    "install_or_activate_host": false,
+    "external_actions": false
+  },
+  "layers": ["structure", "routing", "behavior", "scripts-tools", "security-authority", "coexistence", "portability", "lifecycle", "user-outcome"],
+  "datasets": [
+    "skills/agent-skills/agentkit/evals",
+    "docs/agents/evals/agentkit-pack-holdout-v1.json",
+    "docs/agents/evals/agentkit-real-workflows",
+    "tests/test_agentkit.py",
+    "repository and marketplace validators"
+  ],
+  "graders": ["official structural validator", "deterministic assertions", "artifact-bound semantic workflow review"],
+  "repetitions": 1,
+  "acceptance": {
+    "blocking_layers": ["structure", "routing", "behavior", "scripts-tools", "security-authority", "coexistence", "portability", "lifecycle"],
+    "criteria": {
+      "structure": "official and repository validators pass against the exact stable hash",
+      "routing": "agentkit remains explicit and direct specialist/team/Agentic OS requests remain non-triggers",
+      "behavior": "three real workflows and public regression cases pass",
+      "scripts-tools": "positive, drift, false-completion, synthetic-relabel, approval, contract and rollback paths pass",
+      "security-authority": "donors remain read-only and no installation or activation occurs",
+      "coexistence": "one catalog identity and one selective plugin exist without nested donor discovery",
+      "portability": "Claude Code, Codex and Cursor package manifests contain the same stable skill",
+      "lifecycle": "registry, catalog, maturity ledger, package hashes, rollback and release views agree",
+      "user-outcome": "agentkit is available as a stable repository marketplace entry with limitations explicit"
+    }
+  },
+  "holdout_policy": {
+    "protected": true,
+    "location": "docs/agents/evals/agentkit-pack-holdout-v1.json",
+    "exposure_rule": "outside the distributed pack; rotate after material behavior change"
+  },
+  "execution_policy": {
+    "side_effects": "repository files and generated package staging only",
+    "abort_conditions": ["donor drift", "registry hash drift", "nested discovery", "authority expansion", "blocking holdout failure"],
+    "cleanup": "remove only generated temporary staging; retain prior Git release as rollback evidence"
+  },
+  "artifacts": {
+    "result": "docs/agents/evals/agentkit-1.0.0-results.json",
+    "release_report": "docs/RELEASE-3.3.0-AGENTKIT.md"
+  }
+}

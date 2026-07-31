@@ -1,11 +1,11 @@
 # Agentkit Readiness Gate
 
-Status: **READY FOR STABLE PROMOTION**
+Status: **STABLE — RELEASED IN MARKETPLACE 3.3.0**
 
-The `agentkit` composite prompt exists at
-`docs/prompts/agentkit-composite-skill.md`. Release `3.2.2` completes the
-maturity gate; a discoverable bundle still requires a separate exact package
-promotion and validation transaction.
+The stable `agentkit@1.0.0` bundle is at
+`skills/agent-skills/agentkit/` and is registered as one public, selectively
+installable entry in the private marketplace. The reusable design prompt
+remains at `docs/prompts/agentkit-composite-skill.md`.
 
 Creation requires all of the following:
 
@@ -24,33 +24,34 @@ completed two post-donor stability cycles with unchanged donor hashes and all
 blocking layers passing. The machine-readable evidence is in
 `docs/agents/evals/individual-agent-stability-cycles.json`.
 
-Current progress: **2/2 stable cycles and 3/3 real workflows**. Cycle 2 is tied
+Completed evidence: **2/2 stable cycles and 3/3 real workflows**. Cycle 2 is tied
 to a later timestamp, unchanged donor hashes, new E2E artifacts and release
 `3.2.2`; it is not a repeated copy of cycle 1. Upgrade, rollback and external
-pack holdout contracts are hash-frozen. The maturity gate is ready, but
-`skills/agent-skills/agentkit/` remains absent until the next release performs
-and verifies the promotion.
+pack holdout contracts are hash-frozen. Release `3.3.0` promoted the exact
+candidate into a separately validated stable package.
 
-## Experimental candidate
+## Stable package
 
-A non-discoverable `agentkit@0.2.0` candidate exists at
-`candidates/agentkit/`. It is excluded from `skills/`, all marketplaces,
-generated plugins and host activation. Its purpose is to collect the missing
-E2E evidence without bypassing the maturity gate.
+`agentkit@1.0.0` is discoverable only through explicit agentkit invocations. It
+contains locked read-only donor snapshots, has its own catalog identity and
+generated plugin, and appears in the Claude Code, Codex and Cursor marketplace
+manifests. Vendored donor entrypoints are named `DONOR.md`, so they are not
+independently discovered as nested skills.
 
 The explicit `agentkit e2e` command scaffolds E2E cases, runs selected commands
-through the candidate router, records raw evidence, classifies ownership and
+through the pack router, records raw evidence, classifies ownership and
 proposes improvements. A donor-owned finding requires exact user approval
-before the candidate may write an improvement prompt or dispatch a staged
+before the pack may write an improvement prompt or dispatch a staged
 `repair-and-improve` or `optimize-existing` process. Canonical and vendored
-donors remain read-only, and promotion remains a separate lifecycle decision.
+donors remain read-only, and donor promotion remains a separate lifecycle decision.
 
-Synthetic candidate tests do not count toward the required three real workflow
-observations.
+Synthetic router tests do not count toward real workflow observations.
 
-Candidate evaluation `agentkit-candidate-0.2.0` passes all blocking layers.
+Candidate evaluation `agentkit-candidate-0.2.0` and exact stable-package
+evaluation `agentkit-1.0.0-release` pass all blocking layers.
 Three user-authorized semantic workflows exercised full lifecycle,
 repair/recovery and optimize/regression routes and retained artifact hashes.
 They used the current task executor rather than an external model, so no
-cross-model generalization claim is made. The correct lifecycle decision is
-`PROMOTE_AFTER_STABILITY_CYCLE_2`, followed by exact stable-package evaluation.
+cross-model generalization claim is made. Repository publication is complete;
+host installation and activation were intentionally not performed and require
+separate lifecycle authority plus host read-back.

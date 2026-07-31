@@ -1,6 +1,6 @@
 # Agent Skills Portfolio Implementation Plan
 
-Status: approved and in progress  
+Status: completed
 Owner: InnovationMachineTeam  
 Reviewer: @stanislavus86
 
@@ -9,8 +9,7 @@ Reviewer: @stanislavus86
 Create the individual-agent lifecycle portfolio under `skills/agent-skills/`
 without duplicating the existing team and Agentic OS portfolios. Every skill is
 selectively installable, versioned, registered, evaluated and documentation
-aware. `agentkit` remains outside discovery until its now-passing donor maturity
-gate is converted into a separately validated stable package.
+aware. `agentkit@1.0.0` is now a separately validated stable package.
 
 ## Capability boundaries
 
@@ -30,13 +29,13 @@ gate is converted into a separately validated stable package.
 5. Registry, dependencies, marketplace generation and release validation.
 6. Two stable donor release cycles, then a separate `agentkit` decision.
 
-Progress: release `3.2.2` completed stability cycle 2 of 2. The separate stable
-`agentkit` promotion is in progress.
+Progress: release `3.2.2` completed stability cycle 2 of 2; release `3.3.0`
+completed the separate stable `agentkit` promotion.
 
-An experimental, non-discoverable `agentkit@0.2.0` candidate now provides the
-`e2e` evidence-collection command. It is not a stable cycle, catalog entry or
-published skill. Three real workflows and frozen upgrade, rollback and pack
-holdout contracts now permit a separate exact promotion decision.
+The stable `agentkit@1.0.0` package provides the `e2e` evidence-collection
+command, exact donor locks, rollback planning and approval-gated donor
+improvement handoffs. Three real workflows and frozen upgrade, rollback and
+pack holdout contracts support the release decision.
 
 ## Completion gates
 

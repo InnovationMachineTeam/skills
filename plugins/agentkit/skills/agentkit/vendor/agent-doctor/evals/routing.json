@@ -1,0 +1,45 @@
+{
+  "skill": "agent-doctor",
+  "cases": [
+    {
+      "id": "loop",
+      "input": "This single agent loops after a tool timeout; reproduce and minimally repair it.",
+      "expected_trigger": true,
+      "expected_route": "diagnose",
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    },
+    {
+      "id": "docs",
+      "input": "The architecture agent writes ADRs to a stale path and breaks indexes. Diagnose the regression.",
+      "expected_trigger": true,
+      "expected_route": "documentation",
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    },
+    {
+      "id": "trace",
+      "input": "Analyze this failed individual-agent trace and find the root cause without changing production.",
+      "expected_trigger": true,
+      "expected_route": "diagnose",
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    },
+    {
+      "id": "negative-optimize",
+      "input": "The healthy agent is too expensive; reduce cost by 20 percent.",
+      "expected_trigger": false,
+      "expected_route": "agent-optimizer",
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    },
+    {
+      "id": "negative-team",
+      "input": "Our agent team deadlocks during fan-in.",
+      "expected_trigger": false,
+      "expected_route": "agent-team-manager",
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    }
+  ]
+}

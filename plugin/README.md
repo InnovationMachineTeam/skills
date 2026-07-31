@@ -31,6 +31,7 @@ This generated package is installable by Claude Code, Codex, and Cursor. Its can
 - `agent-team-manager`
 - `agent-team-orchestrator`
 - `agent-workspace-manager`
+- `agentkit`
 - `metaskillpack`
 - `prompt-optimize`
 - `skill-architect`

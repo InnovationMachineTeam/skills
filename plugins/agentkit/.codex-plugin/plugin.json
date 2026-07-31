@@ -1,0 +1,33 @@
+{
+  "name": "agentkit",
+  "version": "1.0.0",
+  "description": "Explicit composite toolkit for the version-locked individual-agent lifecycle skills",
+  "homepage": "https://github.com/InnovationMachineTeam/skills",
+  "repository": "https://github.com/InnovationMachineTeam/skills",
+  "license": "Proprietary",
+  "keywords": [
+    "agent-skills",
+    "agents",
+    "composite",
+    "lifecycle",
+    "orchestration"
+  ],
+  "skills": "./skills/",
+  "author": {
+    "name": "InnovationMachine",
+    "email": "stanislav.usoltsev@gmail.com",
+    "url": "https://github.com/InnovationMachineTeam"
+  },
+  "interface": {
+    "displayName": "Agentkit",
+    "shortDescription": "Explicit composite toolkit for the version-locked individual-agent lifecycle skills",
+    "longDescription": "Explicit composite toolkit for the version-locked individual-agent lifecycle skills",
+    "developerName": "InnovationMachine",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Guidance"
+    ],
+    "websiteURL": "https://github.com/InnovationMachineTeam/skills",
+    "defaultPrompt": "Use Agentkit for this task."
+  }
+}

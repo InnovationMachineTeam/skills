@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "evaluation_id": "agentkit-1.0.0-release",
+  "run_id": "agentkit-1.0.0-2026-07-31-r1",
+  "target_hash": "sha256:00ccb553f68ab3450cee156f31b6475dfd20aa4d7c578d674fdbd9f5e67a9886",
+  "verdict": "PASS",
+  "release_recommendation": "RELEASE_REPOSITORY_SOURCE_NO_HOST_ACTIVATION",
+  "layer_verdicts": {
+    "structure": "PASS",
+    "routing": "PASS",
+    "behavior": "PASS",
+    "scripts-tools": "PASS",
+    "security-authority": "PASS",
+    "coexistence": "PASS",
+    "portability": "PASS",
+    "lifecycle": "PASS",
+    "user-outcome": "PASS"
+  },
+  "evidence": {
+    "official_skill_validator": "PASS for skills/agent-skills/agentkit",
+    "donor_lock": "10/10 exact versions, source hashes and vendor hashes PASS",
+    "real_workflows": "3/3 semantic-donor-run observations PASS",
+    "release_contracts": "upgrade, rollback and external holdout hashes PASS",
+    "pack_holdout": "docs/agents/evals/agentkit-1.0.0-holdout-results.json — 7/7 PASS",
+    "rollback_rehearsal": "docs/agents/evals/agentkit-1.0.0-rollback.json — 10 direct-donor fallback routes, no host mutation",
+    "unit_tests": "57/57 PASS",
+    "repository": "39 skills and 39 selective plugins PASS",
+    "marketplaces": "Claude Code, Codex and Cursor inventories each contain the same 39 entries",
+    "registry": "agentkit@1.0.0 exact content hash registered; no runtime binding"
+  },
+  "blocking_findings": [],
+  "limitations": [
+    "No user host installation or activation was performed.",
+    "The real semantic workflows used the current user-authorized executor rather than an external model.",
+    "Stochastic quality, latency and cost remain workload-specific and were not claimed.",
+    "The first stable rollback fallback is direct invocation of the ten donor skills."
+  ]
+}

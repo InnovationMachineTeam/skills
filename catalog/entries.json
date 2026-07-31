@@ -1,6 +1,7 @@
 {
   "schema_version": 1,
   "entries": [
+    {"name": "agentkit", "category": "agent-skills", "tags": ["agents", "orchestration", "composite", "lifecycle"]},
     {"name": "agent-architect", "category": "agent-skills", "tags": ["agents", "architecture", "definitions"]},
     {"name": "agent-best-practices", "category": "agent-skills", "tags": ["agents", "research", "governance"]},
     {"name": "agent-builder", "category": "agent-skills", "tags": ["agents", "orchestration", "lifecycle"]},

@@ -72,13 +72,13 @@
         "docs/agents/evals/agentkit-real-workflows/01-full-lifecycle/workflow-observation.json",
         "docs/agents/evals/agentkit-real-workflows/02-repair-recovery/workflow-observation.json",
         "docs/agents/evals/agentkit-real-workflows/03-optimize-regression/workflow-observation.json",
-        "tests/test_agentkit_candidate.py",
+        "tests/test_agentkit.py",
         "scripts/validate_agent_donor_stability.py"
       ]
     }
   ],
   "agentkit_gate": {
-    "status": "ready",
+    "status": "released",
     "stable_cycles_completed": 2,
     "real_workflows_observed": [
       {
@@ -103,16 +103,18 @@
     "upgrade_contract_frozen": true,
     "rollback_contract_frozen": true,
     "pack_holdout_frozen": true,
-    "candidate": {
-      "status": "experimental",
-      "version": "0.2.0",
-      "locator": "candidates/agentkit",
-      "content_sha256": "sha256:102613a93687e616498e4981c71b1d9e45828c9ead07c6fc3b72af055ff8fe3d",
-      "discoverable": false,
+    "release": {
+      "status": "stable",
+      "version": "1.0.0",
+      "marketplace_release": "3.3.0",
+      "locator": "skills/agent-skills/agentkit",
+      "content_sha256": "sha256:00ccb553f68ab3450cee156f31b6475dfd20aa4d7c578d674fdbd9f5e67a9886",
+      "discoverable": true,
       "e2e_command": "agentkit e2e",
-      "evaluation_plan": "docs/agents/evals/agentkit-candidate-0.2.0-plan.json",
-      "evaluation_result": "docs/agents/evals/agentkit-candidate-0.2.0-results.json"
+      "evaluation_plan": "docs/agents/evals/agentkit-1.0.0-plan.json",
+      "evaluation_result": "docs/agents/evals/agentkit-1.0.0-results.json",
+      "rollback": "direct invocation of locked donors"
     },
-    "remaining_requirements": ["promote and evaluate the exact stable package in a separate release"]
+    "remaining_requirements": []
   }
 }

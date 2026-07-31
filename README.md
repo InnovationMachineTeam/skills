@@ -7,7 +7,7 @@ Private Agent Skills marketplace maintained by **InnovationMachineTeam** for **I
 - Categories: `agent-os-skills`, `agent-team-skills`, `agent-skills`, `metaskills`, `prompt-skills`
 - Entries: one installable cross-host plugin per skill
 - Supported hosts: Claude Code, Codex, Cursor, and Agent Skills clients
-- Aggregate local plugin: `im-skills-all` (`3.2.2`)
+- Aggregate local plugin: `im-skills-all` (`3.3.0`)
 - Current visibility: private
 - Lead maintainer and required reviewer: [@stanislavus86](https://github.com/stanislavus86)
 
@@ -120,6 +120,7 @@ The aggregate plugin is intended for local integration testing and full-toolkit 
 
 | Entry | Category | Purpose | Version |
 |---|---|---|---|
+| `agentkit` | `agent-skills` | Run the explicit composite individual-agent lifecycle toolkit | 1.0.0 |
 | `agent-architect` | `agent-skills` | Design one bounded agent or subagent definition | 1.0.0 |
 | `agent-best-practices` | `agent-skills` | Query and govern evidence-linked agent practices | 1.0.0 |
 | `agent-builder` | `agent-skills` | Orchestrate one-agent lifecycle workflows | 1.0.0 |
@@ -175,10 +176,9 @@ The source of truth for versions is each skill's `SKILL.md → metadata.version`
 ├── skills/                           # canonical source of truth
 │   ├── agent-os-skills/              # Agentic OS plane capabilities
 │   ├── agent-team-skills/            # team design and execution
-│   ├── agent-skills/                 # reusable single-agent capabilities
+│   ├── agent-skills/                 # single-agent capabilities and agentkit
 │   ├── metaskills/                   # skill engineering and orchestration
 │   └── prompt-skills/                # prompt engineering capabilities
-├── candidates/agentkit/              # non-discoverable 0.2 promotion candidate
 ├── plugins/<skill>/                  # generated per-skill cross-host packages
 ├── plugin/                           # generated aggregate cross-host package
 ├── scripts/                          # deterministic generation and validation
@@ -262,7 +262,7 @@ The implemented foundation is described in
 
 - Individual skill and marketplace entry: the skill's `metadata.version`.
 - Aggregate plugin: independent SemVer in `catalog/release.json`.
-- Marketplace metadata: repository catalog release version, currently `3.2.2`.
+- Marketplace metadata: repository catalog release version, currently `3.3.0`.
 
 Bump an individual skill version whenever its installed contents or contract change. Bump the aggregate plugin when any bundled skill or aggregate install contract changes. A release is blocked if generated manifests or bundle hashes drift from canonical sources.
 

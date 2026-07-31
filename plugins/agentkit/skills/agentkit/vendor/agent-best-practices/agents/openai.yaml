@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent Best Practices"
+  short_description: "Query and govern agent practices"
+  default_prompt: "Use $agent-best-practices to answer or audit this agent-design question from the evidence corpus."

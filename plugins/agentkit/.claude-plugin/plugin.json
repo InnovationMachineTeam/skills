@@ -1,0 +1,13 @@
+{
+  "name": "agentkit",
+  "displayName": "Agentkit",
+  "version": "1.0.0",
+  "description": "Explicit composite toolkit for the version-locked individual-agent lifecycle skills",
+  "skills": [
+    "./skills"
+  ],
+  "author": {
+    "name": "InnovationMachine",
+    "email": "stanislav.usoltsev@gmail.com"
+  }
+}

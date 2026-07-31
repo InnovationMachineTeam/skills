@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "pack": "agentkit",
+  "pack_version": "1.0.0",
+  "upgrade": {
+    "locator": "references/upgrade-contract.md",
+    "sha256": "sha256:0ecd95e283d60b8193c7c656642b96afa1c587bbcb5954f2cd9abb40fc34056a"
+  },
+  "rollback": {
+    "locator": "references/rollback-contract.md",
+    "sha256": "sha256:5360e31d348021714d57a2e99932c1c3f45cbbd139ac9a18ebcec547c6b447a5"
+  },
+  "holdout": {
+    "locator": "docs/agents/evals/agentkit-pack-holdout-v1.json",
+    "sha256": "sha256:051d2985e08e170b3f1d68225dcbda11519209a653f5e3d9b15625aed6d5a812",
+    "external_to_bundle": true
+  }
+}

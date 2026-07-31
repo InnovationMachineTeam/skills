@@ -1,0 +1,45 @@
+{
+  "skill": "agent-manager",
+  "cases": [
+    {
+      "id": "inventory",
+      "input": "Inventory the registered and observed state of this individual agent.",
+      "expected_trigger": true,
+      "expected_route": "inventory",
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    },
+    {
+      "id": "canary",
+      "input": "Plan a canary rollout and rollback for agent version 2.0.0.",
+      "expected_trigger": true,
+      "expected_route": "canary",
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    },
+    {
+      "id": "retire",
+      "input": "Retire this agent safely after migrating its docs and active consumers.",
+      "expected_trigger": true,
+      "expected_route": "retire",
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    },
+    {
+      "id": "negative-design",
+      "input": "Design a new requirements analyst agent.",
+      "expected_trigger": false,
+      "expected_route": "agent-architect",
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    },
+    {
+      "id": "negative-team",
+      "input": "Launch and monitor this approved agent team.",
+      "expected_trigger": false,
+      "expected_route": "agent-team-manager",
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "format": 2,
   "plugin": "im-skills-all",
-  "version": "3.2.2",
+  "version": "3.3.0",
   "source_layout": "skills/",
   "bundle_layout": "skills/<name>/",
   "platforms": [
@@ -35,6 +35,7 @@
     "agent-team-manager",
     "agent-team-orchestrator",
     "agent-workspace-manager",
+    "agentkit",
     "metaskillpack",
     "prompt-optimize",
     "skill-architect",
@@ -58,23 +59,23 @@
   "files": [
     {
       "path": ".claude-plugin/plugin.json",
-      "sha256": "9748d36006c7cf5cf6853973e5ed2ac2dc22111ae919203520055989fcef2b6b",
+      "sha256": "a6c773b5c5b4bc8e52cc40aadfced6a97654d143826b019a7175dac4676154bc",
       "bytes": 288
     },
     {
       "path": ".codex-plugin/plugin.json",
-      "sha256": "1f261b2fe23158acd7c1cace571575bc321c5e2dc7c35b1a29a73dcfa65bb7a7",
+      "sha256": "0411b955cb42d39d71b131384ed7184a31836e6c7a86980a795eabcebf44930d",
       "bytes": 1046
     },
     {
       "path": ".cursor-plugin/plugin.json",
-      "sha256": "283118370af8ecf25fa5812201c2f9246d298c974865d832a9a16c7e865b3f76",
+      "sha256": "492fa0f853f916801c47f35ed570e034300f017e85115d17249ed4d8ff100905",
       "bytes": 528
     },
     {
       "path": "README.md",
-      "sha256": "5a6e8de5b5da75301d7d76c930998593212e6cbfd380fca2f560f7cb33a591a2",
-      "bytes": 1191
+      "sha256": "7c76c09c4ab9658ef292b4a19a50d8f9b7813285f97f9f255828c95f3ebe3ef4",
+      "bytes": 1204
     },
     {
       "path": "skills/agent-architect/SKILL.md",
@@ -1055,6 +1056,561 @@
       "path": "skills/agent-workspace-manager/scripts/validate_workspace_ledger.py",
       "sha256": "308adbe46777bf456ef4c552466a6ef8d7854bdf43a871cc4bf3fecbbea69e3a",
       "bytes": 5748
+    },
+    {
+      "path": "skills/agentkit/SKILL.md",
+      "sha256": "546cf7c3c458be65a0861429a48df1f669beae67dcf0a8fcda1ed56f6d885545",
+      "bytes": 4558
+    },
+    {
+      "path": "skills/agentkit/agents/openai.yaml",
+      "sha256": "c38cef2ec815488e2a4f15f64f4fa613a1ff548c7be30a15a46ffecf4ff6c525",
+      "bytes": 247
+    },
+    {
+      "path": "skills/agentkit/contracts.json",
+      "sha256": "685bd6bd834c33b822efbe6d86efe7da54d170d14ff71a25ea822c2fd7b7d99c",
+      "bytes": 597
+    },
+    {
+      "path": "skills/agentkit/donors.json",
+      "sha256": "5c626d97c2dfe3144466c74cd3dbcf46aa916854bf53544d192796fcc157d14b",
+      "bytes": 6405
+    },
+    {
+      "path": "skills/agentkit/evals/behavior.json",
+      "sha256": "4e5e1b079764f19d1b8d486eff6bc9905e048635e90cf08b0afa6dc86a793785",
+      "bytes": 1934
+    },
+    {
+      "path": "skills/agentkit/evals/routing.json",
+      "sha256": "bb8ef167bdc92734539857f0d5b1720d0f4518f5de30ae6970e1b695190890b0",
+      "bytes": 1508
+    },
+    {
+      "path": "skills/agentkit/evals/scripts.json",
+      "sha256": "7f3d7a7b723ce4e859834913580120c7d9fd6e97bfcab42ff053ef840e72aeee",
+      "bytes": 1364
+    },
+    {
+      "path": "skills/agentkit/prompts/improve-donor.md",
+      "sha256": "5d4bfc8962fe197188f64660638ded53b1c095f8142baa17077623206d486611",
+      "bytes": 1522
+    },
+    {
+      "path": "skills/agentkit/references/commands.md",
+      "sha256": "9115eceee7be37cc99e7926da178ff085a0eb8886d691fbd2ea628857a0279a0",
+      "bytes": 1494
+    },
+    {
+      "path": "skills/agentkit/references/e2e-contract.md",
+      "sha256": "479128d9a3a9528fec06b35ba7f43cc9bc396cfddf128750a1e0e74cae74dfa0",
+      "bytes": 2714
+    },
+    {
+      "path": "skills/agentkit/references/rollback-contract.md",
+      "sha256": "5360e31d348021714d57a2e99932c1c3f45cbbd139ac9a18ebcec547c6b447a5",
+      "bytes": 937
+    },
+    {
+      "path": "skills/agentkit/references/upgrade-contract.md",
+      "sha256": "0ecd95e283d60b8193c7c656642b96afa1c587bbcb5954f2cd9abb40fc34056a",
+      "bytes": 862
+    },
+    {
+      "path": "skills/agentkit/scripts/build_rollback_plan.py",
+      "sha256": "5bf9fbaa9dac330aba00c25d3c0372b7857ec953455887c64ccf5ac929bef996",
+      "bytes": 2231
+    },
+    {
+      "path": "skills/agentkit/scripts/build_vendor_snapshot.py",
+      "sha256": "32aed83aaef3b5c992e53a77a1637508bc16f052a6c2b1049f8a51299713e0d0",
+      "bytes": 5065
+    },
+    {
+      "path": "skills/agentkit/scripts/check_donors.py",
+      "sha256": "0b304e1898a6356e3d9a702ed8cef7bd6fe716f21571897206ed860d9c67345f",
+      "bytes": 3424
+    },
+    {
+      "path": "skills/agentkit/scripts/classify_e2e_findings.py",
+      "sha256": "b3b91b1067db4e603a2342ec74ba416d6d6da3449631aaae61f2cd42c2865b04",
+      "bytes": 4100
+    },
+    {
+      "path": "skills/agentkit/scripts/record_real_workflow.py",
+      "sha256": "6198a15a0c9292b8b7611d4bfdefb3e2b402978b1e1d4b6efeccaeb6ac01245b",
+      "bytes": 6204
+    },
+    {
+      "path": "skills/agentkit/scripts/render_improvement_prompt.py",
+      "sha256": "4d99d0ed8a102e255019efe7ee872c86204cfc476a13361169b218378719020d",
+      "bytes": 4384
+    },
+    {
+      "path": "skills/agentkit/scripts/run_router_fixture.py",
+      "sha256": "462d80726348f189abba657668abefdecb96eb242935f096913b9ceaf215dfe8",
+      "bytes": 3741
+    },
+    {
+      "path": "skills/agentkit/scripts/scaffold_e2e_run.py",
+      "sha256": "449234174016db29b12a28e0301c27a3a614b6c38fd3aa2fff974df90968f8cf",
+      "bytes": 5567
+    },
+    {
+      "path": "skills/agentkit/scripts/validate_e2e_run.py",
+      "sha256": "8fbcf190278d397540e348ca8a934da3197adbd0a0bd5bb31182df40cc548b52",
+      "bytes": 4569
+    },
+    {
+      "path": "skills/agentkit/scripts/verify_release_contracts.py",
+      "sha256": "0fb48f77e853d1c625aad83d394a5b5fbdaa2b559ccae5de2f42d967426d3a5d",
+      "bytes": 2225
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-architect/DONOR.md",
+      "sha256": "2ef33fb16764c1c9182457722c3bc6cdba0cac0bd80f6fe8836236a9f8ed52ec",
+      "bytes": 3275
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-architect/agents/openai.yaml",
+      "sha256": "13f462cc10bafdc18f01ca23866a998568384bfd3947e8a1e93c711061f104d7",
+      "bytes": 203
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-architect/evals/behavior.json",
+      "sha256": "d6ac52dc4f7210768dccafe1e20e863ae2765e79cec9860360900e6d7155ac54",
+      "bytes": 1675
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-architect/evals/routing.json",
+      "sha256": "d25a8e98aa404075648c601ae68571341997ce350b93a6e5e4e0b7e649affa22",
+      "bytes": 1673
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-architect/references/agent-contract.md",
+      "sha256": "68240d12c882268091bae744f59ff203d9e84c68344347e07c97e35acae85581",
+      "bytes": 1091
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-architect/references/documentation-contract.md",
+      "sha256": "c8029f810f3ec49c061bc1b27900faa0b1cac8bdaa00fa6b85f1d696cffade5f",
+      "bytes": 1201
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-architect/references/skill-dependencies.md",
+      "sha256": "05f81684cdef48ad01821922f62144fbb4d3294bc26a31ae55a9e74b2a88d56f",
+      "bytes": 1809
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-architect/scripts/validate_agent_candidate.py",
+      "sha256": "32c8304bd3c43da8d96754488e03ac0a9cd578e4a7e67f4d335a571e7d597132",
+      "bytes": 3626
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-best-practices/DONOR.md",
+      "sha256": "6d9d4acdd3a87d6b8c908dfbc0c684e2589fd061d485d21e5265ae8e271fb3b5",
+      "bytes": 2991
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-best-practices/agents/openai.yaml",
+      "sha256": "51a8b0e0f5fdc8185b4420683cde4bda26921eaa32f7a786ed13d87991a976a4",
+      "bytes": 224
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-best-practices/best-practices/01-foundations-and-selection.md",
+      "sha256": "85143a28ab5b0d4fb0137908ee790799fd7d3adbab71a6560e28d0cd0260ddc5",
+      "bytes": 9882
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-best-practices/best-practices/02-agent-design-and-contracts.md",
+      "sha256": "ede2f461b5ead685af6e456f3b74beac1a63dbdd1421fe95d556601e076637d8",
+      "bytes": 7897
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-best-practices/best-practices/03-subagents-and-delegation.md",
+      "sha256": "bae9c81f978ab6796894fbca131d0fd41ee28e79587364f7e46ec042294cd678",
+      "bytes": 8300
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-best-practices/best-practices/04-orchestration-and-agent-teams.md",
+      "sha256": "d176621fee3742727ad83144fc68dc6dd0ed12e8218248d750c6cea2e9d62c1d",
+      "bytes": 8825
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-best-practices/best-practices/05-agent-os-reference-architecture.md",
+      "sha256": "b020e9d4c4af4fd010b7771d8c23bfd215591da2ca8446d4a3f3690b54f84fde",
+      "bytes": 7484
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-best-practices/best-practices/06-context-memory-and-state.md",
+      "sha256": "684f7a8cf66c89a33440d695d5c9c4bb18ad4b9311c1949def1ff7835dbb3a67",
+      "bytes": 6124
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-best-practices/best-practices/07-documentation-as-operating-system.md",
+      "sha256": "412a8f03c4b59545e8af1e845c85fed7b9f4c911e062dfeb30466394de73be5d",
+      "bytes": 10524
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-best-practices/best-practices/08-docs-catalog-and-templates.md",
+      "sha256": "5f3b78ebd53755b21469c5ceefa60abad1225a3a357b19a0f2d1007027be60fd",
+      "bytes": 6537
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-best-practices/best-practices/09-agent-role-catalog.md",
+      "sha256": "92057b1fbfc8febc3884253d27185c453037840898392556f5feea29d9d5d364",
+      "bytes": 8828
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-best-practices/best-practices/10-lifecycle-and-orchestration-processes.md",
+      "sha256": "702ce3f8fd2c80b998a29179fc1377bda87d5f7703c9f0420dcc674502668d53",
+      "bytes": 9314
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-best-practices/best-practices/11-requirements-and-quality-attributes.md",
+      "sha256": "9fa23f7e0ef624184e75c33f629dc1ebd040a9f425467a605b65c15ccff88eb2",
+      "bytes": 5785
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-best-practices/best-practices/12-task-tracking-monitoring-and-observability.md",
+      "sha256": "c21ce00e7ecf4aa24103aa022fd26502d65c8a3dceb03d11abc4f36143399bec",
+      "bytes": 6211
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-best-practices/best-practices/13-security-approvals-and-governance.md",
+      "sha256": "6551b14dd690625d30081b6b27b9832cd1653f8a6a88b4e08dc161206f097076",
+      "bytes": 7743
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-best-practices/best-practices/14-evaluation-and-continuous-improvement.md",
+      "sha256": "50f29c43a2c015450ba235a9aaa281b046c1221eb7bd185d2390538faced09ad",
+      "bytes": 6914
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-best-practices/best-practices/15-implementation-case-studies.md",
+      "sha256": "46b3a9e3acafaf8ecd831761762f524aa3f7aff58a43fe937076e5f7e4f37409",
+      "bytes": 11686
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-best-practices/best-practices/16-conflicts-and-resolutions.md",
+      "sha256": "991dc7cfcb5e19363d1a4d70f0c5836cd52dffeff05ee4464e3a020d077ba0c1",
+      "bytes": 8372
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-best-practices/best-practices/17-agent-and-orchestration-pattern-catalog.md",
+      "sha256": "f52287d697ff21aff56828d77df7a89200d9584196c51720d281d7c6daf8b92d",
+      "bytes": 19176
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-best-practices/best-practices/18-agent-os-and-runtime-pattern-catalog.md",
+      "sha256": "8a6034bf26d5df82f1670bc10fb1ee60168294a840d67f11c80f0ceed9db4ab7",
+      "bytes": 12516
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-best-practices/best-practices/19-skill-design-pattern-catalog.md",
+      "sha256": "523ce8da7326fde63cd3d17471a7a69cb26f0c8b962ee5952ee59529f0d2ef4d",
+      "bytes": 13105
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-best-practices/best-practices/20-agentic-cycles-and-lifecycles.md",
+      "sha256": "80b2456ba1731016ad85ae8047a1228de174bd6ab7b9867d612dfc3fe81e495d",
+      "bytes": 15303
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-best-practices/best-practices/21-role-patterns-and-separation-of-duties.md",
+      "sha256": "7c5515ce280e2af2a8ae36142ed27c250d634a88fc8e7cae74b2f56fd85ab616",
+      "bytes": 13900
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-best-practices/best-practices/22-operating-model-and-pattern-selection.md",
+      "sha256": "b9bdcfd2b5aadc569940442fa7dad6fe9b856c78251ff517d08ab304ab3f5262",
+      "bytes": 12084
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-best-practices/best-practices/README.md",
+      "sha256": "2bba64f82c81960db1a69c0fc75f8b4bcf7a3c921886230d56a8de95d2c17213",
+      "bytes": 8111
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-best-practices/best-practices/sources-frameworks.md",
+      "sha256": "8449434c52fa670a747b5116afb11eb7e998360fbe80d42419a35e1976f1f7dd",
+      "bytes": 4464
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-best-practices/best-practices/sources-patterns-and-cycles.md",
+      "sha256": "8fe7ee8666fe88752993b0272868347a8716c39be339be6dbfe11d849db4aa19",
+      "bytes": 8693
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-best-practices/best-practices/sources-platforms.md",
+      "sha256": "95eca5ac569cbee02a591f257fdf9153fc257205def9054a8b1603a4fcf64d2d",
+      "bytes": 9190
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-best-practices/best-practices/sources-standards-and-docs.md",
+      "sha256": "b3f8f103121b8c9705905e284feabceb0b938cc7d38c4e9f027a619c4aa7f2c3",
+      "bytes": 5007
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-best-practices/evals/behavior.json",
+      "sha256": "0fec437baef46553700613c4cec3d6bb9c930728d1a668f3bdf4e1f79360c117",
+      "bytes": 1238
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-best-practices/evals/routing.json",
+      "sha256": "70ec30d7e1507cd000c5899549b02788c3fe397daf6817bdb7a4c8e6411bf5cf",
+      "bytes": 1375
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-best-practices/scripts/validate_corpus.py",
+      "sha256": "9c1612d3f5d5df0f005d21c3f2a7139c2b0d594086a5f1ccbc91b388384f54c2",
+      "bytes": 1541
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-builder/DONOR.md",
+      "sha256": "5559400790acac237e0f141635e62e31456c217f430e66fb7bb40d3fd83ca8db",
+      "bytes": 2914
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-builder/agents/openai.yaml",
+      "sha256": "a58583bf4ab7f8a162b12bb1a229afda91d5d2bcca7a1b0ea99127c7f8ed4c82",
+      "bytes": 220
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-builder/evals/behavior.json",
+      "sha256": "2b719b923fc7a9c7c2ed7215d362b082e7f0908d1e9e90c547af56bb73be7483",
+      "bytes": 1571
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-builder/evals/routing.json",
+      "sha256": "f182087d36755b826b4a03bf672a17af74a158ff8495a5d9ca494e18ff4dd89d",
+      "bytes": 1674
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-builder/references/scenario-catalog.md",
+      "sha256": "f240711e98af50b9e31281a7d765d55d4dec5777f0d4e76089bc5140019fa9f0",
+      "bytes": 964
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-builder/references/skill-dependencies.md",
+      "sha256": "cf6b2c5c1a9136cc6bab1d7fd62793b90af16188f9e98c7684a81cbf1d2f2cf7",
+      "bytes": 2705
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-builder/scripts/validate_agent_build_state.py",
+      "sha256": "aa392703a4afb5033f1fffc4d70e905ff232c0f89813234137707697ef51ce8f",
+      "bytes": 2959
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-context/DONOR.md",
+      "sha256": "ec07b07366cbe9c3e7e3d3e577635e156cbcb0d84f95ab52f38fc0915cc67234",
+      "bytes": 2644
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-context/agents/openai.yaml",
+      "sha256": "ecefb0bcb8498ef933fbef640da1614d4abe3f6e78386560a45ae81efac6907f",
+      "bytes": 199
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-context/evals/behavior.json",
+      "sha256": "8418ae8f738af32d8bcd844cff4fe4da1b36aa5615af328d08c35eabebcb7d7c",
+      "bytes": 1216
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-context/evals/routing.json",
+      "sha256": "91047d72d60a7030115f1c2307a4b216f53e3c3615d0e35ea290a494864501e2",
+      "bytes": 1396
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-context/references/context-contract.md",
+      "sha256": "b143f66459bb8acc4e13dc0290e8ebe6c5cb3783a09254a337c6678d9b97d0d2",
+      "bytes": 690
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-context/references/skill-dependencies.md",
+      "sha256": "cdcb5b9e4ccc31e747e31e9a094b0f4d6e1f430d12ecef6742fe91834b570b27",
+      "bytes": 1781
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-doctor/DONOR.md",
+      "sha256": "0df7f7693f2cb981daa70e4a459a4c95f116e52e9bb4cff39ad30cda2551b544",
+      "bytes": 2569
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-doctor/agents/openai.yaml",
+      "sha256": "80dd46ffd4bba314b3d0d0a15135bbfe548ec09256263d9a6f3ea12e2d857142",
+      "bytes": 224
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-doctor/evals/behavior.json",
+      "sha256": "0f3f7f9fd3552f6c7206842da3845634f78bee42530c7a66aa7a23d46286d778",
+      "bytes": 1214
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-doctor/evals/routing.json",
+      "sha256": "f2d366e34b86025d8054efa64639ade0238fc0e897e90d380db947e0080ac736",
+      "bytes": 1415
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-doctor/references/diagnosis-contract.md",
+      "sha256": "01ef256187b60682540cf7dcc75f87aa64e99782d62bd96c602abadb670254e2",
+      "bytes": 600
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-doctor/references/skill-dependencies.md",
+      "sha256": "cbc8481339e36ed934ad825415ea386d683b601ebd9dfd0e67dc113e165415a3",
+      "bytes": 1556
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-evaluator/DONOR.md",
+      "sha256": "e318794d449d52ff1646ba1564db78abdbaa6a194c7b08472f143c97122903b1",
+      "bytes": 2870
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-evaluator/agents/openai.yaml",
+      "sha256": "94c159fdc5f99c55b7ffbf5febf49c7c28680fd6d891f5ce4cf57d1e0f010fa1",
+      "bytes": 200
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-evaluator/evals/behavior.json",
+      "sha256": "256056d33b3ca69964847508b6c26db4c74b78111e63bcdde96bcc1ed4442c01",
+      "bytes": 1626
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-evaluator/evals/routing.json",
+      "sha256": "85f9cd8a0f723d094522f881681bd1fd35e87395f2fde7adde4f331b13951ad2",
+      "bytes": 1660
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-evaluator/references/evaluation-contract.md",
+      "sha256": "dc5c43d31c7cc20007bb9d503bb3194984218d07133fc39f02f270fc3e5e5ccc",
+      "bytes": 844
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-evaluator/scripts/validate_agent_eval_plan.py",
+      "sha256": "86ac4acfd8fe8167d27c6fb41d7ef07a73828f17880ae9dfd595a06b3a43b588",
+      "bytes": 1618
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-manager/DONOR.md",
+      "sha256": "e60779004bf20eec0dc955d04f3ac8faedacb4ab2a411db2d727bfb69d25efdd",
+      "bytes": 2714
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-manager/agents/openai.yaml",
+      "sha256": "5c666ee2ca6a9576eccba09e7e62a9ccb89738afad5899ee5a35b3e6aa7747a9",
+      "bytes": 201
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-manager/evals/behavior.json",
+      "sha256": "e1dc64a50b0ba2761d6c20e8c607afdaf2b1725d032b36a2b71f4277b47964d6",
+      "bytes": 1244
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-manager/evals/routing.json",
+      "sha256": "ce6b2a14448461cf59e46f8cf947f1434e878b8c22b7f5b2f72705aad3d6783f",
+      "bytes": 1326
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-manager/references/lifecycle-contract.md",
+      "sha256": "21ebc40fb2981b60bfd201bedc160dd9e2392f0a924112376ff985c798c4e2f2",
+      "bytes": 678
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-manager/references/skill-dependencies.md",
+      "sha256": "22875ab209ba825bd0062b2cde4faaa4d9dfd6197e3552e8e20824ab0d5235da",
+      "bytes": 1854
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-optimizer/DONOR.md",
+      "sha256": "ae37ccbfceed26356b3fafe1308b9c2c25f5f2e270c3ff964e0a9124dacb3572",
+      "bytes": 2329
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-optimizer/agents/openai.yaml",
+      "sha256": "0d07af85c963686caaf06f683343036f56453ce8b470e61a4d64a02b39bf69df",
+      "bytes": 213
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-optimizer/evals/behavior.json",
+      "sha256": "b47069f4029229460bd34b948c69238741121989eb25c5953ab4d634ada89a01",
+      "bytes": 1184
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-optimizer/evals/routing.json",
+      "sha256": "5424ce623b27bc0a966542f865da58c2ae3252060b428bc399ca8e187969e940",
+      "bytes": 1414
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-optimizer/references/optimization-contract.md",
+      "sha256": "d96497c7727f150f8b4f9c2309082d9aa4c768ab85b1ebec884bb42544fe2285",
+      "bytes": 553
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-optimizer/references/skill-dependencies.md",
+      "sha256": "655255ccc9c7bbd646f06c570b5a4c6f80e0bbfd430ce1a7351bdfad9f5cce00",
+      "bytes": 1622
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-refactor/DONOR.md",
+      "sha256": "761d790fb141a1a927e20f318a9beded967edfce3cc53857dc81dc9be9ae532f",
+      "bytes": 2683
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-refactor/agents/openai.yaml",
+      "sha256": "c7099ca4bbb9f77eded173c1018a665a1bb328c5749c2b68a93df1ed2579c171",
+      "bytes": 205
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-refactor/evals/behavior.json",
+      "sha256": "cf087824abe468b34b692228f2b5e49e31453b2371cf6647b6f639365dab8a6e",
+      "bytes": 1249
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-refactor/evals/routing.json",
+      "sha256": "b85108a7c80e17ae80d1f03b3fca0e61569cbc13e62859d8ed5c698ba5c8aaf3",
+      "bytes": 1741
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-refactor/references/refactor-contract.md",
+      "sha256": "521ff6f60e4bb9ba5559de033a645d0b62350b972a5475c57f85f51050739724",
+      "bytes": 686
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-refactor/references/skill-dependencies.md",
+      "sha256": "eca6b5b78d21d380a33270f423981ee3c5f2884a463531d960262c00d81a0d03",
+      "bytes": 2065
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-scout/DONOR.md",
+      "sha256": "ac2329fe040585cb8f880d3414b7bb74e401e8e380c2983e03bb37f986ae0224",
+      "bytes": 2490
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-scout/agents/openai.yaml",
+      "sha256": "7a2228ef1029055ac60f23a88556311ce7567a0da627792514261c43abf2c5df",
+      "bytes": 215
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-scout/evals/behavior.json",
+      "sha256": "991617724cc68c4649d89e56d7af6120953a2fcfe10ceb36759d3599ff754386",
+      "bytes": 1162
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-scout/evals/routing.json",
+      "sha256": "d1cf0a47a0bbba0a283cf306f491b0344361dd58f562eaa0bb21416bd653e156",
+      "bytes": 1360
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-scout/references/skill-dependencies.md",
+      "sha256": "d2cd1801a3fd7571019a4220d99b8ea44af1165378cb7cc1877ccbe0650fb05f",
+      "bytes": 1651
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-scout/references/worth-and-coverage.md",
+      "sha256": "e9f3e04e54fa24bda76bdbd7c574654eb304e5e228b7a6754e01d8d5874339b6",
+      "bytes": 629
     },
     {
       "path": "skills/metaskillpack/SKILL.md",

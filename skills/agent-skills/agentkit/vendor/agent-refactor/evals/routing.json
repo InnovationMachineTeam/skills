@@ -1,0 +1,53 @@
+{
+  "skill": "agent-refactor",
+  "cases": [
+    {
+      "id": "split",
+      "input": "This agent has unrelated analyst and deployer missions with different permissions; assess a split.",
+      "expected_trigger": true,
+      "expected_route": "split",
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    },
+    {
+      "id": "merge",
+      "input": "Compare these duplicate reviewer agents and plan a safe merge with consumer migration.",
+      "expected_trigger": true,
+      "expected_route": "merge",
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    },
+    {
+      "id": "team",
+      "input": "Assess migration of this registered overloaded single agent into a team, but do not design the team yet.",
+      "expected_trigger": true,
+      "expected_route": "promote-to-team",
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    },
+    {
+      "id": "negative-greenfield-team",
+      "input": "A new delivery problem may need multiple agents; assess and design the minimal team.",
+      "expected_trigger": false,
+      "expected_route": "agent-team-architect",
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    },
+    {
+      "id": "negative-optimize",
+      "input": "Reduce this healthy agent's latency without changing boundaries.",
+      "expected_trigger": false,
+      "expected_route": "agent-optimizer",
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    },
+    {
+      "id": "negative-repair",
+      "input": "Fix one malformed tool response regression.",
+      "expected_trigger": false,
+      "expected_route": "agent-doctor",
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    }
+  ]
+}

@@ -30,14 +30,16 @@ def load(path: Path) -> dict:
 
 
 class IndividualAgentSkillTests(unittest.TestCase):
-    def test_all_requested_donors_are_versioned_and_agentkit_is_deferred(self) -> None:
+    def test_all_requested_donors_and_stable_agentkit_are_versioned(self) -> None:
         root = ROOT / "skills" / "agent-skills"
         for name in SKILLS:
             text = (root / name / "SKILL.md").read_text(encoding="utf-8")
             self.assertIn(f"name: {name}", text)
             self.assertIn('version: "1.0.0"', text)
             self.assertIn(f"${name}", (root / name / "agents" / "openai.yaml").read_text(encoding="utf-8"))
-        self.assertFalse((root / "agentkit" / "SKILL.md").exists())
+        agentkit = (root / "agentkit" / "SKILL.md").read_text(encoding="utf-8")
+        self.assertIn("name: agentkit", agentkit)
+        self.assertIn('version: "1.0.0"', agentkit)
         self.assertTrue((ROOT / "docs" / "prompts" / "agentkit-composite-skill.md").is_file())
 
     def test_each_skill_has_positive_negative_and_behavior_cases(self) -> None:

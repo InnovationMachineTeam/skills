@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "suite": "agentkit-pack-holdout-v1",
+  "target": {
+    "version": "1.0.0",
+    "hash": "sha256:00ccb553f68ab3450cee156f31b6475dfd20aa4d7c578d674fdbd9f5e67a9886"
+  },
+  "verdict": "PASS",
+  "cases": [
+    {"id": "holdout-explicit-paraphrase", "verdict": "PASS", "evidence": "SKILL.md explicit invocation and command-intent discriminator route to evaluate"},
+    {"id": "holdout-direct-specialist-nontrigger", "verdict": "PASS", "evidence": "SKILL.md description excludes direct agent-* requests"},
+    {"id": "holdout-workflow-confirmation", "verdict": "PASS", "evidence": "SKILL.md run contract requires 2-4 choices and user confirmation"},
+    {"id": "holdout-donor-drift", "verdict": "PASS", "evidence": "check_donors.py returns nonzero for changed vendor/source hashes"},
+    {"id": "holdout-synthetic-relabel", "verdict": "PASS", "evidence": "record_real_workflow.py rejects a completed deterministic-router-fixture run"},
+    {"id": "holdout-upgrade-noop", "verdict": "PASS", "evidence": "10/10 donor status is current and comparison performs no rewrite"},
+    {"id": "holdout-rollback-first-release", "verdict": "PASS", "evidence": "agentkit-1.0.0-rollback.json has 10 direct-donor routes and mutates_host=false"}
+  ],
+  "limitations": [
+    "Routing paraphrase assertions are semantic artifact review, not a stochastic host-model sample.",
+    "The suite must be rotated after a behavior-changing agentkit revision."
+  ]
+}
