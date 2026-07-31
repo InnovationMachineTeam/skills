@@ -21,8 +21,8 @@ def module(name: str, relative: str):
     return loaded
 
 
-ORCHESTRATOR = module("phase5_orchestrator", "skills/metaskills/agent-team-orchestrator/scripts/validate_run_plan.py")
-WORKSPACE = module("phase5_workspace", "skills/metaskills/agent-workspace-manager/scripts/validate_workspace_ledger.py")
+ORCHESTRATOR = module("phase5_orchestrator", "skills/agent-team-skills/agent-team-orchestrator/scripts/validate_run_plan.py")
+WORKSPACE = module("phase5_workspace", "skills/agent-team-skills/agent-workspace-manager/scripts/validate_workspace_ledger.py")
 
 
 def node(node_id: str, depends_on: list[str], write_set: list[str]) -> dict:

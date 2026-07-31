@@ -12,7 +12,7 @@ You are updating a declared portfolio of agent skills against a specific, valida
 - Validated corpus hash: `sha256:d57c188c2794169f1bb6c2be528d4fdd7426d2d94043b5ba010166e49ca28eef`
 - Unresolved evidence at generation: `conflicts=0, unverified_sources=2`
 - Managed skills:
-  - `optimize-master-prompts` — Create, audit, adapt, and evaluate durable master prompts; source hint `https://github.com/InnovationMachineTeam/skills/tree/main/skills/metaskills/optimize-master-prompts`; risk `medium`; default `audit`.
+  - `optimize-prompts` — Create, audit, adapt, and evaluate durable controlling prompts; source hint `https://github.com/InnovationMachineTeam/skills/tree/main/skills/prompts/optimize-prompts`; risk `medium`; default `audit`.
   - `skill-builder` — Orchestrate end-to-end and resumable skill workflows; source hint `https://github.com/InnovationMachineTeam/skills/tree/main/skills/metaskills/skill-builder`; risk `high`; default `audit`.
   - `skill-architect` — Classify, architect, and create coherent skill bundles; source hint `https://github.com/InnovationMachineTeam/skills/tree/main/skills/metaskills/skill-architect`; risk `high`; default `audit`.
   - `skill-doctor` — Diagnose unhealthy skills and verify minimal repairs; source hint `https://github.com/InnovationMachineTeam/skills/tree/main/skills/metaskills/skill-doctor`; risk `high`; default `audit`.

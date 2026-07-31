@@ -1,7 +1,7 @@
 {
   "format": 2,
   "plugin": "skill-best-practices",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "source_layout": "skills/",
   "bundle_layout": "skills/<name>/",
   "platforms": [
@@ -21,17 +21,17 @@
   "files": [
     {
       "path": ".claude-plugin/plugin.json",
-      "sha256": "f68512338e31463e0b4c2ac232cb8d58a75a7af1ee5a5ad5687d23ff983cdba7",
+      "sha256": "b570e5767f25cda0cc710acb6a1e625539da88a737283ac1e0a7769667b335d1",
       "bytes": 426
     },
     {
       "path": ".codex-plugin/plugin.json",
-      "sha256": "f54570c9d4dbc6d06539fd48d8003655c790cafaa0b030091cf7b26a7ab05d5f",
+      "sha256": "851f6b4338e8fb937954bfd9abe6ccdc4866a878f1f2739421bf3f0b5a262ffd",
       "bytes": 1347
     },
     {
       "path": ".cursor-plugin/plugin.json",
-      "sha256": "552adf50459bde08a716af07ddb3c19264cf30390f94551154f9589e1487c6af",
+      "sha256": "97414ac4a819d6aed0788f4a9e7f091022606db6cf04b9e5b66752eba8343753",
       "bytes": 628
     },
     {
@@ -46,7 +46,7 @@
     },
     {
       "path": "skills/skill-best-practices/SKILL.md",
-      "sha256": "6fc6647337690203fb3b90b84f8f261f5a21136d8cc594a3ba91134540b63cd2",
+      "sha256": "a5d59e87417518e1d7d160e9550619c5c418af702cfb6cd6369637f743cc13ad",
       "bytes": 11084
     },
     {
@@ -131,8 +131,8 @@
     },
     {
       "path": "skills/skill-best-practices/generated/modify-managed-skills.md",
-      "sha256": "d92965ed3950616ed2637087f456f70220b0ac779d964fb023d822afdfbf1137",
-      "bytes": 6230
+      "sha256": "f89ae74a31e44b66fff32c5c0df07023131ae0870c8b316c3f58819ecfa25db2",
+      "bytes": 6218
     },
     {
       "path": "skills/skill-best-practices/generated/practices-validation.json",
@@ -141,13 +141,13 @@
     },
     {
       "path": "skills/skill-best-practices/managed-skills.json",
-      "sha256": "e277596055821e84edd72831f0c05b391e92ca47e13e133fb52283e043b6eda0",
-      "bytes": 3726
+      "sha256": "d897702bbcb2a7d4a5b0066da08103b8e0dec562422bccc654ad14c306a2cf35",
+      "bytes": 3714
     },
     {
       "path": "skills/skill-best-practices/managed-skills.md",
-      "sha256": "a8ec13e96856e3a1f3393a1147927efa28766d0558ef31edd4cbd25229d2f616",
-      "bytes": 1716
+      "sha256": "2f05cf6e5501553d30d7d3883fdc882c4fa8247b2d4091f85f88498b31884d0a",
+      "bytes": 1702
     },
     {
       "path": "skills/skill-best-practices/prompts/apply-practices.md",

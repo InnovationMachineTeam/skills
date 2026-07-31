@@ -1,13 +1,16 @@
 {
   "name": "im-skills-all",
-  "version": "1.8.0",
+  "version": "2.0.0",
   "description": "Complete InnovationMachine Agent Skills toolkit",
   "homepage": "https://github.com/InnovationMachineTeam/skills",
   "repository": "https://github.com/InnovationMachineTeam/skills",
   "license": "Proprietary",
   "keywords": [
+    "agent-os-skills",
     "agent-skills",
-    "metaskills"
+    "agent-team-skills",
+    "metaskills",
+    "prompts"
   ],
   "skills": "./skills/",
   "author": {

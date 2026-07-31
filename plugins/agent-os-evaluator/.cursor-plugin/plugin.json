@@ -7,10 +7,10 @@
   "license": "Proprietary",
   "keywords": [
     "agent-os",
+    "agent-os-skills",
     "agent-skills",
     "agents",
-    "evaluation",
-    "metaskills"
+    "evaluation"
   ],
   "skills": "./skills/",
   "author": {

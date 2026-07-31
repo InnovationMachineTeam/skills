@@ -14,7 +14,7 @@
     {"id": "run", "command": ["run", "turn this research into a production-ready skill"], "expected_status": "ready", "expected_canonical_mode": "run", "expected_donor": "skill-builder", "expected_donor_route": null},
     {"id": "compare", "command": ["compare", "skills/a", "skills/b"], "expected_status": "ready", "expected_canonical_mode": "compare", "expected_donor": "skill-harvester", "expected_donor_route": "pairwise-skill-comparison"},
     {"id": "intake", "command": ["intake", "https://github.com/example/skill"], "expected_status": "ready", "expected_canonical_mode": "intake", "expected_donor": "skill-harvester", "expected_donor_route": "external-skill-intake"},
-    {"id": "prompt", "command": ["prompt", "create a durable release-review master prompt"], "expected_status": "ready", "expected_canonical_mode": "prompt", "expected_donor": "optimize-master-prompts", "expected_donor_route": null},
+    {"id": "prompt", "command": ["prompt", "create a durable release-review master prompt"], "expected_status": "ready", "expected_canonical_mode": "prompt", "expected_donor": "optimize-prompts", "expected_donor_route": null},
     {"id": "practices", "command": ["practices", "audit source freshness"], "expected_status": "ready", "expected_canonical_mode": "practices", "expected_donor": "skill-best-practices", "expected_donor_route": null},
     {"id": "marketplace", "command": ["marketplace", "validate Codex and Cursor manifests"], "expected_status": "ready", "expected_canonical_mode": "marketplace", "expected_donor": "skill-marketplace-manager", "expected_donor_route": null},
     {"id": "status", "command": ["status"], "expected_status": "ready", "expected_canonical_mode": "status", "expected_donor": null, "expected_donor_route": "native"},

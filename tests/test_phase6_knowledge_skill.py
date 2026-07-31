@@ -21,7 +21,7 @@ def module(name: str, relative: str):
     return loaded
 
 
-GRAPH = module("phase6_graph", "skills/metaskills/agent-knowledge-manager/scripts/build_knowledge_graph.py")
+GRAPH = module("phase6_graph", "skills/agent-skills/agent-knowledge-manager/scripts/build_knowledge_graph.py")
 
 
 def page(doc_id: str, status: str = "approved", related: str = "[]", sources: str = "[source://test]") -> str:

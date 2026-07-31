@@ -35,7 +35,7 @@ orchestration, tool integration и meta/router.
   `skill-manager`;
 - orchestrators/control: `skill-builder`, `metaskillpack`;
 - supporting systems: `skill-best-practices`, `skill-marketplace-manager`,
-  `optimize-master-prompts`.
+  `optimize-prompts`.
 
 ### Повторяющаяся структура
 

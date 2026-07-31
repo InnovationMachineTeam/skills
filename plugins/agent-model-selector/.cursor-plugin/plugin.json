@@ -9,7 +9,6 @@
     "agent-skills",
     "agents",
     "evaluation",
-    "metaskills",
     "models"
   ],
   "skills": "./skills/",

@@ -7,9 +7,9 @@
   "license": "Proprietary",
   "keywords": [
     "agent-skills",
+    "agent-team-skills",
     "agents",
     "build",
-    "metaskills",
     "teams"
   ],
   "skills": "./skills/",

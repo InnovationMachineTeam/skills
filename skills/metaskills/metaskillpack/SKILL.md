@@ -2,7 +2,7 @@
 name: metaskillpack
 description: Provides a self-contained, explicitly invoked toolkit for creating, discovering, researching, optimizing, diagnosing, governing, harvesting, refactoring, evaluating, packaging, and orchestrating agent skills through isolated snapshots of the InnovationMachine metaskills. Use only when the user names $metaskillpack, writes `metaskillpack MODE`, asks to use the packaged metaskill toolkit, or requests its status or upgrade. Do not claim generic specialist requests; prefer the individually installed skill unless this package is explicitly selected. Check donor versions without changing donor skills, load only the chosen mode, and stage upgrades safely.
 metadata:
-  version: "1.1.0"
+  version: "1.2.0"
 ---
 
 # Run the Metaskill Toolkit
@@ -37,7 +37,7 @@ If no mode is supplied, show the short mode table and ask what outcome the user 
 | `run [goal]` | `skill-builder` | Propose workflows, then orchestrate the selected one |
 | `compare <left> <right>` | `skill-harvester`, `pairwise-skill-comparison` | Compare two skills without mutation |
 | `intake <source>` | `skill-harvester`, `external-skill-intake` | Inspect an external skill without installing it |
-| `prompt [task]` | `optimize-master-prompts` | Create or improve a durable controlling prompt |
+| `prompt [task]` | `optimize-prompts` | Create or improve a durable controlling prompt |
 | `practices [task]` | `skill-best-practices` | Query or refresh the practices corpus |
 | `marketplace [task]` | `skill-marketplace-manager` | Design or govern skill distribution |
 | `status [--donor-root PATH]` | native | Compare source donors with the locked snapshot |

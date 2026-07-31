@@ -48,8 +48,8 @@ model selection, docs/memory и будущая Agent OS.
   `skills/agent-skills/agent-best-practices/best-practices/`.
 - Общий base и master prompts для agent-oriented skills существуют в
   `docs/prompts/`.
-- Canonical metaskills находятся в `skills/metaskills/`; generated plugin trees
-  редактировать напрямую нельзя.
+- Canonical skills находятся в одном уровне категорий под `skills/`; generated
+  plugin trees редактировать напрямую нельзя.
 
 Следствие: первый implementation slice — contracts и read-only discovery, а не
 автоматическое создание команды.

@@ -45,9 +45,9 @@ def main() -> int:
         config["distribution"]["codex_category"],
         "--keyword",
         "agent-skills",
-        "--keyword",
-        config["category"],
     ]
+    for category in config["categories"]:
+        command.extend(["--keyword", category])
     return subprocess.run(command, check=False).returncode
 
 

@@ -50,7 +50,7 @@ class PortfolioReleaseTests(unittest.TestCase):
     def setUp(self) -> None:
         self.skill_dirs = {
             path.parent.name: path.parent
-            for path in (ROOT / "skills" / "metaskills").glob("*/SKILL.md")
+            for path in (ROOT / "skills").glob("*/*/SKILL.md")
         }
         self.catalog = load(ROOT / "catalog" / "entries.json")["entries"]
 
@@ -64,6 +64,17 @@ class PortfolioReleaseTests(unittest.TestCase):
         self.assertEqual(set(names), set(catalog_names))
         self.assertTrue(any(name.startswith("skill-") for name in names))
         self.assertTrue(any(name.startswith("agent-") for name in names))
+
+    def test_catalog_categories_match_canonical_layout(self) -> None:
+        configured = {entry["name"]: entry["category"] for entry in self.catalog}
+        actual = {name: path.parent.name for name, path in self.skill_dirs.items()}
+        self.assertEqual(actual, configured)
+        self.assertEqual(
+            {"agent-os-skills", "agent-team-skills", "agent-skills", "metaskills", "prompts"},
+            set(actual.values()),
+        )
+        self.assertEqual("prompts", actual["optimize-prompts"])
+        self.assertNotIn("optimize-master-prompts", actual)
 
     def test_agent_os_skills_have_explicit_neighbor_non_triggers(self) -> None:
         prompts: list[str] = []

@@ -4,10 +4,10 @@ Private Agent Skills marketplace maintained by **InnovationMachineTeam** for **I
 
 - Marketplace: `im-skills`
 - Repository: `InnovationMachineTeam/skills`
-- Category: `metaskills`
+- Categories: `agent-os-skills`, `agent-team-skills`, `agent-skills`, `metaskills`, `prompts`
 - Entries: one installable cross-host plugin per skill
 - Supported hosts: Claude Code, Codex, Cursor, and Agent Skills clients
-- Aggregate local plugin: `im-skills-all` (`1.8.0`)
+- Aggregate local plugin: `im-skills-all` (`2.0.0`)
 - Current visibility: private
 - Lead maintainer and required reviewer: [@stanislavus86](https://github.com/stanislavus86)
 
@@ -86,36 +86,36 @@ The aggregate plugin is intended for local integration testing and full-toolkit 
 
 ## Catalog
 
-| Entry | Purpose | Version |
-|---|---|---|
-| `agent-knowledge-manager` | Curate and retrieve provenance-bearing project knowledge | 1.0.0 |
-| `agent-model-selector` | Evaluate and recommend evidence-backed model policies | 1.0.0 |
-| `agent-observer` | Validate traces, SLOs, alerts, and bounded diagnostics | 1.0.0 |
-| `agent-os-architect` | Design the minimum justified Agentic OS | 1.0.0 |
-| `agent-os-bootstrapper` | Stage an approved Agentic OS walking skeleton | 1.0.0 |
-| `agent-os-evaluator` | Independently evaluate frozen Agentic OS candidates | 1.0.0 |
-| `agent-policy-manager` | Govern pinned authorization and approval decisions | 1.0.0 |
-| `agent-registry-manager` | Reconcile typed desired and observed asset state | 1.0.0 |
-| `agent-runtime-manager` | Govern durable platform task and run lifecycle | 1.0.0 |
-| `agent-skill-mapper` | Map governed capabilities to registered agents | 1.0.0 |
-| `agent-team-architect` | Design justified agent teams and versioned specifications | 1.0.0 |
-| `agent-team-builder` | Stage approved agent-team specifications safely | 1.0.0 |
-| `agent-team-manager` | Govern agent-team lifecycle workflows and run state | 1.1.0 |
-| `agent-team-orchestrator` | Execute approved team task graphs with bounded runtime state | 1.0.0 |
-| `agent-workspace-manager` | Govern isolated worktrees and integration handoffs | 1.0.0 |
-| `metaskillpack` | Run the complete metaskill toolkit from one explicit command | 1.1.0 |
-| `optimize-master-prompts` | Design and improve durable controlling prompts | 1.0.0 |
-| `skill-architect` | Classify and create skill architectures | 1.2.0 |
-| `skill-best-practices` | Maintain an evidence-linked practices corpus | 1.0.1 |
-| `skill-builder` | Orchestrate end-to-end skill workflows | 1.1.0 |
-| `skill-doctor` | Diagnose and repair unhealthy skills | 1.0.0 |
-| `skill-evaluator` | Design and run skill evaluations | 1.1.0 |
-| `skill-harvester` | Extract reusable skill components and evidence | 1.1.0 |
-| `skill-manager` | Govern installed skill lifecycle | 1.2.0 |
-| `skill-marketplace-manager` | Design and operate skill marketplaces | 1.0.0 |
-| `skill-optimizer` | Improve healthy skills with measured evidence | 1.0.0 |
-| `skill-refactor` | Merge, split, extract, and reshape capabilities | 1.2.0 |
-| `skill-scout` | Discover and prioritize skill opportunities | 1.1.0 |
+| Entry | Category | Purpose | Version |
+|---|---|---|---|
+| `agent-knowledge-manager` | `agent-skills` | Curate and retrieve provenance-bearing project knowledge | 1.0.0 |
+| `agent-model-selector` | `agent-skills` | Evaluate and recommend evidence-backed model policies | 1.0.0 |
+| `agent-observer` | `agent-os-skills` | Validate traces, SLOs, alerts, and bounded diagnostics | 1.0.0 |
+| `agent-os-architect` | `agent-os-skills` | Design the minimum justified Agentic OS | 1.0.0 |
+| `agent-os-bootstrapper` | `agent-os-skills` | Stage an approved Agentic OS walking skeleton | 1.0.0 |
+| `agent-os-evaluator` | `agent-os-skills` | Independently evaluate frozen Agentic OS candidates | 1.0.0 |
+| `agent-policy-manager` | `agent-os-skills` | Govern pinned authorization and approval decisions | 1.0.0 |
+| `agent-registry-manager` | `agent-os-skills` | Reconcile typed desired and observed asset state | 1.0.0 |
+| `agent-runtime-manager` | `agent-os-skills` | Govern durable platform task and run lifecycle | 1.0.0 |
+| `agent-skill-mapper` | `agent-skills` | Map governed capabilities to registered agents | 1.0.0 |
+| `agent-team-architect` | `agent-team-skills` | Design justified agent teams and versioned specifications | 1.0.0 |
+| `agent-team-builder` | `agent-team-skills` | Stage approved agent-team specifications safely | 1.0.0 |
+| `agent-team-manager` | `agent-team-skills` | Govern agent-team lifecycle workflows and run state | 1.1.0 |
+| `agent-team-orchestrator` | `agent-team-skills` | Execute approved team task graphs with bounded runtime state | 1.0.0 |
+| `agent-workspace-manager` | `agent-team-skills` | Govern isolated worktrees and integration handoffs | 1.0.0 |
+| `metaskillpack` | `metaskills` | Run the complete metaskill toolkit from one explicit command | 1.2.0 |
+| `optimize-prompts` | `prompts` | Design and improve durable controlling prompts | 2.0.0 |
+| `skill-architect` | `metaskills` | Classify and create skill architectures | 1.2.0 |
+| `skill-best-practices` | `metaskills` | Maintain an evidence-linked practices corpus | 1.1.0 |
+| `skill-builder` | `metaskills` | Orchestrate end-to-end skill workflows | 1.2.0 |
+| `skill-doctor` | `metaskills` | Diagnose and repair unhealthy skills | 1.0.0 |
+| `skill-evaluator` | `metaskills` | Design and run skill evaluations | 1.1.0 |
+| `skill-harvester` | `metaskills` | Extract reusable skill components and evidence | 1.1.0 |
+| `skill-manager` | `metaskills` | Govern installed skill lifecycle | 1.2.0 |
+| `skill-marketplace-manager` | `metaskills` | Design and operate skill marketplaces | 1.0.0 |
+| `skill-optimizer` | `metaskills` | Improve healthy skills with measured evidence | 1.0.0 |
+| `skill-refactor` | `metaskills` | Merge, split, extract, and reshape capabilities | 1.2.0 |
+| `skill-scout` | `metaskills` | Discover and prioritize skill opportunities | 1.1.0 |
 
 The source of truth for versions is each skill's `SKILL.md → metadata.version`. Marketplace entry versions are generated from those values.
 
@@ -129,7 +129,12 @@ The source of truth for versions is each skill's `SKILL.md → metadata.version`
 ├── catalog/
 │   ├── entries.json                  # tags and declared entry inventory
 │   └── release.json                  # governance and aggregate release config
-├── skills/metaskills/                # canonical source of truth
+├── skills/                           # canonical source of truth
+│   ├── agent-os-skills/              # Agentic OS plane capabilities
+│   ├── agent-team-skills/            # team design and execution
+│   ├── agent-skills/                 # reusable single-agent capabilities
+│   ├── metaskills/                   # skill engineering and orchestration
+│   └── prompts/                      # prompt engineering capabilities
 ├── plugins/<skill>/                  # generated per-skill cross-host packages
 ├── plugin/                           # generated aggregate cross-host package
 ├── scripts/                          # deterministic generation and validation
@@ -159,7 +164,7 @@ The implemented foundation is described in
 
 ## Development workflow
 
-1. Edit the canonical package under `skills/metaskills/<name>/`.
+1. Edit the canonical package under `skills/<category>/<name>/`.
 2. Bump that skill's `metadata.version` according to SemVer.
 3. Rebuild individual cross-host plugin packages into a new staging directory:
 

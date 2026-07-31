@@ -5,9 +5,9 @@
   "practices_revision": "2026-07-30-initial",
   "skills": [
     {
-      "name": "optimize-master-prompts",
-      "role": "Create, audit, adapt, and evaluate durable master prompts",
-      "source_hint": "https://github.com/InnovationMachineTeam/skills/tree/main/skills/metaskills/optimize-master-prompts",
+      "name": "optimize-prompts",
+      "role": "Create, audit, adapt, and evaluate durable controlling prompts",
+      "source_hint": "https://github.com/InnovationMachineTeam/skills/tree/main/skills/prompts/optimize-prompts",
       "risk": "medium",
       "default_action": "audit"
     },

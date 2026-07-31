@@ -1,5 +1,18 @@
 # Changelog
 
+## 2.0.0 — 2026-07-31
+
+- Split the canonical catalog into `agent-os-skills`, `agent-team-skills`,
+  `agent-skills`, `metaskills`, and `prompts` without changing the identities
+  of the moved agent capabilities.
+- Renamed the public `optimize-master-prompts` skill and plugin to
+  `optimize-prompts`; “master prompt” remains an internal prompt-architecture
+  term rather than part of the installed skill identity.
+- Added category-aware catalog generation, bundle validation and portfolio
+  tests, then regenerated every host marketplace and plugin package.
+- Updated the registry, documentation, test paths, metaskillpack donor lock and
+  downstream prompt-routing consumers for the new topology.
+
 ## 1.8.0 — 2026-07-31
 
 - Added seven plane-specific Agentic OS skills: architect, bootstrapper,

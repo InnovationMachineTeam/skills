@@ -9,8 +9,7 @@
     "agent-skills",
     "agents",
     "knowledge",
-    "memory",
-    "metaskills"
+    "memory"
   ],
   "skills": "./skills/",
   "author": {

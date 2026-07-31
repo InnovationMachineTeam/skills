@@ -6,10 +6,10 @@
   "repository": "https://github.com/InnovationMachineTeam/skills",
   "license": "Proprietary",
   "keywords": [
+    "agent-os-skills",
     "agent-skills",
     "agents",
     "governance",
-    "metaskills",
     "registry"
   ],
   "skills": "./skills/",

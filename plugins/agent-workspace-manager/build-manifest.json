@@ -26,13 +26,13 @@
     },
     {
       "path": ".codex-plugin/plugin.json",
-      "sha256": "51fd5b93023728d560056c6e919110e2e6446f442d1310578ab9e7529524fc5d",
-      "bytes": 1479
+      "sha256": "d6c9580ba3c16a11b28821d449c9802733c8153a7ba4799e2cbf8b7f411d73f5",
+      "bytes": 1486
     },
     {
       "path": ".cursor-plugin/plugin.json",
-      "sha256": "2835891c39b7dd32cdc9993140658c7c40aa470eaa29474564058c67343c74a9",
-      "bytes": 702
+      "sha256": "7513c8b2e82e6a401a949f0219072ba93fafc5ee1a6bf065e4fe39ff623eee1b",
+      "bytes": 709
     },
     {
       "path": "README.md",

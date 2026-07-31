@@ -47,7 +47,7 @@ SPECIALISTS = {
     "skill-optimizer",
     "skill-refactor",
     "skill-manager",
-    "optimize-master-prompts",
+    "optimize-prompts",
     "skill-builder",
 }
 AUTHORITY_KEYS = {"write", "external_research", "install", "publish", "retire"}

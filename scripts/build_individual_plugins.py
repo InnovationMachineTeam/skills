@@ -35,13 +35,13 @@ def main() -> int:
 
     release = json.loads((root / "catalog" / "release.json").read_text(encoding="utf-8"))
     entries = json.loads((root / "catalog" / "entries.json").read_text(encoding="utf-8"))["entries"]
-    category = release["category"]
     distribution = release["distribution"]
     publisher = release["publisher"]
     reviewer = release["reviewer"]
 
     for item in sorted(entries, key=lambda value: value["name"]):
         name = item["name"]
+        category = item["category"]
         skill_file = root / "skills" / category / name / "SKILL.md"
         declared_name, description, version, error = frontmatter(skill_file.read_text(encoding="utf-8"))
         if error or declared_name != name or not description or not version:

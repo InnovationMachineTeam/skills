@@ -9,7 +9,6 @@
     "agent-skills",
     "agents",
     "mapping",
-    "metaskills",
     "skills"
   ],
   "skills": "./skills/",

@@ -7,8 +7,8 @@
   "license": "Proprietary",
   "keywords": [
     "agent-skills",
+    "agent-team-skills",
     "agents",
-    "metaskills",
     "orchestration",
     "runtime"
   ],

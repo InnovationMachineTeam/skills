@@ -21,11 +21,11 @@ def module(name: str, relative: str):
     return loaded
 
 
-MODEL = module("phase4_model", "skills/metaskills/agent-model-selector/scripts/validate_model_policy.py")
-ARCHITECT = module("phase4_architect", "skills/metaskills/agent-team-architect/scripts/validate_team_spec.py")
-MAPPER = module("phase4_mapper", "skills/metaskills/agent-skill-mapper/scripts/validate_mapping.py")
-BUILDER = module("phase4_builder", "skills/metaskills/agent-team-builder/scripts/validate_build_manifest.py")
-MANAGER = module("phase4_manager", "skills/metaskills/agent-team-manager/scripts/validate_run_state.py")
+MODEL = module("phase4_model", "skills/agent-skills/agent-model-selector/scripts/validate_model_policy.py")
+ARCHITECT = module("phase4_architect", "skills/agent-team-skills/agent-team-architect/scripts/validate_team_spec.py")
+MAPPER = module("phase4_mapper", "skills/agent-skills/agent-skill-mapper/scripts/validate_mapping.py")
+BUILDER = module("phase4_builder", "skills/agent-team-skills/agent-team-builder/scripts/validate_build_manifest.py")
+MANAGER = module("phase4_manager", "skills/agent-team-skills/agent-team-manager/scripts/validate_run_state.py")
 
 
 def role(role_id: str, kind: str) -> dict:

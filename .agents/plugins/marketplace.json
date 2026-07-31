@@ -197,10 +197,10 @@
       "category": "Developer Tools"
     },
     {
-      "name": "optimize-master-prompts",
+      "name": "optimize-prompts",
       "source": {
         "source": "local",
-        "path": "./plugins/optimize-master-prompts"
+        "path": "./plugins/optimize-prompts"
       },
       "policy": {
         "installation": "AVAILABLE",

@@ -22,7 +22,7 @@ This generated package is installable by Claude Code, Codex, and Cursor. Its can
 - `agent-team-orchestrator`
 - `agent-workspace-manager`
 - `metaskillpack`
-- `optimize-master-prompts`
+- `optimize-prompts`
 - `skill-architect`
 - `skill-best-practices`
 - `skill-builder`

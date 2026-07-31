@@ -6,9 +6,9 @@
   "repository": "https://github.com/InnovationMachineTeam/skills",
   "license": "Proprietary",
   "keywords": [
+    "agent-os-skills",
     "agent-skills",
     "agents",
-    "metaskills",
     "policy",
     "security"
   ],

@@ -9,13 +9,13 @@ FIXTURE=ROOT/"tests/fixtures/agent-os-marketplace-release"
 def mod(name,rel):
  s=importlib.util.spec_from_file_location(name,ROOT/rel);assert s and s.loader
  m=importlib.util.module_from_spec(s);sys.modules[name]=m;s.loader.exec_module(m);return m
-ARCH=mod("p7arch","skills/metaskills/agent-os-architect/scripts/validate_architecture.py")
-BOOT=mod("p7boot","skills/metaskills/agent-os-bootstrapper/scripts/validate_bootstrap_manifest.py")
-REG=mod("p7reg","skills/metaskills/agent-registry-manager/scripts/validate_reconcile_plan.py")
-RUN=mod("p7run","skills/metaskills/agent-runtime-manager/scripts/validate_runtime_record.py")
-POL=mod("p7pol","skills/metaskills/agent-policy-manager/scripts/validate_policy_decision.py")
-OBS=mod("p7obs","skills/metaskills/agent-observer/scripts/validate_trace_bundle.py")
-EVAL=mod("p7eval","skills/metaskills/agent-os-evaluator/scripts/validate_release_evidence.py")
+ARCH=mod("p7arch","skills/agent-os-skills/agent-os-architect/scripts/validate_architecture.py")
+BOOT=mod("p7boot","skills/agent-os-skills/agent-os-bootstrapper/scripts/validate_bootstrap_manifest.py")
+REG=mod("p7reg","skills/agent-os-skills/agent-registry-manager/scripts/validate_reconcile_plan.py")
+RUN=mod("p7run","skills/agent-os-skills/agent-runtime-manager/scripts/validate_runtime_record.py")
+POL=mod("p7pol","skills/agent-os-skills/agent-policy-manager/scripts/validate_policy_decision.py")
+OBS=mod("p7obs","skills/agent-os-skills/agent-observer/scripts/validate_trace_bundle.py")
+EVAL=mod("p7eval","skills/agent-os-skills/agent-os-evaluator/scripts/validate_release_evidence.py")
 def load(name):return json.loads((FIXTURE/name).read_text())
 
 class AgentOsTests(unittest.TestCase):
@@ -33,7 +33,7 @@ class AgentOsTests(unittest.TestCase):
  def test_registry_stale_contract_and_private_escape_require_external_checks(self):
   d=load("reconcile-plan.json");d["expected_revisions"]["registry"]=-1
   self.assertTrue(any("revisions" in x for x in REG.validate(d)))
-  routing=json.loads((ROOT/"skills/metaskills/agent-registry-manager/evals/behavior.json").read_text())
+  routing=json.loads((ROOT/"skills/agent-os-skills/agent-registry-manager/evals/behavior.json").read_text())
   self.assertTrue(any(c["id"]=="private" for c in routing["cases"]))
  def test_observer_rejects_duplicate_unredacted_events(self):
   d=load("trace-bundle.json");d["events"][1]["event_id"]=d["events"][0]["event_id"];d["events"][1]["redacted"]=False
@@ -44,10 +44,10 @@ class AgentOsTests(unittest.TestCase):
  def test_all_agent_os_eval_fixtures_have_positive_and_negative_routes(self):
   names=["agent-os-architect","agent-os-bootstrapper","agent-registry-manager","agent-runtime-manager","agent-policy-manager","agent-observer","agent-os-evaluator"]
   for name in names:
-   routing=json.loads((ROOT/f"skills/metaskills/{name}/evals/routing.json").read_text())
+   routing=json.loads((ROOT/f"skills/agent-os-skills/{name}/evals/routing.json").read_text())
    triggers={c["expected_trigger"] for c in routing["cases"]}
    self.assertEqual({True,False},triggers,name)
-   behavior=json.loads((ROOT/f"skills/metaskills/{name}/evals/behavior.json").read_text())
+   behavior=json.loads((ROOT/f"skills/agent-os-skills/{name}/evals/behavior.json").read_text())
    self.assertTrue(all(c.get("expected_properties") and isinstance(c.get("forbidden_properties"),list) for c in behavior["cases"]),name)
 
 if __name__=="__main__":unittest.main()

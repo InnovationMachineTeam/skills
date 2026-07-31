@@ -43,29 +43,34 @@ def main() -> int:
     marketplace = release["marketplace"]
     marketplace_version = marketplace["version"]
     distribution = release["distribution"]
-    category = release["category"]
-    category_root = root / "skills" / category
     configured = entries_config.get("entries", [])
     if not isinstance(configured, list):
         raise ValueError("catalog/entries.json entries must be an array")
 
-    actual_names = {path.parent.name for path in category_root.glob("*/SKILL.md")}
-    configured_names = {item.get("name") for item in configured if isinstance(item, dict)}
-    if actual_names != configured_names:
-        missing = sorted(actual_names - configured_names)
-        extra = sorted(configured_names - actual_names)
-        raise ValueError(f"catalog mismatch; missing={missing}, extra={extra}")
+    actual = {
+        path.parent.name: path.parent.parent.name
+        for path in (root / "skills").glob("*/*/SKILL.md")
+    }
+    configured_map = {
+        item.get("name"): item.get("category")
+        for item in configured
+        if isinstance(item, dict)
+    }
+    if actual != configured_map:
+        raise ValueError(f"catalog/category mismatch; actual={actual}, configured={configured_map}")
 
     records = []
     for item in sorted(configured, key=lambda value: value["name"]):
         name = item["name"]
-        skill_file = category_root / name / "SKILL.md"
+        category = item["category"]
+        skill_file = root / "skills" / category / name / "SKILL.md"
         declared_name, description, version, error = frontmatter(skill_file.read_text(encoding="utf-8"))
         if error or declared_name != name or not description or not version:
             raise ValueError(f"invalid skill metadata: {skill_file}: {error or declared_name}")
         records.append(
             {
                 "name": name,
+                "category": category,
                 "description": short_description(description),
                 "version": version,
                 "tags": sorted(set(["agent-skills", category, *item.get("tags", [])])),
@@ -88,7 +93,7 @@ def main() -> int:
                 "description": item["description"],
                 "version": item["version"],
                 "author": author,
-                "category": category,
+                "category": item["category"],
                 "tags": item["tags"],
             }
             for item in records
@@ -125,7 +130,7 @@ def main() -> int:
                 "repository": distribution["repository_url"],
                 "license": distribution["license"],
                 "keywords": item["tags"],
-                "category": distribution["cursor_category"],
+                "category": item["category"],
                 "tags": item["tags"],
             }
             for item in records

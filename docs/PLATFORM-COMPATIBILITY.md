@@ -4,7 +4,8 @@ Last reviewed: 2026-07-30.
 
 ## Decisions
 
-1. Keep `skills/metaskills/` as the only editable skill source.
+1. Keep the one-level `skills/<category>/<name>/` tree as the only editable
+   skill source.
 2. Generate one self-contained package per skill under `plugins/`.
 3. Put only the manifest inside each host-specific hidden directory; keep skills and other components at the plugin root.
 4. Use a native repo marketplace for each host instead of relying on another host's compatibility parser.

@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
   "pack": "metaskillpack",
-  "pack_version": "1.1.0",
+  "pack_version": "1.2.0",
   "donors": [
     {
-      "name": "optimize-master-prompts",
-      "version": "1.0.0",
-      "tree_sha256": "eb548e94e2f9c8e90f0847043910466ffe89bccbf1048137ee7905a61dc6042d",
-      "source": "../optimize-master-prompts",
-      "vendored_path": "vendor/optimize-master-prompts",
+      "name": "optimize-prompts",
+      "version": "2.0.0",
+      "tree_sha256": "548c8d7af30c529b946fab4e829554ec2ba1ddf51cd801d9d98696f4492892c1",
+      "source": "../../prompts/optimize-prompts",
+      "vendored_path": "vendor/optimize-prompts",
       "modes": [
         {
           "name": "prompt",
@@ -31,8 +31,8 @@
     },
     {
       "name": "skill-best-practices",
-      "version": "1.0.1",
-      "tree_sha256": "3f14d5f2ef89f46ce9a12b9e909b56f1713e8a01cc6e5dffd41922bacec499ef",
+      "version": "1.1.0",
+      "tree_sha256": "a7dc5e2be3dfbdd61d5057ba6f3a08dd3a6b6579eaabf099df5e031d072cb4f6",
       "source": "../skill-best-practices",
       "vendored_path": "vendor/skill-best-practices",
       "modes": [
@@ -44,8 +44,8 @@
     },
     {
       "name": "skill-builder",
-      "version": "1.1.0",
-      "tree_sha256": "ccc6094708a86dbb935914be71c0e4af3389a9ed67ab24747168913635c0ab81",
+      "version": "1.2.0",
+      "tree_sha256": "cfb3520a1db7f5f7c1d2fd81d4341f2016b9c847e864d3e7bd217b8abdef37ce",
       "source": "../skill-builder",
       "vendored_path": "vendor/skill-builder",
       "modes": [
@@ -121,8 +121,8 @@
     },
     {
       "name": "skill-marketplace-manager",
-      "version": "1.0.0",
-      "tree_sha256": "83b64b533a3d6b4208e2c2e2815401c887134c4f7bc5ca0101b0d97c1c603bf8",
+      "version": "1.1.0",
+      "tree_sha256": "a9fbde7c8844d9f339fa761bc8a9f88e25ed5b005fd9731432b120205d28e701",
       "source": "../skill-marketplace-manager",
       "vendored_path": "vendor/skill-marketplace-manager",
       "modes": [

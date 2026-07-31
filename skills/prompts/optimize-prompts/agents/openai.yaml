@@ -1,0 +1,4 @@
+interface:
+  display_name: "Prompt Optimizer"
+  short_description: "Design and improve reliable prompts"
+  default_prompt: "Use $optimize-prompts to audit and improve this controlling prompt."

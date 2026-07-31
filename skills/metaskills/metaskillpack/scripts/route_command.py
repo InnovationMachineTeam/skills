@@ -21,7 +21,7 @@ MODES = {
     "run": ("skill-builder", None),
     "compare": ("skill-harvester", "pairwise-skill-comparison"),
     "intake": ("skill-harvester", "external-skill-intake"),
-    "prompt": ("optimize-master-prompts", None),
+    "prompt": ("optimize-prompts", None),
     "practices": ("skill-best-practices", None),
     "marketplace": ("skill-marketplace-manager", None),
     "status": (None, "native"),

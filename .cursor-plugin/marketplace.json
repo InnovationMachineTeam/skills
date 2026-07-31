@@ -6,7 +6,7 @@
   },
   "metadata": {
     "description": "InnovationMachine Agent Skills marketplace",
-    "version": "1.8.0"
+    "version": "2.0.0"
   },
   "plugins": [
     {
@@ -25,16 +25,14 @@
         "agent-skills",
         "agents",
         "knowledge",
-        "memory",
-        "metaskills"
+        "memory"
       ],
-      "category": "metaskills",
+      "category": "agent-skills",
       "tags": [
         "agent-skills",
         "agents",
         "knowledge",
-        "memory",
-        "metaskills"
+        "memory"
       ]
     },
     {
@@ -53,15 +51,13 @@
         "agent-skills",
         "agents",
         "evaluation",
-        "metaskills",
         "models"
       ],
-      "category": "metaskills",
+      "category": "agent-skills",
       "tags": [
         "agent-skills",
         "agents",
         "evaluation",
-        "metaskills",
         "models"
       ]
     },
@@ -78,17 +74,17 @@
       "repository": "https://github.com/InnovationMachineTeam/skills",
       "license": "Proprietary",
       "keywords": [
+        "agent-os-skills",
         "agent-skills",
         "agents",
-        "metaskills",
         "observability",
         "operations"
       ],
-      "category": "metaskills",
+      "category": "agent-os-skills",
       "tags": [
+        "agent-os-skills",
         "agent-skills",
         "agents",
-        "metaskills",
         "observability",
         "operations"
       ]
@@ -107,18 +103,18 @@
       "license": "Proprietary",
       "keywords": [
         "agent-os",
+        "agent-os-skills",
         "agent-skills",
         "agents",
-        "architecture",
-        "metaskills"
+        "architecture"
       ],
-      "category": "metaskills",
+      "category": "agent-os-skills",
       "tags": [
         "agent-os",
+        "agent-os-skills",
         "agent-skills",
         "agents",
-        "architecture",
-        "metaskills"
+        "architecture"
       ]
     },
     {
@@ -135,18 +131,18 @@
       "license": "Proprietary",
       "keywords": [
         "agent-os",
+        "agent-os-skills",
         "agent-skills",
         "agents",
-        "bootstrap",
-        "metaskills"
+        "bootstrap"
       ],
-      "category": "metaskills",
+      "category": "agent-os-skills",
       "tags": [
         "agent-os",
+        "agent-os-skills",
         "agent-skills",
         "agents",
-        "bootstrap",
-        "metaskills"
+        "bootstrap"
       ]
     },
     {
@@ -163,18 +159,18 @@
       "license": "Proprietary",
       "keywords": [
         "agent-os",
+        "agent-os-skills",
         "agent-skills",
         "agents",
-        "evaluation",
-        "metaskills"
+        "evaluation"
       ],
-      "category": "metaskills",
+      "category": "agent-os-skills",
       "tags": [
         "agent-os",
+        "agent-os-skills",
         "agent-skills",
         "agents",
-        "evaluation",
-        "metaskills"
+        "evaluation"
       ]
     },
     {
@@ -190,17 +186,17 @@
       "repository": "https://github.com/InnovationMachineTeam/skills",
       "license": "Proprietary",
       "keywords": [
+        "agent-os-skills",
         "agent-skills",
         "agents",
-        "metaskills",
         "policy",
         "security"
       ],
-      "category": "metaskills",
+      "category": "agent-os-skills",
       "tags": [
+        "agent-os-skills",
         "agent-skills",
         "agents",
-        "metaskills",
         "policy",
         "security"
       ]
@@ -218,18 +214,18 @@
       "repository": "https://github.com/InnovationMachineTeam/skills",
       "license": "Proprietary",
       "keywords": [
+        "agent-os-skills",
         "agent-skills",
         "agents",
         "governance",
-        "metaskills",
         "registry"
       ],
-      "category": "metaskills",
+      "category": "agent-os-skills",
       "tags": [
+        "agent-os-skills",
         "agent-skills",
         "agents",
         "governance",
-        "metaskills",
         "registry"
       ]
     },
@@ -246,18 +242,18 @@
       "repository": "https://github.com/InnovationMachineTeam/skills",
       "license": "Proprietary",
       "keywords": [
+        "agent-os-skills",
         "agent-skills",
         "agents",
         "durability",
-        "metaskills",
         "runtime"
       ],
-      "category": "metaskills",
+      "category": "agent-os-skills",
       "tags": [
+        "agent-os-skills",
         "agent-skills",
         "agents",
         "durability",
-        "metaskills",
         "runtime"
       ]
     },
@@ -277,15 +273,13 @@
         "agent-skills",
         "agents",
         "mapping",
-        "metaskills",
         "skills"
       ],
-      "category": "metaskills",
+      "category": "agent-skills",
       "tags": [
         "agent-skills",
         "agents",
         "mapping",
-        "metaskills",
         "skills"
       ]
     },
@@ -303,17 +297,17 @@
       "license": "Proprietary",
       "keywords": [
         "agent-skills",
+        "agent-team-skills",
         "agents",
         "architecture",
-        "metaskills",
         "teams"
       ],
-      "category": "metaskills",
+      "category": "agent-team-skills",
       "tags": [
         "agent-skills",
+        "agent-team-skills",
         "agents",
         "architecture",
-        "metaskills",
         "teams"
       ]
     },
@@ -331,17 +325,17 @@
       "license": "Proprietary",
       "keywords": [
         "agent-skills",
+        "agent-team-skills",
         "agents",
         "build",
-        "metaskills",
         "teams"
       ],
-      "category": "metaskills",
+      "category": "agent-team-skills",
       "tags": [
         "agent-skills",
+        "agent-team-skills",
         "agents",
         "build",
-        "metaskills",
         "teams"
       ]
     },
@@ -359,17 +353,17 @@
       "license": "Proprietary",
       "keywords": [
         "agent-skills",
+        "agent-team-skills",
         "agents",
         "lifecycle",
-        "metaskills",
         "orchestration"
       ],
-      "category": "metaskills",
+      "category": "agent-team-skills",
       "tags": [
         "agent-skills",
+        "agent-team-skills",
         "agents",
         "lifecycle",
-        "metaskills",
         "orchestration"
       ]
     },
@@ -387,16 +381,16 @@
       "license": "Proprietary",
       "keywords": [
         "agent-skills",
+        "agent-team-skills",
         "agents",
-        "metaskills",
         "orchestration",
         "runtime"
       ],
-      "category": "metaskills",
+      "category": "agent-team-skills",
       "tags": [
         "agent-skills",
+        "agent-team-skills",
         "agents",
-        "metaskills",
         "orchestration",
         "runtime"
       ]
@@ -415,16 +409,16 @@
       "license": "Proprietary",
       "keywords": [
         "agent-skills",
+        "agent-team-skills",
         "agents",
-        "metaskills",
         "workspaces",
         "worktrees"
       ],
-      "category": "metaskills",
+      "category": "agent-team-skills",
       "tags": [
         "agent-skills",
+        "agent-team-skills",
         "agents",
-        "metaskills",
         "workspaces",
         "worktrees"
       ]
@@ -433,7 +427,7 @@
       "name": "metaskillpack",
       "source": "plugins/metaskillpack",
       "description": "Provides a self-contained, explicitly invoked toolkit for creating, discovering, researching, optimizing, diagnosing, governing, harvesting, refactoring, evaluating, packaging, and orchestrating agent skills through isolated snapshots...",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "author": {
         "name": "InnovationMachine",
         "email": "stanislav.usoltsev@gmail.com"
@@ -456,10 +450,10 @@
       ]
     },
     {
-      "name": "optimize-master-prompts",
-      "source": "plugins/optimize-master-prompts",
+      "name": "optimize-prompts",
+      "source": "plugins/optimize-prompts",
       "description": "Designs, audits, and improves durable master, system, and developer prompts for agents",
-      "version": "1.0.0",
+      "version": "2.0.0",
       "author": {
         "name": "InnovationMachine",
         "email": "stanislav.usoltsev@gmail.com"
@@ -469,14 +463,12 @@
       "license": "Proprietary",
       "keywords": [
         "agent-skills",
-        "metaskills",
         "optimization",
         "prompts"
       ],
-      "category": "metaskills",
+      "category": "prompts",
       "tags": [
         "agent-skills",
-        "metaskills",
         "optimization",
         "prompts"
       ]
@@ -511,7 +503,7 @@
       "name": "skill-best-practices",
       "source": "plugins/skill-best-practices",
       "description": "Maintains and queries an evidence-linked, updateable corpus of best practices for creating, routing, evaluating, securing, optimizing, distributing, and governing agent skills",
-      "version": "1.0.1",
+      "version": "1.1.0",
       "author": {
         "name": "InnovationMachine",
         "email": "stanislav.usoltsev@gmail.com"
@@ -536,8 +528,8 @@
     {
       "name": "skill-builder",
       "source": "plugins/skill-builder",
-      "description": "Orchestrates complete, evidence-backed agent-skill workflows across skill-scout, skill-harvester, skill-architect, skill-evaluator, skill-doctor, skill-optimizer, skill-refactor, skill-manager, and optimize-master-prompts",
-      "version": "1.1.0",
+      "description": "Orchestrates complete, evidence-backed agent-skill workflows across skill-scout, skill-harvester, skill-architect, skill-evaluator, skill-doctor, skill-optimizer, skill-refactor, skill-manager, and optimize-prompts",
+      "version": "1.2.0",
       "author": {
         "name": "InnovationMachine",
         "email": "stanislav.usoltsev@gmail.com"
@@ -667,7 +659,7 @@
       "name": "skill-marketplace-manager",
       "source": "plugins/skill-marketplace-manager",
       "description": "Design, inventory, scaffold, curate, build, validate, migrate, release, and audit repositories that distribute Agent Skills through skill.sh-compatible catalogs and plugin harnesses such as Claude Code",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "author": {
         "name": "InnovationMachine",
         "email": "stanislav.usoltsev@gmail.com"

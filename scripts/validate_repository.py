@@ -75,6 +75,7 @@ def validate_plugin_bundle(
     plugin_root: Path,
     expected_names: list[str],
     versions: dict[str, str],
+    sources: dict[str, Path],
     failures: list[str],
     expected_plugin_name: str | None = None,
 ) -> None:
@@ -106,7 +107,7 @@ def validate_plugin_bundle(
         failures.append(f"{label}: expected bundled skills {sorted(expected_names)}, found {actual_names}")
     for name in expected_names:
         compare_trees(
-            root / "skills" / "metaskills" / name,
+            sources[name],
             plugin_root / "skills" / name,
             failures,
             f"{label}/{name}",
@@ -122,6 +123,10 @@ def main() -> int:
     skills = inventory["skills"]
     expected = {item["name"] for item in skills}
     versions = {item["name"]: item["version"] for item in skills}
+    sources = {
+        item["name"]: root / Path(item["path"]).parent
+        for item in skills
+    }
 
     claude_path = root / ".claude-plugin" / "marketplace.json"
     codex_path = root / ".agents" / "plugins" / "marketplace.json"
@@ -157,7 +162,7 @@ def main() -> int:
     if actual_plugin_names != expected:
         failures.append("plugins/ must contain exactly one generated package per canonical skill")
     for name in sorted(expected & actual_plugin_names):
-        validate_plugin_bundle(root, plugins_root / name, [name], versions, failures)
+        validate_plugin_bundle(root, plugins_root / name, [name], versions, sources, failures)
 
     aggregate = root / "plugin"
     release = load_object(root / "catalog" / "release.json", failures)
@@ -170,6 +175,7 @@ def main() -> int:
             aggregate,
             sorted(expected),
             aggregate_versions,
+            sources,
             failures,
             expected_plugin_name=aggregate_name,
         )

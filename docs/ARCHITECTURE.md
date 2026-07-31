@@ -7,7 +7,7 @@ project-scoped agent assets. This is a capability boundary, not a claim that
 private content is secret.
 
 ```text
-skills/metaskills/*                         public canonical skills
+skills/<category>/*                         public canonical skills
         │
         └── marketplace builders ─────────> plugins/ and plugin/
 
@@ -49,7 +49,7 @@ and keep only their own revision and content hash.
 ## Marketplace: one source, four distribution views
 
 ```text
-skills/metaskills/<name>/                canonical source of truth
+skills/<category>/<name>/               canonical source of truth
         │
         ├── build_individual_plugins.py ──> plugins/<name>/
         │                                  ├── .claude-plugin/plugin.json
@@ -73,13 +73,13 @@ The canonical tree keeps the one-category layout used by skill.sh and other Agen
 | Claude Code | `.claude-plugin/marketplace.json` | `.claude-plugin/plugin.json` | one entry per skill |
 | Codex | `.agents/plugins/marketplace.json` | `.codex-plugin/plugin.json` | one entry per skill |
 | Cursor | `.cursor-plugin/marketplace.json` | `.cursor-plugin/plugin.json` | one entry per skill after native publication; Skills CLI while private |
-| Agent Skills clients | `skills/metaskills/*/SKILL.md` | skill frontmatter | client-specific |
+| Agent Skills clients | `skills/<category>/*/SKILL.md` | skill frontmatter | client-specific |
 
 The three plugin marketplaces all resolve to the same generated `plugins/<name>/` package. This avoids platform forks while allowing each host to receive its native manifest.
 
 ## Generated artifact policy
 
-- `skills/metaskills/` and `catalog/` are authoritative.
+- `skills/*/` category roots and `catalog/` are authoritative.
 - `plugins/`, `plugin/`, and all three marketplace manifests are generated and committed.
 - Generated packages contain real files, never symlinks or references outside the package.
 - CI rebuilds artifacts in `build/` and rejects any diff.
@@ -91,7 +91,8 @@ The three plugin marketplaces all resolve to the same generated `plugins/<name>/
 - Marketplace identifier: `im-skills` on all hosts.
 - Individual plugin identifier: exact globally unique skill name.
 - Aggregate plugin identifier: `im-skills-all`.
-- Canonical and Cursor category: `metaskills`.
+- Canonical and Cursor categories: `agent-os-skills`, `agent-team-skills`,
+  `agent-skills`, `metaskills`, and `prompts`.
 - Codex install-surface category: `Developer Tools`.
 
 Categories are presentation metadata, not identity boundaries. Skill and plugin names must remain globally unique inside an installed host scope.
