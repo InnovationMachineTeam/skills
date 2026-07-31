@@ -1,10 +1,15 @@
 # Agentic OS private canary report
 
-Status: `PASS`  
-Executed: `2026-07-31T09:02:58Z`  
-Marketplace: `im-skills` `1.8.0`  
-Release commit: `3bbed19`  
-Owner: `InnovationMachineTeam`  
+Status: `PASS`
+
+Executed: `2026-07-31T09:02:58Z`
+
+Marketplace: `im-skills` `1.8.0`
+
+Release commit: `3bbed19`
+
+Owner: `InnovationMachineTeam`
+
 Reviewer: `@stanislavus86`
 
 ## Scope
