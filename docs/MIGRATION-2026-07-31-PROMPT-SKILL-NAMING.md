@@ -1,6 +1,6 @@
 # Prompt skill category and identity migration
 
-Status: `STAGED`
+Status: `CUTOVER`
 
 Release: `3.0.0`
 
@@ -49,4 +49,19 @@ validation suite. The migration changes no external data or infrastructure.
 
 ## Cutover evidence
 
-Pending successful validation and Codex installation.
+Executed at `2026-07-31T10:03:45Z` from release commit `5fca721`.
+
+- Repository suite: 37/37 tests passed.
+- Official Agent Skills validator: 28/28 passed.
+- Skill-local eval validators: 19/19 passed.
+- Claude Code strict validation: aggregate plus 28/28 individual packages.
+- Registry, generated views and three host adapters passed drift validation.
+- Codex marketplace: 28/28 plugins installed and enabled.
+- Updated consumers: `metaskillpack@1.3.0`, `skill-builder@1.3.0`,
+  `skill-best-practices@1.2.0`, and `skill-marketplace-manager@1.2.0`.
+- Prompt replacement: `prompt-optimize@3.0.0` enabled;
+  `optimize-prompts` absent from installed state and active catalog.
+- Delivery integrity: all 28 marketplace package trees match the canonical
+  GitHub-backed marketplace clone.
+
+The previous release remains recoverable through the rollback procedure.
