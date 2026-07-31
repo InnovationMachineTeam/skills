@@ -1,0 +1,73 @@
+{
+  "format": 2,
+  "plugin": "agent-runtime-manager",
+  "version": "1.0.0",
+  "source_layout": "skills/",
+  "bundle_layout": "skills/<name>/",
+  "platforms": [
+    "claude-code",
+    "codex",
+    "cursor"
+  ],
+  "skills": [
+    "agent-runtime-manager"
+  ],
+  "excluded_patterns": [
+    ".DS_Store",
+    "__pycache__",
+    "*.pyc",
+    ".git"
+  ],
+  "files": [
+    {
+      "path": ".claude-plugin/plugin.json",
+      "sha256": "062fef1bc0c77c57f0cc3ea6ed653385d8de141039e5d2ffc5f2dbfdf1c47652",
+      "bytes": 478
+    },
+    {
+      "path": ".codex-plugin/plugin.json",
+      "sha256": "234772eba4aab27c199eb252fbbf73fa271cc849bf59ee4a1b6440f03a5b378d",
+      "bytes": 1457
+    },
+    {
+      "path": ".cursor-plugin/plugin.json",
+      "sha256": "256d3eb3fef9c763e908877d817c2f04c1b7f853dff4ceb28d5e9b4f3a79f01f",
+      "bytes": 692
+    },
+    {
+      "path": "README.md",
+      "sha256": "5382ab0191f4022e1e857d09ff7b9f18e034d762e618e13c9e40cb5b9d33e1f6",
+      "bytes": 575
+    },
+    {
+      "path": "skills/agent-runtime-manager/SKILL.md",
+      "sha256": "94473ea0177b00878496d1b8d98e8ba5c81f33daf1af6c5098d154f2e9798241",
+      "bytes": 1833
+    },
+    {
+      "path": "skills/agent-runtime-manager/agents/openai.yaml",
+      "sha256": "c802599c0a5a66bf48138d09f28adaf146172b016e6f1e17b0b6c07ab5388741",
+      "bytes": 204
+    },
+    {
+      "path": "skills/agent-runtime-manager/evals/behavior.json",
+      "sha256": "5a8ac603e653d0c1647a98d3d33b0d7ae1bd9e11b6d6ae4dde8cb44375dce410",
+      "bytes": 403
+    },
+    {
+      "path": "skills/agent-runtime-manager/evals/routing.json",
+      "sha256": "31f105a80b4d661a159c7ee7940dc86bb7f665ffa2dd95c932ca4fa1bcf024f3",
+      "bytes": 399
+    },
+    {
+      "path": "skills/agent-runtime-manager/references/runtime-contract.md",
+      "sha256": "63f523ae89d57ed1b3e93bd6ec37063cb199735abf9a2026c8002c4dc8e4ca3d",
+      "bytes": 512
+    },
+    {
+      "path": "skills/agent-runtime-manager/scripts/validate_runtime_record.py",
+      "sha256": "9df76379ae95bbcafb744147fa954d89e0efe336821b5db01f37be66ada26763",
+      "bytes": 2229
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent Registry Manager"
+  short_description: "Reconcile typed Agentic OS assets"
+  default_prompt: "Use $agent-registry-manager to reconcile desired and observed agent asset state."

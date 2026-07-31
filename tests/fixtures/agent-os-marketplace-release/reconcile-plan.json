@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "plan_id": "reconcile://im-skills/private-release/1",
+  "expected_revisions": {"registry": 6, "bindings": 1},
+  "observations": [
+    {"asset_ref":"asset://repository/skill/agent-os-architect","decision":"IN_SYNC","evidence":["evidence://registry/hash-match"]}
+  ],
+  "transaction": {"operations": [], "rollback":"restore revisions 6 and 1"},
+  "authorized": false
+}

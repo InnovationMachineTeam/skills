@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "bootstrap_id": "bootstrap://im-skills/private-release/1",
+  "architecture": {"id":"agent-os://im-skills/private-release@1.0.0","status":"approved","hash":"sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"},
+  "destination": ".agents/staging/private-release",
+  "production_activation": false,
+  "credentials": "synthetic",
+  "operations": [
+    {"action":"create","path":".agents/staging/private-release/registry.json"},
+    {"action":"create","path":".agents/staging/private-release/policy.json"},
+    {"action":"validate","path":".agents/staging/private-release/evidence.json"}
+  ],
+  "health_checks": ["registry readable", "runtime state writable"],
+  "smoke_tests": ["one synthetic release reaches terminal verified state"],
+  "failure_tests": ["duplicate delivery", "timeout", "cancellation", "provider outage", "rollback"],
+  "rollback": {"procedure":"remove exact staging candidate and preserve trace"}
+}

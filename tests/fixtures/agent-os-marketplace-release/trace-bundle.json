@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "trace_id": "trace://im-skills/private-release/1",
+  "run_id": "run://im-skills/private-release/1",
+  "task_id": "task://im-skills/private-release/1",
+  "events": [
+    {"event_id":"event-1","type":"request.accepted","timestamp":"2026-07-31T00:00:00Z","sequence":1,"producer":"experience","data_class":"internal","redacted":true,"versions":{"request":"1"}},
+    {"event_id":"event-2","type":"policy.allowed","timestamp":"2026-07-31T00:00:01Z","sequence":2,"producer":"policy","data_class":"internal","redacted":true,"versions":{"policy":"1.0.0"}},
+    {"event_id":"event-3","type":"run.succeeded","timestamp":"2026-07-31T00:00:02Z","sequence":3,"producer":"runtime","data_class":"internal","redacted":true,"versions":{"runtime":"1.0.0"}}
+  ],
+  "alerts": []
+}

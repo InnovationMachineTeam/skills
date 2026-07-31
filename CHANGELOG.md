@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.8.0 — 2026-07-31
+
+- Added seven plane-specific Agentic OS skills: architect, bootstrapper,
+  registry manager, runtime manager, policy manager, observer and independent
+  evaluator.
+- Added a synthetic private-marketplace release walking skeleton linking an
+  approved architecture, staged bootstrap, registry reconciliation, pinned
+  policy, durable terminal run, redacted trace and layered release evidence.
+- Added deterministic validators and adversarial tests for unapproved
+  bootstrap, production activation, policy replay, stale revisions, false
+  success, duplicate/unredacted telemetry and release with a blocking failure.
+- Reused existing team, knowledge and marketplace capabilities and explicitly
+  rejected production queues, service mesh, GraphRAG and dynamic model routing
+  from the minimum slice.
+
 ## 1.7.0 — 2026-07-31
 
 - Added `agent-knowledge-manager` for inbox-to-publication curation, freshness,

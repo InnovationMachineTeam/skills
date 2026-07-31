@@ -3,6 +3,13 @@
   "entries": [
     {"name": "agent-knowledge-manager", "tags": ["agents", "knowledge", "memory"]},
     {"name": "agent-model-selector", "tags": ["agents", "models", "evaluation"]},
+    {"name": "agent-observer", "tags": ["agents", "observability", "operations"]},
+    {"name": "agent-os-architect", "tags": ["agents", "agent-os", "architecture"]},
+    {"name": "agent-os-bootstrapper", "tags": ["agents", "agent-os", "bootstrap"]},
+    {"name": "agent-os-evaluator", "tags": ["agents", "agent-os", "evaluation"]},
+    {"name": "agent-policy-manager", "tags": ["agents", "policy", "security"]},
+    {"name": "agent-registry-manager", "tags": ["agents", "registry", "governance"]},
+    {"name": "agent-runtime-manager", "tags": ["agents", "runtime", "durability"]},
     {"name": "agent-skill-mapper", "tags": ["agents", "skills", "mapping"]},
     {"name": "agent-team-architect", "tags": ["agents", "architecture", "teams"]},
     {"name": "agent-team-builder", "tags": ["agents", "build", "teams"]},

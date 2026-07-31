@@ -1141,7 +1141,7 @@ tests cover provenance, duplicate IDs, broken relations and candidate status;
 behavior evals cover poisoning, stale sources, deletion, access denial, drift
 and contradictions. External vector/graph infrastructure remains gated.
 
-### Phase 7 — Minimal Agent OS — next
+### Phase 7 — Minimal Agent OS — completed
 
 Build only first-order skills needed by one bounded use case:
 
@@ -1153,7 +1153,14 @@ Build only first-order skills needed by one bounded use case:
 Exit: walking skeleton supports versioned agent, policy-gated task, durable
 state, trace, evaluation, recovery and retirement.
 
-### Phase 8 — Marketplace and portfolio release
+Implemented in the `1.8.0` marketplace candidate for the bounded private
+marketplace release use case. Seven public plane-specific skills reuse the
+existing team, knowledge and marketplace layers. A synthetic no-production
+fixture links architecture, bootstrap, desired-state reconciliation, policy,
+durable execution, telemetry and independent release evidence; combined
+adversarial failures are validated without deploying infrastructure.
+
+### Phase 8 — Marketplace and portfolio release — next
 
 - package each skill independently;
 - category `skills/agents` or current marketplace equivalent;

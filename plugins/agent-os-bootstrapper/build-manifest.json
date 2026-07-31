@@ -1,0 +1,73 @@
+{
+  "format": 2,
+  "plugin": "agent-os-bootstrapper",
+  "version": "1.0.0",
+  "source_layout": "skills/",
+  "bundle_layout": "skills/<name>/",
+  "platforms": [
+    "claude-code",
+    "codex",
+    "cursor"
+  ],
+  "skills": [
+    "agent-os-bootstrapper"
+  ],
+  "excluded_patterns": [
+    ".DS_Store",
+    "__pycache__",
+    "*.pyc",
+    ".git"
+  ],
+  "files": [
+    {
+      "path": ".claude-plugin/plugin.json",
+      "sha256": "9038a2d481de1eb3bdda864d2695a846b4d4f78378f7f941a940d1b974f18c77",
+      "bytes": 491
+    },
+    {
+      "path": ".codex-plugin/plugin.json",
+      "sha256": "abfe81d2b0f6ac163b681f6aaa2a5abf3e14244ba7d8fc0bb7fac8c54795b417",
+      "bytes": 1485
+    },
+    {
+      "path": ".cursor-plugin/plugin.json",
+      "sha256": "2323724670f5a96d9940e6f836e98b1f987427640d31c49430721e2f48ab5b77",
+      "bytes": 705
+    },
+    {
+      "path": "README.md",
+      "sha256": "2dfb4bec1a6368a363b666bccf7ea7553d82778f14cadc5d010f75ad4d654ef1",
+      "bytes": 588
+    },
+    {
+      "path": "skills/agent-os-bootstrapper/SKILL.md",
+      "sha256": "9f670b600dad555d5a101c65c5824e9559b55fe664c35f9770dff3a5cfbc5ac4",
+      "bytes": 1875
+    },
+    {
+      "path": "skills/agent-os-bootstrapper/agents/openai.yaml",
+      "sha256": "9be95550fbf3fb4fae7750e82f624eaa4cef6faa1c87ba92d6333ae1aa69a689",
+      "bytes": 208
+    },
+    {
+      "path": "skills/agent-os-bootstrapper/evals/behavior.json",
+      "sha256": "fc33bec4390bcc42d72ebbe739e82da78615626751c6c59610208ca31fa87db7",
+      "bytes": 433
+    },
+    {
+      "path": "skills/agent-os-bootstrapper/evals/routing.json",
+      "sha256": "8e4ba64933f99d263d7226d750ee776d6bc889cb1bd53f278d6662ec0200579f",
+      "bytes": 406
+    },
+    {
+      "path": "skills/agent-os-bootstrapper/references/bootstrap-contract.md",
+      "sha256": "202a64dd28d28ab21f42a44c684baa3653cae006420c5dfbb5d8730261090533",
+      "bytes": 538
+    },
+    {
+      "path": "skills/agent-os-bootstrapper/scripts/validate_bootstrap_manifest.py",
+      "sha256": "9559d2259b3c06d8611c109b960be132d6e218ddc1b2d300407f228c81cf439d",
+      "bytes": 2178
+    }
+  ]
+}

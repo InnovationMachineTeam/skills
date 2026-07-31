@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "decision_id": "policy-decision://im-skills/private-release/1",
+  "decision": "ALLOW",
+  "subject_ref": "subject://release-owner",
+  "asset_ref": "asset://repository/marketplace/im-skills",
+  "action": "stage-release-fixture",
+  "target": ".agents/staging/private-release",
+  "environment": "test",
+  "data_class": "internal",
+  "risk_tier": "R1",
+  "policy_version": "1.0.0",
+  "run_id": "run://im-skills/private-release/1",
+  "nonce": "nonce-1",
+  "issued_at": "2026-07-31T00:00:00Z",
+  "expires_at": "2026-08-01T00:00:00Z",
+  "audit_id": "audit://policy/1",
+  "conditions": ["synthetic credentials", "production activation false"],
+  "obligations": ["preserve trace", "independent verification"],
+  "approvals": ["InnovationMachineTeam"],
+  "approval_satisfied": true,
+  "replayed": false
+}

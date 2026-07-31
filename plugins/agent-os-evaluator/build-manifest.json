@@ -1,0 +1,73 @@
+{
+  "format": 2,
+  "plugin": "agent-os-evaluator",
+  "version": "1.0.0",
+  "source_layout": "skills/",
+  "bundle_layout": "skills/<name>/",
+  "platforms": [
+    "claude-code",
+    "codex",
+    "cursor"
+  ],
+  "skills": [
+    "agent-os-evaluator"
+  ],
+  "excluded_patterns": [
+    ".DS_Store",
+    "__pycache__",
+    "*.pyc",
+    ".git"
+  ],
+  "files": [
+    {
+      "path": ".claude-plugin/plugin.json",
+      "sha256": "040a2087d25b7186e883032d92099b7a4dcad444fab914c9dbbc731aa339bc61",
+      "bytes": 476
+    },
+    {
+      "path": ".codex-plugin/plugin.json",
+      "sha256": "0e67719b686b7cce0a4797db115deb7efdc604cee0e0df80fa115e5b004355f4",
+      "bytes": 1468
+    },
+    {
+      "path": ".cursor-plugin/plugin.json",
+      "sha256": "66225687182d7db35b875e40abc8ecb9a2ebb501c85adcf908ff591235406137",
+      "bytes": 694
+    },
+    {
+      "path": "README.md",
+      "sha256": "601b95b0f0d3fdb76e29535cdbe2b5d417b60eb57d4e3806973cdb6524283965",
+      "bytes": 573
+    },
+    {
+      "path": "skills/agent-os-evaluator/SKILL.md",
+      "sha256": "44e9b318fca372488f2e9d64bd9c216d37b3b4ef82fff89c80267468cef93e6e",
+      "bytes": 1797
+    },
+    {
+      "path": "skills/agent-os-evaluator/agents/openai.yaml",
+      "sha256": "326c1c62f33519128e0500c60b2de5199b8f1a2e10fc0041e50f69747c9c550d",
+      "bytes": 212
+    },
+    {
+      "path": "skills/agent-os-evaluator/evals/behavior.json",
+      "sha256": "5b98a20462e3eabb0d301c7ca2270d62333f5956be91aa0ecdc9f5def437aee2",
+      "bytes": 413
+    },
+    {
+      "path": "skills/agent-os-evaluator/evals/routing.json",
+      "sha256": "218f3a35811e8c86e6f825258632384d428e27f28c73787334cc411ed54acf27",
+      "bytes": 423
+    },
+    {
+      "path": "skills/agent-os-evaluator/references/evaluation-contract.md",
+      "sha256": "f26173eefd50076d4caffc1245273c99d372103d06915b636e64decd6e80e493",
+      "bytes": 534
+    },
+    {
+      "path": "skills/agent-os-evaluator/scripts/validate_release_evidence.py",
+      "sha256": "bad322accb4286c039114b5683892905aa15339f0d57d0fa08d8dad0b886b32f",
+      "bytes": 2318
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent OS Bootstrapper"
+  short_description: "Stage an approved Agentic OS slice"
+  default_prompt: "Use $agent-os-bootstrapper to stage this approved Agentic OS walking skeleton."

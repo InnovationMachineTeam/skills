@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "id": "agent-os://im-skills/private-release@1.0.0",
+  "decision": "JUSTIFIED",
+  "bounded_use_case": "One private marketplace release request from approval through verified terminal state",
+  "accountable_owner": "InnovationMachineTeam",
+  "walking_skeleton": "authenticated request -> policy -> registry -> run/lease -> synthetic build -> verifier -> trace -> terminal state",
+  "planes": [
+    {"name":"experience","owner":"release owner","source_of_truth":"release request","slo":"approval state visible","lifecycle":"request scoped","apis":["request","progress"],"permissions":["submit"],"threats":["injected approval"],"failures":["unavailable approver"]},
+    {"name":"control","owner":"platform owner","source_of_truth":"registry and policy","slo":"consistent pinned decision","lifecycle":"versioned","apis":["resolve","decide"],"permissions":["read desired state"],"threats":["confused deputy"],"failures":["stale revision"]},
+    {"name":"execution","owner":"runtime owner","source_of_truth":"durable run record","slo":"resumable bounded execution","lifecycle":"run scoped","apis":["queue","lease","checkpoint"],"permissions":["synthetic build"],"threats":["replay"],"failures":["worker loss"]},
+    {"name":"knowledge","owner":"knowledge curator","source_of_truth":"curated docs","slo":"provenance and freshness","lifecycle":"curated","apis":["retrieve"],"permissions":["read approved"],"threats":["poison memory"],"failures":["stale source"]},
+    {"name":"assurance","owner":"independent evaluator","source_of_truth":"frozen evidence","slo":"blocking failures visible","lifecycle":"release scoped","apis":["evaluate"],"permissions":["read candidate"],"threats":["evaluator collusion"],"failures":["missing evidence"]},
+    {"name":"operations","owner":"operator","source_of_truth":"redacted trace","slo":"detect stuck or failed run","lifecycle":"retained by policy","apis":["observe","alert"],"permissions":["read telemetry"],"threats":["PII leakage"],"failures":["observer outage"]}
+  ],
+  "flows": ["release-request-to-terminal"],
+  "exit_gates": ["policy decision pinned", "durable terminal run", "independent evidence passes"],
+  "rejected_complexity": ["service mesh", "GraphRAG", "dynamic model router", "production queue"],
+  "rollback": "discard staged fixture and preserve prior marketplace release",
+  "retirement": "verify no active fixture runs, archive evidence, remove projections"
+}

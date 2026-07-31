@@ -6,7 +6,7 @@
   },
   "metadata": {
     "description": "InnovationMachine Agent Skills marketplace",
-    "version": "1.7.0"
+    "version": "1.8.0"
   },
   "plugins": [
     {
@@ -63,6 +63,202 @@
         "evaluation",
         "metaskills",
         "models"
+      ]
+    },
+    {
+      "name": "agent-observer",
+      "source": "plugins/agent-observer",
+      "description": "Defines and audits Agentic OS telemetry, traces, SLOs, alerts, MAPE-K observations and bounded incident diagnostics linking task, run, agent, model, prompt, skill, tool, policy, approval, artifact, cost and versions",
+      "version": "1.0.0",
+      "author": {
+        "name": "InnovationMachine",
+        "email": "stanislav.usoltsev@gmail.com"
+      },
+      "homepage": "https://github.com/InnovationMachineTeam/skills",
+      "repository": "https://github.com/InnovationMachineTeam/skills",
+      "license": "Proprietary",
+      "keywords": [
+        "agent-skills",
+        "agents",
+        "metaskills",
+        "observability",
+        "operations"
+      ],
+      "category": "metaskills",
+      "tags": [
+        "agent-skills",
+        "agents",
+        "metaskills",
+        "observability",
+        "operations"
+      ]
+    },
+    {
+      "name": "agent-os-architect",
+      "source": "plugins/agent-os-architect",
+      "description": "Designs the minimum justified Agentic OS across experience, control, execution, knowledge, assurance and operations planes, including desired versus observed state, identities, schemas, policy points, protocols, SLOs, threat and...",
+      "version": "1.0.0",
+      "author": {
+        "name": "InnovationMachine",
+        "email": "stanislav.usoltsev@gmail.com"
+      },
+      "homepage": "https://github.com/InnovationMachineTeam/skills",
+      "repository": "https://github.com/InnovationMachineTeam/skills",
+      "license": "Proprietary",
+      "keywords": [
+        "agent-os",
+        "agent-skills",
+        "agents",
+        "architecture",
+        "metaskills"
+      ],
+      "category": "metaskills",
+      "tags": [
+        "agent-os",
+        "agent-skills",
+        "agents",
+        "architecture",
+        "metaskills"
+      ]
+    },
+    {
+      "name": "agent-os-bootstrapper",
+      "source": "plugins/agent-os-bootstrapper",
+      "description": "Materializes an approved Agentic OS architecture as one staged, reproducible vertical walking skeleton from authenticated request through policy, registry, durable task and lease, bounded execution, artifact verification, telemetry and...",
+      "version": "1.0.0",
+      "author": {
+        "name": "InnovationMachine",
+        "email": "stanislav.usoltsev@gmail.com"
+      },
+      "homepage": "https://github.com/InnovationMachineTeam/skills",
+      "repository": "https://github.com/InnovationMachineTeam/skills",
+      "license": "Proprietary",
+      "keywords": [
+        "agent-os",
+        "agent-skills",
+        "agents",
+        "bootstrap",
+        "metaskills"
+      ],
+      "category": "metaskills",
+      "tags": [
+        "agent-os",
+        "agent-skills",
+        "agents",
+        "bootstrap",
+        "metaskills"
+      ]
+    },
+    {
+      "name": "agent-os-evaluator",
+      "source": "plugins/agent-os-evaluator",
+      "description": "Independently evaluates frozen Agentic OS architecture, implementations and release evidence across plane boundaries, schemas, registry reconciliation, policy enforcement, durable execution, knowledge provenance, observability...",
+      "version": "1.0.0",
+      "author": {
+        "name": "InnovationMachine",
+        "email": "stanislav.usoltsev@gmail.com"
+      },
+      "homepage": "https://github.com/InnovationMachineTeam/skills",
+      "repository": "https://github.com/InnovationMachineTeam/skills",
+      "license": "Proprietary",
+      "keywords": [
+        "agent-os",
+        "agent-skills",
+        "agents",
+        "evaluation",
+        "metaskills"
+      ],
+      "category": "metaskills",
+      "tags": [
+        "agent-os",
+        "agent-skills",
+        "agents",
+        "evaluation",
+        "metaskills"
+      ]
+    },
+    {
+      "name": "agent-policy-manager",
+      "source": "plugins/agent-policy-manager",
+      "description": "Designs, simulates and governs versioned Agentic OS authorization and approval policy across subjects, assets, actions, tools, data classes, environments, risks, conditions, expiry and obligations, with separate policy decision and...",
+      "version": "1.0.0",
+      "author": {
+        "name": "InnovationMachine",
+        "email": "stanislav.usoltsev@gmail.com"
+      },
+      "homepage": "https://github.com/InnovationMachineTeam/skills",
+      "repository": "https://github.com/InnovationMachineTeam/skills",
+      "license": "Proprietary",
+      "keywords": [
+        "agent-skills",
+        "agents",
+        "metaskills",
+        "policy",
+        "security"
+      ],
+      "category": "metaskills",
+      "tags": [
+        "agent-skills",
+        "agents",
+        "metaskills",
+        "policy",
+        "security"
+      ]
+    },
+    {
+      "name": "agent-registry-manager",
+      "source": "plugins/agent-registry-manager",
+      "description": "Governs typed desired-state registries and versioned bindings for Agentic OS agents, skills, commands, workflows, teams, tools, models and policies, and reconciles them with observed host/runtime state",
+      "version": "1.0.0",
+      "author": {
+        "name": "InnovationMachine",
+        "email": "stanislav.usoltsev@gmail.com"
+      },
+      "homepage": "https://github.com/InnovationMachineTeam/skills",
+      "repository": "https://github.com/InnovationMachineTeam/skills",
+      "license": "Proprietary",
+      "keywords": [
+        "agent-skills",
+        "agents",
+        "governance",
+        "metaskills",
+        "registry"
+      ],
+      "category": "metaskills",
+      "tags": [
+        "agent-skills",
+        "agents",
+        "governance",
+        "metaskills",
+        "registry"
+      ]
+    },
+    {
+      "name": "agent-runtime-manager",
+      "source": "plugins/agent-runtime-manager",
+      "description": "Governs platform-level durable task and run lifecycle with queues, attempts, leases, fencing, idempotency, checkpoints, cancellation, deadlines, backpressure, scoped execution, artifacts, compensation and dead-letter recovery",
+      "version": "1.0.0",
+      "author": {
+        "name": "InnovationMachine",
+        "email": "stanislav.usoltsev@gmail.com"
+      },
+      "homepage": "https://github.com/InnovationMachineTeam/skills",
+      "repository": "https://github.com/InnovationMachineTeam/skills",
+      "license": "Proprietary",
+      "keywords": [
+        "agent-skills",
+        "agents",
+        "durability",
+        "metaskills",
+        "runtime"
+      ],
+      "category": "metaskills",
+      "tags": [
+        "agent-skills",
+        "agents",
+        "durability",
+        "metaskills",
+        "runtime"
       ]
     },
     {

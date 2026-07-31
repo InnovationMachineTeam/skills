@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "run_id": "run://im-skills/private-release/1",
+  "task_id": "task://im-skills/private-release/1",
+  "state": "SUCCEEDED",
+  "idempotency_key": "im-skills-release-1",
+  "deadline": "2026-08-01T00:00:00Z",
+  "policy_decision_ref": "policy-decision://im-skills/private-release/1",
+  "verifier_ref": "asset://repository/agent/release-verifier",
+  "pinned_versions": {"agent":"1.0.0","workflow":"1.0.0","model":"fixture","policy":"1.0.0"},
+  "budgets": {"max_attempts": 2, "max_steps": 12},
+  "lease": {"owner":"fixture-worker","expires_at":"2026-08-01T00:00:00Z","fencing_token":"fence-1"},
+  "events": ["event://request", "event://policy", "event://verified"],
+  "artifacts": ["sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"],
+  "verification_evidence": "evidence://release/all-gates-pass",
+  "checkpoint_ref": "checkpoint://im-skills/private-release/verified"
+}

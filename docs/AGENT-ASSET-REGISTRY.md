@@ -2,13 +2,20 @@
 
 Generated from `AGENT-ASSET-REGISTRY.json`; do not edit manually.
 
-Revision: **6**
-Updated: **2026-07-31T08:35:33Z**
+Revision: **7**
+Updated: **2026-07-31T08:55:20Z**
 
 | Kind | Name | Version | Visibility | Scope | Owner agent | Accountable owner | Status | Locator |
 |---|---|---:|---|---|---|---|---|---|
 | skill | agent-knowledge-manager | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/agent-knowledge-manager` |
 | skill | agent-model-selector | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/agent-model-selector` |
+| skill | agent-observer | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/agent-observer` |
+| skill | agent-os-architect | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/agent-os-architect` |
+| skill | agent-os-bootstrapper | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/agent-os-bootstrapper` |
+| skill | agent-os-evaluator | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/agent-os-evaluator` |
+| skill | agent-policy-manager | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/agent-policy-manager` |
+| skill | agent-registry-manager | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/agent-registry-manager` |
+| skill | agent-runtime-manager | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/agent-runtime-manager` |
 | skill | agent-skill-mapper | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/agent-skill-mapper` |
 | skill | agent-team-architect | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/agent-team-architect` |
 | skill | agent-team-builder | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/agent-team-builder` |
@@ -29,4 +36,4 @@ Updated: **2026-07-31T08:35:33Z**
 | skill | skill-refactor | 1.2.0 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/skill-refactor` |
 | skill | skill-scout | 1.1.0 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/skill-scout` |
 
-Total assets: **21**.
+Total assets: **28**.

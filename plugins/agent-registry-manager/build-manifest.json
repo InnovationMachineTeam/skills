@@ -1,0 +1,73 @@
+{
+  "format": 2,
+  "plugin": "agent-registry-manager",
+  "version": "1.0.0",
+  "source_layout": "skills/",
+  "bundle_layout": "skills/<name>/",
+  "platforms": [
+    "claude-code",
+    "codex",
+    "cursor"
+  ],
+  "skills": [
+    "agent-registry-manager"
+  ],
+  "excluded_patterns": [
+    ".DS_Store",
+    "__pycache__",
+    "*.pyc",
+    ".git"
+  ],
+  "files": [
+    {
+      "path": ".claude-plugin/plugin.json",
+      "sha256": "2cec3a558261d755866e5e072fbf2c4f8a417fc14d3a8f675b1428c0cc7ae8be",
+      "bytes": 456
+    },
+    {
+      "path": ".codex-plugin/plugin.json",
+      "sha256": "e63f3aac6c081cb8b69bda84c77409373592e55052dbb876c5ad6dab7eac77c2",
+      "bytes": 1420
+    },
+    {
+      "path": ".cursor-plugin/plugin.json",
+      "sha256": "a4e7304813d7fc75e0f77186e89e73ac89a38f8882931530fd2d735ee6509bef",
+      "bytes": 670
+    },
+    {
+      "path": "README.md",
+      "sha256": "cce2f2b89a141194030c2d3324a4e50fa9a31ba3fb68d226acbac563b283bd30",
+      "bytes": 553
+    },
+    {
+      "path": "skills/agent-registry-manager/SKILL.md",
+      "sha256": "95bd5b13e1609f5f5d0e7cae2454ac49e44ea1fbd315298287a68fcd8b97f4a0",
+      "bytes": 1914
+    },
+    {
+      "path": "skills/agent-registry-manager/agents/openai.yaml",
+      "sha256": "dc8e11e4f1361fb06d7470425c0db5f125600f66c4719b1eee55f7be71fecb35",
+      "bytes": 210
+    },
+    {
+      "path": "skills/agent-registry-manager/evals/behavior.json",
+      "sha256": "663ef31523a94e19c5378ba463daadc04259da16de9c3b5a540fb7394bc12b81",
+      "bytes": 389
+    },
+    {
+      "path": "skills/agent-registry-manager/evals/routing.json",
+      "sha256": "34d7424505078400620ffadb188895c6e13849a6d227d90d38a5ac46a82e00d3",
+      "bytes": 422
+    },
+    {
+      "path": "skills/agent-registry-manager/references/reconciliation-contract.md",
+      "sha256": "9ea68c0b843c4076c17318c6ec1b4da92f89e73ba70df3bb754598c7b880cf5e",
+      "bytes": 479
+    },
+    {
+      "path": "skills/agent-registry-manager/scripts/validate_reconcile_plan.py",
+      "sha256": "92b2b437f2e53779a344c65c336f4ea298b95da3614fe336c87052566f83ac53",
+      "bytes": 1900
+    }
+  ]
+}

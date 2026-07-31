@@ -29,6 +29,90 @@
       "category": "Developer Tools"
     },
     {
+      "name": "agent-observer",
+      "source": {
+        "source": "local",
+        "path": "./plugins/agent-observer"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    },
+    {
+      "name": "agent-os-architect",
+      "source": {
+        "source": "local",
+        "path": "./plugins/agent-os-architect"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    },
+    {
+      "name": "agent-os-bootstrapper",
+      "source": {
+        "source": "local",
+        "path": "./plugins/agent-os-bootstrapper"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    },
+    {
+      "name": "agent-os-evaluator",
+      "source": {
+        "source": "local",
+        "path": "./plugins/agent-os-evaluator"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    },
+    {
+      "name": "agent-policy-manager",
+      "source": {
+        "source": "local",
+        "path": "./plugins/agent-policy-manager"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    },
+    {
+      "name": "agent-registry-manager",
+      "source": {
+        "source": "local",
+        "path": "./plugins/agent-registry-manager"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    },
+    {
+      "name": "agent-runtime-manager",
+      "source": {
+        "source": "local",
+        "path": "./plugins/agent-runtime-manager"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    },
+    {
       "name": "agent-skill-mapper",
       "source": {
         "source": "local",

@@ -1,0 +1,33 @@
+{
+  "name": "agent-policy-manager",
+  "version": "1.0.0",
+  "description": "Designs, simulates and governs versioned Agentic OS authorization and approval policy across subjects, assets, actions, tools, data classes, environments, risks, conditions, expiry and obligations, with separate policy decision and...",
+  "homepage": "https://github.com/InnovationMachineTeam/skills",
+  "repository": "https://github.com/InnovationMachineTeam/skills",
+  "license": "Proprietary",
+  "keywords": [
+    "agent-skills",
+    "agents",
+    "metaskills",
+    "policy",
+    "security"
+  ],
+  "skills": "./skills/",
+  "author": {
+    "name": "InnovationMachine",
+    "email": "stanislav.usoltsev@gmail.com",
+    "url": "https://github.com/InnovationMachineTeam"
+  },
+  "interface": {
+    "displayName": "Agent Policy Manager",
+    "shortDescription": "Designs, simulates and governs versioned Agentic OS authorization and approval policy across subjects, assets…",
+    "longDescription": "Designs, simulates and governs versioned Agentic OS authorization and approval policy across subjects, assets, actions, tools, data classes, environments, risks, conditions, expiry and obligations, with separate policy decision and...",
+    "developerName": "InnovationMachine",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Guidance"
+    ],
+    "websiteURL": "https://github.com/InnovationMachineTeam/skills",
+    "defaultPrompt": "Use Agent Policy Manager for this task."
+  }
+}

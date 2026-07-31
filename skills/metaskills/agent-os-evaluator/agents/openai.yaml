@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent OS Evaluator"
+  short_description: "Evaluate Agentic OS release evidence"
+  default_prompt: "Use $agent-os-evaluator to independently evaluate this frozen Agentic OS candidate."

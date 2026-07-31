@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "revision": 6,
-  "updated_at": "2026-07-31T08:35:33Z",
+  "revision": 7,
+  "updated_at": "2026-07-31T08:55:20Z",
   "assets": [
     {
       "id": "asset://repository/skill/agent-knowledge-manager",
@@ -44,6 +44,223 @@
       "parent_version_ref": null,
       "content_sha256": "sha256:24f5a1422ab40002935c7f59e90dcceaa468d2a7a6a4a6c5bdf3caf03fc1fd89",
       "locator": "skills/metaskills/agent-model-selector",
+      "visibility": "public",
+      "scope": "repository",
+      "discoverability": "global",
+      "owner_agent_ref": null,
+      "allowed_consumers": [],
+      "accountable_owner": "InnovationMachineTeam",
+      "source_type": "project",
+      "provenance": {
+        "repository": "InnovationMachineTeam/skills"
+      },
+      "trust_status": "verified",
+      "lifecycle_status": "registered",
+      "host_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "eval_evidence": [],
+      "replacement": null
+    },
+    {
+      "id": "asset://repository/skill/agent-observer",
+      "kind": "skill",
+      "name": "agent-observer",
+      "version": "1.0.0",
+      "revision": 1,
+      "version_strategy": "independent",
+      "parent_version_ref": null,
+      "content_sha256": "sha256:b313b13e91b7395c0b3897d97999945c707cc1ab248d5bd40c615ae53c98d4ca",
+      "locator": "skills/metaskills/agent-observer",
+      "visibility": "public",
+      "scope": "repository",
+      "discoverability": "global",
+      "owner_agent_ref": null,
+      "allowed_consumers": [],
+      "accountable_owner": "InnovationMachineTeam",
+      "source_type": "project",
+      "provenance": {
+        "repository": "InnovationMachineTeam/skills"
+      },
+      "trust_status": "verified",
+      "lifecycle_status": "registered",
+      "host_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "eval_evidence": [],
+      "replacement": null
+    },
+    {
+      "id": "asset://repository/skill/agent-os-architect",
+      "kind": "skill",
+      "name": "agent-os-architect",
+      "version": "1.0.0",
+      "revision": 1,
+      "version_strategy": "independent",
+      "parent_version_ref": null,
+      "content_sha256": "sha256:a36828934e583f21e9156254bbe9792dbaf560ace8e4a46d6782e55105986816",
+      "locator": "skills/metaskills/agent-os-architect",
+      "visibility": "public",
+      "scope": "repository",
+      "discoverability": "global",
+      "owner_agent_ref": null,
+      "allowed_consumers": [],
+      "accountable_owner": "InnovationMachineTeam",
+      "source_type": "project",
+      "provenance": {
+        "repository": "InnovationMachineTeam/skills"
+      },
+      "trust_status": "verified",
+      "lifecycle_status": "registered",
+      "host_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "eval_evidence": [],
+      "replacement": null
+    },
+    {
+      "id": "asset://repository/skill/agent-os-bootstrapper",
+      "kind": "skill",
+      "name": "agent-os-bootstrapper",
+      "version": "1.0.0",
+      "revision": 1,
+      "version_strategy": "independent",
+      "parent_version_ref": null,
+      "content_sha256": "sha256:1894a80500d317ad95bce76eb4e909881f26f54eb4bae85931c92d1ecdff9d16",
+      "locator": "skills/metaskills/agent-os-bootstrapper",
+      "visibility": "public",
+      "scope": "repository",
+      "discoverability": "global",
+      "owner_agent_ref": null,
+      "allowed_consumers": [],
+      "accountable_owner": "InnovationMachineTeam",
+      "source_type": "project",
+      "provenance": {
+        "repository": "InnovationMachineTeam/skills"
+      },
+      "trust_status": "verified",
+      "lifecycle_status": "registered",
+      "host_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "eval_evidence": [],
+      "replacement": null
+    },
+    {
+      "id": "asset://repository/skill/agent-os-evaluator",
+      "kind": "skill",
+      "name": "agent-os-evaluator",
+      "version": "1.0.0",
+      "revision": 1,
+      "version_strategy": "independent",
+      "parent_version_ref": null,
+      "content_sha256": "sha256:f091b2119492d6b2ec4a5dad8518e5ba9d57cd8e1613f1301d139d0f7958d8f1",
+      "locator": "skills/metaskills/agent-os-evaluator",
+      "visibility": "public",
+      "scope": "repository",
+      "discoverability": "global",
+      "owner_agent_ref": null,
+      "allowed_consumers": [],
+      "accountable_owner": "InnovationMachineTeam",
+      "source_type": "project",
+      "provenance": {
+        "repository": "InnovationMachineTeam/skills"
+      },
+      "trust_status": "verified",
+      "lifecycle_status": "registered",
+      "host_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "eval_evidence": [],
+      "replacement": null
+    },
+    {
+      "id": "asset://repository/skill/agent-policy-manager",
+      "kind": "skill",
+      "name": "agent-policy-manager",
+      "version": "1.0.0",
+      "revision": 1,
+      "version_strategy": "independent",
+      "parent_version_ref": null,
+      "content_sha256": "sha256:ab4e889246a6e41e4e7a5d8603dec6a93671ba69f9348162ba5e5275a96b645a",
+      "locator": "skills/metaskills/agent-policy-manager",
+      "visibility": "public",
+      "scope": "repository",
+      "discoverability": "global",
+      "owner_agent_ref": null,
+      "allowed_consumers": [],
+      "accountable_owner": "InnovationMachineTeam",
+      "source_type": "project",
+      "provenance": {
+        "repository": "InnovationMachineTeam/skills"
+      },
+      "trust_status": "verified",
+      "lifecycle_status": "registered",
+      "host_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "eval_evidence": [],
+      "replacement": null
+    },
+    {
+      "id": "asset://repository/skill/agent-registry-manager",
+      "kind": "skill",
+      "name": "agent-registry-manager",
+      "version": "1.0.0",
+      "revision": 1,
+      "version_strategy": "independent",
+      "parent_version_ref": null,
+      "content_sha256": "sha256:25fe68f404630b95df9eb5bb233e10454c7e00bc5b71c5e13dd774b40426b296",
+      "locator": "skills/metaskills/agent-registry-manager",
+      "visibility": "public",
+      "scope": "repository",
+      "discoverability": "global",
+      "owner_agent_ref": null,
+      "allowed_consumers": [],
+      "accountable_owner": "InnovationMachineTeam",
+      "source_type": "project",
+      "provenance": {
+        "repository": "InnovationMachineTeam/skills"
+      },
+      "trust_status": "verified",
+      "lifecycle_status": "registered",
+      "host_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "eval_evidence": [],
+      "replacement": null
+    },
+    {
+      "id": "asset://repository/skill/agent-runtime-manager",
+      "kind": "skill",
+      "name": "agent-runtime-manager",
+      "version": "1.0.0",
+      "revision": 1,
+      "version_strategy": "independent",
+      "parent_version_ref": null,
+      "content_sha256": "sha256:58905c8691db56b14cb76187bb8b8b5f1988d9e84090180387ae2d49ac98b4e6",
+      "locator": "skills/metaskills/agent-runtime-manager",
       "visibility": "public",
       "scope": "repository",
       "discoverability": "global",

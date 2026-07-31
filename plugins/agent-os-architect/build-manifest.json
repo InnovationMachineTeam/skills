@@ -1,0 +1,73 @@
+{
+  "format": 2,
+  "plugin": "agent-os-architect",
+  "version": "1.0.0",
+  "source_layout": "skills/",
+  "bundle_layout": "skills/<name>/",
+  "platforms": [
+    "claude-code",
+    "codex",
+    "cursor"
+  ],
+  "skills": [
+    "agent-os-architect"
+  ],
+  "excluded_patterns": [
+    ".DS_Store",
+    "__pycache__",
+    "*.pyc",
+    ".git"
+  ],
+  "files": [
+    {
+      "path": ".claude-plugin/plugin.json",
+      "sha256": "4f2490e6f91232023ec889157b40163ab5eb8efb68df231e64d4f6e1bb9f4c86",
+      "bytes": 478
+    },
+    {
+      "path": ".codex-plugin/plugin.json",
+      "sha256": "959d6bb096ded67970115670f4a9e19cb6d19e678e5a81e0b9b19f9bf67ec524",
+      "bytes": 1473
+    },
+    {
+      "path": ".cursor-plugin/plugin.json",
+      "sha256": "0e3b3bd49734789b7349120f20520cb7d298abcedf9656054ddcb4576e457893",
+      "bytes": 698
+    },
+    {
+      "path": "README.md",
+      "sha256": "205601214cdc8a28e1fb1aad033fcc21d65953842983cc988fab3dea6c92a42b",
+      "bytes": 575
+    },
+    {
+      "path": "skills/agent-os-architect/SKILL.md",
+      "sha256": "46e4f179847f53efd7b46ff033fa5ffbdb245ce17712827896b9143926c83706",
+      "bytes": 2525
+    },
+    {
+      "path": "skills/agent-os-architect/agents/openai.yaml",
+      "sha256": "a10f083f5528586ea66a7edecbaa019c3cec0c0ab75ff89f208d6152e7b0c028",
+      "bytes": 209
+    },
+    {
+      "path": "skills/agent-os-architect/evals/behavior.json",
+      "sha256": "1a2db3c92fa0c559f67dbd1b5d637961f96fbfb4823f8922329a68adb06d24a0",
+      "bytes": 460
+    },
+    {
+      "path": "skills/agent-os-architect/evals/routing.json",
+      "sha256": "9850ff62eb604e8a4e43c09ac82061a80fc4422a349dc0c132b1db1aa51242f9",
+      "bytes": 434
+    },
+    {
+      "path": "skills/agent-os-architect/references/architecture-contract.md",
+      "sha256": "d708ed9144f0d57dc65f584e863fb0b0fbe48647ad6b4d936196d0fc283db4c5",
+      "bytes": 788
+    },
+    {
+      "path": "skills/agent-os-architect/scripts/validate_architecture.py",
+      "sha256": "57b9dede6d3bcefa57949969d8cb591539fef59b0bdbe63a41d9d4184b215fd7",
+      "bytes": 2120
+    }
+  ]
+}

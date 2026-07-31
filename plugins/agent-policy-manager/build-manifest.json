@@ -1,0 +1,73 @@
+{
+  "format": 2,
+  "plugin": "agent-policy-manager",
+  "version": "1.0.0",
+  "source_layout": "skills/",
+  "bundle_layout": "skills/<name>/",
+  "platforms": [
+    "claude-code",
+    "codex",
+    "cursor"
+  ],
+  "skills": [
+    "agent-policy-manager"
+  ],
+  "excluded_patterns": [
+    ".DS_Store",
+    "__pycache__",
+    "*.pyc",
+    ".git"
+  ],
+  "files": [
+    {
+      "path": ".claude-plugin/plugin.json",
+      "sha256": "b9b3f800f365d8741b76a5d02539ee5de067c1d29f7eb215235ef03a4b7061f1",
+      "bytes": 485
+    },
+    {
+      "path": ".codex-plugin/plugin.json",
+      "sha256": "82f37461cb695caee78b3f6dd60bb5c6cfb90aaf9e8e3a298876c2fe35d51cf1",
+      "bytes": 1473
+    },
+    {
+      "path": ".cursor-plugin/plugin.json",
+      "sha256": "cac9c98f67247288ff71f83da64311bf73313b4bccc59c7a9d616f53cc97add1",
+      "bytes": 697
+    },
+    {
+      "path": "README.md",
+      "sha256": "befcc143b1d37a442866af81e3ea89d344d18e7f81b562fb96e7ed5f9f7df60f",
+      "bytes": 582
+    },
+    {
+      "path": "skills/agent-policy-manager/SKILL.md",
+      "sha256": "84be05a250be1afbcc60dc471cab22f8a7700335eb05ba9285a01e75391f54b6",
+      "bytes": 1780
+    },
+    {
+      "path": "skills/agent-policy-manager/agents/openai.yaml",
+      "sha256": "7616b52806e20c3568a98f3a5eaf2111c363c3e69f1b4ffcb952b60aecbc1e02",
+      "bytes": 213
+    },
+    {
+      "path": "skills/agent-policy-manager/evals/behavior.json",
+      "sha256": "7d8b8eec0294c24d14efed806e8e458c4ce8ca39dfd4602bd522b06b85f9a378",
+      "bytes": 404
+    },
+    {
+      "path": "skills/agent-policy-manager/evals/routing.json",
+      "sha256": "c67b1820dfeccea315b70128f3265c4e3fed05f7d83c9ed336b87bb7ba737b21",
+      "bytes": 408
+    },
+    {
+      "path": "skills/agent-policy-manager/references/policy-contract.md",
+      "sha256": "f307d4b31ae08247d73f1d72bab9a05e36e060ff7bacb2c48139dfee06115800",
+      "bytes": 501
+    },
+    {
+      "path": "skills/agent-policy-manager/scripts/validate_policy_decision.py",
+      "sha256": "7581846eb47452f625854a941be3bfc71ca6c999fa38e834d5f5840f016e5706",
+      "bytes": 1596
+    }
+  ]
+}

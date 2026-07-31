@@ -1,0 +1,13 @@
+{
+  "name": "agent-os-bootstrapper",
+  "displayName": "Agent Os Bootstrapper",
+  "version": "1.0.0",
+  "description": "Materializes an approved Agentic OS architecture as one staged, reproducible vertical walking skeleton from authenticated request through policy, registry, durable task and lease, bounded execution, artifact verification, telemetry and...",
+  "skills": [
+    "./skills"
+  ],
+  "author": {
+    "name": "InnovationMachine",
+    "email": "stanislav.usoltsev@gmail.com"
+  }
+}

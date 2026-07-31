@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "evaluation_id": "eval://im-skills/private-release/1",
+  "candidate_hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+  "environment": {"kind":"synthetic-local","production_side_effects":false},
+  "layers": [
+    {"name":"architecture","verdict":"PASS","blocking":true,"evidence_refs":["evidence://architecture"]},
+    {"name":"compatibility","verdict":"PASS","blocking":true,"evidence_refs":["evidence://schemas"]},
+    {"name":"registry","verdict":"PASS","blocking":true,"evidence_refs":["evidence://registry"]},
+    {"name":"policy","verdict":"PASS","blocking":true,"evidence_refs":["evidence://policy"]},
+    {"name":"runtime","verdict":"PASS","blocking":true,"evidence_refs":["evidence://runtime"]},
+    {"name":"knowledge","verdict":"PASS","blocking":true,"evidence_refs":["evidence://knowledge"]},
+    {"name":"observability","verdict":"PASS","blocking":true,"evidence_refs":["evidence://trace"]},
+    {"name":"operations","verdict":"PASS","blocking":true,"evidence_refs":["evidence://rollback"]},
+    {"name":"security","verdict":"PASS","blocking":true,"evidence_refs":["evidence://abuse-cases"]},
+    {"name":"lifecycle","verdict":"PASS","blocking":true,"evidence_refs":["evidence://retirement"]},
+    {"name":"e2e","verdict":"PASS","blocking":true,"evidence_refs":["evidence://terminal"]}
+  ],
+  "recommendation": "RELEASE",
+  "raw_evidence": ["architecture.json", "bootstrap-manifest.json", "runtime-record.json", "policy-decision.json", "trace-bundle.json"]
+}

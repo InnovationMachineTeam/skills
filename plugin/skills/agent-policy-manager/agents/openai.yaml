@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent Policy Manager"
+  short_description: "Enforce versioned Agentic OS policy"
+  default_prompt: "Use $agent-policy-manager to evaluate this action against pinned Agentic OS policy."

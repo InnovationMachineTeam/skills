@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent Runtime Manager"
+  short_description: "Govern durable Agentic OS runs"
+  default_prompt: "Use $agent-runtime-manager to validate and govern this durable Agentic OS run."

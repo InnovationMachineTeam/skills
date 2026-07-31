@@ -7,7 +7,7 @@ Private Agent Skills marketplace maintained by **InnovationMachineTeam** for **I
 - Category: `metaskills`
 - Entries: one installable cross-host plugin per skill
 - Supported hosts: Claude Code, Codex, Cursor, and Agent Skills clients
-- Aggregate local plugin: `im-skills-all` (`1.7.0`)
+- Aggregate local plugin: `im-skills-all` (`1.8.0`)
 - Current visibility: private
 - Lead maintainer and required reviewer: [@stanislavus86](https://github.com/stanislavus86)
 
@@ -90,6 +90,13 @@ The aggregate plugin is intended for local integration testing and full-toolkit 
 |---|---|---|
 | `agent-knowledge-manager` | Curate and retrieve provenance-bearing project knowledge | 1.0.0 |
 | `agent-model-selector` | Evaluate and recommend evidence-backed model policies | 1.0.0 |
+| `agent-observer` | Validate traces, SLOs, alerts, and bounded diagnostics | 1.0.0 |
+| `agent-os-architect` | Design the minimum justified Agentic OS | 1.0.0 |
+| `agent-os-bootstrapper` | Stage an approved Agentic OS walking skeleton | 1.0.0 |
+| `agent-os-evaluator` | Independently evaluate frozen Agentic OS candidates | 1.0.0 |
+| `agent-policy-manager` | Govern pinned authorization and approval decisions | 1.0.0 |
+| `agent-registry-manager` | Reconcile typed desired and observed asset state | 1.0.0 |
+| `agent-runtime-manager` | Govern durable platform task and run lifecycle | 1.0.0 |
 | `agent-skill-mapper` | Map governed capabilities to registered agents | 1.0.0 |
 | `agent-team-architect` | Design justified agent teams and versioned specifications | 1.0.0 |
 | `agent-team-builder` | Stage approved agent-team specifications safely | 1.0.0 |
@@ -195,7 +202,7 @@ The implemented foundation is described in
 
 - Individual skill and marketplace entry: the skill's `metadata.version`.
 - Aggregate plugin: independent SemVer in `catalog/release.json`.
-- Marketplace metadata: repository catalog format version, currently `1.7.0`.
+- Marketplace metadata: repository catalog format version, currently `1.8.0`.
 
 Bump an individual skill version whenever its installed contents or contract change. Bump the aggregate plugin when any bundled skill or aggregate install contract changes. A release is blocked if generated manifests or bundle hashes drift from canonical sources.
 

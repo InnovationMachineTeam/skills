@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent Observer"
+  short_description: "Observe Agentic OS runs and SLOs"
+  default_prompt: "Use $agent-observer to inspect this Agentic OS trace and produce bounded diagnostics."

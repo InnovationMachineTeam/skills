@@ -1,7 +1,7 @@
 {
   "format": 2,
   "plugin": "im-skills-all",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "source_layout": "skills/",
   "bundle_layout": "skills/<name>/",
   "platforms": [
@@ -12,6 +12,13 @@
   "skills": [
     "agent-knowledge-manager",
     "agent-model-selector",
+    "agent-observer",
+    "agent-os-architect",
+    "agent-os-bootstrapper",
+    "agent-os-evaluator",
+    "agent-policy-manager",
+    "agent-registry-manager",
+    "agent-runtime-manager",
     "agent-skill-mapper",
     "agent-team-architect",
     "agent-team-builder",
@@ -41,23 +48,23 @@
   "files": [
     {
       "path": ".claude-plugin/plugin.json",
-      "sha256": "ec363defa5b36300168092635e11621572ccd8329233674f5a13f01d733f811f",
+      "sha256": "55f45fbcb38fcb6354a1ec565fc01d9e3c4fb655af2e3c462dfd11daf4bc522e",
       "bytes": 288
     },
     {
       "path": ".codex-plugin/plugin.json",
-      "sha256": "b2a0abb33134a32f123a91f5e11ec187d61633adf84aea5de2626a9d3873cb59",
+      "sha256": "8109731c61f6323f561c5d653476cd6d4a5c90b0b35a3452b6065c68c7dbfabb",
       "bytes": 977
     },
     {
       "path": ".cursor-plugin/plugin.json",
-      "sha256": "bfda6a2c385d9170ec9fd9bb027a7a2abd08b7cacf5fcd41dfcc94cf266a826e",
+      "sha256": "3845f9f834c7ae8fc26b600d55a2027448c3b6906aa7c99d30e0db134d76927b",
       "bytes": 459
     },
     {
       "path": "README.md",
-      "sha256": "5b82b99af62fa812974dd5557f1df72f712b258459ddf1d34f7c0a2c328feb9f",
-      "bytes": 839
+      "sha256": "5494307b85830de3f6d7868923da6ecf870e93e3ba924b40331a9d9bfe37c67e",
+      "bytes": 1008
     },
     {
       "path": "skills/agent-knowledge-manager/SKILL.md",
@@ -138,6 +145,216 @@
       "path": "skills/agent-model-selector/scripts/validate_model_policy.py",
       "sha256": "859c3eec72844a8a9a78e4a0376b0474151575ffe353aa3eec59d83e4f4fb647",
       "bytes": 4880
+    },
+    {
+      "path": "skills/agent-observer/SKILL.md",
+      "sha256": "61283b19cd89d8b1ba9b71ad5d00ba4ea379a78c0c34c3c6094b8f15715929b5",
+      "bytes": 1726
+    },
+    {
+      "path": "skills/agent-observer/agents/openai.yaml",
+      "sha256": "535458555aa4852dbec298e6a72a86410b9a02a385fa7b06b1080b6286d6df54",
+      "bytes": 206
+    },
+    {
+      "path": "skills/agent-observer/evals/behavior.json",
+      "sha256": "92341ba4e4e58053cb6a06bc83957a2969f8cb84e55dde601619670ab790ebe2",
+      "bytes": 390
+    },
+    {
+      "path": "skills/agent-observer/evals/routing.json",
+      "sha256": "01838782b1efbbc87300d05543d255f91d721254525bd4efd28fd9b0f199920d",
+      "bytes": 394
+    },
+    {
+      "path": "skills/agent-observer/references/telemetry-contract.md",
+      "sha256": "61e3b23192971f9cc3225558b925286cb0bfc9a5758e768bde9160432fe19d68",
+      "bytes": 495
+    },
+    {
+      "path": "skills/agent-observer/scripts/validate_trace_bundle.py",
+      "sha256": "b534a179455304c0454cf812695eeba70f5667babb94b27e4d91319732cc6d82",
+      "bytes": 2037
+    },
+    {
+      "path": "skills/agent-os-architect/SKILL.md",
+      "sha256": "46e4f179847f53efd7b46ff033fa5ffbdb245ce17712827896b9143926c83706",
+      "bytes": 2525
+    },
+    {
+      "path": "skills/agent-os-architect/agents/openai.yaml",
+      "sha256": "a10f083f5528586ea66a7edecbaa019c3cec0c0ab75ff89f208d6152e7b0c028",
+      "bytes": 209
+    },
+    {
+      "path": "skills/agent-os-architect/evals/behavior.json",
+      "sha256": "1a2db3c92fa0c559f67dbd1b5d637961f96fbfb4823f8922329a68adb06d24a0",
+      "bytes": 460
+    },
+    {
+      "path": "skills/agent-os-architect/evals/routing.json",
+      "sha256": "9850ff62eb604e8a4e43c09ac82061a80fc4422a349dc0c132b1db1aa51242f9",
+      "bytes": 434
+    },
+    {
+      "path": "skills/agent-os-architect/references/architecture-contract.md",
+      "sha256": "d708ed9144f0d57dc65f584e863fb0b0fbe48647ad6b4d936196d0fc283db4c5",
+      "bytes": 788
+    },
+    {
+      "path": "skills/agent-os-architect/scripts/validate_architecture.py",
+      "sha256": "57b9dede6d3bcefa57949969d8cb591539fef59b0bdbe63a41d9d4184b215fd7",
+      "bytes": 2120
+    },
+    {
+      "path": "skills/agent-os-bootstrapper/SKILL.md",
+      "sha256": "9f670b600dad555d5a101c65c5824e9559b55fe664c35f9770dff3a5cfbc5ac4",
+      "bytes": 1875
+    },
+    {
+      "path": "skills/agent-os-bootstrapper/agents/openai.yaml",
+      "sha256": "9be95550fbf3fb4fae7750e82f624eaa4cef6faa1c87ba92d6333ae1aa69a689",
+      "bytes": 208
+    },
+    {
+      "path": "skills/agent-os-bootstrapper/evals/behavior.json",
+      "sha256": "fc33bec4390bcc42d72ebbe739e82da78615626751c6c59610208ca31fa87db7",
+      "bytes": 433
+    },
+    {
+      "path": "skills/agent-os-bootstrapper/evals/routing.json",
+      "sha256": "8e4ba64933f99d263d7226d750ee776d6bc889cb1bd53f278d6662ec0200579f",
+      "bytes": 406
+    },
+    {
+      "path": "skills/agent-os-bootstrapper/references/bootstrap-contract.md",
+      "sha256": "202a64dd28d28ab21f42a44c684baa3653cae006420c5dfbb5d8730261090533",
+      "bytes": 538
+    },
+    {
+      "path": "skills/agent-os-bootstrapper/scripts/validate_bootstrap_manifest.py",
+      "sha256": "9559d2259b3c06d8611c109b960be132d6e218ddc1b2d300407f228c81cf439d",
+      "bytes": 2178
+    },
+    {
+      "path": "skills/agent-os-evaluator/SKILL.md",
+      "sha256": "44e9b318fca372488f2e9d64bd9c216d37b3b4ef82fff89c80267468cef93e6e",
+      "bytes": 1797
+    },
+    {
+      "path": "skills/agent-os-evaluator/agents/openai.yaml",
+      "sha256": "326c1c62f33519128e0500c60b2de5199b8f1a2e10fc0041e50f69747c9c550d",
+      "bytes": 212
+    },
+    {
+      "path": "skills/agent-os-evaluator/evals/behavior.json",
+      "sha256": "5b98a20462e3eabb0d301c7ca2270d62333f5956be91aa0ecdc9f5def437aee2",
+      "bytes": 413
+    },
+    {
+      "path": "skills/agent-os-evaluator/evals/routing.json",
+      "sha256": "218f3a35811e8c86e6f825258632384d428e27f28c73787334cc411ed54acf27",
+      "bytes": 423
+    },
+    {
+      "path": "skills/agent-os-evaluator/references/evaluation-contract.md",
+      "sha256": "f26173eefd50076d4caffc1245273c99d372103d06915b636e64decd6e80e493",
+      "bytes": 534
+    },
+    {
+      "path": "skills/agent-os-evaluator/scripts/validate_release_evidence.py",
+      "sha256": "bad322accb4286c039114b5683892905aa15339f0d57d0fa08d8dad0b886b32f",
+      "bytes": 2318
+    },
+    {
+      "path": "skills/agent-policy-manager/SKILL.md",
+      "sha256": "84be05a250be1afbcc60dc471cab22f8a7700335eb05ba9285a01e75391f54b6",
+      "bytes": 1780
+    },
+    {
+      "path": "skills/agent-policy-manager/agents/openai.yaml",
+      "sha256": "7616b52806e20c3568a98f3a5eaf2111c363c3e69f1b4ffcb952b60aecbc1e02",
+      "bytes": 213
+    },
+    {
+      "path": "skills/agent-policy-manager/evals/behavior.json",
+      "sha256": "7d8b8eec0294c24d14efed806e8e458c4ce8ca39dfd4602bd522b06b85f9a378",
+      "bytes": 404
+    },
+    {
+      "path": "skills/agent-policy-manager/evals/routing.json",
+      "sha256": "c67b1820dfeccea315b70128f3265c4e3fed05f7d83c9ed336b87bb7ba737b21",
+      "bytes": 408
+    },
+    {
+      "path": "skills/agent-policy-manager/references/policy-contract.md",
+      "sha256": "f307d4b31ae08247d73f1d72bab9a05e36e060ff7bacb2c48139dfee06115800",
+      "bytes": 501
+    },
+    {
+      "path": "skills/agent-policy-manager/scripts/validate_policy_decision.py",
+      "sha256": "7581846eb47452f625854a941be3bfc71ca6c999fa38e834d5f5840f016e5706",
+      "bytes": 1596
+    },
+    {
+      "path": "skills/agent-registry-manager/SKILL.md",
+      "sha256": "95bd5b13e1609f5f5d0e7cae2454ac49e44ea1fbd315298287a68fcd8b97f4a0",
+      "bytes": 1914
+    },
+    {
+      "path": "skills/agent-registry-manager/agents/openai.yaml",
+      "sha256": "dc8e11e4f1361fb06d7470425c0db5f125600f66c4719b1eee55f7be71fecb35",
+      "bytes": 210
+    },
+    {
+      "path": "skills/agent-registry-manager/evals/behavior.json",
+      "sha256": "663ef31523a94e19c5378ba463daadc04259da16de9c3b5a540fb7394bc12b81",
+      "bytes": 389
+    },
+    {
+      "path": "skills/agent-registry-manager/evals/routing.json",
+      "sha256": "34d7424505078400620ffadb188895c6e13849a6d227d90d38a5ac46a82e00d3",
+      "bytes": 422
+    },
+    {
+      "path": "skills/agent-registry-manager/references/reconciliation-contract.md",
+      "sha256": "9ea68c0b843c4076c17318c6ec1b4da92f89e73ba70df3bb754598c7b880cf5e",
+      "bytes": 479
+    },
+    {
+      "path": "skills/agent-registry-manager/scripts/validate_reconcile_plan.py",
+      "sha256": "92b2b437f2e53779a344c65c336f4ea298b95da3614fe336c87052566f83ac53",
+      "bytes": 1900
+    },
+    {
+      "path": "skills/agent-runtime-manager/SKILL.md",
+      "sha256": "94473ea0177b00878496d1b8d98e8ba5c81f33daf1af6c5098d154f2e9798241",
+      "bytes": 1833
+    },
+    {
+      "path": "skills/agent-runtime-manager/agents/openai.yaml",
+      "sha256": "c802599c0a5a66bf48138d09f28adaf146172b016e6f1e17b0b6c07ab5388741",
+      "bytes": 204
+    },
+    {
+      "path": "skills/agent-runtime-manager/evals/behavior.json",
+      "sha256": "5a8ac603e653d0c1647a98d3d33b0d7ae1bd9e11b6d6ae4dde8cb44375dce410",
+      "bytes": 403
+    },
+    {
+      "path": "skills/agent-runtime-manager/evals/routing.json",
+      "sha256": "31f105a80b4d661a159c7ee7940dc86bb7f665ffa2dd95c932ca4fa1bcf024f3",
+      "bytes": 399
+    },
+    {
+      "path": "skills/agent-runtime-manager/references/runtime-contract.md",
+      "sha256": "63f523ae89d57ed1b3e93bd6ec37063cb199735abf9a2026c8002c4dc8e4ca3d",
+      "bytes": 512
+    },
+    {
+      "path": "skills/agent-runtime-manager/scripts/validate_runtime_record.py",
+      "sha256": "9df76379ae95bbcafb744147fa954d89e0efe336821b5db01f37be66ada26763",
+      "bytes": 2229
     },
     {
       "path": "skills/agent-skill-mapper/SKILL.md",

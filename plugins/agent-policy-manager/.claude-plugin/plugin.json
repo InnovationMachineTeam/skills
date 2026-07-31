@@ -1,0 +1,13 @@
+{
+  "name": "agent-policy-manager",
+  "displayName": "Agent Policy Manager",
+  "version": "1.0.0",
+  "description": "Designs, simulates and governs versioned Agentic OS authorization and approval policy across subjects, assets, actions, tools, data classes, environments, risks, conditions, expiry and obligations, with separate policy decision and...",
+  "skills": [
+    "./skills"
+  ],
+  "author": {
+    "name": "InnovationMachine",
+    "email": "stanislav.usoltsev@gmail.com"
+  }
+}

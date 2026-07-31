@@ -8,6 +8,13 @@ This generated package is installable by Claude Code, Codex, and Cursor. Its can
 
 - `agent-knowledge-manager`
 - `agent-model-selector`
+- `agent-observer`
+- `agent-os-architect`
+- `agent-os-bootstrapper`
+- `agent-os-evaluator`
+- `agent-policy-manager`
+- `agent-registry-manager`
+- `agent-runtime-manager`
 - `agent-skill-mapper`
 - `agent-team-architect`
 - `agent-team-builder`

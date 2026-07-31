@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent OS Architect"
+  short_description: "Design minimal Agentic OS boundaries"
+  default_prompt: "Use $agent-os-architect to design the minimum justified Agentic OS architecture."
