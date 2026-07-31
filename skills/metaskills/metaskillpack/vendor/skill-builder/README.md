@@ -1,6 +1,6 @@
 # skill-builder
 
-`skill-builder` is the top-level orchestrator for the skill system. It accepts an explicit named scenario or infers the smallest sufficient workflow from the user's context, asks focused questions when a material decision is missing, and coordinates `skill-scout`, `skill-harvester`, `skill-architect`, `skill-evaluator`, `skill-doctor`, `skill-optimizer`, `skill-refactor`, `skill-manager`, and `optimize-prompts` through bounded handoffs.
+`skill-builder` is the top-level orchestrator for the skill system. It accepts an explicit named scenario or infers the smallest sufficient workflow from the user's context, asks focused questions when a material decision is missing, and coordinates `skill-scout`, `skill-harvester`, `skill-architect`, `skill-evaluator`, `skill-doctor`, `skill-optimizer`, `skill-refactor`, `skill-manager`, and `prompt-optimize` through bounded handoffs.
 
 ## Named scenarios
 

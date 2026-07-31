@@ -28,14 +28,14 @@ orchestration, tool integration и meta/router.
 
 ## Что представляет собой текущая система metaskills
 
-В portfolio 13 навыков:
+В portfolio 12 metaskills и один связанный prompt skill:
 
 - lifecycle specialists: `skill-scout`, `skill-harvester`, `skill-architect`,
   `skill-evaluator`, `skill-doctor`, `skill-optimizer`, `skill-refactor`,
   `skill-manager`;
 - orchestrators/control: `skill-builder`, `metaskillpack`;
-- supporting systems: `skill-best-practices`, `skill-marketplace-manager`,
-  `optimize-prompts`.
+- supporting systems: `skill-best-practices`, `skill-marketplace-manager`;
+- prompt engineering: `prompt-optimize` из категории `prompt-skills`.
 
 ### Повторяющаяся структура
 

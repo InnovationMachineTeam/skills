@@ -1,8 +1,8 @@
 ---
 name: skill-builder
-description: Orchestrates complete, evidence-backed agent-skill workflows across skill-scout, skill-harvester, skill-architect, skill-evaluator, skill-doctor, skill-optimizer, skill-refactor, skill-manager, and optimize-prompts. Use when a user asks to skillify, build, productionize, research, repair, improve, compare, split, merge, adopt, migrate, install, or govern skills through a multi-stage or end-to-end workflow; explicitly requests one of the named builder scenarios, including evaluate-skill; or supplies mixed context whose correct specialist sequence must be inferred. Accept an explicit scenario or classify from context, ask focused questions when target, outcome, authority, or destination is materially ambiguous, maintain resumable phase state, and verify gates before completion. Prefer the direct specialist for a single bounded phase. Do not replace specialist judgment or mutate, install, publish, or retire skills by assumption.
+description: Orchestrates complete, evidence-backed agent-skill workflows across skill-scout, skill-harvester, skill-architect, skill-evaluator, skill-doctor, skill-optimizer, skill-refactor, skill-manager, and prompt-optimize. Use when a user asks to skillify, build, productionize, research, repair, improve, compare, split, merge, adopt, migrate, install, or govern skills through a multi-stage or end-to-end workflow; explicitly requests one of the named builder scenarios, including evaluate-skill; or supplies mixed context whose correct specialist sequence must be inferred. Accept an explicit scenario or classify from context, ask focused questions when target, outcome, authority, or destination is materially ambiguous, maintain resumable phase state, and verify gates before completion. Prefer the direct specialist for a single bounded phase. Do not replace specialist judgment or mutate, install, publish, or retire skills by assumption.
 metadata:
-  version: "1.2.0"
+  version: "1.3.0"
 ---
 
 # Orchestrate Skill Building
@@ -39,7 +39,7 @@ Read [references/scenario-catalog.md](references/scenario-catalog.md). If the us
 | `compare-and-refactor` | harvester/comparison → refactor → evaluate topology → manager | [prompts/compare-and-refactor.md](prompts/compare-and-refactor.md) |
 | `split-and-migrate` | refactor → skill-architect → evaluate coexistence/consumers → manager | [prompts/split-and-migrate.md](prompts/split-and-migrate.md) |
 | `portfolio-governance` | manager → bounded specialist dispatch → manager verify | [prompts/portfolio-governance.md](prompts/portfolio-governance.md) |
-| `master-prompt-development` | optimize-prompts → optional skill-architect/doctor | [prompts/master-prompt-development.md](prompts/master-prompt-development.md) |
+| `master-prompt-development` | prompt-optimize → optional skill-architect/doctor | [prompts/master-prompt-development.md](prompts/master-prompt-development.md) |
 | `agent-system-capability` | agent evidence/prompts → skill-architect placement → evaluator → optional manager | [prompts/agent-system-capability.md](prompts/agent-system-capability.md) |
 | `specialist-dispatch` | one explicitly requested specialist with builder state | [prompts/specialist-dispatch.md](prompts/specialist-dispatch.md) |
 | `resume-build` | restore state → verify drift → continue first incomplete gate | [prompts/resume-build.md](prompts/resume-build.md) |

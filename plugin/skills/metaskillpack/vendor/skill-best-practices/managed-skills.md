@@ -4,7 +4,7 @@ This list declares the locally created skills that the generated modification ma
 
 | Skill | Role | Default |
 |---|---|---|
-| `optimize-prompts` | Prompt creation, audit, adaptation, and evaluation | audit |
+| `prompt-optimize` | Prompt creation, audit, adaptation, and evaluation | audit |
 | `skill-builder` | End-to-end and resumable orchestration | audit |
 | `skill-architect` | Skill classification, architecture, and creation | audit |
 | `skill-doctor` | Diagnosis and recovery verification | audit |

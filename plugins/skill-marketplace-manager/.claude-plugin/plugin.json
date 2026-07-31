@@ -1,7 +1,7 @@
 {
   "name": "skill-marketplace-manager",
   "displayName": "Skill Marketplace Manager",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Design, inventory, scaffold, curate, build, validate, migrate, release, and audit repositories that distribute Agent Skills through skill.sh-compatible catalogs and plugin harnesses such as Claude Code",
   "skills": [
     "./skills"

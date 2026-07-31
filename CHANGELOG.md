@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.0.0 — 2026-07-31
+
+- Renamed the canonical `prompts` category to `prompt-skills`.
+- Renamed the public `optimize-prompts` skill and plugin to
+  `prompt-optimize@3.0.0` while preserving its prompt-optimization behavior.
+- Migrated registry, catalog, documentation, tests, donor snapshots and
+  downstream routes, then regenerated every cross-host package.
+
 ## 2.0.0 — 2026-07-31
 
 - Split the canonical catalog into `agent-os-skills`, `agent-team-skills`,

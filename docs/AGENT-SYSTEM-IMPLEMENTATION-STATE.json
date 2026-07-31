@@ -32,7 +32,7 @@
     "skills/agent-team-skills/agent-team-manager",
     "skills/agent-team-skills/agent-team-orchestrator",
     "skills/agent-team-skills/agent-workspace-manager",
-    "skills/prompts/optimize-prompts",
+    "skills/prompt-skills/prompt-optimize",
     "generated marketplace bundles"
   ],
   "acceptance_criteria": [
@@ -89,7 +89,8 @@
     "tests/test_phase7_agent_os.py",
     "tests/test_phase8_portfolio_release.py",
     "docs/agent-os/PRIVATE-CANARY-REPORT.md",
-    "docs/MIGRATION-2026-07-31-CATEGORIES.md"
+    "docs/MIGRATION-2026-07-31-CATEGORIES.md",
+    "docs/MIGRATION-2026-07-31-PROMPT-SKILL-NAMING.md"
   ],
   "approvals": [
     {"subject":"Implement final plan","scope":"repository foundation and subsequent approved phases","status":"approved","source":"user request 2026-07-31"}
@@ -99,5 +100,5 @@
     "Generated adapters must not become a second canonical source.",
     "Filesystem privacy is not confidentiality."
   ],
-  "updated_at": "2026-07-31T09:33:18Z"
+  "updated_at": "2026-07-31T09:51:51Z"
 }

@@ -70,10 +70,11 @@ class PortfolioReleaseTests(unittest.TestCase):
         actual = {name: path.parent.name for name, path in self.skill_dirs.items()}
         self.assertEqual(actual, configured)
         self.assertEqual(
-            {"agent-os-skills", "agent-team-skills", "agent-skills", "metaskills", "prompts"},
+            {"agent-os-skills", "agent-team-skills", "agent-skills", "metaskills", "prompt-skills"},
             set(actual.values()),
         )
-        self.assertEqual("prompts", actual["optimize-prompts"])
+        self.assertEqual("prompt-skills", actual["prompt-optimize"])
+        self.assertNotIn("optimize-prompts", actual)
         self.assertNotIn("optimize-master-prompts", actual)
 
     def test_agent_os_skills_have_explicit_neighbor_non_triggers(self) -> None:

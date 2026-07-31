@@ -1,6 +1,6 @@
 {
   "name": "skill-best-practices",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Maintains and queries an evidence-linked, updateable corpus of best practices for creating, routing, evaluating, securing, optimizing, distributing, and governing agent skills",
   "homepage": "https://github.com/InnovationMachineTeam/skills",
   "repository": "https://github.com/InnovationMachineTeam/skills",

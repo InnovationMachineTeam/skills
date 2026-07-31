@@ -197,10 +197,10 @@
       "category": "Developer Tools"
     },
     {
-      "name": "optimize-prompts",
+      "name": "prompt-optimize",
       "source": {
         "source": "local",
-        "path": "./plugins/optimize-prompts"
+        "path": "./plugins/prompt-optimize"
       },
       "policy": {
         "installation": "AVAILABLE",

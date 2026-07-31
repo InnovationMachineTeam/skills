@@ -92,7 +92,7 @@ The three plugin marketplaces all resolve to the same generated `plugins/<name>/
 - Individual plugin identifier: exact globally unique skill name.
 - Aggregate plugin identifier: `im-skills-all`.
 - Canonical and Cursor categories: `agent-os-skills`, `agent-team-skills`,
-  `agent-skills`, `metaskills`, and `prompts`.
+  `agent-skills`, `metaskills`, and `prompt-skills`.
 - Codex install-surface category: `Developer Tools`.
 
 Categories are presentation metadata, not identity boundaries. Skill and plugin names must remain globally unique inside an installed host scope.

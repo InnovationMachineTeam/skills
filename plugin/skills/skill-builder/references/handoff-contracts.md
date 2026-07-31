@@ -29,7 +29,7 @@ Every handoff must be bounded and evidence-bearing.
 | `skill-optimizer` | baseline, hypothesis, before/after and acceptance decision | comparable metric, preserved invariants, neighbor regressions |
 | `skill-refactor` | boundary decision, topology plan and migration evidence | approvals, trigger/resource ownership, consumers, rollback |
 | `skill-manager` | inventory or lifecycle manifest and verified host state | provenance, versions, discovery, conflicts, rollback |
-| `optimize-prompts` | prompt or audit, resolved conflicts and evals | authority preservation, adversarial cases, no unauthorized deployment |
+| `prompt-optimize` | prompt or audit, resolved conflicts and evals | authority preservation, adversarial cases, no unauthorized deployment |
 
 ## Rejection and inconclusive results
 

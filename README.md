@@ -4,10 +4,10 @@ Private Agent Skills marketplace maintained by **InnovationMachineTeam** for **I
 
 - Marketplace: `im-skills`
 - Repository: `InnovationMachineTeam/skills`
-- Categories: `agent-os-skills`, `agent-team-skills`, `agent-skills`, `metaskills`, `prompts`
+- Categories: `agent-os-skills`, `agent-team-skills`, `agent-skills`, `metaskills`, `prompt-skills`
 - Entries: one installable cross-host plugin per skill
 - Supported hosts: Claude Code, Codex, Cursor, and Agent Skills clients
-- Aggregate local plugin: `im-skills-all` (`2.0.0`)
+- Aggregate local plugin: `im-skills-all` (`3.0.0`)
 - Current visibility: private
 - Lead maintainer and required reviewer: [@stanislavus86](https://github.com/stanislavus86)
 
@@ -104,7 +104,7 @@ The aggregate plugin is intended for local integration testing and full-toolkit 
 | `agent-team-orchestrator` | `agent-team-skills` | Execute approved team task graphs with bounded runtime state | 1.0.0 |
 | `agent-workspace-manager` | `agent-team-skills` | Govern isolated worktrees and integration handoffs | 1.0.0 |
 | `metaskillpack` | `metaskills` | Run the complete metaskill toolkit from one explicit command | 1.2.0 |
-| `optimize-prompts` | `prompts` | Design and improve durable controlling prompts | 2.0.0 |
+| `prompt-optimize` | `prompt-skills` | Design and improve durable controlling prompts | 3.0.0 |
 | `skill-architect` | `metaskills` | Classify and create skill architectures | 1.2.0 |
 | `skill-best-practices` | `metaskills` | Maintain an evidence-linked practices corpus | 1.1.0 |
 | `skill-builder` | `metaskills` | Orchestrate end-to-end skill workflows | 1.2.0 |
@@ -134,7 +134,7 @@ The source of truth for versions is each skill's `SKILL.md → metadata.version`
 │   ├── agent-team-skills/            # team design and execution
 │   ├── agent-skills/                 # reusable single-agent capabilities
 │   ├── metaskills/                   # skill engineering and orchestration
-│   └── prompts/                      # prompt engineering capabilities
+│   └── prompt-skills/                # prompt engineering capabilities
 ├── plugins/<skill>/                  # generated per-skill cross-host packages
 ├── plugin/                           # generated aggregate cross-host package
 ├── scripts/                          # deterministic generation and validation

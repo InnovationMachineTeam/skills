@@ -1,0 +1,93 @@
+{
+  "format": 2,
+  "plugin": "prompt-optimize",
+  "version": "3.0.0",
+  "source_layout": "skills/",
+  "bundle_layout": "skills/<name>/",
+  "platforms": [
+    "claude-code",
+    "codex",
+    "cursor"
+  ],
+  "skills": [
+    "prompt-optimize"
+  ],
+  "excluded_patterns": [
+    ".DS_Store",
+    "__pycache__",
+    "*.pyc",
+    ".git"
+  ],
+  "files": [
+    {
+      "path": ".claude-plugin/plugin.json",
+      "sha256": "56760309347de7eca694fd1c3dc04bc1e60e404a87b14dc2fde4d4bdf24ab661",
+      "bytes": 327
+    },
+    {
+      "path": ".codex-plugin/plugin.json",
+      "sha256": "810a2792b780a2570f1bf91e04b038a712dbc90f0234d8a79825c5ee206fc462",
+      "bytes": 1130
+    },
+    {
+      "path": ".cursor-plugin/plugin.json",
+      "sha256": "958152949cffad4e1c7a1bc75ef07af0e3e3c9c370d9f0b02b465911dd1198e5",
+      "bytes": 538
+    },
+    {
+      "path": "README.md",
+      "sha256": "2aceaa497e3036dd8e96daa8241090dc5094cd527832dd385bc0a25f94b9b324",
+      "bytes": 424
+    },
+    {
+      "path": "skills/prompt-optimize/SKILL.md",
+      "sha256": "121f61c3504568cc5be4d07f7733cee8dfb003be2c92bcabd27e0031d2780e60",
+      "bytes": 9345
+    },
+    {
+      "path": "skills/prompt-optimize/agents/openai.yaml",
+      "sha256": "48fd35f0fd4e2004f2c57a691068b061ff6adf391ecae1d4b5c77141e77e3142",
+      "bytes": 192
+    },
+    {
+      "path": "skills/prompt-optimize/assets/eval-cases-template.json",
+      "sha256": "70011f7521e7c73ba40d0a1e4440ed74ccff50518697a23168f56f77e14c3f3f",
+      "bytes": 1545
+    },
+    {
+      "path": "skills/prompt-optimize/assets/master-prompt-template.md",
+      "sha256": "473af2944e64a3a43dfe3617d20419cf65f58cdb6b6fb515b8cb6c2d8ad26ea6",
+      "bytes": 2814
+    },
+    {
+      "path": "skills/prompt-optimize/assets/review-report-template.md",
+      "sha256": "866edbf5de3c79c170d7e16f915741f1fce9fe9d663cd4d0c863c3206e59b5c2",
+      "bytes": 1090
+    },
+    {
+      "path": "skills/prompt-optimize/references/audit-rubric.md",
+      "sha256": "ad89f56f8cddca22905a06a393c10e179f15ee10dc41d708f03920d466d94753",
+      "bytes": 4105
+    },
+    {
+      "path": "skills/prompt-optimize/references/evaluation-guide.md",
+      "sha256": "59565db93c318f04b6975717cb3e102d18a79813bb802b0534494d63323b7176",
+      "bytes": 2921
+    },
+    {
+      "path": "skills/prompt-optimize/references/platform-adapters.md",
+      "sha256": "7f6fc4c0f6e80c96926032a3a9a50cb27751a55002cd4888d4eb77593de60b70",
+      "bytes": 2483
+    },
+    {
+      "path": "skills/prompt-optimize/references/prompt-architecture.md",
+      "sha256": "7330455d8f4b5e0c4dc16d2569a16dcc7ea80444b4f6cecec2fee29056862a97",
+      "bytes": 4128
+    },
+    {
+      "path": "skills/prompt-optimize/scripts/lint_prompt.py",
+      "sha256": "098856f45cbbdd554b335a99cf05d308be37ac08f08a290328a75b07516b9d09",
+      "bytes": 12211
+    }
+  ]
+}

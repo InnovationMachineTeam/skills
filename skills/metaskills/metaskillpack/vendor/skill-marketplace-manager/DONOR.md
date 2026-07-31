@@ -2,7 +2,7 @@
 name: skill-marketplace-manager
 description: Design, inventory, scaffold, curate, build, validate, migrate, release, and audit repositories that distribute Agent Skills through skill.sh-compatible catalogs and plugin harnesses such as Claude Code. Use for marketplace topology, category design, marketplace.json or plugin.json generation, portable skills/ layouts, aggregate plugin builds, catalog governance, version policy, compatibility checks, staged migrations, publishing plans, or repository-wide skill distribution. Do not use for authoring one skill's behavior, evaluating one skill's task quality, or managing only the installed runtime state of skills.
 metadata:
-  version: "1.1.0"
+  version: "1.2.0"
 ---
 
 # Skill Marketplace Manager

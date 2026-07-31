@@ -5,9 +5,9 @@
   "practices_revision": "2026-07-30-initial",
   "skills": [
     {
-      "name": "optimize-prompts",
+      "name": "prompt-optimize",
       "role": "Create, audit, adapt, and evaluate durable controlling prompts",
-      "source_hint": "https://github.com/InnovationMachineTeam/skills/tree/main/skills/prompts/optimize-prompts",
+      "source_hint": "https://github.com/InnovationMachineTeam/skills/tree/main/skills/prompt-skills/prompt-optimize",
       "risk": "medium",
       "default_action": "audit"
     },

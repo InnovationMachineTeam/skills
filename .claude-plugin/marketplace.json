@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "InnovationMachine Agent Skills marketplace",
-    "version": "2.0.0"
+    "version": "3.0.0"
   },
   "plugins": [
     {
@@ -295,7 +295,7 @@
       "source": "./plugins/metaskillpack",
       "strict": false,
       "description": "Provides a self-contained, explicitly invoked toolkit for creating, discovering, researching, optimizing, diagnosing, governing, harvesting, refactoring, evaluating, packaging, and orchestrating agent skills through isolated snapshots...",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "author": {
         "name": "InnovationMachine",
         "email": "stanislav.usoltsev@gmail.com"
@@ -309,19 +309,20 @@
       ]
     },
     {
-      "name": "optimize-prompts",
-      "source": "./plugins/optimize-prompts",
+      "name": "prompt-optimize",
+      "source": "./plugins/prompt-optimize",
       "strict": false,
       "description": "Designs, audits, and improves durable master, system, and developer prompts for agents",
-      "version": "2.0.0",
+      "version": "3.0.0",
       "author": {
         "name": "InnovationMachine",
         "email": "stanislav.usoltsev@gmail.com"
       },
-      "category": "prompts",
+      "category": "prompt-skills",
       "tags": [
         "agent-skills",
         "optimization",
+        "prompt-skills",
         "prompts"
       ]
     },
@@ -348,7 +349,7 @@
       "source": "./plugins/skill-best-practices",
       "strict": false,
       "description": "Maintains and queries an evidence-linked, updateable corpus of best practices for creating, routing, evaluating, securing, optimizing, distributing, and governing agent skills",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "author": {
         "name": "InnovationMachine",
         "email": "stanislav.usoltsev@gmail.com"
@@ -365,8 +366,8 @@
       "name": "skill-builder",
       "source": "./plugins/skill-builder",
       "strict": false,
-      "description": "Orchestrates complete, evidence-backed agent-skill workflows across skill-scout, skill-harvester, skill-architect, skill-evaluator, skill-doctor, skill-optimizer, skill-refactor, skill-manager, and optimize-prompts",
-      "version": "1.2.0",
+      "description": "Orchestrates complete, evidence-backed agent-skill workflows across skill-scout, skill-harvester, skill-architect, skill-evaluator, skill-doctor, skill-optimizer, skill-refactor, skill-manager, and prompt-optimize",
+      "version": "1.3.0",
       "author": {
         "name": "InnovationMachine",
         "email": "stanislav.usoltsev@gmail.com"
@@ -456,7 +457,7 @@
       "source": "./plugins/skill-marketplace-manager",
       "strict": false,
       "description": "Design, inventory, scaffold, curate, build, validate, migrate, release, and audit repositories that distribute Agent Skills through skill.sh-compatible catalogs and plugin harnesses such as Claude Code",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "author": {
         "name": "InnovationMachine",
         "email": "stanislav.usoltsev@gmail.com"

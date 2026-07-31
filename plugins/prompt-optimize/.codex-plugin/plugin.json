@@ -1,0 +1,32 @@
+{
+  "name": "prompt-optimize",
+  "version": "3.0.0",
+  "description": "Designs, audits, and improves durable master, system, and developer prompts for agents",
+  "homepage": "https://github.com/InnovationMachineTeam/skills",
+  "repository": "https://github.com/InnovationMachineTeam/skills",
+  "license": "Proprietary",
+  "keywords": [
+    "agent-skills",
+    "optimization",
+    "prompt-skills",
+    "prompts"
+  ],
+  "skills": "./skills/",
+  "author": {
+    "name": "InnovationMachine",
+    "email": "stanislav.usoltsev@gmail.com",
+    "url": "https://github.com/InnovationMachineTeam"
+  },
+  "interface": {
+    "displayName": "Prompt Optimize",
+    "shortDescription": "Designs, audits, and improves durable master, system, and developer prompts for agents",
+    "longDescription": "Designs, audits, and improves durable master, system, and developer prompts for agents",
+    "developerName": "InnovationMachine",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Guidance"
+    ],
+    "websiteURL": "https://github.com/InnovationMachineTeam/skills",
+    "defaultPrompt": "Use Prompt Optimize for this task."
+  }
+}
