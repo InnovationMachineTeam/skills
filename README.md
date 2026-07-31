@@ -2,6 +2,11 @@
 
 Private Agent Skills marketplace maintained by **InnovationMachineTeam** for **InnovationMachine**.
 
+Use this repository to install one skill, operate the complete local toolkit,
+or design governed individual agents, agent teams, and Agentic OS capabilities.
+Start with the [Onboarding Guide](docs/ONBOARDING.md) if you are choosing an
+approach rather than maintaining the marketplace itself.
+
 - Marketplace: `im-skills`
 - Repository: `InnovationMachineTeam/skills`
 - Categories: `agent-os-skills`, `agent-team-skills`, `agent-skills`, `metaskills`, `prompt-skills`
@@ -10,6 +15,20 @@ Private Agent Skills marketplace maintained by **InnovationMachineTeam** for **I
 - Aggregate local plugin: `im-skills-all` (`3.3.0`)
 - Current visibility: private
 - Lead maintainer and required reviewer: [@stanislavus86](https://github.com/stanislavus86)
+
+## Start by outcome
+
+| Outcome | Start with | Guide |
+|---|---|---|
+| Create or improve one agent | `agent-builder` or explicit `agentkit` | [Individual-agent workflow](docs/ONBOARDING.md#the-individual-agent-workflow) |
+| Design, build, or operate a team | `agent-team-manager` | [Agent-team workflow](docs/ONBOARDING.md#the-agent-team-workflow) |
+| Assess or build a governed platform | `agent-os-architect` | [Agentic OS workflow](docs/ONBOARDING.md#the-agentic-os-workflow) |
+| Create or maintain skills | `skill-builder` or `metaskillpack` | [Skill categories](skills/README.md) |
+| Learn from concrete domain examples | choose a worked use case | [Use-case catalogue](docs/use-cases/README.md) |
+
+Prefer the smallest sufficient operating unit. One coherent role should remain
+one agent; a team requires real context, permission, expertise, write-set, or
+verification boundaries; Agentic OS requires durable shared platform services.
 
 ## Install with Claude Code
 
@@ -174,6 +193,7 @@ The source of truth for versions is each skill's `SKILL.md → metadata.version`
 │   ├── dependencies.json             # canonical companion-skill graph
 │   └── release.json                  # governance and aggregate release config
 ├── skills/                           # canonical source of truth
+│   ├── README.md                     # category and capability map
 │   ├── agent-os-skills/              # Agentic OS plane capabilities
 │   ├── agent-team-skills/            # team design and execution
 │   ├── agent-skills/                 # single-agent capabilities and agentkit
@@ -183,6 +203,8 @@ The source of truth for versions is each skill's `SKILL.md → metadata.version`
 ├── plugin/                           # generated aggregate cross-host package
 ├── scripts/                          # deterministic generation and validation
 ├── docs/
+│   ├── ONBOARDING.md                 # user workflows and selection guide
+│   ├── use-cases/                    # concrete cross-domain blueprints
 │   ├── AGENT-ASSET-REGISTRY.json     # canonical typed asset inventory
 │   ├── AGENT-SKILLS-MAP.json         # versioned capability bindings
 │   ├── HOST-CONFORMANCE.md            # Codex/Claude/Cursor adapter contract
@@ -192,6 +214,11 @@ The source of truth for versions is each skill's `SKILL.md → metadata.version`
 ├── tests/fixtures/agent-assets/      # public/private walking skeleton
 └── .github/workflows/validate.yml
 ```
+
+Repository-level operating instructions are mirrored in `CLAUDE.md` and
+`AGENTS.md`. Important folders contain their own local pair. Changing either
+file requires changing its peer at the same level; repository validation rejects
+missing or divergent pairs.
 
 Never edit `plugin/`, `plugins/`, or platform marketplace manifests manually. Change canonical skills or catalog configuration, regenerate, validate, and review the resulting diff.
 
@@ -209,6 +236,11 @@ in [docs/AGENT-TEAM-AND-AGENT-OS-PLAN.md](docs/AGENT-TEAM-AND-AGENT-OS-PLAN.md).
 The implemented foundation is described in
 [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) and
 [docs/HOST-CONFORMANCE.md](docs/HOST-CONFORMANCE.md).
+
+For day-one usage, artifact layouts, model policy, private/public skill
+placement, and worked examples spanning software, education, research,
+innovation, startup operations, marketing, and public speaking, read
+[docs/ONBOARDING.md](docs/ONBOARDING.md).
 
 ## Development workflow
 
@@ -243,6 +275,7 @@ The implemented foundation is described in
 8. Run:
 
    ```bash
+   python3 scripts/validate_documentation.py .
    python3 scripts/validate_repository.py .
    python3 scripts/validate_marketplace.py .
    python3 scripts/manage_agent_assets.py validate .

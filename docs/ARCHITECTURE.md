@@ -6,6 +6,10 @@ The repository separates globally distributable marketplace skills from
 project-scoped agent assets. This is a capability boundary, not a claim that
 private content is secret.
 
+The [Onboarding Guide](ONBOARDING.md) applies this architecture to individual
+agents, teams, and Agentic OS. [Worked use cases](use-cases/README.md) show the
+same boundaries across software, learning, research, innovation, and business.
+
 ```text
 skills/<category>/*                         public canonical skills
         │
@@ -90,6 +94,30 @@ The three plugin marketplaces all resolve to the same generated `plugins/<name>/
 - CI rebuilds artifacts in `build/` and rejects any diff.
 - Every generated manifest gets the same plugin name and SemVer as the canonical skill.
 - The aggregate has independent SemVer because its installed contract changes whenever its composition or host support changes.
+
+## Instruction hierarchy
+
+Important canonical directories contain byte-identical `CLAUDE.md` and
+`AGENTS.md` pairs. The pair at the repository root defines global constraints;
+deeper pairs add only local instructions for docs, skills, categories, catalog,
+or scripts. Changing either peer requires changing the other at the same level.
+Repository validation rejects a missing or divergent peer.
+
+Instruction files are operating guidance, not a replacement for skill
+frontmatter, registries, schemas, policy enforcement, or user authority.
+
+## Documentation and knowledge plane
+
+`docs/` is the portable, human-reviewable memory plane. Agent definitions
+declare exact read/write roots, ownership, provenance, review, and freshness.
+Domain branches are created on demand for named consumers. Machine-readable
+registries remain canonical for typed state; Markdown views remain review
+surfaces.
+
+LLM Wiki, Obsidian, Graphify, vector retrieval, graph databases, and GraphRAG
+may project or enrich this plane only after a measured need and an approved
+setup, access, provenance, deletion, freshness, and rebuild contract. Derived
+indexes never become trusted merely because retrieval returned them.
 
 ## Non-discoverable candidates
 

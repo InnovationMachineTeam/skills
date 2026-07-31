@@ -55,3 +55,11 @@ They used the current task executor rather than an external model, so no
 cross-model generalization claim is made. Repository publication is complete;
 host installation and activation were intentionally not performed and require
 separate lifecycle authority plus host read-back.
+
+## Usage documentation
+
+The stable command surface and complete one-agent workflow are documented in
+the [Onboarding Guide](ONBOARDING.md#start-with-agentkit). Cross-domain examples
+show when `agentkit` is sufficient and when work must route to an agent team or
+Agentic OS. The readiness evidence in this file remains a release record; it is
+not the primary day-to-day usage guide.

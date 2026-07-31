@@ -5,6 +5,12 @@
 agents. Они не являются готовыми production agents и не дают права активировать
 agent в runtime.
 
+Практические контексты для запуска этих prompts находятся в
+[Onboarding Guide](../ONBOARDING.md) и [worked use cases](../use-cases/README.md).
+Сначала выбирается минимальная operating unit и artifact graph, затем prompt;
+роль или skill не следует создавать только потому, что для него существует
+шаблон.
+
 ## Правило композиции
 
 Всегда используйте:
@@ -125,6 +131,12 @@ destination: path/to/reviewable/bundle
 5. Передать immutable candidate независимому `skill-evaluator`.
 6. Installation/publication/runtime activation выполнять отдельным lifecycle
    действием после approval.
+
+Для team use case сначала сформируйте outcome/artifact/capability/authority
+graphs через `agent-team-architect`, затем применяйте placement prompt к каждой
+capability. Owner-only процедуры создаются как private skills/commands внутри
+agent; public skill создаётся только при обоснованном multi-consumer reuse. Все
+созданные assets и bindings включаются в registry/map transaction candidate.
 
 ## Общие выходы
 

@@ -1,11 +1,17 @@
 # Единый план: команды агентов, skills mapping и Agent OS
 
-Статус: **approved for phased implementation**
+Статус: **implemented — phases 0–8 completed**
 
 Дата: **2026-07-31**
 
 Scope: agent-oriented skills, project-local `.agents`, registries, team workflows,
-model selection, docs/memory и будущая Agent OS.
+model selection, docs/memory и Agentic OS.
+
+Результат реализации выпущен в marketplace `3.2.0`; stable individual-agent
+portfolio и `agentkit@1.0.0` завершены в `3.3.0`. Исторические proposed/approved
+формулировки ниже сохранены как rationale. Текущий пользовательский workflow и
+конкретные сценарии находятся в [ONBOARDING.md](ONBOARDING.md) и
+[use-cases/](use-cases/README.md).
 
 ## 1. Решения, предлагаемые на ревью
 
@@ -40,10 +46,12 @@ model selection, docs/memory и будущая Agent OS.
 
 ## 2. Текущее состояние
 
-- `.agents/` содержит только Codex marketplace manifest.
+- `.agents/` содержит Codex marketplace manifest и локальные инструкции; project
+  agent definitions в этом repository пока не активированы.
 - `skills-lock.json` в repository сейчас отсутствует; любые skills-lock formats
   должны discover/validate, а не предполагаться.
-- `docs/AGENT-ASSET-REGISTRY.*` и `docs/AGENT-SKILLS-MAP.*` создаются в Phase 1.
+- `docs/AGENT-ASSET-REGISTRY.*` и `docs/AGENT-SKILLS-MAP.*` реализованы как
+  canonical JSON + generated Markdown review views.
 - Agent best-practices corpus существует в
   `skills/agent-skills/agent-best-practices/best-practices/`.
 - Общий base и master prompts для agent-oriented skills существуют в
@@ -1234,26 +1242,33 @@ Avoid:
 - Agent OS built before one production walking skeleton;
 - auto-evolution of prompts, policy or memory without new version and eval.
 
-## 17. Decisions needed from review
+## 17. Review decisions and outcomes
 
-1. Подтвердить `agent-team-architect` как отдельный skill.
-2. Подтвердить JSON canonical + generated Markdown views.
-3. Подтвердить `.agents` canonical layout и first target hosts.
-4. Подтвердить `agent-model-selector` как обязательный gate.
-5. Подтвердить отсутствие `agent-harvester` в первой очереди.
-6. Выбрать первый sample project/use case для walking skeleton.
-7. Решить, допустимы ли cross-provider models для independent evaluation.
-8. Назначить owners registry, knowledge, runtime, policy и release.
-9. Выбрать threshold/criteria для Qdrant и Neo4j/GraphRAG setup.
-10. После review разрешить Phase 1; не начинать сразу со всех skills.
-11. Подтвердить placement gate и правило promotion при втором independent
-    consumer либо independent lifecycle.
+1. `agent-team-architect` реализован отдельным skill.
+2. JSON принят как canonical registry/map, Markdown — generated review view.
+3. `.agents` принят для project assets; Claude Code, Codex и Cursor имеют
+   отдельные generated adapters/manifests.
+4. `agent-model-selector` реализован отдельным evidence-backed gate.
+5. `agent-harvester` не создавался; generic intake остаётся у существующих
+   context/harvester capabilities.
+6. Public/private walking skeleton и Agentic OS slice реализованы в fixtures и
+   release evidence.
+7. Cross-provider independence остаётся policy option, а не обязательным
+   требованием; evaluator correlation раскрывается.
+8. Ownership и review responsibilities зафиксированы в governance/catalog.
+9. Qdrant, Neo4j и GraphRAG остаются demand-driven setup decisions с
+   provenance/access/deletion/freshness gates.
+10. Phases 0–8 завершены последовательно и проверены тестами.
+11. Placement gate и controlled private/public migration реализованы в
+    architecture, prompts, schemas, registries и skills.
 
-## 18. Рекомендуемое решение
+## 18. Implemented outcome
 
-Утвердить Phase 0–1 и набор team skills первой очереди. Не создавать пока
-`agent-harvester`, composite toolkit и полноценную Agent OS. Первым vertical
-slice сделать schema-valid registry/map + `agent-team-architect` +
-`agent-model-selector` + staged `agent-team-builder` на одном реальном проекте.
-После independent evaluation добавить manager/orchestrator и только затем
-выделять платформенные Agent OS capabilities.
+Schema-valid registry/map, team architecture/model/build layers, independent
+evaluation, manager/orchestrator, knowledge plane и минимальные Agentic OS
+capabilities реализованы и доступны как отдельные selectively installable
+skills. Composite `agentkit` выпущен только после двух стабильных donor cycles и
+трёх artifact-bound workflows. Следующий шаг для любого project deployment —
+не новый portfolio build, а scoped onboarding: выбрать один agent, team или
+Agentic OS vertical slice, создать необходимые private/public skills и пройти
+отдельные build, evaluation, activation и rollout gates.

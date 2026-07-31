@@ -13,6 +13,7 @@ sys.dont_write_bytecode = True
 
 from validate_marketplace import validate_marketplace
 from manage_agent_assets import validate as validate_agent_assets
+from validate_documentation import validate as validate_documentation
 
 
 LOCAL_PATH = re.compile(r"(?:/Users/|/home/|[A-Za-z]:\\\\)")
@@ -54,6 +55,28 @@ def compare_trees(source: Path, bundled: Path, failures: list[str], label: str) 
     for relative, source_path in source_files.items():
         if source_path.read_bytes() != bundle_files[relative].read_bytes():
             failures.append(f"{label}: bundled content drift at {relative}")
+
+
+def validate_instruction_pairs(root: Path) -> list[str]:
+    """Require every CLAUDE.md/AGENTS.md pair to exist and stay identical."""
+    failures: list[str] = []
+    directories = {
+        path.parent
+        for name in ("CLAUDE.md", "AGENTS.md")
+        for path in root.rglob(name)
+        if ".git" not in path.relative_to(root).parts
+    }
+    for directory in sorted(directories):
+        claude = directory / "CLAUDE.md"
+        agents = directory / "AGENTS.md"
+        label = directory.relative_to(root).as_posix() or "."
+        if not claude.is_file() or not agents.is_file():
+            missing = "CLAUDE.md" if not claude.is_file() else "AGENTS.md"
+            failures.append(f"{label}: instruction pair is missing {missing}")
+            continue
+        if claude.read_bytes() != agents.read_bytes():
+            failures.append(f"{label}: CLAUDE.md and AGENTS.md must be byte-identical")
+    return failures
 
 
 def validate_marketplace_names(path: Path, expected: set[str], failures: list[str]) -> dict:
@@ -117,6 +140,8 @@ def validate_plugin_bundle(
 def main() -> int:
     root = Path(sys.argv[1] if len(sys.argv) > 1 else ".").resolve()
     failures: list[str] = []
+    failures.extend(validate_instruction_pairs(root))
+    failures.extend(validate_documentation(root))
     failures.extend(validate_agent_assets(root))
     findings, inventory = validate_marketplace(root)
     failures.extend(f"{item.code}: {item.path}: {item.message}" for item in findings if item.level == "FAIL")
