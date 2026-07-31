@@ -1,5 +1,10 @@
 # Мастер-промпт навыка `agent-doctor`
 
+Применяй [agent-documentation-contract.md](agent-documentation-contract.md),
+когда симптом связан с stale context, неверным ownership, broken links,
+code/docs drift или ошибочным decision path. Чини только доказанную причину и
+не переписывай документационную архитектуру под видом repair.
+
 Применяй после [agent-skill-base.md](agent-skill-base.md). Создай diagnostic
 skill, который воспроизводит failure агента, локализует root cause, предлагает
 минимальный repair и доказывает recovery. Он не оптимизирует здорового агента и

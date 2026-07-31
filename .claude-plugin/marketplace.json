@@ -5,9 +5,117 @@
   },
   "metadata": {
     "description": "InnovationMachine Agent Skills marketplace",
-    "version": "3.1.0"
+    "version": "3.2.0"
   },
   "plugins": [
+    {
+      "name": "agent-architect",
+      "source": "./plugins/agent-architect",
+      "strict": false,
+      "description": "Designs or redesigns one bounded agent or subagent as an immutable, reviewable definition with mission, non-goals, inputs, outputs, tools, permissions, model policy, state, memory, documentation, evaluation, rollout and retirement contracts",
+      "version": "1.0.0",
+      "author": {
+        "name": "InnovationMachine",
+        "email": "stanislav.usoltsev@gmail.com"
+      },
+      "category": "agent-skills",
+      "tags": [
+        "agent-skills",
+        "agents",
+        "architecture",
+        "definitions"
+      ]
+    },
+    {
+      "name": "agent-best-practices",
+      "source": "./plugins/agent-best-practices",
+      "strict": false,
+      "description": "Maintains and applies an evidence-linked corpus of best practices for individual agents, subagents, agent teams, orchestration, documentation, evaluation and Agentic OS",
+      "version": "1.0.0",
+      "author": {
+        "name": "InnovationMachine",
+        "email": "stanislav.usoltsev@gmail.com"
+      },
+      "category": "agent-skills",
+      "tags": [
+        "agent-skills",
+        "agents",
+        "governance",
+        "research"
+      ]
+    },
+    {
+      "name": "agent-builder",
+      "source": "./plugins/agent-builder",
+      "strict": false,
+      "description": "Orchestrates complete evidence-backed workflows for one agent or subagent across agent-scout, agent-context, agent-architect, agent-evaluator, agent-doctor, agent-optimizer, agent-refactor and agent-manager",
+      "version": "1.0.0",
+      "author": {
+        "name": "InnovationMachine",
+        "email": "stanislav.usoltsev@gmail.com"
+      },
+      "category": "agent-skills",
+      "tags": [
+        "agent-skills",
+        "agents",
+        "lifecycle",
+        "orchestration"
+      ]
+    },
+    {
+      "name": "agent-context",
+      "source": "./plugins/agent-context",
+      "strict": false,
+      "description": "Builds a provenance-bearing design-time context package for creating, evaluating or changing one agent from explicitly scoped codebases, repositories, documents, sessions, traces, incidents and authorized web research",
+      "version": "1.0.0",
+      "author": {
+        "name": "InnovationMachine",
+        "email": "stanislav.usoltsev@gmail.com"
+      },
+      "category": "agent-skills",
+      "tags": [
+        "agent-skills",
+        "agents",
+        "context",
+        "research"
+      ]
+    },
+    {
+      "name": "agent-doctor",
+      "source": "./plugins/agent-doctor",
+      "strict": false,
+      "description": "Diagnoses unhealthy or broken behavior in one agent or subagent, reproduces symptoms from definitions and traces, identifies a root cause, applies an explicitly authorized minimal repair to a new candidate revision, and verifies recovery",
+      "version": "1.0.0",
+      "author": {
+        "name": "InnovationMachine",
+        "email": "stanislav.usoltsev@gmail.com"
+      },
+      "category": "agent-skills",
+      "tags": [
+        "agent-skills",
+        "agents",
+        "diagnostics",
+        "repair"
+      ]
+    },
+    {
+      "name": "agent-evaluator",
+      "source": "./plugins/agent-evaluator",
+      "strict": false,
+      "description": "Independently designs, writes, audits, runs and compares evaluations for one frozen agent or subagent definition and its bounded runtime behavior",
+      "version": "1.0.0",
+      "author": {
+        "name": "InnovationMachine",
+        "email": "stanislav.usoltsev@gmail.com"
+      },
+      "category": "agent-skills",
+      "tags": [
+        "agent-skills",
+        "agents",
+        "evaluation",
+        "testing"
+      ]
+    },
     {
       "name": "agent-knowledge-manager",
       "source": "./plugins/agent-knowledge-manager",
@@ -24,6 +132,24 @@
         "agents",
         "knowledge",
         "memory"
+      ]
+    },
+    {
+      "name": "agent-manager",
+      "source": "./plugins/agent-manager",
+      "strict": false,
+      "description": "Governs the lifecycle of one registered agent or subagent through inventory, candidate registration, approval, shadow, canary, activation, suspension, migration, rollback, deprecation and retirement with version, registry...",
+      "version": "1.0.0",
+      "author": {
+        "name": "InnovationMachine",
+        "email": "stanislav.usoltsev@gmail.com"
+      },
+      "category": "agent-skills",
+      "tags": [
+        "agent-skills",
+        "agents",
+        "governance",
+        "lifecycle"
       ]
     },
     {
@@ -61,6 +187,24 @@
         "agents",
         "observability",
         "operations"
+      ]
+    },
+    {
+      "name": "agent-optimizer",
+      "source": "./plugins/agent-optimizer",
+      "strict": false,
+      "description": "Improves one healthy agent or subagent against a frozen measurable quality, cost, latency, reliability, context or documentation target while preserving mission, authority, consumers and lifecycle invariants",
+      "version": "1.0.0",
+      "author": {
+        "name": "InnovationMachine",
+        "email": "stanislav.usoltsev@gmail.com"
+      },
+      "category": "agent-skills",
+      "tags": [
+        "agent-skills",
+        "agents",
+        "optimization",
+        "quality"
       ]
     },
     {
@@ -140,6 +284,24 @@
       ]
     },
     {
+      "name": "agent-refactor",
+      "source": "./plugins/agent-refactor",
+      "strict": false,
+      "description": "Assesses and safely changes the capability, ownership or topology boundaries of existing individual agents through merge, split, extraction, composition, promotion to a team, or public/private capability and documentation migration",
+      "version": "1.0.0",
+      "author": {
+        "name": "InnovationMachine",
+        "email": "stanislav.usoltsev@gmail.com"
+      },
+      "category": "agent-skills",
+      "tags": [
+        "agent-skills",
+        "agents",
+        "refactoring",
+        "topology"
+      ]
+    },
+    {
       "name": "agent-registry-manager",
       "source": "./plugins/agent-registry-manager",
       "strict": false,
@@ -178,6 +340,24 @@
       ]
     },
     {
+      "name": "agent-scout",
+      "source": "./plugins/agent-scout",
+      "strict": false,
+      "description": "Identifies and prioritizes justified opportunities for one agent or subagent from tasks, sessions, code, documents, incidents and recurring work, then checks whether code, a model call, workflow, existing agent, team or Agentic OS...",
+      "version": "1.0.0",
+      "author": {
+        "name": "InnovationMachine",
+        "email": "stanislav.usoltsev@gmail.com"
+      },
+      "category": "agent-skills",
+      "tags": [
+        "agent-skills",
+        "agents",
+        "discovery",
+        "planning"
+      ]
+    },
+    {
       "name": "agent-skill-mapper",
       "source": "./plugins/agent-skill-mapper",
       "strict": false,
@@ -199,8 +379,8 @@
       "name": "agent-team-architect",
       "source": "./plugins/agent-team-architect",
       "strict": false,
-      "description": "Designs the smallest justified team of agents, subagents, specialists, an orchestrator, and human responsibilities from a task and capability graph",
-      "version": "1.0.0",
+      "description": "Designs the smallest justified greenfield team of agents, subagents, specialists, an orchestrator, and human responsibilities from a task and capability graph, or redesigns an asset already defined as a team",
+      "version": "1.1.0",
       "author": {
         "name": "InnovationMachine",
         "email": "stanislav.usoltsev@gmail.com"

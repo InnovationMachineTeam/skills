@@ -1,0 +1,13 @@
+{
+  "name": "agent-doctor",
+  "displayName": "Agent Doctor",
+  "version": "1.0.0",
+  "description": "Diagnoses unhealthy or broken behavior in one agent or subagent, reproduces symptoms from definitions and traces, identifies a root cause, applies an explicitly authorized minimal repair to a new candidate revision, and verifies recovery",
+  "skills": [
+    "./skills"
+  ],
+  "author": {
+    "name": "InnovationMachine",
+    "email": "stanislav.usoltsev@gmail.com"
+  }
+}

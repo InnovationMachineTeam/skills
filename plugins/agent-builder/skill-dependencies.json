@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "skill": "agent-builder",
+  "native_auto_install": {
+    "claude-code": true,
+    "codex": false,
+    "cursor": false
+  },
+  "required": [
+    {
+      "name": "agent-architect",
+      "minimum_version": "1.0.0",
+      "reason": "Creation and redesign scenarios delegate individual-agent architecture."
+    },
+    {
+      "name": "agent-context",
+      "minimum_version": "1.0.0",
+      "reason": "Research scenarios delegate provenance-bearing context building."
+    },
+    {
+      "name": "agent-doctor",
+      "minimum_version": "1.0.0",
+      "reason": "Repair and incident scenarios delegate diagnosis and recovery."
+    },
+    {
+      "name": "agent-evaluator",
+      "minimum_version": "1.0.0",
+      "reason": "All release and comparison gates require independent evaluation."
+    },
+    {
+      "name": "agent-manager",
+      "minimum_version": "1.0.0",
+      "reason": "Lifecycle transitions and host verification belong to the manager."
+    },
+    {
+      "name": "agent-optimizer",
+      "minimum_version": "1.0.0",
+      "reason": "Measured improvement scenarios delegate healthy-agent optimization."
+    },
+    {
+      "name": "agent-refactor",
+      "minimum_version": "1.0.0",
+      "reason": "Boundary and topology scenarios delegate refactoring."
+    },
+    {
+      "name": "agent-scout",
+      "minimum_version": "1.0.0",
+      "reason": "Full lifecycle begins with the agent worth and coverage gate."
+    }
+  ],
+  "recommended": [
+    {
+      "name": "agent-best-practices",
+      "minimum_version": "1.0.0",
+      "reason": "Provides shared evidence for pattern and lifecycle decisions."
+    }
+  ],
+  "install_order": [
+    "agent-architect",
+    "agent-context",
+    "agent-doctor",
+    "agent-evaluator",
+    "agent-manager",
+    "agent-optimizer",
+    "agent-refactor",
+    "agent-scout",
+    "agent-builder"
+  ]
+}

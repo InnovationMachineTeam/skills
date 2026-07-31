@@ -181,7 +181,7 @@ def main() -> int:
                 failures.append(f"plugins/{name}: README must warn about companion dependencies")
             required_names = [item["name"] for item in declaration.get("required", [])]
             claude_manifest = load_object(plugins_root / name / ".claude-plugin" / "plugin.json", failures)
-            if claude_manifest.get("dependencies") != required_names:
+            if claude_manifest.get("dependencies", []) != required_names:
                 failures.append(f"plugins/{name}: Claude native dependencies drift")
             for host in ("codex", "cursor"):
                 manifest = load_object(plugins_root / name / f".{host}-plugin" / "plugin.json", failures)

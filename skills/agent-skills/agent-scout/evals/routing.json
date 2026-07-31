@@ -1,0 +1,45 @@
+{
+  "skill": "agent-scout",
+  "cases": [
+    {
+      "id": "discover",
+      "input": "Review these recurring tasks and tell me which ones justify an agent.",
+      "expected_trigger": true,
+      "expected_route": "portfolio",
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    },
+    {
+      "id": "duplicate",
+      "input": "Check whether this proposed reviewer duplicates an installed agent.",
+      "expected_trigger": true,
+      "expected_route": "coverage",
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    },
+    {
+      "id": "session",
+      "input": "Find potential agent opportunities in these session notes without creating them.",
+      "expected_trigger": true,
+      "expected_route": "discover",
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    },
+    {
+      "id": "negative-skill",
+      "input": "Find reusable skill opportunities in this article.",
+      "expected_trigger": false,
+      "expected_route": "skill-scout",
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    },
+    {
+      "id": "negative-design",
+      "input": "Design the exact definition for this approved agent.",
+      "expected_trigger": false,
+      "expected_route": "agent-architect",
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    }
+  ]
+}

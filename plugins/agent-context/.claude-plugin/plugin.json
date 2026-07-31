@@ -1,0 +1,13 @@
+{
+  "name": "agent-context",
+  "displayName": "Agent Context",
+  "version": "1.0.0",
+  "description": "Builds a provenance-bearing design-time context package for creating, evaluating or changing one agent from explicitly scoped codebases, repositories, documents, sessions, traces, incidents and authorized web research",
+  "skills": [
+    "./skills"
+  ],
+  "author": {
+    "name": "InnovationMachine",
+    "email": "stanislav.usoltsev@gmail.com"
+  }
+}

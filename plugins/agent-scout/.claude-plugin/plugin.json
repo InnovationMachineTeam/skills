@@ -1,0 +1,13 @@
+{
+  "name": "agent-scout",
+  "displayName": "Agent Scout",
+  "version": "1.0.0",
+  "description": "Identifies and prioritizes justified opportunities for one agent or subagent from tasks, sessions, code, documents, incidents and recurring work, then checks whether code, a model call, workflow, existing agent, team or Agentic OS...",
+  "skills": [
+    "./skills"
+  ],
+  "author": {
+    "name": "InnovationMachine",
+    "email": "stanislav.usoltsev@gmail.com"
+  }
+}

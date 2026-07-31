@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "skill": "agent-scout",
+  "native_auto_install": {
+    "claude-code": true,
+    "codex": false,
+    "cursor": false
+  },
+  "required": [],
+  "recommended": [
+    {
+      "name": "agent-best-practices",
+      "minimum_version": "1.0.0",
+      "reason": "Provides selection, lifecycle and maintenance criteria."
+    },
+    {
+      "name": "agent-context",
+      "minimum_version": "1.0.0",
+      "reason": "Recommended when the opportunity decision needs additional evidence."
+    }
+  ],
+  "install_order": [
+    "agent-scout"
+  ]
+}

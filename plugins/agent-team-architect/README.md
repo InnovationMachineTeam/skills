@@ -1,6 +1,6 @@
 # Agent Team Architect
 
-Designs the smallest justified team of agents, subagents, specialists, an orchestrator, and human responsibilities from a task and capability graph
+Designs the smallest justified greenfield team of agents, subagents, specialists, an orchestrator, and human responsibilities from a task and capability graph, or redesigns an asset already defined as a team
 
 This generated package is installable by Claude Code, Codex, and Cursor. Its canonical source lives under `skills/` in the repository root; do not edit this bundle directly.
 

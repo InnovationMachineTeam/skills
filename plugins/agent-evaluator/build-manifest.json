@@ -1,0 +1,73 @@
+{
+  "format": 2,
+  "plugin": "agent-evaluator",
+  "version": "1.0.0",
+  "source_layout": "skills/",
+  "bundle_layout": "skills/<name>/",
+  "platforms": [
+    "claude-code",
+    "codex",
+    "cursor"
+  ],
+  "skills": [
+    "agent-evaluator"
+  ],
+  "excluded_patterns": [
+    ".DS_Store",
+    "__pycache__",
+    "*.pyc",
+    ".git"
+  ],
+  "files": [
+    {
+      "path": ".claude-plugin/plugin.json",
+      "sha256": "1af3e3ad44d75ab4d6492843916644abf986a598dc204bcb2a1da8572b2c9d22",
+      "bytes": 386
+    },
+    {
+      "path": ".codex-plugin/plugin.json",
+      "sha256": "c0afa2029deafda80b0fa1db959fda83255f05eba03aad297a0397064cfd2e23",
+      "bytes": 1272
+    },
+    {
+      "path": ".cursor-plugin/plugin.json",
+      "sha256": "1a1199409e0d1c5a1261d0576dd73de9bea97bcbc4c504de94f66910ded705ab",
+      "bytes": 588
+    },
+    {
+      "path": "README.md",
+      "sha256": "cf472743d27eb7e392f97285e4c8045beb4add84b557137d82f576a36afc47a0",
+      "bytes": 483
+    },
+    {
+      "path": "skills/agent-evaluator/SKILL.md",
+      "sha256": "e318794d449d52ff1646ba1564db78abdbaa6a194c7b08472f143c97122903b1",
+      "bytes": 2870
+    },
+    {
+      "path": "skills/agent-evaluator/agents/openai.yaml",
+      "sha256": "94c159fdc5f99c55b7ffbf5febf49c7c28680fd6d891f5ce4cf57d1e0f010fa1",
+      "bytes": 200
+    },
+    {
+      "path": "skills/agent-evaluator/evals/behavior.json",
+      "sha256": "256056d33b3ca69964847508b6c26db4c74b78111e63bcdde96bcc1ed4442c01",
+      "bytes": 1626
+    },
+    {
+      "path": "skills/agent-evaluator/evals/routing.json",
+      "sha256": "85f9cd8a0f723d094522f881681bd1fd35e87395f2fde7adde4f331b13951ad2",
+      "bytes": 1660
+    },
+    {
+      "path": "skills/agent-evaluator/references/evaluation-contract.md",
+      "sha256": "dc5c43d31c7cc20007bb9d503bb3194984218d07133fc39f02f270fc3e5e5ccc",
+      "bytes": 844
+    },
+    {
+      "path": "skills/agent-evaluator/scripts/validate_agent_eval_plan.py",
+      "sha256": "86ac4acfd8fe8167d27c6fb41d7ef07a73828f17880ae9dfd595a06b3a43b588",
+      "bytes": 1618
+    }
+  ]
+}

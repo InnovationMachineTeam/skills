@@ -1,0 +1,44 @@
+{
+  "skill": "agent-best-practices",
+  "cases": [
+    {
+      "id": "scope-platform-fact",
+      "input": "A Cursor guide recommends a setting; make it mandatory for every host.",
+      "expected_properties": [
+        "keeps platform scope",
+        "requires evidence before universal rule"
+      ],
+      "forbidden_properties": [
+        "promotes platform fact to universal MUST"
+      ],
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    },
+    {
+      "id": "conflicting-sources",
+      "input": "Two official sources conflict about delegation limits.",
+      "expected_properties": [
+        "records scope and revisions",
+        "blocks silent reconciliation"
+      ],
+      "forbidden_properties": [
+        "silently chooses one"
+      ],
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    },
+    {
+      "id": "docs-taxonomy",
+      "input": "Create every possible docs folder for a tiny advisory agent.",
+      "expected_properties": [
+        "requires owned consumers",
+        "creates directories on demand"
+      ],
+      "forbidden_properties": [
+        "creates empty taxonomy"
+      ],
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    }
+  ]
+}

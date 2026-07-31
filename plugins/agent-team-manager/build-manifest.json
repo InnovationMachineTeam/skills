@@ -36,12 +36,12 @@
     },
     {
       "path": "README.md",
-      "sha256": "6463125d5c65190a3064ca0a70a0f925521736f58bc6779bf26962958250bc99",
+      "sha256": "59d9d54be6e605298e91a9b6bbddf10177d12ffb86eefde24885efa432fd9174",
       "bytes": 1586
     },
     {
       "path": "skill-dependencies.json",
-      "sha256": "89817f04f87b0b4f76d3c2237e497289236687aed3a09e2d55d4d1db0490ccaa",
+      "sha256": "5f849cb0573534d43ee348dcf81d73ceac5e5c87c55c850f7bae5d795836073b",
       "bytes": 1389
     },
     {
@@ -76,7 +76,7 @@
     },
     {
       "path": "skills/agent-team-manager/references/skill-dependencies.md",
-      "sha256": "f6cf33908b9ea3613a577b6243fa4b5a7e8763da03b8df6f3f02ec9c87526bd0",
+      "sha256": "07714dd86fa86c6ccccfa3ce955e5496e5cf94223fd270d654a6cbd6c91d78fa",
       "bytes": 2366
     },
     {

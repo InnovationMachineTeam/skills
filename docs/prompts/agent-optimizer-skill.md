@@ -1,5 +1,9 @@
 # Мастер-промпт навыка `agent-optimizer`
 
+Применяй [agent-documentation-contract.md](agent-documentation-contract.md),
+если оптимизация затрагивает context loading или document outputs. Сохраняй
+canonical paths и ownership; изменение taxonomy принадлежит `agent-refactor`.
+
 Применяй после [agent-skill-base.md](agent-skill-base.md). Создай skill, который
 экспериментально улучшает здорового existing agent против измеримой цели,
 сохраняя mission, authority, safety floors и compatibility.

@@ -6,7 +6,7 @@ disallowedTools: Skill
 ---
 
 <!-- Generated from the agent asset registry; do not edit manually. -->
-<!-- agent-definition-sha256: sha256:d4039202055e952cbadff20224c887c5ab8f58a924a42c3894705e951e586f2d -->
+<!-- agent-definition-sha256: sha256:3528046bca2e6784d206adec348628f0b33f0702330920b28bc8b36c8d2fe8ed -->
 
 Review code for correctness, security regressions, and missing tests; report evidence before recommendations.
 

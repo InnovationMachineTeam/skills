@@ -16,7 +16,7 @@ Required:
 
 - `agent-model-selector>=1.0.0` — The design route delegates current model selection and evidence.
 - `agent-skill-mapper>=1.0.0` — The map-capabilities route delegates governed agent-skill bindings.
-- `agent-team-architect>=1.0.0` — The design route delegates team architecture.
+- `agent-team-architect>=1.1.0` — The design route delegates team architecture.
 - `agent-team-builder>=1.0.0` — The build route delegates staged team materialization.
 - `agent-team-orchestrator>=1.0.0` — The operate route delegates runtime task orchestration.
 

@@ -1,7 +1,7 @@
 {
   "format": 2,
   "plugin": "im-skills-all",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "source_layout": "skills/",
   "bundle_layout": "skills/<name>/",
   "platforms": [
@@ -10,15 +10,25 @@
     "cursor"
   ],
   "skills": [
+    "agent-architect",
+    "agent-best-practices",
+    "agent-builder",
+    "agent-context",
+    "agent-doctor",
+    "agent-evaluator",
     "agent-knowledge-manager",
+    "agent-manager",
     "agent-model-selector",
     "agent-observer",
+    "agent-optimizer",
     "agent-os-architect",
     "agent-os-bootstrapper",
     "agent-os-evaluator",
     "agent-policy-manager",
+    "agent-refactor",
     "agent-registry-manager",
     "agent-runtime-manager",
+    "agent-scout",
     "agent-skill-mapper",
     "agent-team-architect",
     "agent-team-builder",
@@ -48,23 +58,348 @@
   "files": [
     {
       "path": ".claude-plugin/plugin.json",
-      "sha256": "837f2857a06862d91e8f688d341908ed8c77fac19e2a429136cee09661d8f6e3",
+      "sha256": "af4868d97b0a6a77789db2be646a972e108b7cd58922c5bb3bed335b809152b6",
       "bytes": 288
     },
     {
       "path": ".codex-plugin/plugin.json",
-      "sha256": "6167613cfb774d85ce0cb4cc3a14ca85c680f173bbb6a509a7c93768dbc2982c",
+      "sha256": "3d2585399279fd63a182604607bc4d7b90a5360858af264f657611303c3d43bf",
       "bytes": 1046
     },
     {
       "path": ".cursor-plugin/plugin.json",
-      "sha256": "ba8232a4f724111291b86b93eae5d46921c1a9c29de9510e170e2b6b75942245",
+      "sha256": "01f9d5923045518ecdb8b26e0fe38eba2362b90dfb252d0e08bf6566096caeff",
       "bytes": 528
     },
     {
       "path": "README.md",
-      "sha256": "bac5e4272d4985f8dbf3892ddfed1bd7f621047975b1330ae37af1da9cf27443",
-      "bytes": 1000
+      "sha256": "5a6e8de5b5da75301d7d76c930998593212e6cbfd380fca2f560f7cb33a591a2",
+      "bytes": 1191
+    },
+    {
+      "path": "skills/agent-architect/SKILL.md",
+      "sha256": "2ef33fb16764c1c9182457722c3bc6cdba0cac0bd80f6fe8836236a9f8ed52ec",
+      "bytes": 3275
+    },
+    {
+      "path": "skills/agent-architect/agents/openai.yaml",
+      "sha256": "13f462cc10bafdc18f01ca23866a998568384bfd3947e8a1e93c711061f104d7",
+      "bytes": 203
+    },
+    {
+      "path": "skills/agent-architect/evals/behavior.json",
+      "sha256": "d6ac52dc4f7210768dccafe1e20e863ae2765e79cec9860360900e6d7155ac54",
+      "bytes": 1675
+    },
+    {
+      "path": "skills/agent-architect/evals/routing.json",
+      "sha256": "d25a8e98aa404075648c601ae68571341997ce350b93a6e5e4e0b7e649affa22",
+      "bytes": 1673
+    },
+    {
+      "path": "skills/agent-architect/references/agent-contract.md",
+      "sha256": "68240d12c882268091bae744f59ff203d9e84c68344347e07c97e35acae85581",
+      "bytes": 1091
+    },
+    {
+      "path": "skills/agent-architect/references/documentation-contract.md",
+      "sha256": "c8029f810f3ec49c061bc1b27900faa0b1cac8bdaa00fa6b85f1d696cffade5f",
+      "bytes": 1201
+    },
+    {
+      "path": "skills/agent-architect/references/skill-dependencies.md",
+      "sha256": "05f81684cdef48ad01821922f62144fbb4d3294bc26a31ae55a9e74b2a88d56f",
+      "bytes": 1809
+    },
+    {
+      "path": "skills/agent-architect/scripts/validate_agent_candidate.py",
+      "sha256": "32c8304bd3c43da8d96754488e03ac0a9cd578e4a7e67f4d335a571e7d597132",
+      "bytes": 3626
+    },
+    {
+      "path": "skills/agent-best-practices/SKILL.md",
+      "sha256": "6d9d4acdd3a87d6b8c908dfbc0c684e2589fd061d485d21e5265ae8e271fb3b5",
+      "bytes": 2991
+    },
+    {
+      "path": "skills/agent-best-practices/agents/openai.yaml",
+      "sha256": "51a8b0e0f5fdc8185b4420683cde4bda26921eaa32f7a786ed13d87991a976a4",
+      "bytes": 224
+    },
+    {
+      "path": "skills/agent-best-practices/best-practices/01-foundations-and-selection.md",
+      "sha256": "85143a28ab5b0d4fb0137908ee790799fd7d3adbab71a6560e28d0cd0260ddc5",
+      "bytes": 9882
+    },
+    {
+      "path": "skills/agent-best-practices/best-practices/02-agent-design-and-contracts.md",
+      "sha256": "ede2f461b5ead685af6e456f3b74beac1a63dbdd1421fe95d556601e076637d8",
+      "bytes": 7897
+    },
+    {
+      "path": "skills/agent-best-practices/best-practices/03-subagents-and-delegation.md",
+      "sha256": "bae9c81f978ab6796894fbca131d0fd41ee28e79587364f7e46ec042294cd678",
+      "bytes": 8300
+    },
+    {
+      "path": "skills/agent-best-practices/best-practices/04-orchestration-and-agent-teams.md",
+      "sha256": "d176621fee3742727ad83144fc68dc6dd0ed12e8218248d750c6cea2e9d62c1d",
+      "bytes": 8825
+    },
+    {
+      "path": "skills/agent-best-practices/best-practices/05-agent-os-reference-architecture.md",
+      "sha256": "b020e9d4c4af4fd010b7771d8c23bfd215591da2ca8446d4a3f3690b54f84fde",
+      "bytes": 7484
+    },
+    {
+      "path": "skills/agent-best-practices/best-practices/06-context-memory-and-state.md",
+      "sha256": "684f7a8cf66c89a33440d695d5c9c4bb18ad4b9311c1949def1ff7835dbb3a67",
+      "bytes": 6124
+    },
+    {
+      "path": "skills/agent-best-practices/best-practices/07-documentation-as-operating-system.md",
+      "sha256": "412a8f03c4b59545e8af1e845c85fed7b9f4c911e062dfeb30466394de73be5d",
+      "bytes": 10524
+    },
+    {
+      "path": "skills/agent-best-practices/best-practices/08-docs-catalog-and-templates.md",
+      "sha256": "5f3b78ebd53755b21469c5ceefa60abad1225a3a357b19a0f2d1007027be60fd",
+      "bytes": 6537
+    },
+    {
+      "path": "skills/agent-best-practices/best-practices/09-agent-role-catalog.md",
+      "sha256": "92057b1fbfc8febc3884253d27185c453037840898392556f5feea29d9d5d364",
+      "bytes": 8828
+    },
+    {
+      "path": "skills/agent-best-practices/best-practices/10-lifecycle-and-orchestration-processes.md",
+      "sha256": "702ce3f8fd2c80b998a29179fc1377bda87d5f7703c9f0420dcc674502668d53",
+      "bytes": 9314
+    },
+    {
+      "path": "skills/agent-best-practices/best-practices/11-requirements-and-quality-attributes.md",
+      "sha256": "9fa23f7e0ef624184e75c33f629dc1ebd040a9f425467a605b65c15ccff88eb2",
+      "bytes": 5785
+    },
+    {
+      "path": "skills/agent-best-practices/best-practices/12-task-tracking-monitoring-and-observability.md",
+      "sha256": "c21ce00e7ecf4aa24103aa022fd26502d65c8a3dceb03d11abc4f36143399bec",
+      "bytes": 6211
+    },
+    {
+      "path": "skills/agent-best-practices/best-practices/13-security-approvals-and-governance.md",
+      "sha256": "6551b14dd690625d30081b6b27b9832cd1653f8a6a88b4e08dc161206f097076",
+      "bytes": 7743
+    },
+    {
+      "path": "skills/agent-best-practices/best-practices/14-evaluation-and-continuous-improvement.md",
+      "sha256": "50f29c43a2c015450ba235a9aaa281b046c1221eb7bd185d2390538faced09ad",
+      "bytes": 6914
+    },
+    {
+      "path": "skills/agent-best-practices/best-practices/15-implementation-case-studies.md",
+      "sha256": "46b3a9e3acafaf8ecd831761762f524aa3f7aff58a43fe937076e5f7e4f37409",
+      "bytes": 11686
+    },
+    {
+      "path": "skills/agent-best-practices/best-practices/16-conflicts-and-resolutions.md",
+      "sha256": "991dc7cfcb5e19363d1a4d70f0c5836cd52dffeff05ee4464e3a020d077ba0c1",
+      "bytes": 8372
+    },
+    {
+      "path": "skills/agent-best-practices/best-practices/17-agent-and-orchestration-pattern-catalog.md",
+      "sha256": "f52287d697ff21aff56828d77df7a89200d9584196c51720d281d7c6daf8b92d",
+      "bytes": 19176
+    },
+    {
+      "path": "skills/agent-best-practices/best-practices/18-agent-os-and-runtime-pattern-catalog.md",
+      "sha256": "8a6034bf26d5df82f1670bc10fb1ee60168294a840d67f11c80f0ceed9db4ab7",
+      "bytes": 12516
+    },
+    {
+      "path": "skills/agent-best-practices/best-practices/19-skill-design-pattern-catalog.md",
+      "sha256": "523ce8da7326fde63cd3d17471a7a69cb26f0c8b962ee5952ee59529f0d2ef4d",
+      "bytes": 13105
+    },
+    {
+      "path": "skills/agent-best-practices/best-practices/20-agentic-cycles-and-lifecycles.md",
+      "sha256": "80b2456ba1731016ad85ae8047a1228de174bd6ab7b9867d612dfc3fe81e495d",
+      "bytes": 15303
+    },
+    {
+      "path": "skills/agent-best-practices/best-practices/21-role-patterns-and-separation-of-duties.md",
+      "sha256": "7c5515ce280e2af2a8ae36142ed27c250d634a88fc8e7cae74b2f56fd85ab616",
+      "bytes": 13900
+    },
+    {
+      "path": "skills/agent-best-practices/best-practices/22-operating-model-and-pattern-selection.md",
+      "sha256": "b9bdcfd2b5aadc569940442fa7dad6fe9b856c78251ff517d08ab304ab3f5262",
+      "bytes": 12084
+    },
+    {
+      "path": "skills/agent-best-practices/best-practices/README.md",
+      "sha256": "2bba64f82c81960db1a69c0fc75f8b4bcf7a3c921886230d56a8de95d2c17213",
+      "bytes": 8111
+    },
+    {
+      "path": "skills/agent-best-practices/best-practices/sources-frameworks.md",
+      "sha256": "8449434c52fa670a747b5116afb11eb7e998360fbe80d42419a35e1976f1f7dd",
+      "bytes": 4464
+    },
+    {
+      "path": "skills/agent-best-practices/best-practices/sources-patterns-and-cycles.md",
+      "sha256": "8fe7ee8666fe88752993b0272868347a8716c39be339be6dbfe11d849db4aa19",
+      "bytes": 8693
+    },
+    {
+      "path": "skills/agent-best-practices/best-practices/sources-platforms.md",
+      "sha256": "95eca5ac569cbee02a591f257fdf9153fc257205def9054a8b1603a4fcf64d2d",
+      "bytes": 9190
+    },
+    {
+      "path": "skills/agent-best-practices/best-practices/sources-standards-and-docs.md",
+      "sha256": "b3f8f103121b8c9705905e284feabceb0b938cc7d38c4e9f027a619c4aa7f2c3",
+      "bytes": 5007
+    },
+    {
+      "path": "skills/agent-best-practices/evals/behavior.json",
+      "sha256": "0fec437baef46553700613c4cec3d6bb9c930728d1a668f3bdf4e1f79360c117",
+      "bytes": 1238
+    },
+    {
+      "path": "skills/agent-best-practices/evals/routing.json",
+      "sha256": "70ec30d7e1507cd000c5899549b02788c3fe397daf6817bdb7a4c8e6411bf5cf",
+      "bytes": 1375
+    },
+    {
+      "path": "skills/agent-best-practices/scripts/validate_corpus.py",
+      "sha256": "9c1612d3f5d5df0f005d21c3f2a7139c2b0d594086a5f1ccbc91b388384f54c2",
+      "bytes": 1541
+    },
+    {
+      "path": "skills/agent-builder/SKILL.md",
+      "sha256": "5559400790acac237e0f141635e62e31456c217f430e66fb7bb40d3fd83ca8db",
+      "bytes": 2914
+    },
+    {
+      "path": "skills/agent-builder/agents/openai.yaml",
+      "sha256": "a58583bf4ab7f8a162b12bb1a229afda91d5d2bcca7a1b0ea99127c7f8ed4c82",
+      "bytes": 220
+    },
+    {
+      "path": "skills/agent-builder/evals/behavior.json",
+      "sha256": "2b719b923fc7a9c7c2ed7215d362b082e7f0908d1e9e90c547af56bb73be7483",
+      "bytes": 1571
+    },
+    {
+      "path": "skills/agent-builder/evals/routing.json",
+      "sha256": "f182087d36755b826b4a03bf672a17af74a158ff8495a5d9ca494e18ff4dd89d",
+      "bytes": 1674
+    },
+    {
+      "path": "skills/agent-builder/references/scenario-catalog.md",
+      "sha256": "f240711e98af50b9e31281a7d765d55d4dec5777f0d4e76089bc5140019fa9f0",
+      "bytes": 964
+    },
+    {
+      "path": "skills/agent-builder/references/skill-dependencies.md",
+      "sha256": "cf6b2c5c1a9136cc6bab1d7fd62793b90af16188f9e98c7684a81cbf1d2f2cf7",
+      "bytes": 2705
+    },
+    {
+      "path": "skills/agent-builder/scripts/validate_agent_build_state.py",
+      "sha256": "aa392703a4afb5033f1fffc4d70e905ff232c0f89813234137707697ef51ce8f",
+      "bytes": 2959
+    },
+    {
+      "path": "skills/agent-context/SKILL.md",
+      "sha256": "ec07b07366cbe9c3e7e3d3e577635e156cbcb0d84f95ab52f38fc0915cc67234",
+      "bytes": 2644
+    },
+    {
+      "path": "skills/agent-context/agents/openai.yaml",
+      "sha256": "ecefb0bcb8498ef933fbef640da1614d4abe3f6e78386560a45ae81efac6907f",
+      "bytes": 199
+    },
+    {
+      "path": "skills/agent-context/evals/behavior.json",
+      "sha256": "8418ae8f738af32d8bcd844cff4fe4da1b36aa5615af328d08c35eabebcb7d7c",
+      "bytes": 1216
+    },
+    {
+      "path": "skills/agent-context/evals/routing.json",
+      "sha256": "91047d72d60a7030115f1c2307a4b216f53e3c3615d0e35ea290a494864501e2",
+      "bytes": 1396
+    },
+    {
+      "path": "skills/agent-context/references/context-contract.md",
+      "sha256": "b143f66459bb8acc4e13dc0290e8ebe6c5cb3783a09254a337c6678d9b97d0d2",
+      "bytes": 690
+    },
+    {
+      "path": "skills/agent-context/references/skill-dependencies.md",
+      "sha256": "cdcb5b9e4ccc31e747e31e9a094b0f4d6e1f430d12ecef6742fe91834b570b27",
+      "bytes": 1781
+    },
+    {
+      "path": "skills/agent-doctor/SKILL.md",
+      "sha256": "0df7f7693f2cb981daa70e4a459a4c95f116e52e9bb4cff39ad30cda2551b544",
+      "bytes": 2569
+    },
+    {
+      "path": "skills/agent-doctor/agents/openai.yaml",
+      "sha256": "80dd46ffd4bba314b3d0d0a15135bbfe548ec09256263d9a6f3ea12e2d857142",
+      "bytes": 224
+    },
+    {
+      "path": "skills/agent-doctor/evals/behavior.json",
+      "sha256": "0f3f7f9fd3552f6c7206842da3845634f78bee42530c7a66aa7a23d46286d778",
+      "bytes": 1214
+    },
+    {
+      "path": "skills/agent-doctor/evals/routing.json",
+      "sha256": "f2d366e34b86025d8054efa64639ade0238fc0e897e90d380db947e0080ac736",
+      "bytes": 1415
+    },
+    {
+      "path": "skills/agent-doctor/references/diagnosis-contract.md",
+      "sha256": "01ef256187b60682540cf7dcc75f87aa64e99782d62bd96c602abadb670254e2",
+      "bytes": 600
+    },
+    {
+      "path": "skills/agent-doctor/references/skill-dependencies.md",
+      "sha256": "cbc8481339e36ed934ad825415ea386d683b601ebd9dfd0e67dc113e165415a3",
+      "bytes": 1556
+    },
+    {
+      "path": "skills/agent-evaluator/SKILL.md",
+      "sha256": "e318794d449d52ff1646ba1564db78abdbaa6a194c7b08472f143c97122903b1",
+      "bytes": 2870
+    },
+    {
+      "path": "skills/agent-evaluator/agents/openai.yaml",
+      "sha256": "94c159fdc5f99c55b7ffbf5febf49c7c28680fd6d891f5ce4cf57d1e0f010fa1",
+      "bytes": 200
+    },
+    {
+      "path": "skills/agent-evaluator/evals/behavior.json",
+      "sha256": "256056d33b3ca69964847508b6c26db4c74b78111e63bcdde96bcc1ed4442c01",
+      "bytes": 1626
+    },
+    {
+      "path": "skills/agent-evaluator/evals/routing.json",
+      "sha256": "85f9cd8a0f723d094522f881681bd1fd35e87395f2fde7adde4f331b13951ad2",
+      "bytes": 1660
+    },
+    {
+      "path": "skills/agent-evaluator/references/evaluation-contract.md",
+      "sha256": "dc5c43d31c7cc20007bb9d503bb3194984218d07133fc39f02f270fc3e5e5ccc",
+      "bytes": 844
+    },
+    {
+      "path": "skills/agent-evaluator/scripts/validate_agent_eval_plan.py",
+      "sha256": "86ac4acfd8fe8167d27c6fb41d7ef07a73828f17880ae9dfd595a06b3a43b588",
+      "bytes": 1618
     },
     {
       "path": "skills/agent-knowledge-manager/SKILL.md",
@@ -105,6 +440,36 @@
       "path": "skills/agent-knowledge-manager/scripts/check_evals.py",
       "sha256": "3b52284ad985b2efe056d9798147b3f3a26eebc3c40e84c52149673e47e6a2f5",
       "bytes": 2478
+    },
+    {
+      "path": "skills/agent-manager/SKILL.md",
+      "sha256": "e60779004bf20eec0dc955d04f3ac8faedacb4ab2a411db2d727bfb69d25efdd",
+      "bytes": 2714
+    },
+    {
+      "path": "skills/agent-manager/agents/openai.yaml",
+      "sha256": "5c666ee2ca6a9576eccba09e7e62a9ccb89738afad5899ee5a35b3e6aa7747a9",
+      "bytes": 201
+    },
+    {
+      "path": "skills/agent-manager/evals/behavior.json",
+      "sha256": "e1dc64a50b0ba2761d6c20e8c607afdaf2b1725d032b36a2b71f4277b47964d6",
+      "bytes": 1244
+    },
+    {
+      "path": "skills/agent-manager/evals/routing.json",
+      "sha256": "ce6b2a14448461cf59e46f8cf947f1434e878b8c22b7f5b2f72705aad3d6783f",
+      "bytes": 1326
+    },
+    {
+      "path": "skills/agent-manager/references/lifecycle-contract.md",
+      "sha256": "21ebc40fb2981b60bfd201bedc160dd9e2392f0a924112376ff985c798c4e2f2",
+      "bytes": 678
+    },
+    {
+      "path": "skills/agent-manager/references/skill-dependencies.md",
+      "sha256": "22875ab209ba825bd0062b2cde4faaa4d9dfd6197e3552e8e20824ab0d5235da",
+      "bytes": 1854
     },
     {
       "path": "skills/agent-model-selector/SKILL.md",
@@ -175,6 +540,36 @@
       "path": "skills/agent-observer/scripts/validate_trace_bundle.py",
       "sha256": "b534a179455304c0454cf812695eeba70f5667babb94b27e4d91319732cc6d82",
       "bytes": 2037
+    },
+    {
+      "path": "skills/agent-optimizer/SKILL.md",
+      "sha256": "ae37ccbfceed26356b3fafe1308b9c2c25f5f2e270c3ff964e0a9124dacb3572",
+      "bytes": 2329
+    },
+    {
+      "path": "skills/agent-optimizer/agents/openai.yaml",
+      "sha256": "0d07af85c963686caaf06f683343036f56453ce8b470e61a4d64a02b39bf69df",
+      "bytes": 213
+    },
+    {
+      "path": "skills/agent-optimizer/evals/behavior.json",
+      "sha256": "b47069f4029229460bd34b948c69238741121989eb25c5953ab4d634ada89a01",
+      "bytes": 1184
+    },
+    {
+      "path": "skills/agent-optimizer/evals/routing.json",
+      "sha256": "5424ce623b27bc0a966542f865da58c2ae3252060b428bc399ca8e187969e940",
+      "bytes": 1414
+    },
+    {
+      "path": "skills/agent-optimizer/references/optimization-contract.md",
+      "sha256": "d96497c7727f150f8b4f9c2309082d9aa4c768ab85b1ebec884bb42544fe2285",
+      "bytes": 553
+    },
+    {
+      "path": "skills/agent-optimizer/references/skill-dependencies.md",
+      "sha256": "655255ccc9c7bbd646f06c570b5a4c6f80e0bbfd430ce1a7351bdfad9f5cce00",
+      "bytes": 1622
     },
     {
       "path": "skills/agent-os-architect/SKILL.md",
@@ -297,6 +692,36 @@
       "bytes": 1596
     },
     {
+      "path": "skills/agent-refactor/SKILL.md",
+      "sha256": "761d790fb141a1a927e20f318a9beded967edfce3cc53857dc81dc9be9ae532f",
+      "bytes": 2683
+    },
+    {
+      "path": "skills/agent-refactor/agents/openai.yaml",
+      "sha256": "c7099ca4bbb9f77eded173c1018a665a1bb328c5749c2b68a93df1ed2579c171",
+      "bytes": 205
+    },
+    {
+      "path": "skills/agent-refactor/evals/behavior.json",
+      "sha256": "cf087824abe468b34b692228f2b5e49e31453b2371cf6647b6f639365dab8a6e",
+      "bytes": 1249
+    },
+    {
+      "path": "skills/agent-refactor/evals/routing.json",
+      "sha256": "b85108a7c80e17ae80d1f03b3fca0e61569cbc13e62859d8ed5c698ba5c8aaf3",
+      "bytes": 1741
+    },
+    {
+      "path": "skills/agent-refactor/references/refactor-contract.md",
+      "sha256": "521ff6f60e4bb9ba5559de033a645d0b62350b972a5475c57f85f51050739724",
+      "bytes": 686
+    },
+    {
+      "path": "skills/agent-refactor/references/skill-dependencies.md",
+      "sha256": "eca6b5b78d21d380a33270f423981ee3c5f2884a463531d960262c00d81a0d03",
+      "bytes": 2065
+    },
+    {
       "path": "skills/agent-registry-manager/SKILL.md",
       "sha256": "95bd5b13e1609f5f5d0e7cae2454ac49e44ea1fbd315298287a68fcd8b97f4a0",
       "bytes": 1914
@@ -357,6 +782,36 @@
       "bytes": 2229
     },
     {
+      "path": "skills/agent-scout/SKILL.md",
+      "sha256": "ac2329fe040585cb8f880d3414b7bb74e401e8e380c2983e03bb37f986ae0224",
+      "bytes": 2490
+    },
+    {
+      "path": "skills/agent-scout/agents/openai.yaml",
+      "sha256": "7a2228ef1029055ac60f23a88556311ce7567a0da627792514261c43abf2c5df",
+      "bytes": 215
+    },
+    {
+      "path": "skills/agent-scout/evals/behavior.json",
+      "sha256": "991617724cc68c4649d89e56d7af6120953a2fcfe10ceb36759d3599ff754386",
+      "bytes": 1162
+    },
+    {
+      "path": "skills/agent-scout/evals/routing.json",
+      "sha256": "d1cf0a47a0bbba0a283cf306f491b0344361dd58f562eaa0bb21416bd653e156",
+      "bytes": 1360
+    },
+    {
+      "path": "skills/agent-scout/references/skill-dependencies.md",
+      "sha256": "d2cd1801a3fd7571019a4220d99b8ea44af1165378cb7cc1877ccbe0650fb05f",
+      "bytes": 1651
+    },
+    {
+      "path": "skills/agent-scout/references/worth-and-coverage.md",
+      "sha256": "e9f3e04e54fa24bda76bdbd7c574654eb304e5e228b7a6754e01d8d5874339b6",
+      "bytes": 629
+    },
+    {
       "path": "skills/agent-skill-mapper/SKILL.md",
       "sha256": "86bd7a3fc3129068555e64485e5e3e1442c40b7bb8043446704f726fcd997338",
       "bytes": 3465
@@ -398,8 +853,8 @@
     },
     {
       "path": "skills/agent-team-architect/SKILL.md",
-      "sha256": "6cdf3fcb9f8f0ce782d86b5755ec6b480099d8cf234fa57a5e304aefc5f926dc",
-      "bytes": 4018
+      "sha256": "b6687fb88d329e7b65e3fbd09712f1c6800907d9054982528cfb1ca256f6870c",
+      "bytes": 4315
     },
     {
       "path": "skills/agent-team-architect/agents/openai.yaml",
@@ -413,8 +868,8 @@
     },
     {
       "path": "skills/agent-team-architect/evals/routing.json",
-      "sha256": "f1cb2eac520f307cd7c7a6ddeb71c27b8cbe36f4965c71725c4b312f28e57db0",
-      "bytes": 1263
+      "sha256": "9256b5e824b06578ca053a42606974e6261d5185fbd82cfbfb09e539aa032aeb",
+      "bytes": 1503
     },
     {
       "path": "skills/agent-team-architect/references/team-patterns-and-boundaries.md",
@@ -508,7 +963,7 @@
     },
     {
       "path": "skills/agent-team-manager/references/skill-dependencies.md",
-      "sha256": "f6cf33908b9ea3613a577b6243fa4b5a7e8763da03b8df6f3f02ec9c87526bd0",
+      "sha256": "07714dd86fa86c6ccccfa3ce955e5496e5cf94223fd270d654a6cbd6c91d78fa",
       "bytes": 2366
     },
     {

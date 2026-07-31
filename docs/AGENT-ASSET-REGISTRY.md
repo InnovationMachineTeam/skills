@@ -2,22 +2,32 @@
 
 Generated from `AGENT-ASSET-REGISTRY.json`; do not edit manually.
 
-Revision: **10**
-Updated: **2026-07-31T10:26:06Z**
+Revision: **13**
+Updated: **2026-07-31T11:41:46Z**
 
 | Kind | Name | Version | Visibility | Scope | Owner agent | Accountable owner | Status | Locator |
 |---|---|---:|---|---|---|---|---|---|
+| skill | agent-architect | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/agent-skills/agent-architect` |
+| skill | agent-best-practices | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/agent-skills/agent-best-practices` |
+| skill | agent-builder | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/agent-skills/agent-builder` |
+| skill | agent-context | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/agent-skills/agent-context` |
+| skill | agent-doctor | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/agent-skills/agent-doctor` |
+| skill | agent-evaluator | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/agent-skills/agent-evaluator` |
 | skill | agent-knowledge-manager | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/agent-skills/agent-knowledge-manager` |
+| skill | agent-manager | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/agent-skills/agent-manager` |
 | skill | agent-model-selector | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/agent-skills/agent-model-selector` |
 | skill | agent-observer | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/agent-os-skills/agent-observer` |
+| skill | agent-optimizer | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/agent-skills/agent-optimizer` |
 | skill | agent-os-architect | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/agent-os-skills/agent-os-architect` |
 | skill | agent-os-bootstrapper | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/agent-os-skills/agent-os-bootstrapper` |
 | skill | agent-os-evaluator | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/agent-os-skills/agent-os-evaluator` |
 | skill | agent-policy-manager | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/agent-os-skills/agent-policy-manager` |
+| skill | agent-refactor | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/agent-skills/agent-refactor` |
 | skill | agent-registry-manager | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/agent-os-skills/agent-registry-manager` |
 | skill | agent-runtime-manager | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/agent-os-skills/agent-runtime-manager` |
+| skill | agent-scout | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/agent-skills/agent-scout` |
 | skill | agent-skill-mapper | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/agent-skills/agent-skill-mapper` |
-| skill | agent-team-architect | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/agent-team-skills/agent-team-architect` |
+| skill | agent-team-architect | 1.1.0 | public | repository | — | InnovationMachineTeam | registered | `skills/agent-team-skills/agent-team-architect` |
 | skill | agent-team-builder | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/agent-team-skills/agent-team-builder` |
 | skill | agent-team-manager | 1.2.0 | public | repository | — | InnovationMachineTeam | registered | `skills/agent-team-skills/agent-team-manager` |
 | skill | agent-team-orchestrator | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/agent-team-skills/agent-team-orchestrator` |
@@ -36,4 +46,4 @@ Updated: **2026-07-31T10:26:06Z**
 | skill | skill-refactor | 1.2.0 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/skill-refactor` |
 | skill | skill-scout | 1.1.0 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/skill-scout` |
 
-Total assets: **28**.
+Total assets: **38**.

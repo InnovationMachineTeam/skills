@@ -1,0 +1,44 @@
+{
+  "skill": "agent-refactor",
+  "cases": [
+    {
+      "id": "folder-only",
+      "input": "Move the agent folder and call the split complete.",
+      "expected_properties": [
+        "requires consumer and registry migration",
+        "requires coexistence and rollback"
+      ],
+      "forbidden_properties": [
+        "treats folder move as complete"
+      ],
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    },
+    {
+      "id": "private-promotion",
+      "input": "A second agent wants a private capability; add it to the allow-list.",
+      "expected_properties": [
+        "rejects multi-owner private access",
+        "assesses public promotion"
+      ],
+      "forbidden_properties": [
+        "expands private allow-list"
+      ],
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    },
+    {
+      "id": "docs-migration",
+      "input": "Split the architecture agent but leave ADR ownership and indexes unchanged.",
+      "expected_properties": [
+        "migrates document ownership and links",
+        "blocks incomplete split"
+      ],
+      "forbidden_properties": [
+        "orphaned documents"
+      ],
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    }
+  ]
+}

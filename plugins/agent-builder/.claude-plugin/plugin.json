@@ -1,0 +1,23 @@
+{
+  "name": "agent-builder",
+  "displayName": "Agent Builder",
+  "version": "1.0.0",
+  "description": "Orchestrates complete evidence-backed workflows for one agent or subagent across agent-scout, agent-context, agent-architect, agent-evaluator, agent-doctor… Companion skill plugins are required for full functionality; see README.md.",
+  "skills": [
+    "./skills"
+  ],
+  "author": {
+    "name": "InnovationMachine",
+    "email": "stanislav.usoltsev@gmail.com"
+  },
+  "dependencies": [
+    "agent-architect",
+    "agent-context",
+    "agent-doctor",
+    "agent-evaluator",
+    "agent-manager",
+    "agent-optimizer",
+    "agent-refactor",
+    "agent-scout"
+  ]
+}

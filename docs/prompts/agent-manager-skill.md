@@ -1,5 +1,9 @@
 # Мастер-промпт навыка `agent-manager`
 
+Применяй [agent-documentation-contract.md](agent-documentation-contract.md) как
+lifecycle gate: activation требует доступных canonical inputs и runbook, а
+retirement — transfer/supersession ownership и отсутствие живых ссылок.
+
 Применяй после [agent-skill-base.md](agent-skill-base.md). Создай lifecycle skill
 для inventory, registry, versions, rollout, suspension, migration и retirement
 agent definitions. Он не проектирует behavior и не выдаёт evaluation verdict.

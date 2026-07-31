@@ -1,0 +1,88 @@
+{
+  "format": 2,
+  "plugin": "agent-architect",
+  "version": "1.0.0",
+  "source_layout": "skills/",
+  "bundle_layout": "skills/<name>/",
+  "platforms": [
+    "claude-code",
+    "codex",
+    "cursor"
+  ],
+  "skills": [
+    "agent-architect"
+  ],
+  "excluded_patterns": [
+    ".DS_Store",
+    "__pycache__",
+    "*.pyc",
+    ".git"
+  ],
+  "files": [
+    {
+      "path": ".claude-plugin/plugin.json",
+      "sha256": "da531a27be27a1bc678333f27d32c62a8254366c96ef0c2b8b087dc33da8f1e2",
+      "bytes": 481
+    },
+    {
+      "path": ".codex-plugin/plugin.json",
+      "sha256": "9f7117a5ace20c2f39fccb38e6b4c3bbe81b4c93fc649710004b18a2fa67ac61",
+      "bytes": 1465
+    },
+    {
+      "path": ".cursor-plugin/plugin.json",
+      "sha256": "636f3300c7915b25e7cb6cc41a8cb38c1db20075f4f2ea10701b2103dd22b151",
+      "bytes": 689
+    },
+    {
+      "path": "README.md",
+      "sha256": "17adc1fead4a6efd9c7c9f7c8c672f80715a7646a9543fcfb3d164591d7a78b9",
+      "bytes": 1319
+    },
+    {
+      "path": "skill-dependencies.json",
+      "sha256": "efe4d1dcbcc32396031316cfa4bf4d28b22f149ae4182fb8914e2654e893b0b6",
+      "bytes": 776
+    },
+    {
+      "path": "skills/agent-architect/SKILL.md",
+      "sha256": "2ef33fb16764c1c9182457722c3bc6cdba0cac0bd80f6fe8836236a9f8ed52ec",
+      "bytes": 3275
+    },
+    {
+      "path": "skills/agent-architect/agents/openai.yaml",
+      "sha256": "13f462cc10bafdc18f01ca23866a998568384bfd3947e8a1e93c711061f104d7",
+      "bytes": 203
+    },
+    {
+      "path": "skills/agent-architect/evals/behavior.json",
+      "sha256": "d6ac52dc4f7210768dccafe1e20e863ae2765e79cec9860360900e6d7155ac54",
+      "bytes": 1675
+    },
+    {
+      "path": "skills/agent-architect/evals/routing.json",
+      "sha256": "d25a8e98aa404075648c601ae68571341997ce350b93a6e5e4e0b7e649affa22",
+      "bytes": 1673
+    },
+    {
+      "path": "skills/agent-architect/references/agent-contract.md",
+      "sha256": "68240d12c882268091bae744f59ff203d9e84c68344347e07c97e35acae85581",
+      "bytes": 1091
+    },
+    {
+      "path": "skills/agent-architect/references/documentation-contract.md",
+      "sha256": "c8029f810f3ec49c061bc1b27900faa0b1cac8bdaa00fa6b85f1d696cffade5f",
+      "bytes": 1201
+    },
+    {
+      "path": "skills/agent-architect/references/skill-dependencies.md",
+      "sha256": "05f81684cdef48ad01821922f62144fbb4d3294bc26a31ae55a9e74b2a88d56f",
+      "bytes": 1809
+    },
+    {
+      "path": "skills/agent-architect/scripts/validate_agent_candidate.py",
+      "sha256": "32c8304bd3c43da8d96754488e03ac0a9cd578e4a7e67f4d335a571e7d597132",
+      "bytes": 3626
+    }
+  ]
+}

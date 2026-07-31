@@ -1,0 +1,78 @@
+{
+  "format": 2,
+  "plugin": "agent-refactor",
+  "version": "1.0.0",
+  "source_layout": "skills/",
+  "bundle_layout": "skills/<name>/",
+  "platforms": [
+    "claude-code",
+    "codex",
+    "cursor"
+  ],
+  "skills": [
+    "agent-refactor"
+  ],
+  "excluded_patterns": [
+    ".DS_Store",
+    "__pycache__",
+    "*.pyc",
+    ".git"
+  ],
+  "files": [
+    {
+      "path": ".claude-plugin/plugin.json",
+      "sha256": "281f2e45e475edf849b5d653f23817b1c6cdc22d8a1f7120c801a0faa9b212e9",
+      "bytes": 577
+    },
+    {
+      "path": ".codex-plugin/plugin.json",
+      "sha256": "1da8a2154b3835d824b45677084306ba48812d3a8a5c125ee4204347afac0154",
+      "bytes": 1473
+    },
+    {
+      "path": ".cursor-plugin/plugin.json",
+      "sha256": "49fb6ac9f4938a63e10a1b5ab805bbef4c74a43ed062bfff64cf8090702a1069",
+      "bytes": 691
+    },
+    {
+      "path": "README.md",
+      "sha256": "ea3b7dee357834a7220a98beaf6753f0b27cbad052c0cbc2b6a5da46b172ede4",
+      "bytes": 1520
+    },
+    {
+      "path": "skill-dependencies.json",
+      "sha256": "6aa6bbc4054275cc33b97fa0089b0429f40b14d6bda2634301d118aa179e1904",
+      "bytes": 1004
+    },
+    {
+      "path": "skills/agent-refactor/SKILL.md",
+      "sha256": "761d790fb141a1a927e20f318a9beded967edfce3cc53857dc81dc9be9ae532f",
+      "bytes": 2683
+    },
+    {
+      "path": "skills/agent-refactor/agents/openai.yaml",
+      "sha256": "c7099ca4bbb9f77eded173c1018a665a1bb328c5749c2b68a93df1ed2579c171",
+      "bytes": 205
+    },
+    {
+      "path": "skills/agent-refactor/evals/behavior.json",
+      "sha256": "cf087824abe468b34b692228f2b5e49e31453b2371cf6647b6f639365dab8a6e",
+      "bytes": 1249
+    },
+    {
+      "path": "skills/agent-refactor/evals/routing.json",
+      "sha256": "b85108a7c80e17ae80d1f03b3fca0e61569cbc13e62859d8ed5c698ba5c8aaf3",
+      "bytes": 1741
+    },
+    {
+      "path": "skills/agent-refactor/references/refactor-contract.md",
+      "sha256": "521ff6f60e4bb9ba5559de033a645d0b62350b972a5475c57f85f51050739724",
+      "bytes": 686
+    },
+    {
+      "path": "skills/agent-refactor/references/skill-dependencies.md",
+      "sha256": "eca6b5b78d21d380a33270f423981ee3c5f2884a463531d960262c00d81a0d03",
+      "bytes": 2065
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "skill": "agent-manager",
+  "native_auto_install": {
+    "claude-code": true,
+    "codex": false,
+    "cursor": false
+  },
+  "required": [
+    {
+      "name": "agent-evaluator",
+      "minimum_version": "1.0.0",
+      "reason": "Activation and migration routes require independent release evidence."
+    }
+  ],
+  "recommended": [
+    {
+      "name": "agent-registry-manager",
+      "minimum_version": "1.0.0",
+      "reason": "Recommended for Agentic OS desired-state registry transactions."
+    },
+    {
+      "name": "agent-runtime-manager",
+      "minimum_version": "1.0.0",
+      "reason": "Recommended for Agentic OS runtime-instance lifecycle operations."
+    }
+  ],
+  "install_order": [
+    "agent-evaluator",
+    "agent-manager"
+  ]
+}

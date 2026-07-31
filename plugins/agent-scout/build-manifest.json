@@ -1,0 +1,78 @@
+{
+  "format": 2,
+  "plugin": "agent-scout",
+  "version": "1.0.0",
+  "source_layout": "skills/",
+  "bundle_layout": "skills/<name>/",
+  "platforms": [
+    "claude-code",
+    "codex",
+    "cursor"
+  ],
+  "skills": [
+    "agent-scout"
+  ],
+  "excluded_patterns": [
+    ".DS_Store",
+    "__pycache__",
+    "*.pyc",
+    ".git"
+  ],
+  "files": [
+    {
+      "path": ".claude-plugin/plugin.json",
+      "sha256": "0715f4cf8ee66292ea59ada9761494124fd09ec58818fb140af0ad2f92559069",
+      "bytes": 466
+    },
+    {
+      "path": ".codex-plugin/plugin.json",
+      "sha256": "45c94f741fed7bc693c51f9cfcbf410334fdec72d51ec6fab97016ff07ec6a8b",
+      "bytes": 1434
+    },
+    {
+      "path": ".cursor-plugin/plugin.json",
+      "sha256": "dffb57b738cc776c9156c58522ee1f53fb776e1d1e7d46f34dd7676802770b5b",
+      "bytes": 672
+    },
+    {
+      "path": "README.md",
+      "sha256": "6551a874270a63ad8c4b70d4e987c41a0df8f5b0425a7a34e2c7f6ea5b3e6ed2",
+      "bytes": 1157
+    },
+    {
+      "path": "skill-dependencies.json",
+      "sha256": "6b011fb7c8322769f91a43dda70d2c5e94955515e1f8626e708afce6b5964ef7",
+      "bytes": 558
+    },
+    {
+      "path": "skills/agent-scout/SKILL.md",
+      "sha256": "ac2329fe040585cb8f880d3414b7bb74e401e8e380c2983e03bb37f986ae0224",
+      "bytes": 2490
+    },
+    {
+      "path": "skills/agent-scout/agents/openai.yaml",
+      "sha256": "7a2228ef1029055ac60f23a88556311ce7567a0da627792514261c43abf2c5df",
+      "bytes": 215
+    },
+    {
+      "path": "skills/agent-scout/evals/behavior.json",
+      "sha256": "991617724cc68c4649d89e56d7af6120953a2fcfe10ceb36759d3599ff754386",
+      "bytes": 1162
+    },
+    {
+      "path": "skills/agent-scout/evals/routing.json",
+      "sha256": "d1cf0a47a0bbba0a283cf306f491b0344361dd58f562eaa0bb21416bd653e156",
+      "bytes": 1360
+    },
+    {
+      "path": "skills/agent-scout/references/skill-dependencies.md",
+      "sha256": "d2cd1801a3fd7571019a4220d99b8ea44af1165378cb7cc1877ccbe0650fb05f",
+      "bytes": 1651
+    },
+    {
+      "path": "skills/agent-scout/references/worth-and-coverage.md",
+      "sha256": "e9f3e04e54fa24bda76bdbd7c574654eb304e5e228b7a6754e01d8d5874339b6",
+      "bytes": 629
+    }
+  ]
+}

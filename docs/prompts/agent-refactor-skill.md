@@ -1,5 +1,10 @@
 # Мастер-промпт навыка `agent-refactor`
 
+Применяй [agent-documentation-contract.md](agent-documentation-contract.md).
+Topology change включает migration document ownership, paths, links, indexes,
+freshness triggers и rollback; перемещение каталога само по себе не завершает
+миграцию.
+
 Применяй после [agent-skill-base.md](agent-skill-base.md). Создай skill, который
 сначала оценивает, а затем безопасно меняет boundaries и topology существующих
 agents, subagents, orchestrators и teams.

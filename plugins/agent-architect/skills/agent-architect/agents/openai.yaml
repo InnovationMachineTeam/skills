@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent Architect"
+  short_description: "Design one bounded agent"
+  default_prompt: "Use $agent-architect to design a reviewable definition for this single agent or subagent."

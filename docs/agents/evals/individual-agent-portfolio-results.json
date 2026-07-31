@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "evaluation_id": "individual-agent-portfolio-3.2.0",
+  "run_id": "independent-forward-review-2026-07-31-r2",
+  "reviewer_role": "independent fresh-context reviewer",
+  "target_version": "3.2.0",
+  "verdict": "PASS",
+  "blocking_findings": [],
+  "regressions": [
+    {
+      "id": "documentation-path-containment",
+      "verdict": "PASS",
+      "evidence": "docs/../outside and artifacts without ownership/authority are rejected"
+    },
+    {
+      "id": "false-completion",
+      "verdict": "PASS",
+      "evidence": "completed phases require evidence and completed roots cannot contain unfinished phases"
+    },
+    {
+      "id": "eval-fixture-contract",
+      "verdict": "PASS",
+      "evidence": "10/10 skill fixture sets require split, grader and named neighboring routes; protected holdout is external"
+    },
+    {
+      "id": "refactor-team-precedence",
+      "verdict": "PASS",
+      "evidence": "existing-agent migration routes to agent-refactor; greenfield or confirmed team design routes to agent-team-architect"
+    }
+  ],
+  "deterministic_evidence": {
+    "focused_unit_tests": "7/7 PASS in independent review",
+    "fixture_validator": "PASS for all 10 individual-agent skills"
+  },
+  "limitations": [
+    "Bundled cases are public regression fixtures; answer-bearing holdout remains external-protected.",
+    "Release activation and clean remote-host installation are separate lifecycle actions."
+  ]
+}

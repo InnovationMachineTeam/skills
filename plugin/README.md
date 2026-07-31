@@ -6,15 +6,25 @@ This generated package is installable by Claude Code, Codex, and Cursor. Its can
 
 ## Bundled skills
 
+- `agent-architect`
+- `agent-best-practices`
+- `agent-builder`
+- `agent-context`
+- `agent-doctor`
+- `agent-evaluator`
 - `agent-knowledge-manager`
+- `agent-manager`
 - `agent-model-selector`
 - `agent-observer`
+- `agent-optimizer`
 - `agent-os-architect`
 - `agent-os-bootstrapper`
 - `agent-os-evaluator`
 - `agent-policy-manager`
+- `agent-refactor`
 - `agent-registry-manager`
 - `agent-runtime-manager`
+- `agent-scout`
 - `agent-skill-mapper`
 - `agent-team-architect`
 - `agent-team-builder`

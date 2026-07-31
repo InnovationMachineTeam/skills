@@ -1,0 +1,53 @@
+{
+  "skill": "agent-evaluator",
+  "cases": [
+    {
+      "id": "plan",
+      "input": "Create a frozen evaluation plan for this single coding agent.",
+      "expected_trigger": true,
+      "expected_route": "plan",
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    },
+    {
+      "id": "docs",
+      "input": "Test whether this architecture agent writes ADRs to its declared path and respects approval authority.",
+      "expected_trigger": true,
+      "expected_route": "documentation",
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    },
+    {
+      "id": "compare",
+      "input": "Compare agent v1 and v2 on the same protected outcome and tool-failure cases.",
+      "expected_trigger": true,
+      "expected_route": "compare",
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    },
+    {
+      "id": "negative-team",
+      "input": "Evaluate the coordination quality of this five-agent team.",
+      "expected_trigger": false,
+      "expected_route": "agent-team-manager",
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    },
+    {
+      "id": "negative-os",
+      "input": "Run chaos tests across the Agentic OS control and execution planes.",
+      "expected_trigger": false,
+      "expected_route": "agent-os-evaluator",
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    },
+    {
+      "id": "negative-repair",
+      "input": "Fix this agent after its permission test failed.",
+      "expected_trigger": false,
+      "expected_route": "agent-doctor",
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    }
+  ]
+}

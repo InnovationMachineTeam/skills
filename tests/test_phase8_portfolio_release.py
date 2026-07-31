@@ -37,7 +37,14 @@ def frontmatter_value(path: Path, key: str) -> str:
 
 def tree_hash(root: Path) -> str:
     digest = hashlib.sha256()
-    for path in sorted(item for item in root.rglob("*") if item.is_file()):
+    for path in sorted(
+        item
+        for item in root.rglob("*")
+        if item.is_file()
+        and "__pycache__" not in item.parts
+        and item.suffix not in {".pyc", ".pyo"}
+        and item.name != ".DS_Store"
+    ):
         relative = path.relative_to(root).as_posix()
         digest.update(relative.encode("utf-8"))
         digest.update(b"\0")

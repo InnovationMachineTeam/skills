@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent Refactor"
+  short_description: "Refactor agent boundaries"
+  default_prompt: "Use $agent-refactor to assess and plan a safe boundary or topology change for these agents."

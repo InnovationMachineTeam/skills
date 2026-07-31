@@ -36,6 +36,10 @@ Root `SKILL.md` должен быть thin explicit router:
 
 ## Suggested modes
 
+Pack сохраняет documentation contract выбранного donor и не создаёт общую
+mega-taxonomy `docs/`. `upgrade` обязан сравнивать изменения documentation
+interfaces как часть donor compatibility.
+
 | Mode | Donor |
 |---|---|
 | `scout` | `agent-scout` |

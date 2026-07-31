@@ -1,0 +1,32 @@
+{
+  "name": "agent-optimizer",
+  "version": "1.0.0",
+  "description": "Improves one healthy agent or subagent against a frozen measurable quality, cost, latency, reliability, context or documentation target while preserving mission… Companion skill plugins are required for full functionality; see README.md.",
+  "homepage": "https://github.com/InnovationMachineTeam/skills",
+  "repository": "https://github.com/InnovationMachineTeam/skills",
+  "license": "Proprietary",
+  "keywords": [
+    "agent-skills",
+    "agents",
+    "optimization",
+    "quality"
+  ],
+  "skills": "./skills/",
+  "author": {
+    "name": "InnovationMachine",
+    "email": "stanislav.usoltsev@gmail.com",
+    "url": "https://github.com/InnovationMachineTeam"
+  },
+  "interface": {
+    "displayName": "Agent Optimizer",
+    "shortDescription": "Improves one healthy agent or subagent against a frozen measurable quality, cost, latency, reliability, context or…",
+    "longDescription": "Improves one healthy agent or subagent against a frozen measurable quality, cost, latency, reliability, context or documentation target while preserving mission… Companion skill plugins are required for full functionality; see README.md.",
+    "developerName": "InnovationMachine",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Guidance"
+    ],
+    "websiteURL": "https://github.com/InnovationMachineTeam/skills",
+    "defaultPrompt": "Use Agent Optimizer for this task."
+  }
+}

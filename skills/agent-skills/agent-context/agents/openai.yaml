@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent Context"
+  short_description: "Build agent design context"
+  default_prompt: "Use $agent-context to build a sourced design-context package for this agent decision."

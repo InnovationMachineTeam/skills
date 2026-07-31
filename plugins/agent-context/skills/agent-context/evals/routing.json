@@ -1,0 +1,45 @@
+{
+  "skill": "agent-context",
+  "cases": [
+    {
+      "id": "repo",
+      "input": "Research this repository and build context for a code-review agent.",
+      "expected_trigger": true,
+      "expected_route": "repository",
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    },
+    {
+      "id": "docs",
+      "input": "Synthesize these PDFs and ADRs into AGENT_CONTEXT.md for an architecture agent.",
+      "expected_trigger": true,
+      "expected_route": "documents",
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    },
+    {
+      "id": "traces",
+      "input": "Collect failure and edge-case context from these individual-agent traces.",
+      "expected_trigger": true,
+      "expected_route": "traces",
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    },
+    {
+      "id": "negative-memory",
+      "input": "Publish these findings into long-term project memory and rebuild the graph.",
+      "expected_trigger": false,
+      "expected_route": "agent-knowledge-manager",
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    },
+    {
+      "id": "negative-architect",
+      "input": "Design the final agent definition from this context.",
+      "expected_trigger": false,
+      "expected_route": "agent-architect",
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    }
+  ]
+}

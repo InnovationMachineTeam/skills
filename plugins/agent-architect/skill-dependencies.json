@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "skill": "agent-architect",
+  "native_auto_install": {
+    "claude-code": true,
+    "codex": false,
+    "cursor": false
+  },
+  "required": [],
+  "recommended": [
+    {
+      "name": "agent-best-practices",
+      "minimum_version": "1.0.0",
+      "reason": "Provides the evidence corpus for agent patterns and documentation contracts."
+    },
+    {
+      "name": "agent-model-selector",
+      "minimum_version": "1.0.0",
+      "reason": "Provides current evidence-backed model policies when exact model selection is required."
+    },
+    {
+      "name": "agent-skill-mapper",
+      "minimum_version": "1.0.0",
+      "reason": "Provides governed public/private capability binding analysis."
+    }
+  ],
+  "install_order": [
+    "agent-architect"
+  ]
+}

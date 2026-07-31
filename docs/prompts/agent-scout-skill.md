@@ -94,6 +94,10 @@ confidence: low
 
 ## Handoff
 
+Для каждой оправданной agent opportunity укажи, какие canonical documents и
+decision records потребуются, но не создавай дерево `docs/`. Передавай это как
+input в [agent-documentation-contract.md](agent-documentation-contract.md).
+
 Передавай approved opportunity в `agent-context` при недостатке evidence или в
 `agent-architect` при готовом intent. Handoff содержит objective, sources,
 constraints, alternatives, risk, preserved systems и unresolved questions.

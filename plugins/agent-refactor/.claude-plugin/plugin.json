@@ -1,0 +1,18 @@
+{
+  "name": "agent-refactor",
+  "displayName": "Agent Refactor",
+  "version": "1.0.0",
+  "description": "Assesses and safely changes the capability, ownership or topology boundaries of existing individual agents through merge, split, extraction, composition, promotion to a… Companion skill plugins are required for full functionality; see README.md.",
+  "skills": [
+    "./skills"
+  ],
+  "author": {
+    "name": "InnovationMachine",
+    "email": "stanislav.usoltsev@gmail.com"
+  },
+  "dependencies": [
+    "agent-architect",
+    "agent-evaluator",
+    "agent-manager"
+  ]
+}

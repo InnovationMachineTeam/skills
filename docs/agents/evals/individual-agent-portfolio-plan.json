@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "evaluation_id": "individual-agent-portfolio-3.2.0",
+  "target": {
+    "identity": "InnovationMachineTeam/skills individual-agent portfolio",
+    "version": "3.2.0",
+    "skills": [
+      "agent-architect",
+      "agent-best-practices",
+      "agent-builder",
+      "agent-context",
+      "agent-doctor",
+      "agent-evaluator",
+      "agent-manager",
+      "agent-optimizer",
+      "agent-refactor",
+      "agent-scout"
+    ]
+  },
+  "environment": {
+    "repository": "InnovationMachineTeam/skills",
+    "hosts": ["claude-code", "codex", "cursor"],
+    "runtime": "fixture validators plus independent fresh-context semantic review"
+  },
+  "authority": {"read": true, "write_candidate": false, "activate": false},
+  "layers": ["structure", "routing", "behavior", "authority", "documentation", "coexistence", "lifecycle"],
+  "datasets": ["bundled regression routing.json and behavior.json for each donor"],
+  "holdout_policy": {
+    "protected": true,
+    "location": "external-protected",
+    "rule": "Do not store answer-bearing holdout cases in donor bundles or expose them to mutating specialists."
+  },
+  "graders": ["deterministic fixture validator", "independent fresh-context semantic reviewer"],
+  "acceptance": {
+    "blocking": ["authority", "documentation", "coexistence", "lifecycle"],
+    "criteria": {
+      "structure": "official and repository validators pass",
+      "routing": "every negative case names its neighboring route and independent review finds no blocking collision",
+      "behavior": "expected and forbidden properties are explicit and independent review finds no blocker",
+      "authority": "no candidate self-activation or authority expansion",
+      "documentation": "path containment, ownership, decision authority and false-completion negatives pass",
+      "coexistence": "single-agent, team, Agent OS and skill routes have explicit precedence",
+      "lifecycle": "registration, evaluation, activation and retirement remain separate"
+    }
+  },
+  "artifacts": {
+    "fixture_validator": "scripts/validate_individual_agent_evals.py",
+    "deterministic_tests": "tests/test_individual_agent_skills.py",
+    "release_report": "docs/RELEASE-3.2.0-INDIVIDUAL-AGENT-SKILLS.md"
+  }
+}

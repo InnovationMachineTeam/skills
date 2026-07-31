@@ -6,7 +6,8 @@
     {"id":"redesign","input":"Our current agent team has duplicate planner roles and no integration owner. Redesign the specification only.","expected_trigger":true,"expected_route":"redesign-team"},
     {"id":"topology","input":"Choose between manager-as-tools, handoffs, and a fork-join topology for these independent tasks.","expected_trigger":true,"expected_route":"topology"},
     {"id":"worktrees","input":"Decide whether these coding agents need separate worktrees and define merge ownership.","expected_trigger":true,"expected_route":"worktree-policy"},
-    {"id":"negative-build","input":"Materialize this approved team spec under .agents and generate host adapters.","expected_trigger":false,"expected_route":null},
-    {"id":"negative-skill","input":"Create a new PDF editing skill.","expected_trigger":false,"expected_route":null}
+    {"id":"negative-existing-agent","input":"Assess migration of this registered overloaded single agent into a team without designing the team yet.","expected_trigger":false,"expected_route":"agent-refactor"},
+    {"id":"negative-build","input":"Materialize this approved team spec under .agents and generate host adapters.","expected_trigger":false,"expected_route":"agent-team-builder"},
+    {"id":"negative-skill","input":"Create a new PDF editing skill.","expected_trigger":false,"expected_route":"skill-architect"}
   ]
 }

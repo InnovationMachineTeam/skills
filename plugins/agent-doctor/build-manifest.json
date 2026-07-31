@@ -1,0 +1,78 @@
+{
+  "format": 2,
+  "plugin": "agent-doctor",
+  "version": "1.0.0",
+  "source_layout": "skills/",
+  "bundle_layout": "skills/<name>/",
+  "platforms": [
+    "claude-code",
+    "codex",
+    "cursor"
+  ],
+  "skills": [
+    "agent-doctor"
+  ],
+  "excluded_patterns": [
+    ".DS_Store",
+    "__pycache__",
+    "*.pyc",
+    ".git"
+  ],
+  "files": [
+    {
+      "path": ".claude-plugin/plugin.json",
+      "sha256": "81c5e47c6fa6652ce210e04473e5b3e5b63e5f14176f76ce50a14ae73c6870dc",
+      "bytes": 472
+    },
+    {
+      "path": ".codex-plugin/plugin.json",
+      "sha256": "dc321fe4c637fd071b217935249545d19295c331691df5e634d2e3b8331b434d",
+      "bytes": 1443
+    },
+    {
+      "path": ".cursor-plugin/plugin.json",
+      "sha256": "ad2bb6637917a2af32226a04be0918c149ea1b77c40b356c01e08ea1ce606057",
+      "bytes": 677
+    },
+    {
+      "path": "README.md",
+      "sha256": "ae446065213ef5fdfd24caa3f3eee8ae56c67cdb21f369ecf6fb3d06885f6da5",
+      "bytes": 1069
+    },
+    {
+      "path": "skill-dependencies.json",
+      "sha256": "579c72ac4ea74f7ed3bf67b7f3cf3b88fc8643f6491b3a510affff31359a6245",
+      "bytes": 398
+    },
+    {
+      "path": "skills/agent-doctor/SKILL.md",
+      "sha256": "0df7f7693f2cb981daa70e4a459a4c95f116e52e9bb4cff39ad30cda2551b544",
+      "bytes": 2569
+    },
+    {
+      "path": "skills/agent-doctor/agents/openai.yaml",
+      "sha256": "80dd46ffd4bba314b3d0d0a15135bbfe548ec09256263d9a6f3ea12e2d857142",
+      "bytes": 224
+    },
+    {
+      "path": "skills/agent-doctor/evals/behavior.json",
+      "sha256": "0f3f7f9fd3552f6c7206842da3845634f78bee42530c7a66aa7a23d46286d778",
+      "bytes": 1214
+    },
+    {
+      "path": "skills/agent-doctor/evals/routing.json",
+      "sha256": "f2d366e34b86025d8054efa64639ade0238fc0e897e90d380db947e0080ac736",
+      "bytes": 1415
+    },
+    {
+      "path": "skills/agent-doctor/references/diagnosis-contract.md",
+      "sha256": "01ef256187b60682540cf7dcc75f87aa64e99782d62bd96c602abadb670254e2",
+      "bytes": 600
+    },
+    {
+      "path": "skills/agent-doctor/references/skill-dependencies.md",
+      "sha256": "cbc8481339e36ed934ad825415ea386d683b601ebd9dfd0e67dc113e165415a3",
+      "bytes": 1556
+    }
+  ]
+}

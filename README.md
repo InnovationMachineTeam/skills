@@ -120,7 +120,14 @@ The aggregate plugin is intended for local integration testing and full-toolkit 
 
 | Entry | Category | Purpose | Version |
 |---|---|---|---|
+| `agent-architect` | `agent-skills` | Design one bounded agent or subagent definition | 1.0.0 |
+| `agent-best-practices` | `agent-skills` | Query and govern evidence-linked agent practices | 1.0.0 |
+| `agent-builder` | `agent-skills` | Orchestrate one-agent lifecycle workflows | 1.0.0 |
+| `agent-context` | `agent-skills` | Build provenance-bearing agent design context | 1.0.0 |
+| `agent-doctor` | `agent-skills` | Diagnose and minimally repair one agent | 1.0.0 |
+| `agent-evaluator` | `agent-skills` | Independently evaluate one frozen agent | 1.0.0 |
 | `agent-knowledge-manager` | `agent-skills` | Curate and retrieve provenance-bearing project knowledge | 1.0.0 |
+| `agent-manager` | `agent-skills` | Govern one agent lifecycle | 1.0.0 |
 | `agent-model-selector` | `agent-skills` | Evaluate and recommend evidence-backed model policies | 1.0.0 |
 | `agent-observer` | `agent-os-skills` | Validate traces, SLOs, alerts, and bounded diagnostics | 1.0.0 |
 | `agent-os-architect` | `agent-os-skills` | Design the minimum justified Agentic OS | 1.0.0 |
@@ -129,8 +136,11 @@ The aggregate plugin is intended for local integration testing and full-toolkit 
 | `agent-policy-manager` | `agent-os-skills` | Govern pinned authorization and approval decisions | 1.0.0 |
 | `agent-registry-manager` | `agent-os-skills` | Reconcile typed desired and observed asset state | 1.0.0 |
 | `agent-runtime-manager` | `agent-os-skills` | Govern durable platform task and run lifecycle | 1.0.0 |
+| `agent-optimizer` | `agent-skills` | Improve one healthy agent against a frozen metric | 1.0.0 |
+| `agent-refactor` | `agent-skills` | Refactor agent boundaries and migrations | 1.0.0 |
+| `agent-scout` | `agent-skills` | Discover and prioritize justified agent opportunities | 1.0.0 |
 | `agent-skill-mapper` | `agent-skills` | Map governed capabilities to registered agents | 1.0.0 |
-| `agent-team-architect` | `agent-team-skills` | Design justified agent teams and versioned specifications | 1.0.0 |
+| `agent-team-architect` | `agent-team-skills` | Design justified agent teams and versioned specifications | 1.1.0 |
 | `agent-team-builder` | `agent-team-skills` | Stage approved agent-team specifications safely | 1.0.0 |
 | `agent-team-manager` | `agent-team-skills` | Govern agent-team lifecycle workflows and run state | 1.2.0 |
 | `agent-team-orchestrator` | `agent-team-skills` | Execute approved team task graphs with bounded runtime state | 1.0.0 |

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent Manager"
+  short_description: "Govern one agent lifecycle"
+  default_prompt: "Use $agent-manager to inventory or govern this individual agent's lifecycle transition."

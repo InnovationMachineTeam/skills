@@ -194,8 +194,8 @@ Agent-oriented skill должен уметь работать хотя бы со
 
 - `subagent-creator`: subagent — deployment/coordination role, а не отдельный
   lifecycle product;
-- `agent-team-creator`: team topology является route `agent-architect` и
-  `agent-builder`, пока нет самостоятельного owner/lifecycle;
+- `agent-team-creator`: отдельный creator не нужен; team topology принадлежит
+  существующему `agent-team-architect`, а lifecycle — `agent-team-manager`;
 - отдельный навык на каждый pattern: patterns — decision options, не products;
 - один `agent-supervisor`, который проектирует, запускает, оценивает и одобряет.
 

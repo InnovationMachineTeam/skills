@@ -34,6 +34,8 @@ scope; activation, publication и выдача credentials требуют отд
 11. Выбирай минимальную форму capability: inline rule, private command, private
     skill, public skill, tool/script или workflow.
 12. `private` означает agent-scoped discovery/binding, а не секретность файлов.
+13. Каждый создаваемый agent имеет применимый documentation contract; пустое
+    дерево `docs/` не создаётся заранее.
 
 ## Intake
 
@@ -51,6 +53,8 @@ scope; activation, publication и выдача credentials требуют отд
 - destination, installation и publication intent.
 - intended consumers, visibility, owner agent, public/private roots и canonical
   registry/map paths.
+- existing docs convention, canonical document owners, required artifacts and
+  exact read/write roots.
 
 Задай один–три focused questions только если пробел меняет target, boundary,
 authority, topology, lifecycle state или acceptance criteria. Иначе зафиксируй
@@ -132,10 +136,20 @@ lifecycle:
   status: draft
   replacement: null
   retirement: {}
+documentation:
+  read_roots: []
+  write_roots: []
+  artifacts: []
+  indexes_to_update: []
+  freshness_rules: []
+  validation: []
 ```
 
 Не требуй все поля от read-only advisory agent, но не пропускай applicable
 authority, state, stop, verification и lifecycle sections.
+
+Применяй [agent-documentation-contract.md](agent-documentation-contract.md),
+когда skill создаёт, изменяет, оценивает или активирует agent definition.
 
 ## Resource architecture
 
@@ -227,6 +241,8 @@ run. Holdout answers не передавай mutating specialist.
 2. Пройди worth/duplication/boundary gate.
 3. Выбери primary archetype и один specialist prompt.
 4. Спроектируй agent artifacts, resources и eval matrix.
+   Зафиксируй документационные read/write roots, artifacts, owners, freshness,
+   decision authority и validation без создания пустых директорий.
 5. Создай reviewable candidate bundle вне active installation.
 6. Напиши и протестируй scripts/resources.
 7. Заверши concise `SKILL.md` и host metadata.

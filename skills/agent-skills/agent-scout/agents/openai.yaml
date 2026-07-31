@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent Scout"
+  short_description: "Discover justified agent opportunities"
+  default_prompt: "Use $agent-scout to decide whether this recurring problem justifies a new or changed agent."

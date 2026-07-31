@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "skill": "agent-context",
+  "native_auto_install": {
+    "claude-code": true,
+    "codex": false,
+    "cursor": false
+  },
+  "required": [],
+  "recommended": [
+    {
+      "name": "agent-best-practices",
+      "minimum_version": "1.0.0",
+      "reason": "Provides the curated agent and documentation evidence corpus."
+    },
+    {
+      "name": "agent-knowledge-manager",
+      "minimum_version": "1.0.0",
+      "reason": "Recommended when reviewed context must enter durable project knowledge."
+    },
+    {
+      "name": "skill-harvester",
+      "minimum_version": "1.1.0",
+      "reason": "Recommended for external skill, repository, document and trace intake."
+    }
+  ],
+  "install_order": [
+    "agent-context"
+  ]
+}

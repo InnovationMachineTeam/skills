@@ -11,6 +11,75 @@
     "missing_recommended_behavior": "inform-only"
   },
   "skills": {
+    "agent-architect": {
+      "required": [],
+      "recommended": [
+        {"name": "agent-best-practices", "minimum_version": "1.0.0", "reason": "Provides the evidence corpus for agent patterns and documentation contracts."},
+        {"name": "agent-model-selector", "minimum_version": "1.0.0", "reason": "Provides current evidence-backed model policies when exact model selection is required."},
+        {"name": "agent-skill-mapper", "minimum_version": "1.0.0", "reason": "Provides governed public/private capability binding analysis."}
+      ]
+    },
+    "agent-builder": {
+      "required": [
+        {"name": "agent-architect", "minimum_version": "1.0.0", "reason": "Creation and redesign scenarios delegate individual-agent architecture."},
+        {"name": "agent-context", "minimum_version": "1.0.0", "reason": "Research scenarios delegate provenance-bearing context building."},
+        {"name": "agent-doctor", "minimum_version": "1.0.0", "reason": "Repair and incident scenarios delegate diagnosis and recovery."},
+        {"name": "agent-evaluator", "minimum_version": "1.0.0", "reason": "All release and comparison gates require independent evaluation."},
+        {"name": "agent-manager", "minimum_version": "1.0.0", "reason": "Lifecycle transitions and host verification belong to the manager."},
+        {"name": "agent-optimizer", "minimum_version": "1.0.0", "reason": "Measured improvement scenarios delegate healthy-agent optimization."},
+        {"name": "agent-refactor", "minimum_version": "1.0.0", "reason": "Boundary and topology scenarios delegate refactoring."},
+        {"name": "agent-scout", "minimum_version": "1.0.0", "reason": "Full lifecycle begins with the agent worth and coverage gate."}
+      ],
+      "recommended": [
+        {"name": "agent-best-practices", "minimum_version": "1.0.0", "reason": "Provides shared evidence for pattern and lifecycle decisions."}
+      ]
+    },
+    "agent-context": {
+      "required": [],
+      "recommended": [
+        {"name": "agent-best-practices", "minimum_version": "1.0.0", "reason": "Provides the curated agent and documentation evidence corpus."},
+        {"name": "agent-knowledge-manager", "minimum_version": "1.0.0", "reason": "Recommended when reviewed context must enter durable project knowledge."},
+        {"name": "skill-harvester", "minimum_version": "1.1.0", "reason": "Recommended for external skill, repository, document and trace intake."}
+      ]
+    },
+    "agent-doctor": {
+      "required": [],
+      "recommended": [
+        {"name": "agent-evaluator", "minimum_version": "1.0.0", "reason": "Provides frozen reproduction and independent recovery evidence."}
+      ]
+    },
+    "agent-manager": {
+      "required": [
+        {"name": "agent-evaluator", "minimum_version": "1.0.0", "reason": "Activation and migration routes require independent release evidence."}
+      ],
+      "recommended": [
+        {"name": "agent-registry-manager", "minimum_version": "1.0.0", "reason": "Recommended for Agentic OS desired-state registry transactions."},
+        {"name": "agent-runtime-manager", "minimum_version": "1.0.0", "reason": "Recommended for Agentic OS runtime-instance lifecycle operations."}
+      ]
+    },
+    "agent-optimizer": {
+      "required": [
+        {"name": "agent-evaluator", "minimum_version": "1.0.0", "reason": "Optimization requires a frozen baseline and independent candidate comparison."}
+      ],
+      "recommended": []
+    },
+    "agent-refactor": {
+      "required": [
+        {"name": "agent-architect", "minimum_version": "1.0.0", "reason": "New individual-agent boundaries require a validated definition contract."},
+        {"name": "agent-evaluator", "minimum_version": "1.0.0", "reason": "Old/new topology and consumer migrations require independent evaluation."},
+        {"name": "agent-manager", "minimum_version": "1.0.0", "reason": "Lifecycle migration, rollout and retirement belong to the manager."}
+      ],
+      "recommended": [
+        {"name": "agent-team-architect", "minimum_version": "1.1.0", "reason": "Recommended after an existing-agent migration decision promotes the asset into a team."}
+      ]
+    },
+    "agent-scout": {
+      "required": [],
+      "recommended": [
+        {"name": "agent-best-practices", "minimum_version": "1.0.0", "reason": "Provides selection, lifecycle and maintenance criteria."},
+        {"name": "agent-context", "minimum_version": "1.0.0", "reason": "Recommended when the opportunity decision needs additional evidence."}
+      ]
+    },
     "agent-team-manager": {
       "required": [
         {
@@ -25,7 +94,7 @@
         },
         {
           "name": "agent-team-architect",
-          "minimum_version": "1.0.0",
+          "minimum_version": "1.1.0",
           "reason": "The design route delegates team architecture."
         },
         {

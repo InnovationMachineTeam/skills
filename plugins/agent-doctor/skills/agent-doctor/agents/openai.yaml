@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent Doctor"
+  short_description: "Diagnose and repair one agent"
+  default_prompt: "Use $agent-doctor to reproduce and diagnose this individual-agent failure before proposing a minimal repair."

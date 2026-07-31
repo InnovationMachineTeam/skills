@@ -4,7 +4,7 @@
   "title": "Agent Definition",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schema_version", "id", "name", "version", "accountable_owner", "mission", "risk_tier", "model_policy", "tools", "permissions", "public_skill_refs", "private_skill_refs", "private_command_refs", "runtime", "lifecycle"],
+  "required": ["schema_version", "id", "name", "version", "accountable_owner", "mission", "risk_tier", "model_policy", "tools", "permissions", "public_skill_refs", "private_skill_refs", "private_command_refs", "documentation", "runtime", "lifecycle"],
   "properties": {
     "$schema": {"type": "string"},
     "schema_version": {"const": 1},
@@ -38,6 +38,37 @@
     "public_skill_refs": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
     "private_skill_refs": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
     "private_command_refs": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+    "documentation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["read_roots", "write_roots", "artifacts", "indexes_to_update", "freshness_rules", "validation"],
+      "properties": {
+        "read_roots": {"type": "array", "uniqueItems": true, "items": {"type": "string", "pattern": "^docs(?:/(?!\\.{1,2}(?:/|$))[^/]+)*$"}},
+        "write_roots": {"type": "array", "uniqueItems": true, "items": {"type": "string", "pattern": "^docs(?:/(?!\\.{1,2}(?:/|$))[^/]+)*$"}},
+        "artifacts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["type", "path_pattern", "owner", "consumers", "source_of_truth", "reviewers", "decision_authority", "freshness", "supersession"],
+            "properties": {
+              "type": {"type": "string", "minLength": 1},
+              "path_pattern": {"type": "string", "pattern": "^docs/(?!.*(?:^|/)\\.{1,2}(?:/|$)).+$"},
+              "owner": {"type": "string", "minLength": 1},
+              "reviewers": {"type": "array", "items": {"type": "string"}},
+              "consumers": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+              "source_of_truth": {"type": "boolean"},
+              "decision_authority": {"type": ["string", "null"]},
+              "freshness": {"type": "string", "minLength": 1},
+              "supersession": {"type": ["string", "null"]}
+            }
+          }
+        },
+        "indexes_to_update": {"type": "array", "uniqueItems": true, "items": {"type": "string", "pattern": "^docs/(?!.*(?:^|/)\\.{1,2}(?:/|$)).+$"}},
+        "freshness_rules": {"type": "array", "items": {"type": "string"}},
+        "validation": {"type": "array", "items": {"type": "string"}}
+      }
+    },
     "runtime": {"type": "object", "required": ["loop", "budgets", "stop_conditions"], "properties": {"loop": {"type": "string"}, "budgets": {"type": "object"}, "stop_conditions": {"type": "array", "items": {"type": "string"}}}},
     "lifecycle": {"type": "object", "required": ["status", "replacement"], "properties": {"status": {"enum": ["draft", "candidate", "verified", "approved", "active", "suspended", "deprecated", "retired"]}, "replacement": {"type": ["string", "null"]}}}
   }

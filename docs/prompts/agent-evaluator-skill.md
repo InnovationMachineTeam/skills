@@ -103,6 +103,11 @@ keys. Не передавай secrets в prompts или raw public reports.
 
 ## Handoff
 
+Добавь documentation layer по
+[agent-documentation-contract.md](agent-documentation-contract.md): path
+containment, ownership, freshness, provenance, links, code/docs parity,
+decision authority и запрет прямого редактирования generated projections.
+
 Reproducible defect → `agent-doctor`; healthy measurable gap →
 `agent-optimizer`; boundary failure → `agent-refactor`; positive release
 evidence → `agent-manager`. Никогда не patch candidate в evaluation run.

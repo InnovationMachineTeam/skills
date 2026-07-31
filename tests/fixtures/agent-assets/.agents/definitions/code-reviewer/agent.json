@@ -27,6 +27,14 @@
   "public_skill_refs": ["asset://project/skill/shared-review@1.0.0"],
   "private_skill_refs": ["asset://project/skill/private-check@1.0.0"],
   "private_command_refs": ["asset://project/command/review-handoff@1.0.0"],
+  "documentation": {
+    "read_roots": ["docs"],
+    "write_roots": [],
+    "artifacts": [],
+    "indexes_to_update": [],
+    "freshness_rules": ["Report stale or conflicting documentation; do not silently choose it over code."],
+    "validation": ["Verify cited documentation against the reviewed code revision."]
+  },
   "runtime": {
     "loop": "inspect-plan-review-verify",
     "budgets": {"max_capabilities": 3, "max_delegations": 0, "max_repair_cycles": 1},

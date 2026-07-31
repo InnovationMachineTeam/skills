@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "skill": "agent-refactor",
+  "native_auto_install": {
+    "claude-code": true,
+    "codex": false,
+    "cursor": false
+  },
+  "required": [
+    {
+      "name": "agent-architect",
+      "minimum_version": "1.0.0",
+      "reason": "New individual-agent boundaries require a validated definition contract."
+    },
+    {
+      "name": "agent-evaluator",
+      "minimum_version": "1.0.0",
+      "reason": "Old/new topology and consumer migrations require independent evaluation."
+    },
+    {
+      "name": "agent-manager",
+      "minimum_version": "1.0.0",
+      "reason": "Lifecycle migration, rollout and retirement belong to the manager."
+    }
+  ],
+  "recommended": [
+    {
+      "name": "agent-team-architect",
+      "minimum_version": "1.1.0",
+      "reason": "Recommended after an existing-agent migration decision promotes the asset into a team."
+    }
+  ],
+  "install_order": [
+    "agent-architect",
+    "agent-evaluator",
+    "agent-manager",
+    "agent-refactor"
+  ]
+}

@@ -88,6 +88,10 @@ resume after interruption.
 
 ## Handoff
 
+Применяй [agent-documentation-contract.md](agent-documentation-contract.md):
+читай существующую docs map, различай canonical/evidence/generated sources и
+предлагай context artifact path без создания неиспользуемых директорий.
+
 Передавай context в exact downstream role: architect, evaluator, doctor,
 optimizer или manager. Не предлагай master prompt/agent creation, пока source
 coverage, gaps и authority не позволяют принять решение.

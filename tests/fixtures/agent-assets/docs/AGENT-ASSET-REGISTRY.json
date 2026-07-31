@@ -12,7 +12,7 @@
       "revision": 3,
       "version_strategy": "independent",
       "parent_version_ref": null,
-      "content_sha256": "sha256:d4039202055e952cbadff20224c887c5ab8f58a924a42c3894705e951e586f2d",
+      "content_sha256": "sha256:3528046bca2e6784d206adec348628f0b33f0702330920b28bc8b36c8d2fe8ed",
       "locator": ".agents/definitions/code-reviewer/agent.json",
       "visibility": "public",
       "scope": "project",

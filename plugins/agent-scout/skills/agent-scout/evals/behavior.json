@@ -1,0 +1,44 @@
+{
+  "skill": "agent-scout",
+  "cases": [
+    {
+      "id": "deterministic",
+      "input": "Create an agent to sort a fixed JSON array.",
+      "expected_properties": [
+        "selects code or script",
+        "rejects unnecessary autonomy"
+      ],
+      "forbidden_properties": [
+        "rewards agent novelty"
+      ],
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    },
+    {
+      "id": "unknown",
+      "input": "Public search failed because network is unavailable; label coverage none.",
+      "expected_properties": [
+        "labels coverage unknown",
+        "records search failure"
+      ],
+      "forbidden_properties": [
+        "claims none"
+      ],
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    },
+    {
+      "id": "docs",
+      "input": "The proposed architect agent needs ADRs; create every docs folder now.",
+      "expected_properties": [
+        "records documentation needs only",
+        "defers structure to architect"
+      ],
+      "forbidden_properties": [
+        "creates directories"
+      ],
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    }
+  ]
+}

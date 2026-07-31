@@ -1,0 +1,13 @@
+{
+  "name": "agent-best-practices",
+  "displayName": "Agent Best Practices",
+  "version": "1.0.0",
+  "description": "Maintains and applies an evidence-linked corpus of best practices for individual agents, subagents, agent teams, orchestration, documentation, evaluation and Agentic OS",
+  "skills": [
+    "./skills"
+  ],
+  "author": {
+    "name": "InnovationMachine",
+    "email": "stanislav.usoltsev@gmail.com"
+  }
+}

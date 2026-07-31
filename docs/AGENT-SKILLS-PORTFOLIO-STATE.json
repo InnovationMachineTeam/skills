@@ -1,0 +1,156 @@
+{
+  "schema_version": 1,
+  "builder": "skill-builder",
+  "build_id": "individual-agent-skills-portfolio-2026-07-31",
+  "scenario": "portfolio-governance",
+  "goal": "Build and release the documentation-aware individual-agent lifecycle skill portfolio.",
+  "status": "in_progress",
+  "scope": [
+    "docs/",
+    "skills/agent-skills/",
+    "catalog/",
+    "tests/",
+    "generated marketplace bundles"
+  ],
+  "acceptance_criteria": [
+    "Ten individual-agent skills are versioned, registered and selectively installable.",
+    "Single-agent, team and Agentic OS routing boundaries do not collide.",
+    "Generated agent definitions include a validated documentation contract.",
+    "Repository, marketplace, eval and forward-test gates pass.",
+    "Agentkit remains deferred until donor maturity evidence exists."
+  ],
+  "authority": {
+    "write": true,
+    "external_research": false,
+    "install": false,
+    "publish": true,
+    "retire": false
+  },
+  "phases": [
+    {
+      "id": "phase-0-doc-contract",
+      "specialist": "skill-architect",
+      "objective": "Lock documentation paths, schemas and single-agent boundaries.",
+      "status": "completed",
+      "dependencies": [],
+      "entry_conditions": ["User approved the implementation plan."],
+      "required_outputs": ["Documentation contract", "schema update", "ADR", "prompt updates"],
+      "exit_checks": ["Schema validates representative definitions", "No stale route claims remain"],
+      "authority": {"read": true, "write": true, "external": false},
+      "evidence": [
+        "docs/decisions/architecture/0002-agent-documentation-contract.md",
+        "docs/prompts/agent-documentation-contract.md",
+        "docs/schemas/agent-definition.schema.json",
+        "tests/fixtures/agent-assets/.agents/definitions/code-reviewer/agent.json"
+      ]
+    },
+    {
+      "id": "phase-1-foundation",
+      "specialist": "skill-architect",
+      "objective": "Create agent-best-practices, agent-architect and agent-evaluator.",
+      "status": "completed",
+      "dependencies": ["phase-0-doc-contract"],
+      "entry_conditions": ["Documentation contract passes"],
+      "required_outputs": ["Three versioned skill bundles", "eval suites"],
+      "exit_checks": ["Structural, routing and behavior gates pass"],
+      "authority": {"read": true, "write": true, "external": false},
+      "evidence": [
+        "skills/agent-skills/agent-best-practices",
+        "skills/agent-skills/agent-architect",
+        "skills/agent-skills/agent-evaluator"
+      ]
+    },
+    {
+      "id": "phase-2-lifecycle",
+      "specialist": "skill-builder",
+      "objective": "Create agent-doctor, agent-manager and agent-builder.",
+      "status": "completed",
+      "dependencies": ["phase-1-foundation"],
+      "entry_conditions": ["Evaluator contract is stable"],
+      "required_outputs": ["Three versioned skill bundles", "dependency declarations"],
+      "exit_checks": ["Repair, lifecycle and orchestration gates pass"],
+      "authority": {"read": true, "write": true, "external": false},
+      "evidence": [
+        "skills/agent-skills/agent-doctor",
+        "skills/agent-skills/agent-manager",
+        "skills/agent-skills/agent-builder"
+      ]
+    },
+    {
+      "id": "phase-3-expansion",
+      "specialist": "skill-builder",
+      "objective": "Create agent-scout, agent-context, agent-optimizer and agent-refactor.",
+      "status": "completed",
+      "dependencies": ["phase-2-lifecycle"],
+      "entry_conditions": ["Lifecycle handoffs pass"],
+      "required_outputs": ["Four versioned skill bundles", "coexistence evals"],
+      "exit_checks": ["Opportunity, research, optimization and topology boundaries pass"],
+      "authority": {"read": true, "write": true, "external": false},
+      "evidence": [
+        "skills/agent-skills/agent-scout",
+        "skills/agent-skills/agent-context",
+        "skills/agent-skills/agent-optimizer",
+        "skills/agent-skills/agent-refactor"
+      ]
+    },
+    {
+      "id": "phase-4-release",
+      "specialist": "skill-evaluator",
+      "objective": "Integrate and independently validate the portfolio release.",
+      "status": "completed",
+      "dependencies": ["phase-3-expansion"],
+      "entry_conditions": ["All donor candidates are frozen"],
+      "required_outputs": ["registry/catalog/plugin updates", "release evidence"],
+      "exit_checks": ["Repository and forward tests pass"],
+      "authority": {"read": true, "write": true, "external": false},
+      "evidence": [
+        "tests/test_individual_agent_skills.py",
+        "docs/agents/evals/individual-agent-portfolio-results.json",
+        "docs/RELEASE-3.2.0-INDIVIDUAL-AGENT-SKILLS.md",
+        "catalog/dependencies.json",
+        "repository validation: 38 skills and 38 individual plugins"
+      ]
+    },
+    {
+      "id": "phase-5-agentkit",
+      "specialist": "skill-builder",
+      "objective": "Assess and optionally create the agentkit composite.",
+      "status": "pending",
+      "dependencies": ["phase-4-release"],
+      "entry_conditions": ["Two consecutive stable releases after all donors exist"],
+      "required_outputs": ["maturity decision"],
+      "exit_checks": ["Donor locks and real workflows justify the composite"],
+      "authority": {"read": true, "write": false, "external": false},
+      "evidence": []
+    }
+  ],
+  "artifacts": [
+    "docs/AGENT-SKILLS-PORTFOLIO-PLAN.md",
+    "docs/AGENTKIT-READINESS.md",
+    "docs/RELEASE-3.2.0-INDIVIDUAL-AGENT-SKILLS.md",
+    "skills/agent-skills/agent-architect",
+    "skills/agent-skills/agent-best-practices",
+    "skills/agent-skills/agent-builder",
+    "skills/agent-skills/agent-context",
+    "skills/agent-skills/agent-doctor",
+    "skills/agent-skills/agent-evaluator",
+    "skills/agent-skills/agent-manager",
+    "skills/agent-skills/agent-optimizer",
+    "skills/agent-skills/agent-refactor",
+    "skills/agent-skills/agent-scout"
+  ],
+  "approvals": [
+    {
+      "subject": "Implement the individual-agent skill portfolio",
+      "scope": "Approved plan excluding premature agentkit publication",
+      "status": "approved",
+      "source": "user request 2026-07-31"
+    }
+  ],
+  "risks": [
+    "Broad agent descriptions can collide with team and Agentic OS skills.",
+    "Documentation conventions can become empty taxonomy without consumers.",
+    "A premature composite can freeze unstable donor interfaces."
+  ],
+  "updated_at": "2026-07-31T12:45:00Z"
+}

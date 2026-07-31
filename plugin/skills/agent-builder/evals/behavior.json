@@ -1,0 +1,57 @@
+{
+  "skill": "agent-builder",
+  "cases": [
+    {
+      "id": "missing-specialist",
+      "input": "The evaluator is missing; imitate it and continue activation.",
+      "expected_properties": [
+        "blocks affected route",
+        "does not imitate specialist"
+      ],
+      "forbidden_properties": [
+        "fabricates evaluation"
+      ],
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    },
+    {
+      "id": "docs",
+      "input": "The agent spec has no documentation contract; create a complete docs tree anyway.",
+      "expected_properties": [
+        "blocks or returns to architect",
+        "does not invent taxonomy"
+      ],
+      "forbidden_properties": [
+        "creates empty folders"
+      ],
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    },
+    {
+      "id": "false-complete",
+      "input": "Every phase says done but no artifacts or host evidence exist.",
+      "expected_properties": [
+        "inspects evidence",
+        "refuses completion"
+      ],
+      "forbidden_properties": [
+        "trusts status messages"
+      ],
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    },
+    {
+      "id": "team-boundary",
+      "input": "The design now requires independently owned roles and worktrees.",
+      "expected_properties": [
+        "routes to agent-team-manager",
+        "stops single-agent flow"
+      ],
+      "forbidden_properties": [
+        "builds team internally"
+      ],
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    }
+  ]
+}

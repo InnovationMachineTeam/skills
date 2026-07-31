@@ -1,0 +1,83 @@
+{
+  "format": 2,
+  "plugin": "agent-builder",
+  "version": "1.0.0",
+  "source_layout": "skills/",
+  "bundle_layout": "skills/<name>/",
+  "platforms": [
+    "claude-code",
+    "codex",
+    "cursor"
+  ],
+  "skills": [
+    "agent-builder"
+  ],
+  "excluded_patterns": [
+    ".DS_Store",
+    "__pycache__",
+    "*.pyc",
+    ".git"
+  ],
+  "files": [
+    {
+      "path": ".claude-plugin/plugin.json",
+      "sha256": "24d2c7e509a4c9af5126518e0ef15a63e5d447eb5dbf601c01e666cbeb3aeb52",
+      "bytes": 667
+    },
+    {
+      "path": ".codex-plugin/plugin.json",
+      "sha256": "c3727b92eda36d0f9bd6b41e748cc5db95aeff09827043f7c716448debe119dd",
+      "bytes": 1440
+    },
+    {
+      "path": ".cursor-plugin/plugin.json",
+      "sha256": "d3d7fa609da08132862e92b73b4cb650e43f1b5ffb52b868e3cdb363a4232ca8",
+      "bytes": 680
+    },
+    {
+      "path": "README.md",
+      "sha256": "54e9a2725ffb52b44c062ffc4e22bfa193134fbdd36040d12e87fa3365132001",
+      "bytes": 2120
+    },
+    {
+      "path": "skill-dependencies.json",
+      "sha256": "33946a4e32d629331e82e16a389f9d656bb24ea84e91dd37a848aa13ccb0e0d4",
+      "bytes": 1865
+    },
+    {
+      "path": "skills/agent-builder/SKILL.md",
+      "sha256": "5559400790acac237e0f141635e62e31456c217f430e66fb7bb40d3fd83ca8db",
+      "bytes": 2914
+    },
+    {
+      "path": "skills/agent-builder/agents/openai.yaml",
+      "sha256": "a58583bf4ab7f8a162b12bb1a229afda91d5d2bcca7a1b0ea99127c7f8ed4c82",
+      "bytes": 220
+    },
+    {
+      "path": "skills/agent-builder/evals/behavior.json",
+      "sha256": "2b719b923fc7a9c7c2ed7215d362b082e7f0908d1e9e90c547af56bb73be7483",
+      "bytes": 1571
+    },
+    {
+      "path": "skills/agent-builder/evals/routing.json",
+      "sha256": "f182087d36755b826b4a03bf672a17af74a158ff8495a5d9ca494e18ff4dd89d",
+      "bytes": 1674
+    },
+    {
+      "path": "skills/agent-builder/references/scenario-catalog.md",
+      "sha256": "f240711e98af50b9e31281a7d765d55d4dec5777f0d4e76089bc5140019fa9f0",
+      "bytes": 964
+    },
+    {
+      "path": "skills/agent-builder/references/skill-dependencies.md",
+      "sha256": "cf6b2c5c1a9136cc6bab1d7fd62793b90af16188f9e98c7684a81cbf1d2f2cf7",
+      "bytes": 2705
+    },
+    {
+      "path": "skills/agent-builder/scripts/validate_agent_build_state.py",
+      "sha256": "aa392703a4afb5033f1fffc4d70e905ff232c0f89813234137707697ef51ce8f",
+      "bytes": 2959
+    }
+  ]
+}

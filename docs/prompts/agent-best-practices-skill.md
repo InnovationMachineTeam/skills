@@ -71,6 +71,10 @@ Fact conflict блокирует rebuild до resolution. Trade-off сохран
 
 ## Safe rebuild
 
+Документационные claims должны соответствовать
+[agent-documentation-contract.md](agent-documentation-contract.md), включая
+subject-first decisions, on-demand directories и explicit ownership.
+
 Fetch/parse в staging, preserve snapshots/hashes, validate registry and claim
 links, build complete candidate corpus, compare semantic sections, run routing
 and behavior evals, then replace only authorized target. If nothing changed,

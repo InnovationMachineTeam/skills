@@ -1,0 +1,78 @@
+{
+  "format": 2,
+  "plugin": "agent-optimizer",
+  "version": "1.0.0",
+  "source_layout": "skills/",
+  "bundle_layout": "skills/<name>/",
+  "platforms": [
+    "claude-code",
+    "codex",
+    "cursor"
+  ],
+  "skills": [
+    "agent-optimizer"
+  ],
+  "excluded_patterns": [
+    ".DS_Store",
+    "__pycache__",
+    "*.pyc",
+    ".git"
+  ],
+  "files": [
+    {
+      "path": ".claude-plugin/plugin.json",
+      "sha256": "394b7fa295e73d68b31b9762169de45ed53bef7f71fadcb442f56e811fd18151",
+      "bytes": 527
+    },
+    {
+      "path": ".codex-plugin/plugin.json",
+      "sha256": "b238e742985359d0e7ae6625511c64f6240255de78cb9e5800221f983e2ab6fd",
+      "bytes": 1460
+    },
+    {
+      "path": ".cursor-plugin/plugin.json",
+      "sha256": "1f2f132b36244b1a194decdb855c49a81cd165d2a56b97ada4ccaf62bd9bb9ad",
+      "bytes": 684
+    },
+    {
+      "path": "README.md",
+      "sha256": "bccd0f25f373865e39fc995d1d205336e8d9c373484676ad328e1683d1d74757",
+      "bytes": 1105
+    },
+    {
+      "path": "skill-dependencies.json",
+      "sha256": "3b4b32bff466c38ac693607fa9c72b04952642159b1a9da405f04ac6ad559893",
+      "bytes": 441
+    },
+    {
+      "path": "skills/agent-optimizer/SKILL.md",
+      "sha256": "ae37ccbfceed26356b3fafe1308b9c2c25f5f2e270c3ff964e0a9124dacb3572",
+      "bytes": 2329
+    },
+    {
+      "path": "skills/agent-optimizer/agents/openai.yaml",
+      "sha256": "0d07af85c963686caaf06f683343036f56453ce8b470e61a4d64a02b39bf69df",
+      "bytes": 213
+    },
+    {
+      "path": "skills/agent-optimizer/evals/behavior.json",
+      "sha256": "b47069f4029229460bd34b948c69238741121989eb25c5953ab4d634ada89a01",
+      "bytes": 1184
+    },
+    {
+      "path": "skills/agent-optimizer/evals/routing.json",
+      "sha256": "5424ce623b27bc0a966542f865da58c2ae3252060b428bc399ca8e187969e940",
+      "bytes": 1414
+    },
+    {
+      "path": "skills/agent-optimizer/references/optimization-contract.md",
+      "sha256": "d96497c7727f150f8b4f9c2309082d9aa4c768ab85b1ebec884bb42544fe2285",
+      "bytes": 553
+    },
+    {
+      "path": "skills/agent-optimizer/references/skill-dependencies.md",
+      "sha256": "655255ccc9c7bbd646f06c570b5a4c6f80e0bbfd430ce1a7351bdfad9f5cce00",
+      "bytes": 1622
+    }
+  ]
+}

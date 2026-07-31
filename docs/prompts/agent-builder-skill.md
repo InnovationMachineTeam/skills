@@ -1,8 +1,10 @@
 # Мастер-промпт навыка `agent-builder`
 
 Применяй после [agent-skill-base.md](agent-skill-base.md). Создай lifecycle
-orchestrator, который переводит user outcome в минимальную цепочку specialist
-skills. Он не переimplements specialists и не активирует agents по предположению.
+orchestrator одного agent/subagent, который переводит user outcome в минимальную
+цепочку specialist skills. Он не переimplements specialists и не активирует
+agents по предположению. Team lifecycle передавай `agent-team-manager`, Agent OS
+lifecycle — соответствующим `agent-os-*` skills.
 
 ## Scenarios
 
@@ -100,6 +102,10 @@ Include proportionally:
 capabilities его own/allowed scope. Проверяй, что private root не попал в global
 host adapter. Partial build не должен оставлять активный asset без registry или
 registry reference на отсутствующий asset.
+
+Примени [agent-documentation-contract.md](agent-documentation-contract.md).
+Создавай только approved document roots из immutable agent spec, проверяй owner
+и consumer каждого artifact и не проектируй отсутствующий contract на ходу.
 
 ## Failure behavior
 

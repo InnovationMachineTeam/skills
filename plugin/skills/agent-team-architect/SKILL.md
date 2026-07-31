@@ -1,8 +1,8 @@
 ---
 name: agent-team-architect
-description: Designs the smallest justified team of agents, subagents, specialists, an orchestrator, and human responsibilities from a task and capability graph. Use when a user asks whether a problem needs multiple agents, requests agent roles or topology, needs handoff/worktree/model/skill boundaries, or wants a versioned agent-team specification and ADR before implementation. Produce design artifacts only; do not scaffold `.agents`, bind or activate skills, create worktrees, issue credentials, or operate a team. Route skill-bundle architecture to skill-architect and implementation of an approved team spec to agent-team-builder.
+description: Designs the smallest justified greenfield team of agents, subagents, specialists, an orchestrator, and human responsibilities from a task and capability graph, or redesigns an asset already defined as a team. Use when a new problem may need multiple agents, a confirmed PROMOTE_TO_TEAM decision needs roles and topology, or an existing team needs handoff, worktree, model or skill boundaries and a versioned specification. Produce design artifacts only. Route migration assessment of an existing single agent to agent-refactor, skill-bundle architecture to skill-architect, and implementation to agent-team-builder; do not scaffold `.agents`, activate skills, create worktrees, issue credentials or operate a team.
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
 ---
 
 # Architect Agent Teams
@@ -20,6 +20,10 @@ permissions.
 If a single model call, deterministic code, workflow or one bounded agent is
 sufficient, return `NO_TEAM` with the simpler design. Do not create roles for
 titles, personas or organizational symmetry.
+
+If one or more existing individual-agent identities must be split, merged or
+promoted, return `ROUTE_AGENT_REFACTOR`. After a reviewed `PROMOTE_TO_TEAM`
+decision, this skill owns the new team specification.
 
 ## Build evidence graphs
 

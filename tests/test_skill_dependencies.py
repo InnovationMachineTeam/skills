@@ -27,7 +27,21 @@ class SkillDependencyTests(unittest.TestCase):
 
     def test_dependency_graph_is_valid_and_intentionally_bounded(self) -> None:
         self.assertEqual([], MODULE.validate_graph(ROOT))
-        self.assertEqual({"agent-team-manager", "skill-builder"}, set(self.graph))
+        self.assertEqual(
+            {
+                "agent-architect",
+                "agent-builder",
+                "agent-context",
+                "agent-doctor",
+                "agent-manager",
+                "agent-optimizer",
+                "agent-refactor",
+                "agent-scout",
+                "agent-team-manager",
+                "skill-builder",
+            },
+            set(self.graph),
+        )
         self.assertEqual(
             {"claude-code": True, "codex": False, "cursor": False},
             self.document["policy"]["native_plugin_dependencies"],
@@ -81,7 +95,7 @@ class SkillDependencyTests(unittest.TestCase):
                 self.assertEqual(self.graph[name]["recommended"], payload["recommended"])
                 self.assertIn("DEPENDENCY WARNING", (package / "README.md").read_text(encoding="utf-8"))
                 claude = json.loads((package / ".claude-plugin" / "plugin.json").read_text(encoding="utf-8"))
-                self.assertEqual([item["name"] for item in self.graph[name]["required"]], claude["dependencies"])
+                self.assertEqual([item["name"] for item in self.graph[name]["required"]], claude.get("dependencies", []))
                 for host in ("codex", "cursor"):
                     manifest = json.loads((package / f".{host}-plugin" / "plugin.json").read_text(encoding="utf-8"))
                     self.assertNotIn("dependencies", manifest)

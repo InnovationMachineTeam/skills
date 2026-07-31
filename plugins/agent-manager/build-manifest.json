@@ -1,0 +1,78 @@
+{
+  "format": 2,
+  "plugin": "agent-manager",
+  "version": "1.0.0",
+  "source_layout": "skills/",
+  "bundle_layout": "skills/<name>/",
+  "platforms": [
+    "claude-code",
+    "codex",
+    "cursor"
+  ],
+  "skills": [
+    "agent-manager"
+  ],
+  "excluded_patterns": [
+    ".DS_Store",
+    "__pycache__",
+    "*.pyc",
+    ".git"
+  ],
+  "files": [
+    {
+      "path": ".claude-plugin/plugin.json",
+      "sha256": "f71b2820ae4dd54274356350b6213f016620162cc5d9b163cb11509521c57d9f",
+      "bytes": 523
+    },
+    {
+      "path": ".codex-plugin/plugin.json",
+      "sha256": "9c95feaeeb939a071d5b680b26535d0ad06cd1e21304783e444c6f8d2feed327",
+      "bytes": 1457
+    },
+    {
+      "path": ".cursor-plugin/plugin.json",
+      "sha256": "1a458488d4088438c86a236f83cb558ec3f483c6e3723ee366489eb2af188421",
+      "bytes": 682
+    },
+    {
+      "path": "README.md",
+      "sha256": "c2975e063dcf6f87aec1f2b7d1a01b5cc290d37808d6bc5fc132ac8b3124d4c8",
+      "bytes": 1305
+    },
+    {
+      "path": "skill-dependencies.json",
+      "sha256": "24b78edb58ada4976ae8307ef4095c873cbe354d67220a134445adac8838351a",
+      "bytes": 770
+    },
+    {
+      "path": "skills/agent-manager/SKILL.md",
+      "sha256": "e60779004bf20eec0dc955d04f3ac8faedacb4ab2a411db2d727bfb69d25efdd",
+      "bytes": 2714
+    },
+    {
+      "path": "skills/agent-manager/agents/openai.yaml",
+      "sha256": "5c666ee2ca6a9576eccba09e7e62a9ccb89738afad5899ee5a35b3e6aa7747a9",
+      "bytes": 201
+    },
+    {
+      "path": "skills/agent-manager/evals/behavior.json",
+      "sha256": "e1dc64a50b0ba2761d6c20e8c607afdaf2b1725d032b36a2b71f4277b47964d6",
+      "bytes": 1244
+    },
+    {
+      "path": "skills/agent-manager/evals/routing.json",
+      "sha256": "ce6b2a14448461cf59e46f8cf947f1434e878b8c22b7f5b2f72705aad3d6783f",
+      "bytes": 1326
+    },
+    {
+      "path": "skills/agent-manager/references/lifecycle-contract.md",
+      "sha256": "21ebc40fb2981b60bfd201bedc160dd9e2392f0a924112376ff985c798c4e2f2",
+      "bytes": 678
+    },
+    {
+      "path": "skills/agent-manager/references/skill-dependencies.md",
+      "sha256": "22875ab209ba825bd0062b2cde4faaa4d9dfd6197e3552e8e20824ab0d5235da",
+      "bytes": 1854
+    }
+  ]
+}

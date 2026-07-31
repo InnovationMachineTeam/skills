@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "skill": "agent-optimizer",
+  "native_auto_install": {
+    "claude-code": true,
+    "codex": false,
+    "cursor": false
+  },
+  "required": [
+    {
+      "name": "agent-evaluator",
+      "minimum_version": "1.0.0",
+      "reason": "Optimization requires a frozen baseline and independent candidate comparison."
+    }
+  ],
+  "recommended": [],
+  "install_order": [
+    "agent-evaluator",
+    "agent-optimizer"
+  ]
+}

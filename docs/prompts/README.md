@@ -22,7 +22,7 @@ agent-domain procedure. Не объединяйте все prompts в один m
 |---|---|
 | Ищет обоснованные возможности для agents | [agent-scout-skill.md](agent-scout-skill.md) |
 | Собирает context из repositories/docs/traces | [agent-context-skill.md](agent-context-skill.md) |
-| Проектирует agent/subagent/team/orchestrator | [agent-architect-skill.md](agent-architect-skill.md) |
+| Проектирует одного agent или subagent | [agent-architect-skill.md](agent-architect-skill.md) |
 | Создаёт evals и release evidence | [agent-evaluator-skill.md](agent-evaluator-skill.md) |
 | Диагностирует и минимально исправляет | [agent-doctor-skill.md](agent-doctor-skill.md) |
 | Улучшает здорового агента по метрике | [agent-optimizer-skill.md](agent-optimizer-skill.md) |
@@ -86,6 +86,10 @@ workflow.
 
 Visibility overlay не является новым primary archetype. `private` означает
 agent-scoped discovery/binding; он не делает файлы секретными.
+
+Когда skill создаёт, изменяет, оценивает или активирует agent definition,
+добавляйте [agent-documentation-contract.md](agent-documentation-contract.md)
+как общий профиль. Он не заменяет specialist prompt.
 
 ## Входной envelope
 

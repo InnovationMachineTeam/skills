@@ -12,12 +12,12 @@ reviewable immutable agent-system candidate. Он не активирует runt
 - single bounded agent;
 - tool-using or retrieval-grounded agent;
 - planner–executor;
-- subagent/delegation topology;
-- orchestrator/workflow;
-- agent team;
-- agent-oriented workflow/service;
-- Agent OS component или platform architecture;
+- bounded subagent definition;
+- single-agent tool-using, retrieval, planner-executor or verifier pattern;
 - redesign existing agent definition.
+
+Командную topology передавай в `agent-team-architect`, а platform/Agent OS
+архитектуру — в `agent-os-architect`. Не дублируй их contracts.
 
 Если code, model call или deterministic workflow достаточны, верни более простое
 решение. Не создавай отдельного agent только для persona, красивого имени или
@@ -75,6 +75,14 @@ operations planes.
 Зафиксируй alternatives, decision drivers, chosen pattern, rejected options,
 risks, consequences и confirmation evidence. Не превращай сгенерированный plan
 в authority: runtime/policy валидирует capabilities и side effects.
+
+## Documentation contract
+
+Примени [agent-documentation-contract.md](agent-documentation-contract.md).
+Определи документы из mission и risk агента. Для software architect обычно
+нужны architecture overview и ADRs в `docs/decisions/architecture/`; acceptance
+high-impact ADR остаётся у accountable human/policy owner. Выбери inline,
+private command, private skill или public skill для документной capability.
 
 ## Evaluation design
 

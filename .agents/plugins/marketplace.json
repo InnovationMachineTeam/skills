@@ -5,10 +5,94 @@
   },
   "plugins": [
     {
+      "name": "agent-architect",
+      "source": {
+        "source": "local",
+        "path": "./plugins/agent-architect"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    },
+    {
+      "name": "agent-best-practices",
+      "source": {
+        "source": "local",
+        "path": "./plugins/agent-best-practices"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    },
+    {
+      "name": "agent-builder",
+      "source": {
+        "source": "local",
+        "path": "./plugins/agent-builder"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    },
+    {
+      "name": "agent-context",
+      "source": {
+        "source": "local",
+        "path": "./plugins/agent-context"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    },
+    {
+      "name": "agent-doctor",
+      "source": {
+        "source": "local",
+        "path": "./plugins/agent-doctor"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    },
+    {
+      "name": "agent-evaluator",
+      "source": {
+        "source": "local",
+        "path": "./plugins/agent-evaluator"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    },
+    {
       "name": "agent-knowledge-manager",
       "source": {
         "source": "local",
         "path": "./plugins/agent-knowledge-manager"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    },
+    {
+      "name": "agent-manager",
+      "source": {
+        "source": "local",
+        "path": "./plugins/agent-manager"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -33,6 +117,18 @@
       "source": {
         "source": "local",
         "path": "./plugins/agent-observer"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    },
+    {
+      "name": "agent-optimizer",
+      "source": {
+        "source": "local",
+        "path": "./plugins/agent-optimizer"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -89,6 +185,18 @@
       "category": "Developer Tools"
     },
     {
+      "name": "agent-refactor",
+      "source": {
+        "source": "local",
+        "path": "./plugins/agent-refactor"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    },
+    {
       "name": "agent-registry-manager",
       "source": {
         "source": "local",
@@ -105,6 +213,18 @@
       "source": {
         "source": "local",
         "path": "./plugins/agent-runtime-manager"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    },
+    {
+      "name": "agent-scout",
+      "source": {
+        "source": "local",
+        "path": "./plugins/agent-scout"
       },
       "policy": {
         "installation": "AVAILABLE",
