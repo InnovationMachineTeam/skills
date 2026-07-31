@@ -18,6 +18,7 @@
     "skills/metaskills/skill-scout",
     "skills/metaskills/skill-harvester",
     "skills/metaskills/agent-model-selector",
+    "skills/metaskills/agent-knowledge-manager",
     "skills/metaskills/agent-team-architect",
     "skills/metaskills/agent-skill-mapper",
     "skills/metaskills/agent-team-builder",
@@ -49,7 +50,8 @@
     {"id":"phase-3-foundation","specialist":"skill-builder","objective":"Update foundational metaskills and generated packages","status":"completed","dependencies":["phase-2-prompts"],"entry_conditions":["Master prompts exist"],"required_outputs":["versioned metaskill changes","updated donor lock","rebuilt plugins"],"exit_checks":["Repository and self-evals pass"],"authority":{"read":true,"write":true,"external_research":false,"install":false,"publish":true,"retire":false},"evidence":["skills/metaskills/skill-builder","skills/metaskills/skill-evaluator","skills/metaskills/metaskillpack/donors.json"]},
     {"id":"phase-4-core-team","specialist":"skill-builder","objective":"Build core team design, mapping, staged build and lifecycle skills","status":"completed","dependencies":["phase-3-foundation"],"entry_conditions":["Foundation release candidate passes"],"required_outputs":["five versioned agent-team metaskills","deterministic validators","routing and behavior evals","forward and adversarial tests"],"exit_checks":["No runtime activation","Private ownership enforced","Repository and marketplace validation passes"],"authority":{"read":true,"write":true,"external_research":false,"install":false,"publish":true,"retire":false},"evidence":["skills/metaskills/agent-model-selector","skills/metaskills/agent-team-architect","skills/metaskills/agent-skill-mapper","skills/metaskills/agent-team-builder","skills/metaskills/agent-team-manager","tests/test_phase4_agent_skills.py"]},
     {"id":"phase-5-runtime","specialist":"skill-builder","objective":"Build evaluation and runtime orchestration slice","status":"completed","dependencies":["phase-4-core-team"],"entry_conditions":["Phase 4 release passes"],"required_outputs":["agent-team-orchestrator","agent-workspace-manager","team-level eval suite","durable runtime and recovery contracts"],"exit_checks":["Sequential, parallel, failure, conflict, budget, cancellation, resume and cleanup cases pass"],"authority":{"read":true,"write":true,"external_research":false,"install":false,"publish":true,"retire":false},"evidence":["skills/metaskills/agent-team-orchestrator","skills/metaskills/agent-workspace-manager","tests/test_phase5_runtime_skills.py"]},
-    {"id":"phase-6-knowledge","specialist":"skill-builder","objective":"Build curated knowledge and memory plane","status":"pending","dependencies":["phase-5-runtime"],"entry_conditions":["Runtime release passes"],"required_outputs":["docs conventions","agent-knowledge-manager","Graphify projection","retrieval provenance tests"],"exit_checks":["Unverified facts cannot publish silently","Freshness and provenance are enforced"],"authority":{"read":true,"write":true,"external_research":true,"install":false,"publish":true,"retire":false},"evidence":[]}
+    {"id":"phase-6-knowledge","specialist":"skill-builder","objective":"Build curated knowledge and memory plane","status":"completed","dependencies":["phase-5-runtime"],"entry_conditions":["Runtime release passes"],"required_outputs":["docs conventions","agent-knowledge-manager","Graphify projection","retrieval provenance tests"],"exit_checks":["Unverified facts cannot publish silently","Freshness and provenance are enforced"],"authority":{"read":true,"write":true,"external_research":false,"install":false,"publish":true,"retire":false},"evidence":["skills/metaskills/agent-knowledge-manager","docs/KNOWLEDGE-PLANE.md","docs/generated/knowledge-graph.json","tests/test_phase6_knowledge_skill.py"]},
+    {"id":"phase-7-agent-os","specialist":"skill-builder","objective":"Build one bounded minimal Agentic OS walking skeleton","status":"pending","dependencies":["phase-6-knowledge"],"entry_conditions":["Knowledge release passes","One bounded use case selected"],"required_outputs":["Agentic OS architecture and bootstrap","registry/runtime/policy/observer/evaluator slices","one policy-gated durable run"],"exit_checks":["Trace, evaluation, recovery and retirement pass"],"authority":{"read":true,"write":true,"external_research":true,"install":false,"publish":true,"retire":false},"evidence":[]}
   ],
   "artifacts": [
     "docs/AGENT-TEAM-AND-AGENT-OS-PLAN.md",
@@ -68,7 +70,11 @@
     "skills/metaskills/agent-team-manager",
     "skills/metaskills/agent-team-orchestrator",
     "skills/metaskills/agent-workspace-manager",
-    "tests/test_phase5_runtime_skills.py"
+    "tests/test_phase5_runtime_skills.py",
+    "skills/metaskills/agent-knowledge-manager",
+    "docs/KNOWLEDGE-PLANE.md",
+    "docs/generated/knowledge-graph.json",
+    "tests/test_phase6_knowledge_skill.py"
   ],
   "approvals": [
     {"subject":"Implement final plan","scope":"repository foundation and subsequent approved phases","status":"approved","source":"user request 2026-07-31"}

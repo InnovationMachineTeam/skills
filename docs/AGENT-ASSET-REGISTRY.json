@@ -1,8 +1,39 @@
 {
   "schema_version": 1,
-  "revision": 5,
-  "updated_at": "2026-07-31T08:27:01Z",
+  "revision": 6,
+  "updated_at": "2026-07-31T08:35:33Z",
   "assets": [
+    {
+      "id": "asset://repository/skill/agent-knowledge-manager",
+      "kind": "skill",
+      "name": "agent-knowledge-manager",
+      "version": "1.0.0",
+      "revision": 1,
+      "version_strategy": "independent",
+      "parent_version_ref": null,
+      "content_sha256": "sha256:f047e67952c6f887c5b332a5fd83f3af4f85ee1cc1d3181acc496527f8612aea",
+      "locator": "skills/metaskills/agent-knowledge-manager",
+      "visibility": "public",
+      "scope": "repository",
+      "discoverability": "global",
+      "owner_agent_ref": null,
+      "allowed_consumers": [],
+      "accountable_owner": "InnovationMachineTeam",
+      "source_type": "project",
+      "provenance": {
+        "repository": "InnovationMachineTeam/skills"
+      },
+      "trust_status": "verified",
+      "lifecycle_status": "registered",
+      "host_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "eval_evidence": [],
+      "replacement": null
+    },
     {
       "id": "asset://repository/skill/agent-model-selector",
       "kind": "skill",

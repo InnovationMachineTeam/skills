@@ -6,6 +6,7 @@ This generated package is installable by Claude Code, Codex, and Cursor. Its can
 
 ## Bundled skills
 
+- `agent-knowledge-manager`
 - `agent-model-selector`
 - `agent-skill-mapper`
 - `agent-team-architect`

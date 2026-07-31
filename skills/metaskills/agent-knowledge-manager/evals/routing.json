@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {"id": "ingest", "prompt": "Put these session learnings into the knowledge inbox.", "expected_trigger": true, "expected_route": "ingest"},
+    {"id": "curate", "prompt": "Verify and classify these candidate facts.", "expected_trigger": true, "expected_route": "curate"},
+    {"id": "publish", "prompt": "Publish the curator-approved architecture decision.", "expected_trigger": true, "expected_route": "publish"},
+    {"id": "retrieve", "prompt": "Build a minimal cited context capsule for this task.", "expected_trigger": true, "expected_route": "retrieve"},
+    {"id": "refresh", "prompt": "Find stale knowledge and revalidate it against code.", "expected_trigger": true, "expected_route": "refresh"},
+    {"id": "graph", "prompt": "Regenerate the deterministic knowledge graph.", "expected_trigger": true, "expected_route": "graphify"},
+    {"id": "retire", "prompt": "Supersede this old decision and retain its history.", "expected_trigger": true, "expected_route": "retire"},
+    {"id": "runtime", "prompt": "Persist the live task lease and heartbeat.", "expected_trigger": false, "expected_route": "runtime-state"},
+    {"id": "skill", "prompt": "Create a reusable PDF parsing procedure.", "expected_trigger": false, "expected_route": "skill-architect"}
+  ]
+}

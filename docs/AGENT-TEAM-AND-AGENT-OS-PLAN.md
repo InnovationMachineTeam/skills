@@ -1119,7 +1119,7 @@ separate worktree ledger and its mutation/cleanup boundary. Typed plan and
 ledger validators plus routing/behavior and forward/adversarial tests cover all
 exit scenarios without creating real worktrees or inferring runtime authority.
 
-### Phase 6 — Knowledge and memory plane — next
+### Phase 6 — Knowledge and memory plane — completed
 
 Build:
 
@@ -1134,7 +1134,14 @@ Decision gate for Qdrant; separate later gate for Neo4j + GraphRAG.
 Exit: agents can retrieve authoritative docs and propose memory updates without
 silently publishing unverified facts.
 
-### Phase 7 — Minimal Agent OS
+Implemented in the `1.7.0` marketplace candidate: `agent-knowledge-manager`, a
+portable docs/frontmatter lifecycle, an inbox-to-curator publication gate and a
+deterministic source-hashed Graphify JSON projection. Forward and adversarial
+tests cover provenance, duplicate IDs, broken relations and candidate status;
+behavior evals cover poisoning, stale sources, deletion, access denial, drift
+and contradictions. External vector/graph infrastructure remains gated.
+
+### Phase 7 — Minimal Agent OS — next
 
 Build only first-order skills needed by one bounded use case:
 

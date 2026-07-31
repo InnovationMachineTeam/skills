@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.7.0 — 2026-07-31
+
+- Added `agent-knowledge-manager` for inbox-to-publication curation, freshness,
+  contradiction handling, scoped retrieval and knowledge retirement.
+- Added a project knowledge-plane contract, atomic example page and
+  deterministic provenance-bearing Graphify JSON projection.
+- Added poisoning, stale-source, deletion, access, missing-provenance,
+  index-drift and contradiction eval scenarios plus forward tests.
+- Kept vector databases, Neo4j/Qdrant and GraphRAG behind a measured
+  architecture/operations gate rather than adding infrastructure by default.
+
 ## 1.6.0 — 2026-07-31
 
 - Added `agent-team-orchestrator` with bounded task DAG, idempotency, lease,

@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-07-31T00:00:00Z",
+  "source_root": "docs/knowledge",
+  "nodes": [
+    {
+      "id": "doc://knowledge/knowledge-plane",
+      "type": "concept",
+      "status": "approved",
+      "version": "1.0.0",
+      "owner": "InnovationMachineTeam",
+      "updated_at": "2026-07-31",
+      "sensitivity": "internal",
+      "agent_access": "read",
+      "tags": [
+        "agents",
+        "knowledge",
+        "docs"
+      ],
+      "locator": "docs/knowledge/concepts/knowledge-plane.md",
+      "content_sha256": "sha256:cb6ed964ffb50c3ad2cb658f47a3083f247e5717381321eacfd16035c54f0e69",
+      "summary": "Knowledge plane"
+    }
+  ],
+  "edges": [
+    {
+      "type": "DERIVED_FROM",
+      "from": "doc://knowledge/knowledge-plane",
+      "to": "doc://plan/agent-team-and-agent-os",
+      "source_locator": "docs/knowledge/concepts/knowledge-plane.md",
+      "source_sha256": "sha256:cb6ed964ffb50c3ad2cb658f47a3083f247e5717381321eacfd16035c54f0e69"
+    }
+  ]
+}

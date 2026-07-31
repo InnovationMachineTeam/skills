@@ -2,11 +2,12 @@
 
 Generated from `AGENT-ASSET-REGISTRY.json`; do not edit manually.
 
-Revision: **5**
-Updated: **2026-07-31T08:27:01Z**
+Revision: **6**
+Updated: **2026-07-31T08:35:33Z**
 
 | Kind | Name | Version | Visibility | Scope | Owner agent | Accountable owner | Status | Locator |
 |---|---|---:|---|---|---|---|---|---|
+| skill | agent-knowledge-manager | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/agent-knowledge-manager` |
 | skill | agent-model-selector | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/agent-model-selector` |
 | skill | agent-skill-mapper | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/agent-skill-mapper` |
 | skill | agent-team-architect | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/agent-team-architect` |
@@ -28,4 +29,4 @@ Updated: **2026-07-31T08:27:01Z**
 | skill | skill-refactor | 1.2.0 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/skill-refactor` |
 | skill | skill-scout | 1.1.0 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/skill-scout` |
 
-Total assets: **20**.
+Total assets: **21**.

@@ -1,6 +1,7 @@
 {
   "schema_version": 1,
   "entries": [
+    {"name": "agent-knowledge-manager", "tags": ["agents", "knowledge", "memory"]},
     {"name": "agent-model-selector", "tags": ["agents", "models", "evaluation"]},
     {"name": "agent-skill-mapper", "tags": ["agents", "skills", "mapping"]},
     {"name": "agent-team-architect", "tags": ["agents", "architecture", "teams"]},

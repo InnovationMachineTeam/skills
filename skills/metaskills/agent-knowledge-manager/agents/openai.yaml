@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent Knowledge Manager"
+  short_description: "Curate agent project knowledge safely"
+  default_prompt: "Use $agent-knowledge-manager to curate and retrieve provenance-bearing project knowledge."

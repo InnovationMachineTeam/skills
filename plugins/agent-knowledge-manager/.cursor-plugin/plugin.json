@@ -1,0 +1,20 @@
+{
+  "name": "agent-knowledge-manager",
+  "version": "1.0.0",
+  "description": "Curates provenance-bearing project knowledge and sanitized agent memory through a docs inbox, review, publication, freshness, contradiction, retrieval and retirement lifecycle, with optional Obsidian-compatible links and deterministic...",
+  "homepage": "https://github.com/InnovationMachineTeam/skills",
+  "repository": "https://github.com/InnovationMachineTeam/skills",
+  "license": "Proprietary",
+  "keywords": [
+    "agent-skills",
+    "agents",
+    "knowledge",
+    "memory",
+    "metaskills"
+  ],
+  "skills": "./skills/",
+  "author": {
+    "name": "InnovationMachine",
+    "email": "stanislav.usoltsev@gmail.com"
+  }
+}

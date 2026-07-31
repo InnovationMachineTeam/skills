@@ -1,7 +1,7 @@
 {
   "format": 2,
   "plugin": "im-skills-all",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "source_layout": "skills/",
   "bundle_layout": "skills/<name>/",
   "platforms": [
@@ -10,6 +10,7 @@
     "cursor"
   ],
   "skills": [
+    "agent-knowledge-manager",
     "agent-model-selector",
     "agent-skill-mapper",
     "agent-team-architect",
@@ -40,23 +41,63 @@
   "files": [
     {
       "path": ".claude-plugin/plugin.json",
-      "sha256": "a744511f92956b6839fd12a403ca0de0a881330485353c8fc8f3fdf11357c77d",
+      "sha256": "ec363defa5b36300168092635e11621572ccd8329233674f5a13f01d733f811f",
       "bytes": 288
     },
     {
       "path": ".codex-plugin/plugin.json",
-      "sha256": "2d427583796fde6f3fd852c84c2fa163914c663e3e1681270bbcb5952a25de1c",
+      "sha256": "b2a0abb33134a32f123a91f5e11ec187d61633adf84aea5de2626a9d3873cb59",
       "bytes": 977
     },
     {
       "path": ".cursor-plugin/plugin.json",
-      "sha256": "6efdf00922fd0aa952b7f695a47b572df67d9c0291d6a86afd9a9811aaf71630",
+      "sha256": "bfda6a2c385d9170ec9fd9bb027a7a2abd08b7cacf5fcd41dfcc94cf266a826e",
       "bytes": 459
     },
     {
       "path": "README.md",
-      "sha256": "ddc4681150db52c7ceb5709b921810f6a925dbfc63bb131cdea5b029dabf87e5",
-      "bytes": 811
+      "sha256": "5b82b99af62fa812974dd5557f1df72f712b258459ddf1d34f7c0a2c328feb9f",
+      "bytes": 839
+    },
+    {
+      "path": "skills/agent-knowledge-manager/SKILL.md",
+      "sha256": "6fd656614a2e2e06bf5df856ccc3a73c5c71096e4f9ec6eb1cc65ea3cae714c8",
+      "bytes": 3749
+    },
+    {
+      "path": "skills/agent-knowledge-manager/agents/openai.yaml",
+      "sha256": "441b8b26c11505f8f0d902081fead9b091b543dfcc181cd20eec3145bdf1f91e",
+      "bytes": 224
+    },
+    {
+      "path": "skills/agent-knowledge-manager/evals/behavior.json",
+      "sha256": "a0c5a72aec1505799a96a2fda1c0b8ed8ab9ec94a03612e33cd3ce61683fe1c7",
+      "bytes": 1762
+    },
+    {
+      "path": "skills/agent-knowledge-manager/evals/routing.json",
+      "sha256": "0b4bf2d6b59d3839f388292205cd53beffeaaed6f1e36b134d352e27487da510",
+      "bytes": 1308
+    },
+    {
+      "path": "skills/agent-knowledge-manager/references/knowledge-lifecycle.md",
+      "sha256": "7adfc87e690968716ad3bf9068101c44a31feef6d3b8add9e59968b07e859070",
+      "bytes": 863
+    },
+    {
+      "path": "skills/agent-knowledge-manager/references/retrieval-and-projections.md",
+      "sha256": "381970357123464398199aa869fd9013e1a31b16e1af09c84b55d21ae209fba6",
+      "bytes": 790
+    },
+    {
+      "path": "skills/agent-knowledge-manager/scripts/build_knowledge_graph.py",
+      "sha256": "7682392d08146bc553089fb32639d886cb9a0821a92d1bf8c47ddee8010d86c5",
+      "bytes": 6542
+    },
+    {
+      "path": "skills/agent-knowledge-manager/scripts/check_evals.py",
+      "sha256": "3b52284ad985b2efe056d9798147b3f3a26eebc3c40e84c52149673e47e6a2f5",
+      "bytes": 2478
     },
     {
       "path": "skills/agent-model-selector/SKILL.md",
