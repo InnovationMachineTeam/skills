@@ -1,0 +1,33 @@
+{
+  "name": "agent-team-architect",
+  "version": "1.0.0",
+  "description": "Designs the smallest justified team of agents, subagents, specialists, an orchestrator, and human responsibilities from a task and capability graph",
+  "homepage": "https://github.com/InnovationMachineTeam/skills",
+  "repository": "https://github.com/InnovationMachineTeam/skills",
+  "license": "Proprietary",
+  "keywords": [
+    "agent-skills",
+    "agents",
+    "architecture",
+    "metaskills",
+    "teams"
+  ],
+  "skills": "./skills/",
+  "author": {
+    "name": "InnovationMachine",
+    "email": "stanislav.usoltsev@gmail.com",
+    "url": "https://github.com/InnovationMachineTeam"
+  },
+  "interface": {
+    "displayName": "Agent Team Architect",
+    "shortDescription": "Designs the smallest justified team of agents, subagents, specialists, an orchestrator, and human responsibilities…",
+    "longDescription": "Designs the smallest justified team of agents, subagents, specialists, an orchestrator, and human responsibilities from a task and capability graph",
+    "developerName": "InnovationMachine",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Guidance"
+    ],
+    "websiteURL": "https://github.com/InnovationMachineTeam/skills",
+    "defaultPrompt": "Use Agent Team Architect for this task."
+  }
+}

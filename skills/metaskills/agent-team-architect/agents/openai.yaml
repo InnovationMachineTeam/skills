@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent Team Architect"
+  short_description: "Design minimal, governed agent teams"
+  default_prompt: "Use $agent-team-architect to design the smallest justified agent team for this outcome."

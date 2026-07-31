@@ -1079,7 +1079,7 @@ was rebuilt from the updated read-only donor snapshots.
 Exit: created skill and agent candidates register atomically; active registries
 are unchanged on failed validation.
 
-### Phase 4 — Core team design skills — next
+### Phase 4 — Core team design skills — completed
 
 Build in order:
 
@@ -1093,7 +1093,14 @@ Exit: sample project produces approved spec and staged `.agents` candidate with
 no runtime activation; unnecessary single-agent capabilities remain inline or
 private instead of becoming public skills.
 
-### Phase 5 — Evaluation and runtime orchestration
+Implemented in the `1.5.0` marketplace candidate: all five skills have distinct
+decision and mutation boundaries, machine-readable contracts, deterministic
+validators, routing/behavior evals and forward/adversarial tests. The team
+builder requires an approved spec and always stages with `activation: false`;
+the mapper rejects cross-owner private bindings; the manager preserves durable
+checkpoints and delegates specialist work instead of becoming a mega-skill.
+
+### Phase 5 — Evaluation and runtime orchestration — next
 
 Build:
 

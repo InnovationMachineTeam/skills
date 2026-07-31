@@ -6,6 +6,11 @@ This generated package is installable by Claude Code, Codex, and Cursor. Its can
 
 ## Bundled skills
 
+- `agent-model-selector`
+- `agent-skill-mapper`
+- `agent-team-architect`
+- `agent-team-builder`
+- `agent-team-manager`
 - `metaskillpack`
 - `optimize-master-prompts`
 - `skill-architect`

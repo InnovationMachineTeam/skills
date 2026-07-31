@@ -1,0 +1,83 @@
+{
+  "format": 2,
+  "plugin": "agent-team-builder",
+  "version": "1.0.0",
+  "source_layout": "skills/",
+  "bundle_layout": "skills/<name>/",
+  "platforms": [
+    "claude-code",
+    "codex",
+    "cursor"
+  ],
+  "skills": [
+    "agent-team-builder"
+  ],
+  "excluded_patterns": [
+    ".DS_Store",
+    "__pycache__",
+    "*.pyc",
+    ".git"
+  ],
+  "files": [
+    {
+      "path": ".claude-plugin/plugin.json",
+      "sha256": "d2e98897404c21a8a48dfbac95e0a2077f1335caeeeaff96a55b8bd90c1adc4f",
+      "bytes": 477
+    },
+    {
+      "path": ".codex-plugin/plugin.json",
+      "sha256": "891ee2ee1b563b8a9f0051a49fc4a7717a79d1173933815d34426a5657eee7ca",
+      "bytes": 1463
+    },
+    {
+      "path": ".cursor-plugin/plugin.json",
+      "sha256": "f96dc5acd096aed415a2995a815617fbadcc113144351bd340840186303f5fae",
+      "bytes": 687
+    },
+    {
+      "path": "README.md",
+      "sha256": "68bde86f351dcc93e57e8d3650bcb7a107a645425123823ddeeabf679dc77f59",
+      "bytes": 574
+    },
+    {
+      "path": "skills/agent-team-builder/SKILL.md",
+      "sha256": "bbb6e49923d31ed096a44fffe6e2d8058a36daf235fba225e4649a8cda6027ca",
+      "bytes": 3299
+    },
+    {
+      "path": "skills/agent-team-builder/agents/openai.yaml",
+      "sha256": "a6a19e5e2832ea27d5602215be3e53e64b49b92bc2093bc24e70b1dd620131f1",
+      "bytes": 205
+    },
+    {
+      "path": "skills/agent-team-builder/evals/behavior.json",
+      "sha256": "bb16b6421eab40f538501fe5a6302eb0b155cb3cbef0f05649037e8f743bb54b",
+      "bytes": 740
+    },
+    {
+      "path": "skills/agent-team-builder/evals/routing.json",
+      "sha256": "f4950aa747ebf35fe2f4dc792da45c4bc3a91b35f0e714ad31c89381e0ec2035",
+      "bytes": 1047
+    },
+    {
+      "path": "skills/agent-team-builder/references/build-transaction-contract.md",
+      "sha256": "92051e903f0856fb0ade095984b45e63daa18d3bb6c12878a7aa07126710e050",
+      "bytes": 923
+    },
+    {
+      "path": "skills/agent-team-builder/references/host-projection-and-safety.md",
+      "sha256": "be15601062996cfb8eb9ecd3edf7e32d3b321475e7e38f51d25f61810b073bea",
+      "bytes": 784
+    },
+    {
+      "path": "skills/agent-team-builder/scripts/check_evals.py",
+      "sha256": "8f28fcdb7ee5351e26ac0493e2c2346dcd7b49ba44d59b28a76c1ed54d07adaa",
+      "bytes": 2130
+    },
+    {
+      "path": "skills/agent-team-builder/scripts/validate_build_manifest.py",
+      "sha256": "97082895adacb7844c38803ae5a91f719b59b7a3b3abe6bcc002c7303735b290",
+      "bytes": 4455
+    }
+  ]
+}

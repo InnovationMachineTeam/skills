@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {"id": "assess", "prompt": "Do we need a team of agents for this repository migration?", "expected_trigger": true, "expected_route": "assess"},
+    {"id": "design", "prompt": "Coordinate the design of a new agent team.", "expected_trigger": true, "expected_route": "design"},
+    {"id": "build", "prompt": "Take this approved team spec through the build phase.", "expected_trigger": true, "expected_route": "build"},
+    {"id": "map", "prompt": "Reconcile skills and agents before launch.", "expected_trigger": true, "expected_route": "map-capabilities"},
+    {"id": "operate", "prompt": "Launch and monitor the approved team run.", "expected_trigger": true, "expected_route": "operate"},
+    {"id": "change", "prompt": "Change the active team topology safely.", "expected_trigger": true, "expected_route": "change"},
+    {"id": "recover", "prompt": "Recover a partially failed team run.", "expected_trigger": true, "expected_route": "recover"},
+    {"id": "retire", "prompt": "Retire this team and preserve its evidence.", "expected_trigger": true, "expected_route": "retire"},
+    {"id": "single-skill", "prompt": "Optimize this one SKILL.md.", "expected_trigger": false, "expected_route": "skill-optimizer"}
+  ]
+}

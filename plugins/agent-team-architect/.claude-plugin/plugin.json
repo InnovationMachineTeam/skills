@@ -1,0 +1,13 @@
+{
+  "name": "agent-team-architect",
+  "displayName": "Agent Team Architect",
+  "version": "1.0.0",
+  "description": "Designs the smallest justified team of agents, subagents, specialists, an orchestrator, and human responsibilities from a task and capability graph",
+  "skills": [
+    "./skills"
+  ],
+  "author": {
+    "name": "InnovationMachine",
+    "email": "stanislav.usoltsev@gmail.com"
+  }
+}

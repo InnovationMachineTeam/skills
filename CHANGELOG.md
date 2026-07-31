@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.5.0 — 2026-07-31
+
+- Added `agent-model-selector`, `agent-team-architect`, `agent-skill-mapper`,
+  `agent-team-builder`, and `agent-team-manager` as individually installable
+  design and lifecycle metaskills.
+- Added evidence-linked model policy, team specification, mapping proposal,
+  staged build manifest, and durable run-state validators.
+- Added routing/behavior evals and forward/adversarial tests for private
+  ownership, capability budgets, approvals, rollback, and resumability.
+- Expanded the canonical team specification schema and completed Phase 4 of
+  the agent-team and Agentic OS implementation plan.
+- Repaired the agent-definition JSON Schema and added full-corpus JSON parsing
+  to the release verification evidence.
+
 ## 1.4.0 — 2026-07-31
 
 - Added a typed agent asset registry, versioned capability map, transaction

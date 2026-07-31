@@ -12,7 +12,7 @@
     "name": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
     "version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
     "accountable_owner": {"type": "string", "minLength": 1},
-    "mission": {"type": "object", "required": ["goal", "non_goals"], "properties": {"goal": {"type": "string", "minLength": 1}, "non_goals": {"type": "array", "items": {"type": "string"}}},
+    "mission": {"type": "object", "required": ["goal", "non_goals"], "properties": {"goal": {"type": "string", "minLength": 1}, "non_goals": {"type": "array", "items": {"type": "string"}}}},
     "risk_tier": {"enum": ["R0", "R1", "R2", "R3"]},
     "model_policy": {
       "type": "object",
@@ -39,6 +39,6 @@
     "private_skill_refs": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
     "private_command_refs": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
     "runtime": {"type": "object", "required": ["loop", "budgets", "stop_conditions"], "properties": {"loop": {"type": "string"}, "budgets": {"type": "object"}, "stop_conditions": {"type": "array", "items": {"type": "string"}}}},
-    "lifecycle": {"type": "object", "required": ["status", "replacement"], "properties": {"status": {"enum": ["draft", "candidate", "verified", "approved", "active", "suspended", "deprecated", "retired"]}, "replacement": {"type": ["string", "null"]}}
+    "lifecycle": {"type": "object", "required": ["status", "replacement"], "properties": {"status": {"enum": ["draft", "candidate", "verified", "approved", "active", "suspended", "deprecated", "retired"]}, "replacement": {"type": ["string", "null"]}}}
   }
 }

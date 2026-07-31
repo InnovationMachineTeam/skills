@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent Team Builder"
+  short_description: "Build approved agent-team specifications"
+  default_prompt: "Use $agent-team-builder to stage this approved agent-team specification."

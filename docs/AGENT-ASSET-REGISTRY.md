@@ -2,11 +2,16 @@
 
 Generated from `AGENT-ASSET-REGISTRY.json`; do not edit manually.
 
-Revision: **2**
-Updated: **2026-07-30T22:50:31Z**
+Revision: **4**
+Updated: **2026-07-31T08:10:11Z**
 
 | Kind | Name | Version | Visibility | Scope | Owner agent | Accountable owner | Status | Locator |
 |---|---|---:|---|---|---|---|---|---|
+| skill | agent-model-selector | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/agent-model-selector` |
+| skill | agent-skill-mapper | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/agent-skill-mapper` |
+| skill | agent-team-architect | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/agent-team-architect` |
+| skill | agent-team-builder | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/agent-team-builder` |
+| skill | agent-team-manager | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/agent-team-manager` |
 | skill | metaskillpack | 1.1.0 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/metaskillpack` |
 | skill | optimize-master-prompts | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/optimize-master-prompts` |
 | skill | skill-architect | 1.2.0 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/skill-architect` |
@@ -21,4 +26,4 @@ Updated: **2026-07-30T22:50:31Z**
 | skill | skill-refactor | 1.2.0 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/skill-refactor` |
 | skill | skill-scout | 1.1.0 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/skill-scout` |
 
-Total assets: **13**.
+Total assets: **18**.

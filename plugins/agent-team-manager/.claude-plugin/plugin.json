@@ -1,0 +1,13 @@
+{
+  "name": "agent-team-manager",
+  "displayName": "Agent Team Manager",
+  "version": "1.0.0",
+  "description": ">-",
+  "skills": [
+    "./skills"
+  ],
+  "author": {
+    "name": "InnovationMachine",
+    "email": "stanislav.usoltsev@gmail.com"
+  }
+}

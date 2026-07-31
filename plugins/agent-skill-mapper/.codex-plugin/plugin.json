@@ -1,0 +1,33 @@
+{
+  "name": "agent-skill-mapper",
+  "version": "1.0.0",
+  "description": "Maps governed public and owner-private skills or commands to existing agents using mission fit, permissions, trust, context cost, evidence and capability budgets",
+  "homepage": "https://github.com/InnovationMachineTeam/skills",
+  "repository": "https://github.com/InnovationMachineTeam/skills",
+  "license": "Proprietary",
+  "keywords": [
+    "agent-skills",
+    "agents",
+    "mapping",
+    "metaskills",
+    "skills"
+  ],
+  "skills": "./skills/",
+  "author": {
+    "name": "InnovationMachine",
+    "email": "stanislav.usoltsev@gmail.com",
+    "url": "https://github.com/InnovationMachineTeam"
+  },
+  "interface": {
+    "displayName": "Agent Skill Mapper",
+    "shortDescription": "Maps governed public and owner-private skills or commands to existing agents using mission fit, permissions, trust…",
+    "longDescription": "Maps governed public and owner-private skills or commands to existing agents using mission fit, permissions, trust, context cost, evidence and capability budgets",
+    "developerName": "InnovationMachine",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Guidance"
+    ],
+    "websiteURL": "https://github.com/InnovationMachineTeam/skills",
+    "defaultPrompt": "Use Agent Skill Mapper for this task."
+  }
+}

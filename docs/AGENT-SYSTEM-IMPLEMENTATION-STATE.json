@@ -3,7 +3,7 @@
   "builder": "skill-builder",
   "build_id": "agent-system-foundation-2026-07-31",
   "scenario": "portfolio-governance",
-  "goal": "Implement the approved agent asset registry, private capability adapters, validation and walking skeleton before building agent-team skills.",
+  "goal": "Implement the approved agent asset foundation and core agent-team design, mapping, build and lifecycle skills before runtime orchestration.",
   "status": "in_progress",
   "scope": [
     "docs/",
@@ -17,6 +17,11 @@
     "skills/metaskills/skill-evaluator",
     "skills/metaskills/skill-scout",
     "skills/metaskills/skill-harvester",
+    "skills/metaskills/agent-model-selector",
+    "skills/metaskills/agent-team-architect",
+    "skills/metaskills/agent-skill-mapper",
+    "skills/metaskills/agent-team-builder",
+    "skills/metaskills/agent-team-manager",
     "generated marketplace bundles"
   ],
   "acceptance_criteria": [
@@ -40,7 +45,8 @@
     {"id":"phase-1-fixture","specialist":"skill-evaluator","objective":"Verify public/private walking skeleton and host projections","status":"completed","dependencies":["phase-1"],"entry_conditions":["Fixture and adapters exist"],"required_outputs":["deterministic access evidence"],"exit_checks":["owner use and unauthorized denial pass"],"authority":{"read":true,"write":false,"external_research":false,"install":false,"publish":false,"retire":false},"evidence":["tests/fixtures/agent-assets","tests/test_agent_assets.py","scripts/generate_agent_adapters.py"]},
     {"id":"phase-2-prompts","specialist":"skill-architect","objective":"Create routed team and Agentic OS master prompts","status":"completed","dependencies":["phase-1-fixture"],"entry_conditions":["Foundation passes"],"required_outputs":["team prompts","Agentic OS base and specialist prompts"],"exit_checks":["Prompt routing is documented"],"authority":{"read":true,"write":true,"external_research":false,"install":false,"publish":false,"retire":false},"evidence":["docs/prompts/README.md","docs/prompts/agent-os-base.md","docs/prompts/agent-team-manager-skill.md"]},
     {"id":"phase-3-foundation","specialist":"skill-builder","objective":"Update foundational metaskills and generated packages","status":"completed","dependencies":["phase-2-prompts"],"entry_conditions":["Master prompts exist"],"required_outputs":["versioned metaskill changes","updated donor lock","rebuilt plugins"],"exit_checks":["Repository and self-evals pass"],"authority":{"read":true,"write":true,"external_research":false,"install":false,"publish":true,"retire":false},"evidence":["skills/metaskills/skill-builder","skills/metaskills/skill-evaluator","skills/metaskills/metaskillpack/donors.json"]},
-    {"id":"phase-4-plus","specialist":"skill-builder","objective":"Build core team skills and later Agent OS slices","status":"pending","dependencies":["phase-3-foundation"],"entry_conditions":["Foundation release candidate passes"],"required_outputs":["agent team skills and later Agent OS slices"],"exit_checks":["Per-phase plan gates"],"authority":{"read":true,"write":true,"external_research":true,"install":false,"publish":true,"retire":false},"evidence":[]}
+    {"id":"phase-4-core-team","specialist":"skill-builder","objective":"Build core team design, mapping, staged build and lifecycle skills","status":"completed","dependencies":["phase-3-foundation"],"entry_conditions":["Foundation release candidate passes"],"required_outputs":["five versioned agent-team metaskills","deterministic validators","routing and behavior evals","forward and adversarial tests"],"exit_checks":["No runtime activation","Private ownership enforced","Repository and marketplace validation passes"],"authority":{"read":true,"write":true,"external_research":false,"install":false,"publish":true,"retire":false},"evidence":["skills/metaskills/agent-model-selector","skills/metaskills/agent-team-architect","skills/metaskills/agent-skill-mapper","skills/metaskills/agent-team-builder","skills/metaskills/agent-team-manager","tests/test_phase4_agent_skills.py"]},
+    {"id":"phase-5-runtime","specialist":"skill-builder","objective":"Build evaluation and runtime orchestration slice","status":"pending","dependencies":["phase-4-core-team"],"entry_conditions":["Phase 4 release passes"],"required_outputs":["agent-team-orchestrator","team-level eval suite","durable runtime and recovery contracts"],"exit_checks":["Sequential, parallel, failure, budget and resume cases pass"],"authority":{"read":true,"write":true,"external_research":true,"install":false,"publish":true,"retire":false},"evidence":[]}
   ],
   "artifacts": [
     "docs/AGENT-TEAM-AND-AGENT-OS-PLAN.md",
@@ -50,7 +56,13 @@
     "scripts/manage_agent_assets.py",
     "scripts/generate_agent_adapters.py",
     "tests/fixtures/agent-assets",
-    "docs/prompts"
+    "docs/prompts",
+    "tests/test_phase4_agent_skills.py",
+    "skills/metaskills/agent-model-selector",
+    "skills/metaskills/agent-team-architect",
+    "skills/metaskills/agent-skill-mapper",
+    "skills/metaskills/agent-team-builder",
+    "skills/metaskills/agent-team-manager"
   ],
   "approvals": [
     {"subject":"Implement final plan","scope":"repository foundation and subsequent approved phases","status":"approved","source":"user request 2026-07-31"}

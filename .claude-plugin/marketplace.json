@@ -5,9 +5,104 @@
   },
   "metadata": {
     "description": "InnovationMachine Agent Skills marketplace",
-    "version": "1.4.0"
+    "version": "1.5.0"
   },
   "plugins": [
+    {
+      "name": "agent-model-selector",
+      "source": "./plugins/agent-model-selector",
+      "strict": false,
+      "description": "Selects and audits evidence-backed model policies for agents, subagents, evaluators, orchestrators, and team routes",
+      "version": "1.0.0",
+      "author": {
+        "name": "InnovationMachine",
+        "email": "stanislav.usoltsev@gmail.com"
+      },
+      "category": "metaskills",
+      "tags": [
+        "agent-skills",
+        "agents",
+        "evaluation",
+        "metaskills",
+        "models"
+      ]
+    },
+    {
+      "name": "agent-skill-mapper",
+      "source": "./plugins/agent-skill-mapper",
+      "strict": false,
+      "description": "Maps governed public and owner-private skills or commands to existing agents using mission fit, permissions, trust, context cost, evidence and capability budgets",
+      "version": "1.0.0",
+      "author": {
+        "name": "InnovationMachine",
+        "email": "stanislav.usoltsev@gmail.com"
+      },
+      "category": "metaskills",
+      "tags": [
+        "agent-skills",
+        "agents",
+        "mapping",
+        "metaskills",
+        "skills"
+      ]
+    },
+    {
+      "name": "agent-team-architect",
+      "source": "./plugins/agent-team-architect",
+      "strict": false,
+      "description": "Designs the smallest justified team of agents, subagents, specialists, an orchestrator, and human responsibilities from a task and capability graph",
+      "version": "1.0.0",
+      "author": {
+        "name": "InnovationMachine",
+        "email": "stanislav.usoltsev@gmail.com"
+      },
+      "category": "metaskills",
+      "tags": [
+        "agent-skills",
+        "agents",
+        "architecture",
+        "metaskills",
+        "teams"
+      ]
+    },
+    {
+      "name": "agent-team-builder",
+      "source": "./plugins/agent-team-builder",
+      "strict": false,
+      "description": "Materializes an approved, versioned agent-team specification into a staged `.agents` structure, canonical definitions, owner-private skills or commands, public capability candidates, host adapters, registry/map transactions and...",
+      "version": "1.0.0",
+      "author": {
+        "name": "InnovationMachine",
+        "email": "stanislav.usoltsev@gmail.com"
+      },
+      "category": "metaskills",
+      "tags": [
+        "agent-skills",
+        "agents",
+        "build",
+        "metaskills",
+        "teams"
+      ]
+    },
+    {
+      "name": "agent-team-manager",
+      "source": "./plugins/agent-team-manager",
+      "strict": false,
+      "description": ">-",
+      "version": "1.0.0",
+      "author": {
+        "name": "InnovationMachine",
+        "email": "stanislav.usoltsev@gmail.com"
+      },
+      "category": "metaskills",
+      "tags": [
+        "agent-skills",
+        "agents",
+        "lifecycle",
+        "metaskills",
+        "orchestration"
+      ]
+    },
     {
       "name": "metaskillpack",
       "source": "./plugins/metaskillpack",

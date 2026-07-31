@@ -1,6 +1,11 @@
 {
   "schema_version": 1,
   "entries": [
+    {"name": "agent-model-selector", "tags": ["agents", "models", "evaluation"]},
+    {"name": "agent-skill-mapper", "tags": ["agents", "skills", "mapping"]},
+    {"name": "agent-team-architect", "tags": ["agents", "architecture", "teams"]},
+    {"name": "agent-team-builder", "tags": ["agents", "build", "teams"]},
+    {"name": "agent-team-manager", "tags": ["agents", "orchestration", "lifecycle"]},
     {"name": "metaskillpack", "tags": ["orchestration", "composite", "metaskills"]},
     {"name": "optimize-master-prompts", "tags": ["prompts", "optimization"]},
     {"name": "skill-architect", "tags": ["creation", "architecture"]},

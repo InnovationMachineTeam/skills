@@ -1,0 +1,33 @@
+{
+  "name": "agent-model-selector",
+  "version": "1.0.0",
+  "description": "Selects and audits evidence-backed model policies for agents, subagents, evaluators, orchestrators, and team routes",
+  "homepage": "https://github.com/InnovationMachineTeam/skills",
+  "repository": "https://github.com/InnovationMachineTeam/skills",
+  "license": "Proprietary",
+  "keywords": [
+    "agent-skills",
+    "agents",
+    "evaluation",
+    "metaskills",
+    "models"
+  ],
+  "skills": "./skills/",
+  "author": {
+    "name": "InnovationMachine",
+    "email": "stanislav.usoltsev@gmail.com",
+    "url": "https://github.com/InnovationMachineTeam"
+  },
+  "interface": {
+    "displayName": "Agent Model Selector",
+    "shortDescription": "Selects and audits evidence-backed model policies for agents, subagents, evaluators, orchestrators, and team routes",
+    "longDescription": "Selects and audits evidence-backed model policies for agents, subagents, evaluators, orchestrators, and team routes",
+    "developerName": "InnovationMachine",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Guidance"
+    ],
+    "websiteURL": "https://github.com/InnovationMachineTeam/skills",
+    "defaultPrompt": "Use Agent Model Selector for this task."
+  }
+}

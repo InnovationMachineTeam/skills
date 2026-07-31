@@ -1,0 +1,12 @@
+{
+  "skill":"agent-team-architect",
+  "cases":[
+    {"id":"worth","input":"Assess whether this delivery workflow actually needs multiple agents or should stay a single agent.","expected_trigger":true,"expected_route":"worth-assessment"},
+    {"id":"design","input":"Design the minimal roles, handoffs, skills, models, and failure policy for an agent team.","expected_trigger":true,"expected_route":"design-team"},
+    {"id":"redesign","input":"Our current agent team has duplicate planner roles and no integration owner. Redesign the specification only.","expected_trigger":true,"expected_route":"redesign-team"},
+    {"id":"topology","input":"Choose between manager-as-tools, handoffs, and a fork-join topology for these independent tasks.","expected_trigger":true,"expected_route":"topology"},
+    {"id":"worktrees","input":"Decide whether these coding agents need separate worktrees and define merge ownership.","expected_trigger":true,"expected_route":"worktree-policy"},
+    {"id":"negative-build","input":"Materialize this approved team spec under .agents and generate host adapters.","expected_trigger":false,"expected_route":null},
+    {"id":"negative-skill","input":"Create a new PDF editing skill.","expected_trigger":false,"expected_route":null}
+  ]
+}

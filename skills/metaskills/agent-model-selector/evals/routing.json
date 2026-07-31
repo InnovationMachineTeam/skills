@@ -1,0 +1,13 @@
+{
+  "skill": "agent-model-selector",
+  "cases": [
+    {"id":"recommend-role","input":"Recommend the most efficient current models for our planner, coding worker, and independent reviewer.","expected_trigger":true,"expected_route":"recommend"},
+    {"id":"benchmark-plan","input":"Design a fair benchmark to choose between the approved models for this high-risk agent role, but do not run it.","expected_trigger":true,"expected_route":"benchmark-plan"},
+    {"id":"benchmark-run","input":"Run the approved model-selection benchmark with these fixtures and budget, then preserve raw results.","expected_trigger":true,"expected_route":"benchmark-run"},
+    {"id":"audit-stale","input":"Audit whether our agent model policy is stale after the host upgrade and model deprecation.","expected_trigger":true,"expected_route":"audit"},
+    {"id":"migration","input":"Plan migration from the deprecated model to a compatible fallback without changing provider configuration.","expected_trigger":true,"expected_route":"migration"},
+    {"id":"clarify-spend","input":"Try every frontier model and pick the best one.","expected_trigger":true,"expected_route":null},
+    {"id":"negative-runtime","input":"Route this live request to whichever model is cheapest right now.","expected_trigger":false,"expected_route":null},
+    {"id":"negative-team","input":"Design a five-agent team for our delivery workflow.","expected_trigger":false,"expected_route":null}
+  ]
+}

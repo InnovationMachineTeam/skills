@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent Model Selector"
+  short_description: "Select efficient models for agent roles"
+  default_prompt: "Use $agent-model-selector to recommend a current model policy for these agent roles."

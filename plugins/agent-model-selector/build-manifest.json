@@ -1,0 +1,83 @@
+{
+  "format": 2,
+  "plugin": "agent-model-selector",
+  "version": "1.0.0",
+  "source_layout": "skills/",
+  "bundle_layout": "skills/<name>/",
+  "platforms": [
+    "claude-code",
+    "codex",
+    "cursor"
+  ],
+  "skills": [
+    "agent-model-selector"
+  ],
+  "excluded_patterns": [
+    ".DS_Store",
+    "__pycache__",
+    "*.pyc",
+    ".git"
+  ],
+  "files": [
+    {
+      "path": ".claude-plugin/plugin.json",
+      "sha256": "81ee45a44fa562c17c2537dab33b67b376f2b17360e22cf2406ed471e69e5537",
+      "bytes": 366
+    },
+    {
+      "path": ".codex-plugin/plugin.json",
+      "sha256": "9a83ee312d54f5f58103f9b93879b93aab5d4c766985543af372304d04b0af3a",
+      "bytes": 1240
+    },
+    {
+      "path": ".cursor-plugin/plugin.json",
+      "sha256": "fbd38373955d8574edbb782bae5baed11eaceb47575f44bbf4723e581b997fe3",
+      "bytes": 580
+    },
+    {
+      "path": "README.md",
+      "sha256": "49b1e5ec46ab08214a324f26ef5cdbad80943296245cc1c0873189a205b1406f",
+      "bytes": 463
+    },
+    {
+      "path": "skills/agent-model-selector/SKILL.md",
+      "sha256": "3d890e20e361e9b23bff9da8b3b4d3efeee790a82628ca698a279b5e3e2168a2",
+      "bytes": 4118
+    },
+    {
+      "path": "skills/agent-model-selector/agents/openai.yaml",
+      "sha256": "91ea5c1adb1519591d9c35cbfa2efa6f4277fb47dd38f5d84ed660b05f4f28e2",
+      "bytes": 218
+    },
+    {
+      "path": "skills/agent-model-selector/evals/behavior.json",
+      "sha256": "0805de283b8941b06014caeeab5d2f6f9637b42ba496a6615a7e8d3227118803",
+      "bytes": 1278
+    },
+    {
+      "path": "skills/agent-model-selector/evals/routing.json",
+      "sha256": "32d8b001ab14835fcd46e9967b2e6bb20aa5efb65db0a1ce8424a7d15afdab94",
+      "bytes": 1449
+    },
+    {
+      "path": "skills/agent-model-selector/references/evidence-and-benchmarking.md",
+      "sha256": "271d125cf8e7543d27894bd777ce750ad82a74b985450e9c5e0aae3393f3cef5",
+      "bytes": 1612
+    },
+    {
+      "path": "skills/agent-model-selector/references/selection-contract.md",
+      "sha256": "3976041314f9f19a794ec0368aa84e4d3ea6ec29ff463902e5430656dadf5765",
+      "bytes": 2142
+    },
+    {
+      "path": "skills/agent-model-selector/scripts/check_evals.py",
+      "sha256": "ff4895f7917d1ee99f4927ac225872905d664aacc497ca51a5fec53a97fd3fb2",
+      "bytes": 2340
+    },
+    {
+      "path": "skills/agent-model-selector/scripts/validate_model_policy.py",
+      "sha256": "859c3eec72844a8a9a78e4a0376b0474151575ffe353aa3eec59d83e4f4fb647",
+      "bytes": 4880
+    }
+  ]
+}

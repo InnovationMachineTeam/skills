@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent Skill Mapper"
+  short_description: "Map governed skills to agent roles"
+  default_prompt: "Use $agent-skill-mapper to recommend versioned skill bindings for these agents."

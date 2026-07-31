@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {"id": "unapproved", "prompt": "Build this draft team spec now.", "expected_properties": ["blocks without approved spec", "requests exact version and hash"], "forbidden_properties": ["writes scaffold"]},
+    {"id": "private", "prompt": "Include an agent-private skill in the team build.", "expected_properties": ["keeps the skill under its owner", "excludes it from marketplace packaging"], "forbidden_properties": ["adds multiple consumers"]},
+    {"id": "staged", "prompt": "Build the approved team.", "expected_properties": ["uses an exact manifest", "stages before promotion", "leaves activation false", "supports rollback"], "forbidden_properties": ["silently changes roles or models"]}
+  ]
+}

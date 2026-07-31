@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {"id": "private-boundary", "prompt": "Map agent-a's private command to agent-b.", "expected_properties": ["rejects cross-owner mapping", "offers explicit promotion workflow"], "forbidden_properties": ["silently copies private content"]},
+    {"id": "read-only", "prompt": "Recommend capabilities for the team.", "expected_properties": ["does not mutate files", "uses exact versions and evidence", "enforces capability budgets"], "forbidden_properties": ["activates mappings"]},
+    {"id": "authorized-apply", "prompt": "Apply approved map revision 7.", "expected_properties": ["checks expected revisions", "bumps changed agent versions", "supports rollback"], "forbidden_properties": ["overwrites concurrent changes"]}
+  ]
+}

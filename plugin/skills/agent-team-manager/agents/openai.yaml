@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent Team Manager"
+  short_description: "Govern the agent-team lifecycle"
+  default_prompt: "Use $agent-team-manager to select and govern the next agent-team lifecycle workflow."

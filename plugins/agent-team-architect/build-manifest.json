@@ -1,0 +1,83 @@
+{
+  "format": 2,
+  "plugin": "agent-team-architect",
+  "version": "1.0.0",
+  "source_layout": "skills/",
+  "bundle_layout": "skills/<name>/",
+  "platforms": [
+    "claude-code",
+    "codex",
+    "cursor"
+  ],
+  "skills": [
+    "agent-team-architect"
+  ],
+  "excluded_patterns": [
+    ".DS_Store",
+    "__pycache__",
+    "*.pyc",
+    ".git"
+  ],
+  "files": [
+    {
+      "path": ".claude-plugin/plugin.json",
+      "sha256": "abf39eb4896e81c60108107f9a6ad0373dc20b55578824b9546c56961115daaa",
+      "bytes": 398
+    },
+    {
+      "path": ".codex-plugin/plugin.json",
+      "sha256": "52e7b4952d5efa05d86e623e98ad6f583d22a2ff8dfe5d247811079ba476015c",
+      "bytes": 1307
+    },
+    {
+      "path": ".cursor-plugin/plugin.json",
+      "sha256": "cc56cddace84cf6a826ce2669384189bd6922746ab869560c454152c865f7c49",
+      "bytes": 613
+    },
+    {
+      "path": "README.md",
+      "sha256": "3770104ceb6ca46b3aa2d9c17db132c56f45eeb901fb3b5008f421e770f78a31",
+      "bytes": 495
+    },
+    {
+      "path": "skills/agent-team-architect/SKILL.md",
+      "sha256": "6cdf3fcb9f8f0ce782d86b5755ec6b480099d8cf234fa57a5e304aefc5f926dc",
+      "bytes": 4018
+    },
+    {
+      "path": "skills/agent-team-architect/agents/openai.yaml",
+      "sha256": "330550ee31e05c9ce398330339dbe70ccd58f53002ac1d28636e892e7e7a2163",
+      "bytes": 218
+    },
+    {
+      "path": "skills/agent-team-architect/evals/behavior.json",
+      "sha256": "a532031b8f7b7469f55455e09e6862f671fbd1207b5587c8b78eaeccc60b089b",
+      "bytes": 1265
+    },
+    {
+      "path": "skills/agent-team-architect/evals/routing.json",
+      "sha256": "f1cb2eac520f307cd7c7a6ddeb71c27b8cbe36f4965c71725c4b312f28e57db0",
+      "bytes": 1263
+    },
+    {
+      "path": "skills/agent-team-architect/references/team-patterns-and-boundaries.md",
+      "sha256": "7597c4b624b18cf34e29a8f855b66185076dbedfa9197ac38216245b8db8549b",
+      "bytes": 2159
+    },
+    {
+      "path": "skills/agent-team-architect/references/team-spec-contract.md",
+      "sha256": "81375fb0e6303d142011aeabd600108e54082f59ada1d18dd4e6619c7256b043",
+      "bytes": 2095
+    },
+    {
+      "path": "skills/agent-team-architect/scripts/check_evals.py",
+      "sha256": "35a1bcf38b66e3cf09e2baa53afdf156d3a518d5ad05f88d2227e7a07bf77a9d",
+      "bytes": 2164
+    },
+    {
+      "path": "skills/agent-team-architect/scripts/validate_team_spec.py",
+      "sha256": "1cd3604fb1362216749a8d0000bbf3112679b716f4cdb996e3129beb844935ff",
+      "bytes": 6924
+    }
+  ]
+}

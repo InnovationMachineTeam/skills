@@ -1,0 +1,83 @@
+{
+  "format": 2,
+  "plugin": "agent-skill-mapper",
+  "version": "1.0.0",
+  "source_layout": "skills/",
+  "bundle_layout": "skills/<name>/",
+  "platforms": [
+    "claude-code",
+    "codex",
+    "cursor"
+  ],
+  "skills": [
+    "agent-skill-mapper"
+  ],
+  "excluded_patterns": [
+    ".DS_Store",
+    "__pycache__",
+    "*.pyc",
+    ".git"
+  ],
+  "files": [
+    {
+      "path": ".claude-plugin/plugin.json",
+      "sha256": "f132c08bb678600eea91620e943b9ec8cae8d8ea91cd195791896b88200091fd",
+      "bytes": 408
+    },
+    {
+      "path": ".codex-plugin/plugin.json",
+      "sha256": "4b410228e3f5280a44eda2c65b5fc055798b09208a6587efbc884827bbbb0bb5",
+      "bytes": 1325
+    },
+    {
+      "path": ".cursor-plugin/plugin.json",
+      "sha256": "b5e7d47ff4e7273452725cfaa84381fe6002c0660e567c58bf53a961065d6275",
+      "bytes": 621
+    },
+    {
+      "path": "README.md",
+      "sha256": "fbae63959bf64f706d5a2b91f327b0aa4485b69dcfc2c36c061a49ff1afc833b",
+      "bytes": 505
+    },
+    {
+      "path": "skills/agent-skill-mapper/SKILL.md",
+      "sha256": "86bd7a3fc3129068555e64485e5e3e1442c40b7bb8043446704f726fcd997338",
+      "bytes": 3465
+    },
+    {
+      "path": "skills/agent-skill-mapper/agents/openai.yaml",
+      "sha256": "2a9ddb353166bbc310349a879c714c19d46064e4c821a25fcca8d0204693056d",
+      "bytes": 206
+    },
+    {
+      "path": "skills/agent-skill-mapper/evals/behavior.json",
+      "sha256": "39fba77f2db7ce1aba221546fd9b498d4d0a945c8f4abd027d3676489939e6fc",
+      "bytes": 767
+    },
+    {
+      "path": "skills/agent-skill-mapper/evals/routing.json",
+      "sha256": "07ec28946c471009ce83dbfa71a45a113a7c20ea9856f116ae283cd1b47de50b",
+      "bytes": 1091
+    },
+    {
+      "path": "skills/agent-skill-mapper/references/matching-contract.md",
+      "sha256": "6eb691a0c8fb7088e183139832e4c421fde52bc4fefdedb2baa0324d22913fe0",
+      "bytes": 1452
+    },
+    {
+      "path": "skills/agent-skill-mapper/references/registry-and-mutation.md",
+      "sha256": "f96319b5229e4687cdd2e36f38cfed0a70718f336ea138c765e02791c73ed6bd",
+      "bytes": 993
+    },
+    {
+      "path": "skills/agent-skill-mapper/scripts/check_evals.py",
+      "sha256": "5894026d9e52603384dd0cf33022b4dfc2bccb30e7935750b0c7ef989b9d9362",
+      "bytes": 2140
+    },
+    {
+      "path": "skills/agent-skill-mapper/scripts/validate_mapping.py",
+      "sha256": "0fce848d10e0e39cff1dfc523e891f7440a719f25dbd700a222ed1a3c50e8383",
+      "bytes": 4287
+    }
+  ]
+}

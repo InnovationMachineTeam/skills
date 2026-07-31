@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {"id": "preflight", "prompt": "Check whether this approved team spec is buildable.", "expected_trigger": true, "expected_route": "preflight"},
+    {"id": "dry-run", "prompt": "Show the exact files this team build would write.", "expected_trigger": true, "expected_route": "dry-run"},
+    {"id": "build", "prompt": "Stage approved agent-team spec 2.1.0.", "expected_trigger": true, "expected_route": "build"},
+    {"id": "rebuild", "prompt": "Rebuild generated adapters from the approved canonical spec.", "expected_trigger": true, "expected_route": "rebuild"},
+    {"id": "migrate", "prompt": "Migrate this approved team scaffold to the canonical .agents layout.", "expected_trigger": true, "expected_route": "migrate"},
+    {"id": "design", "prompt": "Decide which roles this problem needs.", "expected_trigger": false, "expected_route": "agent-team-architect"},
+    {"id": "operate", "prompt": "Run this agent team on issue 42.", "expected_trigger": false, "expected_route": "agent-team-manager"}
+  ]
+}

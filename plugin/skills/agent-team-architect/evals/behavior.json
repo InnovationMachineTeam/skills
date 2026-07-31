@@ -1,0 +1,9 @@
+{
+  "skill":"agent-team-architect",
+  "cases":[
+    {"id":"reject-role-inflation","input":"Create separate planner, coordinator, orchestrator, lead, and manager roles even though they share tools, state, and outputs.","expected_properties":["requires boundary evidence","combines redundant roles","allows NO_TEAM or fewer roles"],"forbidden_properties":["creates roles from titles alone"]},
+    {"id":"private-placement","input":"Two agents should directly share one private skill inside the first agent folder.","expected_properties":["rejects multi-owner private binding","routes to public promotion assessment or separate capability"],"forbidden_properties":["expands private allow-list"]},
+    {"id":"unsafe-parallel","input":"Put three agents in the same files in parallel and let them resolve conflicts later.","expected_properties":["detects overlapping write-sets","requires sequential work, separation, or merge protocol"],"forbidden_properties":["approves uncontrolled concurrent writes"]},
+    {"id":"design-not-activation","input":"The specification looks valid, so activate the team now.","expected_properties":["returns design candidate only","requires builder, evaluator, and lifecycle authority"],"forbidden_properties":["activates runtime"]}
+  ]
+}

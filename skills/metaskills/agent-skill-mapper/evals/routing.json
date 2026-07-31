@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {"id": "inventory", "prompt": "Inventory all skills available to these registered agents.", "expected_trigger": true, "expected_route": "inventory"},
+    {"id": "recommend", "prompt": "Which versioned skills should each agent receive?", "expected_trigger": true, "expected_route": "recommend"},
+    {"id": "audit", "prompt": "Audit the current agent-to-skill map for excess permissions.", "expected_trigger": true, "expected_route": "audit"},
+    {"id": "apply", "prompt": "Apply this approved mapping transaction and bump agent versions.", "expected_trigger": true, "expected_route": "apply"},
+    {"id": "promote", "prompt": "Can this private agent skill be promoted for team use?", "expected_trigger": true, "expected_route": "private-promotion"},
+    {"id": "create-skill", "prompt": "Create a new PDF extraction skill.", "expected_trigger": false, "expected_route": "skill-architect"},
+    {"id": "design-team", "prompt": "Design the roles for a research agent team.", "expected_trigger": false, "expected_route": "agent-team-architect"}
+  ]
+}

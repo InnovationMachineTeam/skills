@@ -1,0 +1,83 @@
+{
+  "format": 2,
+  "plugin": "agent-team-manager",
+  "version": "1.0.0",
+  "source_layout": "skills/",
+  "bundle_layout": "skills/<name>/",
+  "platforms": [
+    "claude-code",
+    "codex",
+    "cursor"
+  ],
+  "skills": [
+    "agent-team-manager"
+  ],
+  "excluded_patterns": [
+    ".DS_Store",
+    "__pycache__",
+    "*.pyc",
+    ".git"
+  ],
+  "files": [
+    {
+      "path": ".claude-plugin/plugin.json",
+      "sha256": "4cb06d4396e05c0bb44dc96ed81bc4fe95b7ceaa0a1a177ee9f48b7a07129b17",
+      "bytes": 249
+    },
+    {
+      "path": ".codex-plugin/plugin.json",
+      "sha256": "c2242bd986ff068c8e8a5cbe7a035d16dce86f6b219d0a9864c6bd3347b825ad",
+      "bytes": 901
+    },
+    {
+      "path": ".cursor-plugin/plugin.json",
+      "sha256": "a1fe3868c3e54a7059002a6f5d830ed596f0deb3c8410b104cea1a6f14c4ca9b",
+      "bytes": 471
+    },
+    {
+      "path": "README.md",
+      "sha256": "906436ac90ccef7df36bd84ba66f127d5c08e654f34228b13beff451a840d8f3",
+      "bytes": 346
+    },
+    {
+      "path": "skills/agent-team-manager/SKILL.md",
+      "sha256": "94d69908f58d3b23827da906cd3f930e5e4cc630842313a31952442d78d6473a",
+      "bytes": 3739
+    },
+    {
+      "path": "skills/agent-team-manager/agents/openai.yaml",
+      "sha256": "f2ee288e67828bdae138cac1980c5b3899d07636967f1442e9d091880fc95aae",
+      "bytes": 208
+    },
+    {
+      "path": "skills/agent-team-manager/evals/behavior.json",
+      "sha256": "33a172ecef37f15f4fe4da8f32e4f577726723d4c85a06de14198225a6d97b56",
+      "bytes": 775
+    },
+    {
+      "path": "skills/agent-team-manager/evals/routing.json",
+      "sha256": "0398c43a15c4e98522bd2f534239c7ced2ab17095c431009336af7f145b7f2d8",
+      "bytes": 1259
+    },
+    {
+      "path": "skills/agent-team-manager/references/lifecycle-and-state.md",
+      "sha256": "a437f58873ebcb25e28e866eb8a6248125565f8eedfb6b50ba2177de4caf2bee",
+      "bytes": 1010
+    },
+    {
+      "path": "skills/agent-team-manager/references/scenario-catalog.md",
+      "sha256": "455e592a4e90593d44e6aa7be0e42b7f31374798c4fd65db8be77c297da6c888",
+      "bytes": 1455
+    },
+    {
+      "path": "skills/agent-team-manager/scripts/check_evals.py",
+      "sha256": "2b57dacfae5235720398eafc99523b693492c11d240d61ab0da8c0a50e0a461c",
+      "bytes": 2166
+    },
+    {
+      "path": "skills/agent-team-manager/scripts/validate_run_state.py",
+      "sha256": "cb237e21a6a6d31b526853bab77bea4f48ec918adc44eda1c81a4624f4bf1e60",
+      "bytes": 3146
+    }
+  ]
+}

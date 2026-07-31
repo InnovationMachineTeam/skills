@@ -1,0 +1,13 @@
+{
+  "name": "agent-model-selector",
+  "displayName": "Agent Model Selector",
+  "version": "1.0.0",
+  "description": "Selects and audits evidence-backed model policies for agents, subagents, evaluators, orchestrators, and team routes",
+  "skills": [
+    "./skills"
+  ],
+  "author": {
+    "name": "InnovationMachine",
+    "email": "stanislav.usoltsev@gmail.com"
+  }
+}
