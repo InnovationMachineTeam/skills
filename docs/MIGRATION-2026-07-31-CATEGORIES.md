@@ -1,6 +1,6 @@
 # Skill category and prompt-identity migration
 
-Status: `STAGED`
+Status: `CUTOVER`
 
 Release: `2.0.0`
 
@@ -51,3 +51,22 @@ host-install gate. Restore the previous known-good repository revision
 `optimize-master-prompts@1.0.0`, and rerun the `1.8.0` validation suite. The
 migration changes no external data or infrastructure. Repository recovery is
 owned by `InnovationMachineTeam` and reviewed by `@stanislavus86`.
+
+## Cutover evidence
+
+Executed at `2026-07-31T09:33:18Z` from release commit `bac0e9e`.
+
+- Repository suite: 37/37 tests passed.
+- Official Agent Skills validator: 28/28 passed.
+- Skill-local eval validators: 19/19 passed.
+- Claude Code strict validation: aggregate plus 28/28 individual packages.
+- Codex marketplace: 28/28 plugins installed and enabled.
+- Updated consumers: `metaskillpack@1.2.0`, `skill-builder@1.2.0`,
+  `skill-best-practices@1.1.0`, and `skill-marketplace-manager@1.1.0`.
+- Prompt replacement: `optimize-prompts@2.0.0` enabled;
+  `optimize-master-prompts` absent from installed state and active catalog.
+- Delivery integrity: all 28 marketplace package trees match the canonical
+  GitHub-backed marketplace clone.
+
+The previous revision remains recoverable; public publication is unchanged and
+still requires its separate approval gate.
