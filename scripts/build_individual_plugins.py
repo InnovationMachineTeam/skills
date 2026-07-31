@@ -11,6 +11,7 @@ from pathlib import Path
 sys.dont_write_bytecode = True
 
 from build_plugin_bundle import build_bundle
+from manage_skill_dependencies import load_graph, ordered_plan
 from validate_marketplace import frontmatter
 
 
@@ -38,6 +39,7 @@ def main() -> int:
     distribution = release["distribution"]
     publisher = release["publisher"]
     reviewer = release["reviewer"]
+    _, dependency_graph, _, _ = load_graph(root)
 
     for item in sorted(entries, key=lambda value: value["name"]):
         name = item["name"]
@@ -47,6 +49,13 @@ def main() -> int:
         if error or declared_name != name or not description or not version:
             raise ValueError(f"invalid skill metadata: {skill_file}: {error or declared_name}")
         display_name = name.replace("-", " ").title()
+        dependency_declaration = dependency_graph.get(name)
+        dependency_payload = None
+        if dependency_declaration:
+            dependency_payload = {
+                **dependency_declaration,
+                "install_order": ordered_plan(dependency_graph, name),
+            }
         build_bundle(
             root=root,
             output=output / name,
@@ -62,6 +71,8 @@ def main() -> int:
             codex_category=distribution["codex_category"],
             keywords=["agent-skills", category, *item.get("tags", [])],
             skill_names=[name],
+            dependencies=dependency_payload,
+            marketplace_name=release["marketplace"]["name"],
         )
     print(f"Built {len(entries)} individual cross-host plugin packages at {output}")
     return 0

@@ -52,6 +52,8 @@ def build_bundle(
     codex_category: str,
     keywords: list[str],
     skill_names: list[str] | None = None,
+    dependencies: dict | None = None,
+    marketplace_name: str | None = None,
 ) -> None:
     skills_root = root / "skills"
     if not skills_root.is_dir():
@@ -94,10 +96,17 @@ def build_bundle(
             ignore=shutil.ignore_patterns(*excluded_patterns),
         )
 
+    required_dependencies = dependencies.get("required", []) if dependencies else []
+    manifest_description = description
+    if required_dependencies:
+        manifest_description = (
+            compact_text(description, 170)
+            + " Companion skill plugins are required for full functionality; see README.md."
+        )
     common = {
         "name": plugin_name,
         "version": version,
-        "description": description,
+        "description": manifest_description,
         "homepage": repository_url,
         "repository": repository_url,
         "license": license_name,
@@ -108,17 +117,19 @@ def build_bundle(
         "name": plugin_name,
         "displayName": display_name,
         "version": version,
-        "description": description,
+        "description": manifest_description,
         "skills": ["./skills"],
         "author": {"name": author_name, "email": author_email},
     }
+    if required_dependencies:
+        claude["dependencies"] = [item["name"] for item in required_dependencies]
     codex = {
         **common,
         "author": {"name": author_name, "email": author_email, "url": author_url},
         "interface": {
             "displayName": display_name,
-            "shortDescription": compact_text(description, 120),
-            "longDescription": description,
+            "shortDescription": compact_text(manifest_description, 120),
+            "longDescription": manifest_description,
             "developerName": author_name,
             "category": codex_category,
             "capabilities": ["Guidance"],
@@ -134,6 +145,49 @@ def build_bundle(
     write_json(output / ".codex-plugin" / "plugin.json", codex)
     write_json(output / ".cursor-plugin" / "plugin.json", cursor)
 
+    dependency_section = ""
+    if dependencies:
+        dependency_payload = {
+            "schema_version": 1,
+            "skill": plugin_name,
+            "native_auto_install": {
+                "claude-code": True,
+                "codex": False,
+                "cursor": False,
+            },
+            "required": dependencies.get("required", []),
+            "recommended": dependencies.get("recommended", []),
+            "install_order": dependencies.get("install_order", []),
+        }
+        write_json(output / "skill-dependencies.json", dependency_payload)
+        required_lines = "\n".join(
+            f"- `{item['name']}>={item['minimum_version']}` — {item['reason']}"
+            for item in dependency_payload["required"]
+        ) or "- None."
+        recommended_lines = "\n".join(
+            f"- `{item['name']}>={item['minimum_version']}` — {item['reason']}"
+            for item in dependency_payload["recommended"]
+        ) or "- None."
+        install_lines = "\n".join(
+            f"codex plugin add {name}@{marketplace_name}"
+            for name in dependency_payload["install_order"]
+        )
+        dependency_section = (
+            "## Companion skill dependencies\n\n"
+            "> **DEPENDENCY WARNING:** Claude Code auto-installs the required "
+            "companions from this marketplace. Codex and Cursor require the "
+            "dependency-first install plan below before using affected routes.\n\n"
+            "Required:\n\n"
+            f"{required_lines}\n\n"
+            "Recommended:\n\n"
+            f"{recommended_lines}\n\n"
+            "Codex install order:\n\n"
+            "```bash\n"
+            f"{install_lines}\n"
+            "```\n\n"
+            "The machine-readable declaration is in `skill-dependencies.json`.\n\n"
+        )
+
     bundled = "\n".join(f"- `{name}`" for name in selected)
     readme = (
         f"# {display_name}\n\n"
@@ -142,6 +196,7 @@ def build_bundle(
         "Its canonical source lives under `skills/` in the repository root; do not edit this bundle directly.\n\n"
         "## Bundled skills\n\n"
         f"{bundled}\n\n"
+        f"{dependency_section}"
         "No credentials or host-specific absolute paths are included. Review bundled scripts before execution.\n"
     )
     (output / "README.md").write_text(readme, encoding="utf-8")

@@ -90,7 +90,11 @@
     "tests/test_phase8_portfolio_release.py",
     "docs/agent-os/PRIVATE-CANARY-REPORT.md",
     "docs/MIGRATION-2026-07-31-CATEGORIES.md",
-    "docs/MIGRATION-2026-07-31-PROMPT-SKILL-NAMING.md"
+    "docs/MIGRATION-2026-07-31-PROMPT-SKILL-NAMING.md",
+    "docs/SKILL-DEPENDENCIES.md",
+    "docs/RELEASE-3.1.0-SKILL-DEPENDENCIES.md",
+    "catalog/dependencies.json",
+    "scripts/manage_skill_dependencies.py"
   ],
   "approvals": [
     {"subject":"Implement final plan","scope":"repository foundation and subsequent approved phases","status":"approved","source":"user request 2026-07-31"}
@@ -100,5 +104,5 @@
     "Generated adapters must not become a second canonical source.",
     "Filesystem privacy is not confidentiality."
   ],
-  "updated_at": "2026-07-31T10:03:45Z"
+  "updated_at": "2026-07-31T10:27:53Z"
 }

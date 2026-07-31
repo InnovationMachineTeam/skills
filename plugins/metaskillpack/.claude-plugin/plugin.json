@@ -1,7 +1,7 @@
 {
   "name": "metaskillpack",
   "displayName": "Metaskillpack",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Provides a self-contained, explicitly invoked toolkit for creating, discovering, researching, optimizing, diagnosing, governing, harvesting, refactoring, evaluating, packaging, and orchestrating agent skills through isolated snapshots...",
   "skills": [
     "./skills"

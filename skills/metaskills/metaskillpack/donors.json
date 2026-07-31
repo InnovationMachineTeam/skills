@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "pack": "metaskillpack",
-  "pack_version": "1.3.0",
+  "pack_version": "1.4.0",
   "donors": [
     {
       "name": "prompt-optimize",
@@ -44,8 +44,8 @@
     },
     {
       "name": "skill-builder",
-      "version": "1.3.0",
-      "tree_sha256": "dd0e90c60719baaaccd4b79a3a0c3ce2fd9c9560075a6575d7e129276396dbac",
+      "version": "1.4.0",
+      "tree_sha256": "44aa61d7485c270be0bf313fcfe46fd05b64baa6987f951cef6a3ad114b6e39a",
       "source": "../skill-builder",
       "vendored_path": "vendor/skill-builder",
       "modes": [
@@ -121,8 +121,8 @@
     },
     {
       "name": "skill-marketplace-manager",
-      "version": "1.2.0",
-      "tree_sha256": "8e689d0e8178dd461c10acec520c01b9bfa738cc62add32867b4f8731b61cf31",
+      "version": "1.3.0",
+      "tree_sha256": "4cce0d82e50c448524def8574baa09a1b12a9ec7f9942ae604e1bae4c8167f46",
       "source": "../skill-marketplace-manager",
       "vendored_path": "vendor/skill-marketplace-manager",
       "modes": [

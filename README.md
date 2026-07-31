@@ -7,7 +7,7 @@ Private Agent Skills marketplace maintained by **InnovationMachineTeam** for **I
 - Categories: `agent-os-skills`, `agent-team-skills`, `agent-skills`, `metaskills`, `prompt-skills`
 - Entries: one installable cross-host plugin per skill
 - Supported hosts: Claude Code, Codex, Cursor, and Agent Skills clients
-- Aggregate local plugin: `im-skills-all` (`3.0.0`)
+- Aggregate local plugin: `im-skills-all` (`3.1.0`)
 - Current visibility: private
 - Lead maintainer and required reviewer: [@stanislavus86](https://github.com/stanislavus86)
 
@@ -74,6 +74,38 @@ npx skills add InnovationMachineTeam/skills \
 
 Do not activate the same skill through both marketplace and Skills CLI in the same host scope. Choose one channel per skill and scope.
 
+## Install skills with companions
+
+Claude Code supports native same-marketplace plugin dependencies and installs
+them with the requested plugin. Codex and Cursor do not use that manifest
+contract. The repository therefore keeps one portable source of truth in
+`catalog/dependencies.json`, projects it into Claude manifests, generates
+warnings for every affected package, and provides a dependency-aware fallback
+installer.
+
+Preview a complete dependency-first plan without changing installed state:
+
+```bash
+python3 scripts/manage_skill_dependencies.py plan skill-builder --host codex
+```
+
+Install the required companion plugins and the requested plugin together:
+
+```bash
+python3 scripts/manage_skill_dependencies.py install skill-builder --host codex --execute
+```
+
+Check the currently enabled Codex plugins and print a visible warning when a
+required companion is missing or too old:
+
+```bash
+python3 scripts/manage_skill_dependencies.py check skill-builder --host codex
+```
+
+`--include-recommended` opts into recommended companions. Without `--execute`,
+the install command is a dry run. The helper never embeds duplicate copies of a
+companion skill into individual plugins.
+
 ## Test the complete toolkit locally
 
 The committed `plugin/` directory is a generated aggregate package with Claude Code, Codex, and Cursor manifests:
@@ -100,19 +132,19 @@ The aggregate plugin is intended for local integration testing and full-toolkit 
 | `agent-skill-mapper` | `agent-skills` | Map governed capabilities to registered agents | 1.0.0 |
 | `agent-team-architect` | `agent-team-skills` | Design justified agent teams and versioned specifications | 1.0.0 |
 | `agent-team-builder` | `agent-team-skills` | Stage approved agent-team specifications safely | 1.0.0 |
-| `agent-team-manager` | `agent-team-skills` | Govern agent-team lifecycle workflows and run state | 1.1.0 |
+| `agent-team-manager` | `agent-team-skills` | Govern agent-team lifecycle workflows and run state | 1.2.0 |
 | `agent-team-orchestrator` | `agent-team-skills` | Execute approved team task graphs with bounded runtime state | 1.0.0 |
 | `agent-workspace-manager` | `agent-team-skills` | Govern isolated worktrees and integration handoffs | 1.0.0 |
-| `metaskillpack` | `metaskills` | Run the complete metaskill toolkit from one explicit command | 1.2.0 |
+| `metaskillpack` | `metaskills` | Run the complete metaskill toolkit from one explicit command | 1.4.0 |
 | `prompt-optimize` | `prompt-skills` | Design and improve durable controlling prompts | 3.0.0 |
 | `skill-architect` | `metaskills` | Classify and create skill architectures | 1.2.0 |
-| `skill-best-practices` | `metaskills` | Maintain an evidence-linked practices corpus | 1.1.0 |
-| `skill-builder` | `metaskills` | Orchestrate end-to-end skill workflows | 1.2.0 |
+| `skill-best-practices` | `metaskills` | Maintain an evidence-linked practices corpus | 1.2.0 |
+| `skill-builder` | `metaskills` | Orchestrate end-to-end skill workflows | 1.4.0 |
 | `skill-doctor` | `metaskills` | Diagnose and repair unhealthy skills | 1.0.0 |
 | `skill-evaluator` | `metaskills` | Design and run skill evaluations | 1.1.0 |
 | `skill-harvester` | `metaskills` | Extract reusable skill components and evidence | 1.1.0 |
 | `skill-manager` | `metaskills` | Govern installed skill lifecycle | 1.2.0 |
-| `skill-marketplace-manager` | `metaskills` | Design and operate skill marketplaces | 1.0.0 |
+| `skill-marketplace-manager` | `metaskills` | Design and operate skill marketplaces | 1.3.0 |
 | `skill-optimizer` | `metaskills` | Improve healthy skills with measured evidence | 1.0.0 |
 | `skill-refactor` | `metaskills` | Merge, split, extract, and reshape capabilities | 1.2.0 |
 | `skill-scout` | `metaskills` | Discover and prioritize skill opportunities | 1.1.0 |
@@ -128,6 +160,7 @@ The source of truth for versions is each skill's `SKILL.md → metadata.version`
 ├── .cursor-plugin/marketplace.json   # Cursor multi-plugin marketplace
 ├── catalog/
 │   ├── entries.json                  # tags and declared entry inventory
+│   ├── dependencies.json             # canonical companion-skill graph
 │   └── release.json                  # governance and aggregate release config
 ├── skills/                           # canonical source of truth
 │   ├── agent-os-skills/              # Agentic OS plane capabilities
@@ -166,26 +199,33 @@ The implemented foundation is described in
 
 1. Edit the canonical package under `skills/<category>/<name>/`.
 2. Bump that skill's `metadata.version` according to SemVer.
-3. Rebuild individual cross-host plugin packages into a new staging directory:
+3. Validate and render companion dependency references:
+
+   ```bash
+   python3 scripts/manage_skill_dependencies.py validate
+   python3 scripts/manage_skill_dependencies.py render
+   ```
+
+4. Rebuild individual cross-host plugin packages into a new staging directory:
 
    ```bash
    python3 scripts/build_individual_plugins.py . build/plugins
    ```
 
-4. Regenerate all three marketplace manifests:
+5. Regenerate all three marketplace manifests:
 
    ```bash
    python3 scripts/generate_marketplace.py .
    ```
 
-5. Rebuild the aggregate plugin into a new staging directory:
+6. Rebuild the aggregate plugin into a new staging directory:
 
    ```bash
    python3 scripts/build_aggregate.py . build/im-skills-all
    ```
 
-6. Replace committed generated directories only after staged candidates pass validation.
-7. Run:
+7. Replace committed generated directories only after staged candidates pass validation.
+8. Run:
 
    ```bash
    python3 scripts/validate_repository.py .
@@ -200,14 +240,14 @@ The implemented foundation is described in
    codex plugin list --available --json
    ```
 
-8. Run the Codex plugin validator against `plugin/` and every directory under `plugins/`. Validate Cursor paths and manifests with the repository validator, then locally test a representative plugin before public submission.
-9. Obtain review from `@stanislavus86` before release.
+9. Run the Codex plugin validator against `plugin/` and every directory under `plugins/`. Validate Cursor paths and manifests with the repository validator, then locally test a representative plugin before public submission.
+10. Obtain review from `@stanislavus86` before release.
 
 ## Version policy
 
 - Individual skill and marketplace entry: the skill's `metadata.version`.
 - Aggregate plugin: independent SemVer in `catalog/release.json`.
-- Marketplace metadata: repository catalog format version, currently `1.8.0`.
+- Marketplace metadata: repository catalog release version, currently `3.1.0`.
 
 Bump an individual skill version whenever its installed contents or contract change. Bump the aggregate plugin when any bundled skill or aggregate install contract changes. A release is blocked if generated manifests or bundle hashes drift from canonical sources.
 

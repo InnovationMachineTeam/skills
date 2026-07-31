@@ -1,5 +1,16 @@
 # Changelog
 
+## 3.1.0 — 2026-07-31
+
+- Added a canonical required/recommended companion-skill graph with minimum
+  versions, cycle and integrity validation, and generated runtime references.
+- Added dependency-aware dry-run, Codex/Claude install, and Codex installed-state
+  checks without introducing unsupported plugin manifest fields.
+- Added visible dependency warnings and machine-readable metadata to affected
+  individual packages; missing companions block only their owning route.
+- Updated `skill-builder`, `agent-team-manager`, `skill-marketplace-manager`,
+  donor snapshots, tests, documentation and generated cross-host packages.
+
 ## 3.0.0 — 2026-07-31
 
 - Renamed the canonical `prompts` category to `prompt-skills`.

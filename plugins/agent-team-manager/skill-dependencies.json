@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "skill": "agent-team-manager",
+  "native_auto_install": {
+    "claude-code": true,
+    "codex": false,
+    "cursor": false
+  },
+  "required": [
+    {
+      "name": "agent-model-selector",
+      "minimum_version": "1.0.0",
+      "reason": "The design route delegates current model selection and evidence."
+    },
+    {
+      "name": "agent-skill-mapper",
+      "minimum_version": "1.0.0",
+      "reason": "The map-capabilities route delegates governed agent-skill bindings."
+    },
+    {
+      "name": "agent-team-architect",
+      "minimum_version": "1.0.0",
+      "reason": "The design route delegates team architecture."
+    },
+    {
+      "name": "agent-team-builder",
+      "minimum_version": "1.0.0",
+      "reason": "The build route delegates staged team materialization."
+    },
+    {
+      "name": "agent-team-orchestrator",
+      "minimum_version": "1.0.0",
+      "reason": "The operate route delegates runtime task orchestration."
+    }
+  ],
+  "recommended": [
+    {
+      "name": "agent-workspace-manager",
+      "minimum_version": "1.0.0",
+      "reason": "Recommended when an operation needs isolated worktrees or workspace lifecycle management."
+    }
+  ],
+  "install_order": [
+    "agent-model-selector",
+    "agent-skill-mapper",
+    "agent-team-architect",
+    "agent-team-builder",
+    "agent-team-orchestrator",
+    "agent-team-manager"
+  ]
+}

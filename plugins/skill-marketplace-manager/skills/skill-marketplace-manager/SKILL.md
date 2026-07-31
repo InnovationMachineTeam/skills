@@ -2,7 +2,7 @@
 name: skill-marketplace-manager
 description: Design, inventory, scaffold, curate, build, validate, migrate, release, and audit repositories that distribute Agent Skills through skill.sh-compatible catalogs and plugin harnesses such as Claude Code. Use for marketplace topology, category design, marketplace.json or plugin.json generation, portable skills/ layouts, aggregate plugin builds, catalog governance, version policy, compatibility checks, staged migrations, publishing plans, or repository-wide skill distribution. Do not use for authoring one skill's behavior, evaluating one skill's task quality, or managing only the installed runtime state of skills.
 metadata:
-  version: "1.2.0"
+  version: "1.3.0"
 ---
 
 # Skill Marketplace Manager
@@ -58,6 +58,10 @@ Read [best-practices.md](references/best-practices.md) for every architecture, m
 - Support at most one category directory between `skills/` and a skill when skill.sh compatibility is required.
 - Keep skill names globally unique across an aggregate plugin; categories are organization, not a namespace.
 - Keep every distributed skill self-contained. Do not rely on paths outside its installed or cached package.
+- Do not add plugin-to-plugin dependency fields to host manifests unless the
+  target host documents them. Keep a canonical companion-skill graph, generate
+  warnings and install plans from it, and bundle only when duplicate identities
+  cannot result.
 - Keep `metadata.version` in each `SKILL.md` distinct from plugin or marketplace release versions.
 - Do not declare the same version in multiple manifests unless an automated consistency check enforces equality.
 - Do not expose the same skill twice in the same harness scope through overlapping install channels.

@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "skill": "skill-builder",
+  "native_auto_install": {
+    "claude-code": true,
+    "codex": false,
+    "cursor": false
+  },
+  "required": [
+    {
+      "name": "prompt-optimize",
+      "minimum_version": "3.0.0",
+      "reason": "The prompt-development scenario delegates prompt design and optimization."
+    },
+    {
+      "name": "skill-architect",
+      "minimum_version": "1.2.0",
+      "reason": "Creation and topology scenarios delegate skill architecture."
+    },
+    {
+      "name": "skill-doctor",
+      "minimum_version": "1.0.0",
+      "reason": "Repair scenarios delegate diagnosis and minimal repair."
+    },
+    {
+      "name": "skill-evaluator",
+      "minimum_version": "1.1.0",
+      "reason": "Evaluation and release gates require independent skill evaluation."
+    },
+    {
+      "name": "skill-harvester",
+      "minimum_version": "1.1.0",
+      "reason": "Research and external intake scenarios delegate evidence harvesting."
+    },
+    {
+      "name": "skill-manager",
+      "minimum_version": "1.2.0",
+      "reason": "Lifecycle, installation and governance scenarios delegate installed-state management."
+    },
+    {
+      "name": "skill-optimizer",
+      "minimum_version": "1.0.0",
+      "reason": "Measured improvement scenarios delegate healthy-skill optimization."
+    },
+    {
+      "name": "skill-refactor",
+      "minimum_version": "1.2.0",
+      "reason": "Split, merge, extraction and boundary-change scenarios delegate refactoring."
+    },
+    {
+      "name": "skill-scout",
+      "minimum_version": "1.1.0",
+      "reason": "Opportunity-discovery scenarios delegate skill scouting."
+    }
+  ],
+  "recommended": [],
+  "install_order": [
+    "prompt-optimize",
+    "skill-architect",
+    "skill-doctor",
+    "skill-evaluator",
+    "skill-harvester",
+    "skill-manager",
+    "skill-optimizer",
+    "skill-refactor",
+    "skill-scout",
+    "skill-builder"
+  ]
+}

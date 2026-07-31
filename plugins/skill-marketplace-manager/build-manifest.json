@@ -1,7 +1,7 @@
 {
   "format": 2,
   "plugin": "skill-marketplace-manager",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "source_layout": "skills/",
   "bundle_layout": "skills/<name>/",
   "platforms": [
@@ -21,17 +21,17 @@
   "files": [
     {
       "path": ".claude-plugin/plugin.json",
-      "sha256": "016d5cec5d1690905085db5f4d65f935f5cd483ef681f3eea73fa7c963dff7f1",
+      "sha256": "2c3d0c615dd62048115bb76bb9f853354a5e8a6dc90046fe50be33a5673bbec9",
       "bytes": 462
     },
     {
       "path": ".codex-plugin/plugin.json",
-      "sha256": "22062f2ec6531c71b58c2ce1cc1f06cd57cce1d0dc2edb88737c91f8e2c14dd9",
+      "sha256": "710305da70f574996eb298175051adbf70ae5fafd0392f2187bccdf3582971bf",
       "bytes": 1424
     },
     {
       "path": ".cursor-plugin/plugin.json",
-      "sha256": "ef04449d0f3536bf56c15ce6ba56fac33b8f556ff181edddc6a9b8c31a3fa8ac",
+      "sha256": "c653ff2928ddc3acc7e85c0b036bc67724df1aa55209a61f95981a26fb9fdb1b",
       "bytes": 664
     },
     {
@@ -41,13 +41,13 @@
     },
     {
       "path": "skills/skill-marketplace-manager/README.md",
-      "sha256": "bd1d248f517ae8a95666a5e0bb5b6bcb5a6a6e63e24d95f03e038ef9d85ba5df",
-      "bytes": 11253
+      "sha256": "fa6fdf213bbea5a260bbc819e6d120757b9eb0c00dc0a6308af515b57a7d0fdc",
+      "bytes": 11398
     },
     {
       "path": "skills/skill-marketplace-manager/SKILL.md",
-      "sha256": "0f02541b7fc70da15b29e927ae99c27b78df68e8fff85b0315a6590fc05461fc",
-      "bytes": 8721
+      "sha256": "eaadececf637b371cbcd241da80b182cd99512316eecd60273cb71591e43f0c7",
+      "bytes": 8974
     },
     {
       "path": "skills/skill-marketplace-manager/agents/openai.yaml",
@@ -111,8 +111,8 @@
     },
     {
       "path": "skills/skill-marketplace-manager/references/best-practices.md",
-      "sha256": "039a92ccbaf396ae6b7cf71bcc61e00680a0d480d91c33d2508ef00d9e4b5b3e",
-      "bytes": 20513
+      "sha256": "fd19d810b3620c6b923ff6b0f768f3fd3c1449a4b7c29bff4a9bde65d42b83e1",
+      "bytes": 23086
     },
     {
       "path": "skills/skill-marketplace-manager/references/integration-contracts.md",
@@ -121,8 +121,8 @@
     },
     {
       "path": "skills/skill-marketplace-manager/references/manifest-patterns.md",
-      "sha256": "fd8906d8ec06900a1e7b54db11ef03240526a5179753b83465d2a583d76c3ef5",
-      "bytes": 1946
+      "sha256": "0ea8f3a5794897f96d32374c24de9c104dbb549e4ccb8727ff3b3265ef43a733",
+      "bytes": 3144
     },
     {
       "path": "skills/skill-marketplace-manager/references/migration-contract.md",

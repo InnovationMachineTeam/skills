@@ -127,6 +127,10 @@ def main() -> int:
         item["name"]: root / Path(item["path"]).parent
         for item in skills
     }
+    dependencies = load_object(root / "catalog" / "dependencies.json", failures).get("skills", {})
+    if not isinstance(dependencies, dict):
+        failures.append("catalog/dependencies.json: skills object is required")
+        dependencies = {}
 
     claude_path = root / ".claude-plugin" / "marketplace.json"
     codex_path = root / ".agents" / "plugins" / "marketplace.json"
@@ -163,6 +167,28 @@ def main() -> int:
         failures.append("plugins/ must contain exactly one generated package per canonical skill")
     for name in sorted(expected & actual_plugin_names):
         validate_plugin_bundle(root, plugins_root / name, [name], versions, sources, failures)
+        dependency_path = plugins_root / name / "skill-dependencies.json"
+        declaration = dependencies.get(name)
+        if declaration:
+            payload = load_object(dependency_path, failures)
+            if payload.get("skill") != name:
+                failures.append(f"plugins/{name}: dependency metadata has wrong skill identity")
+            for kind in ("required", "recommended"):
+                if payload.get(kind) != declaration.get(kind, []):
+                    failures.append(f"plugins/{name}: {kind} dependency metadata drift")
+            readme = (plugins_root / name / "README.md").read_text(encoding="utf-8")
+            if "DEPENDENCY WARNING" not in readme:
+                failures.append(f"plugins/{name}: README must warn about companion dependencies")
+            required_names = [item["name"] for item in declaration.get("required", [])]
+            claude_manifest = load_object(plugins_root / name / ".claude-plugin" / "plugin.json", failures)
+            if claude_manifest.get("dependencies") != required_names:
+                failures.append(f"plugins/{name}: Claude native dependencies drift")
+            for host in ("codex", "cursor"):
+                manifest = load_object(plugins_root / name / f".{host}-plugin" / "plugin.json", failures)
+                if "dependencies" in manifest:
+                    failures.append(f"plugins/{name}: unsupported {host} dependencies field")
+        elif dependency_path.exists():
+            failures.append(f"plugins/{name}: unexpected dependency metadata")
 
     aggregate = root / "plugin"
     release = load_object(root / "catalog" / "release.json", failures)
@@ -201,6 +227,15 @@ def main() -> int:
     )
     if check.returncode:
         failures.append(check.stderr.strip() or check.stdout.strip() or "marketplace generation check failed")
+
+    dependency_checks = (
+        [sys.executable, str(root / "scripts" / "manage_skill_dependencies.py"), "--root", str(root), "validate"],
+        [sys.executable, str(root / "scripts" / "manage_skill_dependencies.py"), "--root", str(root), "render", "--check"],
+    )
+    for command in dependency_checks:
+        check = subprocess.run(command, text=True, capture_output=True, check=False)
+        if check.returncode:
+            failures.append(check.stderr.strip() or check.stdout.strip() or "skill dependency validation failed")
 
     if failures:
         for failure in failures:

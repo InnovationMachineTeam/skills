@@ -10,6 +10,7 @@ Use this reference before generating or editing marketplace and plugin manifests
 | Offer selected categories from one repository | Root `.claude-plugin/marketplace.json`, shared-root entries, explicit `skills` paths, `strict: false` |
 | Test all skills locally | Generated aggregate `plugin/` with category paths in `plugin.json` |
 | Support skill.sh | Canonical `skills/<skill>` or `skills/<category>/<skill>` tree |
+| Coordinate companion skills | External dependency graph plus generated warnings and install plan; no invented manifest fields |
 
 ## Aggregate plugin
 
@@ -54,6 +55,27 @@ For a root `source`, component paths form the complete entry definition. Do not 
 - If a version is duplicated, enforce equality in CI.
 - Require a distribution version bump when installed content changes.
 - Test upgrade from the previous release, not only clean installation.
+
+## Companion skill dependencies
+
+Claude Code supports a `dependencies` array in `plugin.json` and can auto-install
+same-marketplace companion plugins. Codex plugin manifests do not define
+plugin-to-plugin dependencies; Codex skill metadata supports only
+`dependencies.tools` for MCP tools. Do not copy the Claude field into Codex or
+Cursor manifests. For portable catalogs:
+
+1. keep required and recommended companion skills in one validated catalog
+   graph;
+2. reject unknown skills, self-dependencies, duplicate edges, unsatisfied
+   minimum versions and required cycles;
+3. project required edges into Claude manifests, and generate a dependency
+   warning plus machine-readable declaration into each affected package;
+4. provide a dependency-first dry-run/install command for supported hosts;
+5. block only a route whose required companion is missing, and never simulate
+   the missing specialist;
+6. keep recommended companions opt-in;
+7. use an aggregate or purpose-built suite only when duplicate skill identities
+   cannot be exposed in the same host scope.
 
 ## Validation commands
 

@@ -1,13 +1,24 @@
 {
   "name": "skill-builder",
   "displayName": "Skill Builder",
-  "version": "1.3.0",
-  "description": "Orchestrates complete, evidence-backed agent-skill workflows across skill-scout, skill-harvester, skill-architect, skill-evaluator, skill-doctor, skill-optimizer, skill-refactor, skill-manager, and prompt-optimize",
+  "version": "1.4.0",
+  "description": "Orchestrates complete, evidence-backed agent-skill workflows across skill-scout, skill-harvester, skill-architect, skill-evaluator, skill-doctor, skill-optimizer… Companion skill plugins are required for full functionality; see README.md.",
   "skills": [
     "./skills"
   ],
   "author": {
     "name": "InnovationMachine",
     "email": "stanislav.usoltsev@gmail.com"
-  }
+  },
+  "dependencies": [
+    "prompt-optimize",
+    "skill-architect",
+    "skill-doctor",
+    "skill-evaluator",
+    "skill-harvester",
+    "skill-manager",
+    "skill-optimizer",
+    "skill-refactor",
+    "skill-scout"
+  ]
 }

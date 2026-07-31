@@ -11,7 +11,7 @@ description: >-
   not reimplement them, infer destructive authority, create worktrees or
   publish assets.
 metadata:
-  version: "1.1.0"
+  version: "1.2.0"
 ---
 
 # Govern Agent-Team Lifecycles
@@ -19,6 +19,13 @@ metadata:
 Act as a stateful control plane, not a super-agent. Select the smallest complete
 workflow, preserve specialist boundaries and make authority visible at every
 side effect.
+
+## Verify companion skills
+
+Read [skill-dependencies.md](references/skill-dependencies.md) before routing.
+Check that the companion owning the selected route is available at its minimum
+version. Emit the specified dependency warning and block only that route when a
+required companion is unavailable. Never imitate a missing specialist.
 
 ## Assess and route
 

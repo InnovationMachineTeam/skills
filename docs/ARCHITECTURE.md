@@ -66,6 +66,11 @@ skills/<category>/<name>/               canonical source of truth
 
 The canonical tree keeps the one-category layout used by skill.sh and other Agent Skills clients. Generated plugin bundles flatten the category so every `SKILL.md` is an immediate child of the package's `skills/` directory, as required by Codex plugin ingestion and used by Cursor component discovery.
 
+Companion-skill relationships are canonical in `catalog/dependencies.json`.
+Claude Code receives native same-marketplace plugin dependencies; Codex, Cursor
+and generic Agent Skills consumers receive generated warnings and explicit
+dependency-first plans. See [SKILL-DEPENDENCIES.md](SKILL-DEPENDENCIES.md).
+
 ## Host contracts
 
 | Host | Repository entry point | Package manifest | Selective install |

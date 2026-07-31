@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "policy": {
+    "native_plugin_dependencies": {
+      "claude-code": true,
+      "codex": false,
+      "cursor": false
+    },
+    "installation_model": "native-where-supported-with-portable-fallback",
+    "missing_required_behavior": "warn-and-block-affected-route",
+    "missing_recommended_behavior": "inform-only"
+  },
+  "skills": {
+    "agent-team-manager": {
+      "required": [
+        {
+          "name": "agent-model-selector",
+          "minimum_version": "1.0.0",
+          "reason": "The design route delegates current model selection and evidence."
+        },
+        {
+          "name": "agent-skill-mapper",
+          "minimum_version": "1.0.0",
+          "reason": "The map-capabilities route delegates governed agent-skill bindings."
+        },
+        {
+          "name": "agent-team-architect",
+          "minimum_version": "1.0.0",
+          "reason": "The design route delegates team architecture."
+        },
+        {
+          "name": "agent-team-builder",
+          "minimum_version": "1.0.0",
+          "reason": "The build route delegates staged team materialization."
+        },
+        {
+          "name": "agent-team-orchestrator",
+          "minimum_version": "1.0.0",
+          "reason": "The operate route delegates runtime task orchestration."
+        }
+      ],
+      "recommended": [
+        {
+          "name": "agent-workspace-manager",
+          "minimum_version": "1.0.0",
+          "reason": "Recommended when an operation needs isolated worktrees or workspace lifecycle management."
+        }
+      ]
+    },
+    "skill-builder": {
+      "required": [
+        {
+          "name": "prompt-optimize",
+          "minimum_version": "3.0.0",
+          "reason": "The prompt-development scenario delegates prompt design and optimization."
+        },
+        {
+          "name": "skill-architect",
+          "minimum_version": "1.2.0",
+          "reason": "Creation and topology scenarios delegate skill architecture."
+        },
+        {
+          "name": "skill-doctor",
+          "minimum_version": "1.0.0",
+          "reason": "Repair scenarios delegate diagnosis and minimal repair."
+        },
+        {
+          "name": "skill-evaluator",
+          "minimum_version": "1.1.0",
+          "reason": "Evaluation and release gates require independent skill evaluation."
+        },
+        {
+          "name": "skill-harvester",
+          "minimum_version": "1.1.0",
+          "reason": "Research and external intake scenarios delegate evidence harvesting."
+        },
+        {
+          "name": "skill-manager",
+          "minimum_version": "1.2.0",
+          "reason": "Lifecycle, installation and governance scenarios delegate installed-state management."
+        },
+        {
+          "name": "skill-optimizer",
+          "minimum_version": "1.0.0",
+          "reason": "Measured improvement scenarios delegate healthy-skill optimization."
+        },
+        {
+          "name": "skill-refactor",
+          "minimum_version": "1.2.0",
+          "reason": "Split, merge, extraction and boundary-change scenarios delegate refactoring."
+        },
+        {
+          "name": "skill-scout",
+          "minimum_version": "1.1.0",
+          "reason": "Opportunity-discovery scenarios delegate skill scouting."
+        }
+      ],
+      "recommended": []
+    }
+  }
+}

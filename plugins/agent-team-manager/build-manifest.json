@@ -1,7 +1,7 @@
 {
   "format": 2,
   "plugin": "agent-team-manager",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "source_layout": "skills/",
   "bundle_layout": "skills/<name>/",
   "platforms": [
@@ -21,28 +21,33 @@
   "files": [
     {
       "path": ".claude-plugin/plugin.json",
-      "sha256": "05fc33f3619cfadc75e37c33002e9b80a14ce64c391cb5a52db29f7d7fa182dc",
-      "bytes": 249
+      "sha256": "027f9d02b06e52d9061f7581141cf6158dc578c1939611bdee59f4b68e8fa4d2",
+      "bytes": 488
     },
     {
       "path": ".codex-plugin/plugin.json",
-      "sha256": "83bdf3c266b2b65c59268b7eac2ff6c6a129dca84ac8b780a43b8e393d6b5cd5",
-      "bytes": 908
+      "sha256": "72bc8b398d9f8e0184e40144fe54e03ba69492d86ff8993f98d27338d637b863",
+      "bytes": 1136
     },
     {
       "path": ".cursor-plugin/plugin.json",
-      "sha256": "7d5ea7edf56ad091f1d15970599464352f97b41e7e1d98d9c3b7d5e04607ef11",
-      "bytes": 478
+      "sha256": "80717010578bec0781281cc922c6f3b124f5b2da694f8a3fd4065465aeabde63",
+      "bytes": 554
     },
     {
       "path": "README.md",
-      "sha256": "906436ac90ccef7df36bd84ba66f127d5c08e654f34228b13beff451a840d8f3",
-      "bytes": 346
+      "sha256": "6463125d5c65190a3064ca0a70a0f925521736f58bc6779bf26962958250bc99",
+      "bytes": 1586
+    },
+    {
+      "path": "skill-dependencies.json",
+      "sha256": "89817f04f87b0b4f76d3c2237e497289236687aed3a09e2d55d4d1db0490ccaa",
+      "bytes": 1389
     },
     {
       "path": "skills/agent-team-manager/SKILL.md",
-      "sha256": "e16850e380889c6b7c9db2f936d16bea104bdf6778b637f09b6681b2f4e3bcba",
-      "bytes": 3927
+      "sha256": "c17d6b8cf39afa60d29019b9fd50c5543eb1af1d3b896fed3d87379de2a08a53",
+      "bytes": 4265
     },
     {
       "path": "skills/agent-team-manager/agents/openai.yaml",
@@ -68,6 +73,11 @@
       "path": "skills/agent-team-manager/references/scenario-catalog.md",
       "sha256": "52d8e98acb6293a9f5ab63f9b0a7d02692d34339ff1b721009be64bd70d8c6c6",
       "bytes": 1600
+    },
+    {
+      "path": "skills/agent-team-manager/references/skill-dependencies.md",
+      "sha256": "f6cf33908b9ea3613a577b6243fa4b5a7e8763da03b8df6f3f02ec9c87526bd0",
+      "bytes": 2366
     },
     {
       "path": "skills/agent-team-manager/scripts/check_evals.py",

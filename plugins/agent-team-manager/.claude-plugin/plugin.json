@@ -1,13 +1,20 @@
 {
   "name": "agent-team-manager",
   "displayName": "Agent Team Manager",
-  "version": "1.1.0",
-  "description": ">-",
+  "version": "1.2.0",
+  "description": ">- Companion skill plugins are required for full functionality; see README.md.",
   "skills": [
     "./skills"
   ],
   "author": {
     "name": "InnovationMachine",
     "email": "stanislav.usoltsev@gmail.com"
-  }
+  },
+  "dependencies": [
+    "agent-model-selector",
+    "agent-skill-mapper",
+    "agent-team-architect",
+    "agent-team-builder",
+    "agent-team-orchestrator"
+  ]
 }

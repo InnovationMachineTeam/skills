@@ -1,7 +1,7 @@
 {
   "format": 2,
   "plugin": "im-skills-all",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "source_layout": "skills/",
   "bundle_layout": "skills/<name>/",
   "platforms": [
@@ -48,17 +48,17 @@
   "files": [
     {
       "path": ".claude-plugin/plugin.json",
-      "sha256": "6d1cdff6f6399571755281a14103f154223e90f1f33e11daad5d83e022dad7dc",
+      "sha256": "837f2857a06862d91e8f688d341908ed8c77fac19e2a429136cee09661d8f6e3",
       "bytes": 288
     },
     {
       "path": ".codex-plugin/plugin.json",
-      "sha256": "4529bdc3c774f172d76250dac4c384bc18fea57a653b9198bdc8c81c25e9d001",
+      "sha256": "6167613cfb774d85ce0cb4cc3a14ca85c680f173bbb6a509a7c93768dbc2982c",
       "bytes": 1046
     },
     {
       "path": ".cursor-plugin/plugin.json",
-      "sha256": "eb168239d42be3cf404f3b704cda42f43697fd366c1fd6e82b4f617d3ca0b69c",
+      "sha256": "ba8232a4f724111291b86b93eae5d46921c1a9c29de9510e170e2b6b75942245",
       "bytes": 528
     },
     {
@@ -478,8 +478,8 @@
     },
     {
       "path": "skills/agent-team-manager/SKILL.md",
-      "sha256": "e16850e380889c6b7c9db2f936d16bea104bdf6778b637f09b6681b2f4e3bcba",
-      "bytes": 3927
+      "sha256": "c17d6b8cf39afa60d29019b9fd50c5543eb1af1d3b896fed3d87379de2a08a53",
+      "bytes": 4265
     },
     {
       "path": "skills/agent-team-manager/agents/openai.yaml",
@@ -505,6 +505,11 @@
       "path": "skills/agent-team-manager/references/scenario-catalog.md",
       "sha256": "52d8e98acb6293a9f5ab63f9b0a7d02692d34339ff1b721009be64bd70d8c6c6",
       "bytes": 1600
+    },
+    {
+      "path": "skills/agent-team-manager/references/skill-dependencies.md",
+      "sha256": "f6cf33908b9ea3613a577b6243fa4b5a7e8763da03b8df6f3f02ec9c87526bd0",
+      "bytes": 2366
     },
     {
       "path": "skills/agent-team-manager/scripts/check_evals.py",
@@ -598,7 +603,7 @@
     },
     {
       "path": "skills/metaskillpack/SKILL.md",
-      "sha256": "b2aec486a4b077e5a90fdd9a6f27671504a220143a913ec39f5e131e44a956b1",
+      "sha256": "358f7800b05d304e954c25191a024d09c87c3fa64208c6e8aee29b46274cc47c",
       "bytes": 9260
     },
     {
@@ -608,7 +613,7 @@
     },
     {
       "path": "skills/metaskillpack/donors.json",
-      "sha256": "080f175cb38f6f726d9926ebb7b42ecd2cce7e2300edf7f2bc7e64fc88732c09",
+      "sha256": "75b32c9b935abc36262ab100b5f81e8ad18f801450e5a58f7ee1e374c7f69940",
       "bytes": 4550
     },
     {
@@ -1088,8 +1093,8 @@
     },
     {
       "path": "skills/metaskillpack/vendor/skill-builder/DONOR.md",
-      "sha256": "733da3461ac74cac824330e2e754de416b0130c52925dd6d2edea4b3e3b44e65",
-      "bytes": 12005
+      "sha256": "2eaf363f8ff7dbff59dbce2ddf9218c90209da193979c6ac1784c9fd4db05496",
+      "bytes": 12386
     },
     {
       "path": "skills/metaskillpack/vendor/skill-builder/README.md",
@@ -1215,6 +1220,11 @@
       "path": "skills/metaskillpack/vendor/skill-builder/references/scenario-catalog.md",
       "sha256": "cc60e8a70467413db96d02c2019402e60a287e1dfe8188fa77e657b634ebc703",
       "bytes": 5174
+    },
+    {
+      "path": "skills/metaskillpack/vendor/skill-builder/references/skill-dependencies.md",
+      "sha256": "5066af5cf8548c1001a32bb7515f3a232bb39129a6baa883546e36d002625577",
+      "bytes": 2749
     },
     {
       "path": "skills/metaskillpack/vendor/skill-builder/references/skillify-patterns.md",
@@ -1843,13 +1853,13 @@
     },
     {
       "path": "skills/metaskillpack/vendor/skill-marketplace-manager/DONOR.md",
-      "sha256": "0f02541b7fc70da15b29e927ae99c27b78df68e8fff85b0315a6590fc05461fc",
-      "bytes": 8721
+      "sha256": "eaadececf637b371cbcd241da80b182cd99512316eecd60273cb71591e43f0c7",
+      "bytes": 8974
     },
     {
       "path": "skills/metaskillpack/vendor/skill-marketplace-manager/README.md",
-      "sha256": "bd1d248f517ae8a95666a5e0bb5b6bcb5a6a6e63e24d95f03e038ef9d85ba5df",
-      "bytes": 11253
+      "sha256": "fa6fdf213bbea5a260bbc819e6d120757b9eb0c00dc0a6308af515b57a7d0fdc",
+      "bytes": 11398
     },
     {
       "path": "skills/metaskillpack/vendor/skill-marketplace-manager/agents/openai.yaml",
@@ -1913,8 +1923,8 @@
     },
     {
       "path": "skills/metaskillpack/vendor/skill-marketplace-manager/references/best-practices.md",
-      "sha256": "039a92ccbaf396ae6b7cf71bcc61e00680a0d480d91c33d2508ef00d9e4b5b3e",
-      "bytes": 20513
+      "sha256": "fd19d810b3620c6b923ff6b0f768f3fd3c1449a4b7c29bff4a9bde65d42b83e1",
+      "bytes": 23086
     },
     {
       "path": "skills/metaskillpack/vendor/skill-marketplace-manager/references/integration-contracts.md",
@@ -1923,8 +1933,8 @@
     },
     {
       "path": "skills/metaskillpack/vendor/skill-marketplace-manager/references/manifest-patterns.md",
-      "sha256": "fd8906d8ec06900a1e7b54db11ef03240526a5179753b83465d2a583d76c3ef5",
-      "bytes": 1946
+      "sha256": "0ea8f3a5794897f96d32374c24de9c104dbb549e4ccb8727ff3b3265ef43a733",
+      "bytes": 3144
     },
     {
       "path": "skills/metaskillpack/vendor/skill-marketplace-manager/references/migration-contract.md",
@@ -2718,8 +2728,8 @@
     },
     {
       "path": "skills/skill-builder/SKILL.md",
-      "sha256": "733da3461ac74cac824330e2e754de416b0130c52925dd6d2edea4b3e3b44e65",
-      "bytes": 12005
+      "sha256": "2eaf363f8ff7dbff59dbce2ddf9218c90209da193979c6ac1784c9fd4db05496",
+      "bytes": 12386
     },
     {
       "path": "skills/skill-builder/agents/openai.yaml",
@@ -2840,6 +2850,11 @@
       "path": "skills/skill-builder/references/scenario-catalog.md",
       "sha256": "cc60e8a70467413db96d02c2019402e60a287e1dfe8188fa77e657b634ebc703",
       "bytes": 5174
+    },
+    {
+      "path": "skills/skill-builder/references/skill-dependencies.md",
+      "sha256": "5066af5cf8548c1001a32bb7515f3a232bb39129a6baa883546e36d002625577",
+      "bytes": 2749
     },
     {
       "path": "skills/skill-builder/references/skillify-patterns.md",
@@ -3468,13 +3483,13 @@
     },
     {
       "path": "skills/skill-marketplace-manager/README.md",
-      "sha256": "bd1d248f517ae8a95666a5e0bb5b6bcb5a6a6e63e24d95f03e038ef9d85ba5df",
-      "bytes": 11253
+      "sha256": "fa6fdf213bbea5a260bbc819e6d120757b9eb0c00dc0a6308af515b57a7d0fdc",
+      "bytes": 11398
     },
     {
       "path": "skills/skill-marketplace-manager/SKILL.md",
-      "sha256": "0f02541b7fc70da15b29e927ae99c27b78df68e8fff85b0315a6590fc05461fc",
-      "bytes": 8721
+      "sha256": "eaadececf637b371cbcd241da80b182cd99512316eecd60273cb71591e43f0c7",
+      "bytes": 8974
     },
     {
       "path": "skills/skill-marketplace-manager/agents/openai.yaml",
@@ -3538,8 +3553,8 @@
     },
     {
       "path": "skills/skill-marketplace-manager/references/best-practices.md",
-      "sha256": "039a92ccbaf396ae6b7cf71bcc61e00680a0d480d91c33d2508ef00d9e4b5b3e",
-      "bytes": 20513
+      "sha256": "fd19d810b3620c6b923ff6b0f768f3fd3c1449a4b7c29bff4a9bde65d42b83e1",
+      "bytes": 23086
     },
     {
       "path": "skills/skill-marketplace-manager/references/integration-contracts.md",
@@ -3548,8 +3563,8 @@
     },
     {
       "path": "skills/skill-marketplace-manager/references/manifest-patterns.md",
-      "sha256": "fd8906d8ec06900a1e7b54db11ef03240526a5179753b83465d2a583d76c3ef5",
-      "bytes": 1946
+      "sha256": "0ea8f3a5794897f96d32374c24de9c104dbb549e4ccb8727ff3b3265ef43a733",
+      "bytes": 3144
     },
     {
       "path": "skills/skill-marketplace-manager/references/migration-contract.md",

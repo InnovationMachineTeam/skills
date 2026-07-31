@@ -1,7 +1,7 @@
 {
   "name": "agent-team-manager",
-  "version": "1.1.0",
-  "description": ">-",
+  "version": "1.2.0",
+  "description": ">- Companion skill plugins are required for full functionality; see README.md.",
   "homepage": "https://github.com/InnovationMachineTeam/skills",
   "repository": "https://github.com/InnovationMachineTeam/skills",
   "license": "Proprietary",
@@ -20,8 +20,8 @@
   },
   "interface": {
     "displayName": "Agent Team Manager",
-    "shortDescription": ">-",
-    "longDescription": ">-",
+    "shortDescription": ">- Companion skill plugins are required for full functionality; see README.md.",
+    "longDescription": ">- Companion skill plugins are required for full functionality; see README.md.",
     "developerName": "InnovationMachine",
     "category": "Developer Tools",
     "capabilities": [
