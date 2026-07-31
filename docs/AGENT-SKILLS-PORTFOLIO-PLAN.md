@@ -29,6 +29,9 @@ aware. `agentkit` remains deferred until its donor maturity gate passes.
 5. Registry, dependencies, marketplace generation and release validation.
 6. Two stable donor release cycles, then a separate `agentkit` decision.
 
+Progress: release `3.2.1` completed stability cycle 1 of 2. Cycle 2 and the
+separate `agentkit` decision remain pending.
+
 ## Completion gates
 
 - every bundle has `metadata.version`, precise positive and negative routing,

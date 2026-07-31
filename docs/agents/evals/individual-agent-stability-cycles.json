@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "portfolio": "individual-agent-lifecycle-donors",
+  "initial_donor_release": "3.2.0",
+  "stability_epoch_release": "3.2.0",
+  "required_stable_cycles": 2,
+  "donors": [
+    {"name": "agent-architect", "version": "1.0.0", "content_sha256": "sha256:07a0253ccaf58623dd0c77bd434e4eb505699617a45aed5d02b0727be471a9b2"},
+    {"name": "agent-best-practices", "version": "1.0.0", "content_sha256": "sha256:986ab50369c95ec90f993e80978b2720485ad606b2df814cfbe29cbccf61c972"},
+    {"name": "agent-builder", "version": "1.0.0", "content_sha256": "sha256:2b495ddee0bb84e74a4ba183dc05695bcde2b04e7153ca25724193d58b32c458"},
+    {"name": "agent-context", "version": "1.0.0", "content_sha256": "sha256:631b46cddc7fb387cebfbdab4b54de1c4f70f9eeffa5584f91a8e4ec46ed6011"},
+    {"name": "agent-doctor", "version": "1.0.0", "content_sha256": "sha256:ceda961c89134cb08373a7f1818044ebd2148d8fad73c1a4e6333a9c725bd4a7"},
+    {"name": "agent-evaluator", "version": "1.0.0", "content_sha256": "sha256:3d92cca26900a0736c45c5e9bd90dd2b9d14c1da5ecca3541dccfdc3dff9d3cf"},
+    {"name": "agent-manager", "version": "1.0.0", "content_sha256": "sha256:05c82ba43e0a1a5d9fe2820c3f228e81ba94f86269c3dbbcb25d9446e798b22b"},
+    {"name": "agent-optimizer", "version": "1.0.0", "content_sha256": "sha256:e718fe42e4aee1c3eec3484133f9a85d9e0aee59cec68a738d996d264cdd83ea"},
+    {"name": "agent-refactor", "version": "1.0.0", "content_sha256": "sha256:e61972d3b3f3f28e22afdb8bcac3c2daf1e6e4a24db9d39ae815238eb7b0b4a5"},
+    {"name": "agent-scout", "version": "1.0.0", "content_sha256": "sha256:48fbc8daea44703c12b3deb826fdebe3e904f924c74c2dbdeddf7597515238f1"}
+  ],
+  "cycles": [
+    {
+      "id": "stability-cycle-1",
+      "release": "3.2.1",
+      "baseline_release": "3.2.0",
+      "observed_on": "2026-07-31",
+      "status": "stable",
+      "portfolio_hash": "sha256:9e50a4d18873efe6063b58393a93a56b96658d195b5293fff820c2affd5c5751",
+      "changed_donor_hashes": [],
+      "layer_verdicts": {
+        "structure": "PASS",
+        "routing": "PASS",
+        "behavior": "PASS",
+        "authority": "PASS",
+        "documentation": "PASS",
+        "coexistence": "PASS",
+        "lifecycle": "PASS"
+      },
+      "blocking_findings": [],
+      "evidence": [
+        "docs/agents/evals/individual-agent-stability-cycle-1-plan.json",
+        "docs/agents/evals/individual-agent-stability-cycle-1-results.json",
+        "docs/agents/evals/individual-agent-portfolio-results.json",
+        "docs/RELEASE-3.2.1-AGENT-DONOR-STABILIZATION-1.md",
+        "tests/test_individual_agent_skills.py",
+        "scripts/validate_agent_donor_stability.py"
+      ]
+    }
+  ],
+  "agentkit_gate": {
+    "status": "deferred",
+    "stable_cycles_completed": 1,
+    "real_workflows_observed": [],
+    "upgrade_contract_frozen": false,
+    "rollback_contract_frozen": false,
+    "pack_holdout_frozen": false,
+    "remaining_requirements": [
+      "complete one more distinct post-donor stable release",
+      "observe at least three real end-to-end workflows",
+      "freeze donor upgrade and rollback contracts"
+    ]
+  }
+}

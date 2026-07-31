@@ -18,6 +18,13 @@ Creation requires all of the following:
 6. a frozen donor manifest, upgrade comparison, rollback and pack-level holdout;
 7. explicit invocation that does not compete with direct specialist triggers.
 
-Release 3.2.0 is the initial donor release and does not satisfy the gate. A
-future review records stable release evidence here before creating
-`skills/agent-skills/agentkit/`.
+Release `3.2.0` is the initial donor release. Release `3.2.1` completed the
+first post-donor stability cycle with unchanged donor hashes and all blocking
+layers passing. The machine-readable evidence is in
+`docs/agents/evals/individual-agent-stability-cycles.json`.
+
+Current progress: **1/2 stable cycles**. The second cycle must be a distinct
+later observation; it must not be manufactured by immediately repeating the
+same validation. Real workflow observations and the pack-level upgrade,
+rollback and holdout contracts also remain incomplete. Therefore no
+`skills/agent-skills/agentkit/` bundle or catalog entry is allowed yet.

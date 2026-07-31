@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0",
+  "evaluation_id": "individual-agent-stability-cycle-1",
+  "objective": "Decide whether the unchanged ten-donor portfolio qualifies as the first stable post-donor release.",
+  "risk": "medium",
+  "target": {
+    "identity": "InnovationMachineTeam/skills individual-agent donor portfolio",
+    "version": "3.2.1",
+    "baseline": "3.2.0",
+    "portfolio_hash": "sha256:9e50a4d18873efe6063b58393a93a56b96658d195b5293fff820c2affd5c5751"
+  },
+  "environment": {
+    "hosts": ["claude-code", "codex", "cursor"],
+    "runtime": "python-3 fixture and repository validators",
+    "repository": "InnovationMachineTeam/skills"
+  },
+  "authority": {
+    "read": true,
+    "write_candidate": false,
+    "publish_approved_repository": true,
+    "activate_hosts": false
+  },
+  "layers": ["structure", "routing", "behavior", "authority", "documentation", "coexistence", "lifecycle"],
+  "datasets": [
+    "ten donor routing and behavior regression suites",
+    "portfolio collision and package tests",
+    "repository, dependency, registry and marketplace validators"
+  ],
+  "graders": ["deterministic assertions", "frozen 3.2.0 independent forward evidence bound to unchanged donor hashes"],
+  "repetitions": 1,
+  "timeouts": {"max_suite_seconds": 120},
+  "budget": {"max_external_cost": 0, "max_live_side_effects": 0},
+  "acceptance": {
+    "blocking_layers": ["structure", "routing", "behavior", "authority", "documentation", "coexistence", "lifecycle"],
+    "criteria": {
+      "structure": "official and repository validators pass for all unchanged donors",
+      "routing": "fixture harness and catalog coexistence tests pass",
+      "behavior": "all deterministic behavior contracts and prior hash-bound forward regressions pass",
+      "authority": "no activation, installation or authority expansion occurs during evaluation",
+      "documentation": "documentation containment, ownership and false-completion negatives pass",
+      "coexistence": "all 38 individual packages and three marketplaces remain collision-free",
+      "lifecycle": "registry, dependency, generated package and release views agree"
+    }
+  },
+  "holdout_policy": {
+    "protected": true,
+    "location": "external-protected",
+    "exposure_rule": "Do not expose answers to mutating specialists; prior forward evidence is reusable only while every donor hash is unchanged."
+  },
+  "execution_policy": {
+    "side_effects": "repository-local generated staging only",
+    "abort_conditions": ["donor hash drift", "blocking regression", "unexpected external action"],
+    "cleanup": "remove only evaluator-created build staging after artifact capture"
+  },
+  "artifacts": {
+    "result": "docs/agents/evals/individual-agent-stability-cycle-1-results.json",
+    "ledger": "docs/agents/evals/individual-agent-stability-cycles.json",
+    "release_report": "docs/RELEASE-3.2.1-AGENT-DONOR-STABILIZATION-1.md"
+  }
+}

@@ -36,7 +36,7 @@
       "entry_conditions": ["User approved the implementation plan."],
       "required_outputs": ["Documentation contract", "schema update", "ADR", "prompt updates"],
       "exit_checks": ["Schema validates representative definitions", "No stale route claims remain"],
-      "authority": {"read": true, "write": true, "external": false},
+      "authority": {"read": true, "write": true, "external_research": false, "install": false, "publish": false, "retire": false},
       "evidence": [
         "docs/decisions/architecture/0002-agent-documentation-contract.md",
         "docs/prompts/agent-documentation-contract.md",
@@ -53,7 +53,7 @@
       "entry_conditions": ["Documentation contract passes"],
       "required_outputs": ["Three versioned skill bundles", "eval suites"],
       "exit_checks": ["Structural, routing and behavior gates pass"],
-      "authority": {"read": true, "write": true, "external": false},
+      "authority": {"read": true, "write": true, "external_research": false, "install": false, "publish": false, "retire": false},
       "evidence": [
         "skills/agent-skills/agent-best-practices",
         "skills/agent-skills/agent-architect",
@@ -69,7 +69,7 @@
       "entry_conditions": ["Evaluator contract is stable"],
       "required_outputs": ["Three versioned skill bundles", "dependency declarations"],
       "exit_checks": ["Repair, lifecycle and orchestration gates pass"],
-      "authority": {"read": true, "write": true, "external": false},
+      "authority": {"read": true, "write": true, "external_research": false, "install": false, "publish": false, "retire": false},
       "evidence": [
         "skills/agent-skills/agent-doctor",
         "skills/agent-skills/agent-manager",
@@ -85,7 +85,7 @@
       "entry_conditions": ["Lifecycle handoffs pass"],
       "required_outputs": ["Four versioned skill bundles", "coexistence evals"],
       "exit_checks": ["Opportunity, research, optimization and topology boundaries pass"],
-      "authority": {"read": true, "write": true, "external": false},
+      "authority": {"read": true, "write": true, "external_research": false, "install": false, "publish": false, "retire": false},
       "evidence": [
         "skills/agent-skills/agent-scout",
         "skills/agent-skills/agent-context",
@@ -102,7 +102,7 @@
       "entry_conditions": ["All donor candidates are frozen"],
       "required_outputs": ["registry/catalog/plugin updates", "release evidence"],
       "exit_checks": ["Repository and forward tests pass"],
-      "authority": {"read": true, "write": true, "external": false},
+      "authority": {"read": true, "write": true, "external_research": false, "install": false, "publish": true, "retire": false},
       "evidence": [
         "tests/test_individual_agent_skills.py",
         "docs/agents/evals/individual-agent-portfolio-results.json",
@@ -112,15 +112,44 @@
       ]
     },
     {
-      "id": "phase-5-agentkit",
+      "id": "phase-5-stability-cycle-1",
+      "specialist": "skill-evaluator",
+      "objective": "Certify the first distinct stable post-donor release.",
+      "status": "completed",
+      "dependencies": ["phase-4-release"],
+      "entry_conditions": ["All donor hashes remain frozen from release 3.2.0"],
+      "required_outputs": ["frozen evaluation plan", "stability ledger", "release evidence"],
+      "exit_checks": ["All blocking layers pass", "marketplace release advances without donor drift"],
+      "authority": {"read": true, "write": true, "external_research": false, "install": false, "publish": true, "retire": false},
+      "evidence": [
+        "docs/agents/evals/individual-agent-stability-cycle-1-plan.json",
+        "docs/agents/evals/individual-agent-stability-cycle-1-results.json",
+        "docs/agents/evals/individual-agent-stability-cycles.json",
+        "docs/RELEASE-3.2.1-AGENT-DONOR-STABILIZATION-1.md"
+      ]
+    },
+    {
+      "id": "phase-6-stability-cycle-2",
+      "specialist": "skill-evaluator",
+      "objective": "Observe and certify a second distinct stable donor release.",
+      "status": "pending",
+      "dependencies": ["phase-5-stability-cycle-1"],
+      "entry_conditions": ["A later release observation and real workflow evidence exist"],
+      "required_outputs": ["second cycle result", "updated stability ledger"],
+      "exit_checks": ["All blocking layers pass without reusing stale evidence"],
+      "authority": {"read": true, "write": false, "external_research": false, "install": false, "publish": false, "retire": false},
+      "evidence": []
+    },
+    {
+      "id": "phase-7-agentkit",
       "specialist": "skill-builder",
       "objective": "Assess and optionally create the agentkit composite.",
       "status": "pending",
-      "dependencies": ["phase-4-release"],
+      "dependencies": ["phase-6-stability-cycle-2"],
       "entry_conditions": ["Two consecutive stable releases after all donors exist"],
       "required_outputs": ["maturity decision"],
       "exit_checks": ["Donor locks and real workflows justify the composite"],
-      "authority": {"read": true, "write": false, "external": false},
+      "authority": {"read": true, "write": false, "external_research": false, "install": false, "publish": false, "retire": false},
       "evidence": []
     }
   ],
@@ -128,6 +157,8 @@
     "docs/AGENT-SKILLS-PORTFOLIO-PLAN.md",
     "docs/AGENTKIT-READINESS.md",
     "docs/RELEASE-3.2.0-INDIVIDUAL-AGENT-SKILLS.md",
+    "docs/RELEASE-3.2.1-AGENT-DONOR-STABILIZATION-1.md",
+    "docs/agents/evals/individual-agent-stability-cycles.json",
     "skills/agent-skills/agent-architect",
     "skills/agent-skills/agent-best-practices",
     "skills/agent-skills/agent-builder",
@@ -152,5 +183,5 @@
     "Documentation conventions can become empty taxonomy without consumers.",
     "A premature composite can freeze unstable donor interfaces."
   ],
-  "updated_at": "2026-07-31T12:45:00Z"
+  "updated_at": "2026-07-31T15:30:00Z"
 }

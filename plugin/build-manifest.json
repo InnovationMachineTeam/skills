@@ -1,7 +1,7 @@
 {
   "format": 2,
   "plugin": "im-skills-all",
-  "version": "3.2.0",
+  "version": "3.2.1",
   "source_layout": "skills/",
   "bundle_layout": "skills/<name>/",
   "platforms": [
@@ -58,17 +58,17 @@
   "files": [
     {
       "path": ".claude-plugin/plugin.json",
-      "sha256": "af4868d97b0a6a77789db2be646a972e108b7cd58922c5bb3bed335b809152b6",
+      "sha256": "0b7882822d4ff38a3e936cece43de4b386138be3f137d1b7ae03565ed9666ec8",
       "bytes": 288
     },
     {
       "path": ".codex-plugin/plugin.json",
-      "sha256": "3d2585399279fd63a182604607bc4d7b90a5360858af264f657611303c3d43bf",
+      "sha256": "1618ad779d617ad00b010c7240667cb0968ec23e68afa52a51c96c578ca5dc53",
       "bytes": 1046
     },
     {
       "path": ".cursor-plugin/plugin.json",
-      "sha256": "01f9d5923045518ecdb8b26e0fe38eba2362b90dfb252d0e08bf6566096caeff",
+      "sha256": "f615ec2ca85c358f73236164350abaf7dfbb25b2084c667545e37edb92fb2d97",
       "bytes": 528
     },
     {

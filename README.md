@@ -7,7 +7,7 @@ Private Agent Skills marketplace maintained by **InnovationMachineTeam** for **I
 - Categories: `agent-os-skills`, `agent-team-skills`, `agent-skills`, `metaskills`, `prompt-skills`
 - Entries: one installable cross-host plugin per skill
 - Supported hosts: Claude Code, Codex, Cursor, and Agent Skills clients
-- Aggregate local plugin: `im-skills-all` (`3.1.0`)
+- Aggregate local plugin: `im-skills-all` (`3.2.1`)
 - Current visibility: private
 - Lead maintainer and required reviewer: [@stanislavus86](https://github.com/stanislavus86)
 
@@ -257,7 +257,7 @@ The implemented foundation is described in
 
 - Individual skill and marketplace entry: the skill's `metadata.version`.
 - Aggregate plugin: independent SemVer in `catalog/release.json`.
-- Marketplace metadata: repository catalog release version, currently `3.1.0`.
+- Marketplace metadata: repository catalog release version, currently `3.2.1`.
 
 Bump an individual skill version whenever its installed contents or contract change. Bump the aggregate plugin when any bundled skill or aggregate install contract changes. A release is blocked if generated manifests or bundle hashes drift from canonical sources.
 

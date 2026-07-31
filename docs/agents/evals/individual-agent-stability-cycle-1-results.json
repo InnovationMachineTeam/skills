@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "evaluation_id": "individual-agent-stability-cycle-1",
+  "run_id": "stability-cycle-1-2026-07-31",
+  "evaluation_revision": "cycle-1-plan-v1",
+  "target_version": "3.2.1",
+  "baseline_version": "3.2.0",
+  "target_portfolio_hash": "sha256:9e50a4d18873efe6063b58393a93a56b96658d195b5293fff820c2affd5c5751",
+  "candidate_changed_donor_hashes": [],
+  "verdict": "PASS",
+  "release_recommendation": "STABLE_CYCLE_1",
+  "layer_verdicts": {
+    "structure": "PASS",
+    "routing": "PASS",
+    "behavior": "PASS",
+    "authority": "PASS",
+    "documentation": "PASS",
+    "coexistence": "PASS",
+    "lifecycle": "PASS"
+  },
+  "evidence": {
+    "official_skill_validator": "10/10 PASS",
+    "unit_tests": "51/51 PASS",
+    "individual_agent_eval_fixtures": "10/10 PASS",
+    "repository_validator": "38 skills and 38 individual plugins PASS",
+    "marketplace_generator_check": "3 manifests with 38 entries each PASS",
+    "dependency_graph": "10 declarations across 38 catalog skills PASS",
+    "agent_asset_registry": "hashes, versions, visibility and generated views PASS"
+  },
+  "reused_forward_evidence": {
+    "source": "docs/agents/evals/individual-agent-portfolio-results.json",
+    "reason": "All ten donor content hashes are byte-for-byte unchanged from the independently reviewed 3.2.0 target.",
+    "scope": ["routing", "behavior", "authority", "documentation", "coexistence", "lifecycle"]
+  },
+  "blocking_findings": [],
+  "skipped_or_deferred": [
+    "No host activation or installation was attempted.",
+    "No new stochastic model run was claimed; prior independent evidence was reused only because donor hashes are unchanged.",
+    "Real end-to-end workflow observations remain required before agentkit can be created."
+  ]
+}

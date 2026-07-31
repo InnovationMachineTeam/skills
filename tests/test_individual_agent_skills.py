@@ -146,6 +146,21 @@ class IndividualAgentSkillTests(unittest.TestCase):
         harness = ROOT / "scripts/validate_individual_agent_evals.py"
         self.assertEqual(0, subprocess.run([str(harness), str(ROOT)], check=False).returncode)
 
+    def test_stability_ledger_enforces_agentkit_maturity_gate(self) -> None:
+        harness = ROOT / "scripts/validate_agent_donor_stability.py"
+        ledger = load(ROOT / "docs/agents/evals/individual-agent-stability-cycles.json")
+        self.assertEqual(0, subprocess.run([str(harness), str(ROOT)], check=False).returncode)
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "ledger.json"
+            ledger["agentkit_gate"]["stable_cycles_completed"] += 1
+            ledger["agentkit_gate"]["status"] = "ready"
+            path.write_text(json.dumps(ledger), encoding="utf-8")
+            self.assertNotEqual(0, subprocess.run([str(harness), str(ROOT), str(path)], check=False).returncode)
+            ledger = load(ROOT / "docs/agents/evals/individual-agent-stability-cycles.json")
+            ledger["donors"][0]["content_sha256"] = "sha256:drift"
+            path.write_text(json.dumps(ledger), encoding="utf-8")
+            self.assertNotEqual(0, subprocess.run([str(harness), str(ROOT), str(path)], check=False).returncode)
+
 
 if __name__ == "__main__":
     unittest.main()
