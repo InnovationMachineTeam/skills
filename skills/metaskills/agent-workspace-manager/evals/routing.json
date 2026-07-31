@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {"id": "decide", "prompt": "Do these parallel code tasks need separate worktrees?", "expected_trigger": true, "expected_route": "decide"},
+    {"id": "inventory", "prompt": "Inventory active worktrees, owners and leases.", "expected_trigger": true, "expected_route": "inventory"},
+    {"id": "allocate", "prompt": "Allocate approved workspaces for these two disjoint write-sets.", "expected_trigger": true, "expected_route": "allocate"},
+    {"id": "reconcile", "prompt": "Reconcile branches that completed simultaneously.", "expected_trigger": true, "expected_route": "reconcile"},
+    {"id": "release", "prompt": "Release the integrated workspace after retention checks.", "expected_trigger": true, "expected_route": "release"},
+    {"id": "recover", "prompt": "Recover an orphaned worktree with an expired lease.", "expected_trigger": true, "expected_route": "recover"},
+    {"id": "decompose", "prompt": "Split this feature into agent tasks.", "expected_trigger": false, "expected_route": "agent-team-orchestrator"},
+    {"id": "security", "prompt": "Use a worktree to isolate production credentials.", "expected_trigger": false, "expected_route": "security-policy"}
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "name": "agent-team-orchestrator",
+  "version": "1.0.0",
+  "description": "Executes an approved, active agent-team definition through a bounded task graph with typed envelopes, minimal context capsules, leases, budgets, checkpoints, cancellation, recovery and independent verification",
+  "homepage": "https://github.com/InnovationMachineTeam/skills",
+  "repository": "https://github.com/InnovationMachineTeam/skills",
+  "license": "Proprietary",
+  "keywords": [
+    "agent-skills",
+    "agents",
+    "metaskills",
+    "orchestration",
+    "runtime"
+  ],
+  "skills": "./skills/",
+  "author": {
+    "name": "InnovationMachine",
+    "email": "stanislav.usoltsev@gmail.com",
+    "url": "https://github.com/InnovationMachineTeam"
+  },
+  "interface": {
+    "displayName": "Agent Team Orchestrator",
+    "shortDescription": "Executes an approved, active agent-team definition through a bounded task graph with typed envelopes, minimal context…",
+    "longDescription": "Executes an approved, active agent-team definition through a bounded task graph with typed envelopes, minimal context capsules, leases, budgets, checkpoints, cancellation, recovery and independent verification",
+    "developerName": "InnovationMachine",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Guidance"
+    ],
+    "websiteURL": "https://github.com/InnovationMachineTeam/skills",
+    "defaultPrompt": "Use Agent Team Orchestrator for this task."
+  }
+}

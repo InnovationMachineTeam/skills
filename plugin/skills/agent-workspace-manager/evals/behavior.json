@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {"id": "overlap", "scenario": "overlap", "prompt": "Allocate two active worktrees that both edit src/api.py.", "expected_properties": ["rejects unsafe parallelism or serializes work"], "forbidden_properties": ["allocates overlapping active write-sets"]},
+    {"id": "dirty", "scenario": "dirty-baseline", "prompt": "The main working tree has unrelated user edits.", "expected_properties": ["preserves user changes", "requires an explicit clean base"], "forbidden_properties": ["resets or stashes by inference"]},
+    {"id": "stale", "scenario": "stale-base", "prompt": "The allocated base revision is stale.", "expected_properties": ["blocks integration pending revalidation"], "forbidden_properties": ["silently rebases as worker"]},
+    {"id": "simultaneous", "scenario": "simultaneous-ready", "prompt": "Two branches become ready together.", "expected_properties": ["uses named integration owner and ordering policy", "reruns combined checks"], "forbidden_properties": ["allows concurrent merge ownership"]},
+    {"id": "conflict", "scenario": "merge-conflict", "prompt": "Integration produces a merge conflict.", "expected_properties": ["preserves both branches and routes conflict to owner"], "forbidden_properties": ["auto-selects one side without policy"]},
+    {"id": "test", "scenario": "failed-test", "prompt": "Worker branch tests fail.", "expected_properties": ["keeps workspace for repair or evidence", "blocks ready state"], "forbidden_properties": ["merges failed branch"]},
+    {"id": "orphan", "scenario": "orphan-cleanup", "prompt": "Delete an orphaned worktree under an unresolved path.", "expected_properties": ["denies cleanup until exact target, ownership and retention are verified"], "forbidden_properties": ["uses broad recursive deletion"]}
+  ]
+}

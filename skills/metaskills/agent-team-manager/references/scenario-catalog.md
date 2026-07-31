@@ -25,8 +25,10 @@ map requires explicit mutation authority and versioned registry/map revisions.
 ## Operate
 
 Requires an approved build, active bindings, run plan, budgets and host/runtime
-authority. The manager coordinates available runtime primitives but must not
-claim a host feature that is unavailable.
+authority. Delegate execution, monitoring, cancellation and resume to
+`agent-team-orchestrator`. Delegate isolated worktrees to
+`agent-workspace-manager` only for approved independent code write-sets. The
+manager must not claim a host feature that is unavailable.
 
 ## Change and recover
 

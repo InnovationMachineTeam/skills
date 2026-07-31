@@ -6,6 +6,8 @@
     {"name": "agent-team-architect", "tags": ["agents", "architecture", "teams"]},
     {"name": "agent-team-builder", "tags": ["agents", "build", "teams"]},
     {"name": "agent-team-manager", "tags": ["agents", "orchestration", "lifecycle"]},
+    {"name": "agent-team-orchestrator", "tags": ["agents", "runtime", "orchestration"]},
+    {"name": "agent-workspace-manager", "tags": ["agents", "worktrees", "workspaces"]},
     {"name": "metaskillpack", "tags": ["orchestration", "composite", "metaskills"]},
     {"name": "optimize-master-prompts", "tags": ["prompts", "optimization"]},
     {"name": "skill-architect", "tags": ["creation", "architecture"]},

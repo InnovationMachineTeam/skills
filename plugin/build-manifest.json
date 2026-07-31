@@ -1,7 +1,7 @@
 {
   "format": 2,
   "plugin": "im-skills-all",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "source_layout": "skills/",
   "bundle_layout": "skills/<name>/",
   "platforms": [
@@ -15,6 +15,8 @@
     "agent-team-architect",
     "agent-team-builder",
     "agent-team-manager",
+    "agent-team-orchestrator",
+    "agent-workspace-manager",
     "metaskillpack",
     "optimize-master-prompts",
     "skill-architect",
@@ -38,23 +40,23 @@
   "files": [
     {
       "path": ".claude-plugin/plugin.json",
-      "sha256": "8ad62e1fac002942393462ac965ef3f690ed747dcb1d5aa29d7af7775c5592c5",
+      "sha256": "a744511f92956b6839fd12a403ca0de0a881330485353c8fc8f3fdf11357c77d",
       "bytes": 288
     },
     {
       "path": ".codex-plugin/plugin.json",
-      "sha256": "e20e12b2d3ec3a7df147dd4ca6f6ecd218f2e59445df98250accf3729ab6bee2",
+      "sha256": "2d427583796fde6f3fd852c84c2fa163914c663e3e1681270bbcb5952a25de1c",
       "bytes": 977
     },
     {
       "path": ".cursor-plugin/plugin.json",
-      "sha256": "4a843646cd69959e782246abeca42685bed23b35536313df278e83227175042c",
+      "sha256": "6efdf00922fd0aa952b7f695a47b572df67d9c0291d6a86afd9a9811aaf71630",
       "bytes": 459
     },
     {
       "path": "README.md",
-      "sha256": "adb32aa0117f896a575de77b8703c64332c6a20b6e265efc303d6f4da10a7e37",
-      "bytes": 755
+      "sha256": "ddc4681150db52c7ceb5709b921810f6a925dbfc63bb131cdea5b029dabf87e5",
+      "bytes": 811
     },
     {
       "path": "skills/agent-model-selector/SKILL.md",
@@ -218,8 +220,8 @@
     },
     {
       "path": "skills/agent-team-manager/SKILL.md",
-      "sha256": "94d69908f58d3b23827da906cd3f930e5e4cc630842313a31952442d78d6473a",
-      "bytes": 3739
+      "sha256": "e16850e380889c6b7c9db2f936d16bea104bdf6778b637f09b6681b2f4e3bcba",
+      "bytes": 3927
     },
     {
       "path": "skills/agent-team-manager/agents/openai.yaml",
@@ -228,8 +230,8 @@
     },
     {
       "path": "skills/agent-team-manager/evals/behavior.json",
-      "sha256": "33a172ecef37f15f4fe4da8f32e4f577726723d4c85a06de14198225a6d97b56",
-      "bytes": 775
+      "sha256": "46b93d626c16edddd1efdd7c3ea88609c6507ffd861c8bfd0b4f30f25b515664",
+      "bytes": 846
     },
     {
       "path": "skills/agent-team-manager/evals/routing.json",
@@ -243,8 +245,8 @@
     },
     {
       "path": "skills/agent-team-manager/references/scenario-catalog.md",
-      "sha256": "455e592a4e90593d44e6aa7be0e42b7f31374798c4fd65db8be77c297da6c888",
-      "bytes": 1455
+      "sha256": "52d8e98acb6293a9f5ab63f9b0a7d02692d34339ff1b721009be64bd70d8c6c6",
+      "bytes": 1600
     },
     {
       "path": "skills/agent-team-manager/scripts/check_evals.py",
@@ -255,6 +257,86 @@
       "path": "skills/agent-team-manager/scripts/validate_run_state.py",
       "sha256": "cb237e21a6a6d31b526853bab77bea4f48ec918adc44eda1c81a4624f4bf1e60",
       "bytes": 3146
+    },
+    {
+      "path": "skills/agent-team-orchestrator/SKILL.md",
+      "sha256": "ba9e761cf0fa666c8913e37bccb01d07cbd0b598c88714bee0b282fe1693139b",
+      "bytes": 3447
+    },
+    {
+      "path": "skills/agent-team-orchestrator/agents/openai.yaml",
+      "sha256": "0155b551b82d1bca71d5babc21be55bb5f91c384d706eed85ecce232f43364bd",
+      "bytes": 199
+    },
+    {
+      "path": "skills/agent-team-orchestrator/evals/behavior.json",
+      "sha256": "f5aa0ba22b83dff71a327a7b941e4e752d488a3981782421289fb7c5bd6d506c",
+      "bytes": 2037
+    },
+    {
+      "path": "skills/agent-team-orchestrator/evals/routing.json",
+      "sha256": "b86a39c7b0915e879c318b67f143600393eb070b24ccf35e76b6f72ea5748bdf",
+      "bytes": 1126
+    },
+    {
+      "path": "skills/agent-team-orchestrator/references/scheduling-and-recovery.md",
+      "sha256": "27c61f9b932b34765377ecc278c8b5e2e8b670811c926622027578d675f2af50",
+      "bytes": 896
+    },
+    {
+      "path": "skills/agent-team-orchestrator/references/task-envelope-and-run-contract.md",
+      "sha256": "a202270b929e023fc9e4a057fedc64ecf5d2fe6844ffc3dcac59548c21423ef7",
+      "bytes": 789
+    },
+    {
+      "path": "skills/agent-team-orchestrator/scripts/check_evals.py",
+      "sha256": "7832e005e1bbb1b206373f61127942f987fc6a5d3c85e694003490e4a00598d1",
+      "bytes": 2470
+    },
+    {
+      "path": "skills/agent-team-orchestrator/scripts/validate_run_plan.py",
+      "sha256": "2383bc757a5e696cfee4df1f7dae949f1dc338894edccf16b7c05dd8f39befb2",
+      "bytes": 5266
+    },
+    {
+      "path": "skills/agent-workspace-manager/SKILL.md",
+      "sha256": "7a0d1b543440a91dbfa455cd1811ab0e24355972e4bc628a65ebbd68114d22e2",
+      "bytes": 3273
+    },
+    {
+      "path": "skills/agent-workspace-manager/agents/openai.yaml",
+      "sha256": "1f2b279e0ae7d61201599c86ac224e7f29294a590ed54d2ff0b76ae45e8f3f4b",
+      "bytes": 215
+    },
+    {
+      "path": "skills/agent-workspace-manager/evals/behavior.json",
+      "sha256": "66f67f3add2f08fad3265945ea94ccabda84648c74260980541f4ba62d902577",
+      "bytes": 1815
+    },
+    {
+      "path": "skills/agent-workspace-manager/evals/routing.json",
+      "sha256": "e139c83149fd837f815e47c30f39718406dfc3ad87dee0f57c838630ffd70194",
+      "bytes": 1219
+    },
+    {
+      "path": "skills/agent-workspace-manager/references/ledger-and-cleanup.md",
+      "sha256": "8dcf5caa36cc889128af0e73fe27cf4a0c5b5aecf1605f3d5e7d7d90edc62e73",
+      "bytes": 752
+    },
+    {
+      "path": "skills/agent-workspace-manager/references/workspace-policy.md",
+      "sha256": "683938db865307d4d8a6668ad36195861b6f586ae0be2bd1f0c4b72051464c33",
+      "bytes": 818
+    },
+    {
+      "path": "skills/agent-workspace-manager/scripts/check_evals.py",
+      "sha256": "35a7347f0a6e21e5fa473fbd7f103a1da50fc7a0180e7fea7d09c5557dec532a",
+      "bytes": 2483
+    },
+    {
+      "path": "skills/agent-workspace-manager/scripts/validate_workspace_ledger.py",
+      "sha256": "308adbe46777bf456ef4c552466a6ef8d7854bdf43a871cc4bf3fecbbea69e3a",
+      "bytes": 5748
     },
     {
       "path": "skills/metaskillpack/SKILL.md",

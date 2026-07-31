@@ -1,0 +1,33 @@
+{
+  "name": "agent-workspace-manager",
+  "version": "1.0.0",
+  "description": "Plans and governs isolated agent workspaces or Git worktrees for approved parallel code tasks with explicit write-sets, owners, base revisions, branches, leases, quotas, integration handoffs, retention and safe exact-target cleanup",
+  "homepage": "https://github.com/InnovationMachineTeam/skills",
+  "repository": "https://github.com/InnovationMachineTeam/skills",
+  "license": "Proprietary",
+  "keywords": [
+    "agent-skills",
+    "agents",
+    "metaskills",
+    "workspaces",
+    "worktrees"
+  ],
+  "skills": "./skills/",
+  "author": {
+    "name": "InnovationMachine",
+    "email": "stanislav.usoltsev@gmail.com",
+    "url": "https://github.com/InnovationMachineTeam"
+  },
+  "interface": {
+    "displayName": "Agent Workspace Manager",
+    "shortDescription": "Plans and governs isolated agent workspaces or Git worktrees for approved parallel code tasks with explicit…",
+    "longDescription": "Plans and governs isolated agent workspaces or Git worktrees for approved parallel code tasks with explicit write-sets, owners, base revisions, branches, leases, quotas, integration handoffs, retention and safe exact-target cleanup",
+    "developerName": "InnovationMachine",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Guidance"
+    ],
+    "websiteURL": "https://github.com/InnovationMachineTeam/skills",
+    "defaultPrompt": "Use Agent Workspace Manager for this task."
+  }
+}

@@ -65,6 +65,30 @@
       "category": "Developer Tools"
     },
     {
+      "name": "agent-team-orchestrator",
+      "source": {
+        "source": "local",
+        "path": "./plugins/agent-team-orchestrator"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    },
+    {
+      "name": "agent-workspace-manager",
+      "source": {
+        "source": "local",
+        "path": "./plugins/agent-workspace-manager"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    },
+    {
       "name": "metaskillpack",
       "source": {
         "source": "local",

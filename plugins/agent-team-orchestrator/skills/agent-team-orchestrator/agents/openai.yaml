@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent Team Orchestrator"
+  short_description: "Run approved agent teams safely"
+  default_prompt: "Use $agent-team-orchestrator to execute this approved team task graph."

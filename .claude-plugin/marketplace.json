@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "InnovationMachine Agent Skills marketplace",
-    "version": "1.5.0"
+    "version": "1.6.0"
   },
   "plugins": [
     {
@@ -89,7 +89,7 @@
       "source": "./plugins/agent-team-manager",
       "strict": false,
       "description": ">-",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "author": {
         "name": "InnovationMachine",
         "email": "stanislav.usoltsev@gmail.com"
@@ -101,6 +101,44 @@
         "lifecycle",
         "metaskills",
         "orchestration"
+      ]
+    },
+    {
+      "name": "agent-team-orchestrator",
+      "source": "./plugins/agent-team-orchestrator",
+      "strict": false,
+      "description": "Executes an approved, active agent-team definition through a bounded task graph with typed envelopes, minimal context capsules, leases, budgets, checkpoints, cancellation, recovery and independent verification",
+      "version": "1.0.0",
+      "author": {
+        "name": "InnovationMachine",
+        "email": "stanislav.usoltsev@gmail.com"
+      },
+      "category": "metaskills",
+      "tags": [
+        "agent-skills",
+        "agents",
+        "metaskills",
+        "orchestration",
+        "runtime"
+      ]
+    },
+    {
+      "name": "agent-workspace-manager",
+      "source": "./plugins/agent-workspace-manager",
+      "strict": false,
+      "description": "Plans and governs isolated agent workspaces or Git worktrees for approved parallel code tasks with explicit write-sets, owners, base revisions, branches, leases, quotas, integration handoffs, retention and safe exact-target cleanup",
+      "version": "1.0.0",
+      "author": {
+        "name": "InnovationMachine",
+        "email": "stanislav.usoltsev@gmail.com"
+      },
+      "category": "metaskills",
+      "tags": [
+        "agent-skills",
+        "agents",
+        "metaskills",
+        "workspaces",
+        "worktrees"
       ]
     },
     {

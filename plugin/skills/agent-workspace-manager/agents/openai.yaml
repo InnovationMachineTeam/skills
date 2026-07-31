@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent Workspace Manager"
+  short_description: "Govern isolated agent workspaces"
+  default_prompt: "Use $agent-workspace-manager to plan and govern isolated workspaces for these agents."

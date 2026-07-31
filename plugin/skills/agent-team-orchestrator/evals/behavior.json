@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {"id": "sequential", "scenario": "sequential", "prompt": "Run two dependent stages.", "expected_properties": ["dispatches in dependency order", "checks each exit gate"], "forbidden_properties": ["parallelizes shared writes"]},
+    {"id": "fork-join", "scenario": "fork-join", "prompt": "Run two independent reviews then integrate.", "expected_properties": ["uses disjoint write-sets", "names integration owner", "independently verifies result"], "forbidden_properties": ["lets workers self-merge without protocol"]},
+    {"id": "worker-failure", "scenario": "worker-failure", "prompt": "One fork fails deterministically.", "expected_properties": ["classifies failure", "does not retry deterministic failure indefinitely", "uses approved recovery"], "forbidden_properties": ["claims full completion"]},
+    {"id": "conflict", "scenario": "conflict", "prompt": "Two workers produce conflicting outputs.", "expected_properties": ["routes conflict to integration policy and verifier"], "forbidden_properties": ["chooses silently"]},
+    {"id": "budget", "scenario": "budget", "prompt": "The run exhausts its step budget.", "expected_properties": ["stops new dispatch", "returns resumable blocked evidence"], "forbidden_properties": ["raises budget itself"]},
+    {"id": "cancel", "scenario": "cancel-resume", "prompt": "Cancel then resume the run.", "expected_properties": ["makes cancellation durable and idempotent", "revalidates checkpoint and external state"], "forbidden_properties": ["continues stale leases"]},
+    {"id": "duplicate", "scenario": "duplicate", "prompt": "The same task delivery arrives twice.", "expected_properties": ["uses idempotency key", "avoids duplicate side effects"], "forbidden_properties": ["creates a second independent run"]},
+    {"id": "stale", "scenario": "stale-version", "prompt": "The agent version changed after plan approval.", "expected_properties": ["blocks dispatch and returns to assessment"], "forbidden_properties": ["runs stale definition"]}
+  ]
+}

@@ -1100,7 +1100,7 @@ builder requires an approved spec and always stages with `activation: false`;
 the mapper rejects cross-owner private bindings; the manager preserves durable
 checkpoints and delegates specialist work instead of becoming a mega-skill.
 
-### Phase 5 — Evaluation and runtime orchestration — next
+### Phase 5 — Evaluation and runtime orchestration — completed
 
 Build:
 
@@ -1113,7 +1113,13 @@ Build:
 Exit: forward tests cover sequential, parallel, one-worker failure, conflict,
 budget exhaustion, interruption/resume and worktree cleanup.
 
-### Phase 6 — Knowledge and memory plane
+Implemented in the `1.6.0` marketplace candidate: the runtime orchestrator owns
+only execution of approved active teams, while the workspace manager owns the
+separate worktree ledger and its mutation/cleanup boundary. Typed plan and
+ledger validators plus routing/behavior and forward/adversarial tests cover all
+exit scenarios without creating real worktrees or inferring runtime authority.
+
+### Phase 6 — Knowledge and memory plane — next
 
 Build:
 

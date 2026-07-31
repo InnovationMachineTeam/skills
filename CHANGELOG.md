@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.6.0 — 2026-07-31
+
+- Added `agent-team-orchestrator` with bounded task DAG, idempotency, lease,
+  checkpoint, cancellation, partial-failure and independent-verification
+  contracts.
+- Added `agent-workspace-manager` for explicit worktree policy, collision-safe
+  allocation, integration handoff, retention and exact-target cleanup.
+- Added runtime/workspace routing and adversarial scenarios for sequential and
+  fork-join execution, worker failure, conflicts, budget exhaustion,
+  cancellation/resume, duplicate delivery, stale versions and orphan cleanup.
+- Updated `agent-team-manager` to delegate runtime execution and workspace
+  mutation to the new specialist skills; bumped it to `1.1.0`.
+
 ## 1.5.0 — 2026-07-31
 
 - Added `agent-model-selector`, `agent-team-architect`, `agent-skill-mapper`,

@@ -1,7 +1,7 @@
 {
   "format": 2,
   "plugin": "agent-team-manager",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "source_layout": "skills/",
   "bundle_layout": "skills/<name>/",
   "platforms": [
@@ -21,17 +21,17 @@
   "files": [
     {
       "path": ".claude-plugin/plugin.json",
-      "sha256": "4cb06d4396e05c0bb44dc96ed81bc4fe95b7ceaa0a1a177ee9f48b7a07129b17",
+      "sha256": "05fc33f3619cfadc75e37c33002e9b80a14ce64c391cb5a52db29f7d7fa182dc",
       "bytes": 249
     },
     {
       "path": ".codex-plugin/plugin.json",
-      "sha256": "c2242bd986ff068c8e8a5cbe7a035d16dce86f6b219d0a9864c6bd3347b825ad",
+      "sha256": "b63f545d74f94edf14a01e0f25caac1ccb92bdc474b399ede6b2ca2e18bd8e39",
       "bytes": 901
     },
     {
       "path": ".cursor-plugin/plugin.json",
-      "sha256": "a1fe3868c3e54a7059002a6f5d830ed596f0deb3c8410b104cea1a6f14c4ca9b",
+      "sha256": "77c88d9e3f5da6a2b0f277fe6e32df8b4bda9d62b85af55d75c80cab60b40b20",
       "bytes": 471
     },
     {
@@ -41,8 +41,8 @@
     },
     {
       "path": "skills/agent-team-manager/SKILL.md",
-      "sha256": "94d69908f58d3b23827da906cd3f930e5e4cc630842313a31952442d78d6473a",
-      "bytes": 3739
+      "sha256": "e16850e380889c6b7c9db2f936d16bea104bdf6778b637f09b6681b2f4e3bcba",
+      "bytes": 3927
     },
     {
       "path": "skills/agent-team-manager/agents/openai.yaml",
@@ -51,8 +51,8 @@
     },
     {
       "path": "skills/agent-team-manager/evals/behavior.json",
-      "sha256": "33a172ecef37f15f4fe4da8f32e4f577726723d4c85a06de14198225a6d97b56",
-      "bytes": 775
+      "sha256": "46b93d626c16edddd1efdd7c3ea88609c6507ffd861c8bfd0b4f30f25b515664",
+      "bytes": 846
     },
     {
       "path": "skills/agent-team-manager/evals/routing.json",
@@ -66,8 +66,8 @@
     },
     {
       "path": "skills/agent-team-manager/references/scenario-catalog.md",
-      "sha256": "455e592a4e90593d44e6aa7be0e42b7f31374798c4fd65db8be77c297da6c888",
-      "bytes": 1455
+      "sha256": "52d8e98acb6293a9f5ab63f9b0a7d02692d34339ff1b721009be64bd70d8c6c6",
+      "bytes": 1600
     },
     {
       "path": "skills/agent-team-manager/scripts/check_evals.py",

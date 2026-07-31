@@ -1,0 +1,83 @@
+{
+  "format": 2,
+  "plugin": "agent-team-orchestrator",
+  "version": "1.0.0",
+  "source_layout": "skills/",
+  "bundle_layout": "skills/<name>/",
+  "platforms": [
+    "claude-code",
+    "codex",
+    "cursor"
+  ],
+  "skills": [
+    "agent-team-orchestrator"
+  ],
+  "excluded_patterns": [
+    ".DS_Store",
+    "__pycache__",
+    "*.pyc",
+    ".git"
+  ],
+  "files": [
+    {
+      "path": ".claude-plugin/plugin.json",
+      "sha256": "43a4c5b56820c21df3962ac0065f4a557e9118747b07c4c79973c3d8c91decf7",
+      "bytes": 466
+    },
+    {
+      "path": ".codex-plugin/plugin.json",
+      "sha256": "59d57662ac8d52ddb7589420e891a5d4ef9ca00094518025575c741bdf1fa0d4",
+      "bytes": 1446
+    },
+    {
+      "path": ".cursor-plugin/plugin.json",
+      "sha256": "e661f3996ad34f2e96d5655969b7e4816e2a48576e04fe30c912bc838ee37379",
+      "bytes": 681
+    },
+    {
+      "path": "README.md",
+      "sha256": "d242100d812da4ffbc5d71bb2973045d0f1bc3804eabc7ed81b826da036c5af0",
+      "bytes": 563
+    },
+    {
+      "path": "skills/agent-team-orchestrator/SKILL.md",
+      "sha256": "ba9e761cf0fa666c8913e37bccb01d07cbd0b598c88714bee0b282fe1693139b",
+      "bytes": 3447
+    },
+    {
+      "path": "skills/agent-team-orchestrator/agents/openai.yaml",
+      "sha256": "0155b551b82d1bca71d5babc21be55bb5f91c384d706eed85ecce232f43364bd",
+      "bytes": 199
+    },
+    {
+      "path": "skills/agent-team-orchestrator/evals/behavior.json",
+      "sha256": "f5aa0ba22b83dff71a327a7b941e4e752d488a3981782421289fb7c5bd6d506c",
+      "bytes": 2037
+    },
+    {
+      "path": "skills/agent-team-orchestrator/evals/routing.json",
+      "sha256": "b86a39c7b0915e879c318b67f143600393eb070b24ccf35e76b6f72ea5748bdf",
+      "bytes": 1126
+    },
+    {
+      "path": "skills/agent-team-orchestrator/references/scheduling-and-recovery.md",
+      "sha256": "27c61f9b932b34765377ecc278c8b5e2e8b670811c926622027578d675f2af50",
+      "bytes": 896
+    },
+    {
+      "path": "skills/agent-team-orchestrator/references/task-envelope-and-run-contract.md",
+      "sha256": "a202270b929e023fc9e4a057fedc64ecf5d2fe6844ffc3dcac59548c21423ef7",
+      "bytes": 789
+    },
+    {
+      "path": "skills/agent-team-orchestrator/scripts/check_evals.py",
+      "sha256": "7832e005e1bbb1b206373f61127942f987fc6a5d3c85e694003490e4a00598d1",
+      "bytes": 2470
+    },
+    {
+      "path": "skills/agent-team-orchestrator/scripts/validate_run_plan.py",
+      "sha256": "2383bc757a5e696cfee4df1f7dae949f1dc338894edccf16b7c05dd8f39befb2",
+      "bytes": 5266
+    }
+  ]
+}

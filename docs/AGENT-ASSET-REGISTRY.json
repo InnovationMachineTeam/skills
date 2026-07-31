@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "revision": 4,
-  "updated_at": "2026-07-31T08:10:11Z",
+  "revision": 5,
+  "updated_at": "2026-07-31T08:27:01Z",
   "assets": [
     {
       "id": "asset://repository/skill/agent-model-selector",
@@ -131,12 +131,74 @@
       "id": "asset://repository/skill/agent-team-manager",
       "kind": "skill",
       "name": "agent-team-manager",
-      "version": "1.0.0",
-      "revision": 2,
+      "version": "1.1.0",
+      "revision": 3,
       "version_strategy": "independent",
       "parent_version_ref": null,
-      "content_sha256": "sha256:476ce8b9d534cd7ecef8a8ba1f515c59aac59a954e9ade72d3d442deb7e8b3dc",
+      "content_sha256": "sha256:0008ee7fe2793e3bf356d0f9a48f1a31a6be7ef96b9385f02662a65447ab6d75",
       "locator": "skills/metaskills/agent-team-manager",
+      "visibility": "public",
+      "scope": "repository",
+      "discoverability": "global",
+      "owner_agent_ref": null,
+      "allowed_consumers": [],
+      "accountable_owner": "InnovationMachineTeam",
+      "source_type": "project",
+      "provenance": {
+        "repository": "InnovationMachineTeam/skills"
+      },
+      "trust_status": "verified",
+      "lifecycle_status": "registered",
+      "host_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "eval_evidence": [],
+      "replacement": null
+    },
+    {
+      "id": "asset://repository/skill/agent-team-orchestrator",
+      "kind": "skill",
+      "name": "agent-team-orchestrator",
+      "version": "1.0.0",
+      "revision": 1,
+      "version_strategy": "independent",
+      "parent_version_ref": null,
+      "content_sha256": "sha256:2563a27e225a184e3ececb975a9328a9e3c6fcb4892b8facad5b9ae9135be20c",
+      "locator": "skills/metaskills/agent-team-orchestrator",
+      "visibility": "public",
+      "scope": "repository",
+      "discoverability": "global",
+      "owner_agent_ref": null,
+      "allowed_consumers": [],
+      "accountable_owner": "InnovationMachineTeam",
+      "source_type": "project",
+      "provenance": {
+        "repository": "InnovationMachineTeam/skills"
+      },
+      "trust_status": "verified",
+      "lifecycle_status": "registered",
+      "host_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "eval_evidence": [],
+      "replacement": null
+    },
+    {
+      "id": "asset://repository/skill/agent-workspace-manager",
+      "kind": "skill",
+      "name": "agent-workspace-manager",
+      "version": "1.0.0",
+      "revision": 1,
+      "version_strategy": "independent",
+      "parent_version_ref": null,
+      "content_sha256": "sha256:4342571de28d2ef135298514150cbecfc07d42025ca0b8c7642f005ece0aadc1",
+      "locator": "skills/metaskills/agent-workspace-manager",
       "visibility": "public",
       "scope": "repository",
       "discoverability": "global",

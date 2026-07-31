@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {"id": "plan", "prompt": "Plan an approved team run for this task envelope.", "expected_trigger": true, "expected_route": "plan"},
+    {"id": "run", "prompt": "Execute this task with active team review@1.0.0.", "expected_trigger": true, "expected_route": "run"},
+    {"id": "monitor", "prompt": "Show leases, budget and blockers for run 42.", "expected_trigger": true, "expected_route": "monitor"},
+    {"id": "resume", "prompt": "Resume run 42 from its verified checkpoint.", "expected_trigger": true, "expected_route": "resume"},
+    {"id": "cancel", "prompt": "Cancel run 42 and preserve partial evidence.", "expected_trigger": true, "expected_route": "cancel"},
+    {"id": "recover", "prompt": "Recover the team run after one worker failed.", "expected_trigger": true, "expected_route": "recover"},
+    {"id": "redesign", "prompt": "Add a verifier role to this team.", "expected_trigger": false, "expected_route": "agent-team-architect"},
+    {"id": "lifecycle", "prompt": "Retire this entire agent team.", "expected_trigger": false, "expected_route": "agent-team-manager"}
+  ]
+}

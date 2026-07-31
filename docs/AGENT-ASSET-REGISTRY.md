@@ -2,8 +2,8 @@
 
 Generated from `AGENT-ASSET-REGISTRY.json`; do not edit manually.
 
-Revision: **4**
-Updated: **2026-07-31T08:10:11Z**
+Revision: **5**
+Updated: **2026-07-31T08:27:01Z**
 
 | Kind | Name | Version | Visibility | Scope | Owner agent | Accountable owner | Status | Locator |
 |---|---|---:|---|---|---|---|---|---|
@@ -11,7 +11,9 @@ Updated: **2026-07-31T08:10:11Z**
 | skill | agent-skill-mapper | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/agent-skill-mapper` |
 | skill | agent-team-architect | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/agent-team-architect` |
 | skill | agent-team-builder | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/agent-team-builder` |
-| skill | agent-team-manager | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/agent-team-manager` |
+| skill | agent-team-manager | 1.1.0 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/agent-team-manager` |
+| skill | agent-team-orchestrator | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/agent-team-orchestrator` |
+| skill | agent-workspace-manager | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/agent-workspace-manager` |
 | skill | metaskillpack | 1.1.0 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/metaskillpack` |
 | skill | optimize-master-prompts | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/optimize-master-prompts` |
 | skill | skill-architect | 1.2.0 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/skill-architect` |
@@ -26,4 +28,4 @@ Updated: **2026-07-31T08:10:11Z**
 | skill | skill-refactor | 1.2.0 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/skill-refactor` |
 | skill | skill-scout | 1.1.0 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/skill-scout` |
 
-Total assets: **18**.
+Total assets: **20**.

@@ -11,7 +11,7 @@ description: >-
   not reimplement them, infer destructive authority, create worktrees or
   publish assets.
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
 ---
 
 # Govern Agent-Team Lifecycles
@@ -35,7 +35,8 @@ Choose one primary route:
   model evidence to `agent-model-selector`;
 - `build`: delegate an approved spec to `agent-team-builder`;
 - `map-capabilities`: delegate governed bindings to `agent-skill-mapper`;
-- `operate`: execute an approved run plan through available host primitives;
+- `operate`: delegate an approved run plan to `agent-team-orchestrator` and
+  isolated code workspaces to `agent-workspace-manager` when justified;
 - `change`: impact-analyze and version a controlled modification;
 - `recover`: contain, diagnose, roll back or resume a failed run;
 - `retire`: deactivate, preserve evidence and retire assets safely.
@@ -64,8 +65,9 @@ separate states.
 
 Use typed handoffs with objective, inputs, constraints, authority, deliverables,
 validation, return status and unresolved risks. Parallelize only independent
-work with bounded write-sets; worktree creation belongs to an explicitly
-authorized workspace workflow, not this facade.
+work with bounded write-sets. `agent-team-orchestrator` owns task dispatch and
+run evidence; `agent-workspace-manager` owns any explicitly authorized worktree
+ledger, allocation, integration handoff and cleanup. This facade owns neither.
 
 Apply observe-orient-decide-act with bounded retries. Track heartbeats, leases,
 budget, blocked dependencies, integration ownership and cancellation. Stop on
