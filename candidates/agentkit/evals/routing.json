@@ -1,0 +1,46 @@
+{
+  "skill": "agentkit",
+  "version": "0.1.0",
+  "cases": [
+    {
+      "id": "route-explicit-e2e",
+      "input": "agentkit e2e all для проверки всех команд",
+      "expected_trigger": true,
+      "expected_route": "e2e",
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    },
+    {
+      "id": "route-explicit-architect",
+      "input": "$agentkit architect создай контракт агента архитектора",
+      "expected_trigger": true,
+      "expected_route": "architect",
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    },
+    {
+      "id": "route-direct-specialist-negative",
+      "input": "Создай одного агента для ревью архитектуры",
+      "expected_trigger": false,
+      "expected_route": "agent-architect",
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    },
+    {
+      "id": "route-team-negative",
+      "input": "Спроектируй команду агентов и их взаимодействие",
+      "expected_trigger": false,
+      "expected_route": "agent-team-architect",
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    },
+    {
+      "id": "route-skillpack-negative",
+      "input": "Запусти metaskillpack doctor для skill-optimizer",
+      "expected_trigger": false,
+      "expected_route": "metaskillpack",
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    }
+  ]
+}

@@ -52,6 +52,16 @@
     "upgrade_contract_frozen": false,
     "rollback_contract_frozen": false,
     "pack_holdout_frozen": false,
+    "candidate": {
+      "status": "experimental",
+      "version": "0.1.0",
+      "locator": "candidates/agentkit",
+      "content_sha256": "sha256:bb014bfcc41bdbde43b47bc085232ad7ecf2fc3e6dc0889584dc701fdad7db10",
+      "discoverable": false,
+      "e2e_command": "agentkit e2e",
+      "evaluation_plan": "docs/agents/evals/agentkit-candidate-0.1.0-plan.json",
+      "evaluation_result": "docs/agents/evals/agentkit-candidate-0.1.0-results.json"
+    },
     "remaining_requirements": [
       "complete one more distinct post-donor stable release",
       "observe at least three real end-to-end workflows",

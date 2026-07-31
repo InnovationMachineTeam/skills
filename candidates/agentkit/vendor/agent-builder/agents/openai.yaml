@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent Builder"
+  short_description: "Orchestrate one-agent workflows"
+  default_prompt: "Use $agent-builder to select and run the smallest evidence-backed workflow for this individual agent."

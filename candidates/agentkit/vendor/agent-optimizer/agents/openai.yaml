@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent Optimizer"
+  short_description: "Optimize one healthy agent"
+  default_prompt: "Use $agent-optimizer to improve this healthy individual agent against a frozen measurable target."

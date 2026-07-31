@@ -178,6 +178,7 @@ The source of truth for versions is each skill's `SKILL.md → metadata.version`
 │   ├── agent-skills/                 # reusable single-agent capabilities
 │   ├── metaskills/                   # skill engineering and orchestration
 │   └── prompt-skills/                # prompt engineering capabilities
+├── candidates/agentkit/              # non-discoverable maturity-gated candidate
 ├── plugins/<skill>/                  # generated per-skill cross-host packages
 ├── plugin/                           # generated aggregate cross-host package
 ├── scripts/                          # deterministic generation and validation
@@ -193,6 +194,10 @@ The source of truth for versions is each skill's `SKILL.md → metadata.version`
 ```
 
 Never edit `plugin/`, `plugins/`, or platform marketplace manifests manually. Change canonical skills or catalog configuration, regenerate, validate, and review the resulting diff.
+
+`candidates/` is a review and evaluation surface, not an installation root.
+Candidate bundles must not appear in `catalog/entries.json`, generated plugins,
+marketplaces or host discovery until their documented promotion gate passes.
 
 The agent-oriented portfolio analysis and reusable creation prompts are
 documented in [docs/AGENT-METASKILLS-ANALYSIS.md](docs/AGENT-METASKILLS-ANALYSIS.md)

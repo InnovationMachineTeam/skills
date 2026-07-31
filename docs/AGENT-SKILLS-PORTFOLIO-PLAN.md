@@ -32,6 +32,11 @@ aware. `agentkit` remains deferred until its donor maturity gate passes.
 Progress: release `3.2.1` completed stability cycle 1 of 2. Cycle 2 and the
 separate `agentkit` decision remain pending.
 
+An experimental, non-discoverable `agentkit@0.1.0` candidate now provides the
+`e2e` evidence-collection command. It is not a stable cycle, catalog entry or
+published skill. Promotion remains gated by the remaining real workflows,
+cycle 2, frozen upgrade/rollback contracts and pack holdout.
+
 ## Completion gates
 
 - every bundle has `metadata.version`, precise positive and negative routing,

@@ -28,3 +28,26 @@ later observation; it must not be manufactured by immediately repeating the
 same validation. Real workflow observations and the pack-level upgrade,
 rollback and holdout contracts also remain incomplete. Therefore no
 `skills/agent-skills/agentkit/` bundle or catalog entry is allowed yet.
+
+## Experimental candidate
+
+A non-discoverable `agentkit@0.1.0` candidate exists at
+`candidates/agentkit/`. It is excluded from `skills/`, all marketplaces,
+generated plugins and host activation. Its purpose is to collect the missing
+E2E evidence without bypassing the maturity gate.
+
+The explicit `agentkit e2e` command scaffolds E2E cases, runs selected commands
+through the candidate router, records raw evidence, classifies ownership and
+proposes improvements. A donor-owned finding requires exact user approval
+before the candidate may write an improvement prompt or dispatch a staged
+`repair-and-improve` or `optimize-existing` process. Canonical and vendored
+donors remain read-only, and promotion remains a separate lifecycle decision.
+
+Synthetic candidate tests do not count toward the required three real workflow
+observations.
+
+Candidate evaluation `agentkit-candidate-0.1.0` passed structure, routing,
+scripts/tools, authority, coexistence and lifecycle gates. Semantic behavior is
+still `INCONCLUSIVE` because no fresh-context model run or real user workflow
+has executed the donors through the candidate. The correct lifecycle decision
+is therefore `KEEP_EXPERIMENTAL_CANDIDATE`.

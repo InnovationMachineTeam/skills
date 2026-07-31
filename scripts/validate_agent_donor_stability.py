@@ -194,6 +194,69 @@ def validate(root: Path, ledger_path: Path) -> list[str]:
     if gate.get("status") == "ready" and not mature:
         failures.append("agentkit cannot be ready without cycles, workflows and frozen contracts")
 
+    candidate = gate.get("candidate")
+    candidate_root = root / "candidates" / "agentkit"
+    if candidate:
+        locator = candidate.get("locator")
+        if locator != "candidates/agentkit":
+            failures.append("agentkit candidate locator must remain candidates/agentkit")
+        if candidate.get("status") != "experimental" or candidate.get("discoverable") is not False:
+            failures.append("pre-maturity agentkit candidate must be experimental and non-discoverable")
+        try:
+            semver(candidate.get("version", ""))
+        except ValueError as exc:
+            failures.append(str(exc))
+        if not (candidate_root / "SKILL.md").is_file():
+            failures.append("declared agentkit candidate is missing SKILL.md")
+        if candidate_root.is_dir() and tree_hash(candidate_root) != candidate.get("content_sha256"):
+            failures.append("agentkit candidate content hash drift")
+        for artifact_key in ("evaluation_plan", "evaluation_result"):
+            artifact = root / str(candidate.get(artifact_key, ""))
+            if not artifact.is_file():
+                failures.append(f"agentkit candidate missing {artifact_key}")
+                continue
+            try:
+                artifact_data = load(artifact)
+                artifact_hash = (
+                    artifact_data.get("target", {}).get("hash")
+                    if artifact_key == "evaluation_plan"
+                    else artifact_data.get("target_hash")
+                )
+                if artifact_hash != candidate.get("content_sha256"):
+                    failures.append(f"agentkit candidate {artifact_key} hash drift")
+            except json.JSONDecodeError as exc:
+                failures.append(f"invalid agentkit candidate {artifact_key}: {exc}")
+        try:
+            lock = load(candidate_root / "donors.json")
+            locked = {item.get("name"): item for item in lock.get("donors", [])}
+            if set(locked) != set(DONORS):
+                failures.append("agentkit candidate must lock exactly the ten donors")
+            for donor in donors:
+                entry = locked.get(donor.get("name"), {})
+                if entry.get("version") != donor.get("version"):
+                    failures.append(f"agentkit candidate version drift: {donor.get('name')}")
+                if entry.get("source_tree_sha256") != donor.get("content_sha256"):
+                    failures.append(f"agentkit candidate hash drift: {donor.get('name')}")
+            if list((candidate_root / "vendor").rglob("SKILL.md")):
+                failures.append("agentkit vendor contains nested discoverable SKILL.md")
+        except (OSError, json.JSONDecodeError) as exc:
+            failures.append(f"invalid agentkit candidate lock: {exc}")
+        catalog = load(root / "catalog" / "entries.json")
+        if "agentkit" in {item.get("name") for item in catalog.get("entries", [])}:
+            failures.append("experimental agentkit candidate must not be in catalog")
+        if (root / "plugins" / "agentkit").exists():
+            failures.append("experimental agentkit candidate must not have a generated plugin")
+        for marketplace in (
+            root / ".claude-plugin" / "marketplace.json",
+            root / ".agents" / "plugins" / "marketplace.json",
+            root / ".cursor-plugin" / "marketplace.json",
+        ):
+            manifest = load(marketplace)
+            if "agentkit" in {item.get("name") for item in manifest.get("plugins", [])}:
+                failures.append(f"experimental agentkit candidate leaked into {marketplace}")
+    elif candidate_root.exists():
+        failures.append("agentkit candidate exists but is not declared in the maturity ledger")
+
     current_release = release.get("marketplace", {}).get("version")
     if cycles and current_release != cycles[-1].get("release"):
         failures.append("catalog release must match the latest stability cycle")

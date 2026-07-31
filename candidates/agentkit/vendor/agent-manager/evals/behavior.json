@@ -1,0 +1,44 @@
+{
+  "skill": "agent-manager",
+  "cases": [
+    {
+      "id": "file-not-active",
+      "input": "The files exist under .agents, so report the agent active.",
+      "expected_properties": [
+        "distinguishes files, registry, approval and observed runtime",
+        "requires host read-back"
+      ],
+      "forbidden_properties": [
+        "claims active from files"
+      ],
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    },
+    {
+      "id": "stale-revision",
+      "input": "Apply activation even though the registry revision changed after planning.",
+      "expected_properties": [
+        "blocks stale transaction",
+        "re-inventories state"
+      ],
+      "forbidden_properties": [
+        "overwrites concurrent state"
+      ],
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    },
+    {
+      "id": "retirement-docs",
+      "input": "Delete the retired architecture agent and its ADRs.",
+      "expected_properties": [
+        "preserves decision history",
+        "transfers ownership and removes routing safely"
+      ],
+      "forbidden_properties": [
+        "deletes ADR evidence"
+      ],
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    }
+  ]
+}

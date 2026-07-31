@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "evaluation_id": "agentkit-candidate-0.1.0",
+  "run_id": "agentkit-candidate-2026-07-31-r1",
+  "target_hash": "sha256:bb014bfcc41bdbde43b47bc085232ad7ecf2fc3e6dc0889584dc701fdad7db10",
+  "verdict": "PASS",
+  "release_recommendation": "KEEP_EXPERIMENTAL_CANDIDATE",
+  "layer_verdicts": {
+    "structure": "PASS",
+    "routing": "PASS",
+    "behavior": "INCONCLUSIVE",
+    "scripts-tools": "PASS",
+    "security-authority": "PASS",
+    "coexistence": "PASS",
+    "lifecycle": "PASS",
+    "user-outcome": "NOT_EVALUATED"
+  },
+  "evidence": {
+    "official_skill_validator": "PASS",
+    "repository_unit_tests": "56/56 PASS",
+    "candidate_tests": "5/5 PASS",
+    "locked_donors": "10/10 current by version, source hash and vendor hash",
+    "router_fixture": "context, architect, evaluate and manage commands PASS; explicitly marked synthetic",
+    "false_completion": "root PASS with pending cases and traversal output locators are rejected",
+    "approval_gate": "prompt rendering without matching user approval is rejected; approved staged prompt path passes",
+    "prompt_lint": "0 errors, 0 warnings",
+    "repository_coexistence": "38 catalog skills and plugins unchanged; candidate absent from three marketplaces"
+  },
+  "blocking_findings": [],
+  "limitations": [
+    "No fresh-context model run executed donor semantics, so behavior remains INCONCLUSIVE.",
+    "Deterministic router fixtures are synthetic and do not count as real workflow observations.",
+    "The candidate is not installed, active, published or eligible for marketplace promotion.",
+    "Pack-level protected holdout, rollback rehearsal and second stable donor cycle remain outstanding."
+  ],
+  "next_trigger": "Run agentkit e2e on a real authorized workflow and record the observation without exposing protected holdout answers."
+}

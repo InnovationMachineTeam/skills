@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0",
+  "evaluation_id": "agentkit-candidate-0.1.0",
+  "objective": "Decide whether the non-discoverable agentkit candidate is safe and useful for collecting real E2E maturity evidence.",
+  "risk": "medium",
+  "target": {
+    "identity": "agentkit",
+    "version": "0.1.0",
+    "hash": "sha256:bb014bfcc41bdbde43b47bc085232ad7ecf2fc3e6dc0889584dc701fdad7db10",
+    "locator": "candidates/agentkit"
+  },
+  "baseline": "direct invocation of the ten individual-agent donor skills",
+  "environment": {
+    "repository": "InnovationMachineTeam/skills",
+    "hosts": ["portable candidate validation"],
+    "runtime": "python-3 deterministic fixtures plus official skill validator"
+  },
+  "authority": {
+    "read": true,
+    "write_candidate_and_test_artifacts": true,
+    "edit_donors": false,
+    "install": false,
+    "publish_marketplace": false,
+    "external": false
+  },
+  "layers": ["structure", "routing", "behavior", "scripts-tools", "security-authority", "coexistence", "lifecycle"],
+  "datasets": [
+    "candidates/agentkit/evals/routing.json",
+    "candidates/agentkit/evals/behavior.json",
+    "candidates/agentkit/evals/scripts.json",
+    "tests/test_agentkit_candidate.py"
+  ],
+  "graders": ["deterministic assertions", "observable-properties-v1"],
+  "repetitions": 1,
+  "acceptance": {
+    "blocking_layers": ["structure", "routing", "scripts-tools", "security-authority", "coexistence", "lifecycle"],
+    "criteria": {
+      "structure": "official validator passes and all resources resolve",
+      "routing": "explicit agentkit invocations route while direct specialist, team and metaskill requests do not",
+      "behavior": "command contracts name observable outputs and preserve donor boundaries",
+      "scripts-tools": "status, E2E scaffold, router fixture, false-completion and approval paths pass",
+      "security-authority": "canonical and vendored donors remain read-only and prompt generation fails without matching approval",
+      "coexistence": "candidate is absent from all discovery, catalog and generated plugin surfaces",
+      "lifecycle": "maturity ledger declares experimental non-discoverable status and blocks premature promotion"
+    }
+  },
+  "holdout_policy": {
+    "protected": true,
+    "location": "external-protected",
+    "rule": "Bundled cases are public regression fixtures; do not store answer-bearing pack holdout in the candidate."
+  },
+  "execution_policy": {
+    "side_effects": "temporary fixture directories and repository candidate files only",
+    "abort_conditions": ["donor drift", "unexpected external action", "candidate discovery leak", "approval bypass"],
+    "cleanup": "remove only evaluator-created temporary fixtures"
+  },
+  "artifacts": {
+    "result": "docs/agents/evals/agentkit-candidate-0.1.0-results.json",
+    "maturity_ledger": "docs/agents/evals/individual-agent-stability-cycles.json"
+  }
+}

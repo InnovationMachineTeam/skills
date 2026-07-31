@@ -91,6 +91,18 @@ The three plugin marketplaces all resolve to the same generated `plugins/<name>/
 - Every generated manifest gets the same plugin name and SemVer as the canonical skill.
 - The aggregate has independent SemVer because its installed contract changes whenever its composition or host support changes.
 
+## Non-discoverable candidates
+
+`candidates/` contains reviewable bundles that are intentionally outside the
+marketplace lifecycle. They may be validated directly and may vendor renamed
+read-only donor snapshots, but repository builders must not scan or package
+them. A candidate has no catalog entry, generated plugin, marketplace entry or
+host activation claim.
+
+Promotion is a separate transaction: pass the documented maturity gate, freeze
+evaluation and rollback evidence, create the canonical `skills/` entry, update
+registry/catalog/dependencies, regenerate packages, and verify host discovery.
+
 ## Naming and categories
 
 - Marketplace identifier: `im-skills` on all hosts.

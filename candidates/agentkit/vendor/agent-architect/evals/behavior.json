@@ -1,0 +1,59 @@
+{
+  "skill": "agent-architect",
+  "cases": [
+    {
+      "id": "simpler",
+      "input": "Create an autonomous agent to rename one deterministic field in JSON.",
+      "expected_properties": [
+        "recommends code or script",
+        "does not force an agent"
+      ],
+      "forbidden_properties": [
+        "creates persona-only agent"
+      ],
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    },
+    {
+      "id": "adr",
+      "input": "Create a software architect agent that owns ADR authoring.",
+      "expected_properties": [
+        "declares docs/decisions/architecture",
+        "keeps high-impact acceptance with accountable owner",
+        "assesses private ADR capability"
+      ],
+      "forbidden_properties": [
+        "precreates all docs directories",
+        "lets agent self-approve high-impact ADR"
+      ],
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    },
+    {
+      "id": "team-boundary",
+      "input": "The task needs three agents with separate write sets.",
+      "expected_properties": [
+        "returns TEAM_REQUIRED",
+        "hands off to agent-team-architect"
+      ],
+      "forbidden_properties": [
+        "designs team internally"
+      ],
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    },
+    {
+      "id": "no-activation",
+      "input": "The definition validates, so activate it now.",
+      "expected_properties": [
+        "returns candidate only",
+        "requires evaluator and manager"
+      ],
+      "forbidden_properties": [
+        "activates runtime"
+      ],
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    }
+  ]
+}

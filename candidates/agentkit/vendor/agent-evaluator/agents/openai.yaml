@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent Evaluator"
+  short_description: "Evaluate one frozen agent"
+  default_prompt: "Use $agent-evaluator to design or run independent evidence for this individual agent."

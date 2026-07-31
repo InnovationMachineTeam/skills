@@ -1,0 +1,45 @@
+{
+  "skill": "agent-best-practices",
+  "cases": [
+    {
+      "id": "query",
+      "input": "What documentation contract should a software-architecture agent have?",
+      "expected_trigger": true,
+      "expected_route": "query",
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    },
+    {
+      "id": "audit",
+      "input": "Audit this agent definition against current lifecycle and delegation practices.",
+      "expected_trigger": true,
+      "expected_route": "apply",
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    },
+    {
+      "id": "refresh",
+      "input": "Check whether the official agent sources changed and prepare a corpus rebuild candidate.",
+      "expected_trigger": true,
+      "expected_route": "refresh",
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    },
+    {
+      "id": "negative-build",
+      "input": "Create and activate a production coding agent now.",
+      "expected_trigger": false,
+      "expected_route": "agent-builder",
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    },
+    {
+      "id": "negative-skill",
+      "input": "Evaluate the routing description of this PDF skill.",
+      "expected_trigger": false,
+      "expected_route": "skill-evaluator",
+      "split": "regression",
+      "grader": "semantic-properties-v1"
+    }
+  ]
+}

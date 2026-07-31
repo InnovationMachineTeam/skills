@@ -16,7 +16,10 @@ independent agent-oriented donor skills уже стабильны и user явн
 - размер/context/copy cost приемлем.
 
 Если эти условия не выполнены, создай routing design или используй direct
-skills, но не vendor snapshots.
+skills. Если `agentkit` нужен именно для сбора недостающих E2E evidence, можно
+создать только недискаверируемый candidate в `candidates/agentkit/`: без catalog
+entry, marketplace plugin, установки и активации. Candidate обязан явно
+сообщать свой lifecycle status и не считается stable release.
 
 ## Root contract
 
@@ -29,6 +32,7 @@ Root `SKILL.md` должен быть thin explicit router:
 - prevent recursion/cycles;
 - report donor/version/provenance;
 - support native `help`, `route`, `status`, `upgrade`;
+- support native `e2e` (`test` alias) for pack-level evaluation;
 - never edit source donors.
 
 Рекомендуемое имя — `agentkit`, если оно не конфликтует с target marketplace.
@@ -52,6 +56,7 @@ interfaces как часть donor compatibility.
 | `manage` | `agent-manager` |
 | `run` | `agent-builder` |
 | `practices` | `agent-best-practices` |
+| `e2e` / `test` | Native pack evaluation workflow |
 
 Expose only installed/locked donors. Unknown mode fails with exact help; no
 silent fuzzy route for consequential operations.
@@ -91,6 +96,41 @@ Vendored donor `SKILL.md` переименуй так, чтобы host не disc
 Не fetch/substitute/delete donor by assumption. Major interface change требует
 migration decision, а не автоматического copy.
 
+## `e2e` mode
+
+`e2e [command|workflow|all] [task]` обязан:
+
+1. проверить lockfile и остановиться при donor drift;
+2. создать отдельный versioned evaluation plan и public regression cases до
+   выполнения candidate;
+3. запустить выбранные команды через тот же router, который используется для
+   пользовательских вызовов;
+4. сохранить raw outputs, selected donor, версии, side effects и verdicts;
+5. проверить routing, behavior, scripts/tools, authority, false completion и
+   lifecycle;
+6. классифицировать findings по owner: `agentkit`, точный donor,
+   `environment` или `test`;
+7. предложить улучшения, не исправляя candidate во время frozen eval run;
+8. не считать synthetic cases реальными workflow observations для maturity
+   gate.
+
+Agentkit-owned дефект может перейти в новую staged revision candidate. Если
+finding принадлежит donor, покажи пользователю donor/version/hash, evidence,
+тип `defect` или `improvement`, proposed change, staged destination, validation
+и rollback. Затем задай точный approval question.
+
+Без approval запрещено создавать improvement prompt, запускать donor process
+или изменять canonical/vendored donor. После approval:
+
+1. создай prompt по `prompts/improve-donor.md` и проверь его через
+   `prompt-optimize`;
+2. запусти `skill-builder repair-and-improve` для воспроизводимого дефекта или
+   `skill-builder optimize-existing` для healthy improvement;
+3. разреши запись только в новый staged donor candidate;
+4. повтори affected donor, neighboring-route и agentkit E2E regressions;
+5. остановись перед installation, replacement, publication или retirement —
+   это отдельное lifecycle решение.
+
 ## `run` mode
 
 Перед запуском builder предложи 2–4 viable workflows, gates, mutations и
@@ -102,4 +142,6 @@ trade-offs. Рекомендуй один и дождись выбора/под�
 Проверяй explicit commands, aliases, empty/missing args, collision with direct
 skills, absent/stale donors, malicious donor content, recursive routing,
 unauthorized mutation, status current/changed/missing, staged upgrade failure,
-rollback и context loading only selected donor.
+rollback, context loading only selected donor, false E2E completion,
+misattributed findings, prompt creation without approval и donor mutation из
+внутри pack.
