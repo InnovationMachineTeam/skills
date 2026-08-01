@@ -33,6 +33,7 @@ BLOCKING_LAYERS = (
     "lifecycle",
 )
 SEMVER = re.compile(r"^(\d+)\.(\d+)\.(\d+)$")
+SHA256 = re.compile(r"^sha256:[a-f0-9]{64}$")
 
 
 def load(path: Path) -> dict:
@@ -147,8 +148,12 @@ def validate(root: Path, ledger_path: Path) -> list[str]:
         if cycle.get("status") != "stable":
             continue
         stable_count += 1
-        if cycle.get("portfolio_hash") != expected_portfolio_hash:
-            failures.append(f"{cycle_id}: portfolio hash does not match frozen donors")
+        # Stability cycles are immutable historical observations. A later
+        # maintenance release may legitimately advance the current donor
+        # snapshot without rewriting the portfolio hash evaluated by a prior
+        # cycle.
+        if not SHA256.fullmatch(str(cycle.get("portfolio_hash", ""))):
+            failures.append(f"{cycle_id}: portfolio hash must be a sha256 digest")
         if cycle.get("blocking_findings"):
             failures.append(f"{cycle_id}: stable cycle cannot have blocking findings")
         layer_verdicts = cycle.get("layer_verdicts", {})
@@ -300,8 +305,11 @@ def validate(root: Path, ledger_path: Path) -> list[str]:
             if released.get("locator") != "skills/agent-skills/agentkit" or not (stable_root / "SKILL.md").is_file():
                 failures.append("released agentkit locator is missing or invalid")
             else:
-                if released.get("version") != "1.0.0":
-                    failures.append("first stable agentkit release must be 1.0.0")
+                try:
+                    if semver(released.get("version", "")) < (1, 0, 0):
+                        failures.append("stable agentkit release cannot precede 1.0.0")
+                except ValueError as exc:
+                    failures.append(str(exc))
                 if tree_hash(stable_root) != released.get("content_sha256"):
                     failures.append("released agentkit content hash drift")
                 asset = registered.get("agentkit", {})

@@ -67,6 +67,12 @@ def main() -> int:
             if not source_contract.is_file():
                 raise ValueError(f"copied donor contract is missing: {source_contract}")
             source_contract.rename(donor_contract)
+            readme = donor_destination / "README.md"
+            if readme.is_file():
+                readme.write_text(
+                    readme.read_text(encoding="utf-8").replace("](SKILL.md)", "](DONOR.md)"),
+                    encoding="utf-8",
+                )
             updated = dict(donor)
             updated["version"] = item["actual_version"]
             updated["tree_sha256"] = item["actual_tree_sha256"]

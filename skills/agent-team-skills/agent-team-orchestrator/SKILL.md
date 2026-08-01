@@ -2,7 +2,7 @@
 name: agent-team-orchestrator
 description: Executes an approved, active agent-team definition through a bounded task graph with typed envelopes, minimal context capsules, leases, budgets, checkpoints, cancellation, recovery and independent verification. Use when launching, resuming, monitoring, cancelling or recovering a concrete team run. It may choose only among declared workflows and cannot redesign teams, edit agents or skills, broaden authority, create worktrees directly, publish outputs by implication, or replace the lifecycle control plane owned by agent-team-manager.
 metadata:
-  version: "1.0.0"
+  version: "1.0.1"
 ---
 
 # Orchestrate an Approved Agent Team Run

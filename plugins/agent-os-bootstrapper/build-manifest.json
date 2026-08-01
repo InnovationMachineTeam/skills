@@ -1,7 +1,7 @@
 {
   "format": 2,
   "plugin": "agent-os-bootstrapper",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "source_layout": "skills/",
   "bundle_layout": "skills/<name>/",
   "platforms": [
@@ -21,17 +21,17 @@
   "files": [
     {
       "path": ".claude-plugin/plugin.json",
-      "sha256": "9038a2d481de1eb3bdda864d2695a846b4d4f78378f7f941a940d1b974f18c77",
+      "sha256": "ab3d5c5bbd6e7d1c90b525521ff3fb91f751ef42a04365d6a24a2ecb267bc800",
       "bytes": 491
     },
     {
       "path": ".codex-plugin/plugin.json",
-      "sha256": "7cea32791e3a6f7eb3932569f43d350cfc8e63a076c92cb1e6241788eb34a239",
+      "sha256": "3764ac9712135cc7b6945e4cc799760033b74824a5ef85e9cd39c5b4aaac86ad",
       "bytes": 1490
     },
     {
       "path": ".cursor-plugin/plugin.json",
-      "sha256": "e4a3231f536adb5e149a91b568b98c201555e99d389ccdc10c10106ecae02cb3",
+      "sha256": "14b98ca7fb3a7df8fcabc768b5046b49fc0a9adf907c0070aef44e1e6239ab40",
       "bytes": 710
     },
     {
@@ -40,8 +40,13 @@
       "bytes": 588
     },
     {
+      "path": "skills/agent-os-bootstrapper/README.md",
+      "sha256": "5c41a0efe1840830698f09575e6fda1df9f7575e9be106c121ce8a869f8a514c",
+      "bytes": 5331
+    },
+    {
       "path": "skills/agent-os-bootstrapper/SKILL.md",
-      "sha256": "9f670b600dad555d5a101c65c5824e9559b55fe664c35f9770dff3a5cfbc5ac4",
+      "sha256": "647f48715f603721ef73feecabb1a4882a532c9c3fc91ede234c7b7c350cc7a8",
       "bytes": 1875
     },
     {

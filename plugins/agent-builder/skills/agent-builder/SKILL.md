@@ -2,7 +2,7 @@
 name: agent-builder
 description: Orchestrates complete evidence-backed workflows for one agent or subagent across agent-scout, agent-context, agent-architect, agent-evaluator, agent-doctor, agent-optimizer, agent-refactor and agent-manager. Use when creating, researching, evaluating, repairing, improving, refactoring, recovering or governing an individual agent through multiple phases, or when the correct specialist chain must be inferred. Prefer a direct specialist for one bounded phase. Do not design or run teams, build Agentic OS, imitate missing specialists, activate by assumption, or continue across approval, mutation or lifecycle gates without authority.
 metadata:
-  version: "1.0.0"
+  version: "1.0.1"
 ---
 
 # Orchestrate One-Agent Workflows

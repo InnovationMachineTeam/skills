@@ -1,7 +1,7 @@
 {
   "name": "skill-doctor",
   "displayName": "Skill Doctor",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Diagnoses unhealthy, broken, unsafe, or inconsistently behaving SKILL.md-based agent skills and verifies minimal repairs",
   "skills": [
     "./skills"

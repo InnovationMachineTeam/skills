@@ -2,7 +2,7 @@
 name: agent-os-architect
 description: Designs the minimum justified Agentic OS across experience, control, execution, knowledge, assurance and operations planes, including desired versus observed state, identities, schemas, policy points, protocols, SLOs, threat and failure models, deployment topology and staged evolution. Use when a team runtime is no longer sufficient and a user needs a platform architecture, build/extend/buy comparison, bounded walking skeleton or Agentic OS ADR. Design only; do not bootstrap infrastructure, operate runs, change registries or policies, or issue release verdicts.
 metadata:
-  version: "1.0.0"
+  version: "1.0.1"
 ---
 
 # Architect a Minimal Agentic OS

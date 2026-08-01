@@ -1,7 +1,7 @@
 {
   "name": "agent-observer",
   "displayName": "Agent Observer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Defines and audits Agentic OS telemetry, traces, SLOs, alerts, MAPE-K observations and bounded incident diagnostics linking task, run, agent, model, prompt, skill, tool, policy, approval, artifact, cost and versions",
   "skills": [
     "./skills"

@@ -2,7 +2,7 @@
 name: agent-architect
 description: Designs or redesigns one bounded agent or subagent as an immutable, reviewable definition with mission, non-goals, inputs, outputs, tools, permissions, model policy, state, memory, documentation, evaluation, rollout and retirement contracts. Use when creating a single agent, choosing a single-agent pattern, specifying a private capability for one agent, or reviewing an existing individual-agent boundary before implementation. Do not design teams or Agentic OS, activate runtime agents, issue credentials, evaluate release readiness, or manage lifecycle state; route those to agent-team-architect, agent-os-architect, agent-evaluator or agent-manager.
 metadata:
-  version: "1.0.0"
+  version: "1.0.1"
 ---
 
 # Architect One Agent

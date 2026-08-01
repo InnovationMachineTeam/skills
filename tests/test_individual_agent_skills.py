@@ -32,14 +32,20 @@ def load(path: Path) -> dict:
 class IndividualAgentSkillTests(unittest.TestCase):
     def test_all_requested_donors_and_stable_agentkit_are_versioned(self) -> None:
         root = ROOT / "skills" / "agent-skills"
+        registry = load(ROOT / "docs" / "AGENT-ASSET-REGISTRY.json")
+        versions = {
+            item["name"]: item["version"]
+            for item in registry["assets"]
+            if item.get("kind") == "skill" and item.get("scope") == "repository"
+        }
         for name in SKILLS:
             text = (root / name / "SKILL.md").read_text(encoding="utf-8")
             self.assertIn(f"name: {name}", text)
-            self.assertIn('version: "1.0.0"', text)
+            self.assertIn(f'version: "{versions[name]}"', text)
             self.assertIn(f"${name}", (root / name / "agents" / "openai.yaml").read_text(encoding="utf-8"))
         agentkit = (root / "agentkit" / "SKILL.md").read_text(encoding="utf-8")
         self.assertIn("name: agentkit", agentkit)
-        self.assertIn('version: "1.0.0"', agentkit)
+        self.assertIn(f'version: "{versions["agentkit"]}"', agentkit)
         self.assertTrue((ROOT / "docs" / "prompts" / "agentkit-composite-skill.md").is_file())
 
     def test_each_skill_has_positive_negative_and_behavior_cases(self) -> None:

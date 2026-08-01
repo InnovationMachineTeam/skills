@@ -1,7 +1,7 @@
 {
   "name": "skill-builder",
   "displayName": "Skill Builder",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Orchestrates complete, evidence-backed agent-skill workflows across skill-scout, skill-harvester, skill-architect, skill-evaluator, skill-doctor, skill-optimizer… Companion skill plugins are required for full functionality; see README.md.",
   "skills": [
     "./skills"

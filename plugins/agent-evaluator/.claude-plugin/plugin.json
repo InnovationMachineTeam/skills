@@ -1,7 +1,7 @@
 {
   "name": "agent-evaluator",
   "displayName": "Agent Evaluator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Independently designs, writes, audits, runs and compares evaluations for one frozen agent or subagent definition and its bounded runtime behavior",
   "skills": [
     "./skills"

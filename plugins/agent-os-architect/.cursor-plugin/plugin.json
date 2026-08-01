@@ -1,6 +1,6 @@
 {
   "name": "agent-os-architect",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Designs the minimum justified Agentic OS across experience, control, execution, knowledge, assurance and operations planes, including desired versus observed state, identities, schemas, policy points, protocols, SLOs, threat and...",
   "homepage": "https://github.com/InnovationMachineTeam/skills",
   "repository": "https://github.com/InnovationMachineTeam/skills",

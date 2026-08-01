@@ -2,7 +2,7 @@
 name: skill-builder
 description: Orchestrates complete, evidence-backed agent-skill workflows across skill-scout, skill-harvester, skill-architect, skill-evaluator, skill-doctor, skill-optimizer, skill-refactor, skill-manager, and prompt-optimize. Use when a user asks to skillify, build, productionize, research, repair, improve, compare, split, merge, adopt, migrate, install, or govern skills through a multi-stage or end-to-end workflow; explicitly requests one of the named builder scenarios, including evaluate-skill; or supplies mixed context whose correct specialist sequence must be inferred. Accept an explicit scenario or classify from context, ask focused questions when target, outcome, authority, or destination is materially ambiguous, maintain resumable phase state, and verify gates before completion. Prefer the direct specialist for a single bounded phase. Do not replace specialist judgment or mutate, install, publish, or retire skills by assumption.
 metadata:
-  version: "1.4.0"
+  version: "1.4.1"
 ---
 
 # Orchestrate Skill Building

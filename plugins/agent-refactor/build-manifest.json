@@ -1,7 +1,7 @@
 {
   "format": 2,
   "plugin": "agent-refactor",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "source_layout": "skills/",
   "bundle_layout": "skills/<name>/",
   "platforms": [
@@ -21,17 +21,17 @@
   "files": [
     {
       "path": ".claude-plugin/plugin.json",
-      "sha256": "281f2e45e475edf849b5d653f23817b1c6cdc22d8a1f7120c801a0faa9b212e9",
+      "sha256": "7aa43f3fc9c85e0b0a205941b93dca9f21069675b5da55bda2da366c93cb5976",
       "bytes": 577
     },
     {
       "path": ".codex-plugin/plugin.json",
-      "sha256": "1da8a2154b3835d824b45677084306ba48812d3a8a5c125ee4204347afac0154",
+      "sha256": "e5c249002f9206992e18d02956537b86153a11f41b3013679c1b2cc2a2ac1bac",
       "bytes": 1473
     },
     {
       "path": ".cursor-plugin/plugin.json",
-      "sha256": "49fb6ac9f4938a63e10a1b5ab805bbef4c74a43ed062bfff64cf8090702a1069",
+      "sha256": "9e54439490279e2c651c5bb963f43ed8618c68e1c1a092c338557f51627e1ba8",
       "bytes": 691
     },
     {
@@ -45,8 +45,13 @@
       "bytes": 1004
     },
     {
+      "path": "skills/agent-refactor/README.md",
+      "sha256": "26cf5de6cf8fe40ee906a3cf558fdfe1527191df7cb563238c99e8091118c861",
+      "bytes": 6360
+    },
+    {
       "path": "skills/agent-refactor/SKILL.md",
-      "sha256": "761d790fb141a1a927e20f318a9beded967edfce3cc53857dc81dc9be9ae532f",
+      "sha256": "ee43518e5363f2d0658e103fcf09a93025e0daf264735f507b90b417d10c3008",
       "bytes": 2683
     },
     {

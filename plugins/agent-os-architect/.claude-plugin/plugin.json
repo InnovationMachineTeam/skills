@@ -1,7 +1,7 @@
 {
   "name": "agent-os-architect",
   "displayName": "Agent Os Architect",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Designs the minimum justified Agentic OS across experience, control, execution, knowledge, assurance and operations planes, including desired versus observed state, identities, schemas, policy points, protocols, SLOs, threat and...",
   "skills": [
     "./skills"

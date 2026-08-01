@@ -1,7 +1,7 @@
 {
   "name": "agent-skill-mapper",
   "displayName": "Agent Skill Mapper",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Maps governed public and owner-private skills or commands to existing agents using mission fit, permissions, trust, context cost, evidence and capability budgets",
   "skills": [
     "./skills"

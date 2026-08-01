@@ -1,6 +1,6 @@
 {
   "name": "agent-architect",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Designs or redesigns one bounded agent or subagent as an immutable, reviewable definition with mission, non-goals, inputs, outputs, tools, permissions, model policy, state, memory, documentation, evaluation, rollout and retirement contracts",
   "homepage": "https://github.com/InnovationMachineTeam/skills",
   "repository": "https://github.com/InnovationMachineTeam/skills",

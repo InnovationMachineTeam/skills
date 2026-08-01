@@ -2,7 +2,7 @@
 name: prompt-optimize
 description: Designs, audits, and improves durable master, system, and developer prompts for agents. Use when creating, rewriting, consolidating, linting, evaluating, or migrating prompts that govern roles, instruction priority, tools, autonomy, safety, validation, and output behavior, including resolving conflicting prompt rules. Do not use for ordinary copyediting, one-off content prompts, or executing the governed task unless the user asks to improve its controlling prompt.
 metadata:
-  version: "3.0.0"
+  version: "3.0.1"
 ---
 
 # Optimize Prompts

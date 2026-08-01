@@ -1,7 +1,7 @@
 {
   "format": 2,
   "plugin": "agent-doctor",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "source_layout": "skills/",
   "bundle_layout": "skills/<name>/",
   "platforms": [
@@ -21,17 +21,17 @@
   "files": [
     {
       "path": ".claude-plugin/plugin.json",
-      "sha256": "81c5e47c6fa6652ce210e04473e5b3e5b63e5f14176f76ce50a14ae73c6870dc",
+      "sha256": "089982d625b7062bdb10e2a5dbe5d9f983a1b24ac434056b5105aca0ea29c965",
       "bytes": 472
     },
     {
       "path": ".codex-plugin/plugin.json",
-      "sha256": "dc321fe4c637fd071b217935249545d19295c331691df5e634d2e3b8331b434d",
+      "sha256": "be99b5c071ecbbfccc9325601cb703de527b9dee27fe05647d98512fbb64e639",
       "bytes": 1443
     },
     {
       "path": ".cursor-plugin/plugin.json",
-      "sha256": "ad2bb6637917a2af32226a04be0918c149ea1b77c40b356c01e08ea1ce606057",
+      "sha256": "35e31c71c34e1ed3c02ba57ea54bf70334b3d072785c88500d17d7f64c1bb7e9",
       "bytes": 677
     },
     {
@@ -45,8 +45,13 @@
       "bytes": 398
     },
     {
+      "path": "skills/agent-doctor/README.md",
+      "sha256": "fd7d77b2d1a1b652a3b99519b9bb0b71adc20e822702dac02118f9c7e2fdefe5",
+      "bytes": 5759
+    },
+    {
       "path": "skills/agent-doctor/SKILL.md",
-      "sha256": "0df7f7693f2cb981daa70e4a459a4c95f116e52e9bb4cff39ad30cda2551b544",
+      "sha256": "51a88a9c6b6e5602213ed15eb1834992b5bfd5534a1601f25d567abf17539eb7",
       "bytes": 2569
     },
     {

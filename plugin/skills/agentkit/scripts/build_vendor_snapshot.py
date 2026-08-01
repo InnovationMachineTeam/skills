@@ -76,6 +76,11 @@ def main() -> int:
     if output == source_root or output in source_root.parents or source_root in output.parents:
         raise ValueError("vendor output must be separate from canonical donors")
 
+    pack_file = source_root / "agentkit" / "SKILL.md"
+    pack_match = VERSION.search(pack_file.read_text(encoding="utf-8")) if pack_file.is_file() else None
+    if not pack_match:
+        raise ValueError("missing agentkit metadata.version")
+
     entries = []
     output.mkdir()
     try:
@@ -98,6 +103,12 @@ def main() -> int:
                 ignore=shutil.ignore_patterns(".DS_Store", "__pycache__", "*.pyc", "*.pyo", ".git"),
             )
             (destination / "SKILL.md").rename(destination / "DONOR.md")
+            readme = destination / "README.md"
+            if readme.is_file():
+                readme.write_text(
+                    readme.read_text(encoding="utf-8").replace("](SKILL.md)", "](DONOR.md)"),
+                    encoding="utf-8",
+                )
             entries.append({
                 "name": name,
                 "version": match.group(1),
@@ -108,12 +119,15 @@ def main() -> int:
                 "entrypoint": f"vendor/{name}/DONOR.md",
                 "modes": MODES[name],
                 "interface_version": 1,
-                "transforms": ["SKILL.md renamed to DONOR.md to prevent nested discovery"],
+                "transforms": [
+                    "SKILL.md renamed to DONOR.md to prevent nested discovery",
+                    "README link to SKILL.md rewritten to DONOR.md",
+                ],
             })
         payload = {
             "schema_version": 1,
             "pack": "agentkit",
-            "pack_version": "1.0.0",
+            "pack_version": pack_match.group(1),
             "source_repository": "InnovationMachineTeam/skills",
             "source_revision": args.source_revision,
             "donors": entries,

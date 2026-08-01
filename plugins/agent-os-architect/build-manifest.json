@@ -1,7 +1,7 @@
 {
   "format": 2,
   "plugin": "agent-os-architect",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "source_layout": "skills/",
   "bundle_layout": "skills/<name>/",
   "platforms": [
@@ -21,17 +21,17 @@
   "files": [
     {
       "path": ".claude-plugin/plugin.json",
-      "sha256": "4f2490e6f91232023ec889157b40163ab5eb8efb68df231e64d4f6e1bb9f4c86",
+      "sha256": "f346ce484c7a54073aa182b62e6e95b58b7e4fefae7b04ea9521e294a4830e41",
       "bytes": 478
     },
     {
       "path": ".codex-plugin/plugin.json",
-      "sha256": "126d38dffecd00a01bdb719dcc67a3799be10728939632eee2f2f5a142142987",
+      "sha256": "a1465a38a35f478c57c614f2566a02ae6ff8fe52a8e8fd1a7505522225d5d748",
       "bytes": 1478
     },
     {
       "path": ".cursor-plugin/plugin.json",
-      "sha256": "3beff055fb14df28af4f560d1e34710261ac652418d214528ee9408f7ef9212e",
+      "sha256": "80fffd233c3429694d5744ea956d77cbd06b1050b7fb91bfa6c2c48631b8fb7b",
       "bytes": 703
     },
     {
@@ -40,8 +40,13 @@
       "bytes": 575
     },
     {
+      "path": "skills/agent-os-architect/README.md",
+      "sha256": "47daeddb5e46468b9e413acddb2c7309acfad1de9e471cd8edd101d969315210",
+      "bytes": 5246
+    },
+    {
       "path": "skills/agent-os-architect/SKILL.md",
-      "sha256": "46e4f179847f53efd7b46ff033fa5ffbdb245ce17712827896b9143926c83706",
+      "sha256": "fa941dd31269b2f8a097fd4a0e61be1e63770cade7828caea45d9f5ec7ce81a6",
       "bytes": 2525
     },
     {

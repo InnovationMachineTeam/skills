@@ -5,16 +5,56 @@
   "stability_epoch_release": "3.2.0",
   "required_stable_cycles": 2,
   "donors": [
-    {"name": "agent-architect", "version": "1.0.0", "content_sha256": "sha256:07a0253ccaf58623dd0c77bd434e4eb505699617a45aed5d02b0727be471a9b2"},
-    {"name": "agent-best-practices", "version": "1.0.0", "content_sha256": "sha256:986ab50369c95ec90f993e80978b2720485ad606b2df814cfbe29cbccf61c972"},
-    {"name": "agent-builder", "version": "1.0.0", "content_sha256": "sha256:2b495ddee0bb84e74a4ba183dc05695bcde2b04e7153ca25724193d58b32c458"},
-    {"name": "agent-context", "version": "1.0.0", "content_sha256": "sha256:631b46cddc7fb387cebfbdab4b54de1c4f70f9eeffa5584f91a8e4ec46ed6011"},
-    {"name": "agent-doctor", "version": "1.0.0", "content_sha256": "sha256:ceda961c89134cb08373a7f1818044ebd2148d8fad73c1a4e6333a9c725bd4a7"},
-    {"name": "agent-evaluator", "version": "1.0.0", "content_sha256": "sha256:3d92cca26900a0736c45c5e9bd90dd2b9d14c1da5ecca3541dccfdc3dff9d3cf"},
-    {"name": "agent-manager", "version": "1.0.0", "content_sha256": "sha256:05c82ba43e0a1a5d9fe2820c3f228e81ba94f86269c3dbbcb25d9446e798b22b"},
-    {"name": "agent-optimizer", "version": "1.0.0", "content_sha256": "sha256:e718fe42e4aee1c3eec3484133f9a85d9e0aee59cec68a738d996d264cdd83ea"},
-    {"name": "agent-refactor", "version": "1.0.0", "content_sha256": "sha256:e61972d3b3f3f28e22afdb8bcac3c2daf1e6e4a24db9d39ae815238eb7b0b4a5"},
-    {"name": "agent-scout", "version": "1.0.0", "content_sha256": "sha256:48fbc8daea44703c12b3deb826fdebe3e904f924c74c2dbdeddf7597515238f1"}
+    {
+      "name": "agent-architect",
+      "version": "1.0.1",
+      "content_sha256": "sha256:e709a22e93d6fc149d6187f56824a8947fc5cbb94ecac95f834b47e9e6ec3db2"
+    },
+    {
+      "name": "agent-best-practices",
+      "version": "1.0.1",
+      "content_sha256": "sha256:227f4d9a16a1676aa6dabb69f7db9a2561e186fbd7cd22b9e51df1f23d05c27a"
+    },
+    {
+      "name": "agent-builder",
+      "version": "1.0.1",
+      "content_sha256": "sha256:c4b3b5346b4eb26510dcb2318da0296c01654092deea1ce0af492d50e2d4aa8e"
+    },
+    {
+      "name": "agent-context",
+      "version": "1.0.1",
+      "content_sha256": "sha256:d7352118a902b36e05a2abf339f0b83fc29876b697228c45186f34d810cdc70c"
+    },
+    {
+      "name": "agent-doctor",
+      "version": "1.0.1",
+      "content_sha256": "sha256:c17aacd2045e47e84071a7c40ea8543b34352a8623757dc348722b458c32f872"
+    },
+    {
+      "name": "agent-evaluator",
+      "version": "1.0.1",
+      "content_sha256": "sha256:b3da5418ef54ae73d51af7f20dc22331a0b578d3219abffc7b26d2eaf092af17"
+    },
+    {
+      "name": "agent-manager",
+      "version": "1.0.1",
+      "content_sha256": "sha256:dacfd6eb787fee69891ce24becb39331e85aea89f30d9ab22f4f73ddec24b023"
+    },
+    {
+      "name": "agent-optimizer",
+      "version": "1.0.1",
+      "content_sha256": "sha256:a2ebaaa91f6a194c51c1a05cbcf49a2ea78b675a881e4e27883804c945823472"
+    },
+    {
+      "name": "agent-refactor",
+      "version": "1.0.1",
+      "content_sha256": "sha256:ad655548e1068260d2279741301b4aa5761736a4cf12a66059fd64fcbc3a5f89"
+    },
+    {
+      "name": "agent-scout",
+      "version": "1.0.1",
+      "content_sha256": "sha256:fd2fb7c8ce7a7499f9b4e75c68e318573bae396f5a9c8a03ceb1ef16e29f63c8"
+    }
   ],
   "cycles": [
     {
@@ -105,14 +145,14 @@
     "pack_holdout_frozen": true,
     "release": {
       "status": "stable",
-      "version": "1.0.0",
-      "marketplace_release": "3.3.0",
+      "version": "1.0.1",
+      "marketplace_release": "3.5.1",
       "locator": "skills/agent-skills/agentkit",
-      "content_sha256": "sha256:00ccb553f68ab3450cee156f31b6475dfd20aa4d7c578d674fdbd9f5e67a9886",
+      "content_sha256": "sha256:6e95c9305893839a77c80ff19cbd63f3ce9989bce783508743d369607b0f6bfe",
       "discoverable": true,
       "e2e_command": "agentkit e2e",
-      "evaluation_plan": "docs/agents/evals/agentkit-1.0.0-plan.json",
-      "evaluation_result": "docs/agents/evals/agentkit-1.0.0-results.json",
+      "evaluation_plan": "docs/agents/evals/agentkit-1.0.1-plan.json",
+      "evaluation_result": "docs/agents/evals/agentkit-1.0.1-results.json",
       "rollback": "direct invocation of locked donors"
     },
     "remaining_requirements": []

@@ -2,7 +2,7 @@
 name: skill-implementation-engineer
 description: Audits and implements the necessary scripts, libraries, CLIs, adapters, services, hooks, and automations proposed by one approved role skill, including build/reuse/adapter research, public contracts, tests, security, Human-in-the-loop, observability, CI, documentation, and integration. Use only when dispatched by agent-master with a validated skill package and explicit implementation authority. Do not implement speculative components, replace expert judgment with automation, or perform installation, publication, production changes, or irreversible actions by assumption.
 metadata:
-  version: "1.0.0"
+  version: "1.0.1"
 ---
 
 # Engineer Skill Components

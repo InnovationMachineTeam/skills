@@ -1,7 +1,7 @@
 {
   "format": 2,
   "plugin": "agent-skill-mapper",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "source_layout": "skills/",
   "bundle_layout": "skills/<name>/",
   "platforms": [
@@ -21,17 +21,17 @@
   "files": [
     {
       "path": ".claude-plugin/plugin.json",
-      "sha256": "f132c08bb678600eea91620e943b9ec8cae8d8ea91cd195791896b88200091fd",
+      "sha256": "f0f2213d77c1e464e46eb312d741dc4a34c09621d29a2ee9e43d2946dabb97e5",
       "bytes": 408
     },
     {
       "path": ".codex-plugin/plugin.json",
-      "sha256": "ea217e3047a22520e88a90589001d6c0a0376565766e57875ac111e9e6a2d669",
+      "sha256": "0b242262965e75bdaf13e040dcc882ccdb7f7cbd05502cbf8c29b607e4216d17",
       "bytes": 1307
     },
     {
       "path": ".cursor-plugin/plugin.json",
-      "sha256": "19abe0dc4594acf03f30748df83b73ed3e182d8ca42c7266b81b020337800129",
+      "sha256": "249b1d37b58049fd061bb9c1979987dc7d563ed2daa47f74311075807743f36f",
       "bytes": 603
     },
     {
@@ -40,8 +40,13 @@
       "bytes": 505
     },
     {
+      "path": "skills/agent-skill-mapper/README.md",
+      "sha256": "0a54a58f33acf9b23ec23a86f4a3888ff5b88e92171e571ded02d03284a4651f",
+      "bytes": 6625
+    },
+    {
       "path": "skills/agent-skill-mapper/SKILL.md",
-      "sha256": "86bd7a3fc3129068555e64485e5e3e1442c40b7bb8043446704f726fcd997338",
+      "sha256": "8e7cc09ff536328883712d268b41e0e38821dc7429824b1fa0e5e8fca2a94af2",
       "bytes": 3465
     },
     {

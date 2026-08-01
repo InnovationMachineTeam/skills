@@ -2,7 +2,7 @@
 name: agent-optimizer
 description: Improves one healthy agent or subagent against a frozen measurable quality, cost, latency, reliability, context or documentation target while preserving mission, authority, consumers and lifecycle invariants. Use after baseline evaluation when tuning prompts, context selection, tool policy, model routing, budgets or output quality for an individual agent. Do not repair reproduced defects, change mission, permissions, ownership or topology, optimize teams or Agentic OS, tune against protected holdout, activate candidates, or claim improvement from incomparable runs.
 metadata:
-  version: "1.0.0"
+  version: "1.0.1"
 ---
 
 # Optimize One Healthy Agent

@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "evaluation_id": "agentkit-1.0.1-documentation-maintenance",
+  "objective": "Verify the exact agentkit 1.0.1 maintenance bundle after adding evidence-backed README usage guides to the complete skill portfolio.",
+  "risk": "low",
+  "target": {
+    "identity": "agentkit",
+    "version": "1.0.1",
+    "hash": "sha256:6e95c9305893839a77c80ff19cbd63f3ce9989bce783508743d369607b0f6bfe",
+    "locator": "skills/agent-skills/agentkit"
+  },
+  "baseline": "agentkit 1.0.0 stable release at marketplace release 3.3.0",
+  "change_class": "documentation-only public contract clarification plus deterministic README generation",
+  "authority": {
+    "read": true,
+    "write_repository_release": true,
+    "install_or_activate_host": false,
+    "publish_external_release": false
+  },
+  "acceptance": {
+    "readme_coverage": "47/47 canonical skills have adjacent README.md files",
+    "readme_contract": "every generated block contains use cases, expected results, boundaries, dependencies, resources and verification guidance",
+    "donor_lock": "10/10 agentkit donors and 12/12 metaskillpack donors match canonical versions and hashes",
+    "structure": "repository, marketplace, registry and package validators pass",
+    "behavior": "existing routing and behavior suites remain unchanged and pass",
+    "portability": "43 selective packages and one aggregate package reproduce canonical skill contents",
+    "lifecycle": "versions, registry hashes, marketplace release and rollback state agree"
+  },
+  "evidence": [
+    "scripts/generate_skill_readmes.py",
+    "scripts/validate_repository.py",
+    "tests/test_agentkit.py",
+    "tests/test_individual_agent_skills.py",
+    "docs/agents/evals/individual-agent-stability-cycles.json"
+  ],
+  "execution_policy": {
+    "side_effects": "repository files and generated package staging only",
+    "abort_conditions": [
+      "missing README",
+      "README generation drift",
+      "donor drift",
+      "registry drift",
+      "blocking validation or unit-test failure"
+    ],
+    "rollback": "Git revert to marketplace release 3.5.0 and agentkit 1.0.0"
+  },
+  "result": "docs/agents/evals/agentkit-1.0.1-results.json"
+}

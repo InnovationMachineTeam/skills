@@ -1,7 +1,7 @@
 {
   "format": 2,
   "plugin": "agentkit",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "source_layout": "skills/",
   "bundle_layout": "skills/<name>/",
   "platforms": [
@@ -21,17 +21,17 @@
   "files": [
     {
       "path": ".claude-plugin/plugin.json",
-      "sha256": "6380228ef270cf047171a738e84d527843f25a103958a355a76a4f74f14ae805",
+      "sha256": "7bcb50fb232c4d2b7ba5c17683ad71eaae3dbfcc85be80525d2825b9e98cb9d0",
       "bytes": 310
     },
     {
       "path": ".codex-plugin/plugin.json",
-      "sha256": "c46bc3cf05c394124678b7712c737982cf2336f14c49f32bf22a9176390dafef",
+      "sha256": "c44569f517f275af301e91acebe77516984f9b362cb49701cab205f598129c6c",
       "bytes": 1113
     },
     {
       "path": ".cursor-plugin/plugin.json",
-      "sha256": "7f150f74f0790237201900aeacb88846e2f521db4ce531eeb82fb04545c73509",
+      "sha256": "ecb696168f5caa8b92af4a083eea525ed19d4f21c4cd15fa065291bfdd524ed0",
       "bytes": 541
     },
     {
@@ -40,8 +40,13 @@
       "bytes": 407
     },
     {
+      "path": "skills/agentkit/README.md",
+      "sha256": "aa17be98c0310a15e9e76ff38dec4c917df9533c6469bc101e0bc44915478000",
+      "bytes": 7830
+    },
+    {
       "path": "skills/agentkit/SKILL.md",
-      "sha256": "546cf7c3c458be65a0861429a48df1f669beae67dcf0a8fcda1ed56f6d885545",
+      "sha256": "51d1a9c2021a621253929e70c24a8f40fc24832d3f71a2d60c0abcb8d27b3891",
       "bytes": 4558
     },
     {
@@ -56,8 +61,8 @@
     },
     {
       "path": "skills/agentkit/donors.json",
-      "sha256": "5c626d97c2dfe3144466c74cd3dbcf46aa916854bf53544d192796fcc157d14b",
-      "bytes": 6405
+      "sha256": "dad82f430d87b0fb3d0425de5989f820da18affddc8669d9c5e38aaeb15e0ff9",
+      "bytes": 6612
     },
     {
       "path": "skills/agentkit/evals/behavior.json",
@@ -106,8 +111,8 @@
     },
     {
       "path": "skills/agentkit/scripts/build_vendor_snapshot.py",
-      "sha256": "32aed83aaef3b5c992e53a77a1637508bc16f052a6c2b1049f8a51299713e0d0",
-      "bytes": 5065
+      "sha256": "098e4ca634d487c0541272babce330da21f0068564b2ae6307cb5dfcc501a922",
+      "bytes": 5694
     },
     {
       "path": "skills/agentkit/scripts/check_donors.py",
@@ -151,8 +156,13 @@
     },
     {
       "path": "skills/agentkit/vendor/agent-architect/DONOR.md",
-      "sha256": "2ef33fb16764c1c9182457722c3bc6cdba0cac0bd80f6fe8836236a9f8ed52ec",
+      "sha256": "a58c29f43882a829d6267b42c54d8014f32dd740c7004618820439ef5d5302ed",
       "bytes": 3275
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-architect/README.md",
+      "sha256": "fe214ac6ab42dcb7ccfc95c30b5cf9b45efa4ac38ab6a1244d091559d925fd6c",
+      "bytes": 7139
     },
     {
       "path": "skills/agentkit/vendor/agent-architect/agents/openai.yaml",
@@ -191,8 +201,13 @@
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/DONOR.md",
-      "sha256": "6d9d4acdd3a87d6b8c908dfbc0c684e2589fd061d485d21e5265ae8e271fb3b5",
+      "sha256": "e0876ce6cccb64f51733107b2b2cc6aa02e528b0ffb2bdd29384045f6eec7fc3",
       "bytes": 2991
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-best-practices/README.md",
+      "sha256": "e020d1fb46545f4060e20b61e279291dffab6aef8eb272560ec95d4aca4a86ed",
+      "bytes": 5981
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/agents/openai.yaml",
@@ -351,8 +366,13 @@
     },
     {
       "path": "skills/agentkit/vendor/agent-builder/DONOR.md",
-      "sha256": "5559400790acac237e0f141635e62e31456c217f430e66fb7bb40d3fd83ca8db",
+      "sha256": "07f943969933ef0e94e23c8a7782e30b697f932c3ca5a99b256312a9ffa901dd",
       "bytes": 2914
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-builder/README.md",
+      "sha256": "fae14f2339af5c88e109fbd932a6ce34bfd66a922039a2eb883d4892f7c3f630",
+      "bytes": 7596
     },
     {
       "path": "skills/agentkit/vendor/agent-builder/agents/openai.yaml",
@@ -386,8 +406,13 @@
     },
     {
       "path": "skills/agentkit/vendor/agent-context/DONOR.md",
-      "sha256": "ec07b07366cbe9c3e7e3d3e577635e156cbcb0d84f95ab52f38fc0915cc67234",
+      "sha256": "199ecfa1a1e2535ef38ab45ce86f4b7af6e60e18029e6bd6cbde3ba2966c9bd7",
       "bytes": 2644
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-context/README.md",
+      "sha256": "9c87267bcc1bba836f8c82ec51f65a7cd5acf5f1255d29c9eaa52fda81b1f738",
+      "bytes": 6124
     },
     {
       "path": "skills/agentkit/vendor/agent-context/agents/openai.yaml",
@@ -416,8 +441,13 @@
     },
     {
       "path": "skills/agentkit/vendor/agent-doctor/DONOR.md",
-      "sha256": "0df7f7693f2cb981daa70e4a459a4c95f116e52e9bb4cff39ad30cda2551b544",
+      "sha256": "51a88a9c6b6e5602213ed15eb1834992b5bfd5534a1601f25d567abf17539eb7",
       "bytes": 2569
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-doctor/README.md",
+      "sha256": "1ed8973085added4d4bde7fe43f00ebcf0f9a803e0d00a9f810b7edc76b0b688",
+      "bytes": 5759
     },
     {
       "path": "skills/agentkit/vendor/agent-doctor/agents/openai.yaml",
@@ -446,8 +476,13 @@
     },
     {
       "path": "skills/agentkit/vendor/agent-evaluator/DONOR.md",
-      "sha256": "e318794d449d52ff1646ba1564db78abdbaa6a194c7b08472f143c97122903b1",
+      "sha256": "47336c4bf8f63ab4fd6cf6b4038a9d6ddb97f74edabb4d27accd028d02312e9b",
       "bytes": 2870
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-evaluator/README.md",
+      "sha256": "ee74a8fd8036ea6715c08ce14f6661cec0733f7f63bdda34baba99fd79be5fd0",
+      "bytes": 6339
     },
     {
       "path": "skills/agentkit/vendor/agent-evaluator/agents/openai.yaml",
@@ -476,8 +511,13 @@
     },
     {
       "path": "skills/agentkit/vendor/agent-manager/DONOR.md",
-      "sha256": "e60779004bf20eec0dc955d04f3ac8faedacb4ab2a411db2d727bfb69d25efdd",
+      "sha256": "e8f669dc0d38516aa1636f637c01ce474964fef9bb7e389e2816da4b7a307c6a",
       "bytes": 2714
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-manager/README.md",
+      "sha256": "23301a9892ccb00d7891b8e2c7755ed47563371a08d7f2fc73109b1e75316c2b",
+      "bytes": 6121
     },
     {
       "path": "skills/agentkit/vendor/agent-manager/agents/openai.yaml",
@@ -506,8 +546,13 @@
     },
     {
       "path": "skills/agentkit/vendor/agent-optimizer/DONOR.md",
-      "sha256": "ae37ccbfceed26356b3fafe1308b9c2c25f5f2e270c3ff964e0a9124dacb3572",
+      "sha256": "4b7a5b143800616ed0addf8077fcf8141376f476aab2fc5a97864d77aba281a0",
       "bytes": 2329
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-optimizer/README.md",
+      "sha256": "02d73662695f34838aeaadf442b6ca9ce74e3fc3bf3d00996c7163caf526cc5f",
+      "bytes": 5563
     },
     {
       "path": "skills/agentkit/vendor/agent-optimizer/agents/openai.yaml",
@@ -536,8 +581,13 @@
     },
     {
       "path": "skills/agentkit/vendor/agent-refactor/DONOR.md",
-      "sha256": "761d790fb141a1a927e20f318a9beded967edfce3cc53857dc81dc9be9ae532f",
+      "sha256": "ee43518e5363f2d0658e103fcf09a93025e0daf264735f507b90b417d10c3008",
       "bytes": 2683
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-refactor/README.md",
+      "sha256": "6e69b7e1ff83e745f0591b887da845a79d3338d9fe6959d7ff7db5e5dedb4d4d",
+      "bytes": 6360
     },
     {
       "path": "skills/agentkit/vendor/agent-refactor/agents/openai.yaml",
@@ -566,8 +616,13 @@
     },
     {
       "path": "skills/agentkit/vendor/agent-scout/DONOR.md",
-      "sha256": "ac2329fe040585cb8f880d3414b7bb74e401e8e380c2983e03bb37f986ae0224",
+      "sha256": "c99dc34babda1dfc957c05528950cfea535b6dd229c0d622a6a264a3d7cfe5ee",
       "bytes": 2490
+    },
+    {
+      "path": "skills/agentkit/vendor/agent-scout/README.md",
+      "sha256": "720053f0486f54e4bb5cf7495149898b75595106976e38cf5f1ce071652944b2",
+      "bytes": 5811
     },
     {
       "path": "skills/agentkit/vendor/agent-scout/agents/openai.yaml",

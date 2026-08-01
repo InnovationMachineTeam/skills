@@ -2,7 +2,7 @@
 name: agent-team-architect
 description: Designs the smallest justified greenfield team of agents, subagents, specialists, an orchestrator, and human responsibilities from a task and capability graph, or redesigns an asset already defined as a team. Use when a new problem may need multiple agents, a confirmed PROMOTE_TO_TEAM decision needs roles and topology, or an existing team needs handoff, worktree, model or skill boundaries and a versioned specification. Produce design artifacts only. Route migration assessment of an existing single agent to agent-refactor, skill-bundle architecture to skill-architect, and implementation to agent-team-builder; do not scaffold `.agents`, activate skills, create worktrees, issue credentials or operate a team.
 metadata:
-  version: "1.1.0"
+  version: "1.1.1"
 ---
 
 # Architect Agent Teams

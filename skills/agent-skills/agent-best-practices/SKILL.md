@@ -2,7 +2,7 @@
 name: agent-best-practices
 description: Maintains and applies an evidence-linked corpus of best practices for individual agents, subagents, agent teams, orchestration, documentation, evaluation and Agentic OS. Use when querying agent design guidance, auditing an agent or agent-oriented skill against practices, checking source freshness, reconciling changed guidance, rebuilding the corpus, or preparing a bounded portfolio-change prompt. Do not treat platform examples as universal rules, perform open-ended research without scope, edit active agents, or activate changes.
 metadata:
-  version: "1.0.0"
+  version: "1.0.1"
 ---
 
 # Govern Agent Best Practices

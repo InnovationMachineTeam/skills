@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "evaluation_id": "agentkit-1.0.1-documentation-maintenance",
+  "run_id": "agentkit-1.0.1-2026-08-01-r1",
+  "target_hash": "sha256:6e95c9305893839a77c80ff19cbd63f3ce9989bce783508743d369607b0f6bfe",
+  "verdict": "PASS",
+  "release_recommendation": "REPOSITORY_SOURCE_READY_NO_HOST_ACTIVATION",
+  "layer_verdicts": {
+    "readme-coverage": "PASS",
+    "readme-contract": "PASS",
+    "donor-lock": "PASS",
+    "structure": "PASS",
+    "behavior": "PASS",
+    "portability": "PASS",
+    "lifecycle": "PASS"
+  },
+  "evidence": {
+    "readme_generator": "scripts/generate_skill_readmes.py",
+    "agentkit_donors": "10/10 current",
+    "metaskillpack_donors": "12/12 current",
+    "repository_validation": "PASS: 43 public skills, three marketplaces and 43 individual plugins",
+    "unit_tests": "PASS: 76/76",
+    "staged_packages": "PASS: 43 selective packages plus im-skills-all@3.5.1; portable validation covered 43 public and 4 package-private skills"
+  },
+  "blocking_findings": [],
+  "limitations": [
+    "No host installation, activation or external publication is authorized.",
+    "This maintenance evaluation does not replace the frozen 1.0.0 behavioral holdout evidence."
+  ]
+}

@@ -253,6 +253,15 @@ def main() -> int:
     if check.returncode:
         failures.append(check.stderr.strip() or check.stdout.strip() or "marketplace generation check failed")
 
+    check = subprocess.run(
+        [sys.executable, str(root / "scripts" / "generate_skill_readmes.py"), str(root), "--check"],
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    if check.returncode:
+        failures.append(check.stderr.strip() or check.stdout.strip() or "skill README generation check failed")
+
     dependency_checks = (
         [sys.executable, str(root / "scripts" / "manage_skill_dependencies.py"), "--root", str(root), "validate"],
         [sys.executable, str(root / "scripts" / "manage_skill_dependencies.py"), "--root", str(root), "render", "--check"],

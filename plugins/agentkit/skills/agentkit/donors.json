@@ -1,16 +1,16 @@
 {
   "schema_version": 1,
   "pack": "agentkit",
-  "pack_version": "1.0.0",
+  "pack_version": "1.0.1",
   "source_repository": "InnovationMachineTeam/skills",
-  "source_revision": "d13e4fddb7a006f974c495a5ad1ea9a838277844",
+  "source_revision": "74c9e10",
   "donors": [
     {
       "name": "agent-architect",
-      "version": "1.0.0",
-      "source_revision": "d13e4fddb7a006f974c495a5ad1ea9a838277844",
-      "source_tree_sha256": "sha256:07a0253ccaf58623dd0c77bd434e4eb505699617a45aed5d02b0727be471a9b2",
-      "vendor_tree_sha256": "sha256:21e37aa292de1d89da6d25b49232664816036c778fbc7c57010430d7d71c4aba",
+      "version": "1.0.1",
+      "source_revision": "74c9e10",
+      "source_tree_sha256": "sha256:e709a22e93d6fc149d6187f56824a8947fc5cbb94ecac95f834b47e9e6ec3db2",
+      "vendor_tree_sha256": "sha256:6cc80a1e60a0262d4567f577e712126415490cb1f20a23d4add01fdc4ffef692",
       "vendored_path": "vendor/agent-architect",
       "entrypoint": "vendor/agent-architect/DONOR.md",
       "modes": [
@@ -18,15 +18,16 @@
       ],
       "interface_version": 1,
       "transforms": [
-        "SKILL.md renamed to DONOR.md to prevent nested discovery"
+        "SKILL.md renamed to DONOR.md to prevent nested discovery",
+        "README link to SKILL.md rewritten to DONOR.md"
       ]
     },
     {
       "name": "agent-best-practices",
-      "version": "1.0.0",
-      "source_revision": "d13e4fddb7a006f974c495a5ad1ea9a838277844",
-      "source_tree_sha256": "sha256:986ab50369c95ec90f993e80978b2720485ad606b2df814cfbe29cbccf61c972",
-      "vendor_tree_sha256": "sha256:3b1b855ca486c567b079009506be1ea0ccb9aa6d5ae24cb4d38c463dd024b05e",
+      "version": "1.0.1",
+      "source_revision": "74c9e10",
+      "source_tree_sha256": "sha256:227f4d9a16a1676aa6dabb69f7db9a2561e186fbd7cd22b9e51df1f23d05c27a",
+      "vendor_tree_sha256": "sha256:73c46198fd4cac18d3dd58a29f1b8d34a006d38b372986053c5d1b9b24b1ce86",
       "vendored_path": "vendor/agent-best-practices",
       "entrypoint": "vendor/agent-best-practices/DONOR.md",
       "modes": [
@@ -34,15 +35,16 @@
       ],
       "interface_version": 1,
       "transforms": [
-        "SKILL.md renamed to DONOR.md to prevent nested discovery"
+        "SKILL.md renamed to DONOR.md to prevent nested discovery",
+        "README link to SKILL.md rewritten to DONOR.md"
       ]
     },
     {
       "name": "agent-builder",
-      "version": "1.0.0",
-      "source_revision": "d13e4fddb7a006f974c495a5ad1ea9a838277844",
-      "source_tree_sha256": "sha256:2b495ddee0bb84e74a4ba183dc05695bcde2b04e7153ca25724193d58b32c458",
-      "vendor_tree_sha256": "sha256:48da982fd72560b8d41fe0f8d3a6681fcfa13aa8cfc812c6bc4ed67962e2801b",
+      "version": "1.0.1",
+      "source_revision": "74c9e10",
+      "source_tree_sha256": "sha256:c4b3b5346b4eb26510dcb2318da0296c01654092deea1ce0af492d50e2d4aa8e",
+      "vendor_tree_sha256": "sha256:cc2d968a1ec4825f972439c4ac72203a42b5aef2bd8a85e80fe55c20b82d5f5a",
       "vendored_path": "vendor/agent-builder",
       "entrypoint": "vendor/agent-builder/DONOR.md",
       "modes": [
@@ -50,15 +52,16 @@
       ],
       "interface_version": 1,
       "transforms": [
-        "SKILL.md renamed to DONOR.md to prevent nested discovery"
+        "SKILL.md renamed to DONOR.md to prevent nested discovery",
+        "README link to SKILL.md rewritten to DONOR.md"
       ]
     },
     {
       "name": "agent-context",
-      "version": "1.0.0",
-      "source_revision": "d13e4fddb7a006f974c495a5ad1ea9a838277844",
-      "source_tree_sha256": "sha256:631b46cddc7fb387cebfbdab4b54de1c4f70f9eeffa5584f91a8e4ec46ed6011",
-      "vendor_tree_sha256": "sha256:b3fb76197c23d39dde690cab9e48940858e14111be9e7c83d5f387757508d13d",
+      "version": "1.0.1",
+      "source_revision": "74c9e10",
+      "source_tree_sha256": "sha256:d7352118a902b36e05a2abf339f0b83fc29876b697228c45186f34d810cdc70c",
+      "vendor_tree_sha256": "sha256:db5dabaadc12fdcc2c9380576b394ed4dc9bcc8ad459e28694fbbd6c4094dcdb",
       "vendored_path": "vendor/agent-context",
       "entrypoint": "vendor/agent-context/DONOR.md",
       "modes": [
@@ -66,15 +69,16 @@
       ],
       "interface_version": 1,
       "transforms": [
-        "SKILL.md renamed to DONOR.md to prevent nested discovery"
+        "SKILL.md renamed to DONOR.md to prevent nested discovery",
+        "README link to SKILL.md rewritten to DONOR.md"
       ]
     },
     {
       "name": "agent-doctor",
-      "version": "1.0.0",
-      "source_revision": "d13e4fddb7a006f974c495a5ad1ea9a838277844",
-      "source_tree_sha256": "sha256:ceda961c89134cb08373a7f1818044ebd2148d8fad73c1a4e6333a9c725bd4a7",
-      "vendor_tree_sha256": "sha256:141d2d7bac4866cca368fa4f0eed27f50d744c82952b0406ad236020252077f3",
+      "version": "1.0.1",
+      "source_revision": "74c9e10",
+      "source_tree_sha256": "sha256:c17aacd2045e47e84071a7c40ea8543b34352a8623757dc348722b458c32f872",
+      "vendor_tree_sha256": "sha256:d072d947b31e990befd08bbe97bd570b5f486565bc7b057bd57098fc3960b97f",
       "vendored_path": "vendor/agent-doctor",
       "entrypoint": "vendor/agent-doctor/DONOR.md",
       "modes": [
@@ -82,15 +86,16 @@
       ],
       "interface_version": 1,
       "transforms": [
-        "SKILL.md renamed to DONOR.md to prevent nested discovery"
+        "SKILL.md renamed to DONOR.md to prevent nested discovery",
+        "README link to SKILL.md rewritten to DONOR.md"
       ]
     },
     {
       "name": "agent-evaluator",
-      "version": "1.0.0",
-      "source_revision": "d13e4fddb7a006f974c495a5ad1ea9a838277844",
-      "source_tree_sha256": "sha256:3d92cca26900a0736c45c5e9bd90dd2b9d14c1da5ecca3541dccfdc3dff9d3cf",
-      "vendor_tree_sha256": "sha256:9386546e63cdfe2f492511d746310aff4a30fbed38f350fa7b6834c4dc6779f0",
+      "version": "1.0.1",
+      "source_revision": "74c9e10",
+      "source_tree_sha256": "sha256:b3da5418ef54ae73d51af7f20dc22331a0b578d3219abffc7b26d2eaf092af17",
+      "vendor_tree_sha256": "sha256:87b60b26532fe4d40042f3b603964eb78c80462cb08e240dd101ec4f06333527",
       "vendored_path": "vendor/agent-evaluator",
       "entrypoint": "vendor/agent-evaluator/DONOR.md",
       "modes": [
@@ -98,15 +103,16 @@
       ],
       "interface_version": 1,
       "transforms": [
-        "SKILL.md renamed to DONOR.md to prevent nested discovery"
+        "SKILL.md renamed to DONOR.md to prevent nested discovery",
+        "README link to SKILL.md rewritten to DONOR.md"
       ]
     },
     {
       "name": "agent-manager",
-      "version": "1.0.0",
-      "source_revision": "d13e4fddb7a006f974c495a5ad1ea9a838277844",
-      "source_tree_sha256": "sha256:05c82ba43e0a1a5d9fe2820c3f228e81ba94f86269c3dbbcb25d9446e798b22b",
-      "vendor_tree_sha256": "sha256:37f60cd175c1d5663c30986a9414821f95521646059f237dbe5a02c2b7862975",
+      "version": "1.0.1",
+      "source_revision": "74c9e10",
+      "source_tree_sha256": "sha256:dacfd6eb787fee69891ce24becb39331e85aea89f30d9ab22f4f73ddec24b023",
+      "vendor_tree_sha256": "sha256:a21430c7771056f5eb00cf1665cfc01ccee8f97316fb92f8ee352ccebc944764",
       "vendored_path": "vendor/agent-manager",
       "entrypoint": "vendor/agent-manager/DONOR.md",
       "modes": [
@@ -114,15 +120,16 @@
       ],
       "interface_version": 1,
       "transforms": [
-        "SKILL.md renamed to DONOR.md to prevent nested discovery"
+        "SKILL.md renamed to DONOR.md to prevent nested discovery",
+        "README link to SKILL.md rewritten to DONOR.md"
       ]
     },
     {
       "name": "agent-optimizer",
-      "version": "1.0.0",
-      "source_revision": "d13e4fddb7a006f974c495a5ad1ea9a838277844",
-      "source_tree_sha256": "sha256:e718fe42e4aee1c3eec3484133f9a85d9e0aee59cec68a738d996d264cdd83ea",
-      "vendor_tree_sha256": "sha256:32965b2cb127a9df70726003a2d6b227bd73de90b55101c557263aed12f6988e",
+      "version": "1.0.1",
+      "source_revision": "74c9e10",
+      "source_tree_sha256": "sha256:a2ebaaa91f6a194c51c1a05cbcf49a2ea78b675a881e4e27883804c945823472",
+      "vendor_tree_sha256": "sha256:35d120b41cb2275f62f5ab883ef1184c27d0e90f1b8ee2c538605043efbf7153",
       "vendored_path": "vendor/agent-optimizer",
       "entrypoint": "vendor/agent-optimizer/DONOR.md",
       "modes": [
@@ -130,15 +137,16 @@
       ],
       "interface_version": 1,
       "transforms": [
-        "SKILL.md renamed to DONOR.md to prevent nested discovery"
+        "SKILL.md renamed to DONOR.md to prevent nested discovery",
+        "README link to SKILL.md rewritten to DONOR.md"
       ]
     },
     {
       "name": "agent-refactor",
-      "version": "1.0.0",
-      "source_revision": "d13e4fddb7a006f974c495a5ad1ea9a838277844",
-      "source_tree_sha256": "sha256:e61972d3b3f3f28e22afdb8bcac3c2daf1e6e4a24db9d39ae815238eb7b0b4a5",
-      "vendor_tree_sha256": "sha256:62c0cf1bd7e91da3a78c4e20d54992c86dca5b525908705883132467e7b1c6b9",
+      "version": "1.0.1",
+      "source_revision": "74c9e10",
+      "source_tree_sha256": "sha256:ad655548e1068260d2279741301b4aa5761736a4cf12a66059fd64fcbc3a5f89",
+      "vendor_tree_sha256": "sha256:f3da80c933dad9cf3d9398733639a501f0b3d46e3c0c0aa5ff5dcf5d837e33e7",
       "vendored_path": "vendor/agent-refactor",
       "entrypoint": "vendor/agent-refactor/DONOR.md",
       "modes": [
@@ -146,15 +154,16 @@
       ],
       "interface_version": 1,
       "transforms": [
-        "SKILL.md renamed to DONOR.md to prevent nested discovery"
+        "SKILL.md renamed to DONOR.md to prevent nested discovery",
+        "README link to SKILL.md rewritten to DONOR.md"
       ]
     },
     {
       "name": "agent-scout",
-      "version": "1.0.0",
-      "source_revision": "d13e4fddb7a006f974c495a5ad1ea9a838277844",
-      "source_tree_sha256": "sha256:48fbc8daea44703c12b3deb826fdebe3e904f924c74c2dbdeddf7597515238f1",
-      "vendor_tree_sha256": "sha256:74440995a98169325941c10f77c52eeb76407f1c76ddb59502d3a447d71ed6d3",
+      "version": "1.0.1",
+      "source_revision": "74c9e10",
+      "source_tree_sha256": "sha256:fd2fb7c8ce7a7499f9b4e75c68e318573bae396f5a9c8a03ceb1ef16e29f63c8",
+      "vendor_tree_sha256": "sha256:74a3147e22982589c9876f4ccee661a83d9ad59414d49aa907bf1aeded6dcd83",
       "vendored_path": "vendor/agent-scout",
       "entrypoint": "vendor/agent-scout/DONOR.md",
       "modes": [
@@ -162,7 +171,8 @@
       ],
       "interface_version": 1,
       "transforms": [
-        "SKILL.md renamed to DONOR.md to prevent nested discovery"
+        "SKILL.md renamed to DONOR.md to prevent nested discovery",
+        "README link to SKILL.md rewritten to DONOR.md"
       ]
     }
   ]

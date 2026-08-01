@@ -1,7 +1,7 @@
 {
   "name": "agent-team-manager",
   "displayName": "Agent Team Manager",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": ">- Companion skill plugins are required for full functionality; see README.md.",
   "skills": [
     "./skills"

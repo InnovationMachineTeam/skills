@@ -1,7 +1,7 @@
 {
   "format": 2,
   "plugin": "agent-optimizer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "source_layout": "skills/",
   "bundle_layout": "skills/<name>/",
   "platforms": [
@@ -21,17 +21,17 @@
   "files": [
     {
       "path": ".claude-plugin/plugin.json",
-      "sha256": "394b7fa295e73d68b31b9762169de45ed53bef7f71fadcb442f56e811fd18151",
+      "sha256": "b14924a3738d75edbb8076240435411411e4177004b09354c8068781382fe20f",
       "bytes": 527
     },
     {
       "path": ".codex-plugin/plugin.json",
-      "sha256": "b238e742985359d0e7ae6625511c64f6240255de78cb9e5800221f983e2ab6fd",
+      "sha256": "a4b0767fcb8fb809ad505357cb38bb72e06ee865983be7fb8a98cb1fd239f4b2",
       "bytes": 1460
     },
     {
       "path": ".cursor-plugin/plugin.json",
-      "sha256": "1f2f132b36244b1a194decdb855c49a81cd165d2a56b97ada4ccaf62bd9bb9ad",
+      "sha256": "c56316b95eb4d9551ee97a936c0c16577f1d1539a82cfe9ec9eee76d5cd754d6",
       "bytes": 684
     },
     {
@@ -45,8 +45,13 @@
       "bytes": 441
     },
     {
+      "path": "skills/agent-optimizer/README.md",
+      "sha256": "94b0f29582b11d626477ca8568fb458d126c7ab2a869b24b6ff2c090c151ef6e",
+      "bytes": 5563
+    },
+    {
       "path": "skills/agent-optimizer/SKILL.md",
-      "sha256": "ae37ccbfceed26356b3fafe1308b9c2c25f5f2e270c3ff964e0a9124dacb3572",
+      "sha256": "4b7a5b143800616ed0addf8077fcf8141376f476aab2fc5a97864d77aba281a0",
       "bytes": 2329
     },
     {

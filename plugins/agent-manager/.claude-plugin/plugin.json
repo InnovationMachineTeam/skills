@@ -1,7 +1,7 @@
 {
   "name": "agent-manager",
   "displayName": "Agent Manager",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Governs the lifecycle of one registered agent or subagent through inventory, candidate registration, approval, shadow, canary, activation, suspension, migration… Companion skill plugins are required for full functionality; see README.md.",
   "skills": [
     "./skills"

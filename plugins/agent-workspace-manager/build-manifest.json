@@ -1,7 +1,7 @@
 {
   "format": 2,
   "plugin": "agent-workspace-manager",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "source_layout": "skills/",
   "bundle_layout": "skills/<name>/",
   "platforms": [
@@ -21,17 +21,17 @@
   "files": [
     {
       "path": ".claude-plugin/plugin.json",
-      "sha256": "188caaa0f58e3b7671309e08b948d66794d026d502ce72528720fedfd107f13e",
+      "sha256": "10f29e972d0df911ab14d586982e04d97c255630b9adb7c8cd39930b1799751d",
       "bytes": 488
     },
     {
       "path": ".codex-plugin/plugin.json",
-      "sha256": "d6c9580ba3c16a11b28821d449c9802733c8153a7ba4799e2cbf8b7f411d73f5",
+      "sha256": "52a97087a6feb855cc49ae6601bf638e8cf9f88c6bbdaad9954990d8ae382224",
       "bytes": 1486
     },
     {
       "path": ".cursor-plugin/plugin.json",
-      "sha256": "7513c8b2e82e6a401a949f0219072ba93fafc5ee1a6bf065e4fe39ff623eee1b",
+      "sha256": "88255fd09b871018cecd346a8928c66c41106de1f10144faf88a4a177ae85415",
       "bytes": 709
     },
     {
@@ -40,8 +40,13 @@
       "bytes": 585
     },
     {
+      "path": "skills/agent-workspace-manager/README.md",
+      "sha256": "01447fe1625041a2a299d258966cfe0192ce26ba65962ed611d0eb8520d6d6ab",
+      "bytes": 7551
+    },
+    {
       "path": "skills/agent-workspace-manager/SKILL.md",
-      "sha256": "7a0d1b543440a91dbfa455cd1811ab0e24355972e4bc628a65ebbd68114d22e2",
+      "sha256": "3ec65b8cd23784c8a36f26c8603103d6e752390897a5579425c9164ed26227bf",
       "bytes": 3273
     },
     {

@@ -1,7 +1,7 @@
 {
   "format": 2,
   "plugin": "agent-model-router",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "source_layout": "skills/",
   "bundle_layout": "skills/<name>/",
   "platforms": [
@@ -21,17 +21,17 @@
   "files": [
     {
       "path": ".claude-plugin/plugin.json",
-      "sha256": "51418f52a05da37946938ec3e00879f52d1d9078a986acff8a6f1efb7c203de6",
+      "sha256": "0b6813e0918e1e6d3f5483c85762190c8879f53d89ffae497f38e703e3b59fa2",
       "bytes": 421
     },
     {
       "path": ".codex-plugin/plugin.json",
-      "sha256": "e7afa7b8021215692054540bd1dd90e1853fe5dfca83d4e8a386ebf3b2474402",
+      "sha256": "40e71022c51cadd3e7b1beee3340e3fbede7522653d55e9afde523e920af53ff",
       "bytes": 1375
     },
     {
       "path": ".cursor-plugin/plugin.json",
-      "sha256": "e3a328d8d1f91f7780027eb80dc27d89a68b4e5037fc0e0e71adae91714c51ae",
+      "sha256": "db11fb2e1cd006062e04c10c5d2b061356b980f904e53a0a9df950e1a0d446cb",
       "bytes": 655
     },
     {
@@ -45,8 +45,13 @@
       "bytes": 738
     },
     {
+      "path": "skills/agent-model-router/README.md",
+      "sha256": "0977c41a83ac71ce7bc38dec3b91d7fcfdec3fd048bebc6bec1b058c7d708934",
+      "bytes": 6433
+    },
+    {
       "path": "skills/agent-model-router/SKILL.md",
-      "sha256": "036cc94e65200284b8a457e0788e0e1df7e2eb36d3e5728d6ad6c8a1ab911ee0",
+      "sha256": "45441201ed73caf7de5206a878816255e3cc37bf5711980493cd7992c0ad0b76",
       "bytes": 3564
     },
     {

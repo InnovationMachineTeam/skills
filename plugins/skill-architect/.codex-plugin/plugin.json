@@ -1,6 +1,6 @@
 {
   "name": "skill-architect",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Classifies skill ideas and supplied material, selects an archetype and the minimum viable placement—inline instruction, private agent command, private agent skill, or public skill—then designs, creates, registers, or updates the...",
   "homepage": "https://github.com/InnovationMachineTeam/skills",
   "repository": "https://github.com/InnovationMachineTeam/skills",

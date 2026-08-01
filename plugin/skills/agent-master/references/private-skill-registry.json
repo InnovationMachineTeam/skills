@@ -9,28 +9,28 @@
   "skills": [
     {
       "name": "process-orchestrator-architect",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "locator": "private-skills/process-orchestrator-architect",
       "primary_archetype": "artifact-template",
       "source_contract": "Master prompt for creating a process orchestrator agent"
     },
     {
       "name": "role-agent-architect",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "locator": "private-skills/role-agent-architect",
       "primary_archetype": "artifact-template",
       "source_contract": "Master prompt for a specialized role agent"
     },
     {
       "name": "role-skill-architect",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "locator": "private-skills/role-skill-architect",
       "primary_archetype": "artifact-template",
       "source_contract": "Master prompt for creating a specialized agent skill"
     },
     {
       "name": "skill-implementation-engineer",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "locator": "private-skills/skill-implementation-engineer",
       "primary_archetype": "script-automation",
       "source_contract": "Master prompt for implementing skill tools and automations"

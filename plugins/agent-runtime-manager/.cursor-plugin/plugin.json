@@ -1,6 +1,6 @@
 {
   "name": "agent-runtime-manager",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Governs platform-level durable task and run lifecycle with queues, attempts, leases, fencing, idempotency, checkpoints, cancellation, deadlines, backpressure, scoped execution, artifacts, compensation and dead-letter recovery",
   "homepage": "https://github.com/InnovationMachineTeam/skills",
   "repository": "https://github.com/InnovationMachineTeam/skills",

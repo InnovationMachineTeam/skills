@@ -1,7 +1,7 @@
 {
   "format": 2,
   "plugin": "skill-harvester",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "source_layout": "skills/",
   "bundle_layout": "skills/<name>/",
   "platforms": [
@@ -21,17 +21,17 @@
   "files": [
     {
       "path": ".claude-plugin/plugin.json",
-      "sha256": "747671c2e3883bff96002d26b04c7393001aeb206c982adaf5c6f4a09a059fbf",
+      "sha256": "cd633e501095b8bd82e9533843b7232d07a6f26d598c69d4f9d8e109341d588a",
       "bytes": 476
     },
     {
       "path": ".codex-plugin/plugin.json",
-      "sha256": "7a2e654555578e1ebc8f13eeaa10adae9d32801b902362a555d049ab9f995daf",
+      "sha256": "be4c15296fedc848db03eb1ca78c95f8fe8dfab88bd7729301026ce064256ea5",
       "bytes": 1456
     },
     {
       "path": ".cursor-plugin/plugin.json",
-      "sha256": "cb9535f198038b6c81be7fd33a01d5665b44b66a02287a96f71f76eabfc80ae8",
+      "sha256": "e38511b89769f03b809414dd6f76fb47c076b10c0147adbdc0646130a305abc4",
       "bytes": 683
     },
     {
@@ -41,12 +41,12 @@
     },
     {
       "path": "skills/skill-harvester/README.md",
-      "sha256": "5f45e577f90a093f8cf2faac69762a6123e95a5741e93352ba0c50a28589a537",
-      "bytes": 4118
+      "sha256": "1b97ba6ad8293334ff750b78546f36cfa3d0308b3bb155f5c348f3a41aeecb29",
+      "bytes": 15703
     },
     {
       "path": "skills/skill-harvester/SKILL.md",
-      "sha256": "0e6f972130d45fee3501570e53afe66f82dbaec324974d42a99ce65d9ea8753e",
+      "sha256": "c18d7a9ec058fcd682e8bb8571ca4501ab088772bf25318cd0f5dc6694e6d1c9",
       "bytes": 11100
     },
     {

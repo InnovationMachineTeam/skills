@@ -1,6 +1,6 @@
 {
   "name": "agent-os-evaluator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Independently evaluates frozen Agentic OS architecture, implementations and release evidence across plane boundaries, schemas, registry reconciliation, policy enforcement, durable execution, knowledge provenance, observability...",
   "homepage": "https://github.com/InnovationMachineTeam/skills",
   "repository": "https://github.com/InnovationMachineTeam/skills",
