@@ -1,5 +1,20 @@
 # Changelog
 
+## 3.4.0 — 2026-08-01
+
+- Added `agent-master@2.0.0` as a governed Agent Harness factory with mandatory
+  public/private placement, explicit execution modes, resumable state and four
+  package-private architects for process orchestrators, role agents, role
+  skills, and skill implementations.
+- Added repository and packaging support for parent-owned private subskills:
+  they ship inside the owning skill but remain absent from global discovery,
+  catalog entries and independent UI bindings.
+- Materialized the previously deferred `agent-model-router@1.0.0` and
+  `agent-protocol-manager@1.0.0` master prompts as independently installable
+  Agentic OS skills with deterministic contracts and adversarial evals.
+- Added the `agent-master` category, dependency graph, registry/catalog entries,
+  documentation, validation and generated cross-host packages.
+
 ## 3.1.0 — 2026-07-31
 
 - Added a canonical required/recommended companion-skill graph with minimum

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "revision": 15,
-  "updated_at": "2026-07-31T13:38:05Z",
+  "revision": 18,
+  "updated_at": "2026-08-01T15:48:36Z",
   "assets": [
     {
       "id": "asset://repository/skill/agent-architect",
@@ -252,6 +252,68 @@
       "replacement": null
     },
     {
+      "id": "asset://repository/skill/agent-master",
+      "kind": "skill",
+      "name": "agent-master",
+      "version": "2.0.0",
+      "revision": 3,
+      "version_strategy": "independent",
+      "parent_version_ref": null,
+      "content_sha256": "sha256:ba6892ce507feb30b89796293d4ded45e82354a73df1fe019c2e840084a07416",
+      "locator": "skills/agent-master/agent-master",
+      "visibility": "public",
+      "scope": "repository",
+      "discoverability": "global",
+      "owner_agent_ref": null,
+      "allowed_consumers": [],
+      "accountable_owner": "InnovationMachineTeam",
+      "source_type": "project",
+      "provenance": {
+        "repository": "InnovationMachineTeam/skills"
+      },
+      "trust_status": "verified",
+      "lifecycle_status": "registered",
+      "host_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "eval_evidence": [],
+      "replacement": null
+    },
+    {
+      "id": "asset://repository/skill/agent-model-router",
+      "kind": "skill",
+      "name": "agent-model-router",
+      "version": "1.0.0",
+      "revision": 1,
+      "version_strategy": "independent",
+      "parent_version_ref": null,
+      "content_sha256": "sha256:08bca0122bfdb48648cd94886fa84f06277635b258c76e0b85fe396753e4576b",
+      "locator": "skills/agent-os-skills/agent-model-router",
+      "visibility": "public",
+      "scope": "repository",
+      "discoverability": "global",
+      "owner_agent_ref": null,
+      "allowed_consumers": [],
+      "accountable_owner": "InnovationMachineTeam",
+      "source_type": "project",
+      "provenance": {
+        "repository": "InnovationMachineTeam/skills"
+      },
+      "trust_status": "verified",
+      "lifecycle_status": "registered",
+      "host_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "eval_evidence": [],
+      "replacement": null
+    },
+    {
       "id": "asset://repository/skill/agent-model-selector",
       "kind": "skill",
       "name": "agent-model-selector",
@@ -447,6 +509,37 @@
       "parent_version_ref": null,
       "content_sha256": "sha256:ab4e889246a6e41e4e7a5d8603dec6a93671ba69f9348162ba5e5275a96b645a",
       "locator": "skills/agent-os-skills/agent-policy-manager",
+      "visibility": "public",
+      "scope": "repository",
+      "discoverability": "global",
+      "owner_agent_ref": null,
+      "allowed_consumers": [],
+      "accountable_owner": "InnovationMachineTeam",
+      "source_type": "project",
+      "provenance": {
+        "repository": "InnovationMachineTeam/skills"
+      },
+      "trust_status": "verified",
+      "lifecycle_status": "registered",
+      "host_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "eval_evidence": [],
+      "replacement": null
+    },
+    {
+      "id": "asset://repository/skill/agent-protocol-manager",
+      "kind": "skill",
+      "name": "agent-protocol-manager",
+      "version": "1.0.0",
+      "revision": 1,
+      "version_strategy": "independent",
+      "parent_version_ref": null,
+      "content_sha256": "sha256:189bb0ae5b2d29f96818085c0b2f5edeabd2cd951a3c2efded50551d18818174",
+      "locator": "skills/agent-os-skills/agent-protocol-manager",
       "visibility": "public",
       "scope": "repository",
       "discoverability": "global",

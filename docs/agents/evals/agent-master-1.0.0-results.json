@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "evaluation_id": "agent-master-portfolio-1.0.0",
+  "run_id": "agent-master-portfolio-2026-08-01-r1",
+  "evaluated_at": "2026-08-01T15:09:07Z",
+  "environment": {
+    "repository": "InnovationMachineTeam/skills",
+    "hosts": ["agent-skills", "claude-code-package", "codex-package", "cursor-package"],
+    "external_models": false,
+    "network": false,
+    "production_side_effects": false
+  },
+  "targets": [
+    {
+      "name": "agent-master",
+      "version": "1.0.0",
+      "content_sha256": "sha256:2724e6979aabfb93a934016970065af0da4cf5c249bde62906b14c2dce83dada",
+      "locator": "skills/agent-master/agent-master"
+    },
+    {
+      "name": "agent-model-router",
+      "version": "1.0.0",
+      "content_sha256": "sha256:08bca0122bfdb48648cd94886fa84f06277635b258c76e0b85fe396753e4576b",
+      "locator": "skills/agent-os-skills/agent-model-router"
+    },
+    {
+      "name": "agent-protocol-manager",
+      "version": "1.0.0",
+      "content_sha256": "sha256:189bb0ae5b2d29f96818085c0b2f5edeabd2cd951a3c2efded50551d18818174",
+      "locator": "skills/agent-os-skills/agent-protocol-manager"
+    }
+  ],
+  "acceptance": [
+    "thin router preserves specialist boundaries and blocks recursion",
+    "positive and neighboring negative routes are present",
+    "state, model policy and protocol contracts fail closed on representative invalid cases",
+    "registry, catalog, dependency, documentation and package projections are consistent",
+    "no installation, activation, credentials, external calls or production mutation occurs"
+  ],
+  "layers": {
+    "structure": {
+      "verdict": "PASS",
+      "evidence": [
+        "skill-architect structural validator: 0 findings for all three bundles in eval-isolated copies",
+        "repository validator: PASS for 42 canonical skills and packages"
+      ]
+    },
+    "routing_fixture_integrity": {
+      "verdict": "PASS",
+      "evidence": [
+        "tests/test_agent_master.py",
+        "tests/test_phase8_portfolio_release.py"
+      ]
+    },
+    "semantic_forward_run": {
+      "verdict": "NOT_EVALUATED",
+      "evidence": [],
+      "reason": "No independent model or subagent run was authorized or required for the deterministic repository release gate."
+    },
+    "scripts": {
+      "verdict": "PASS",
+      "evidence": [
+        "valid agent-master DAG accepted and false completion rejected",
+        "valid model policy accepted and unapproved fallback rejected",
+        "valid protocol contract accepted and unsupported-without-details rejected"
+      ]
+    },
+    "security_and_authority": {
+      "verdict": "PASS",
+      "evidence": [
+        "behavior fixtures cover injected authority, provider-route manipulation, credentials and ambiguous partial effects",
+        "no external or production side effects occurred"
+      ]
+    },
+    "catalog_and_coexistence": {
+      "verdict": "PASS",
+      "evidence": [
+        "42 unique skill identities and descriptions",
+        "direct specialist negative routes present",
+        "full 67-test suite PASS"
+      ]
+    },
+    "portability": {
+      "verdict": "PASS",
+      "evidence": [
+        "42 individual Claude Code, Codex and Cursor packages",
+        "aggregate im-skills-all@3.4.0",
+        "repository package drift check PASS"
+      ]
+    },
+    "lifecycle": {
+      "verdict": "PASS",
+      "evidence": [
+        "registry revision 16 matches versions, hashes and locators",
+        "installation, runtime activation and external publication were not performed"
+      ]
+    }
+  },
+  "validator_limitations": [
+    "The bundled skill-creator quick_validate.py could not start because PyYAML is absent from both available Python runtimes; repository and skill-architect structural validators covered the same package contract.",
+    "The skill-architect portable validator owns an architect-specific eval schema, so routing and behavior fixtures were evaluated by the repository's agent-skill contracts rather than coerced into that unrelated schema."
+  ],
+  "release_recommendation": "PASS_REPOSITORY_CANDIDATE",
+  "installation_status": "not_installed",
+  "activation_status": "not_activated",
+  "next_evaluation_trigger": "Run a fresh-context semantic autopilot workflow before claiming production behavioral maturity."
+}

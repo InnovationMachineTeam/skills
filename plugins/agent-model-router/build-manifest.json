@@ -1,0 +1,83 @@
+{
+  "format": 2,
+  "plugin": "agent-model-router",
+  "version": "1.0.0",
+  "source_layout": "skills/",
+  "bundle_layout": "skills/<name>/",
+  "platforms": [
+    "claude-code",
+    "codex",
+    "cursor"
+  ],
+  "skills": [
+    "agent-model-router"
+  ],
+  "excluded_patterns": [
+    ".DS_Store",
+    "__pycache__",
+    "*.pyc",
+    ".git"
+  ],
+  "files": [
+    {
+      "path": ".claude-plugin/plugin.json",
+      "sha256": "51418f52a05da37946938ec3e00879f52d1d9078a986acff8a6f1efb7c203de6",
+      "bytes": 421
+    },
+    {
+      "path": ".codex-plugin/plugin.json",
+      "sha256": "e7afa7b8021215692054540bd1dd90e1853fe5dfca83d4e8a386ebf3b2474402",
+      "bytes": 1375
+    },
+    {
+      "path": ".cursor-plugin/plugin.json",
+      "sha256": "e3a328d8d1f91f7780027eb80dc27d89a68b4e5037fc0e0e71adae91714c51ae",
+      "bytes": 655
+    },
+    {
+      "path": "README.md",
+      "sha256": "37bee81e40a5c66c92d79b5912408d05f5d49deff212762ac247c845d73f2a4f",
+      "bytes": 1218
+    },
+    {
+      "path": "skill-dependencies.json",
+      "sha256": "33d813e6627147229ca63b65f418d619aacadab9e07f363123669e4382de5aa0",
+      "bytes": 738
+    },
+    {
+      "path": "skills/agent-model-router/SKILL.md",
+      "sha256": "036cc94e65200284b8a457e0788e0e1df7e2eb36d3e5728d6ad6c8a1ab911ee0",
+      "bytes": 3564
+    },
+    {
+      "path": "skills/agent-model-router/agents/openai.yaml",
+      "sha256": "5ade802da83e2fd10d1c702691b31e458bedc2af898fbe32e11267bffe99fe19",
+      "bytes": 222
+    },
+    {
+      "path": "skills/agent-model-router/evals/behavior.json",
+      "sha256": "518bdd6bbd720d9c19299fabcf4015ce755a46cfa6b7ee3679e6afd9c5d446f6",
+      "bytes": 925
+    },
+    {
+      "path": "skills/agent-model-router/evals/routing.json",
+      "sha256": "2b0b42a5bc9f5f4315210822f3718a7410beebc2f401d54b6cdecd7f81873ba3",
+      "bytes": 821
+    },
+    {
+      "path": "skills/agent-model-router/references/model-routing-contract.md",
+      "sha256": "850c572fc9e693145dae64b5d755cd0ebe7eea24cfd2b697a608b021566d46c7",
+      "bytes": 1506
+    },
+    {
+      "path": "skills/agent-model-router/references/skill-dependencies.md",
+      "sha256": "2c05317e5434591a74c43778dbc358633f513920a6c47d35d5d523c842b335ed",
+      "bytes": 1774
+    },
+    {
+      "path": "skills/agent-model-router/scripts/validate_model_routing_policy.py",
+      "sha256": "a7330b8fd0dab7c4461bb0eabec8122287179dea6f2f806d0b91ce9dff764bad",
+      "bytes": 4913
+    }
+  ]
+}

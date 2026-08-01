@@ -13,6 +13,8 @@ same boundaries across software, learning, research, innovation, and business.
 ```text
 skills/<category>/*                         public canonical skills
         │
+        ├── <skill>/private-skills/*       parent-only bundled subskills
+        │
         └── marketplace builders ─────────> plugins/ and plugin/
 
 .agents/definitions/<agent>/agent.json     canonical agent definition
@@ -44,6 +46,16 @@ Private skills and commands:
   discovery root;
 - are projected per host using the enforcement described in
   [HOST-CONFORMANCE.md](HOST-CONFORMANCE.md).
+
+Package-private subskills are a different, narrower mechanism. They may live
+under one public skill's `private-skills/<name>/SKILL.md` only when the parent
+is their sole consumer and explicitly dispatches them. They are bundled as
+progressively loaded parent resources, have independent internal versions and
+evals, but receive no catalog entry, global registry identity, UI metadata or
+independent host binding. Marketplace and asset scanners recognize this exact
+layout without adding the subskills to global discovery. A second independent
+consumer requires extraction and public/private placement assessment; copying
+or widening the parent-only allow-list is not allowed.
 
 Agent definitions declare a capability budget. Registry validation rejects map
 drift, version drift, duplicate bindings, orphan private capabilities, and
@@ -136,8 +148,8 @@ registry/catalog/dependencies, regenerate packages, and verify host discovery.
 - Marketplace identifier: `im-skills` on all hosts.
 - Individual plugin identifier: exact globally unique skill name.
 - Aggregate plugin identifier: `im-skills-all`.
-- Canonical and Cursor categories: `agent-os-skills`, `agent-team-skills`,
-  `agent-skills`, `metaskills`, and `prompt-skills`.
+- Canonical and Cursor categories: `agent-master`, `agent-os-skills`,
+  `agent-team-skills`, `agent-skills`, `metaskills`, and `prompt-skills`.
 - Codex install-surface category: `Developer Tools`.
 
 Categories are presentation metadata, not identity boundaries. Skill and plugin names must remain globally unique inside an installed host scope.
@@ -146,10 +158,12 @@ Categories are presentation metadata, not identity boundaries. Skill and plugin 
 
 Manifests declare only components that exist. Bundles do not include MCP servers, hooks, agents, commands, or variables unless those components are intentionally added and validated for every target host. Secrets are never embedded; future configurable integrations must use host-supported variable declarations and placeholders.
 
-The marketplace builders only read `skills/`; they never package
-`.agents/definitions/`. Repository validation independently verifies this
-separation. Host projections are generated runtime/configuration artifacts and
-must not be treated as a second canonical source.
+The marketplace builders only read `skills/`; they include package-private
+subskills inside their owning public bundle but never expose them as top-level
+entries. They never package `.agents/definitions/`. Repository validation
+independently verifies this separation. Host projections are generated
+runtime/configuration artifacts and must not be treated as a second canonical
+source.
 
 ## Portability
 

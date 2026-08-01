@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "skill": "agent-protocol-manager",
+  "cases": [
+    {"id": "mcp-boundary", "prompt": "Create a version-pinned MCP adapter contract with capability negotiation and conformance fixtures.", "expected_trigger": true, "expected_route": "agent-protocol-manager"},
+    {"id": "a2a-compatibility", "prompt": "Audit our A2A cancellation and artifact semantics across two agent runtimes.", "expected_trigger": true, "expected_route": "agent-protocol-manager"},
+    {"id": "ordinary-sdk", "prompt": "Fix this ordinary HTTP client retry bug in the application.", "expected_trigger": false, "expected_route": "application-code"},
+    {"id": "credential-issuance", "prompt": "Mint production credentials for every MCP server.", "expected_trigger": false, "expected_route": "credential-owner"}
+  ]
+}

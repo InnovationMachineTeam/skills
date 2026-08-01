@@ -1,7 +1,7 @@
 {
   "format": 2,
   "plugin": "im-skills-all",
-  "version": "3.3.0",
+  "version": "3.4.0",
   "source_layout": "skills/",
   "bundle_layout": "skills/<name>/",
   "platforms": [
@@ -18,6 +18,8 @@
     "agent-evaluator",
     "agent-knowledge-manager",
     "agent-manager",
+    "agent-master",
+    "agent-model-router",
     "agent-model-selector",
     "agent-observer",
     "agent-optimizer",
@@ -25,6 +27,7 @@
     "agent-os-bootstrapper",
     "agent-os-evaluator",
     "agent-policy-manager",
+    "agent-protocol-manager",
     "agent-refactor",
     "agent-registry-manager",
     "agent-runtime-manager",
@@ -59,23 +62,23 @@
   "files": [
     {
       "path": ".claude-plugin/plugin.json",
-      "sha256": "a6c773b5c5b4bc8e52cc40aadfced6a97654d143826b019a7175dac4676154bc",
+      "sha256": "8c1677fc59dce5fa066e48ca4b8d89cbce0bffa831636f635698bafe95bddebd",
       "bytes": 288
     },
     {
       "path": ".codex-plugin/plugin.json",
-      "sha256": "0411b955cb42d39d71b131384ed7184a31836e6c7a86980a795eabcebf44930d",
-      "bytes": 1046
+      "sha256": "b6e35783e7bce23bacbda144a87d795d4a3756a2eb2cb633026c439520079304",
+      "bytes": 1066
     },
     {
       "path": ".cursor-plugin/plugin.json",
-      "sha256": "492fa0f853f916801c47f35ed570e034300f017e85115d17249ed4d8ff100905",
-      "bytes": 528
+      "sha256": "0f75bd5af05682b6523ef23c1386a1995a36d523fb006f7e5a037cc89a7527b2",
+      "bytes": 548
     },
     {
       "path": "README.md",
-      "sha256": "7c76c09c4ab9658ef292b4a19a50d8f9b7813285f97f9f255828c95f3ebe3ef4",
-      "bytes": 1204
+      "sha256": "04499122bdf1977efa6c697dd2d029c03081d785b94564ceae24a70b78d49e5c",
+      "bytes": 1271
     },
     {
       "path": "skills/agent-architect/SKILL.md",
@@ -473,6 +476,166 @@
       "bytes": 1854
     },
     {
+      "path": "skills/agent-master/SKILL.md",
+      "sha256": "3573852431b7dec006eae68dad617a52cf6fdf6143f96645b258d695e3ba1021",
+      "bytes": 8209
+    },
+    {
+      "path": "skills/agent-master/agents/openai.yaml",
+      "sha256": "6029d0e7c9cec9c26d71fe3df0b6c9d9efa62fd2a5314e4c7a7ac4455a1fa6fc",
+      "bytes": 282
+    },
+    {
+      "path": "skills/agent-master/evals/behavior.json",
+      "sha256": "68bca8dd6835e9fa47ba17257320761b6d4e6c93de945e854c6c6452a80b7880",
+      "bytes": 2420
+    },
+    {
+      "path": "skills/agent-master/evals/routing.json",
+      "sha256": "1a0b3102db3ee2968f1056ee995456d0b38ed2f6bf9dec4380e70c694ceff1c7",
+      "bytes": 1478
+    },
+    {
+      "path": "skills/agent-master/private-skills/process-orchestrator-architect/SKILL.md",
+      "sha256": "d57a5872f02290d094de82415ea3ee9f1284f4148e8b619a8342da0892c53587",
+      "bytes": 3339
+    },
+    {
+      "path": "skills/agent-master/private-skills/process-orchestrator-architect/evals/behavior.json",
+      "sha256": "73af4026cd86ff6ae61e96318323c9aacb812f8a7547253364dcb80f58b62b25",
+      "bytes": 1162
+    },
+    {
+      "path": "skills/agent-master/private-skills/process-orchestrator-architect/evals/routing.json",
+      "sha256": "abff551da03dd9e6c48c3a3b316b1fa7a507363ddf0f03d0893b2866b24a898e",
+      "bytes": 802
+    },
+    {
+      "path": "skills/agent-master/private-skills/process-orchestrator-architect/references/output-contract.md",
+      "sha256": "2029ab80ed062a7eb2fecc7494f1687c0b70560e4ed232fc282b520093421d6c",
+      "bytes": 2999
+    },
+    {
+      "path": "skills/agent-master/private-skills/role-agent-architect/SKILL.md",
+      "sha256": "a0fab26f6ae59dc3386b559ada279ca8d5983f1e1af2cdbd763435c03b9264fa",
+      "bytes": 3049
+    },
+    {
+      "path": "skills/agent-master/private-skills/role-agent-architect/evals/behavior.json",
+      "sha256": "44cc63a909e3fcb1e6191a85f2d46057cb1ee105f27841a897573b8d04e1dc2c",
+      "bytes": 1153
+    },
+    {
+      "path": "skills/agent-master/private-skills/role-agent-architect/evals/routing.json",
+      "sha256": "fe1f8f908659147e38c1c511e608907b7c5086496b7b8bfe3d190a4e40109da6",
+      "bytes": 721
+    },
+    {
+      "path": "skills/agent-master/private-skills/role-agent-architect/references/output-contract.md",
+      "sha256": "63c515b185c3a24e90035d19da7431e3b63b6081b9fb28978af83e16e2eeadcc",
+      "bytes": 2639
+    },
+    {
+      "path": "skills/agent-master/private-skills/role-skill-architect/SKILL.md",
+      "sha256": "aca0674501006733e54afb0c4785a3f9cc2ccbe19e4e1fa4ab07cdffccdd379b",
+      "bytes": 3310
+    },
+    {
+      "path": "skills/agent-master/private-skills/role-skill-architect/evals/behavior.json",
+      "sha256": "0ca9cb8a5e9a6af8a736de7c5f32bab33e67234a29d206a2ee4081d7cfca47c7",
+      "bytes": 1154
+    },
+    {
+      "path": "skills/agent-master/private-skills/role-skill-architect/evals/routing.json",
+      "sha256": "05da0d17e52eb064932db1bc8ef5052a9f4ae8d024256c78194dc2005100725c",
+      "bytes": 763
+    },
+    {
+      "path": "skills/agent-master/private-skills/role-skill-architect/references/output-contract.md",
+      "sha256": "a6382ad9873ced7cb272cc09968ef598df1db178694c371629e7163426d419fb",
+      "bytes": 2872
+    },
+    {
+      "path": "skills/agent-master/private-skills/skill-implementation-engineer/SKILL.md",
+      "sha256": "dde977c359c8caf7f94e07eaa6f4907c957de6bae4364de04836e3c724995cdc",
+      "bytes": 3582
+    },
+    {
+      "path": "skills/agent-master/private-skills/skill-implementation-engineer/evals/behavior.json",
+      "sha256": "a3fa32c23eee03f20ab845b42dd94907e46eb39087b40b1419672468051e7a51",
+      "bytes": 1258
+    },
+    {
+      "path": "skills/agent-master/private-skills/skill-implementation-engineer/evals/routing.json",
+      "sha256": "a513008b9d41940c8ca029978373ad68a69f7839207799beab85a8bd0c5ba869",
+      "bytes": 766
+    },
+    {
+      "path": "skills/agent-master/private-skills/skill-implementation-engineer/references/output-contract.md",
+      "sha256": "a7979c88e5c5fafb9bbc3086d67852b0678c676d3d7c59a9be1b424fa9a1333f",
+      "bytes": 3275
+    },
+    {
+      "path": "skills/agent-master/references/private-skill-registry.json",
+      "sha256": "61858928157f00846fe25f8fa00bbc51974f6751aa049a8e91e42e9a00b790d0",
+      "bytes": 1636
+    },
+    {
+      "path": "skills/agent-master/references/routing-and-autopilot.md",
+      "sha256": "5e62cc2765b70c03faddf09689abb19413b27fd030f8846b7ccb1c5271517d8b",
+      "bytes": 3969
+    },
+    {
+      "path": "skills/agent-master/references/skill-dependencies.md",
+      "sha256": "95528699a7f3def8d0d05c7c4ad02fa2823c9bb39cfd1085cff2d06b26176ebf",
+      "bytes": 2561
+    },
+    {
+      "path": "skills/agent-master/references/state-contract.md",
+      "sha256": "0e62426872e7af723d091242083fdcce1a58dcb295c4f3a856689e41f130cbb8",
+      "bytes": 2456
+    },
+    {
+      "path": "skills/agent-master/scripts/validate_agent_master_state.py",
+      "sha256": "7907d069f71d42d6e704c362552ca4f8a0114ebd632d91b385db11af62b20b2b",
+      "bytes": 10526
+    },
+    {
+      "path": "skills/agent-model-router/SKILL.md",
+      "sha256": "036cc94e65200284b8a457e0788e0e1df7e2eb36d3e5728d6ad6c8a1ab911ee0",
+      "bytes": 3564
+    },
+    {
+      "path": "skills/agent-model-router/agents/openai.yaml",
+      "sha256": "5ade802da83e2fd10d1c702691b31e458bedc2af898fbe32e11267bffe99fe19",
+      "bytes": 222
+    },
+    {
+      "path": "skills/agent-model-router/evals/behavior.json",
+      "sha256": "518bdd6bbd720d9c19299fabcf4015ce755a46cfa6b7ee3679e6afd9c5d446f6",
+      "bytes": 925
+    },
+    {
+      "path": "skills/agent-model-router/evals/routing.json",
+      "sha256": "2b0b42a5bc9f5f4315210822f3718a7410beebc2f401d54b6cdecd7f81873ba3",
+      "bytes": 821
+    },
+    {
+      "path": "skills/agent-model-router/references/model-routing-contract.md",
+      "sha256": "850c572fc9e693145dae64b5d755cd0ebe7eea24cfd2b697a608b021566d46c7",
+      "bytes": 1506
+    },
+    {
+      "path": "skills/agent-model-router/references/skill-dependencies.md",
+      "sha256": "2c05317e5434591a74c43778dbc358633f513920a6c47d35d5d523c842b335ed",
+      "bytes": 1774
+    },
+    {
+      "path": "skills/agent-model-router/scripts/validate_model_routing_policy.py",
+      "sha256": "a7330b8fd0dab7c4461bb0eabec8122287179dea6f2f806d0b91ce9dff764bad",
+      "bytes": 4913
+    },
+    {
       "path": "skills/agent-model-selector/SKILL.md",
       "sha256": "3d890e20e361e9b23bff9da8b3b4d3efeee790a82628ca698a279b5e3e2168a2",
       "bytes": 4118
@@ -691,6 +854,41 @@
       "path": "skills/agent-policy-manager/scripts/validate_policy_decision.py",
       "sha256": "7581846eb47452f625854a941be3bfc71ca6c999fa38e834d5f5840f016e5706",
       "bytes": 1596
+    },
+    {
+      "path": "skills/agent-protocol-manager/SKILL.md",
+      "sha256": "045e37d013786550fa3a4d0399c7f7c220a31045ead5a103d0be4618eac08014",
+      "bytes": 3467
+    },
+    {
+      "path": "skills/agent-protocol-manager/agents/openai.yaml",
+      "sha256": "592342b4b9db59e36e2fe07f3cc5137369c0497060038e06381324268c6e9f60",
+      "bytes": 220
+    },
+    {
+      "path": "skills/agent-protocol-manager/evals/behavior.json",
+      "sha256": "f1308889450cf0eb16a4845eeae0e22c038cd590dd6a1e3e876b29f4ca1762db",
+      "bytes": 968
+    },
+    {
+      "path": "skills/agent-protocol-manager/evals/routing.json",
+      "sha256": "3a6f2037420012c6d82b3e1653535544c4f097db204df5e0dc6150f8c4da36f5",
+      "bytes": 812
+    },
+    {
+      "path": "skills/agent-protocol-manager/references/protocol-adapter-contract.md",
+      "sha256": "5ce537d3746ba50e980cbc9548cfef2f5b15dc6467f492ae0d41c7240738c2da",
+      "bytes": 1372
+    },
+    {
+      "path": "skills/agent-protocol-manager/references/skill-dependencies.md",
+      "sha256": "21db76a8b32e0a6382ba8756886747a920502108e4f63c483ebf145b8fe14ffa",
+      "bytes": 1696
+    },
+    {
+      "path": "skills/agent-protocol-manager/scripts/validate_protocol_contract.py",
+      "sha256": "397013c3990d6e1eba73a4b850152403c64412899aa2f272cb15d7d54fc256fb",
+      "bytes": 3898
     },
     {
       "path": "skills/agent-refactor/SKILL.md",

@@ -6,7 +6,7 @@
   },
   "metadata": {
     "description": "InnovationMachine Agent Skills marketplace",
-    "version": "3.3.0"
+    "version": "3.4.0"
   },
   "plugins": [
     {
@@ -218,6 +218,72 @@
       ]
     },
     {
+      "name": "agent-master",
+      "source": "plugins/agent-master",
+      "description": "Builds a complete agent system from a task or process description on a governed autopilot",
+      "version": "2.0.0",
+      "author": {
+        "name": "InnovationMachine",
+        "email": "stanislav.usoltsev@gmail.com"
+      },
+      "homepage": "https://github.com/InnovationMachineTeam/skills",
+      "repository": "https://github.com/InnovationMachineTeam/skills",
+      "license": "Proprietary",
+      "keywords": [
+        "agent-master",
+        "agent-skills",
+        "agents",
+        "autopilot",
+        "factory",
+        "harness",
+        "lifecycle",
+        "orchestration",
+        "private-skills"
+      ],
+      "category": "agent-master",
+      "tags": [
+        "agent-master",
+        "agent-skills",
+        "agents",
+        "autopilot",
+        "factory",
+        "harness",
+        "lifecycle",
+        "orchestration",
+        "private-skills"
+      ]
+    },
+    {
+      "name": "agent-model-router",
+      "source": "plugins/agent-model-router",
+      "description": "Designs, audits and stages policy-constrained runtime routing across a pinned multi-model pool using typed task, risk, data, tool, context, latency, cost and quality features",
+      "version": "1.0.0",
+      "author": {
+        "name": "InnovationMachine",
+        "email": "stanislav.usoltsev@gmail.com"
+      },
+      "homepage": "https://github.com/InnovationMachineTeam/skills",
+      "repository": "https://github.com/InnovationMachineTeam/skills",
+      "license": "Proprietary",
+      "keywords": [
+        "agent-os",
+        "agent-os-skills",
+        "agent-skills",
+        "agents",
+        "models",
+        "routing"
+      ],
+      "category": "agent-os-skills",
+      "tags": [
+        "agent-os",
+        "agent-os-skills",
+        "agent-skills",
+        "agents",
+        "models",
+        "routing"
+      ]
+    },
+    {
       "name": "agent-model-selector",
       "source": "plugins/agent-model-selector",
       "description": "Selects and audits evidence-backed model policies for agents, subagents, evaluators, orchestrators, and team routes",
@@ -407,6 +473,36 @@
         "agents",
         "policy",
         "security"
+      ]
+    },
+    {
+      "name": "agent-protocol-manager",
+      "source": "plugins/agent-protocol-manager",
+      "description": "Designs, audits and stages explicit ports-and-adapters contracts for MCP, A2A, agent hosts and model/tool providers, including pinned versions, discovery, authentication, capability negotiation, schemas, streaming, cancellation...",
+      "version": "1.0.0",
+      "author": {
+        "name": "InnovationMachine",
+        "email": "stanislav.usoltsev@gmail.com"
+      },
+      "homepage": "https://github.com/InnovationMachineTeam/skills",
+      "repository": "https://github.com/InnovationMachineTeam/skills",
+      "license": "Proprietary",
+      "keywords": [
+        "adapters",
+        "agent-os",
+        "agent-os-skills",
+        "agent-skills",
+        "agents",
+        "protocols"
+      ],
+      "category": "agent-os-skills",
+      "tags": [
+        "adapters",
+        "agent-os",
+        "agent-os-skills",
+        "agent-skills",
+        "agents",
+        "protocols"
       ]
     },
     {

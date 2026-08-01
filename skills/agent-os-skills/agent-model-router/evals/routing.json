@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "skill": "agent-model-router",
+  "cases": [
+    {"id": "runtime-policy", "prompt": "Design a policy-constrained runtime router across our approved model pool with fallbacks and drift detection.", "expected_trigger": true, "expected_route": "agent-model-router"},
+    {"id": "route-audit", "prompt": "Audit why low-risk and high-risk requests are being sent to different pinned models.", "expected_trigger": true, "expected_route": "agent-model-router"},
+    {"id": "design-time-choice", "prompt": "Which current model should power one code-review agent?", "expected_trigger": false, "expected_route": "agent-model-selector"},
+    {"id": "provider-configuration", "prompt": "Add the provider API key and enable billing now.", "expected_trigger": false, "expected_route": "provider-owner"}
+  ]
+}

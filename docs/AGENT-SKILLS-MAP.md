@@ -2,8 +2,8 @@
 
 Generated from `AGENT-SKILLS-MAP.json`; do not edit manually.
 
-Revision: **2**
-Updated: **2026-07-31T13:38:05Z**
+Revision: **4**
+Updated: **2026-08-01T15:48:36Z**
 
 | Agent | Capability | Mode | Activation | Status | Owner |
 |---|---|---|---|---|---|

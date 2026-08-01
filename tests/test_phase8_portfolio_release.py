@@ -12,11 +12,13 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 AGENT_OS_SKILLS = {
+    "agent-model-router",
     "agent-observer",
     "agent-os-architect",
     "agent-os-bootstrapper",
     "agent-os-evaluator",
     "agent-policy-manager",
+    "agent-protocol-manager",
     "agent-registry-manager",
     "agent-runtime-manager",
 }
@@ -77,7 +79,7 @@ class PortfolioReleaseTests(unittest.TestCase):
         actual = {name: path.parent.name for name, path in self.skill_dirs.items()}
         self.assertEqual(actual, configured)
         self.assertEqual(
-            {"agent-os-skills", "agent-team-skills", "agent-skills", "metaskills", "prompt-skills"},
+            {"agent-master", "agent-os-skills", "agent-team-skills", "agent-skills", "metaskills", "prompt-skills"},
             set(actual.values()),
         )
         self.assertEqual("prompt-skills", actual["prompt-optimize"])

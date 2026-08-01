@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "builder": "skill-builder",
+  "build_id": "agent-master-private-factory-2026-08-01",
+  "scenario": "agent-system-capability",
+  "goal": "Rebuild agent-master as a governed Agent Harness factory whose four specialized capabilities are package-private subskills inside the public parent skill.",
+  "status": "completed",
+  "scope": [
+    "skills/agent-master/agent-master",
+    "catalog",
+    "docs",
+    "tests",
+    "generated marketplace projections"
+  ],
+  "source_material": [
+    "Мастер-промпт для создания агента-оркестратора процесса.pdf",
+    "Мастер-промпт специализированного агента.pdf",
+    "Мастер-промпт для создания навыка специализированного агента.pdf",
+    "Мастер-промпт для реализации инструментов навыка.pdf",
+    "Мастер-промпт Agent Harness.pdf",
+    "nick-vels/skills autopilot SKILL.md at commit 0e7e6eb9255fbb544cb61d8014b63eb6cc7752a5"
+  ],
+  "acceptance_criteria": [
+    "the first unresolved question is public versus private structure",
+    "the parent announces and persists an execution mode before material work",
+    "the minimum-system gate precedes architecture expansion",
+    "four specialized capabilities exist only as package-private subskills of agent-master",
+    "the fixed Agent Harness factory phases preserve human and authority gates in every mode",
+    "structural, routing, behavior, state, registry, catalog, package and repository checks pass"
+  ],
+  "authority": {
+    "write": true,
+    "external_research": true,
+    "install": false,
+    "publish": false,
+    "retire": false,
+    "production_activation": false
+  },
+  "phases": [
+    {
+      "id": "phase-practices",
+      "specialist": "skill-best-practices",
+      "objective": "Resolve repository-backed composition, visibility and orchestration practices and inspect the pinned external autopilot exemplar.",
+      "status": "completed",
+      "dependencies": [],
+      "entry_conditions": ["the five supplied PDFs and repository are in scope"],
+      "required_outputs": ["source map", "visibility decision", "practice evidence"],
+      "exit_checks": ["public parent plus package-private subskills selected", "external ideas are adapted rather than copied wholesale"],
+      "authority": {"write": false, "external_research": true, "install": false, "publish": false, "retire": false},
+      "evidence": [
+        "skills/agent-master/agent-master/references/private-skill-registry.json",
+        "skills/agent-master/agent-master/references/routing-and-autopilot.md"
+      ]
+    },
+    {
+      "id": "phase-architecture",
+      "specialist": "skill-architect",
+      "objective": "Classify the parent as an orchestrator and the four nested capabilities as private package resources with explicit contracts.",
+      "status": "completed",
+      "dependencies": ["phase-practices"],
+      "entry_conditions": ["source map and visibility decision exist"],
+      "required_outputs": ["parent contract", "private registry", "four output contracts", "state contract"],
+      "exit_checks": ["only agent-master is globally discoverable", "private consumers are closed to the parent"],
+      "authority": {"write": true, "external_research": false, "install": false, "publish": false, "retire": false},
+      "evidence": [
+        "skills/agent-master/agent-master/SKILL.md",
+        "skills/agent-master/agent-master/references/private-skill-registry.json",
+        "skills/agent-master/agent-master/references/state-contract.md"
+      ]
+    },
+    {
+      "id": "phase-implementation",
+      "specialist": "skill-creator",
+      "objective": "Materialize the four package-private subskills, their resources and their routing and behavior fixtures.",
+      "status": "completed",
+      "dependencies": ["phase-architecture"],
+      "entry_conditions": ["the private capability contracts are approved by the parent architecture"],
+      "required_outputs": ["four SKILL.md files", "four output contracts", "eight eval fixtures"],
+      "exit_checks": ["no nested agents/openai.yaml", "no placeholders", "all private resources are linked"],
+      "authority": {"write": true, "external_research": false, "install": false, "publish": false, "retire": false},
+      "evidence": [
+        "skills/agent-master/agent-master/private-skills/process-orchestrator-architect",
+        "skills/agent-master/agent-master/private-skills/role-agent-architect",
+        "skills/agent-master/agent-master/private-skills/role-skill-architect",
+        "skills/agent-master/agent-master/private-skills/skill-implementation-engineer"
+      ]
+    },
+    {
+      "id": "phase-evaluation",
+      "specialist": "skill-evaluator",
+      "objective": "Run structural, deterministic and fresh-context semantic checks on the frozen 2.0.0 candidate.",
+      "status": "completed",
+      "dependencies": ["phase-implementation"],
+      "entry_conditions": ["candidate content is frozen for the run"],
+      "required_outputs": ["per-layer verdicts", "semantic forward-run evidence", "explicit limitations"],
+      "exit_checks": ["blocking checks pass", "authority gates survive autonomous mode", "limitations are explicit"],
+      "authority": {"write": false, "external_research": false, "install": false, "publish": false, "retire": false},
+      "evidence": [
+        "docs/agents/evals/agent-master-2.0.0-results.json",
+        "tests/test_agent_master.py",
+        "full 70-test suite PASS"
+      ]
+    },
+    {
+      "id": "phase-registration",
+      "specialist": "repository asset tooling",
+      "objective": "Register only the public parent, rebuild generated projections and verify package-private containment without host activation.",
+      "status": "completed",
+      "dependencies": ["phase-evaluation"],
+      "entry_conditions": ["candidate evaluation passes"],
+      "required_outputs": ["registry/map parity", "catalog parity", "generated package parity"],
+      "exit_checks": ["42 public skills and four package-private subskills validate", "installation and activation remain false"],
+      "authority": {"write": true, "external_research": false, "install": false, "publish": false, "retire": false},
+      "evidence": [
+        "docs/AGENT-ASSET-REGISTRY.json revision 18",
+        "repository validator PASS for 42 public skills and four package-private subskills",
+        "three marketplace manifests current"
+      ]
+    }
+  ],
+  "artifacts": [
+    "skills/agent-master/agent-master",
+    "docs/agents/evals/agent-master-2.0.0-results.json",
+    "plugins/agent-master",
+    "plugin/skills/agent-master"
+  ],
+  "approvals": [
+    {
+      "subject": "replace agent-master with a private-subskill implementation in the requested repository",
+      "status": "authorized-by-user-request",
+      "scope": "repository files and generated projections only",
+      "time": "2026-08-01"
+    }
+  ],
+  "risks": [
+    "package-private subskills are a repository-specific extension and require the updated repository validators and builders",
+    "fresh-context probes cover initial routing and authority behavior, not a complete production Agent Harness build",
+    "the bundled skill-creator quick validator cannot run until PyYAML is present"
+  ],
+  "updated_at": "2026-08-01T15:51:00Z"
+}

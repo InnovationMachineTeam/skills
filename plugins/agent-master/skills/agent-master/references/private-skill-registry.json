@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "owner_skill": "agent-master",
+  "visibility": "package_private",
+  "discoverability": "explicit_parent_dispatch_only",
+  "allowed_consumers": [
+    "agent-master"
+  ],
+  "skills": [
+    {
+      "name": "process-orchestrator-architect",
+      "version": "1.0.0",
+      "locator": "private-skills/process-orchestrator-architect",
+      "primary_archetype": "artifact-template",
+      "source_contract": "Master prompt for creating a process orchestrator agent"
+    },
+    {
+      "name": "role-agent-architect",
+      "version": "1.0.0",
+      "locator": "private-skills/role-agent-architect",
+      "primary_archetype": "artifact-template",
+      "source_contract": "Master prompt for a specialized role agent"
+    },
+    {
+      "name": "role-skill-architect",
+      "version": "1.0.0",
+      "locator": "private-skills/role-skill-architect",
+      "primary_archetype": "artifact-template",
+      "source_contract": "Master prompt for creating a specialized agent skill"
+    },
+    {
+      "name": "skill-implementation-engineer",
+      "version": "1.0.0",
+      "locator": "private-skills/skill-implementation-engineer",
+      "primary_archetype": "script-automation",
+      "source_contract": "Master prompt for implementing skill tools and automations"
+    }
+  ],
+  "promotion_rule": "Assess public promotion only after an approved independent consumer and generalized contract exist.",
+  "provenance": [
+    "Five user-supplied Russian master-prompt PDFs, operationalized on 2026-08-01",
+    "nick-vels/skills autopilot at commit 0e7e6eb9255fbb544cb61d8014b63eb6cc7752a5, MIT, used as an exemplar"
+  ]
+}

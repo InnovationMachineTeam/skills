@@ -11,6 +11,7 @@ Host CLIs are optional unless that host is being installed or validated.
 
 ## Choose an entry
 
+- `agent-master`: governed Agent Harness factory from process description through orchestrator, role agents, skills, implementation and validation;
 - `agentkit`: explicit one-agent lifecycle toolkit;
 - `agent-team-manager`: assess and govern team lifecycles;
 - `agent-os-architect`: assess and design an Agentic OS;
@@ -57,6 +58,10 @@ Codex and Cursor use the explicit dependency-first path.
 ## First use
 
 ```text
+Use agent-master to build a private Agent Harness for this process on supervised
+autopilot. Create the minimum sufficient orchestrator, role agents, role skills,
+tools, evals and documentation, but stop before installation or activation.
+
 agentkit help
 agentkit status
 agentkit run Design one agent that maintains ADR review evidence for this repo.

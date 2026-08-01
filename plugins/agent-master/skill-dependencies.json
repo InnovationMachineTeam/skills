@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "skill": "agent-master",
+  "native_auto_install": {
+    "claude-code": true,
+    "codex": false,
+    "cursor": false
+  },
+  "required": [],
+  "recommended": [
+    {
+      "name": "skill-builder",
+      "minimum_version": "1.4.0",
+      "reason": "Recommended for evidence-backed skill lifecycle and productionization gates."
+    },
+    {
+      "name": "skill-architect",
+      "minimum_version": "1.2.0",
+      "reason": "Recommended for capability form, visibility, boundary and host-native package decisions."
+    },
+    {
+      "name": "skill-evaluator",
+      "minimum_version": "1.1.0",
+      "reason": "Recommended for independent frozen skill evaluation and holdout evidence."
+    },
+    {
+      "name": "prompt-optimize",
+      "minimum_version": "3.0.0",
+      "reason": "Recommended for durable orchestrator and role-agent system prompts."
+    },
+    {
+      "name": "agent-team-architect",
+      "minimum_version": "1.1.0",
+      "reason": "Recommended when the process justifies multiple standalone role agents."
+    },
+    {
+      "name": "agent-model-selector",
+      "minimum_version": "1.0.0",
+      "reason": "Recommended when model selection must be evidence-backed per role."
+    },
+    {
+      "name": "agent-os-architect",
+      "minimum_version": "1.0.0",
+      "reason": "Recommended when durable shared runtime planes are justified."
+    },
+    {
+      "name": "agent-observer",
+      "minimum_version": "1.0.0",
+      "reason": "Recommended for operational logs, traces, metrics, SLOs and incident design."
+    },
+    {
+      "name": "agent-os-bootstrapper",
+      "minimum_version": "1.0.0",
+      "reason": "Recommended when an approved harness walking skeleton must be materialized."
+    },
+    {
+      "name": "agent-os-evaluator",
+      "minimum_version": "1.0.0",
+      "reason": "Recommended for independent harness integration, recovery and lifecycle evidence."
+    }
+  ],
+  "install_order": [
+    "agent-master"
+  ]
+}

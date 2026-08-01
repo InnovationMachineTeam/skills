@@ -1,0 +1,83 @@
+{
+  "format": 2,
+  "plugin": "agent-protocol-manager",
+  "version": "1.0.0",
+  "source_layout": "skills/",
+  "bundle_layout": "skills/<name>/",
+  "platforms": [
+    "claude-code",
+    "codex",
+    "cursor"
+  ],
+  "skills": [
+    "agent-protocol-manager"
+  ],
+  "excluded_patterns": [
+    ".DS_Store",
+    "__pycache__",
+    "*.pyc",
+    ".git"
+  ],
+  "files": [
+    {
+      "path": ".claude-plugin/plugin.json",
+      "sha256": "d1f63fc4cffd38bfefd835f924a5c76a84317661b4bc39fd92dd2cffc87cfbe5",
+      "bytes": 485
+    },
+    {
+      "path": ".codex-plugin/plugin.json",
+      "sha256": "f3d95b46002e7c1f48c99d3812cd2ebfff0b10e269fcca05ea8904752bfce590",
+      "bytes": 1501
+    },
+    {
+      "path": ".cursor-plugin/plugin.json",
+      "sha256": "74b0656f2b59b84fb9785348439fc189a9ddbb5e7aede66db01cbc691e4dea13",
+      "bytes": 719
+    },
+    {
+      "path": "README.md",
+      "sha256": "39622e6a49b7adfa6dddd79bf5eaf58e9ab8f61220d7143db88902d17f172933",
+      "bytes": 1199
+    },
+    {
+      "path": "skill-dependencies.json",
+      "sha256": "b17117ce98565b8b47db8235a6a933307be1c3fafa4df8b44ec86f83db00aad8",
+      "bytes": 592
+    },
+    {
+      "path": "skills/agent-protocol-manager/SKILL.md",
+      "sha256": "045e37d013786550fa3a4d0399c7f7c220a31045ead5a103d0be4618eac08014",
+      "bytes": 3467
+    },
+    {
+      "path": "skills/agent-protocol-manager/agents/openai.yaml",
+      "sha256": "592342b4b9db59e36e2fe07f3cc5137369c0497060038e06381324268c6e9f60",
+      "bytes": 220
+    },
+    {
+      "path": "skills/agent-protocol-manager/evals/behavior.json",
+      "sha256": "f1308889450cf0eb16a4845eeae0e22c038cd590dd6a1e3e876b29f4ca1762db",
+      "bytes": 968
+    },
+    {
+      "path": "skills/agent-protocol-manager/evals/routing.json",
+      "sha256": "3a6f2037420012c6d82b3e1653535544c4f097db204df5e0dc6150f8c4da36f5",
+      "bytes": 812
+    },
+    {
+      "path": "skills/agent-protocol-manager/references/protocol-adapter-contract.md",
+      "sha256": "5ce537d3746ba50e980cbc9548cfef2f5b15dc6467f492ae0d41c7240738c2da",
+      "bytes": 1372
+    },
+    {
+      "path": "skills/agent-protocol-manager/references/skill-dependencies.md",
+      "sha256": "21db76a8b32e0a6382ba8756886747a920502108e4f63c483ebf145b8fe14ffa",
+      "bytes": 1696
+    },
+    {
+      "path": "skills/agent-protocol-manager/scripts/validate_protocol_contract.py",
+      "sha256": "397013c3990d6e1eba73a4b850152403c64412899aa2f272cb15d7d54fc256fb",
+      "bytes": 3898
+    }
+  ]
+}

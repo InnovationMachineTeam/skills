@@ -1,0 +1,13 @@
+{
+  "name": "agent-protocol-manager",
+  "displayName": "Agent Protocol Manager",
+  "version": "1.0.0",
+  "description": "Designs, audits and stages explicit ports-and-adapters contracts for MCP, A2A, agent hosts and model/tool providers, including pinned versions, discovery, authentication, capability negotiation, schemas, streaming, cancellation...",
+  "skills": [
+    "./skills"
+  ],
+  "author": {
+    "name": "InnovationMachine",
+    "email": "stanislav.usoltsev@gmail.com"
+  }
+}

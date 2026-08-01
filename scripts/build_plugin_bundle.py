@@ -36,6 +36,15 @@ def compact_text(value: str, limit: int) -> str:
     return shortened + "…"
 
 
+def is_package_private_skill(skill_file: Path, skills_root: Path) -> bool:
+    parts = skill_file.relative_to(skills_root).parts
+    return (
+        len(parts) >= 4
+        and parts[-3] == "private-skills"
+        and (skill_file.parents[2] / "SKILL.md").is_file()
+    )
+
+
 def build_bundle(
     *,
     root: Path,
@@ -75,7 +84,9 @@ def build_bundle(
     for skill_file in sorted(skills_root.rglob("SKILL.md")):
         parts = skill_file.relative_to(skills_root).parts
         if len(parts) not in (2, 3):
-            raise ValueError("only flat or one-category canonical skill layouts are supported")
+            if is_package_private_skill(skill_file, skills_root):
+                continue
+            raise ValueError("only canonical skills or parent-owned private-skills are supported")
         name = skill_file.parent.name
         if name in available:
             raise ValueError(f"duplicate canonical skill name: {name}")

@@ -8,7 +8,9 @@ provide the required durable shared services.
 | `agent-os-architect` | minimum platform architecture and build/extend/buy comparison |
 | `agent-os-bootstrapper` | approved non-production vertical walking skeleton |
 | `agent-os-evaluator` | independent frozen evaluation and release evidence |
+| `agent-model-router` | governed runtime routing across an approved model pool |
 | `agent-policy-manager` | versioned authorization and approval policy |
+| `agent-protocol-manager` | MCP, A2A, host and provider adapter contracts |
 | `agent-registry-manager` | desired inventory and observed-state reconciliation |
 | `agent-runtime-manager` | durable tasks, leases, retries, cancellation, recovery |
 | `agent-observer` | traces, SLOs, alerts, incidents, cost, and drift evidence |

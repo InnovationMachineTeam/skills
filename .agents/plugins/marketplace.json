@@ -101,6 +101,30 @@
       "category": "Developer Tools"
     },
     {
+      "name": "agent-master",
+      "source": {
+        "source": "local",
+        "path": "./plugins/agent-master"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    },
+    {
+      "name": "agent-model-router",
+      "source": {
+        "source": "local",
+        "path": "./plugins/agent-model-router"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    },
+    {
       "name": "agent-model-selector",
       "source": {
         "source": "local",
@@ -177,6 +201,18 @@
       "source": {
         "source": "local",
         "path": "./plugins/agent-policy-manager"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    },
+    {
+      "name": "agent-protocol-manager",
+      "source": {
+        "source": "local",
+        "path": "./plugins/agent-protocol-manager"
       },
       "policy": {
         "installation": "AVAILABLE",

@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "skill": "agent-model-router",
+  "native_auto_install": {
+    "claude-code": true,
+    "codex": false,
+    "cursor": false
+  },
+  "required": [],
+  "recommended": [
+    {
+      "name": "agent-model-selector",
+      "minimum_version": "1.0.0",
+      "reason": "Provides current evidence-backed approved-pool selection before runtime routing."
+    },
+    {
+      "name": "agent-observer",
+      "minimum_version": "1.0.0",
+      "reason": "Provides route telemetry, SLO and drift evidence."
+    },
+    {
+      "name": "agent-policy-manager",
+      "minimum_version": "1.0.0",
+      "reason": "Provides authorization constraints for route decisions."
+    }
+  ],
+  "install_order": [
+    "agent-model-router"
+  ]
+}

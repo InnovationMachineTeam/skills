@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "skill": "role-skill-architect",
+  "cases": [
+    {
+      "id": "approved-capability",
+      "prompt": "Agent-master dispatches one approved evidence-triangulation capability from a designed reviewer role.",
+      "expected_trigger": true,
+      "expected_route": "role-skill-architect"
+    },
+    {
+      "id": "role-design",
+      "prompt": "Create the entire specialist reviewer agent first.",
+      "expected_trigger": false,
+      "expected_route": "role-agent-architect"
+    },
+    {
+      "id": "component-implementation",
+      "prompt": "Implement the already approved deterministic schema validator proposed by this skill.",
+      "expected_trigger": false,
+      "expected_route": "skill-implementation-engineer"
+    }
+  ]
+}

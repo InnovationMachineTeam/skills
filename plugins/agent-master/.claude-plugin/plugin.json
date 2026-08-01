@@ -1,0 +1,13 @@
+{
+  "name": "agent-master",
+  "displayName": "Agent Master",
+  "version": "2.0.0",
+  "description": "Builds a complete agent system from a task or process description on a governed autopilot",
+  "skills": [
+    "./skills"
+  ],
+  "author": {
+    "name": "InnovationMachine",
+    "email": "stanislav.usoltsev@gmail.com"
+  }
+}

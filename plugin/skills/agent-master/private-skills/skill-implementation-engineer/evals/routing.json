@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "skill": "skill-implementation-engineer",
+  "cases": [
+    {
+      "id": "validated-proposal",
+      "prompt": "Agent-master dispatches a validated role skill with one required JSON validator and explicit repository write authority.",
+      "expected_trigger": true,
+      "expected_route": "skill-implementation-engineer"
+    },
+    {
+      "id": "unvalidated-idea",
+      "prompt": "Maybe add some scripts and microservices to this idea.",
+      "expected_trigger": false,
+      "expected_route": "role-skill-architect"
+    },
+    {
+      "id": "production-deploy",
+      "prompt": "Deploy the completed tool to production now.",
+      "expected_trigger": false,
+      "expected_route": "human-approval-or-lifecycle-manager"
+    }
+  ]
+}

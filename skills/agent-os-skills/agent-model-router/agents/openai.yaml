@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent Model Router"
+  short_description: "Govern multi-model runtime routing"
+  default_prompt: "Use $agent-model-router to design or audit a policy-constrained runtime model routing contract."

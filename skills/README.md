@@ -5,6 +5,7 @@ and `plugins/` are projections and must not be edited directly.
 
 | Category | Scope | Entry points |
 |---|---|---|
+| `agent-master/` | Agent Harness factory with package-private process, role, skill and implementation architects | `agent-master` |
 | [agent-skills](agent-skills/README.md) | one agent or subagent | `agent-builder`, `agentkit` |
 | [agent-team-skills](agent-team-skills/README.md) | team architecture, build, mapping, execution | `agent-team-manager` |
 | [agent-os-skills](agent-os-skills/README.md) | durable platform planes | `agent-os-architect` |

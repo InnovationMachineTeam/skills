@@ -7,7 +7,7 @@ maintainers.
 
 ## What this marketplace provides
 
-IM Skills contains four related capability layers:
+IM Skills contains four related capability layers plus one cross-plane entry point:
 
 | Layer | Use it for | Primary entry point |
 |---|---|---|
@@ -15,6 +15,12 @@ IM Skills contains four related capability layers:
 | Agent team | Several roles with distinct skills, context, permissions, or independent verification | `agent-team-manager` |
 | Agentic OS | Durable multi-team execution, policy, registry, observability, recovery, and shared knowledge | `agent-os-architect` |
 | Skill engineering | Creating, evaluating, maintaining, and packaging reusable capabilities | `skill-builder` or `metaskillpack` |
+
+When a process must become a complete Agent Harness, invoke `agent-master`. It
+first resolves public versus private structure, announces an execution mode,
+selects the minimum operating unit and current harness, then coordinates its
+package-private process-orchestrator, role-agent, role-skill and implementation
+architects through integration, evaluation and bounded improvement.
 
 The default is the smallest sufficient unit. A complicated task does not
 automatically require a team, and a team does not automatically require an
@@ -80,6 +86,20 @@ Choose one installation channel for each skill and scope. Do not install the
 same skill through both the marketplace and Skills CLI in one host scope.
 
 ## Three ways to start
+
+### Start with cross-plane autopilot
+
+Use this when a task or process must become an end-to-end agent system and the
+correct operating unit or harness is not yet known:
+
+```text
+Use agent-master to build a private Agent Harness for this process on supervised
+autopilot. Apply the minimum-system gate, then create the orchestrator, justified
+role agents, their skills and necessary implementations. Validate the full path
+and stop before installation, publication or production activation.
+```
+
+Direct named specialist requests still bypass the facade.
 
 ### Start with one explicit specialist
 

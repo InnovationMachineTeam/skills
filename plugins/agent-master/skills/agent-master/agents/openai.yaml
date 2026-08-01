@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent Master"
+  short_description: "Build governed Agent Harness systems on autopilot"
+  default_prompt: "Use $agent-master to build the minimum sufficient Agent Harness, orchestrator, private role agents, skills, and implementations from this process."

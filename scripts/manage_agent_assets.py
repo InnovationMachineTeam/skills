@@ -33,6 +33,14 @@ REGISTRY_VIEW = Path("docs/AGENT-ASSET-REGISTRY.md")
 MAP_VIEW = Path("docs/AGENT-SKILLS-MAP.md")
 
 
+def canonical_skill_files(root: Path) -> list[Path]:
+    skills_root = root / "skills"
+    return sorted(
+        path for path in skills_root.rglob("SKILL.md")
+        if len(path.relative_to(skills_root).parts) in (2, 3)
+    )
+
+
 def now() -> str:
     return datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
 
@@ -319,7 +327,7 @@ def validate(
     if require_catalog:
         category_root = root / "skills"
         if category_root.is_dir():
-            for skill_file in sorted(category_root.rglob("SKILL.md")):
+            for skill_file in canonical_skill_files(root):
                 locator = skill_file.parent.relative_to(root).as_posix()
                 if locator not in by_locator:
                     failures.append(f"unregistered canonical skill: {locator}")
@@ -423,7 +431,7 @@ def sync_public(root: Path, owner: str, write: bool) -> int:
         raise ValueError("registry assets must be an array")
     by_id = {item.get("id"): item for item in assets if isinstance(item, dict)}
     changed = 0
-    for skill_file in sorted((root / "skills").rglob("SKILL.md")):
+    for skill_file in canonical_skill_files(root):
         locator = skill_file.parent.relative_to(root).as_posix()
         name, _description, _version, error = frontmatter(skill_file.read_text(encoding="utf-8"))
         if error or not name:

@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "skill": "process-orchestrator-architect",
+  "cases": [
+    {
+      "id": "parent-dispatch",
+      "prompt": "Agent-master has fixed private visibility and asks for an executable orchestrator specification for this procurement process.",
+      "expected_trigger": true,
+      "expected_route": "process-orchestrator-architect"
+    },
+    {
+      "id": "direct-user-request",
+      "prompt": "Design an orchestrator for my process without running agent-master first.",
+      "expected_trigger": false,
+      "expected_route": "agent-master"
+    },
+    {
+      "id": "role-agent-phase",
+      "prompt": "Create the specialist compliance reviewer defined by an approved orchestrator.",
+      "expected_trigger": false,
+      "expected_route": "role-agent-architect"
+    }
+  ]
+}

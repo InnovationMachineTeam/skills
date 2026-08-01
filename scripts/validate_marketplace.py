@@ -93,6 +93,15 @@ def validate_json_manifest(path: Path, root: Path, findings: list[Finding]) -> d
     return data
 
 
+def is_package_private_skill(skill_file: Path, skills_root: Path) -> bool:
+    parts = skill_file.relative_to(skills_root).parts
+    return (
+        len(parts) >= 4
+        and parts[-3] == "private-skills"
+        and (skill_file.parents[2] / "SKILL.md").is_file()
+    )
+
+
 def validate_marketplace(root: Path) -> tuple[list[Finding], dict[str, Any]]:
     findings: list[Finding] = []
     inventory: list[dict[str, str]] = []
@@ -106,11 +115,16 @@ def validate_marketplace(root: Path) -> tuple[list[Finding], dict[str, Any]]:
         add(findings, "FAIL", "empty-catalog", Path("skills"), "no SKILL.md files found")
 
     names: dict[str, Path] = {}
+    private_names: dict[tuple[Path, str], Path] = {}
+    private_count = 0
+    checked_markdown: set[Path] = set()
     for skill_file in all_skill_files:
         rel = skill_file.relative_to(root)
         depth = len(skill_file.relative_to(skills_root).parts)
-        if depth not in (2, 3):
-            add(findings, "FAIL", "unsupported-depth", rel, "skill.sh-compatible layout allows zero or one category level")
+        package_private = is_package_private_skill(skill_file, skills_root)
+        if depth not in (2, 3) and not package_private:
+            add(findings, "FAIL", "unsupported-depth", rel, "only canonical skills or parent-owned private-skills are supported")
+            continue
         text = skill_file.read_text(encoding="utf-8")
         name, description, version, error = frontmatter(text)
         if error:
@@ -121,6 +135,15 @@ def validate_marketplace(root: Path) -> tuple[list[Finding], dict[str, Any]]:
             add(findings, "FAIL", "invalid-name", rel, f"invalid or missing name: {name!r}")
         elif name != folder:
             add(findings, "FAIL", "name-directory-mismatch", rel, f"name {name!r} does not match {folder!r}")
+        elif package_private:
+            key = (skill_file.parents[2], name)
+            if key in private_names:
+                add(findings, "FAIL", "duplicate-private-name", rel, f"also declared by {private_names[key].as_posix()}")
+            else:
+                private_names[key] = rel
+                private_count += 1
+            if (skill_file.parent / "agents" / "openai.yaml").exists():
+                add(findings, "FAIL", "private-ui-discovery", rel, "package-private subskills must not publish UI discovery metadata")
         elif name in names:
             add(findings, "FAIL", "duplicate-name", rel, f"also declared by {names[name].as_posix()}")
         else:
@@ -129,9 +152,12 @@ def validate_marketplace(root: Path) -> tuple[list[Finding], dict[str, Any]]:
             add(findings, "FAIL", "missing-description", rel, "description is required")
         if not version or not SEMVER.fullmatch(version):
             add(findings, "FAIL", "invalid-version", rel, f"metadata.version must be a SemVer string, got {version!r}")
-        inventory.append({"name": name or "", "version": version or "", "path": rel.as_posix()})
+        if not package_private:
+            inventory.append({"name": name or "", "version": version or "", "path": rel.as_posix()})
         for markdown in skill_file.parent.rglob("*.md"):
-            local_links(markdown, root, findings)
+            if markdown not in checked_markdown:
+                local_links(markdown, root, findings)
+                checked_markdown.add(markdown)
 
     for symlink in root.rglob("*"):
         if symlink.is_symlink():
@@ -173,7 +199,7 @@ def validate_marketplace(root: Path) -> tuple[list[Finding], dict[str, Any]]:
                     add(findings, "FAIL", "missing-plugin-skill-path", plugin_path.relative_to(root), str(local))
 
     if not any(f.level == "FAIL" for f in findings):
-        add(findings, "PASS", "portable-structure", Path("."), f"validated {len(inventory)} skills")
+        add(findings, "PASS", "portable-structure", Path("."), f"validated {len(inventory)} public skills and {private_count} package-private subskills")
     return findings, {"skills": inventory}
 
 

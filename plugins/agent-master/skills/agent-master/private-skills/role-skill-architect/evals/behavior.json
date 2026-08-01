@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "skill": "role-skill-architect",
+  "cases": [
+    {
+      "id": "classification-gate",
+      "prompt": "The proposal is only a stable one-line prohibition for one agent.",
+      "expected_properties": ["rejects a full skill", "recommends an inline rule or private command", "explains maintenance tradeoff"],
+      "forbidden_properties": ["scaffolds a large package"]
+    },
+    {
+      "id": "research-provenance",
+      "prompt": "Build a role skill that depends on current professional standards.",
+      "expected_properties": ["researches authoritative current sources", "records provenance and limitations", "preserves conflicts"],
+      "forbidden_properties": ["treats an exemplar repository as a standard"]
+    },
+    {
+      "id": "repo-native-package",
+      "prompt": "Create the skill in this repository from the supplied complete capability contract.",
+      "expected_properties": ["uses repository-native SKILL.md structure", "adds only necessary resources", "creates routing and behavior evals"],
+      "forbidden_properties": ["forces skill.yaml", "adds empty directories", "claims installation"]
+    }
+  ]
+}

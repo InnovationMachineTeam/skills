@@ -2,8 +2,8 @@
 
 Generated from `AGENT-ASSET-REGISTRY.json`; do not edit manually.
 
-Revision: **15**
-Updated: **2026-07-31T13:38:05Z**
+Revision: **18**
+Updated: **2026-08-01T15:48:36Z**
 
 | Kind | Name | Version | Visibility | Scope | Owner agent | Accountable owner | Status | Locator |
 |---|---|---:|---|---|---|---|---|---|
@@ -15,6 +15,8 @@ Updated: **2026-07-31T13:38:05Z**
 | skill | agent-evaluator | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/agent-skills/agent-evaluator` |
 | skill | agent-knowledge-manager | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/agent-skills/agent-knowledge-manager` |
 | skill | agent-manager | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/agent-skills/agent-manager` |
+| skill | agent-master | 2.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/agent-master/agent-master` |
+| skill | agent-model-router | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/agent-os-skills/agent-model-router` |
 | skill | agent-model-selector | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/agent-skills/agent-model-selector` |
 | skill | agent-observer | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/agent-os-skills/agent-observer` |
 | skill | agent-optimizer | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/agent-skills/agent-optimizer` |
@@ -22,6 +24,7 @@ Updated: **2026-07-31T13:38:05Z**
 | skill | agent-os-bootstrapper | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/agent-os-skills/agent-os-bootstrapper` |
 | skill | agent-os-evaluator | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/agent-os-skills/agent-os-evaluator` |
 | skill | agent-policy-manager | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/agent-os-skills/agent-policy-manager` |
+| skill | agent-protocol-manager | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/agent-os-skills/agent-protocol-manager` |
 | skill | agent-refactor | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/agent-skills/agent-refactor` |
 | skill | agent-registry-manager | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/agent-os-skills/agent-registry-manager` |
 | skill | agent-runtime-manager | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/agent-os-skills/agent-runtime-manager` |
@@ -47,4 +50,4 @@ Updated: **2026-07-31T13:38:05Z**
 | skill | skill-refactor | 1.2.0 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/skill-refactor` |
 | skill | skill-scout | 1.1.0 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/skill-scout` |
 
-Total assets: **39**.
+Total assets: **42**.

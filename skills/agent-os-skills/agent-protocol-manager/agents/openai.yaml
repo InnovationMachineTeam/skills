@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent Protocol Manager"
+  short_description: "Govern agent protocol adapters"
+  default_prompt: "Use $agent-protocol-manager to design or audit MCP, A2A, host, or provider adapter contracts."

@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "skill": "role-agent-architect",
+  "cases": [
+    {
+      "id": "approved-role",
+      "prompt": "Agent-master dispatches the approved evidence-reviewer role with the orchestrator spec and its proposed skills.",
+      "expected_trigger": true,
+      "expected_route": "role-agent-architect"
+    },
+    {
+      "id": "no-role-contract",
+      "prompt": "Create some useful agents for my company.",
+      "expected_trigger": false,
+      "expected_route": "agent-master"
+    },
+    {
+      "id": "skill-build",
+      "prompt": "Turn the approved evidence-triangulation capability into a skill package.",
+      "expected_trigger": false,
+      "expected_route": "role-skill-architect"
+    }
+  ]
+}

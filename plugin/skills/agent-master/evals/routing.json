@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "skill": "agent-master",
+  "cases": [
+    {
+      "id": "explicit-harness-autopilot",
+      "prompt": "Use agent-master to turn this service-delivery process into a private Agent Harness with an orchestrator, role agents, skills, tools, evals, and documentation.",
+      "expected_trigger": true,
+      "expected_route": "agent-master"
+    },
+    {
+      "id": "visibility-unresolved",
+      "prompt": "Build a complete agent system for this process on autopilot.",
+      "expected_trigger": true,
+      "expected_route": "agent-master"
+    },
+    {
+      "id": "process-orchestrator-factory",
+      "prompt": "Create the process orchestrator, specialist agents, their skills, and required automations end to end.",
+      "expected_trigger": true,
+      "expected_route": "agent-master"
+    },
+    {
+      "id": "direct-role-agent",
+      "prompt": "Create one requirements analyst agent from this already approved role specification.",
+      "expected_trigger": false,
+      "expected_route": "agent-architect-or-agent-builder"
+    },
+    {
+      "id": "direct-skill-build",
+      "prompt": "Create one skill from this complete specification and evaluate it.",
+      "expected_trigger": false,
+      "expected_route": "skill-builder"
+    },
+    {
+      "id": "ordinary-agent-use",
+      "prompt": "Use the existing release-note agent to summarize these commits.",
+      "expected_trigger": false,
+      "expected_route": "existing-agent"
+    }
+  ]
+}

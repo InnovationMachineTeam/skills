@@ -14,6 +14,8 @@ This generated package is installable by Claude Code, Codex, and Cursor. Its can
 - `agent-evaluator`
 - `agent-knowledge-manager`
 - `agent-manager`
+- `agent-master`
+- `agent-model-router`
 - `agent-model-selector`
 - `agent-observer`
 - `agent-optimizer`
@@ -21,6 +23,7 @@ This generated package is installable by Claude Code, Codex, and Cursor. Its can
 - `agent-os-bootstrapper`
 - `agent-os-evaluator`
 - `agent-policy-manager`
+- `agent-protocol-manager`
 - `agent-refactor`
 - `agent-registry-manager`
 - `agent-runtime-manager`
