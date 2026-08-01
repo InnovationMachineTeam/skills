@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "skill": "prompt-master",
+  "cases": [
+    {"id": "explicit-master", "prompt": "Use prompt-master to rebuild this system prompt and deliver Compact, Standard, and evaluation artifacts.", "expected_trigger": true, "expected_route": "prompt-master:improve"},
+    {"id": "reconstruct-from-outputs", "prompt": "I do not have the original prompt. Reconstruct a functionally equivalent prompt from these three example reports.", "expected_trigger": true, "expected_route": "prompt-master:reconstruct"},
+    {"id": "generalize", "prompt": "Turn this private sales prompt into a reusable cross-domain master prompt with parameters and applicability limits.", "expected_trigger": true, "expected_route": "prompt-master:generalize"},
+    {"id": "specialize", "prompt": "Specialize this generic reviewer prompt for a regulated medical-device workflow and update its evals.", "expected_trigger": true, "expected_route": "prompt-master:specialize"},
+    {"id": "merge", "prompt": "Merge these four overlapping agent prompts, resolve conflicting authority rules, and preserve provenance.", "expected_trigger": true, "expected_route": "prompt-master:merge"},
+    {"id": "decompose", "prompt": "Decompose this monolithic multi-role prompt into a controller and bounded child prompts.", "expected_trigger": true, "expected_route": "prompt-master:decompose"},
+    {"id": "full-audit", "prompt": "Use prompt-master to audit this prompt, score it, and create the complete 12-case evaluation package without rewriting.", "expected_trigger": true, "expected_route": "prompt-master:audit"},
+    {"id": "length-optimize", "prompt": "Optimize this Production prompt for context cost without losing its authority gates, output contract, or blocking evals.", "expected_trigger": true, "expected_route": "prompt-master:optimize"},
+    {"id": "ordinary-rewrite", "prompt": "Make this short prompt clearer.", "expected_trigger": false, "expected_route": "prompt-optimize"},
+    {"id": "execute-task", "prompt": "Use this marketing prompt to write the campaign now.", "expected_trigger": false, "expected_route": "governed-domain-task"}
+  ]
+}

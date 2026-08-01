@@ -10,6 +10,7 @@ and `plugins/` are projections and must not be edited directly.
 | [agent-team-skills](agent-team-skills/README.md) | team architecture, build, mapping, execution | `agent-team-manager` |
 | [agent-os-skills](agent-os-skills/README.md) | durable platform planes | `agent-os-architect` |
 | `metaskills/` | create, evaluate, optimize, and govern skills | `skill-builder`, `metaskillpack` |
+| `prompts/` | reconstruct, generalize, merge, decompose, and package complex prompts | `prompt-master` |
 | `prompt-skills/` | durable prompt design and optimization | `prompt-optimize` |
 
 ## Capability placement

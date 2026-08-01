@@ -6,7 +6,7 @@
   },
   "metadata": {
     "description": "InnovationMachine Agent Skills marketplace",
-    "version": "3.4.0"
+    "version": "3.5.0"
   },
   "plugins": [
     {
@@ -831,6 +831,34 @@
         "composite",
         "metaskills",
         "orchestration"
+      ]
+    },
+    {
+      "name": "prompt-master",
+      "source": "plugins/prompt-master",
+      "description": "Reconstructs, generalizes, specializes, merges, decomposes, audits, improves, or length-optimizes durable prompts and returns a versioned prompt package with evidence, depth selection, and evaluation scenarios",
+      "version": "1.0.0",
+      "author": {
+        "name": "InnovationMachine",
+        "email": "stanislav.usoltsev@gmail.com"
+      },
+      "homepage": "https://github.com/InnovationMachineTeam/skills",
+      "repository": "https://github.com/InnovationMachineTeam/skills",
+      "license": "Proprietary",
+      "keywords": [
+        "agent-skills",
+        "evaluation",
+        "orchestration",
+        "prompts",
+        "reconstruction"
+      ],
+      "category": "prompts",
+      "tags": [
+        "agent-skills",
+        "evaluation",
+        "orchestration",
+        "prompts",
+        "reconstruction"
       ]
     },
     {

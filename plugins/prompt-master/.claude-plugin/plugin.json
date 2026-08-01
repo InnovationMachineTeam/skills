@@ -1,0 +1,16 @@
+{
+  "name": "prompt-master",
+  "displayName": "Prompt Master",
+  "version": "1.0.0",
+  "description": "Reconstructs, generalizes, specializes, merges, decomposes, audits, improves, or length-optimizes durable prompts and returns a versioned prompt package with evidence… Companion skill plugins are required for full functionality; see README.md.",
+  "skills": [
+    "./skills"
+  ],
+  "author": {
+    "name": "InnovationMachine",
+    "email": "stanislav.usoltsev@gmail.com"
+  },
+  "dependencies": [
+    "prompt-optimize"
+  ]
+}

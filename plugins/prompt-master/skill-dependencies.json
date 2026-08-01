@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "skill": "prompt-master",
+  "native_auto_install": {
+    "claude-code": true,
+    "codex": false,
+    "cursor": false
+  },
+  "required": [
+    {
+      "name": "prompt-optimize",
+      "minimum_version": "3.0.0",
+      "reason": "Core prompt audit, architecture, authority resolution, drafting, and behavioral evaluation are delegated to the existing specialist."
+    }
+  ],
+  "recommended": [],
+  "install_order": [
+    "prompt-optimize",
+    "prompt-master"
+  ]
+}

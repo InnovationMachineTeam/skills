@@ -1,0 +1,33 @@
+{
+  "name": "prompt-master",
+  "version": "1.0.0",
+  "description": "Reconstructs, generalizes, specializes, merges, decomposes, audits, improves, or length-optimizes durable prompts and returns a versioned prompt package with evidence… Companion skill plugins are required for full functionality; see README.md.",
+  "homepage": "https://github.com/InnovationMachineTeam/skills",
+  "repository": "https://github.com/InnovationMachineTeam/skills",
+  "license": "Proprietary",
+  "keywords": [
+    "agent-skills",
+    "evaluation",
+    "orchestration",
+    "prompts",
+    "reconstruction"
+  ],
+  "skills": "./skills/",
+  "author": {
+    "name": "InnovationMachine",
+    "email": "stanislav.usoltsev@gmail.com",
+    "url": "https://github.com/InnovationMachineTeam"
+  },
+  "interface": {
+    "displayName": "Prompt Master",
+    "shortDescription": "Reconstructs, generalizes, specializes, merges, decomposes, audits, improves, or length-optimizes durable prompts and…",
+    "longDescription": "Reconstructs, generalizes, specializes, merges, decomposes, audits, improves, or length-optimizes durable prompts and returns a versioned prompt package with evidence… Companion skill plugins are required for full functionality; see README.md.",
+    "developerName": "InnovationMachine",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Guidance"
+    ],
+    "websiteURL": "https://github.com/InnovationMachineTeam/skills",
+    "defaultPrompt": "Use Prompt Master for this task."
+  }
+}

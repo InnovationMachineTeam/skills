@@ -101,6 +101,21 @@ and stop before installation, publication or production activation.
 
 Direct named specialist requests still bypass the facade.
 
+### Start with prompt reconstruction or a full prompt package
+
+Use `prompt-master` when the original prompt is missing, several prompts must be
+merged or decomposed, or the result needs explicit depth, evidence,
+versioning, and a reusable evaluation package:
+
+```text
+Use prompt-master to reconstruct a Standard prompt from these reference outputs.
+Separate observations from inference, target functional equivalence rather than
+verbatim recovery, and include the full evaluation package.
+```
+
+For one bounded creation, rewrite, audit, or host adaptation without the full
+package, use `prompt-optimize` directly.
+
 ### Start with one explicit specialist
 
 Use a specialist when the phase is already known:

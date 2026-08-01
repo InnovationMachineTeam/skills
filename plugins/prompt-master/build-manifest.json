@@ -1,0 +1,83 @@
+{
+  "format": 2,
+  "plugin": "prompt-master",
+  "version": "1.0.0",
+  "source_layout": "skills/",
+  "bundle_layout": "skills/<name>/",
+  "platforms": [
+    "claude-code",
+    "codex",
+    "cursor"
+  ],
+  "skills": [
+    "prompt-master"
+  ],
+  "excluded_patterns": [
+    ".DS_Store",
+    "__pycache__",
+    "*.pyc",
+    ".git"
+  ],
+  "files": [
+    {
+      "path": ".claude-plugin/plugin.json",
+      "sha256": "670de1c0e1358cfd6acff90a7673332ed9fddc0d069ce0f78cb0e943f61f5b44",
+      "bytes": 529
+    },
+    {
+      "path": ".codex-plugin/plugin.json",
+      "sha256": "a7d9b5dbde491513c6260a045dcd3bc24f796d51829eabe60b1329334d274e6e",
+      "bytes": 1496
+    },
+    {
+      "path": ".cursor-plugin/plugin.json",
+      "sha256": "d29c5d13a8499e4c524599449e76339d5e536945d9d58839413005c484094fed",
+      "bytes": 715
+    },
+    {
+      "path": "README.md",
+      "sha256": "b2c3a54f0317c91980e00035967de1b25da023f58e8eac65e82d8bc6ee0f0ff2",
+      "bytes": 1156
+    },
+    {
+      "path": "skill-dependencies.json",
+      "sha256": "c045ee9d3b492bd22cee36beb07f0ec0dd2da51196c7cf768cca3489f2723f29",
+      "bytes": 492
+    },
+    {
+      "path": "skills/prompt-master/SKILL.md",
+      "sha256": "6f0699cab38cc7e58afa504e34ea42742abfaee884c399910f6322b37166851b",
+      "bytes": 8195
+    },
+    {
+      "path": "skills/prompt-master/agents/openai.yaml",
+      "sha256": "6c2bb05aad0427c88e188d697c12f0e9ba795dc45f9a3e83a2b37c4b379fd461",
+      "bytes": 238
+    },
+    {
+      "path": "skills/prompt-master/evals/behavior.json",
+      "sha256": "b57807eb05a85250466565391308428d12094e32bbe6600e46d0950bdbe00089",
+      "bytes": 3065
+    },
+    {
+      "path": "skills/prompt-master/evals/routing.json",
+      "sha256": "22330d51758d644f9421764b9884857552f6a2d683cc1ec0c84e5be1d83b3424",
+      "bytes": 2139
+    },
+    {
+      "path": "skills/prompt-master/references/delivery-and-evaluation-contract.md",
+      "sha256": "258f2e0115e2b11e3af9d7934635df74ce5984db9df1f030d7f2730869b8ba3c",
+      "bytes": 5120
+    },
+    {
+      "path": "skills/prompt-master/references/mode-and-depth-contract.md",
+      "sha256": "5272ef83e448105d68d60478498c1afdda280c714fcd38e3d5564c4fa6001d32",
+      "bytes": 5565
+    },
+    {
+      "path": "skills/prompt-master/references/skill-dependencies.md",
+      "sha256": "e5298e71751f172316c4af7546f1b3b2176419a1ba6d078ed6faf9410774c73c",
+      "bytes": 1671
+    }
+  ]
+}

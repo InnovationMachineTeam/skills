@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "evaluation_id": "prompt-master-1.0.0",
+  "run_id": "prompt-master-2026-08-01-r1",
+  "evaluated_at": "2026-08-01T16:17:07Z",
+  "source_material": {
+    "title": "Мастер-промпт для улучшения и реконструкции промптов.pdf",
+    "pages": 28,
+    "inspection": ["complete text extraction", "visual review of all rendered pages"]
+  },
+  "target": {
+    "name": "prompt-master",
+    "version": "1.0.0",
+    "content_sha256": "sha256:cd16bfff7a2ec3a951324dc96951ab3b4f6fd75d075029ca9c7a7e2486d2abf1",
+    "locator": "skills/prompts/prompt-master",
+    "primary_archetype": "meta-router",
+    "secondary_traits": ["workflow-procedure", "evaluation-review", "artifact-template"],
+    "visibility": "public"
+  },
+  "acceptance": [
+    "all eight PDF modes and three depth profiles are operationalized",
+    "unknown prompts are reconstructed for functional equivalence without false verbatim-recovery claims",
+    "facts, observations, inferences, assumptions, and recommendations remain distinct",
+    "prompt-optimize is reused as the required core specialist",
+    "routing distinguishes full prompt packages from ordinary bounded prompt rewrites",
+    "evaluation, versioning, Human gates, failure handling, and completion evidence are explicit"
+  ],
+  "layers": {
+    "source_fidelity": {
+      "verdict": "PASS",
+      "evidence": [
+        "all 28 pages inspected as rendered images",
+        "complete extracted text reviewed",
+        "mode, depth, reconstruction, research, entity, output, eval, version, anti-pattern, Ready, and Done contracts mapped into the bundle"
+      ]
+    },
+    "structure": {
+      "verdict": "PASS",
+      "evidence": [
+        "repository validator accepts 43 public skills and four package-private subskills",
+        "SKILL.md, UI metadata, two references, dependency reference, and two eval fixtures exist with valid links"
+      ]
+    },
+    "routing_and_behavior_fixtures": {
+      "verdict": "PASS",
+      "evidence": [
+        "routing covers eight modes, prompt-optimize neighbor, and governed-task non-trigger",
+        "behavior covers false reconstruction, incomplete input, injection, conflicts, Production depth, cost reduction, and missing specialist"
+      ]
+    },
+    "semantic_forward_runs": {
+      "verdict": "PASS",
+      "evidence": [
+        "reconstruction probe refused exact hidden-prompt recovery, calibrated confidence, and delivered a Standard candidate with 12 eval cases",
+        "merge probe preserved publication consent, provenance, and untrusted-instruction resistance",
+        "neighbor probe handled a simple rewrite without invoking the full prompt-master package"
+      ]
+    },
+    "unit_and_repository": {
+      "verdict": "PASS",
+      "evidence": [
+        "six prompt-master unit tests PASS",
+        "full 76-test unittest suite PASS",
+        "registry revision 19 and map revision 5 validate",
+        "dependency graph validates with 14 dependent skills and 43 catalog skills",
+        "three marketplace manifests contain 43 current entries"
+      ]
+    },
+    "packaging": {
+      "verdict": "PASS",
+      "evidence": [
+        "43 individual cross-host packages built in staging",
+        "im-skills-all@3.5.0 built in staging",
+        "prompt-master individual and aggregate generated projections match staging"
+      ]
+    }
+  },
+  "validator_limitations": [
+    "The bundled skill-creator quick_validate.py cannot start because PyYAML is absent from the available Python runtime.",
+    "The skill-architect portable validator hard-codes its own eight-archetype routing fixture and therefore is not a general validator for prompt-master's eight prompt-operation routes; repository validation was used for the actual bundle contract.",
+    "Fresh-context runs validate representative routing and safety behavior, not production performance across multiple target models or hosts."
+  ],
+  "release_recommendation": "PASS_REPOSITORY_CANDIDATE",
+  "installation_status": "not_installed",
+  "activation_status": "not_activated",
+  "next_evaluation_trigger": "Run baseline-versus-candidate behavioral comparisons on each intended target model before marking a generated prompt stable."
+}

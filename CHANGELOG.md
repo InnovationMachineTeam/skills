@@ -1,5 +1,18 @@
 # Changelog
 
+## 3.5.0 — 2026-08-01
+
+- Added `prompt-master@1.0.0` under the explicitly requested `prompts` category
+  as an evidence-backed router for prompt improvement, reconstruction,
+  generalization, specialization, merge, decomposition, audit, and context-cost
+  optimization.
+- Operationalized Compact, Standard, and Production depth selection,
+  reconstruction epistemic limits, entity normalization, conditional research,
+  evaluation packages, A/B evidence, Semantic Versioning, and prompt lifecycle
+  gates from the supplied master-prompt PDF.
+- Reused `prompt-optimize@3.0.0` as a required specialist for core prompt audit,
+  architecture, authority resolution, drafting, and behavioral evaluation.
+
 ## 3.4.0 — 2026-08-01
 
 - Added `agent-master@2.0.0` as a governed Agent Harness factory with mandatory

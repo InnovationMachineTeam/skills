@@ -2,8 +2,8 @@
 
 Generated from `AGENT-ASSET-REGISTRY.json`; do not edit manually.
 
-Revision: **18**
-Updated: **2026-08-01T15:48:36Z**
+Revision: **19**
+Updated: **2026-08-01T16:13:32Z**
 
 | Kind | Name | Version | Visibility | Scope | Owner agent | Accountable owner | Status | Locator |
 |---|---|---:|---|---|---|---|---|---|
@@ -37,6 +37,7 @@ Updated: **2026-08-01T15:48:36Z**
 | skill | agent-workspace-manager | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/agent-team-skills/agent-workspace-manager` |
 | skill | agentkit | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/agent-skills/agentkit` |
 | skill | metaskillpack | 1.4.0 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/metaskillpack` |
+| skill | prompt-master | 1.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/prompts/prompt-master` |
 | skill | prompt-optimize | 3.0.0 | public | repository | — | InnovationMachineTeam | registered | `skills/prompt-skills/prompt-optimize` |
 | skill | skill-architect | 1.2.0 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/skill-architect` |
 | skill | skill-best-practices | 1.2.0 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/skill-best-practices` |
@@ -50,4 +51,4 @@ Updated: **2026-08-01T15:48:36Z**
 | skill | skill-refactor | 1.2.0 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/skill-refactor` |
 | skill | skill-scout | 1.1.0 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/skill-scout` |
 
-Total assets: **42**.
+Total assets: **43**.

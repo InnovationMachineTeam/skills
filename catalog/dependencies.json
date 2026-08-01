@@ -146,6 +146,16 @@
         }
       ]
     },
+    "prompt-master": {
+      "required": [
+        {
+          "name": "prompt-optimize",
+          "minimum_version": "3.0.0",
+          "reason": "Core prompt audit, architecture, authority resolution, drafting, and behavioral evaluation are delegated to the existing specialist."
+        }
+      ],
+      "recommended": []
+    },
     "skill-builder": {
       "required": [
         {

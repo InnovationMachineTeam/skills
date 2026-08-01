@@ -41,6 +41,7 @@ class SkillDependencyTests(unittest.TestCase):
                 "agent-refactor",
                 "agent-scout",
                 "agent-team-manager",
+                "prompt-master",
                 "skill-builder",
             },
             set(self.graph),
