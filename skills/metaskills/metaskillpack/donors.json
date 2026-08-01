@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "pack": "metaskillpack",
-  "pack_version": "1.4.1",
+  "pack_version": "1.5.0",
   "donors": [
     {
       "name": "prompt-optimize",
@@ -121,8 +121,8 @@
     },
     {
       "name": "skill-marketplace-manager",
-      "version": "1.3.1",
-      "tree_sha256": "1909ba955281b4848ea4347c95073f0059bf746032bef824dbbe93668f5897cd",
+      "version": "1.4.0",
+      "tree_sha256": "c615d5944c04852c70c49ce7931028193dc755651e4b547adced85853124946b",
       "source": "../skill-marketplace-manager",
       "vendored_path": "vendor/skill-marketplace-manager",
       "modes": [

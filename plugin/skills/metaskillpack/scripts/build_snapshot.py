@@ -73,6 +73,18 @@ def main() -> int:
                     readme.read_text(encoding="utf-8").replace("](SKILL.md)", "](DONOR.md)"),
                     encoding="utf-8",
                 )
+            nested_contracts = sorted(donor_destination.rglob("SKILL.md"))
+            for nested_contract in nested_contracts:
+                relative_source = nested_contract.relative_to(donor_destination).as_posix()
+                relative_target = nested_contract.with_name("DONOR.md").relative_to(donor_destination).as_posix()
+                for markdown in donor_destination.rglob("*.md"):
+                    text = markdown.read_text(encoding="utf-8")
+                    updated_text = text.replace(relative_source, relative_target)
+                    if markdown.name == "README.md":
+                        updated_text = updated_text.replace("](SKILL.md)", "](DONOR.md)")
+                    if updated_text != text:
+                        markdown.write_text(updated_text, encoding="utf-8")
+                nested_contract.rename(nested_contract.with_name("DONOR.md"))
             updated = dict(donor)
             updated["version"] = item["actual_version"]
             updated["tree_sha256"] = item["actual_tree_sha256"]

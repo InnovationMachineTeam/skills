@@ -1,7 +1,7 @@
 {
   "format": 2,
   "plugin": "metaskillpack",
-  "version": "1.4.1",
+  "version": "1.5.0",
   "source_layout": "skills/",
   "bundle_layout": "skills/<name>/",
   "platforms": [
@@ -21,17 +21,17 @@
   "files": [
     {
       "path": ".claude-plugin/plugin.json",
-      "sha256": "3db7cf2c3bb4ed36f44dc5a444a2efa6826a2c1bcce6da8ab0834099186ff8c5",
+      "sha256": "64a05a84e24b2dd001f6562ce6f2c3c55e6ab29cfcbcb2436e9710839d57813c",
       "bytes": 474
     },
     {
       "path": ".codex-plugin/plugin.json",
-      "sha256": "eaa30a39dd6850b57cd76adf74d9974d4754965ffada52db022dc5c7a227940b",
+      "sha256": "aca596197296b9561bc0665033cf7783958664e0b100ba805cede0a4a3748461",
       "bytes": 1459
     },
     {
       "path": ".cursor-plugin/plugin.json",
-      "sha256": "8a97f24c1c10abb818699a085ab0ffe1a189f5ea20bc716daae966bd6cba4c79",
+      "sha256": "d48a54df5977e0cc0718b056c4cd09e1c09b12ae47fa0cd33820e6d6b9153053",
       "bytes": 687
     },
     {
@@ -41,12 +41,12 @@
     },
     {
       "path": "skills/metaskillpack/README.md",
-      "sha256": "f7f8581bcf306820e81b8640a176394cad60c674be62bbc8f8359f59271418da",
+      "sha256": "b29996decd59d75c59bf66a9a2ddf5b1a2178d059e85839cb0dc596e9edb08ec",
       "bytes": 10066
     },
     {
       "path": "skills/metaskillpack/SKILL.md",
-      "sha256": "8a65bc0dd1ce79f9383f8faaf22f655efad2ec7b5083e9aca5bf6159288d6a4a",
+      "sha256": "6a283f9aeece67e9f1bfe9401420d93e82d366136ee288d2523849d5ce038f63",
       "bytes": 9260
     },
     {
@@ -56,7 +56,7 @@
     },
     {
       "path": "skills/metaskillpack/donors.json",
-      "sha256": "8e3cf35d4693c4e3966ce77565016d316fee985748fae426da395c435ce4f70c",
+      "sha256": "0ae852568b4d0fefc2f76cb5e2e31c1898e6f1edf8577d738d62331b834d4760",
       "bytes": 4550
     },
     {
@@ -91,8 +91,8 @@
     },
     {
       "path": "skills/metaskillpack/scripts/build_snapshot.py",
-      "sha256": "7f75c19f957cc0eaaca644ed6d5b5ed90a53165cd6228e7427ce28fd78492042",
-      "bytes": 3873
+      "sha256": "ab45a0e57e1ce831d39bdbcc6525fbfc6e11f7132815672ef6b4a84441bd51db",
+      "bytes": 4760
     },
     {
       "path": "skills/metaskillpack/scripts/check_donors.py",
@@ -1301,13 +1301,13 @@
     },
     {
       "path": "skills/metaskillpack/vendor/skill-marketplace-manager/DONOR.md",
-      "sha256": "882bcbacc79e879688cbb6db5fc4da104808201b4b8598f7fbd08665131d8848",
-      "bytes": 8974
+      "sha256": "679dfe5052362dda64676a33a121ea212cb5389d8474f41c1d722e9c78f669e3",
+      "bytes": 10670
     },
     {
       "path": "skills/metaskillpack/vendor/skill-marketplace-manager/README.md",
-      "sha256": "a5da882090546d5a9251b2c20eaf867adcfde69a3aafba08d697b683496f5c32",
-      "bytes": 20084
+      "sha256": "e8245c09a99bb77178752ee923ff401fe028cdde7c57e26d252a917c70caf02c",
+      "bytes": 20669
     },
     {
       "path": "skills/metaskillpack/vendor/skill-marketplace-manager/agents/openai.yaml",
@@ -1316,13 +1316,48 @@
     },
     {
       "path": "skills/metaskillpack/vendor/skill-marketplace-manager/evals/behavior.json",
-      "sha256": "c52a54a220f5fde24da40641b7ca39912adcb35531560d3057d983b11a1b5938",
-      "bytes": 3677
+      "sha256": "f4364ae5c78d71deab288bbfe8cccb1406d4a78825be87f3ea0204e93dd72820",
+      "bytes": 4409
     },
     {
       "path": "skills/metaskillpack/vendor/skill-marketplace-manager/evals/routing.json",
-      "sha256": "f7ea4912f3e322b7082b31adf6c3d23ba50f449834af5a950fdb88a73b3dc368",
-      "bytes": 3287
+      "sha256": "93fe40722538ef86e81b6431386b2113d4ffd39ff30609861161587d11dcd0a6",
+      "bytes": 3929
+    },
+    {
+      "path": "skills/metaskillpack/vendor/skill-marketplace-manager/private-skills/skill-documentation-writer/DONOR.md",
+      "sha256": "4b8cc55e9eff2d19b353a471e656232998a72009cb4678685e4d9a83fa0dc502",
+      "bytes": 7610
+    },
+    {
+      "path": "skills/metaskillpack/vendor/skill-marketplace-manager/private-skills/skill-documentation-writer/README.md",
+      "sha256": "c768c8ef18ad5d532c8a98eaab4f8a5380d30ca2f742e87cc64513d43f69f7af",
+      "bytes": 7493
+    },
+    {
+      "path": "skills/metaskillpack/vendor/skill-marketplace-manager/private-skills/skill-documentation-writer/assets/marketplace-onboarding-template.md",
+      "sha256": "0423fb94b3260f360945ae8a315539f5218c9ed077306f53b1fbd41ed0a36501",
+      "bytes": 1067
+    },
+    {
+      "path": "skills/metaskillpack/vendor/skill-marketplace-manager/private-skills/skill-documentation-writer/assets/skill-readme-template.md",
+      "sha256": "e76f835502319ab2cee50a10cfd64909c1d135ccb50b649b2b369905e2d60d17",
+      "bytes": 888
+    },
+    {
+      "path": "skills/metaskillpack/vendor/skill-marketplace-manager/private-skills/skill-documentation-writer/evals/behavior.json",
+      "sha256": "e689433c3cf109b4403e7c8d3e757fde9450c6f06be21d6b9765381506c9469d",
+      "bytes": 2192
+    },
+    {
+      "path": "skills/metaskillpack/vendor/skill-marketplace-manager/private-skills/skill-documentation-writer/evals/routing.json",
+      "sha256": "58d0a821dd298c7da8d4c46a77b48c898f0120c1a3955ede2d0d76ec52952d85",
+      "bytes": 1625
+    },
+    {
+      "path": "skills/metaskillpack/vendor/skill-marketplace-manager/private-skills/skill-documentation-writer/references/documentation-contract.md",
+      "sha256": "6c1829ec34c755a128fda3eb4e0adfb3ae182dbd475e43906cbd81e2ce602974",
+      "bytes": 7375
     },
     {
       "path": "skills/metaskillpack/vendor/skill-marketplace-manager/prompts/architecture-design.md",
@@ -1388,6 +1423,11 @@
       "path": "skills/metaskillpack/vendor/skill-marketplace-manager/references/migration-contract.md",
       "sha256": "c64d3fb4c7277620add68288fbb355a0231f65dffc60f90a1f996ee358fc2ffc",
       "bytes": 1843
+    },
+    {
+      "path": "skills/metaskillpack/vendor/skill-marketplace-manager/references/private-skill-registry.json",
+      "sha256": "69e864d04bbffe073f4c94ba89d07b355f818fbb59134dece8af8a6dbb3d8446",
+      "bytes": 778
     },
     {
       "path": "skills/metaskillpack/vendor/skill-marketplace-manager/scripts/build_plugin_bundle.py",

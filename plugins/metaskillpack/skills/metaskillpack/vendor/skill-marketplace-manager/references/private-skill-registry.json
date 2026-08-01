@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "owner_skill": "skill-marketplace-manager",
+  "visibility": "package_private",
+  "discoverability": "explicit_parent_dispatch_only",
+  "allowed_consumers": [
+    "skill-marketplace-manager"
+  ],
+  "skills": [
+    {
+      "name": "skill-documentation-writer",
+      "version": "1.0.0",
+      "locator": "private-skills/skill-documentation-writer",
+      "primary_archetype": "artifact-template",
+      "secondary_traits": [
+        "workflow-procedure",
+        "evaluation-review"
+      ],
+      "source_contract": "Repository-backed skill documentation and marketplace onboarding production"
+    }
+  ],
+  "promotion_rule": "Assess public promotion only after an approved independent consumer and an owner-independent documentation contract exist."
+}

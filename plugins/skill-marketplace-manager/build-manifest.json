@@ -1,7 +1,7 @@
 {
   "format": 2,
   "plugin": "skill-marketplace-manager",
-  "version": "1.3.1",
+  "version": "1.4.0",
   "source_layout": "skills/",
   "bundle_layout": "skills/<name>/",
   "platforms": [
@@ -21,33 +21,33 @@
   "files": [
     {
       "path": ".claude-plugin/plugin.json",
-      "sha256": "e98d454e7591c0fd32043476213aecc1bd040aae4e71819aa120c09513160428",
-      "bytes": 462
+      "sha256": "4cf06dbb7e01515eeb62340e8eee8becf4d42e59d99eab0aa6c54dc0c2465503",
+      "bytes": 472
     },
     {
       "path": ".codex-plugin/plugin.json",
-      "sha256": "39ccdccf5830cd30c6058d3cf6db4997e6878ef140bceb1fd330e0dc74ba207e",
-      "bytes": 1424
+      "sha256": "641afc49ebe9975feb10e9eb38969da93c69ba8eb34637f1c6401986bab88ca3",
+      "bytes": 1437
     },
     {
       "path": ".cursor-plugin/plugin.json",
-      "sha256": "d51bc21a9999d4bfa5ca3e5e62aa61fce35b0100e6611dcc30ae9423d144f8e3",
-      "bytes": 664
+      "sha256": "b06e0ac19ffb90cda667bbe6dd024c5455640c955f18ba7723fcfc7135f8f9e2",
+      "bytes": 674
     },
     {
       "path": "README.md",
-      "sha256": "e1c716976045209ba22afe46a9afaffd301e0a51cfe25c7c09c5691f8454eea0",
-      "bytes": 559
+      "sha256": "f9f10b4170b640b6ef8e709a4bb6dc86f986947e19dcaedf9b681c67ec4588b8",
+      "bytes": 569
     },
     {
       "path": "skills/skill-marketplace-manager/README.md",
-      "sha256": "c27b645f68f9aa8e19d6ca53a55de0d3bdbb64c6173b0e2a11586984042c9553",
-      "bytes": 20084
+      "sha256": "ce68d0712afb91d2f7cd25793fcff19ec542fe4b0d9f9a797453b713d45b848c",
+      "bytes": 20669
     },
     {
       "path": "skills/skill-marketplace-manager/SKILL.md",
-      "sha256": "882bcbacc79e879688cbb6db5fc4da104808201b4b8598f7fbd08665131d8848",
-      "bytes": 8974
+      "sha256": "4c59eaf975d1f124a99508ac6161f229d432d5840f67f403649ac9d17374e346",
+      "bytes": 10670
     },
     {
       "path": "skills/skill-marketplace-manager/agents/openai.yaml",
@@ -56,13 +56,48 @@
     },
     {
       "path": "skills/skill-marketplace-manager/evals/behavior.json",
-      "sha256": "c52a54a220f5fde24da40641b7ca39912adcb35531560d3057d983b11a1b5938",
-      "bytes": 3677
+      "sha256": "f4364ae5c78d71deab288bbfe8cccb1406d4a78825be87f3ea0204e93dd72820",
+      "bytes": 4409
     },
     {
       "path": "skills/skill-marketplace-manager/evals/routing.json",
-      "sha256": "f7ea4912f3e322b7082b31adf6c3d23ba50f449834af5a950fdb88a73b3dc368",
-      "bytes": 3287
+      "sha256": "93fe40722538ef86e81b6431386b2113d4ffd39ff30609861161587d11dcd0a6",
+      "bytes": 3929
+    },
+    {
+      "path": "skills/skill-marketplace-manager/private-skills/skill-documentation-writer/README.md",
+      "sha256": "fea84a2c4f09d44ea787f489e8e232ec772e549720c63ae0962ee4717f2650a3",
+      "bytes": 7493
+    },
+    {
+      "path": "skills/skill-marketplace-manager/private-skills/skill-documentation-writer/SKILL.md",
+      "sha256": "4b8cc55e9eff2d19b353a471e656232998a72009cb4678685e4d9a83fa0dc502",
+      "bytes": 7610
+    },
+    {
+      "path": "skills/skill-marketplace-manager/private-skills/skill-documentation-writer/assets/marketplace-onboarding-template.md",
+      "sha256": "0423fb94b3260f360945ae8a315539f5218c9ed077306f53b1fbd41ed0a36501",
+      "bytes": 1067
+    },
+    {
+      "path": "skills/skill-marketplace-manager/private-skills/skill-documentation-writer/assets/skill-readme-template.md",
+      "sha256": "e76f835502319ab2cee50a10cfd64909c1d135ccb50b649b2b369905e2d60d17",
+      "bytes": 888
+    },
+    {
+      "path": "skills/skill-marketplace-manager/private-skills/skill-documentation-writer/evals/behavior.json",
+      "sha256": "e689433c3cf109b4403e7c8d3e757fde9450c6f06be21d6b9765381506c9469d",
+      "bytes": 2192
+    },
+    {
+      "path": "skills/skill-marketplace-manager/private-skills/skill-documentation-writer/evals/routing.json",
+      "sha256": "58d0a821dd298c7da8d4c46a77b48c898f0120c1a3955ede2d0d76ec52952d85",
+      "bytes": 1625
+    },
+    {
+      "path": "skills/skill-marketplace-manager/private-skills/skill-documentation-writer/references/documentation-contract.md",
+      "sha256": "6c1829ec34c755a128fda3eb4e0adfb3ae182dbd475e43906cbd81e2ce602974",
+      "bytes": 7375
     },
     {
       "path": "skills/skill-marketplace-manager/prompts/architecture-design.md",
@@ -128,6 +163,11 @@
       "path": "skills/skill-marketplace-manager/references/migration-contract.md",
       "sha256": "c64d3fb4c7277620add68288fbb355a0231f65dffc60f90a1f996ee358fc2ffc",
       "bytes": 1843
+    },
+    {
+      "path": "skills/skill-marketplace-manager/references/private-skill-registry.json",
+      "sha256": "69e864d04bbffe073f4c94ba89d07b355f818fbb59134dece8af8a6dbb3d8446",
+      "bytes": 778
     },
     {
       "path": "skills/skill-marketplace-manager/scripts/build_plugin_bundle.py",

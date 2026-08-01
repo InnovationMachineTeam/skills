@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "skill": "skill-documentation-writer",
+  "cases": [
+    {
+      "id": "owner-skill-docs",
+      "prompt": "skill-marketplace-manager dispatches exact canonical paths and asks for README documentation covering use cases and expected results.",
+      "expected_trigger": true,
+      "expected_route": "skill-documentation"
+    },
+    {
+      "id": "owner-onboarding",
+      "prompt": "skill-marketplace-manager dispatches the private marketplace manifest, target Codex users, and an approved path for an install-to-first-success onboarding guide.",
+      "expected_trigger": true,
+      "expected_route": "marketplace-onboarding"
+    },
+    {
+      "id": "owner-audit",
+      "prompt": "skill-marketplace-manager requests a read-only audit of stale versions, broken links, unsupported commands, and missing expected outcomes in skill documentation.",
+      "expected_trigger": true,
+      "expected_route": "documentation-audit"
+    },
+    {
+      "id": "direct-global-request",
+      "prompt": "Use skill-documentation-writer directly to rewrite every README in my repository.",
+      "expected_trigger": false,
+      "expected_route": "skill-marketplace-manager"
+    },
+    {
+      "id": "ordinary-product-docs",
+      "prompt": "Write end-user documentation for my accounting web application.",
+      "expected_trigger": false,
+      "expected_route": "product-documentation"
+    },
+    {
+      "id": "skill-behavior-authoring",
+      "prompt": "Redesign the trigger and workflow of this SQL analysis skill.",
+      "expected_trigger": false,
+      "expected_route": "skill-architect"
+    }
+  ]
+}

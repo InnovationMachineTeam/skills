@@ -5,7 +5,7 @@
 ## Паспорт навыка
 
 - **Назначение:** Provides a self-contained, explicitly invoked toolkit for creating, discovering, researching, optimizing, diagnosing, governing, harvesting, refactoring, evaluating, packaging, and orchestrating agent skills through isolated snapshots of the InnovationMachine metaskills.
-- **Версия:** `1.4.1`.
+- **Версия:** `1.5.0`.
 - **Видимость:** public: канонический навык каталога; фактическая активация зависит от целевого host.
 - **Теги каталога:** `orchestration`, `composite`, `metaskills`.
 

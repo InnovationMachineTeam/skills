@@ -27,6 +27,11 @@
       "expect": {"route": "build-sync", "mode": "apply", "must_not": ["install", "publish"]}
     },
     {
+      "id": "route-documentation",
+      "prompt": "Документируй канонические навыки и создай onboarding от установки до первого проверенного результата.",
+      "expect": {"route": "documentation", "private_specialist": "skill-documentation-writer", "must_not": ["publish", "activate"]}
+    },
+    {
       "id": "route-validation",
       "prompt": "Проверь, обнаруживаются ли навыки через skills CLI и Claude plugin, ничего не исправляй.",
       "expect": {"route": "validate-compatibility", "mode": "verify"}
@@ -50,6 +55,11 @@
       "id": "negative-single-skill-eval",
       "prompt": "Оцени качество триггеров одного навыка и напиши holdout evals.",
       "expect": {"route_away": "skill-evaluator"}
+    },
+    {
+      "id": "negative-ordinary-product-docs",
+      "prompt": "Напиши документацию пользователя для бухгалтерского веб-приложения.",
+      "expect": {"route_away": "product-documentation"}
     },
     {
       "id": "clarify-release-target",

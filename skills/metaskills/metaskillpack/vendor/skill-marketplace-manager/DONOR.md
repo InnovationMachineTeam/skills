@@ -1,8 +1,8 @@
 ---
 name: skill-marketplace-manager
-description: Design, inventory, scaffold, curate, build, validate, migrate, release, and audit repositories that distribute Agent Skills through skill.sh-compatible catalogs and plugin harnesses such as Claude Code. Use for marketplace topology, category design, marketplace.json or plugin.json generation, portable skills/ layouts, aggregate plugin builds, catalog governance, version policy, compatibility checks, staged migrations, publishing plans, or repository-wide skill distribution. Do not use for authoring one skill's behavior, evaluating one skill's task quality, or managing only the installed runtime state of skills.
+description: Design, inventory, scaffold, curate, build, document, validate, migrate, release, and audit repositories that distribute Agent Skills through skill.sh-compatible catalogs and plugin harnesses such as Claude Code. Use for marketplace topology, category design, marketplace.json or plugin.json generation, portable skills/ layouts, aggregate plugin builds, skill documentation and onboarding sets, catalog governance, version policy, compatibility checks, staged migrations, publishing plans, or repository-wide skill distribution. Do not use for authoring one skill's behavior, evaluating one skill's task quality, ordinary product documentation outside a skill marketplace, or managing only the installed runtime state of skills.
 metadata:
-  version: "1.3.1"
+  version: "1.4.0"
 ---
 
 # Skill Marketplace Manager
@@ -20,13 +20,14 @@ Choose one primary route. Add secondary routes only when the requested outcome r
 | `scaffold-marketplace` | Create an approved catalog or plugin skeleton | Write local files | `prompts/scaffold-marketplace.md` |
 | `catalog-curation` | Add, move, classify, deprecate, or document catalog entries | Plan first; write after scope is clear | `prompts/catalog-curation.md` |
 | `build-sync` | Produce a self-contained plugin bundle from canonical skills and detect drift | Write generated output only | `prompts/build-sync.md` |
+| `documentation` | Document canonical skills or create marketplace onboarding from verified repository evidence | Plan first; write only in approved documentation roots | `private-skills/skill-documentation-writer/DONOR.md` |
 | `validate-compatibility` | Validate Agent Skills, skill.sh, Claude Code, links, security, and install smoke tests | Read-only unless fixes are requested | `prompts/validate-compatibility.md` |
 | `migration` | Plan or apply a staged migration with checkpoints and rollback | Plan-only unless apply is explicit | `prompts/migration.md` |
 | `release-distribution` | Version, package, publish, install-test, or retire releases | No external mutation without approval | `prompts/release-distribution.md` |
 
 If the user names a route, use it. Otherwise infer the narrowest route from the requested outcome. If the evidence supports several materially different architectures, ask only for the decision that changes the result.
 
-Read `prompts/base.md` for every route, then read the selected route prompt from the table.
+Read `prompts/base.md` for every public marketplace route, then read the selected route prompt from the table. For `documentation`, read [references/private-skill-registry.json](references/private-skill-registry.json) and dispatch the package-private [skill-documentation-writer](private-skills/skill-documentation-writer/DONOR.md) instead of treating it as a globally discoverable route.
 
 ## Establish the operating mode
 
@@ -79,6 +80,18 @@ Run `scripts/check_evals.py evals` after editing the evaluation corpus.
 
 Harness-native validators remain authoritative. A portable helper can catch errors early but cannot certify a harness it does not execute.
 
+## Dispatch private documentation work
+
+Use `skill-documentation-writer` only for the `documentation` route and only through this parent skill. Pass an explicit dispatch envelope containing:
+
+- exact canonical skills, catalog files, manifests and documentation roots;
+- target audience, supported hosts and required document types;
+- whether the operation is inspect, plan, create, update or verify;
+- allowed writes, preserved handcrafted content and forbidden effects;
+- required examples, expected outcomes, commands and verification evidence.
+
+The private specialist may create or update skill README files, marketplace onboarding guides and documentation audits. It must not alter skill behavior, register or publish assets, bump versions, rebuild packages, activate a host, invent successful executions, or expose itself as a marketplace entry. This parent retains versioning, catalog, packaging, release and lifecycle decisions.
+
 ## Apply route-specific rules
 
 ### Inventory and validation
@@ -109,6 +122,7 @@ Require explicit confirmation of repository, visibility, channel, version, and a
 - Hand capability merge/split decisions to `skill-refactor`.
 - Hand installed-state activation, rollback, and lifecycle governance to `skill-manager`.
 - Hand multi-stage orchestration across these specialists to `skill-builder`.
+- Keep repository-backed skill documentation and onboarding production in the package-private `skill-documentation-writer`.
 
 Remain responsible for repository topology, catalog manifests, generated plugin bundles, cross-harness discovery, distribution policy, and marketplace migration.
 

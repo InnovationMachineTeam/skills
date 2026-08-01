@@ -2,8 +2,8 @@
 
 Generated from `AGENT-ASSET-REGISTRY.json`; do not edit manually.
 
-Revision: **22**
-Updated: **2026-08-01T16:44:53Z**
+Revision: **23**
+Updated: **2026-08-01T16:53:59Z**
 
 | Kind | Name | Version | Visibility | Scope | Owner agent | Accountable owner | Status | Locator |
 |---|---|---:|---|---|---|---|---|---|
@@ -36,7 +36,7 @@ Updated: **2026-08-01T16:44:53Z**
 | skill | agent-team-orchestrator | 1.0.1 | public | repository | — | InnovationMachineTeam | registered | `skills/agent-team-skills/agent-team-orchestrator` |
 | skill | agent-workspace-manager | 1.0.1 | public | repository | — | InnovationMachineTeam | registered | `skills/agent-team-skills/agent-workspace-manager` |
 | skill | agentkit | 1.0.1 | public | repository | — | InnovationMachineTeam | registered | `skills/agent-skills/agentkit` |
-| skill | metaskillpack | 1.4.1 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/metaskillpack` |
+| skill | metaskillpack | 1.5.0 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/metaskillpack` |
 | skill | prompt-master | 1.0.1 | public | repository | — | InnovationMachineTeam | registered | `skills/prompts/prompt-master` |
 | skill | prompt-optimize | 3.0.1 | public | repository | — | InnovationMachineTeam | registered | `skills/prompt-skills/prompt-optimize` |
 | skill | skill-architect | 1.2.1 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/skill-architect` |
@@ -46,7 +46,7 @@ Updated: **2026-08-01T16:44:53Z**
 | skill | skill-evaluator | 1.1.1 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/skill-evaluator` |
 | skill | skill-harvester | 1.1.1 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/skill-harvester` |
 | skill | skill-manager | 1.2.1 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/skill-manager` |
-| skill | skill-marketplace-manager | 1.3.1 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/skill-marketplace-manager` |
+| skill | skill-marketplace-manager | 1.4.0 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/skill-marketplace-manager` |
 | skill | skill-optimizer | 1.0.1 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/skill-optimizer` |
 | skill | skill-refactor | 1.2.1 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/skill-refactor` |
 | skill | skill-scout | 1.1.1 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/skill-scout` |

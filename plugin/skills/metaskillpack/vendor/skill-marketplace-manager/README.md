@@ -2,7 +2,7 @@
 
 `skill-marketplace-manager` — мета-навык для проектирования, сборки, проверки, миграции и выпуска репозиториев навыков. Он ориентирован на переносимый Agent Skills layout, skill.sh и plugin harnesses, прежде всего Claude Code.
 
-> Текущий статус: `1.3.0`. Навык создан как reviewable package. Он не выполняет публикацию, глобальную установку, удаление прежней структуры или миграционный cutover без явного разрешения.
+> Текущий статус: `1.4.0`. Навык создан как reviewable package. Он не выполняет публикацию, глобальную установку, удаление прежней структуры или миграционный cutover без явного разрешения.
 
 ## Что решает навык
 
@@ -29,6 +29,7 @@
 | `scaffold-marketplace` | «Создай каркас marketplace» | локальная структура, manifests, templates |
 | `catalog-curation` | «Добавь/переклассифицируй навыки» | mapping и согласованные изменения каталога |
 | `build-sync` | «Собери aggregate plugin» | самодостаточный generated bundle и hashes |
+| `documentation` | «Документируй навыки и подготовь onboarding» | README, onboarding guide или audit report на основе канонических источников |
 | `validate-compatibility` | «Проверь совместимость и установку» | evidence report с PASS/WARN/FAIL/NOT RUN |
 | `migration` | «Перенеси текущие навыки в marketplace» | сначала DRAFT-план; apply только явно |
 | `release-distribution` | «Подготовь или выпусти релиз» | release plan/package/pilot; публикация по разрешению |
@@ -244,14 +245,14 @@ aggregate plugin для локального тестирования. Дай ma
 
 ## Паспорт навыка
 
-- **Назначение:** Design, inventory, scaffold, curate, build, validate, migrate, release, and audit repositories that distribute Agent Skills through skill.sh-compatible catalogs and plugin harnesses such as Claude Code.
-- **Версия:** `1.3.1`.
+- **Назначение:** Design, inventory, scaffold, curate, build, document, validate, migrate, release, and audit repositories that distribute Agent Skills through skill.sh-compatible catalogs and plugin harnesses such as Claude Code.
+- **Версия:** `1.4.0`.
 - **Видимость:** public: канонический навык каталога; фактическая активация зависит от целевого host.
 - **Теги каталога:** `marketplace`, `distribution`.
 
 ## Когда использовать
 
-Marketplace topology, category design, marketplace.json or plugin.json generation, portable skills/ layouts, aggregate plugin builds, catalog governance, version policy, compatibility checks, staged migrations, publishing plans, or repository-wide skill distribution.
+Marketplace topology, category design, marketplace.json or plugin.json generation, portable skills/ layouts, aggregate plugin builds, skill documentation and onboarding sets, catalog governance, version policy, compatibility checks, staged migrations, publishing plans, or repository-wide skill distribution.
 
 Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.
 
@@ -282,6 +283,11 @@ Marketplace topology, category design, marketplace.json or plugin.json generatio
 - **Пример запроса:** “Собери самодостаточный aggregate plugin в новый staging-каталог и сформируй hashes.”
 - **Ожидаемый маршрут:** `основной маршрут навыка`.
 
+### route-documentation
+
+- **Пример запроса:** “Документируй канонические навыки и создай onboarding от установки до первого проверенного результата.”
+- **Ожидаемый маршрут:** `основной маршрут навыка`.
+
 ### route-validation
 
 - **Пример запроса:** “Проверь, обнаруживаются ли навыки через skills CLI и Claude plugin, ничего не исправляй.”
@@ -290,11 +296,6 @@ Marketplace topology, category design, marketplace.json or plugin.json generatio
 ### route-migration-plan
 
 - **Пример запроса:** “Составь детальный план переноса outputs/* в marketplace с rollback. Пока не переноси.”
-- **Ожидаемый маршрут:** `основной маршрут навыка`.
-
-### route-release
-
-- **Пример запроса:** “Подготовь candidate release 1.2.0 и пилотную установку; публикацию вынеси на checkpoint.”
 - **Ожидаемый маршрут:** `основной маршрут навыка`.
 
 
@@ -311,9 +312,10 @@ Marketplace topology, category design, marketplace.json or plugin.json generatio
 3. **Run the common workflow.** Выполняется соответствующий этап контракта из `SKILL.md`.
 4. **Enforce architectural invariants.** Выполняется соответствующий этап контракта из `SKILL.md`.
 5. **Use deterministic helpers.** Выполняется соответствующий этап контракта из `SKILL.md`.
-6. **Apply route-specific rules.** Выполняется соответствующий этап контракта из `SKILL.md`.
-7. **Coordinate with adjacent skills.** Выполняется соответствующий этап контракта из `SKILL.md`.
-8. **Produce a completion report.** Выполняется соответствующий этап контракта из `SKILL.md`.
+6. **Dispatch private documentation work.** Выполняется соответствующий этап контракта из `SKILL.md`.
+7. **Apply route-specific rules.** Выполняется соответствующий этап контракта из `SKILL.md`.
+8. **Coordinate with adjacent skills.** Выполняется соответствующий этап контракта из `SKILL.md`.
+9. **Produce a completion report.** Выполняется соответствующий этап контракта из `SKILL.md`.
 
 ## Границы и неподходящие запросы
 
@@ -330,6 +332,7 @@ Authoring one skill.
 - [`SKILL.md`](DONOR.md) — исполняемый контракт, маршрутизация и правила безопасности.
 - [`agents/`](agents/) — UI-метаданные и host-конфигурация.
 - [`evals/`](evals/) — routing- и behavior-сценарии.
+- [`private-skills/`](private-skills/) — внутренние навыки, доступные только владельцу.
 - [`prompts/`](prompts/) — маршрутные и специализированные промпты.
 - [`references/`](references/) — справочники, схемы и контракты.
 - [`scripts/`](scripts/) — детерминированные проверки и автоматизация.

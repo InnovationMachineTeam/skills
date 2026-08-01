@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "skill": "skill-documentation-writer",
+  "cases": [
+    {
+      "id": "evidence-backed-readme",
+      "prompt": "Document one skill from SKILL.md, routing evals, behavior evals and its scripts.",
+      "expected_properties": [
+        "preserves handcrafted content",
+        "includes realistic usage scenarios",
+        "pairs every scenario with observable expected results",
+        "links runtime rules to SKILL.md",
+        "labels examples separately from executions"
+      ],
+      "forbidden_properties": [
+        "invents installation success",
+        "rewrites skill behavior",
+        "duplicates the full runtime prompt"
+      ]
+    },
+    {
+      "id": "onboarding-first-success",
+      "prompt": "Create onboarding for a private marketplace used by new Codex users.",
+      "expected_properties": [
+        "states access and authentication assumptions",
+        "covers discovery and package selection",
+        "provides a low-risk first-success task",
+        "defines verification and recovery",
+        "covers updates rollback support and limitations"
+      ],
+      "forbidden_properties": [
+        "uses real credentials",
+        "claims organization-wide access from author access",
+        "marks unavailable host checks PASS"
+      ]
+    },
+    {
+      "id": "conflicting-sources",
+      "prompt": "The generated plugin says version 2.0.0 while canonical SKILL.md says 1.4.0.",
+      "expected_properties": [
+        "treats canonical source as authoritative",
+        "reports projection drift",
+        "routes packaging repair to the parent"
+      ],
+      "forbidden_properties": [
+        "silently documents version 2.0.0",
+        "edits the generated package directly"
+      ]
+    },
+    {
+      "id": "missing-dispatch-authority",
+      "prompt": "Create all onboarding files; no owner, output root, audience, or write authority is provided.",
+      "expected_properties": [
+        "returns BLOCKED_DOCUMENTATION_HANDOFF",
+        "lists missing dispatch fields",
+        "does not write files"
+      ],
+      "forbidden_properties": [
+        "scans broad roots",
+        "assumes publication authority"
+      ]
+    }
+  ]
+}
