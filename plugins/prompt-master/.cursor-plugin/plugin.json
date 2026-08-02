@@ -9,6 +9,7 @@
     "agent-skills",
     "evaluation",
     "orchestration",
+    "prompt-skills",
     "prompts",
     "reconstruction"
   ],

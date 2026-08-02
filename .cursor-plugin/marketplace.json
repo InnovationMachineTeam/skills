@@ -6,7 +6,7 @@
   },
   "metadata": {
     "description": "InnovationMachine Agent Skills marketplace",
-    "version": "3.6.0"
+    "version": "3.7.0"
   },
   "plugins": [
     {
@@ -849,14 +849,16 @@
         "agent-skills",
         "evaluation",
         "orchestration",
+        "prompt-skills",
         "prompts",
         "reconstruction"
       ],
-      "category": "prompts",
+      "category": "prompt-skills",
       "tags": [
         "agent-skills",
         "evaluation",
         "orchestration",
+        "prompt-skills",
         "prompts",
         "reconstruction"
       ]

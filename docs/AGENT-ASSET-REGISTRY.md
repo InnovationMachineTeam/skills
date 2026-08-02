@@ -2,8 +2,8 @@
 
 Generated from `AGENT-ASSET-REGISTRY.json`; do not edit manually.
 
-Revision: **23**
-Updated: **2026-08-01T16:53:59Z**
+Revision: **24**
+Updated: **2026-08-02T23:12:17Z**
 
 | Kind | Name | Version | Visibility | Scope | Owner agent | Accountable owner | Status | Locator |
 |---|---|---:|---|---|---|---|---|---|
@@ -37,7 +37,7 @@ Updated: **2026-08-01T16:53:59Z**
 | skill | agent-workspace-manager | 1.0.1 | public | repository | — | InnovationMachineTeam | registered | `skills/agent-team-skills/agent-workspace-manager` |
 | skill | agentkit | 1.0.1 | public | repository | — | InnovationMachineTeam | registered | `skills/agent-skills/agentkit` |
 | skill | metaskillpack | 1.5.0 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/metaskillpack` |
-| skill | prompt-master | 1.0.1 | public | repository | — | InnovationMachineTeam | registered | `skills/prompts/prompt-master` |
+| skill | prompt-master | 1.0.1 | public | repository | — | InnovationMachineTeam | registered | `skills/prompt-skills/prompt-master` |
 | skill | prompt-optimize | 3.0.1 | public | repository | — | InnovationMachineTeam | registered | `skills/prompt-skills/prompt-optimize` |
 | skill | skill-architect | 1.2.1 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/skill-architect` |
 | skill | skill-best-practices | 1.2.1 | public | repository | — | InnovationMachineTeam | registered | `skills/metaskills/skill-best-practices` |

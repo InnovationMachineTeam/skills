@@ -5,13 +5,12 @@ and `plugins/` are projections and must not be edited directly.
 
 | Category | Scope | Entry points |
 |---|---|---|
-| `agent-master/` | Agent Harness factory with package-private process, role, skill and implementation architects | `agent-master` |
+| [agent-master](agent-master/README.md) | Agent Harness factory with package-private process, role, skill and implementation architects | `agent-master` |
 | [agent-skills](agent-skills/README.md) | one agent or subagent | `agent-builder`, `agentkit` |
 | [agent-team-skills](agent-team-skills/README.md) | team architecture, build, mapping, execution | `agent-team-manager` |
 | [agent-os-skills](agent-os-skills/README.md) | durable platform planes | `agent-os-architect` |
-| `metaskills/` | create, evaluate, optimize, and govern skills | `skill-builder`, `metaskillpack` |
-| `prompts/` | reconstruct, generalize, merge, decompose, and package complex prompts | `prompt-master` |
-| `prompt-skills/` | durable prompt design and optimization | `prompt-optimize` |
+| [metaskills](metaskills/README.md) | create, evaluate, optimize, and govern skills | `skill-builder`, `metaskillpack` |
+| [prompt-skills](prompt-skills/README.md) | durable prompt design, reconstruction, optimization, and packaging | `prompt-optimize`, `prompt-master` |
 
 ## Capability placement
 

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "revision": 23,
-  "updated_at": "2026-08-01T16:53:59Z",
+  "revision": 24,
+  "updated_at": "2026-08-02T23:12:17Z",
   "assets": [
     {
       "id": "asset://repository/skill/agent-architect",
@@ -942,7 +942,7 @@
       "version_strategy": "independent",
       "parent_version_ref": null,
       "content_sha256": "sha256:afb0664438d8e2a34bbc2011d5d52592d3ae5aa8244d0c34d1a9452af88e1185",
-      "locator": "skills/prompts/prompt-master",
+      "locator": "skills/prompt-skills/prompt-master",
       "visibility": "public",
       "scope": "repository",
       "discoverability": "global",

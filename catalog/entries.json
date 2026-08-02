@@ -31,7 +31,7 @@
     {"name": "agent-team-orchestrator", "category": "agent-team-skills", "tags": ["agents", "runtime", "orchestration"]},
     {"name": "agent-workspace-manager", "category": "agent-team-skills", "tags": ["agents", "worktrees", "workspaces"]},
     {"name": "metaskillpack", "category": "metaskills", "tags": ["orchestration", "composite", "metaskills"]},
-    {"name": "prompt-master", "category": "prompts", "tags": ["prompts", "reconstruction", "orchestration", "evaluation"]},
+    {"name": "prompt-master", "category": "prompt-skills", "tags": ["prompts", "reconstruction", "orchestration", "evaluation"]},
     {"name": "prompt-optimize", "category": "prompt-skills", "tags": ["prompts", "optimization"]},
     {"name": "skill-architect", "category": "metaskills", "tags": ["creation", "architecture"]},
     {"name": "skill-best-practices", "category": "metaskills", "tags": ["research", "governance"]},

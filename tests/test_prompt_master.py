@@ -4,7 +4,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SKILL = ROOT / "skills" / "prompts" / "prompt-master"
+SKILL = ROOT / "skills" / "prompt-skills" / "prompt-master"
 
 
 class PromptMasterTests(unittest.TestCase):
@@ -48,8 +48,8 @@ class PromptMasterTests(unittest.TestCase):
 
     def test_category_instructions_are_synchronized(self):
         self.assertEqual(
-            (ROOT / "skills" / "prompts" / "AGENTS.md").read_bytes(),
-            (ROOT / "skills" / "prompts" / "CLAUDE.md").read_bytes(),
+            (ROOT / "skills" / "prompt-skills" / "AGENTS.md").read_bytes(),
+            (ROOT / "skills" / "prompt-skills" / "CLAUDE.md").read_bytes(),
         )
 
 

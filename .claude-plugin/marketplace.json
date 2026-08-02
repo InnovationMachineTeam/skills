@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "InnovationMachine Agent Skills marketplace",
-    "version": "3.6.0"
+    "version": "3.7.0"
   },
   "plugins": [
     {
@@ -580,11 +580,12 @@
         "name": "InnovationMachine",
         "email": "stanislav.usoltsev@gmail.com"
       },
-      "category": "prompts",
+      "category": "prompt-skills",
       "tags": [
         "agent-skills",
         "evaluation",
         "orchestration",
+        "prompt-skills",
         "prompts",
         "reconstruction"
       ]
