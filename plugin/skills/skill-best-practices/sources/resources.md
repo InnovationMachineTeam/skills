@@ -1,6 +1,6 @@
 # Resource inventory
 
-Last checked: 2026-07-30. `sources/registry.json` is canonical for automation; this file is the readable list.
+Last checked: 2026-08-03. `sources/registry.json` is canonical for automation; this file is the readable list.
 
 Initial comparison point: `baseline-snapshot.json`. Its fingerprints represent the summarized findings recorded during the initial review, not immutable hashes of canonical pages. Refresh each canonical source before making a new “unchanged” claim.
 
@@ -25,6 +25,7 @@ Detailed summary: [open-standard.md](open-standard.md).
 | SRC-ANT-002 | [Skills for enterprise](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/enterprise) | Security review, coexistence, registry, versioning, rollout and rollback. |
 | SRC-ANT-003 | [Skills with the API](https://platform.claude.com/docs/en/build-with-claude/skills-guide) | API runtime, containers, versions, upload limits and long-running continuation. |
 | SRC-ANT-004 | [Engineering article](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills) | Architectural rationale for discoverable, composable procedural context. |
+| SRC-ANT-005 | [Claude 5 context engineering](https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models) | Model-specific guidance on judgment, progressive disclosure, lightweight instructions and rich references. |
 
 Detailed summary: [anthropic.md](anthropic.md).
 

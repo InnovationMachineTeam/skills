@@ -1,7 +1,7 @@
 {
   "format": 2,
   "plugin": "skill-best-practices",
-  "version": "1.2.2",
+  "version": "1.3.0",
   "source_layout": "skills/",
   "bundle_layout": "skills/<name>/",
   "platforms": [
@@ -21,33 +21,33 @@
   "files": [
     {
       "path": ".claude-plugin/plugin.json",
-      "sha256": "9038bdaf19464817b3c9de093b9477b4953290a8d36a0add9a841a313b54639c",
-      "bytes": 426
+      "sha256": "0542f68218a8006800695df4faaec9bbda5190eb98c203f4569094ffda684ae5",
+      "bytes": 370
     },
     {
       "path": ".codex-plugin/plugin.json",
-      "sha256": "16d29951f2f2b16b73dbe851c1d4e2d2cfedc0798ce85362cff333bcc644dc70",
-      "bytes": 1347
+      "sha256": "6cf4de79c09d859e9118031db93ede89811e780bfbcfaa25d472e7225ea3dac4",
+      "bytes": 1240
     },
     {
       "path": ".cursor-plugin/plugin.json",
-      "sha256": "15e16902518aaaad01d1fdc09b83e1ca8ff91941e6a4e440c84b68f6f4f60e02",
-      "bytes": 628
+      "sha256": "2378d6dfa6fe1f32ff724045d4f64dcc1abf8679514ce95ab684a8bb886a8fd4",
+      "bytes": 572
     },
     {
       "path": "README.md",
-      "sha256": "99d46e91ac2d9be7a31759a24433bbd5c5708e1d75cf619039c0f712f9d35a22",
-      "bytes": 523
+      "sha256": "0f063459f7ffb4adad56d70acaf8a96ff69836ee92a36f9c0d528f141dfbdada",
+      "bytes": 467
     },
     {
       "path": "skills/skill-best-practices/README.md",
-      "sha256": "e179bd96506dc1e392411141d3e1d3cf9b93774d0c10bd73013d2e4eab5da3af",
-      "bytes": 14807
+      "sha256": "37279bb35804b230f796ddacaf8cfb60ab13d4a8113e9e94a90aa732ae9bb300",
+      "bytes": 14324
     },
     {
       "path": "skills/skill-best-practices/SKILL.md",
-      "sha256": "c33ad2621ab1887f4796fcb299d5f6b9985fbff9f0ca91eaaa28869b807489ae",
-      "bytes": 11084
+      "sha256": "0666a50c742f33d3e89a5bb9c12f466c6e542ee962d1a3bd5684777e187807ac",
+      "bytes": 10722
     },
     {
       "path": "skills/skill-best-practices/agents/openai.yaml",
@@ -256,13 +256,13 @@
     },
     {
       "path": "skills/skill-best-practices/sources/anthropic.md",
-      "sha256": "54914bf480ac20c304600681d9c20c6e3365b515e3ffedfd2ddad7a5eab30de4",
-      "bytes": 1802
+      "sha256": "e77ffd7b1a99c8ccd1858bae40c2a753a7cbd83e0a47046a6fb00a0d0fb39fc4",
+      "bytes": 2411
     },
     {
       "path": "skills/skill-best-practices/sources/baseline-snapshot.json",
-      "sha256": "287bd9bbc0e04741d95621083958ab2341c01e624c08d0ef66583293566a5583",
-      "bytes": 7615
+      "sha256": "b6ace1156588bffff97c4f744026fc71d63f6b5851da53d326be3f8ab4509cc0",
+      "bytes": 8363
     },
     {
       "path": "skills/skill-best-practices/sources/exemplars.md",
@@ -291,13 +291,13 @@
     },
     {
       "path": "skills/skill-best-practices/sources/registry.json",
-      "sha256": "8edfb92d3bcd8bd65f05c2f80482e2129ab555bcc4914816f92827fe8af265f6",
-      "bytes": 11956
+      "sha256": "b93a02446c96be9878d95a7559c7cd421a65c42bb0ab1bfa4f733ee192c011cf",
+      "bytes": 12826
     },
     {
       "path": "skills/skill-best-practices/sources/resources.md",
-      "sha256": "d3386eb4d514b573d50bcb151ab782a3816c9f00c43818c0bab4247191ea468f",
-      "bytes": 4046
+      "sha256": "ba4d37b5d3fec5b9e0d715e698c42c10f802ae824007f3a7dd22a975ac4521b0",
+      "bytes": 4297
     }
   ]
 }

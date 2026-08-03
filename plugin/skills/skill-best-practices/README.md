@@ -37,14 +37,14 @@ The package is a reviewable bundle and does not install or activate itself.
 
 ## Паспорт навыка
 
-- **Назначение:** Maintains and queries an evidence-linked, updateable corpus of best practices for creating, routing, evaluating, securing, optimizing, distributing, and governing agent skills.
-- **Версия:** `1.2.2`.
+- **Назначение:** Maintains an evidence-linked corpus for authoring, routing, evaluating, securing, optimizing and governing agent skills.
+- **Версия:** `1.3.0`.
 - **Видимость:** public: канонический навык каталога; фактическая активация зависит от целевого host.
 - **Теги каталога:** `research`, `governance`.
 
 ## Когда использовать
 
-A user asks for a source-backed skill-practices answer or checklist, wants to audit or refresh the declared source registry, compare new guidance with an existing practice corpus, resolve contradictions, rebuild thematic best-practice files, audit skills against current guidance, or generate a master prompt for modifying the managed skill portfolio. Not for open-ended discovery of new repositories or articles; use a harvesting workflow first. Track provenance and platform scope, stage rebuilds safely, and never rewrite active installed skills or promote third-party patterns to standards by assumption.
+Используйте навык, когда запрос соответствует его назначению и границам ответственности из `SKILL.md`.
 
 Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.
 

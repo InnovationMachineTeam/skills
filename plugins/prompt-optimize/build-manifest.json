@@ -1,7 +1,7 @@
 {
   "format": 2,
   "plugin": "prompt-optimize",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "source_layout": "skills/",
   "bundle_layout": "skills/<name>/",
   "platforms": [
@@ -21,33 +21,33 @@
   "files": [
     {
       "path": ".claude-plugin/plugin.json",
-      "sha256": "07d9b9f520564fd368fb8722bbfc9c39f84374ae8c78dfd09643293d68f4b2f1",
-      "bytes": 327
+      "sha256": "4b180fea9eaa74ef176a647db80d8960b63238daa618ef57002e9793aab74c02",
+      "bytes": 400
     },
     {
       "path": ".codex-plugin/plugin.json",
-      "sha256": "3df9b49830fc7835cce73f9270bbecfe28a962e4bcb7feee3765a1d751b987a9",
-      "bytes": 1130
+      "sha256": "d1b7aed8df755af8715b90d1929dc972379b5ec556cf9f49b32219777732587b",
+      "bytes": 1310
     },
     {
       "path": ".cursor-plugin/plugin.json",
-      "sha256": "ad77cd4f48fda97342c3efa8e40aedaa13be4a01e1cdf72f397c74b13646718a",
-      "bytes": 538
+      "sha256": "62d8eae08f482e38121a135d27b80cd2b8ce16397598bceb1108c478c5409f2e",
+      "bytes": 611
     },
     {
       "path": "README.md",
-      "sha256": "2aceaa497e3036dd8e96daa8241090dc5094cd527832dd385bc0a25f94b9b324",
-      "bytes": 424
+      "sha256": "7967c3e40fa3d367cfb0530fc28e5a103a36bc08995c91c7dff0ceb534f91419",
+      "bytes": 497
     },
     {
       "path": "skills/prompt-optimize/README.md",
-      "sha256": "8b129b8fcc05ded7a30d25d6bad0e5ab3d626f38a2d363fc05647e1fafc9c04a",
-      "bytes": 6594
+      "sha256": "676d66a780b6ecd6d3c777a417d5d4a14d98f92fe70658b8ac5dc17ee2b8d7d4",
+      "bytes": 6549
     },
     {
       "path": "skills/prompt-optimize/SKILL.md",
-      "sha256": "464f04b6cf29cd659e2a07bdf2924e09a8302c833b1c5441fc5608c9b9a05ecb",
-      "bytes": 9345
+      "sha256": "067162155780f28cd2346ee5ee2429bc9fafb499e81b0cf06efb42ca057e9346",
+      "bytes": 9285
     },
     {
       "path": "skills/prompt-optimize/agents/openai.yaml",

@@ -1,7 +1,7 @@
 {
   "name": "skill-doctor",
-  "version": "1.0.2",
-  "description": "Diagnoses unhealthy, broken, unsafe, or inconsistently behaving SKILL.md-based agent skills and verifies minimal repairs",
+  "version": "1.0.3",
+  "description": "Diagnoses unhealthy, unsafe or inconsistent skills and verifies minimal repairs",
   "homepage": "https://github.com/InnovationMachineTeam/skills",
   "repository": "https://github.com/InnovationMachineTeam/skills",
   "license": "Proprietary",
@@ -19,8 +19,8 @@
   },
   "interface": {
     "displayName": "Skill Doctor",
-    "shortDescription": "Diagnoses unhealthy, broken, unsafe, or inconsistently behaving SKILL.md-based agent skills and verifies minimal repairs",
-    "longDescription": "Diagnoses unhealthy, broken, unsafe, or inconsistently behaving SKILL.md-based agent skills and verifies minimal repairs",
+    "shortDescription": "Diagnoses unhealthy, unsafe or inconsistent skills and verifies minimal repairs",
+    "longDescription": "Diagnoses unhealthy, unsafe or inconsistent skills and verifies minimal repairs",
     "developerName": "InnovationMachine",
     "category": "Developer Tools",
     "capabilities": [

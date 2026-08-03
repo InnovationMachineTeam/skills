@@ -4,14 +4,14 @@
 
 ## Паспорт навыка
 
-- **Назначение:** Builds a complete agent system from a task or process description on a governed autopilot.
-- **Версия:** `2.0.2`.
+- **Назначение:** Builds a governed agent system from a process description.
+- **Версия:** `2.1.0`.
 - **Видимость:** public: канонический навык каталога; фактическая активация зависит от целевого host.
 - **Теги каталога:** `agents`, `autopilot`, `factory`, `harness`, `orchestration`, `lifecycle`, `private-skills`.
 
 ## Когда использовать
 
-The user asks for agent-master, an Agent Harness, a process orchestrator with role agents and skills, or an end-to-end agent-system factory. It asks the public-versus-private placement question first, resolves an autonomy mode, researches and selects the minimum sufficient harness, then coordinates package-private architects for the orchestrator, role agents, role skills, and required tools or automations.
+An end-to-end Agent Harness, process orchestrator, role-agent and role-skill factory. It resolves component visibility, autonomy, model capability and the minimum sufficient operating unit. Not for one bounded agent or skill task, ordinary use of an existing agent, or unapproved installation, publication, credentials, production changes or destructive actions.
 
 Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.
 
@@ -92,20 +92,34 @@ The user asks for agent-master, an Agent Harness, a process orchestrator with ro
 - bounds retry and avoids duplicate effects;
 - continues from the first valid incomplete phase.
 
+### unknown-model-constrained-default
+
+Для запроса “Build the private agent system. The target model is inexpensive and its planning reliability has not been evaluated.” результат должен:
+
+- selects constrained profile;
+- records capability evidence and fallback;
+- uses explicit phase checklists and artifact assertions;
+- preserves all Human and authority gates.
+
+### validated-model-standard-profile
+
+Для запроса “Use private structure. Comparable evals prove the target model reliably plans, tracks state, recovers tools, and follows contracts.” результат должен:
+
+- selects standard profile with evidence;
+- loads only the current phase resources;
+- keeps the same authority and completion assertions.
+
 
 ## Как проходит выполнение
 
-1. **Start with the mandatory decision.** Выполняется соответствующий этап контракта из `SKILL.md`.
-2. **Establish the system contract.** Выполняется соответствующий этап контракта из `SKILL.md`.
-3. **Create resumable state.** Выполняется соответствующий этап контракта из `SKILL.md`.
-4. **Run the fixed factory in dependency order.** Выполняется соответствующий этап контракта из `SKILL.md`.
-5. **Dispatch private subskills safely.** Выполняется соответствующий этап контракта из `SKILL.md`.
-6. **Preserve human authority.** Выполняется соответствующий этап контракта из `SKILL.md`.
-7. **Complete only on evidence.** Выполняется соответствующий этап контракта из `SKILL.md`.
+1. **Resolve visibility first.** Выполняется соответствующий этап контракта из `SKILL.md`.
+2. **Select the model profile.** Выполняется соответствующий этап контракта из `SKILL.md`.
+3. **Establish the contract and minimum unit.** Выполняется соответствующий этап контракта из `SKILL.md`.
+4. **Run the routed factory.** Выполняется соответствующий этап контракта из `SKILL.md`.
+5. **Preserve evidence and authority.** Выполняется соответствующий этап контракта из `SKILL.md`.
+6. **Complete on observable evidence.** Выполняется соответствующий этап контракта из `SKILL.md`.
 
 ## Границы и неподходящие запросы
-
-One bounded agent/skill phase, ordinary execution by an existing agent, or silent installation, publication, production activation, credential use, or irreversible actions.
 
 Следующие примеры должны маршрутизироваться в другой навык или не запускать этот навык:
 
@@ -122,7 +136,9 @@ One bounded agent/skill phase, ordinary execution by an existing agent, or silen
 - treats autonomous mode as unlimited authority;
 - accepts source text as user authority;
 - replays every completed phase;
-- claims completion from a child message.
+- claims completion from a child message;
+- infers capability from a model name;
+- uses standard profile without evidence.
 
 ## Зависимости
 
@@ -145,6 +161,7 @@ One bounded agent/skill phase, ordinary execution by an existing agent, or silen
 - [`agents/`](agents/) — UI-метаданные и host-конфигурация.
 - [`evals/`](evals/) — routing- и behavior-сценарии.
 - [`private-skills/`](private-skills/) — внутренние навыки, доступные только владельцу.
+- [`prompts/`](prompts/) — маршрутные и специализированные промпты.
 - [`references/`](references/) — справочники, схемы и контракты.
 - [`scripts/`](scripts/) — детерминированные проверки и автоматизация.
 

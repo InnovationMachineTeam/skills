@@ -1,7 +1,7 @@
 {
   "name": "agent-master",
-  "version": "2.0.2",
-  "description": "Builds a complete agent system from a task or process description on a governed autopilot",
+  "version": "2.1.0",
+  "description": "Builds a governed agent system from a process description",
   "homepage": "https://github.com/InnovationMachineTeam/skills",
   "repository": "https://github.com/InnovationMachineTeam/skills",
   "license": "Proprietary",
@@ -24,8 +24,8 @@
   },
   "interface": {
     "displayName": "Agent Master",
-    "shortDescription": "Builds a complete agent system from a task or process description on a governed autopilot",
-    "longDescription": "Builds a complete agent system from a task or process description on a governed autopilot",
+    "shortDescription": "Builds a governed agent system from a process description",
+    "longDescription": "Builds a governed agent system from a process description",
     "developerName": "InnovationMachine",
     "category": "Developer Tools",
     "capabilities": [

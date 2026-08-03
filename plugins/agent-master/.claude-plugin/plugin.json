@@ -1,8 +1,8 @@
 {
   "name": "agent-master",
   "displayName": "Agent Master",
-  "version": "2.0.2",
-  "description": "Builds a complete agent system from a task or process description on a governed autopilot",
+  "version": "2.1.0",
+  "description": "Builds a governed agent system from a process description",
   "skills": [
     "./skills"
   ],

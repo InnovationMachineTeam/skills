@@ -1,6 +1,6 @@
 # Skill Manager
 
-Inventories, governs, installs, updates, surfaces, scopes, quarantines, retires, and coordinates public and agent-private SKILL.md-based capabilities across explicitly scoped roots and registries
+Inventories and governs public or agent-private skills across explicitly scoped roots and registries
 
 This generated package is installable by Claude Code, Codex, and Cursor. Its canonical source lives under `skills/` in the repository root; do not edit this bundle directly.
 

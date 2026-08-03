@@ -1,6 +1,6 @@
 # Prompt Master
 
-Reconstructs, generalizes, specializes, merges, decomposes, audits, improves, or length-optimizes durable prompts and returns a versioned prompt package with evidence, depth selection, and evaluation scenarios
+Builds versioned prompt packages by reconstructing, generalizing, specializing, merging, decomposing, auditing or optimizing durable prompts
 
 This generated package is installable by Claude Code, Codex, and Cursor. Its canonical source lives under `skills/` in the repository root; do not edit this bundle directly.
 

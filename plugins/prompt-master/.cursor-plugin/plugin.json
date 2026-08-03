@@ -1,7 +1,7 @@
 {
   "name": "prompt-master",
-  "version": "1.0.2",
-  "description": "Reconstructs, generalizes, specializes, merges, decomposes, audits, improves, or length-optimizes durable prompts and returns a versioned prompt package with evidence… Companion skill plugins are required for full functionality; see README.md.",
+  "version": "1.1.0",
+  "description": "Builds versioned prompt packages by reconstructing, generalizing, specializing, merging, decomposing, auditing or optimizing durable prompts Companion skill plugins are required for full functionality; see README.md.",
   "homepage": "https://github.com/InnovationMachineTeam/skills",
   "repository": "https://github.com/InnovationMachineTeam/skills",
   "license": "Proprietary",

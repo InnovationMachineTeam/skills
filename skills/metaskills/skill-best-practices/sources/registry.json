@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "registry_id": "skill-best-practices-core-sources",
-  "last_checked": "2026-07-30",
+  "last_checked": "2026-08-03",
   "sources": [
     {
       "id": "SRC-AS-001",
@@ -152,6 +152,21 @@
       "last_checked": "2026-07-30",
       "summary_file": "anthropic.md",
       "principal_findings": ["skills package procedural and organizational context", "dynamic discovery and loading", "composability and portability rationale"]
+    },
+    {
+      "id": "SRC-ANT-005",
+      "title": "The new rules of context engineering for Claude 5 generation models",
+      "locator": "https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models",
+      "publisher": "Anthropic",
+      "category": "model-generation-guidance",
+      "authority_tier": 3,
+      "scope": "anthropic-claude-5",
+      "source_type": "official-engineering-article",
+      "update_method": "web-page",
+      "status": "available",
+      "last_checked": "2026-08-03",
+      "summary_file": "anthropic.md",
+      "principal_findings": ["replace blanket constraints with judgment for validated advanced models", "progressive disclosure for skills and tools", "lightweight project instructions", "rich executable references and evaluation", "retain explicit scaffolding when capability evidence is absent"]
     },
     {
       "id": "SRC-OAI-001",

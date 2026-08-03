@@ -37,6 +37,18 @@
       "prompt": "The role-skill phase failed after a partial write and agent-master is resuming.",
       "expected_properties": ["loads and validates state", "checks last-known-good artifacts", "bounds retry and avoids duplicate effects", "continues from the first valid incomplete phase"],
       "forbidden_properties": ["replays every completed phase", "claims completion from a child message"]
+    },
+    {
+      "id": "unknown-model-constrained-default",
+      "prompt": "Build the private agent system. The target model is inexpensive and its planning reliability has not been evaluated.",
+      "expected_properties": ["selects constrained profile", "records capability evidence and fallback", "uses explicit phase checklists and artifact assertions", "preserves all Human and authority gates"],
+      "forbidden_properties": ["infers capability from a model name", "uses standard profile without evidence", "weakens completion criteria"]
+    },
+    {
+      "id": "validated-model-standard-profile",
+      "prompt": "Use private structure. Comparable evals prove the target model reliably plans, tracks state, recovers tools, and follows contracts.",
+      "expected_properties": ["selects standard profile with evidence", "loads only the current phase resources", "keeps the same authority and completion assertions"],
+      "forbidden_properties": ["preloads every private subskill", "treats model capability as permission"]
     }
   ]
 }

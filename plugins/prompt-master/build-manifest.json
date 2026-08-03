@@ -1,7 +1,7 @@
 {
   "format": 2,
   "plugin": "prompt-master",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "source_layout": "skills/",
   "bundle_layout": "skills/<name>/",
   "platforms": [
@@ -21,23 +21,23 @@
   "files": [
     {
       "path": ".claude-plugin/plugin.json",
-      "sha256": "227271fdaf9b43d5bb9176bddb54a0c4f864e52d979583c7b60d118797ff0198",
-      "bytes": 529
+      "sha256": "09deb49c83bbeeb6572ac4066d287a9034e7e56816acf5cb661af4985276add8",
+      "bytes": 500
     },
     {
       "path": ".codex-plugin/plugin.json",
-      "sha256": "3a47de325e8daf53b1ea19b13cb09e6c9df0b303a873707bae1f1878366bb17d",
-      "bytes": 1517
+      "sha256": "fcc184c750ad0dd20cd619df9f15b6c33c90399fc3d2bd9a617f32f9c5f2a69c",
+      "bytes": 1455
     },
     {
       "path": ".cursor-plugin/plugin.json",
-      "sha256": "ccdd45245fd3e2595320d95847f1f17a93a07d7582ad721863987a03965b531e",
-      "bytes": 736
+      "sha256": "f4cf85d92b80b40eea6f5204bc4cb1c7b17cdf467b066f8509093c89c5014789",
+      "bytes": 707
     },
     {
       "path": "README.md",
-      "sha256": "b2c3a54f0317c91980e00035967de1b25da023f58e8eac65e82d8bc6ee0f0ff2",
-      "bytes": 1156
+      "sha256": "1464ca851b27b51cfe6e1e9713877b5588284252590c2084c58030997c25df22",
+      "bytes": 1087
     },
     {
       "path": "skill-dependencies.json",
@@ -46,13 +46,13 @@
     },
     {
       "path": "skills/prompt-master/README.md",
-      "sha256": "d0e29cd1abdb0726f5a4130bea611b31c15a661f4a9bfbdd44a16033b4cf55e3",
-      "bytes": 10737
+      "sha256": "78231a4fa89138458a4742fec6945b990b405f23b2c038477c7ba3e10595754d",
+      "bytes": 10567
     },
     {
       "path": "skills/prompt-master/SKILL.md",
-      "sha256": "b34cce734db29c2d091de55fc6137d32b4e48725b0a84222501d2c0fb8826dd2",
-      "bytes": 8195
+      "sha256": "762b11c71a80b3cf683137d63e6704d78366aff80bfc1beae47c71764e82c01b",
+      "bytes": 3777
     },
     {
       "path": "skills/prompt-master/agents/openai.yaml",
@@ -61,13 +61,23 @@
     },
     {
       "path": "skills/prompt-master/evals/behavior.json",
-      "sha256": "b57807eb05a85250466565391308428d12094e32bbe6600e46d0950bdbe00089",
-      "bytes": 3065
+      "sha256": "88088959b444634281983b8556c7b21541f7fdd8a02834c0b656576931b451b1",
+      "bytes": 4023
     },
     {
       "path": "skills/prompt-master/evals/routing.json",
       "sha256": "22330d51758d644f9421764b9884857552f6a2d683cc1ec0c84e5be1d83b3424",
       "bytes": 2139
+    },
+    {
+      "path": "skills/prompt-master/prompts/constrained.md",
+      "sha256": "43a5d8714e641280a56254ad1dca9a4d98874688130097cb23d3ef716dcc5b35",
+      "bytes": 781
+    },
+    {
+      "path": "skills/prompt-master/prompts/standard.md",
+      "sha256": "831e6c5f903aafaf2c18283fb7092fc5a220b5658836b9845c2dadbced8fa657",
+      "bytes": 477
     },
     {
       "path": "skills/prompt-master/references/delivery-and-evaluation-contract.md",
@@ -78,6 +88,16 @@
       "path": "skills/prompt-master/references/mode-and-depth-contract.md",
       "sha256": "5272ef83e448105d68d60478498c1afdda280c714fcd38e3d5564c4fa6001d32",
       "bytes": 5565
+    },
+    {
+      "path": "skills/prompt-master/references/model-capability-profiles.md",
+      "sha256": "5231ceaa23d00392b68c9e58f8bb0352d3dda91499dd29d66c90d607f26a54f1",
+      "bytes": 673
+    },
+    {
+      "path": "skills/prompt-master/references/package-workflow.md",
+      "sha256": "fcd41b8cc014f13cf055452b868a66d9194d165af2dbf84e8409b033301275bc",
+      "bytes": 1479
     },
     {
       "path": "skills/prompt-master/references/skill-dependencies.md",

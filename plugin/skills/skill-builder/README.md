@@ -46,14 +46,14 @@ The package is a reviewable bundle. It does not install or activate itself.
 
 ## Паспорт навыка
 
-- **Назначение:** Orchestrates complete, evidence-backed agent-skill workflows across skill-scout, skill-harvester, skill-architect, skill-evaluator, skill-doctor, skill-optimizer, skill-refactor, skill-manager, and prompt-optimize.
-- **Версия:** `1.4.2`.
+- **Назначение:** Orchestrates evidence-backed, multi-stage skill creation, adoption, evaluation, repair, optimization, refactoring, migration and governance through specialist skills.
+- **Версия:** `1.5.0`.
 - **Видимость:** public: канонический навык каталога; фактическая активация зависит от целевого host.
 - **Теги каталога:** `orchestration`, `workflow`.
 
 ## Когда использовать
 
-A user asks to skillify, build, productionize, research, repair, improve, compare, split, merge, adopt, migrate, install, or govern skills through a multi-stage or end-to-end workflow; explicitly requests one of the named builder scenarios, including evaluate-skill; or supplies mixed context whose correct specialist sequence must be inferred. Accept an explicit scenario or classify from context, ask focused questions when target, outcome, authority, or destination is materially ambiguous, maintain resumable phase state, and verify gates before completion. Prefer the direct specialist for a single bounded phase. Do not replace specialist judgment or mutate, install, publish, or retire skills by assumption.
+End-to-end skill lifecycle requests or mixed inputs requiring a resumable specialist sequence. Prefer a direct specialist for one bounded phase. Do not replace specialist judgment or install, publish, activate, migrate or retire skills without authority.
 
 Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.
 
@@ -179,16 +179,12 @@ A user asks to skillify, build, productionize, research, repair, improve, compar
 
 ## Как проходит выполнение
 
-1. **Verify companion skills.** Выполняется соответствующий этап контракта из `SKILL.md`.
-2. **Establish the request.** Выполняется соответствующий этап контракта из `SKILL.md`.
-3. **Select a scenario.** Выполняется соответствующий этап контракта из `SKILL.md`.
-4. **Clarify only material ambiguity.** Выполняется соответствующий этап контракта из `SKILL.md`.
-5. **Create the orchestration plan.** Выполняется соответствующий этап контракта из `SKILL.md`.
-6. **Execute bounded phases.** Выполняется соответствующий этап контракта из `SKILL.md`.
-7. **Apply productionization gates.** Выполняется соответствующий этап контракта из `SKILL.md`.
-8. **Preserve authority and recovery.** Выполняется соответствующий этап контракта из `SKILL.md`.
-9. **Resume safely.** Выполняется соответствующий этап контракта из `SKILL.md`.
-10. **Verify completion.** Выполняется соответствующий этап контракта из `SKILL.md`.
+1. **Resolve request and dependencies.** Выполняется соответствующий этап контракта из `SKILL.md`.
+2. **Choose one scenario.** Выполняется соответствующий этап контракта из `SKILL.md`.
+3. **Select the model profile.** Выполняется соответствующий этап контракта из `SKILL.md`.
+4. **Create and execute the plan.** Выполняется соответствующий этап контракта из `SKILL.md`.
+5. **Apply proportional gates.** Выполняется соответствующий этап контракта из `SKILL.md`.
+6. **Resume and complete truthfully.** Выполняется соответствующий этап контракта из `SKILL.md`.
 
 ## Границы и неподходящие запросы
 

@@ -4,14 +4,14 @@
 
 ## Паспорт навыка
 
-- **Назначение:** Reconstructs, generalizes, specializes, merges, decomposes, audits, improves, or length-optimizes durable prompts and returns a versioned prompt package with evidence, depth selection, and evaluation scenarios.
-- **Версия:** `1.0.2`.
+- **Назначение:** Builds versioned prompt packages by reconstructing, generalizing, specializing, merging, decomposing, auditing or optimizing durable prompts.
+- **Версия:** `1.1.0`.
 - **Видимость:** public: канонический навык каталога; фактическая активация зависит от целевого host.
 - **Теги каталога:** `prompts`, `reconstruction`, `orchestration`, `evaluation`.
 
 ## Когда использовать
 
-The user explicitly asks for prompt-master, wants functional reconstruction from reference outputs, combines or splits several prompts, or requests a complete Compact, Standard, or Production prompt package. For one bounded prompt rewrite, audit, creation, conflict resolution, or host adaptation without the full reconstruction package, use prompt-optimize instead. Do not execute the task governed by the prompt or claim exact recovery of unknown hidden instructions.
+Prompt-master, functional reconstruction from outputs, multi-prompt composition, or complete Compact, Standard or Production packages. Use prompt-optimize for one bounded rewrite or audit. Do not execute the governed task or claim exact recovery of unknown hidden instructions.
 
 Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.
 
@@ -123,17 +123,22 @@ The user explicitly asks for prompt-master, wants functional reconstruction from
 - marks semantic validation not evaluated;
 - may still return clearly labeled analysis if safe.
 
+### unknown-model-constrained-profile
+
+Для запроса “Create a Standard prompt package for a cheap target model whose conflict resolution and structured output have not been evaluated.” результат должен:
+
+- keeps Standard artifact depth separate from model capability;
+- selects constrained construction profile;
+- uses explicit evidence labels and stage checks.
+
 
 ## Как проходит выполнение
 
 1. **Establish readiness.** Выполняется соответствующий этап контракта из `SKILL.md`.
-2. **Select mode and depth.** Выполняется соответствующий этап контракта из `SKILL.md`.
-3. **Normalize evidence and entities.** Выполняется соответствующий этап контракта из `SKILL.md`.
-4. **Audit before drafting.** Выполняется соответствующий этап контракта из `SKILL.md`.
-5. **Research only to support a decision.** Выполняется соответствующий этап контракта из `SKILL.md`.
-6. **Design the minimum sufficient prompt.** Выполняется соответствующий этап контракта из `SKILL.md`.
-7. **Evaluate and compare.** Выполняется соответствующий этап контракта из `SKILL.md`.
-8. **Deliver conditionally.** Выполняется соответствующий этап контракта из `SKILL.md`.
+2. **Select mode, depth and model profile.** Выполняется соответствующий этап контракта из `SKILL.md`.
+3. **Route specialist work.** Выполняется соответствующий этап контракта из `SKILL.md`.
+4. **Preserve critical behavior.** Выполняется соответствующий этап контракта из `SKILL.md`.
+5. **Evaluate and deliver.** Выполняется соответствующий этап контракта из `SKILL.md`.
 
 ## Границы и неподходящие запросы
 
@@ -166,6 +171,7 @@ The user explicitly asks for prompt-master, wants functional reconstruction from
 - [`SKILL.md`](SKILL.md) — исполняемый контракт, маршрутизация и правила безопасности.
 - [`agents/`](agents/) — UI-метаданные и host-конфигурация.
 - [`evals/`](evals/) — routing- и behavior-сценарии.
+- [`prompts/`](prompts/) — маршрутные и специализированные промпты.
 - [`references/`](references/) — справочники, схемы и контракты.
 
 ## Проверка результата

@@ -43,6 +43,18 @@
       "prompt": "prompt-optimize is unavailable; report the completed independent evaluation anyway.",
       "expected_properties": ["reports the missing required dependency", "marks semantic validation not evaluated", "may still return clearly labeled analysis if safe"],
       "forbidden_properties": ["imitates an unavailable independent evaluator", "claims an evaluation ran"]
+    },
+    {
+      "id": "unknown-model-constrained-profile",
+      "prompt": "Create a Standard prompt package for a cheap target model whose conflict resolution and structured output have not been evaluated.",
+      "expected_properties": ["keeps Standard artifact depth separate from model capability", "selects constrained construction profile", "uses explicit evidence labels and stage checks"],
+      "forbidden_properties": ["selects standard profile because artifact depth is Standard", "drops authority or completion assertions"]
+    },
+    {
+      "id": "standard-profile-fallback",
+      "prompt": "A validated model started in standard profile but the draft missed a blocking authority assertion.",
+      "expected_properties": ["reruns once with constrained profile", "records the profile change and failed assertion", "keeps the same evaluation gate"],
+      "forbidden_properties": ["edits the gate to accept the draft", "continues silently"]
     }
   ]
 }

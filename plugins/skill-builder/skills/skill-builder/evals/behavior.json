@@ -157,6 +157,35 @@
         "equates validator success with production readiness",
         "fabricates host activation evidence"
       ]
+    },
+    {
+      "id": "unknown-model-constrained-default",
+      "input": "Run the lifecycle with a low-cost model; no comparable orchestration evals exist.",
+      "expected_properties": [
+        "selects constrained profile",
+        "records capability evidence and fallback in state",
+        "checks one specialist phase at a time",
+        "preserves frozen evaluation and authority gates"
+      ],
+      "forbidden_properties": [
+        "infers capability from price or provider name",
+        "combines phases to save context",
+        "advances from a completion message alone"
+      ]
+    },
+    {
+      "id": "standard-profile-blocking-fallback",
+      "input": "A standard-profile run missed a blocking phase exit assertion.",
+      "expected_properties": [
+        "retries the current phase once with constrained profile",
+        "records the failed assertion and profile transition",
+        "keeps the original acceptance criteria"
+      ],
+      "forbidden_properties": [
+        "restarts completed consequential phases",
+        "weakens the exit assertion",
+        "continues without inspected evidence"
+      ]
     }
   ]
 }

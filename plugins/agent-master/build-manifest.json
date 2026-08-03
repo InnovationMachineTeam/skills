@@ -1,7 +1,7 @@
 {
   "format": 2,
   "plugin": "agent-master",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "source_layout": "skills/",
   "bundle_layout": "skills/<name>/",
   "platforms": [
@@ -21,23 +21,23 @@
   "files": [
     {
       "path": ".claude-plugin/plugin.json",
-      "sha256": "86dce49af3efbcf79ca74c5a6960ac6f809dbca30b7446e00981e2a5f4c8d110",
-      "bytes": 324
+      "sha256": "560e18c9ab843a3d78721bb8ce1d5dcf047367628d637217c8bc25f0ff98c401",
+      "bytes": 292
     },
     {
       "path": ".codex-plugin/plugin.json",
-      "sha256": "89d96c059a0d9d3ee6b6787c983ba7cb764ccab8e35f1266d5ca59eb86e525e5",
-      "bytes": 1215
+      "sha256": "3c726c7407320f6a7d67009d0d58c8e67e14ac79eb8b6cb5c70eb268325b394c",
+      "bytes": 1119
     },
     {
       "path": ".cursor-plugin/plugin.json",
-      "sha256": "166af57547a02a1c9f0e2db79fb5b0813aae84788bc5de1b7732a3bf570beeba",
-      "bytes": 623
+      "sha256": "7e7d0061209b3c823da2324a05f10f90a4b1e3c49c5d4a039c30ec3bedd13a68",
+      "bytes": 591
     },
     {
       "path": "README.md",
-      "sha256": "263b9a647b12477418b2fea235df6f61a16a4f30b37a663f42747ba67b81944c",
-      "bytes": 1899
+      "sha256": "3f20f4465d97e9379224b12ccf9bc088c635be8394fe957cc44b93fb40e6ffd2",
+      "bytes": 1867
     },
     {
       "path": "skill-dependencies.json",
@@ -46,13 +46,13 @@
     },
     {
       "path": "skills/agent-master/README.md",
-      "sha256": "0bd588284f7b7d9fa0cf2d90459e3b41e65f8afcee4806293a2a1d993edd2bc5",
-      "bytes": 10961
+      "sha256": "b599cbb792ea04d6267a122865bd5e43185dcd9a19bee32a2656151d00292440",
+      "bytes": 11517
     },
     {
       "path": "skills/agent-master/SKILL.md",
-      "sha256": "9530bc6378d731b9c9e30cb16f949690731d1c844ab245c7f0070f75501c853a",
-      "bytes": 8209
+      "sha256": "f3c4e6574cc92ed3ba097d59c98315f34083e862be1489e0407b9588dbdc3206",
+      "bytes": 4636
     },
     {
       "path": "skills/agent-master/agents/openai.yaml",
@@ -61,8 +61,8 @@
     },
     {
       "path": "skills/agent-master/evals/behavior.json",
-      "sha256": "68bca8dd6835e9fa47ba17257320761b6d4e6c93de945e854c6c6452a80b7880",
-      "bytes": 2420
+      "sha256": "8a06d1957db76be3f7e69688ba5af296a251bb2e00777cc242ad309fb1ef23ff",
+      "bytes": 3456
     },
     {
       "path": "skills/agent-master/evals/routing.json",
@@ -168,6 +168,26 @@
       "path": "skills/agent-master/private-skills/skill-implementation-engineer/references/output-contract.md",
       "sha256": "a7979c88e5c5fafb9bbc3086d67852b0678c676d3d7c59a9be1b424fa9a1333f",
       "bytes": 3275
+    },
+    {
+      "path": "skills/agent-master/prompts/constrained.md",
+      "sha256": "9132715ea949a02d3b44daa361db1b60d0162cdf6e112b6c0eb6243a87156f72",
+      "bytes": 794
+    },
+    {
+      "path": "skills/agent-master/prompts/standard.md",
+      "sha256": "522de50afc797ad1a866e58bc4a0c1f5ec310419929347e6445e2756f1a6cad7",
+      "bytes": 598
+    },
+    {
+      "path": "skills/agent-master/references/factory-workflow.md",
+      "sha256": "4d2d36e6eb6fd5bb037604c4a76926bb185ffb5bc86646ac2f862f2114f721aa",
+      "bytes": 1692
+    },
+    {
+      "path": "skills/agent-master/references/model-capability-profiles.md",
+      "sha256": "9bcd3bd12141a0f7e203ff1b94a4067e23e0c6cf6c13eb1de7f219a403a3b518",
+      "bytes": 1130
     },
     {
       "path": "skills/agent-master/references/private-skill-registry.json",

@@ -1,7 +1,7 @@
 {
   "name": "skill-builder",
-  "version": "1.4.2",
-  "description": "Orchestrates complete, evidence-backed agent-skill workflows across skill-scout, skill-harvester, skill-architect, skill-evaluator, skill-doctor, skill-optimizer… Companion skill plugins are required for full functionality; see README.md.",
+  "version": "1.5.0",
+  "description": "Orchestrates evidence-backed, multi-stage skill creation, adoption, evaluation, repair, optimization, refactoring, migration and governance through specialist skills Companion skill plugins are required for full functionality; see README.md.",
   "homepage": "https://github.com/InnovationMachineTeam/skills",
   "repository": "https://github.com/InnovationMachineTeam/skills",
   "license": "Proprietary",

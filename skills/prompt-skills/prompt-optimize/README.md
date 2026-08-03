@@ -4,14 +4,14 @@
 
 ## Паспорт навыка
 
-- **Назначение:** Designs, audits, and improves durable master, system, and developer prompts for agents.
-- **Версия:** `3.0.2`.
+- **Назначение:** Designs, audits and improves durable system, developer and agent prompts governing roles, instruction priority, tools, autonomy, safety, validation and outputs.
+- **Версия:** `3.0.3`.
 - **Видимость:** public: канонический навык каталога; фактическая активация зависит от целевого host.
 - **Теги каталога:** `prompts`, `optimization`.
 
 ## Когда использовать
 
-Creating, rewriting, consolidating, linting, evaluating, or migrating prompts that govern roles, instruction priority, tools, autonomy, safety, validation, and output behavior, including resolving conflicting prompt rules.
+Prompt creation, rewriting, consolidation, linting, evaluation, migration or conflict resolution. Not for ordinary copyediting, one-off content prompts or executing the governed task unless its controlling prompt is the requested artifact.
 
 Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.
 
@@ -47,8 +47,6 @@ Creating, rewriting, consolidating, linting, evaluating, or migrating prompts th
 6. **Anti-patterns.** Выполняется соответствующий этап контракта из `SKILL.md`.
 
 ## Границы и неподходящие запросы
-
-Ordinary copyediting, one-off content prompts, or executing the governed task unless the user asks to improve its controlling prompt.
 
 Навык не должен расширять полученные полномочия, скрывать пропущенные проверки, выполнять необратимые или внешние действия без явного разрешения либо заявлять состояние host только по наличию файлов.
 

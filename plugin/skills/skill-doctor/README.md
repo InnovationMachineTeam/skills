@@ -48,14 +48,14 @@ python3 scripts/check_evals.py evals
 
 ## Паспорт навыка
 
-- **Назначение:** Diagnoses unhealthy, broken, unsafe, or inconsistently behaving SKILL.md-based agent skills and verifies minimal repairs.
-- **Версия:** `1.0.2`.
+- **Назначение:** Diagnoses unhealthy, unsafe or inconsistent skills and verifies minimal repairs.
+- **Версия:** `1.0.3`.
 - **Видимость:** public: канонический навык каталога; фактическая активация зависит от целевого host.
 - **Теги каталога:** `diagnostics`, `repair`.
 
 ## Когда использовать
 
-A skill fails to load, trigger, find resources, run scripts or tools, respect permissions, recover from errors, pass validation, work across hosts, or preserve known behavior; when the user asks for a check-up, health report, root-cause analysis, repair, recovery verification, or explanation of why a skill stopped working.
+Loading, routing, resource, script, tool, permission, recovery, validation, portability or regression failures, and for health or root-cause reports. Require a target, symptom and repair authority.
 
 Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.
 

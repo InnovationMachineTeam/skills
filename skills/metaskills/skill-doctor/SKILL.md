@@ -1,8 +1,8 @@
 ---
 name: skill-doctor
-description: Diagnoses unhealthy, broken, unsafe, or inconsistently behaving SKILL.md-based agent skills and verifies minimal repairs. Use when a skill fails to load, trigger, find resources, run scripts or tools, respect permissions, recover from errors, pass validation, work across hosts, or preserve known behavior; when the user asks for a check-up, health report, root-cause analysis, repair, recovery verification, or explanation of why a skill stopped working. Ask for the target skill, symptom, and repair authorization when no usable input is supplied. Route independent eval design, trigger suites, benchmarking, and release evidence to skill-evaluator; route healthy skills needing performance or quality tuning to skill-optimizer rather than treating optimization as repair.
+description: Diagnoses unhealthy, unsafe or inconsistent skills and verifies minimal repairs. Use for loading, routing, resource, script, tool, permission, recovery, validation, portability or regression failures, and for health or root-cause reports. Require a target, symptom and repair authority. Route independent evaluation to skill-evaluator and healthy performance or quality improvements to skill-optimizer.
 metadata:
-  version: "1.0.2"
+  version: "1.0.3"
 ---
 
 # Diagnose Agent Skills
