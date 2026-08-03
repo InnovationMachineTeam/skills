@@ -93,7 +93,7 @@ dependency-first plans. See [SKILL-DEPENDENCIES.md](SKILL-DEPENDENCIES.md).
 |---|---|---|---|
 | Claude Code | `.claude-plugin/marketplace.json` | `.claude-plugin/plugin.json` | one entry per skill |
 | Codex | `.agents/plugins/marketplace.json` | `.codex-plugin/plugin.json` | one entry per skill |
-| Cursor | `.cursor-plugin/marketplace.json` | `.cursor-plugin/plugin.json` | one entry per skill after native publication; Skills CLI while private |
+| Cursor | `.cursor-plugin/marketplace.json` | `.cursor-plugin/plugin.json` | public repository supports Skills CLI now; native publication still requires Cursor review |
 | Agent Skills clients | `skills/<category>/*/SKILL.md` | skill frontmatter | client-specific |
 
 The three plugin marketplaces all resolve to the same generated `plugins/<name>/` package. This avoids platform forks while allowing each host to receive its native manifest.

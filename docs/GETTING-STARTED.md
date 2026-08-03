@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-- Git access to the private `InnovationMachineTeam/skills` repository;
+- Git access to the public `InnovationMachineTeam/skills` repository;
 - the target host: Claude Code, Codex, Cursor, or another Agent Skills client;
 - Python 3 for repository dependency, build, and validation helpers;
 - Node.js/npx only for Skills CLI checks or installation.
@@ -36,7 +36,7 @@ codex plugin add agentkit@im-skills
 codex plugin list --json
 ```
 
-### Cursor/private phase
+### Cursor
 
 ```bash
 npx skills add InnovationMachineTeam/skills --skill agentkit --agent cursor
@@ -79,10 +79,10 @@ not build or activate anything.
 
 | Problem | Resolution |
 |---|---|
-| Private repository cannot be resolved | Authenticate the current Git identity before invoking the host |
+| Public repository cannot be resolved | Verify network access and the repository locator before invoking the host |
 | A route reports a missing companion | Run the dependency plan and install the declared companion |
 | Duplicate behavior or triggers | Use one installation channel per skill and scope |
-| Cursor native marketplace cannot publish | Use Skills CLI while the repository remains private |
+| Cursor native marketplace entry is unavailable | Use Skills CLI directly from the public repository; native publication requires separate Cursor review |
 | An installed skill is not active | Verify host read-back; installation and activation are separate states |
 
 ## Next steps

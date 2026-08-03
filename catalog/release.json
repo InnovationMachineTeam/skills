@@ -2,9 +2,9 @@
   "schema_version": 1,
   "marketplace": {
     "name": "im-skills",
-    "version": "3.9.0",
+    "version": "3.9.1",
     "repository": "InnovationMachineTeam/skills",
-    "visibility": "private",
+    "visibility": "public",
     "owner": "InnovationMachineTeam"
   },
   "publisher": {
@@ -19,7 +19,7 @@
   "aggregate_plugin": {
     "name": "im-skills-all",
     "display_name": "IM Skills — All",
-    "version": "3.9.0",
+    "version": "3.9.1",
     "description": "Complete InnovationMachine Agent Skills toolkit"
   },
   "categories": [

@@ -12,15 +12,20 @@
 8. Create an immutable tag and release notes.
 9. Verify installation from the repository rather than the local checkout in every release host.
 
-## Initial private release
+## Public repository release
 
-The release is accepted when every canonical catalog entry is discoverable in
-all three generated marketplaces, representative skills load in Claude Code and
-Codex, Skills CLI lists the same inventory for Cursor and portable clients,
-generated artifacts have no drift, and rollback is documented. Do not hard-code
-the inventory count; derive it from `catalog/entries.json`.
+The public repository was spun out of Innovation Machine's agent and skill
+engineering practices. A release is accepted when every canonical catalog
+entry is discoverable in all three generated marketplaces, representative
+skills load in Claude Code and Codex, Skills CLI lists the same inventory for
+Cursor and portable clients, generated artifacts have no drift, and rollback
+is documented. Do not hard-code the inventory count; derive it from
+`catalog/entries.json`.
 
-Native Cursor Marketplace publication is not part of the private release. Cursor's documented submission workflow requires a public Git repository and platform review; use Skills CLI for the private phase and retain `.cursor-plugin` artifacts as publication-ready inputs.
+Public repository visibility satisfies the source-visibility prerequisite for
+Cursor submission but does not prove platform publication. Use Skills CLI for
+direct repository installation and retain `.cursor-plugin` artifacts as inputs
+to the separate Cursor review process.
 
 ## Rollback
 

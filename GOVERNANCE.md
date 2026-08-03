@@ -12,6 +12,17 @@
 
 The GitHub organization is the publisher because it owns the repository and credentials. InnovationMachine remains the company and product identity. Personal credentials must not be the sole publication mechanism.
 
+## Public contacts
+
+| Channel | Languages |
+|---|---|
+| [LinkedIn — Stanislav Us](https://www.linkedin.com/in/stanislavus/) | English, Russian |
+| [X — @stanislavus86](https://x.com/stanislavus86) | English, Russian |
+| [Telegram — @stanislavus86](https://t.me/stanislavus86) | English, Russian |
+| [Telegram — Innovation Machine](https://t.me/InnovationMachine) | Russian |
+
+Use these channels for public project and company communication. Report vulnerabilities privately through the security contact listed in [SECURITY.md](SECURITY.md).
+
 ## Decision policy
 
 - Changes to one skill require its validator/evals and review by `@stanislavus86`.

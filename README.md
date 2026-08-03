@@ -1,6 +1,9 @@
 # IM Skills
 
-Private Agent Skills marketplace maintained by **InnovationMachineTeam** for **InnovationMachine**.
+Public Agent Skills marketplace maintained by **InnovationMachineTeam**.
+This repository was spun out of the agent and skill engineering practices
+developed at **Innovation Machine** and is now maintained as a public,
+independently consumable project.
 
 Use this repository to install one skill, operate the complete local toolkit,
 or design governed individual agents, agent teams, and Agentic OS capabilities.
@@ -12,8 +15,8 @@ approach rather than maintaining the marketplace itself.
 - Categories: `agent-os-skills`, `agent-team-skills`, `agent-skills`, `metaskills`, `prompt-skills`
 - Entries: one installable cross-host plugin per skill
 - Supported hosts: Claude Code, Codex, Cursor, and Agent Skills clients
-- Aggregate local plugin: `im-skills-all` (`3.3.0`)
-- Current visibility: private
+- Aggregate local plugin: `im-skills-all` (`3.9.1`)
+- Current visibility: public repository; proprietary license
 - Lead maintainer and required reviewer: [@stanislavus86](https://github.com/stanislavus86)
 
 ## Start by outcome
@@ -32,7 +35,8 @@ verification boundaries; Agentic OS requires durable shared platform services.
 
 ## Install with Claude Code
 
-Private repository access must already work for the current GitHub identity.
+The public repository can be added without InnovationMachineTeam organization
+access. Host authentication may still be required by the selected client.
 
 Interactive commands:
 
@@ -52,18 +56,18 @@ Replace `skill-architect` with any entry from the catalog below. Each entry inst
 
 ## Install with Codex
 
-Add the private repository as a repo marketplace, then install one entry:
+Add the public repository as a repo marketplace, then install one entry:
 
 ```bash
 codex plugin marketplace add InnovationMachineTeam/skills
 codex plugin add skill-architect@im-skills
 ```
 
-Use `codex plugin marketplace list` and `codex plugin list --json` to verify the resolved marketplace and installed package. Repository access must already work for the current Git identity.
+Use `codex plugin marketplace list` and `codex plugin list --json` to verify the resolved marketplace and installed package.
 
 ## Use with Cursor
 
-During the private phase, use the Agent Skills channel for installation:
+Use the Agent Skills channel for direct installation from the public repository:
 
 ```bash
 npx skills add InnovationMachineTeam/skills \
@@ -71,7 +75,10 @@ npx skills add InnovationMachineTeam/skills \
   --agent cursor
 ```
 
-The repository also contains Cursor-native `.cursor-plugin/plugin.json` files and a root `.cursor-plugin/marketplace.json`. They are kept ready for local testing and later Cursor Marketplace submission. Cursor's publication flow requires a public Git repository, so native marketplace publication remains intentionally disabled while this repository is private.
+The repository also contains Cursor-native `.cursor-plugin/plugin.json` files
+and a root `.cursor-plugin/marketplace.json`. Repository visibility no longer
+blocks native Cursor Marketplace submission; platform review and actual
+publication remain separate lifecycle steps.
 
 ## Install with Skills CLI / skill.sh
 
@@ -295,7 +302,7 @@ innovation, startup operations, marketing, and public speaking, read
 
 - Individual skill and marketplace entry: the skill's `metadata.version`.
 - Aggregate plugin: independent SemVer in `catalog/release.json`.
-- Marketplace metadata: repository catalog release version, currently `3.3.0`.
+- Marketplace metadata: repository catalog release version, currently `3.9.1`.
 
 Bump an individual skill version whenever its installed contents or contract change. Bump the aggregate plugin when any bundled skill or aggregate install contract changes. A release is blocked if generated manifests or bundle hashes drift from canonical sources.
 
@@ -308,6 +315,19 @@ Bump an individual skill version whenever its installed contents or contract cha
 
 See [GOVERNANCE.md](GOVERNANCE.md), [SECURITY.md](SECURITY.md), and [CONTRIBUTING.md](CONTRIBUTING.md).
 
-## Private-to-public roadmap
+## Contacts
 
-The first release remains private. Public release requires a licensing decision, removal of confidential material and private locators, provenance review, security review, fresh-install testing without organization credentials, and an explicit visibility change. See [docs/PRIVATE-TO-PUBLIC.md](docs/PRIVATE-TO-PUBLIC.md).
+| Channel | Languages |
+|---|---|
+| [LinkedIn — Stanislav Us](https://www.linkedin.com/in/stanislavus/) | English, Russian |
+| [X — @stanislavus86](https://x.com/stanislavus86) | English, Russian |
+| [Telegram — @stanislavus86](https://t.me/stanislavus86) | English, Russian |
+| [Telegram — Innovation Machine](https://t.me/InnovationMachine) | Russian |
+
+## Repository status and licensing
+
+The repository is public and was spun out of Innovation Machine's internal
+agent and skill engineering practices. Public visibility does not grant an
+open-source license: the repository currently retains its declared proprietary
+license. Publication history and ongoing hardening checks are documented in
+[docs/PRIVATE-TO-PUBLIC.md](docs/PRIVATE-TO-PUBLIC.md).

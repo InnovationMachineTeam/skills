@@ -1,6 +1,6 @@
 # Codex and Cursor plugin compatibility
 
-Last reviewed: 2026-07-30.
+Last reviewed: 2026-08-04.
 
 ## Decisions
 
@@ -22,7 +22,8 @@ Last reviewed: 2026-07-30.
 - Every entry declares `policy.installation`, `policy.authentication`, and `category`.
 - Each package uses `skills/` with immediate skill children.
 - Rich interface metadata is included, but optional legal or visual URLs are omitted until real assets and approved policies exist.
-- Local/repo sources are private authoring and team-distribution channels; public publication is a separate review process.
+- The repo marketplace is publicly discoverable; installation, authentication
+  and publication state remain separate host lifecycle concerns.
 
 Official references:
 
@@ -37,7 +38,8 @@ Official references:
 - Manifest paths are relative, contain no `..`, and point to real components.
 - Each package includes a README, clear description, SemVer, author, repository, proprietary license identifier, keywords, and explicit `skills` path.
 - Cursor automatically discovers each immediate skill subdirectory under `skills/`; the explicit path replaces fallback discovery and therefore must remain correct.
-- Native Cursor Marketplace submission stays blocked while the repository is private because Cursor's documented submission flow requires a public Git repository and review.
+- Repository visibility no longer blocks native Cursor Marketplace submission.
+  Cursor review and actual marketplace publication remain separate steps.
 
 Official references:
 
@@ -55,13 +57,13 @@ Official references:
 | Path, symlink, secret, and metadata checks | yes | yes | yes | yes |
 | Native validator in local release gate | Claude CLI | plugin-creator validator | structural + local Cursor test | Skills CLI |
 
-## Private-to-public gate
+## Public distribution gate
 
-Before public release:
+Before claiming a host-native marketplace release:
 
-1. Replace the proprietary license notice with an approved public license and update generated manifest values.
+1. Confirm that the declared license is accurate and accepted by the target host; change it only through an explicit licensing decision.
 2. Recheck every skill and script for confidential material, provenance, and third-party rights.
 3. Add approved logo assets and public support, privacy, and terms URLs only if they are accurate.
 4. Run clean installs in Claude Code, Codex, Cursor, and at least one portable Agent Skills client.
-5. Submit Cursor plugins only after the repository is public; treat Cursor review as a separate approval gate.
+5. Submit Cursor plugins through the platform review process; repository publicity alone does not prove publication.
 6. Use immutable tags for release evidence and preserve a tested rollback revision.
