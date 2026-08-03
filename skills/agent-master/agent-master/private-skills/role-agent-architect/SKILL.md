@@ -2,7 +2,7 @@
 name: role-agent-architect
 description: Creates one complete bounded specialist-agent specification from an approved process-orchestrator role, including inherited-skill audit, capability gaps, role contract, knowledge, tools, permissions, tasks, handoffs, self-review, Human-in-the-loop, errors, context, metrics, evals, agent card, and system prompt. Use only when dispatched by agent-master for one justified role. Do not redesign the process, create unrelated skills, approve the agent's own high-risk work, or activate it.
 metadata:
-  version: "1.0.1"
+  version: "1.0.2"
 ---
 
 # Design One Specialist Role Agent

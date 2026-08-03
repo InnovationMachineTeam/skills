@@ -146,10 +146,26 @@ def dependency_lines(name: str, graph: dict[str, Any]) -> list[str]:
     return lines
 
 
+def private_owner(skill_dir: Path, root: Path) -> str | None:
+    parts = skill_dir.relative_to(root).parts
+    if "private-skills" not in parts:
+        return None
+    index = parts.index("private-skills")
+    return parts[index - 1] if index > 0 else None
+
+
 def visibility(skill_dir: Path, root: Path) -> str:
-    if "private-skills" in skill_dir.relative_to(root).parts:
-        return "package-private: вызывается только родительским `agent-master` и не публикуется отдельно"
+    owner = private_owner(skill_dir, root)
+    if owner:
+        return f"package-private: вызывается только родительским `{owner}` и не публикуется отдельно"
     return "public: канонический навык каталога; фактическая активация зависит от целевого host"
+
+
+def slash_invocation(command: str, request: str) -> str:
+    request = request.strip().strip("“”\"")
+    if request.startswith(f"/{command}"):
+        return request
+    return f"/{command} {request}"
 
 
 def generated_block(
@@ -191,6 +207,27 @@ def generated_block(
         lines.append("Используйте навык, когда запрос соответствует его назначению и границам ответственности из `SKILL.md`.")
     lines.append("")
     lines.append("Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.")
+
+    example_case = routes[0] if routes else {}
+    example_request = case_request(example_case)
+    expected_route = route_label(example_case)
+    owner = private_owner(skill_dir, root)
+    command_name = owner or name
+    lines.extend(["", "## Полный пример команды", ""])
+    if owner:
+        lines.append(f"Этот package-private навык не вызывается напрямую. Иллюстративный запрос передаётся через родительский `/{owner}`:")
+    else:
+        lines.append("Иллюстративный полный вызов; адаптируйте пути, ограничения и критерии приёмки к своей задаче:")
+    lines.extend([
+        "",
+        "```text",
+        slash_invocation(command_name, example_request),
+        "```",
+        "",
+        f"**Ожидаемый результат:** выбирается маршрут `{expected_route}`; итог перечисляет созданные или изменённые артефакты, фактически выполненные проверки, ограничения, остаточные риски и следующий шаг. Наличие файлов само по себе не считается доказательством установки, активации или публикации.",
+    ])
+    if owner:
+        lines.append(f"Прямой `/{name}` не является поддерживаемой публичной командой; родитель `{owner}` обязан передать ограниченный dispatch-контракт и проверить результат.")
 
     lines.extend(["", "## Варианты использования", ""])
     if routes:
@@ -275,8 +312,8 @@ def generated_block(
         lines.extend(deps)
         lines.append("")
         lines.append("Отсутствующая обязательная зависимость блокирует только принадлежащий ей маршрут. Рекомендуемые зависимости повышают качество доказательств, но не должны имитироваться самим навыком.")
-    elif "private-skills" in skill_dir.relative_to(root).parts:
-        lines.append("Внешних зависимостей каталога нет. Родительский `agent-master` передаёт этому private-навыку только ограниченный dispatch-конверт и проверяет его результат.")
+    elif owner:
+        lines.append(f"Внешних зависимостей каталога нет. Родительский `{owner}` передаёт этому private-навыку только ограниченный dispatch-конверт и проверяет его результат.")
     else:
         lines.append("Обязательные companion-навыки в каноническом dependency-графе не объявлены. Проверяйте доступность host-инструментов и ресурсов, на которые ссылается `SKILL.md`.")
 

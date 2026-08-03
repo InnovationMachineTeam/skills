@@ -5,7 +5,7 @@
 ## Паспорт навыка
 
 - **Назначение:** Identifies and prioritizes justified opportunities for one agent or subagent from tasks, sessions, code, documents, incidents and recurring work, then checks whether code, a model call, workflow, existing agent, team or Agentic OS already fits.
-- **Версия:** `1.0.1`.
+- **Версия:** `1.0.2`.
 - **Видимость:** public: канонический навык каталога; фактическая активация зависит от целевого host.
 - **Теги каталога:** `agents`, `discovery`, `planning`.
 
@@ -14,6 +14,16 @@
 Deciding whether to create or extend an agent, finding duplicate or missing agent capabilities, or producing an evidence-backed agent opportunity manifest. Read only by default. Do not design, build, install or activate agents, treat frequency or persona names as proof, or recommend a new agent without coverage, maintenance, authority and evaluation analysis.
 
 Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.
+
+## Полный пример команды
+
+Иллюстративный полный вызов; адаптируйте пути, ограничения и критерии приёмки к своей задаче:
+
+```text
+/agent-scout Review these recurring tasks and tell me which ones justify an agent.
+```
+
+**Ожидаемый результат:** выбирается маршрут `portfolio`; итог перечисляет созданные или изменённые артефакты, фактически выполненные проверки, ограничения, остаточные риски и следующий шаг. Наличие файлов само по себе не считается доказательством установки, активации или публикации.
 
 ## Варианты использования
 

@@ -1,6 +1,6 @@
 {
   "name": "agent-model-router",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Designs, audits and stages policy-constrained runtime routing across a pinned multi-model pool using typed task, risk, data, tool, context, latency, cost and quality features",
   "homepage": "https://github.com/InnovationMachineTeam/skills",
   "repository": "https://github.com/InnovationMachineTeam/skills",

@@ -2,7 +2,7 @@
 name: agent-model-selector
 description: Selects and audits evidence-backed model policies for agents, subagents, evaluators, orchestrators, and team routes. Use when a user asks which current model best fits an agent role, wants a quality/latency/cost comparison, needs a fallback or escalation ladder, or must revisit a stale model assignment. Fetch current authoritative model and host documentation before recommending exact models, bind claims to evidence and checked dates, and separate design-time selection from runtime routing. Do not configure providers, buy access, activate agents, benchmark without execution authority, or claim one universally best model.
 metadata:
-  version: "1.0.1"
+  version: "1.0.2"
 ---
 
 # Select Agent Models

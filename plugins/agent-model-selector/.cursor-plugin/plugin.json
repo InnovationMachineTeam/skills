@@ -1,6 +1,6 @@
 {
   "name": "agent-model-selector",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Selects and audits evidence-backed model policies for agents, subagents, evaluators, orchestrators, and team routes",
   "homepage": "https://github.com/InnovationMachineTeam/skills",
   "repository": "https://github.com/InnovationMachineTeam/skills",

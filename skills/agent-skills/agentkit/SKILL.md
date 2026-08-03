@@ -2,7 +2,7 @@
 name: agentkit
 description: Explicit composite toolkit for the version-locked individual-agent lifecycle skills. Use only when the user invokes `$agentkit`, writes an `agentkit` command, asks for the agentkit command surface, or requests an agentkit E2E, upgrade, or status run. Route one explicit command to one read-only vendored donor, or use `run` for a confirmed multi-stage workflow. Do not trigger for ordinary agent design, evaluation, repair, optimization, team, Agentic OS, or direct `agent-*` requests; those belong to the corresponding specialist skills.
 metadata:
-  version: "1.0.1"
+  version: "1.0.2"
 ---
 
 # Operate Agentkit

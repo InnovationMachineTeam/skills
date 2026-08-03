@@ -1,7 +1,7 @@
 {
   "format": 2,
   "plugin": "agent-architect",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "source_layout": "skills/",
   "bundle_layout": "skills/<name>/",
   "platforms": [
@@ -21,17 +21,17 @@
   "files": [
     {
       "path": ".claude-plugin/plugin.json",
-      "sha256": "4a307b1e2ee301573be9b32dd12050facbfa156355f0b670dd73b6ae88acff66",
+      "sha256": "c34623e6a97cf4309054a0a0f47caee0c828e555321280a469e31164f5831762",
       "bytes": 481
     },
     {
       "path": ".codex-plugin/plugin.json",
-      "sha256": "a971685d7bfd5141939ef5029836b9811f7df06882c3518b91948cff944431da",
+      "sha256": "949edf1b8c271051133231546fb7eef24ed3a9ab81172e0d1ec1e68aafbb5248",
       "bytes": 1465
     },
     {
       "path": ".cursor-plugin/plugin.json",
-      "sha256": "d3492e2ca71aeb795a976da3783d6803135a1a80b3ba618ffde9356ad789da9c",
+      "sha256": "b216bbb03f1e00b952de38eca6827f24ffa8771a11a1f3d27c6f902cea19a017",
       "bytes": 689
     },
     {
@@ -46,12 +46,12 @@
     },
     {
       "path": "skills/agent-architect/README.md",
-      "sha256": "81a8cec4c1a7a12ec4b23d9699652391a18639e59375b2f6c9a2c378d4a955a5",
-      "bytes": 7139
+      "sha256": "b4acd6c1c86c7ffead487053cbc51eb2c02f8ec4bf2a97c0d0752da08af77150",
+      "bytes": 7981
     },
     {
       "path": "skills/agent-architect/SKILL.md",
-      "sha256": "a58c29f43882a829d6267b42c54d8014f32dd740c7004618820439ef5d5302ed",
+      "sha256": "b46c2f948b73577e39015f2505384f34066e0402a0903be8c859366baf5cf179",
       "bytes": 3275
     },
     {

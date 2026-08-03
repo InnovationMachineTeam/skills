@@ -5,7 +5,7 @@
 ## Паспорт навыка
 
 - **Назначение:** Curates provenance-bearing project knowledge and sanitized agent memory through a docs inbox, review, publication, freshness, contradiction, retrieval and retirement lifecycle, with optional Obsidian-compatible links and deterministic Graphify projections.
-- **Версия:** `1.0.1`.
+- **Версия:** `1.0.2`.
 - **Видимость:** public: канонический навык каталога; фактическая активация зависит от целевого host.
 - **Теги каталога:** `agents`, `knowledge`, `memory`.
 
@@ -14,6 +14,16 @@
 Ingesting session learnings or sources, validating knowledge metadata, publishing or superseding facts and decisions, building minimal context capsules, detecting stale or conflicting knowledge, or regenerating a knowledge graph. Do not store secrets, raw chain-of-thought or live runtime state, treat similarity as truth, silently publish candidates, or deploy vector/graph infrastructure without a measured decision gate.
 
 Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.
+
+## Полный пример команды
+
+Иллюстративный полный вызов; адаптируйте пути, ограничения и критерии приёмки к своей задаче:
+
+```text
+/agent-knowledge-manager Put these session learnings into the knowledge inbox.
+```
+
+**Ожидаемый результат:** выбирается маршрут `ingest`; итог перечисляет созданные или изменённые артефакты, фактически выполненные проверки, ограничения, остаточные риски и следующий шаг. Наличие файлов само по себе не считается доказательством установки, активации или публикации.
 
 ## Варианты использования
 

@@ -2,7 +2,7 @@
 name: skill-manager
 description: Inventories, governs, installs, updates, surfaces, scopes, quarantines, retires, and coordinates public and agent-private SKILL.md-based capabilities across explicitly scoped roots and registries. Use when a user asks to audit installed or embedded skills, detect duplicates or shadowing, manage visibility, lifecycle state, versions, provenance, dependencies, naming or routing conflicts, rollout, migration, or retirement. Route independent evaluation and release evidence to skill-evaluator, opportunity discovery to skill-scout, evidence harvesting and read-only pairwise analysis to skill-harvester, capability composition, merge, split, extraction, promotion, or demotion to skill-refactor, and complete build or skillify workflows spanning discovery through verified activation to skill-builder. Ask for roots, registry, operation, and mutation authority when scope is missing. Default to read-only inventory and preview; never mutate skills or broaden discovery by assumption.
 metadata:
-  version: "1.2.1"
+  version: "1.2.2"
 ---
 
 # Manage Agent Skills

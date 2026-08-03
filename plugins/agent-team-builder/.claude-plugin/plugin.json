@@ -1,7 +1,7 @@
 {
   "name": "agent-team-builder",
   "displayName": "Agent Team Builder",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Materializes an approved, versioned agent-team specification into a staged `.agents` structure, canonical definitions, owner-private skills or commands, public capability candidates, host adapters, registry/map transactions and...",
   "skills": [
     "./skills"

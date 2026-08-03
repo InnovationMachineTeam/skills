@@ -5,7 +5,7 @@
 ## Паспорт навыка
 
 - **Назначение:** Maintains and applies an evidence-linked corpus of best practices for individual agents, subagents, agent teams, orchestration, documentation, evaluation and Agentic OS.
-- **Версия:** `1.0.1`.
+- **Версия:** `1.0.2`.
 - **Видимость:** public: канонический навык каталога; фактическая активация зависит от целевого host.
 - **Теги каталога:** `agents`, `research`, `governance`.
 
@@ -14,6 +14,16 @@
 Querying agent design guidance, auditing an agent or agent-oriented skill against practices, checking source freshness, reconciling changed guidance, rebuilding the corpus, or preparing a bounded portfolio-change prompt. Do not treat platform examples as universal rules, perform open-ended research without scope, edit active agents, or activate changes.
 
 Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.
+
+## Полный пример команды
+
+Иллюстративный полный вызов; адаптируйте пути, ограничения и критерии приёмки к своей задаче:
+
+```text
+/agent-best-practices What documentation contract should a software-architecture agent have?
+```
+
+**Ожидаемый результат:** выбирается маршрут `query`; итог перечисляет созданные или изменённые артефакты, фактически выполненные проверки, ограничения, остаточные риски и следующий шаг. Наличие файлов само по себе не считается доказательством установки, активации или публикации.
 
 ## Варианты использования
 

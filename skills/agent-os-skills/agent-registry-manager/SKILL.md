@@ -2,7 +2,7 @@
 name: agent-registry-manager
 description: Governs typed desired-state registries and versioned bindings for Agentic OS agents, skills, commands, workflows, teams, tools, models and policies, and reconciles them with observed host/runtime state. Use for inventory, candidate registration, optimistic transactions, drift detection, quarantine, deprecation, migration or retirement at platform scope. Do not equate registered with trusted or active, bypass ownership/private visibility, edit generated views as canonical data, or mutate on a stale revision.
 metadata:
-  version: "1.0.1"
+  version: "1.0.2"
 ---
 
 # Reconcile Agentic OS Registries

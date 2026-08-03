@@ -1,6 +1,6 @@
 {
   "name": "agent-registry-manager",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Governs typed desired-state registries and versioned bindings for Agentic OS agents, skills, commands, workflows, teams, tools, models and policies, and reconciles them with observed host/runtime state",
   "homepage": "https://github.com/InnovationMachineTeam/skills",
   "repository": "https://github.com/InnovationMachineTeam/skills",

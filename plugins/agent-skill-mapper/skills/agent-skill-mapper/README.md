@@ -5,7 +5,7 @@
 ## Паспорт навыка
 
 - **Назначение:** Maps governed public and owner-private skills or commands to existing agents using mission fit, permissions, trust, context cost, evidence and capability budgets.
-- **Версия:** `1.0.1`.
+- **Версия:** `1.0.2`.
 - **Видимость:** public: канонический навык каталога; фактическая активация зависит от целевого host.
 - **Теги каталога:** `agents`, `skills`, `mapping`.
 
@@ -14,6 +14,16 @@
 Auditing agent capabilities, reconciling agent definitions with registries or skills-lock files, recommending versioned bindings, detecting gaps or excessive tool access, or preparing a controlled mapping update. Read only by default. Do not create agents or skills, promote private capabilities, silently edit agent definitions, or operate the team; route missing capability creation to the relevant architect and team design changes to agent-team-architect.
 
 Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.
+
+## Полный пример команды
+
+Иллюстративный полный вызов; адаптируйте пути, ограничения и критерии приёмки к своей задаче:
+
+```text
+/agent-skill-mapper Inventory all skills available to these registered agents.
+```
+
+**Ожидаемый результат:** выбирается маршрут `inventory`; итог перечисляет созданные или изменённые артефакты, фактически выполненные проверки, ограничения, остаточные риски и следующий шаг. Наличие файлов само по себе не считается доказательством установки, активации или публикации.
 
 ## Варианты использования
 

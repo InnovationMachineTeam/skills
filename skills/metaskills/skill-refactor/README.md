@@ -35,7 +35,7 @@ host discovery. `private` означает agent-scoped binding, а не сек�
 ## Паспорт навыка
 
 - **Назначение:** Assesses and safely changes capability boundaries and visibility across existing SKILL.md-based agent skills by composing, merging, splitting, extracting references or subskills, promoting private skills to public, demoting unused public skills to agent-private, and creating compatibility facades.
-- **Версия:** `1.2.1`.
+- **Версия:** `1.2.2`.
 - **Видимость:** public: канонический навык каталога; фактическая активация зависит от целевого host.
 - **Теги каталога:** `refactoring`, `topology`.
 
@@ -44,6 +44,16 @@ host discovery. `private` означает agent-scoped binding, а не сек�
 A user asks whether skills should be combined, divided, extracted, shared across agents, narrowed to one agent, or migrated while preserving triggers, authority, resources, tests, consumers, registry bindings, and rollback. Produce an evidence-backed boundary decision before mutation.
 
 Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.
+
+## Полный пример команды
+
+Иллюстративный полный вызов; адаптируйте пути, ограничения и критерии приёмки к своей задаче:
+
+```text
+/skill-refactor Use $skill-refactor to reorganize my skills.
+```
+
+**Ожидаемый результат:** выбирается маршрут `clarify`; итог перечисляет созданные или изменённые артефакты, фактически выполненные проверки, ограничения, остаточные риски и следующий шаг. Наличие файлов само по себе не считается доказательством установки, активации или публикации.
 
 ## Варианты использования
 

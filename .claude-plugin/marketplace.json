@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "InnovationMachine Agent Skills marketplace",
-    "version": "3.7.0"
+    "version": "3.8.0"
   },
   "plugins": [
     {
@@ -13,7 +13,7 @@
       "source": "./plugins/agent-architect",
       "strict": false,
       "description": "Designs or redesigns one bounded agent or subagent as an immutable, reviewable definition with mission, non-goals, inputs, outputs, tools, permissions, model policy, state, memory, documentation, evaluation, rollout and retirement contracts",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": {
         "name": "InnovationMachine",
         "email": "stanislav.usoltsev@gmail.com"
@@ -31,7 +31,7 @@
       "source": "./plugins/agent-best-practices",
       "strict": false,
       "description": "Maintains and applies an evidence-linked corpus of best practices for individual agents, subagents, agent teams, orchestration, documentation, evaluation and Agentic OS",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": {
         "name": "InnovationMachine",
         "email": "stanislav.usoltsev@gmail.com"
@@ -49,7 +49,7 @@
       "source": "./plugins/agent-builder",
       "strict": false,
       "description": "Orchestrates complete evidence-backed workflows for one agent or subagent across agent-scout, agent-context, agent-architect, agent-evaluator, agent-doctor, agent-optimizer, agent-refactor and agent-manager",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": {
         "name": "InnovationMachine",
         "email": "stanislav.usoltsev@gmail.com"
@@ -67,7 +67,7 @@
       "source": "./plugins/agent-context",
       "strict": false,
       "description": "Builds a provenance-bearing design-time context package for creating, evaluating or changing one agent from explicitly scoped codebases, repositories, documents, sessions, traces, incidents and authorized web research",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": {
         "name": "InnovationMachine",
         "email": "stanislav.usoltsev@gmail.com"
@@ -85,7 +85,7 @@
       "source": "./plugins/agent-doctor",
       "strict": false,
       "description": "Diagnoses unhealthy or broken behavior in one agent or subagent, reproduces symptoms from definitions and traces, identifies a root cause, applies an explicitly authorized minimal repair to a new candidate revision, and verifies recovery",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": {
         "name": "InnovationMachine",
         "email": "stanislav.usoltsev@gmail.com"
@@ -103,7 +103,7 @@
       "source": "./plugins/agent-evaluator",
       "strict": false,
       "description": "Independently designs, writes, audits, runs and compares evaluations for one frozen agent or subagent definition and its bounded runtime behavior",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": {
         "name": "InnovationMachine",
         "email": "stanislav.usoltsev@gmail.com"
@@ -121,7 +121,7 @@
       "source": "./plugins/agent-knowledge-manager",
       "strict": false,
       "description": "Curates provenance-bearing project knowledge and sanitized agent memory through a docs inbox, review, publication, freshness, contradiction, retrieval and retirement lifecycle, with optional Obsidian-compatible links and deterministic...",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": {
         "name": "InnovationMachine",
         "email": "stanislav.usoltsev@gmail.com"
@@ -139,7 +139,7 @@
       "source": "./plugins/agent-manager",
       "strict": false,
       "description": "Governs the lifecycle of one registered agent or subagent through inventory, candidate registration, approval, shadow, canary, activation, suspension, migration, rollback, deprecation and retirement with version, registry...",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": {
         "name": "InnovationMachine",
         "email": "stanislav.usoltsev@gmail.com"
@@ -157,7 +157,7 @@
       "source": "./plugins/agent-master",
       "strict": false,
       "description": "Builds a complete agent system from a task or process description on a governed autopilot",
-      "version": "2.0.1",
+      "version": "2.0.2",
       "author": {
         "name": "InnovationMachine",
         "email": "stanislav.usoltsev@gmail.com"
@@ -180,7 +180,7 @@
       "source": "./plugins/agent-model-router",
       "strict": false,
       "description": "Designs, audits and stages policy-constrained runtime routing across a pinned multi-model pool using typed task, risk, data, tool, context, latency, cost and quality features",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": {
         "name": "InnovationMachine",
         "email": "stanislav.usoltsev@gmail.com"
@@ -200,7 +200,7 @@
       "source": "./plugins/agent-model-selector",
       "strict": false,
       "description": "Selects and audits evidence-backed model policies for agents, subagents, evaluators, orchestrators, and team routes",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": {
         "name": "InnovationMachine",
         "email": "stanislav.usoltsev@gmail.com"
@@ -218,7 +218,7 @@
       "source": "./plugins/agent-observer",
       "strict": false,
       "description": "Defines and audits Agentic OS telemetry, traces, SLOs, alerts, MAPE-K observations and bounded incident diagnostics linking task, run, agent, model, prompt, skill, tool, policy, approval, artifact, cost and versions",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": {
         "name": "InnovationMachine",
         "email": "stanislav.usoltsev@gmail.com"
@@ -237,7 +237,7 @@
       "source": "./plugins/agent-optimizer",
       "strict": false,
       "description": "Improves one healthy agent or subagent against a frozen measurable quality, cost, latency, reliability, context or documentation target while preserving mission, authority, consumers and lifecycle invariants",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": {
         "name": "InnovationMachine",
         "email": "stanislav.usoltsev@gmail.com"
@@ -255,7 +255,7 @@
       "source": "./plugins/agent-os-architect",
       "strict": false,
       "description": "Designs the minimum justified Agentic OS across experience, control, execution, knowledge, assurance and operations planes, including desired versus observed state, identities, schemas, policy points, protocols, SLOs, threat and...",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": {
         "name": "InnovationMachine",
         "email": "stanislav.usoltsev@gmail.com"
@@ -274,7 +274,7 @@
       "source": "./plugins/agent-os-bootstrapper",
       "strict": false,
       "description": "Materializes an approved Agentic OS architecture as one staged, reproducible vertical walking skeleton from authenticated request through policy, registry, durable task and lease, bounded execution, artifact verification, telemetry and...",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": {
         "name": "InnovationMachine",
         "email": "stanislav.usoltsev@gmail.com"
@@ -293,7 +293,7 @@
       "source": "./plugins/agent-os-evaluator",
       "strict": false,
       "description": "Independently evaluates frozen Agentic OS architecture, implementations and release evidence across plane boundaries, schemas, registry reconciliation, policy enforcement, durable execution, knowledge provenance, observability...",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": {
         "name": "InnovationMachine",
         "email": "stanislav.usoltsev@gmail.com"
@@ -312,7 +312,7 @@
       "source": "./plugins/agent-policy-manager",
       "strict": false,
       "description": "Designs, simulates and governs versioned Agentic OS authorization and approval policy across subjects, assets, actions, tools, data classes, environments, risks, conditions, expiry and obligations, with separate policy decision and...",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": {
         "name": "InnovationMachine",
         "email": "stanislav.usoltsev@gmail.com"
@@ -331,7 +331,7 @@
       "source": "./plugins/agent-protocol-manager",
       "strict": false,
       "description": "Designs, audits and stages explicit ports-and-adapters contracts for MCP, A2A, agent hosts and model/tool providers, including pinned versions, discovery, authentication, capability negotiation, schemas, streaming, cancellation...",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": {
         "name": "InnovationMachine",
         "email": "stanislav.usoltsev@gmail.com"
@@ -351,7 +351,7 @@
       "source": "./plugins/agent-refactor",
       "strict": false,
       "description": "Assesses and safely changes the capability, ownership or topology boundaries of existing individual agents through merge, split, extraction, composition, promotion to a team, or public/private capability and documentation migration",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": {
         "name": "InnovationMachine",
         "email": "stanislav.usoltsev@gmail.com"
@@ -369,7 +369,7 @@
       "source": "./plugins/agent-registry-manager",
       "strict": false,
       "description": "Governs typed desired-state registries and versioned bindings for Agentic OS agents, skills, commands, workflows, teams, tools, models and policies, and reconciles them with observed host/runtime state",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": {
         "name": "InnovationMachine",
         "email": "stanislav.usoltsev@gmail.com"
@@ -388,7 +388,7 @@
       "source": "./plugins/agent-runtime-manager",
       "strict": false,
       "description": "Governs platform-level durable task and run lifecycle with queues, attempts, leases, fencing, idempotency, checkpoints, cancellation, deadlines, backpressure, scoped execution, artifacts, compensation and dead-letter recovery",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": {
         "name": "InnovationMachine",
         "email": "stanislav.usoltsev@gmail.com"
@@ -407,7 +407,7 @@
       "source": "./plugins/agent-scout",
       "strict": false,
       "description": "Identifies and prioritizes justified opportunities for one agent or subagent from tasks, sessions, code, documents, incidents and recurring work, then checks whether code, a model call, workflow, existing agent, team or Agentic OS...",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": {
         "name": "InnovationMachine",
         "email": "stanislav.usoltsev@gmail.com"
@@ -425,7 +425,7 @@
       "source": "./plugins/agent-skill-mapper",
       "strict": false,
       "description": "Maps governed public and owner-private skills or commands to existing agents using mission fit, permissions, trust, context cost, evidence and capability budgets",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": {
         "name": "InnovationMachine",
         "email": "stanislav.usoltsev@gmail.com"
@@ -443,7 +443,7 @@
       "source": "./plugins/agent-team-architect",
       "strict": false,
       "description": "Designs the smallest justified greenfield team of agents, subagents, specialists, an orchestrator, and human responsibilities from a task and capability graph, or redesigns an asset already defined as a team",
-      "version": "1.1.1",
+      "version": "1.1.2",
       "author": {
         "name": "InnovationMachine",
         "email": "stanislav.usoltsev@gmail.com"
@@ -462,7 +462,7 @@
       "source": "./plugins/agent-team-builder",
       "strict": false,
       "description": "Materializes an approved, versioned agent-team specification into a staged `.agents` structure, canonical definitions, owner-private skills or commands, public capability candidates, host adapters, registry/map transactions and...",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": {
         "name": "InnovationMachine",
         "email": "stanislav.usoltsev@gmail.com"
@@ -481,7 +481,7 @@
       "source": "./plugins/agent-team-manager",
       "strict": false,
       "description": ">-",
-      "version": "1.2.1",
+      "version": "1.2.2",
       "author": {
         "name": "InnovationMachine",
         "email": "stanislav.usoltsev@gmail.com"
@@ -500,7 +500,7 @@
       "source": "./plugins/agent-team-orchestrator",
       "strict": false,
       "description": "Executes an approved, active agent-team definition through a bounded task graph with typed envelopes, minimal context capsules, leases, budgets, checkpoints, cancellation, recovery and independent verification",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": {
         "name": "InnovationMachine",
         "email": "stanislav.usoltsev@gmail.com"
@@ -519,7 +519,7 @@
       "source": "./plugins/agent-workspace-manager",
       "strict": false,
       "description": "Plans and governs isolated agent workspaces or Git worktrees for approved parallel code tasks with explicit write-sets, owners, base revisions, branches, leases, quotas, integration handoffs, retention and safe exact-target cleanup",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": {
         "name": "InnovationMachine",
         "email": "stanislav.usoltsev@gmail.com"
@@ -538,7 +538,7 @@
       "source": "./plugins/agentkit",
       "strict": false,
       "description": "Explicit composite toolkit for the version-locked individual-agent lifecycle skills",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": {
         "name": "InnovationMachine",
         "email": "stanislav.usoltsev@gmail.com"
@@ -557,7 +557,7 @@
       "source": "./plugins/metaskillpack",
       "strict": false,
       "description": "Provides a self-contained, explicitly invoked toolkit for creating, discovering, researching, optimizing, diagnosing, governing, harvesting, refactoring, evaluating, packaging, and orchestrating agent skills through isolated snapshots...",
-      "version": "1.5.0",
+      "version": "1.5.1",
       "author": {
         "name": "InnovationMachine",
         "email": "stanislav.usoltsev@gmail.com"
@@ -575,7 +575,7 @@
       "source": "./plugins/prompt-master",
       "strict": false,
       "description": "Reconstructs, generalizes, specializes, merges, decomposes, audits, improves, or length-optimizes durable prompts and returns a versioned prompt package with evidence, depth selection, and evaluation scenarios",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": {
         "name": "InnovationMachine",
         "email": "stanislav.usoltsev@gmail.com"
@@ -595,7 +595,7 @@
       "source": "./plugins/prompt-optimize",
       "strict": false,
       "description": "Designs, audits, and improves durable master, system, and developer prompts for agents",
-      "version": "3.0.1",
+      "version": "3.0.2",
       "author": {
         "name": "InnovationMachine",
         "email": "stanislav.usoltsev@gmail.com"
@@ -613,7 +613,7 @@
       "source": "./plugins/skill-architect",
       "strict": false,
       "description": "Classifies skill ideas and supplied material, selects an archetype and the minimum viable placement—inline instruction, private agent command, private agent skill, or public skill—then designs, creates, registers, or updates the...",
-      "version": "1.2.1",
+      "version": "1.2.2",
       "author": {
         "name": "InnovationMachine",
         "email": "stanislav.usoltsev@gmail.com"
@@ -631,7 +631,7 @@
       "source": "./plugins/skill-best-practices",
       "strict": false,
       "description": "Maintains and queries an evidence-linked, updateable corpus of best practices for creating, routing, evaluating, securing, optimizing, distributing, and governing agent skills",
-      "version": "1.2.1",
+      "version": "1.2.2",
       "author": {
         "name": "InnovationMachine",
         "email": "stanislav.usoltsev@gmail.com"
@@ -649,7 +649,7 @@
       "source": "./plugins/skill-builder",
       "strict": false,
       "description": "Orchestrates complete, evidence-backed agent-skill workflows across skill-scout, skill-harvester, skill-architect, skill-evaluator, skill-doctor, skill-optimizer, skill-refactor, skill-manager, and prompt-optimize",
-      "version": "1.4.1",
+      "version": "1.4.2",
       "author": {
         "name": "InnovationMachine",
         "email": "stanislav.usoltsev@gmail.com"
@@ -667,7 +667,7 @@
       "source": "./plugins/skill-doctor",
       "strict": false,
       "description": "Diagnoses unhealthy, broken, unsafe, or inconsistently behaving SKILL.md-based agent skills and verifies minimal repairs",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": {
         "name": "InnovationMachine",
         "email": "stanislav.usoltsev@gmail.com"
@@ -685,7 +685,7 @@
       "source": "./plugins/skill-evaluator",
       "strict": false,
       "description": "Designs, writes, audits, runs, and compares trustworthy evaluations for SKILL.md-based agent skills, including routing and trigger datasets, behavioral and output-quality cases, script and tool tests, security and authority probes...",
-      "version": "1.1.1",
+      "version": "1.1.2",
       "author": {
         "name": "InnovationMachine",
         "email": "stanislav.usoltsev@gmail.com"
@@ -703,7 +703,7 @@
       "source": "./plugins/skill-harvester",
       "strict": false,
       "description": "Discovers, extracts, normalizes, compares, and synthesizes reusable agent-skill components from an explicitly named current codebase, local paths, public GitHub repositories, mixed document folders, sessions, prompts, scripts, evals...",
-      "version": "1.1.1",
+      "version": "1.1.2",
       "author": {
         "name": "InnovationMachine",
         "email": "stanislav.usoltsev@gmail.com"
@@ -721,7 +721,7 @@
       "source": "./plugins/skill-manager",
       "strict": false,
       "description": "Inventories, governs, installs, updates, surfaces, scopes, quarantines, retires, and coordinates public and agent-private SKILL.md-based capabilities across explicitly scoped roots and registries",
-      "version": "1.2.1",
+      "version": "1.2.2",
       "author": {
         "name": "InnovationMachine",
         "email": "stanislav.usoltsev@gmail.com"
@@ -739,7 +739,7 @@
       "source": "./plugins/skill-marketplace-manager",
       "strict": false,
       "description": "Design, inventory, scaffold, curate, build, document, validate, migrate, release, and audit repositories that distribute Agent Skills through skill.sh-compatible catalogs and plugin harnesses such as Claude Code",
-      "version": "1.4.0",
+      "version": "1.4.1",
       "author": {
         "name": "InnovationMachine",
         "email": "stanislav.usoltsev@gmail.com"
@@ -757,7 +757,7 @@
       "source": "./plugins/skill-optimizer",
       "strict": false,
       "description": "Measures and improves a healthy existing SKILL.md-based agent skill while preserving intended behavior, capability boundary, and authority",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": {
         "name": "InnovationMachine",
         "email": "stanislav.usoltsev@gmail.com"
@@ -775,7 +775,7 @@
       "source": "./plugins/skill-refactor",
       "strict": false,
       "description": "Assesses and safely changes capability boundaries and visibility across existing SKILL.md-based agent skills by composing, merging, splitting, extracting references or subskills, promoting private skills to public, demoting unused...",
-      "version": "1.2.1",
+      "version": "1.2.2",
       "author": {
         "name": "InnovationMachine",
         "email": "stanislav.usoltsev@gmail.com"
@@ -793,7 +793,7 @@
       "source": "./plugins/skill-scout",
       "strict": false,
       "description": "Identifies and prioritizes worthwhile agent-skill opportunities from the current session, explicitly supplied session exports, task histories, documents, repositories, observations, and recurring user work",
-      "version": "1.1.1",
+      "version": "1.1.2",
       "author": {
         "name": "InnovationMachine",
         "email": "stanislav.usoltsev@gmail.com"

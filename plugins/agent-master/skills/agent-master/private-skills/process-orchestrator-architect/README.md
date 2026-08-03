@@ -5,7 +5,7 @@
 ## Паспорт навыка
 
 - **Назначение:** Converts one process description into an executable process and orchestrator specification with stages, artifacts, roles, RACI, state, routing, quality gates, Human-in-the-loop, recovery, security, observability, and a ready system prompt.
-- **Версия:** `1.0.1`.
+- **Версия:** `1.0.2`.
 - **Видимость:** package-private: вызывается только родительским `agent-master` и не публикуется отдельно.
 
 ## Когда использовать
@@ -13,6 +13,17 @@
 Используйте навык, когда запрос соответствует его назначению и границам ответственности из `SKILL.md`.
 
 Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.
+
+## Полный пример команды
+
+Этот package-private навык не вызывается напрямую. Иллюстративный запрос передаётся через родительский `/agent-master`:
+
+```text
+/agent-master Agent-master has fixed private visibility and asks for an executable orchestrator specification for this procurement process.
+```
+
+**Ожидаемый результат:** выбирается маршрут `process-orchestrator-architect`; итог перечисляет созданные или изменённые артефакты, фактически выполненные проверки, ограничения, остаточные риски и следующий шаг. Наличие файлов само по себе не считается доказательством установки, активации или публикации.
+Прямой `/process-orchestrator-architect` не является поддерживаемой публичной командой; родитель `agent-master` обязан передать ограниченный dispatch-контракт и проверить результат.
 
 ## Варианты использования
 

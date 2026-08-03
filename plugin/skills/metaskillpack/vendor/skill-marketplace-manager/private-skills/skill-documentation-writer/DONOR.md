@@ -2,7 +2,7 @@
 name: skill-documentation-writer
 description: Creates, updates, and audits evidence-backed skill documentation and marketplace onboarding artifacts when dispatched by skill-marketplace-manager with exact canonical sources, audiences, output roots, and mutation authority. Use only for owner-approved documentation routes covering skill README files, catalog guides, installation and first-success onboarding, usage examples, expected outcomes, troubleshooting, upgrades, rollback, and support boundaries. Do not trigger globally or handle ordinary product documentation, skill behavior design, versioning, packaging, publication, installation, activation, or claims unsupported by repository or host evidence.
 metadata:
-  version: "1.0.0"
+  version: "1.0.1"
 ---
 
 # Document Skills and Marketplace Onboarding

@@ -5,7 +5,7 @@
 ## Паспорт навыка
 
 - **Назначение:** Assesses and safely changes the capability, ownership or topology boundaries of existing individual agents through merge, split, extraction, composition, promotion to a team, or public/private capability and documentation migration.
-- **Версия:** `1.0.1`.
+- **Версия:** `1.0.2`.
 - **Видимость:** public: канонический навык каталога; фактическая активация зависит от целевого host.
 - **Теги каталога:** `agents`, `refactoring`, `topology`.
 
@@ -14,6 +14,16 @@
 An agent has mixed missions, duplicated roles, unsafe authority coupling, excessive context, changing consumers, or needs a versioned topology migration. Do not tune a healthy agent, repair a local defect, design a new agent from scratch, silently rewrite teams or Agentic OS, move folders without consumer migration, or activate the result.
 
 Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.
+
+## Полный пример команды
+
+Иллюстративный полный вызов; адаптируйте пути, ограничения и критерии приёмки к своей задаче:
+
+```text
+/agent-refactor This agent has unrelated analyst and deployer missions with different permissions; assess a split.
+```
+
+**Ожидаемый результат:** выбирается маршрут `split`; итог перечисляет созданные или изменённые артефакты, фактически выполненные проверки, ограничения, остаточные риски и следующий шаг. Наличие файлов само по себе не считается доказательством установки, активации или публикации.
 
 ## Варианты использования
 

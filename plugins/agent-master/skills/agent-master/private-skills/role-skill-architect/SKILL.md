@@ -2,7 +2,7 @@
 name: role-skill-architect
 description: Turns one approved role-agent capability into a researched, bounded, host-native skill package with triggers, method, knowledge provenance, contracts, examples, tests, evals, security, maintenance, and a justified implementation proposal. Use only when dispatched by agent-master for one capability owned by a designed role agent. Do not create a skill when an inline rule, command, knowledge source, tool, workflow, policy, or existing capability is sufficient.
 metadata:
-  version: "1.0.1"
+  version: "1.0.2"
 ---
 
 # Build One Role Skill

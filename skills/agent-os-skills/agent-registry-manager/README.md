@@ -5,7 +5,7 @@
 ## Паспорт навыка
 
 - **Назначение:** Governs typed desired-state registries and versioned bindings for Agentic OS agents, skills, commands, workflows, teams, tools, models and policies, and reconciles them with observed host/runtime state.
-- **Версия:** `1.0.1`.
+- **Версия:** `1.0.2`.
 - **Видимость:** public: канонический навык каталога; фактическая активация зависит от целевого host.
 - **Теги каталога:** `agents`, `registry`, `governance`.
 
@@ -14,6 +14,16 @@
 Inventory, candidate registration, optimistic transactions, drift detection, quarantine, deprecation, migration or retirement at platform scope. Do not equate registered with trusted or active, bypass ownership/private visibility, edit generated views as canonical data, or mutate on a stale revision.
 
 Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.
+
+## Полный пример команды
+
+Иллюстративный полный вызов; адаптируйте пути, ограничения и критерии приёмки к своей задаче:
+
+```text
+/agent-registry-manager Inventory desired and observed Agentic OS assets.
+```
+
+**Ожидаемый результат:** выбирается маршрут `inventory`; итог перечисляет созданные или изменённые артефакты, фактически выполненные проверки, ограничения, остаточные риски и следующий шаг. Наличие файлов само по себе не считается доказательством установки, активации или публикации.
 
 ## Варианты использования
 

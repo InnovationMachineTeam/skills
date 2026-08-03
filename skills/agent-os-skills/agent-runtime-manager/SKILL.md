@@ -2,7 +2,7 @@
 name: agent-runtime-manager
 description: Governs platform-level durable task and run lifecycle with queues, attempts, leases, fencing, idempotency, checkpoints, cancellation, deadlines, backpressure, scoped execution, artifacts, compensation and dead-letter recovery. Use when designing, validating, operating or recovering Agentic OS runtime state across workers or teams. Do not design teams or agents, enforce permission only in prompts, silently retry permanent or ambiguous side effects, or mutate pinned agent/workflow/model/policy versions during a run.
 metadata:
-  version: "1.0.1"
+  version: "1.0.2"
 ---
 
 # Govern Durable Agentic OS Runs

@@ -2,7 +2,7 @@
 name: agent-workspace-manager
 description: Plans and governs isolated agent workspaces or Git worktrees for approved parallel code tasks with explicit write-sets, owners, base revisions, branches, leases, quotas, integration handoffs, retention and safe exact-target cleanup. Use when deciding whether parallel writers need isolation, inventorying or allocating worktrees, reconciling divergence, recovering abandoned work, or releasing workspaces. Do not decompose tasks, treat worktrees as security boundaries, overwrite user changes, create broad paths, merge without an integration owner, or delete without verified ownership and retention authority.
 metadata:
-  version: "1.0.1"
+  version: "1.0.2"
 ---
 
 # Govern Agent Workspaces

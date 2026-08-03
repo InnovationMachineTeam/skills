@@ -1,16 +1,16 @@
 {
   "schema_version": 1,
   "pack": "agentkit",
-  "pack_version": "1.0.1",
+  "pack_version": "1.0.2",
   "source_repository": "InnovationMachineTeam/skills",
-  "source_revision": "74c9e10",
+  "source_revision": "working-tree-2026-08-03-readme-command-examples",
   "donors": [
     {
       "name": "agent-architect",
-      "version": "1.0.1",
-      "source_revision": "74c9e10",
-      "source_tree_sha256": "sha256:e709a22e93d6fc149d6187f56824a8947fc5cbb94ecac95f834b47e9e6ec3db2",
-      "vendor_tree_sha256": "sha256:6cc80a1e60a0262d4567f577e712126415490cb1f20a23d4add01fdc4ffef692",
+      "version": "1.0.2",
+      "source_revision": "working-tree-2026-08-03-readme-command-examples",
+      "source_tree_sha256": "sha256:60622bfcca088fa04a70d7fd9e4814098de4ae83269c2c2c12c1800f4a99094f",
+      "vendor_tree_sha256": "sha256:2d0014b3fc1941f558b266ad18572960ca0e548be02bf71867b8d282908b2db9",
       "vendored_path": "vendor/agent-architect",
       "entrypoint": "vendor/agent-architect/DONOR.md",
       "modes": [
@@ -24,10 +24,10 @@
     },
     {
       "name": "agent-best-practices",
-      "version": "1.0.1",
-      "source_revision": "74c9e10",
-      "source_tree_sha256": "sha256:227f4d9a16a1676aa6dabb69f7db9a2561e186fbd7cd22b9e51df1f23d05c27a",
-      "vendor_tree_sha256": "sha256:73c46198fd4cac18d3dd58a29f1b8d34a006d38b372986053c5d1b9b24b1ce86",
+      "version": "1.0.2",
+      "source_revision": "working-tree-2026-08-03-readme-command-examples",
+      "source_tree_sha256": "sha256:dc74626d4e95dc5626278d9988d33c43aadaa0c7b3884ebd50fceb7f74d97e52",
+      "vendor_tree_sha256": "sha256:cea7e8c1971dde7df0dde67a5ce1d7f35902093b3e2304f02e17b35bac9c75ec",
       "vendored_path": "vendor/agent-best-practices",
       "entrypoint": "vendor/agent-best-practices/DONOR.md",
       "modes": [
@@ -41,10 +41,10 @@
     },
     {
       "name": "agent-builder",
-      "version": "1.0.1",
-      "source_revision": "74c9e10",
-      "source_tree_sha256": "sha256:c4b3b5346b4eb26510dcb2318da0296c01654092deea1ce0af492d50e2d4aa8e",
-      "vendor_tree_sha256": "sha256:cc2d968a1ec4825f972439c4ac72203a42b5aef2bd8a85e80fe55c20b82d5f5a",
+      "version": "1.0.2",
+      "source_revision": "working-tree-2026-08-03-readme-command-examples",
+      "source_tree_sha256": "sha256:4d314d0bc95669706222f398ea6cfc2cbd72513edcf00819184932fad36442e5",
+      "vendor_tree_sha256": "sha256:a623b9bb1d4e2ecf48710bd0f1d4839cd1a06f2edbc2c9d6163583e49d32a22a",
       "vendored_path": "vendor/agent-builder",
       "entrypoint": "vendor/agent-builder/DONOR.md",
       "modes": [
@@ -58,10 +58,10 @@
     },
     {
       "name": "agent-context",
-      "version": "1.0.1",
-      "source_revision": "74c9e10",
-      "source_tree_sha256": "sha256:d7352118a902b36e05a2abf339f0b83fc29876b697228c45186f34d810cdc70c",
-      "vendor_tree_sha256": "sha256:db5dabaadc12fdcc2c9380576b394ed4dc9bcc8ad459e28694fbbd6c4094dcdb",
+      "version": "1.0.2",
+      "source_revision": "working-tree-2026-08-03-readme-command-examples",
+      "source_tree_sha256": "sha256:cfc40dd33a92e15daa8194d8d25d870bc033dbc1781c3aade17f8a6580719beb",
+      "vendor_tree_sha256": "sha256:0f07a3e0153a400a48ed6bc987418fbd500e90d92e19455a4348b845b0d6c0b0",
       "vendored_path": "vendor/agent-context",
       "entrypoint": "vendor/agent-context/DONOR.md",
       "modes": [
@@ -75,10 +75,10 @@
     },
     {
       "name": "agent-doctor",
-      "version": "1.0.1",
-      "source_revision": "74c9e10",
-      "source_tree_sha256": "sha256:c17aacd2045e47e84071a7c40ea8543b34352a8623757dc348722b458c32f872",
-      "vendor_tree_sha256": "sha256:d072d947b31e990befd08bbe97bd570b5f486565bc7b057bd57098fc3960b97f",
+      "version": "1.0.2",
+      "source_revision": "working-tree-2026-08-03-readme-command-examples",
+      "source_tree_sha256": "sha256:fe322e919bd9689fb4d89f8e72b0cccf02afc3d78164bc0b217fe2f3fded01c0",
+      "vendor_tree_sha256": "sha256:13afbe804cc9519de5d5857efa3b9eeaf45772f9a82f704ff0729dd66caad61c",
       "vendored_path": "vendor/agent-doctor",
       "entrypoint": "vendor/agent-doctor/DONOR.md",
       "modes": [
@@ -92,10 +92,10 @@
     },
     {
       "name": "agent-evaluator",
-      "version": "1.0.1",
-      "source_revision": "74c9e10",
-      "source_tree_sha256": "sha256:b3da5418ef54ae73d51af7f20dc22331a0b578d3219abffc7b26d2eaf092af17",
-      "vendor_tree_sha256": "sha256:87b60b26532fe4d40042f3b603964eb78c80462cb08e240dd101ec4f06333527",
+      "version": "1.0.2",
+      "source_revision": "working-tree-2026-08-03-readme-command-examples",
+      "source_tree_sha256": "sha256:bc44c8256ea670de409be421a2f5b9fa0451c2c286ceb521a060836a27fcb17c",
+      "vendor_tree_sha256": "sha256:f18a4acda0b3069b69017e68c5a49c9449249203c2174da667716aacc1a402d7",
       "vendored_path": "vendor/agent-evaluator",
       "entrypoint": "vendor/agent-evaluator/DONOR.md",
       "modes": [
@@ -109,10 +109,10 @@
     },
     {
       "name": "agent-manager",
-      "version": "1.0.1",
-      "source_revision": "74c9e10",
-      "source_tree_sha256": "sha256:dacfd6eb787fee69891ce24becb39331e85aea89f30d9ab22f4f73ddec24b023",
-      "vendor_tree_sha256": "sha256:a21430c7771056f5eb00cf1665cfc01ccee8f97316fb92f8ee352ccebc944764",
+      "version": "1.0.2",
+      "source_revision": "working-tree-2026-08-03-readme-command-examples",
+      "source_tree_sha256": "sha256:e2d3153290e86d41c8edd1485da2a7b91b66e39fcdba2906e6876a4f905f602b",
+      "vendor_tree_sha256": "sha256:4d8be02bde78f2895439ef1680773a83be632d9d3aef483fd656666976151d54",
       "vendored_path": "vendor/agent-manager",
       "entrypoint": "vendor/agent-manager/DONOR.md",
       "modes": [
@@ -126,10 +126,10 @@
     },
     {
       "name": "agent-optimizer",
-      "version": "1.0.1",
-      "source_revision": "74c9e10",
-      "source_tree_sha256": "sha256:a2ebaaa91f6a194c51c1a05cbcf49a2ea78b675a881e4e27883804c945823472",
-      "vendor_tree_sha256": "sha256:35d120b41cb2275f62f5ab883ef1184c27d0e90f1b8ee2c538605043efbf7153",
+      "version": "1.0.2",
+      "source_revision": "working-tree-2026-08-03-readme-command-examples",
+      "source_tree_sha256": "sha256:af8ecd8a4ceae1368522d069f63190d885a171bf31e3bdd2179b8476c5c47d99",
+      "vendor_tree_sha256": "sha256:ac11e556e5cdb516091358e215ab9c6ee8a02a5025af39de30917d5a6eb14b1b",
       "vendored_path": "vendor/agent-optimizer",
       "entrypoint": "vendor/agent-optimizer/DONOR.md",
       "modes": [
@@ -143,10 +143,10 @@
     },
     {
       "name": "agent-refactor",
-      "version": "1.0.1",
-      "source_revision": "74c9e10",
-      "source_tree_sha256": "sha256:ad655548e1068260d2279741301b4aa5761736a4cf12a66059fd64fcbc3a5f89",
-      "vendor_tree_sha256": "sha256:f3da80c933dad9cf3d9398733639a501f0b3d46e3c0c0aa5ff5dcf5d837e33e7",
+      "version": "1.0.2",
+      "source_revision": "working-tree-2026-08-03-readme-command-examples",
+      "source_tree_sha256": "sha256:4edd42b3abeed844ba7b0d05d08f90574a4aad8129cb0d5f9820bf4584255217",
+      "vendor_tree_sha256": "sha256:d6c0ab9c6aaaadafb87d448867de4022d32d6d3c4df1bd5caa3e4e250b155832",
       "vendored_path": "vendor/agent-refactor",
       "entrypoint": "vendor/agent-refactor/DONOR.md",
       "modes": [
@@ -160,10 +160,10 @@
     },
     {
       "name": "agent-scout",
-      "version": "1.0.1",
-      "source_revision": "74c9e10",
-      "source_tree_sha256": "sha256:fd2fb7c8ce7a7499f9b4e75c68e318573bae396f5a9c8a03ceb1ef16e29f63c8",
-      "vendor_tree_sha256": "sha256:74a3147e22982589c9876f4ccee661a83d9ad59414d49aa907bf1aeded6dcd83",
+      "version": "1.0.2",
+      "source_revision": "working-tree-2026-08-03-readme-command-examples",
+      "source_tree_sha256": "sha256:290a2bc09df8ed9762370d65d152e247ca447c51b7decda3a663164099b27959",
+      "vendor_tree_sha256": "sha256:7041b781005143c7f764ccaccfdbe19c9758ca28eeb6d38fcb9374efc3be0b8c",
       "vendored_path": "vendor/agent-scout",
       "entrypoint": "vendor/agent-scout/DONOR.md",
       "modes": [

@@ -5,7 +5,7 @@
 ## Паспорт навыка
 
 - **Назначение:** Designs or redesigns one bounded agent or subagent as an immutable, reviewable definition with mission, non-goals, inputs, outputs, tools, permissions, model policy, state, memory, documentation, evaluation, rollout and retirement contracts.
-- **Версия:** `1.0.1`.
+- **Версия:** `1.0.2`.
 - **Видимость:** public: канонический навык каталога; фактическая активация зависит от целевого host.
 - **Теги каталога:** `agents`, `architecture`, `definitions`.
 
@@ -14,6 +14,16 @@
 Creating a single agent, choosing a single-agent pattern, specifying a private capability for one agent, or reviewing an existing individual-agent boundary before implementation. Do not design teams or Agentic OS, activate runtime agents, issue credentials, evaluate release readiness, or manage lifecycle state; route those to agent-team-architect, agent-os-architect, agent-evaluator or agent-manager.
 
 Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.
+
+## Полный пример команды
+
+Иллюстративный полный вызов; адаптируйте пути, ограничения и критерии приёмки к своей задаче:
+
+```text
+/agent-architect Design one read-only software architecture agent with ADR responsibilities.
+```
+
+**Ожидаемый результат:** выбирается маршрут `single-agent`; итог перечисляет созданные или изменённые артефакты, фактически выполненные проверки, ограничения, остаточные риски и следующий шаг. Наличие файлов само по себе не считается доказательством установки, активации или публикации.
 
 ## Варианты использования
 

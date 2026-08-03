@@ -34,7 +34,7 @@ python3 scripts/check_evals.py evals
 ## Паспорт навыка
 
 - **Назначение:** Identifies and prioritizes worthwhile agent-skill opportunities from the current session, explicitly supplied session exports, task histories, documents, repositories, observations, and recurring user work.
-- **Версия:** `1.1.1`.
+- **Версия:** `1.1.2`.
 - **Видимость:** public: канонический навык каталога; фактическая активация зависит от целевого host.
 - **Теги каталога:** `discovery`, `planning`.
 
@@ -43,6 +43,16 @@ python3 scripts/check_evals.py evals
 A user asks what skills they should create, whether repeated tasks or insights justify a reusable skill, what an article or corpus could become, or which gaps in an existing skill portfolio deserve investment. Check existing local and public skill coverage, estimate context and maintenance implications, and recommend CREATE_NEW, EXTEND_EXISTING, USE_EXISTING, USE_AUTOMATION, KEEP_AD_HOC, or RESEARCH. Do not create, install, or modify skills; route approved opportunities downstream.
 
 Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.
+
+## Полный пример команды
+
+Иллюстративный полный вызов; адаптируйте пути, ограничения и критерии приёмки к своей задаче:
+
+```text
+/skill-scout Use $skill-scout and tell me what skill to build.
+```
+
+**Ожидаемый результат:** выбирается маршрут `clarify`; итог перечисляет созданные или изменённые артефакты, фактически выполненные проверки, ограничения, остаточные риски и следующий шаг. Наличие файлов само по себе не считается доказательством установки, активации или публикации.
 
 ## Варианты использования
 

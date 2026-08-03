@@ -5,7 +5,7 @@
 ## Паспорт навыка
 
 - **Назначение:** Designs, audits and stages explicit ports-and-adapters contracts for MCP, A2A, agent hosts and model/tool providers, including pinned versions, discovery, authentication, capability negotiation, schemas, streaming, cancellation, errors, retries, provenance, conformance and rollback.
-- **Версия:** `1.0.1`.
+- **Версия:** `1.0.2`.
 - **Видимость:** public: канонический навык каталога; фактическая активация зависит от целевого host.
 - **Теги каталога:** `agents`, `agent-os`, `protocols`, `adapters`.
 
@@ -14,6 +14,16 @@
 An agent system needs a governed interoperability boundary or compatibility matrix.
 
 Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.
+
+## Полный пример команды
+
+Иллюстративный полный вызов; адаптируйте пути, ограничения и критерии приёмки к своей задаче:
+
+```text
+/agent-protocol-manager Create a version-pinned MCP adapter contract with capability negotiation and conformance fixtures.
+```
+
+**Ожидаемый результат:** выбирается маршрут `agent-protocol-manager`; итог перечисляет созданные или изменённые артефакты, фактически выполненные проверки, ограничения, остаточные риски и следующий шаг. Наличие файлов само по себе не считается доказательством установки, активации или публикации.
 
 ## Варианты использования
 

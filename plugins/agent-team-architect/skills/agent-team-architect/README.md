@@ -5,7 +5,7 @@
 ## Паспорт навыка
 
 - **Назначение:** Designs the smallest justified greenfield team of agents, subagents, specialists, an orchestrator, and human responsibilities from a task and capability graph, or redesigns an asset already defined as a team.
-- **Версия:** `1.1.1`.
+- **Версия:** `1.1.2`.
 - **Видимость:** public: канонический навык каталога; фактическая активация зависит от целевого host.
 - **Теги каталога:** `agents`, `architecture`, `teams`.
 
@@ -14,6 +14,16 @@
 A new problem may need multiple agents, a confirmed PROMOTE_TO_TEAM decision needs roles and topology, or an existing team needs handoff, worktree, model or skill boundaries and a versioned specification. Produce design artifacts only.
 
 Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.
+
+## Полный пример команды
+
+Иллюстративный полный вызов; адаптируйте пути, ограничения и критерии приёмки к своей задаче:
+
+```text
+/agent-team-architect Assess whether this delivery workflow actually needs multiple agents or should stay a single agent.
+```
+
+**Ожидаемый результат:** выбирается маршрут `worth-assessment`; итог перечисляет созданные или изменённые артефакты, фактически выполненные проверки, ограничения, остаточные риски и следующий шаг. Наличие файлов само по себе не считается доказательством установки, активации или публикации.
 
 ## Варианты использования
 

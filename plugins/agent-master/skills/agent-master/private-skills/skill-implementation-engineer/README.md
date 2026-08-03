@@ -5,7 +5,7 @@
 ## Паспорт навыка
 
 - **Назначение:** Audits and implements the necessary scripts, libraries, CLIs, adapters, services, hooks, and automations proposed by one approved role skill, including build/reuse/adapter research, public contracts, tests, security, Human-in-the-loop, observability, CI, documentation, and integration.
-- **Версия:** `1.0.1`.
+- **Версия:** `1.0.2`.
 - **Видимость:** package-private: вызывается только родительским `agent-master` и не публикуется отдельно.
 
 ## Когда использовать
@@ -13,6 +13,17 @@
 Используйте навык, когда запрос соответствует его назначению и границам ответственности из `SKILL.md`.
 
 Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.
+
+## Полный пример команды
+
+Этот package-private навык не вызывается напрямую. Иллюстративный запрос передаётся через родительский `/agent-master`:
+
+```text
+/agent-master Agent-master dispatches a validated role skill with one required JSON validator and explicit repository write authority.
+```
+
+**Ожидаемый результат:** выбирается маршрут `skill-implementation-engineer`; итог перечисляет созданные или изменённые артефакты, фактически выполненные проверки, ограничения, остаточные риски и следующий шаг. Наличие файлов само по себе не считается доказательством установки, активации или публикации.
+Прямой `/skill-implementation-engineer` не является поддерживаемой публичной командой; родитель `agent-master` обязан передать ограниченный dispatch-контракт и проверить результат.
 
 ## Варианты использования
 

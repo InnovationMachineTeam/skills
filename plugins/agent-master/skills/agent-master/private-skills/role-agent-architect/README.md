@@ -5,7 +5,7 @@
 ## Паспорт навыка
 
 - **Назначение:** Creates one complete bounded specialist-agent specification from an approved process-orchestrator role, including inherited-skill audit, capability gaps, role contract, knowledge, tools, permissions, tasks, handoffs, self-review, Human-in-the-loop, errors, context, metrics, evals, agent card, and system prompt.
-- **Версия:** `1.0.1`.
+- **Версия:** `1.0.2`.
 - **Видимость:** package-private: вызывается только родительским `agent-master` и не публикуется отдельно.
 
 ## Когда использовать
@@ -13,6 +13,17 @@
 Используйте навык, когда запрос соответствует его назначению и границам ответственности из `SKILL.md`.
 
 Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.
+
+## Полный пример команды
+
+Этот package-private навык не вызывается напрямую. Иллюстративный запрос передаётся через родительский `/agent-master`:
+
+```text
+/agent-master Agent-master dispatches the approved evidence-reviewer role with the orchestrator spec and its proposed skills.
+```
+
+**Ожидаемый результат:** выбирается маршрут `role-agent-architect`; итог перечисляет созданные или изменённые артефакты, фактически выполненные проверки, ограничения, остаточные риски и следующий шаг. Наличие файлов само по себе не считается доказательством установки, активации или публикации.
+Прямой `/role-agent-architect` не является поддерживаемой публичной командой; родитель `agent-master` обязан передать ограниченный dispatch-контракт и проверить результат.
 
 ## Варианты использования
 

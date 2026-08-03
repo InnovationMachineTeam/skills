@@ -11,7 +11,7 @@ description: >-
   not reimplement them, infer destructive authority, create worktrees or
   publish assets.
 metadata:
-  version: "1.2.1"
+  version: "1.2.2"
 ---
 
 # Govern Agent-Team Lifecycles

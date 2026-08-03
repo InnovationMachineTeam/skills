@@ -5,7 +5,7 @@
 ## Паспорт навыка
 
 - **Назначение:** Materializes an approved, versioned agent-team specification into a staged `.agents` structure, canonical definitions, owner-private skills or commands, public capability candidates, host adapters, registry/map transactions and verification evidence.
-- **Версия:** `1.0.1`.
+- **Версия:** `1.0.2`.
 - **Видимость:** public: канонический навык каталога; фактическая активация зависит от целевого host.
 - **Теги каталога:** `agents`, `build`, `teams`.
 
@@ -14,6 +14,16 @@
 A reviewed team design is ready to build, rebuild, migrate or dry-run. Requires an exact approved spec, destination and write authority. Do not redesign roles, substitute models or permissions, activate agents, create worktrees, publish private assets, or operate the team; route design changes to agent-team-architect and lifecycle execution to agent-team-manager.
 
 Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.
+
+## Полный пример команды
+
+Иллюстративный полный вызов; адаптируйте пути, ограничения и критерии приёмки к своей задаче:
+
+```text
+/agent-team-builder Check whether this approved team spec is buildable.
+```
+
+**Ожидаемый результат:** выбирается маршрут `preflight`; итог перечисляет созданные или изменённые артефакты, фактически выполненные проверки, ограничения, остаточные риски и следующий шаг. Наличие файлов само по себе не считается доказательством установки, активации или публикации.
 
 ## Варианты использования
 

@@ -5,7 +5,7 @@
 ## Паспорт навыка
 
 - **Назначение:** Executes an approved, active agent-team definition through a bounded task graph with typed envelopes, minimal context capsules, leases, budgets, checkpoints, cancellation, recovery and independent verification.
-- **Версия:** `1.0.1`.
+- **Версия:** `1.0.2`.
 - **Видимость:** public: канонический навык каталога; фактическая активация зависит от целевого host.
 - **Теги каталога:** `agents`, `runtime`, `orchestration`.
 
@@ -14,6 +14,16 @@
 Launching, resuming, monitoring, cancelling or recovering a concrete team run. It may choose only among declared workflows and cannot redesign teams, edit agents or skills, broaden authority, create worktrees directly, publish outputs by implication, or replace the lifecycle control plane owned by agent-team-manager.
 
 Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.
+
+## Полный пример команды
+
+Иллюстративный полный вызов; адаптируйте пути, ограничения и критерии приёмки к своей задаче:
+
+```text
+/agent-team-orchestrator Plan an approved team run for this task envelope.
+```
+
+**Ожидаемый результат:** выбирается маршрут `plan`; итог перечисляет созданные или изменённые артефакты, фактически выполненные проверки, ограничения, остаточные риски и следующий шаг. Наличие файлов само по себе не считается доказательством установки, активации или публикации.
 
 ## Варианты использования
 

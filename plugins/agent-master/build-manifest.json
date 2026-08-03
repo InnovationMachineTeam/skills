@@ -1,7 +1,7 @@
 {
   "format": 2,
   "plugin": "agent-master",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "source_layout": "skills/",
   "bundle_layout": "skills/<name>/",
   "platforms": [
@@ -21,17 +21,17 @@
   "files": [
     {
       "path": ".claude-plugin/plugin.json",
-      "sha256": "0247ebdf50b2aee00d0f2023add418056e430c36ebd2937df8815065d8732699",
+      "sha256": "86dce49af3efbcf79ca74c5a6960ac6f809dbca30b7446e00981e2a5f4c8d110",
       "bytes": 324
     },
     {
       "path": ".codex-plugin/plugin.json",
-      "sha256": "e227ad3ee7abd2463ded82587882c0033f09b03dd9dfdc96ca2a6b8a2b2ec710",
+      "sha256": "89d96c059a0d9d3ee6b6787c983ba7cb764ccab8e35f1266d5ca59eb86e525e5",
       "bytes": 1215
     },
     {
       "path": ".cursor-plugin/plugin.json",
-      "sha256": "e1222ef6a5fb9392b7e69d2f8b8604190e14fb4393a10597efeb5fb94725d30d",
+      "sha256": "166af57547a02a1c9f0e2db79fb5b0813aae84788bc5de1b7732a3bf570beeba",
       "bytes": 623
     },
     {
@@ -46,12 +46,12 @@
     },
     {
       "path": "skills/agent-master/README.md",
-      "sha256": "d825735e8c365d9c86249bf5d4d75fad9abe62fe12847000b0dfbdae4cc96d5b",
-      "bytes": 10038
+      "sha256": "0bd588284f7b7d9fa0cf2d90459e3b41e65f8afcee4806293a2a1d993edd2bc5",
+      "bytes": 10961
     },
     {
       "path": "skills/agent-master/SKILL.md",
-      "sha256": "2daef965fb48405f6e729680f8769afb0c73909cb1389e000b6ba5a7fa88c38e",
+      "sha256": "9530bc6378d731b9c9e30cb16f949690731d1c844ab245c7f0070f75501c853a",
       "bytes": 8209
     },
     {
@@ -71,12 +71,12 @@
     },
     {
       "path": "skills/agent-master/private-skills/process-orchestrator-architect/README.md",
-      "sha256": "e66d8449d86e91b5b84301f1aa887193c5f74ca3ba97102fc2fba762a5ed7a30",
-      "bytes": 5598
+      "sha256": "c34dabc95cd488fc2cd0804cfd9b17f2ff2788082f0a36ec99e42d83e9b2a37b",
+      "bytes": 6818
     },
     {
       "path": "skills/agent-master/private-skills/process-orchestrator-architect/SKILL.md",
-      "sha256": "b80af639726d0b39e8fa389a677045842b88f4909e02459944cf5d735d2ce06a",
+      "sha256": "74ea2624f00d1d490d8b75dd9acea19ebb3266ff48a695c7a0463cb88b046cf4",
       "bytes": 3339
     },
     {
@@ -96,12 +96,12 @@
     },
     {
       "path": "skills/agent-master/private-skills/role-agent-architect/README.md",
-      "sha256": "98646652115b586872472e7a7699c00fb851c0389a914374eec2fbfb62a060f5",
-      "bytes": 5616
+      "sha256": "f6899ced47fb370f04a380917651592a8785eb1c32ef61178a95a9a7284655ab",
+      "bytes": 6802
     },
     {
       "path": "skills/agent-master/private-skills/role-agent-architect/SKILL.md",
-      "sha256": "c034db99230b14c547fb335028fc47adea25e6e4abb361087a44eb94fa0e00c7",
+      "sha256": "4a8a940e814954a943d10a9c588d65ae8a6b5f8769a8e47a17ff573c7fa59c5e",
       "bytes": 3049
     },
     {
@@ -121,12 +121,12 @@
     },
     {
       "path": "skills/agent-master/private-skills/role-skill-architect/README.md",
-      "sha256": "337adef9bff0fd83084c83e3d1fb71e0208ebecf288ba154740c27d00d8ec714",
-      "bytes": 5447
+      "sha256": "4b327443f4c48e855618209134d96af81a996ff4de487df6b07145fa9a529156",
+      "bytes": 6623
     },
     {
       "path": "skills/agent-master/private-skills/role-skill-architect/SKILL.md",
-      "sha256": "04d6d3b12adc600eb4d2cf24f5dc9668bf134d12ef60fcb2875baa3a0ce2a3e0",
+      "sha256": "607792ceb3ccbac6880ca051f19aa94474fa40bc99676ff0eb57ff0d900a8fc4",
       "bytes": 3310
     },
     {
@@ -146,12 +146,12 @@
     },
     {
       "path": "skills/agent-master/private-skills/skill-implementation-engineer/README.md",
-      "sha256": "e067a6673816aed04676e9608d50bf70d59f2ace9a699db9b1bd798a5d226f02",
-      "bytes": 5701
+      "sha256": "8d63ab514200481b4c9ba121389269e4fe71e2ad78ff667410d7038bf0505c55",
+      "bytes": 6914
     },
     {
       "path": "skills/agent-master/private-skills/skill-implementation-engineer/SKILL.md",
-      "sha256": "16c0c5924a1065c0ef65fdd015df22a1f135df8e9d82a753841713bc70afe305",
+      "sha256": "6c801841a3addcbc3be85e148d748be1fae6379f75d9d2f05f03adff1b3bb3f1",
       "bytes": 3582
     },
     {
@@ -171,7 +171,7 @@
     },
     {
       "path": "skills/agent-master/references/private-skill-registry.json",
-      "sha256": "454a2b6a9c2829f120541aac0fd61ed21490d61f6d2899bc95bb1da62ff684b8",
+      "sha256": "f71b53fed31072d134c9348bb612270bd0c8fa994e38d6427c005004d3b0cc5f",
       "bytes": 1636
     },
     {

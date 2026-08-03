@@ -5,7 +5,7 @@
 ## Паспорт навыка
 
 - **Назначение:** Independently evaluates frozen Agentic OS architecture, implementations and release evidence across plane boundaries, schemas, registry reconciliation, policy enforcement, durable execution, knowledge provenance, observability, operator readiness, security, failure recovery, lifecycle and end-to-end outcomes.
-- **Версия:** `1.0.1`.
+- **Версия:** `1.0.2`.
 - **Видимость:** public: канонический навык каталога; фактическая активация зависит от целевого host.
 - **Теги каталога:** `agents`, `agent-os`, `evaluation`.
 
@@ -14,6 +14,16 @@
 Evaluation plans, conformance, chaos/security/load tests, release gates, comparisons or migration evidence. Do not repair the candidate during a frozen run, reveal holdouts, average away blockers, or authorize deployment.
 
 Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.
+
+## Полный пример команды
+
+Иллюстративный полный вызов; адаптируйте пути, ограничения и критерии приёмки к своей задаче:
+
+```text
+/agent-os-evaluator Independently evaluate this frozen Agentic OS release candidate.
+```
+
+**Ожидаемый результат:** выбирается маршрут `release-gate`; итог перечисляет созданные или изменённые артефакты, фактически выполненные проверки, ограничения, остаточные риски и следующий шаг. Наличие файлов само по себе не считается доказательством установки, активации или публикации.
 
 ## Варианты использования
 

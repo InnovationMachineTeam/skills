@@ -5,7 +5,7 @@
 ## Паспорт навыка
 
 - **Назначение:** Builds a complete agent system from a task or process description on a governed autopilot.
-- **Версия:** `2.0.1`.
+- **Версия:** `2.0.2`.
 - **Видимость:** public: канонический навык каталога; фактическая активация зависит от целевого host.
 - **Теги каталога:** `agents`, `autopilot`, `factory`, `harness`, `orchestration`, `lifecycle`, `private-skills`.
 
@@ -14,6 +14,16 @@
 The user asks for agent-master, an Agent Harness, a process orchestrator with role agents and skills, or an end-to-end agent-system factory. It asks the public-versus-private placement question first, resolves an autonomy mode, researches and selects the minimum sufficient harness, then coordinates package-private architects for the orchestrator, role agents, role skills, and required tools or automations.
 
 Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.
+
+## Полный пример команды
+
+Иллюстративный полный вызов; адаптируйте пути, ограничения и критерии приёмки к своей задаче:
+
+```text
+/agent-master Use agent-master to turn this service-delivery process into a private Agent Harness with an orchestrator, role agents, skills, tools, evals, and documentation.
+```
+
+**Ожидаемый результат:** выбирается маршрут `agent-master`; итог перечисляет созданные или изменённые артефакты, фактически выполненные проверки, ограничения, остаточные риски и следующий шаг. Наличие файлов само по себе не считается доказательством установки, активации или публикации.
 
 ## Варианты использования
 

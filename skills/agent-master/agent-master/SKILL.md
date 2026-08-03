@@ -2,7 +2,7 @@
 name: agent-master
 description: Builds a complete agent system from a task or process description on a governed autopilot. Use when the user asks for agent-master, an Agent Harness, a process orchestrator with role agents and skills, or an end-to-end agent-system factory. It asks the public-versus-private placement question first, resolves an autonomy mode, researches and selects the minimum sufficient harness, then coordinates package-private architects for the orchestrator, role agents, role skills, and required tools or automations. Do not use for one bounded agent/skill phase, ordinary execution by an existing agent, or silent installation, publication, production activation, credential use, or irreversible actions.
 metadata:
-  version: "2.0.1"
+  version: "2.0.2"
 ---
 
 # Build an Agent System on Governed Autopilot

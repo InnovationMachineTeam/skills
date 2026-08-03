@@ -5,7 +5,7 @@
 ## Паспорт навыка
 
 - **Назначение:** Materializes an approved Agentic OS architecture as one staged, reproducible vertical walking skeleton from authenticated request through policy, registry, durable task and lease, bounded execution, artifact verification, telemetry and terminal state.
-- **Версия:** `1.0.1`.
+- **Версия:** `1.0.2`.
 - **Видимость:** public: канонический навык каталога; фактическая активация зависит от целевого host.
 - **Теги каталога:** `agents`, `agent-os`, `bootstrap`.
 
@@ -14,6 +14,16 @@
 An exact approved architecture and destination are ready for local bootstrap, rebuild or migration. Do not redesign planes, use production credentials, activate or roll out production, retain partial active state, or expand beyond the approved vertical slice.
 
 Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.
+
+## Полный пример команды
+
+Иллюстративный полный вызов; адаптируйте пути, ограничения и критерии приёмки к своей задаче:
+
+```text
+/agent-os-bootstrapper Stage this approved Agentic OS walking skeleton.
+```
+
+**Ожидаемый результат:** выбирается маршрут `bootstrap`; итог перечисляет созданные или изменённые артефакты, фактически выполненные проверки, ограничения, остаточные риски и следующий шаг. Наличие файлов само по себе не считается доказательством установки, активации или публикации.
 
 ## Варианты использования
 

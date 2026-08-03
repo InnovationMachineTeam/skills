@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "evaluation_id": "agentkit-1.0.2-full-command-documentation",
+  "objective": "Verify agentkit 1.0.2 and the complete skill portfolio after adding durable full slash-command examples to every canonical skill README.",
+  "risk": "low",
+  "target": {
+    "identity": "agentkit",
+    "version": "1.0.2",
+    "hash": "sha256:a7f967da8c693d34fe54c3abee3b61157c12220731d377ee2c2b5f4bd097255c",
+    "locator": "skills/agent-skills/agentkit"
+  },
+  "baseline": "agentkit 1.0.1 at marketplace release 3.7.0",
+  "change_class": "documentation-only command examples plus deterministic README generation",
+  "authority": {
+    "read": true,
+    "write_repository_release": true,
+    "install_or_activate_host": false,
+    "publish_external_release": false
+  },
+  "acceptance": {
+    "readme_coverage": "48/48 canonical skills have adjacent README.md files with full command examples and expected results",
+    "private_visibility": "package-private examples invoke the owning public parent and reject direct slash invocation",
+    "donor_lock": "10/10 agentkit donors and 12/12 metaskillpack donors match canonical versions and hashes",
+    "structure": "repository, marketplace, registry and package validators pass",
+    "behavior": "existing routing and behavior suites remain unchanged and pass",
+    "portability": "43 selective packages and one aggregate package reproduce canonical skill contents",
+    "lifecycle": "versions, registry hashes, marketplace release and rollback state agree"
+  },
+  "evidence": [
+    "scripts/generate_skill_readmes.py",
+    "tests/test_skill_marketplace_documentation.py",
+    "scripts/validate_repository.py",
+    "tests/test_agentkit.py",
+    "tests/test_individual_agent_skills.py",
+    "docs/agents/evals/individual-agent-stability-cycles.json"
+  ],
+  "execution_policy": {
+    "side_effects": "repository files and generated package staging only",
+    "abort_conditions": [
+      "missing command example",
+      "direct private-skill invocation",
+      "README generation drift",
+      "donor drift",
+      "registry drift",
+      "blocking validation or unit-test failure"
+    ],
+    "rollback": "Git revert to marketplace release 3.7.0 and agentkit 1.0.1"
+  },
+  "result": "docs/agents/evals/agentkit-1.0.2-results.json"
+}

@@ -5,7 +5,7 @@
 ## Паспорт навыка
 
 - **Назначение:** Plans and governs isolated agent workspaces or Git worktrees for approved parallel code tasks with explicit write-sets, owners, base revisions, branches, leases, quotas, integration handoffs, retention and safe exact-target cleanup.
-- **Версия:** `1.0.1`.
+- **Версия:** `1.0.2`.
 - **Видимость:** public: канонический навык каталога; фактическая активация зависит от целевого host.
 - **Теги каталога:** `agents`, `worktrees`, `workspaces`.
 
@@ -14,6 +14,16 @@
 Deciding whether parallel writers need isolation, inventorying or allocating worktrees, reconciling divergence, recovering abandoned work, or releasing workspaces. Do not decompose tasks, treat worktrees as security boundaries, overwrite user changes, create broad paths, merge without an integration owner, or delete without verified ownership and retention authority.
 
 Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.
+
+## Полный пример команды
+
+Иллюстративный полный вызов; адаптируйте пути, ограничения и критерии приёмки к своей задаче:
+
+```text
+/agent-workspace-manager Do these parallel code tasks need separate worktrees?
+```
+
+**Ожидаемый результат:** выбирается маршрут `decide`; итог перечисляет созданные или изменённые артефакты, фактически выполненные проверки, ограничения, остаточные риски и следующий шаг. Наличие файлов само по себе не считается доказательством установки, активации или публикации.
 
 ## Варианты использования
 

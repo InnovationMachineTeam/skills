@@ -5,7 +5,7 @@
 ## Паспорт навыка
 
 - **Назначение:** Designs the minimum justified Agentic OS across experience, control, execution, knowledge, assurance and operations planes, including desired versus observed state, identities, schemas, policy points, protocols, SLOs, threat and failure models, deployment topology and staged evolution.
-- **Версия:** `1.0.1`.
+- **Версия:** `1.0.2`.
 - **Видимость:** public: канонический навык каталога; фактическая активация зависит от целевого host.
 - **Теги каталога:** `agents`, `agent-os`, `architecture`.
 
@@ -14,6 +14,16 @@
 A team runtime is no longer sufficient and a user needs a platform architecture, build/extend/buy comparison, bounded walking skeleton or Agentic OS ADR. Design only; do not bootstrap infrastructure, operate runs, change registries or policies, or issue release verdicts.
 
 Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.
+
+## Полный пример команды
+
+Иллюстративный полный вызов; адаптируйте пути, ограничения и критерии приёмки к своей задаче:
+
+```text
+/agent-os-architect Design a minimal Agentic OS for multiple durable release runs.
+```
+
+**Ожидаемый результат:** выбирается маршрут `design`; итог перечисляет созданные или изменённые артефакты, фактически выполненные проверки, ограничения, остаточные риски и следующий шаг. Наличие файлов само по себе не считается доказательством установки, активации или публикации.
 
 ## Варианты использования
 

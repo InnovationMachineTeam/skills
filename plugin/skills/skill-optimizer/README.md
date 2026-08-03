@@ -63,7 +63,7 @@ python3 scripts/check_evals.py evals
 ## Паспорт навыка
 
 - **Назначение:** Measures and improves a healthy existing SKILL.md-based agent skill while preserving intended behavior, capability boundary, and authority.
-- **Версия:** `1.0.1`.
+- **Версия:** `1.0.2`.
 - **Видимость:** public: канонический навык каталога; фактическая активация зависит от целевого host.
 - **Теги каталога:** `optimization`, `quality`.
 
@@ -72,6 +72,16 @@ python3 scripts/check_evals.py evals
 A user asks to optimize, tune, compress, harden, or measurably improve one skill; improve its description or triggering; reduce context cost; reorganize resources; improve scripts or tool workflows; or strengthen safety and portability.
 
 Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.
+
+## Полный пример команды
+
+Иллюстративный полный вызов; адаптируйте пути, ограничения и критерии приёмки к своей задаче:
+
+```text
+/skill-optimizer Use $skill-optimizer to make my skill better.
+```
+
+**Ожидаемый результат:** выбирается маршрут `clarify`; итог перечисляет созданные или изменённые артефакты, фактически выполненные проверки, ограничения, остаточные риски и следующий шаг. Наличие файлов само по себе не считается доказательством установки, активации или публикации.
 
 ## Варианты использования
 

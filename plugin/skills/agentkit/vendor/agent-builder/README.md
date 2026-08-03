@@ -5,7 +5,7 @@
 ## Паспорт навыка
 
 - **Назначение:** Orchestrates complete evidence-backed workflows for one agent or subagent across agent-scout, agent-context, agent-architect, agent-evaluator, agent-doctor, agent-optimizer, agent-refactor and agent-manager.
-- **Версия:** `1.0.1`.
+- **Версия:** `1.0.2`.
 - **Видимость:** public: канонический навык каталога; фактическая активация зависит от целевого host.
 - **Теги каталога:** `agents`, `orchestration`, `lifecycle`.
 
@@ -14,6 +14,16 @@
 Creating, researching, evaluating, repairing, improving, refactoring, recovering or governing an individual agent through multiple phases, or when the correct specialist chain must be inferred. Prefer a direct specialist for one bounded phase. Do not design or run teams, build Agentic OS, imitate missing specialists, activate by assumption, or continue across approval, mutation or lifecycle gates without authority.
 
 Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.
+
+## Полный пример команды
+
+Иллюстративный полный вызов; адаптируйте пути, ограничения и критерии приёмки к своей задаче:
+
+```text
+/agent-builder Take this idea through research, architecture, evaluation and a rollout plan for one agent.
+```
+
+**Ожидаемый результат:** выбирается маршрут `full-lifecycle`; итог перечисляет созданные или изменённые артефакты, фактически выполненные проверки, ограничения, остаточные риски и следующий шаг. Наличие файлов само по себе не считается доказательством установки, активации или публикации.
 
 ## Варианты использования
 

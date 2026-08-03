@@ -2,7 +2,7 @@
 name: skill-optimizer
 description: Measures and improves a healthy existing SKILL.md-based agent skill while preserving intended behavior, capability boundary, and authority. Use when a user asks to optimize, tune, compress, harden, or measurably improve one skill; improve its description or triggering; reduce context cost; reorganize resources; improve scripts or tool workflows; or strengthen safety and portability. Route independent evaluation plans, eval/trigger authoring, baseline or candidate runs, benchmarking, regression comparison, and release verdicts to skill-evaluator; route confirmed defects to skill-doctor; route composition, physical merge, split, subskill extraction, and compatibility-facade work to skill-refactor. Ask for the target and measurable outcome when no usable input is supplied. Do not use for ordinary task execution or unrelated new skill creation.
 metadata:
-  version: "1.0.1"
+  version: "1.0.2"
 ---
 
 # Optimize Agent Skills

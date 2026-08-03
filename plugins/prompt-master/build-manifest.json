@@ -1,7 +1,7 @@
 {
   "format": 2,
   "plugin": "prompt-master",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "source_layout": "skills/",
   "bundle_layout": "skills/<name>/",
   "platforms": [
@@ -21,17 +21,17 @@
   "files": [
     {
       "path": ".claude-plugin/plugin.json",
-      "sha256": "748b8fdff8f076a7c3d8a9fecd2529919279ef92101bdafcd08b5d093bae7ff4",
+      "sha256": "227271fdaf9b43d5bb9176bddb54a0c4f864e52d979583c7b60d118797ff0198",
       "bytes": 529
     },
     {
       "path": ".codex-plugin/plugin.json",
-      "sha256": "445054526e850d977dd08d64ee6235e274ea83170740ac30ab91950331cb89d0",
+      "sha256": "3a47de325e8daf53b1ea19b13cb09e6c9df0b303a873707bae1f1878366bb17d",
       "bytes": 1517
     },
     {
       "path": ".cursor-plugin/plugin.json",
-      "sha256": "81ff461edd5d7c97eb36f2f2350ec0942a951e5bb559e4d6d327d0377d8f6ee5",
+      "sha256": "ccdd45245fd3e2595320d95847f1f17a93a07d7582ad721863987a03965b531e",
       "bytes": 736
     },
     {
@@ -46,12 +46,12 @@
     },
     {
       "path": "skills/prompt-master/README.md",
-      "sha256": "604737f9e429c0ea74a809014cff04a6ef18aa9e7a684e7708d4085a1f337e28",
-      "bytes": 9859
+      "sha256": "d0e29cd1abdb0726f5a4130bea611b31c15a661f4a9bfbdd44a16033b4cf55e3",
+      "bytes": 10737
     },
     {
       "path": "skills/prompt-master/SKILL.md",
-      "sha256": "d13310645df7103a58a34f5f68a26a8d06285071c89776c0efb9e26368097511",
+      "sha256": "b34cce734db29c2d091de55fc6137d32b4e48725b0a84222501d2c0fb8826dd2",
       "bytes": 8195
     },
     {

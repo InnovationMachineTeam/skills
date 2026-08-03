@@ -38,7 +38,7 @@ The package is a reviewable bundle and does not install or activate itself.
 ## Паспорт навыка
 
 - **Назначение:** Maintains and queries an evidence-linked, updateable corpus of best practices for creating, routing, evaluating, securing, optimizing, distributing, and governing agent skills.
-- **Версия:** `1.2.1`.
+- **Версия:** `1.2.2`.
 - **Видимость:** public: канонический навык каталога; фактическая активация зависит от целевого host.
 - **Теги каталога:** `research`, `governance`.
 
@@ -47,6 +47,16 @@ The package is a reviewable bundle and does not install or activate itself.
 A user asks for a source-backed skill-practices answer or checklist, wants to audit or refresh the declared source registry, compare new guidance with an existing practice corpus, resolve contradictions, rebuild thematic best-practice files, audit skills against current guidance, or generate a master prompt for modifying the managed skill portfolio. Not for open-ended discovery of new repositories or articles; use a harvesting workflow first. Track provenance and platform scope, stage rebuilds safely, and never rewrite active installed skills or promote third-party patterns to standards by assumption.
 
 Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.
+
+## Полный пример команды
+
+Иллюстративный полный вызов; адаптируйте пути, ограничения и критерии приёмки к своей задаче:
+
+```text
+/skill-best-practices Give me a concise, source-backed checklist for writing a portable agent skill from the current corpus. Do not browse or modify files.
+```
+
+**Ожидаемый результат:** выбирается маршрут `query-practices`; итог перечисляет созданные или изменённые артефакты, фактически выполненные проверки, ограничения, остаточные риски и следующий шаг. Наличие файлов само по себе не считается доказательством установки, активации или публикации.
 
 ## Варианты использования
 

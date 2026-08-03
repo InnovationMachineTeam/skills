@@ -246,7 +246,7 @@ aggregate plugin для локального тестирования. Дай ma
 ## Паспорт навыка
 
 - **Назначение:** Design, inventory, scaffold, curate, build, document, validate, migrate, release, and audit repositories that distribute Agent Skills through skill.sh-compatible catalogs and plugin harnesses such as Claude Code.
-- **Версия:** `1.4.0`.
+- **Версия:** `1.4.1`.
 - **Видимость:** public: канонический навык каталога; фактическая активация зависит от целевого host.
 - **Теги каталога:** `marketplace`, `distribution`.
 
@@ -255,6 +255,16 @@ aggregate plugin для локального тестирования. Дай ma
 Marketplace topology, category design, marketplace.json or plugin.json generation, portable skills/ layouts, aggregate plugin builds, skill documentation and onboarding sets, catalog governance, version policy, compatibility checks, staged migrations, publishing plans, or repository-wide skill distribution.
 
 Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.
+
+## Полный пример команды
+
+Иллюстративный полный вызов; адаптируйте пути, ограничения и критерии приёмки к своей задаче:
+
+```text
+/skill-marketplace-manager Проверь read-only репозиторий с 40 навыками: найди дубликаты имён, глубину категорий и manifest drift.
+```
+
+**Ожидаемый результат:** выбирается маршрут `основной маршрут навыка`; итог перечисляет созданные или изменённые артефакты, фактически выполненные проверки, ограничения, остаточные риски и следующий шаг. Наличие файлов само по себе не считается доказательством установки, активации или публикации.
 
 ## Варианты использования
 

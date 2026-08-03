@@ -1,7 +1,7 @@
 {
   "name": "agent-optimizer",
   "displayName": "Agent Optimizer",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Improves one healthy agent or subagent against a frozen measurable quality, cost, latency, reliability, context or documentation target while preserving mission… Companion skill plugins are required for full functionality; see README.md.",
   "skills": [
     "./skills"

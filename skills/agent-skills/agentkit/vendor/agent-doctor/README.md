@@ -5,7 +5,7 @@
 ## Паспорт навыка
 
 - **Назначение:** Diagnoses unhealthy or broken behavior in one agent or subagent, reproduces symptoms from definitions and traces, identifies a root cause, applies an explicitly authorized minimal repair to a new candidate revision, and verifies recovery.
-- **Версия:** `1.0.1`.
+- **Версия:** `1.0.2`.
 - **Видимость:** public: канонический навык каталога; фактическая активация зависит от целевого host.
 - **Теги каталога:** `agents`, `diagnostics`, `repair`.
 
@@ -14,6 +14,16 @@
 Routing failures, tool misuse, permission denials, loops, stale context, memory poisoning, document drift, runtime errors or regressions in an individual agent. Do not optimize a healthy agent, redesign teams or Agentic OS, change mission or authority under a repair label, edit production state without approval, or declare release readiness.
 
 Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.
+
+## Полный пример команды
+
+Иллюстративный полный вызов; адаптируйте пути, ограничения и критерии приёмки к своей задаче:
+
+```text
+/agent-doctor This single agent loops after a tool timeout; reproduce and minimally repair it.
+```
+
+**Ожидаемый результат:** выбирается маршрут `diagnose`; итог перечисляет созданные или изменённые артефакты, фактически выполненные проверки, ограничения, остаточные риски и следующий шаг. Наличие файлов само по себе не считается доказательством установки, активации или публикации.
 
 ## Варианты использования
 

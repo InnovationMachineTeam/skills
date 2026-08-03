@@ -5,7 +5,7 @@
 ## Паспорт навыка
 
 - **Назначение:** Selects and audits evidence-backed model policies for agents, subagents, evaluators, orchestrators, and team routes.
-- **Версия:** `1.0.1`.
+- **Версия:** `1.0.2`.
 - **Видимость:** public: канонический навык каталога; фактическая активация зависит от целевого host.
 - **Теги каталога:** `agents`, `models`, `evaluation`.
 
@@ -14,6 +14,16 @@
 A user asks which current model best fits an agent role, wants a quality/latency/cost comparison, needs a fallback or escalation ladder, or must revisit a stale model assignment. Fetch current authoritative model and host documentation before recommending exact models, bind claims to evidence and checked dates, and separate design-time selection from runtime routing. Do not configure providers, buy access, activate agents, benchmark without execution authority, or claim one universally best model.
 
 Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.
+
+## Полный пример команды
+
+Иллюстративный полный вызов; адаптируйте пути, ограничения и критерии приёмки к своей задаче:
+
+```text
+/agent-model-selector Recommend the most efficient current models for our planner, coding worker, and independent reviewer.
+```
+
+**Ожидаемый результат:** выбирается маршрут `recommend`; итог перечисляет созданные или изменённые артефакты, фактически выполненные проверки, ограничения, остаточные риски и следующий шаг. Наличие файлов само по себе не считается доказательством установки, активации или публикации.
 
 ## Варианты использования
 

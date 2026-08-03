@@ -5,7 +5,7 @@
 ## Паспорт навыка
 
 - **Назначение:** Designs, audits and stages policy-constrained runtime routing across a pinned multi-model pool using typed task, risk, data, tool, context, latency, cost and quality features.
-- **Версия:** `1.0.1`.
+- **Версия:** `1.0.2`.
 - **Видимость:** public: канонический навык каталога; фактическая активация зависит от целевого host.
 - **Теги каталога:** `agents`, `agent-os`, `models`, `routing`.
 
@@ -14,6 +14,16 @@
 Multi-model per-request routing is measurably justified and needs thresholds, escalation, fallbacks, outage handling, shadow/canary evidence, drift detection or rollback.
 
 Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.
+
+## Полный пример команды
+
+Иллюстративный полный вызов; адаптируйте пути, ограничения и критерии приёмки к своей задаче:
+
+```text
+/agent-model-router Design a policy-constrained runtime router across our approved model pool with fallbacks and drift detection.
+```
+
+**Ожидаемый результат:** выбирается маршрут `agent-model-router`; итог перечисляет созданные или изменённые артефакты, фактически выполненные проверки, ограничения, остаточные риски и следующий шаг. Наличие файлов само по себе не считается доказательством установки, активации или публикации.
 
 ## Варианты использования
 

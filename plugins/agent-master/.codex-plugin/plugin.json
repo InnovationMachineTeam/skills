@@ -1,6 +1,6 @@
 {
   "name": "agent-master",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Builds a complete agent system from a task or process description on a governed autopilot",
   "homepage": "https://github.com/InnovationMachineTeam/skills",
   "repository": "https://github.com/InnovationMachineTeam/skills",

@@ -2,7 +2,7 @@
 name: process-orchestrator-architect
 description: Converts one process description into an executable process and orchestrator specification with stages, artifacts, roles, RACI, state, routing, quality gates, Human-in-the-loop, recovery, security, observability, and a ready system prompt. Use only when dispatched by agent-master after visibility, harness context, scope, and authority are fixed. Do not implement role agents, role skills, tools, publication, or runtime activation.
 metadata:
-  version: "1.0.1"
+  version: "1.0.2"
 ---
 
 # Design a Process Orchestrator

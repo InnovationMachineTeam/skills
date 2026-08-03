@@ -70,7 +70,7 @@ python3 scripts/check_evals.py evals
 ## Паспорт навыка
 
 - **Назначение:** Inventories, governs, installs, updates, surfaces, scopes, quarantines, retires, and coordinates public and agent-private SKILL.md-based capabilities across explicitly scoped roots and registries.
-- **Версия:** `1.2.1`.
+- **Версия:** `1.2.2`.
 - **Видимость:** public: канонический навык каталога; фактическая активация зависит от целевого host.
 - **Теги каталога:** `lifecycle`, `governance`.
 
@@ -79,6 +79,16 @@ python3 scripts/check_evals.py evals
 A user asks to audit installed or embedded skills, detect duplicates or shadowing, manage visibility, lifecycle state, versions, provenance, dependencies, naming or routing conflicts, rollout, migration, or retirement.
 
 Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.
+
+## Полный пример команды
+
+Иллюстративный полный вызов; адаптируйте пути, ограничения и критерии приёмки к своей задаче:
+
+```text
+/skill-manager Use $skill-manager to organize my skills.
+```
+
+**Ожидаемый результат:** выбирается маршрут `clarify`; итог перечисляет созданные или изменённые артефакты, фактически выполненные проверки, ограничения, остаточные риски и следующий шаг. Наличие файлов само по себе не считается доказательством установки, активации или публикации.
 
 ## Варианты использования
 

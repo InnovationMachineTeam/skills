@@ -74,6 +74,23 @@ class SkillMarketplaceDocumentationTests(unittest.TestCase):
         self.assertIn("First verified success", onboarding)
         self.assertIn("rollback", onboarding.casefold())
 
+    def test_every_canonical_skill_readme_has_a_full_command_example(self) -> None:
+        skill_files = sorted((ROOT / "skills").rglob("SKILL.md"))
+        self.assertEqual(48, len(skill_files))
+        for skill_file in skill_files:
+            skill_dir = skill_file.parent
+            readme = (skill_dir / "README.md").read_text(encoding="utf-8")
+            self.assertIn("## Полный пример команды", readme, skill_dir)
+            self.assertIn("```text\n/", readme, skill_dir)
+            self.assertIn("**Ожидаемый результат:**", readme, skill_dir)
+
+            parts = skill_dir.relative_to(ROOT / "skills").parts
+            if "private-skills" in parts:
+                owner = parts[parts.index("private-skills") - 1]
+                name = skill_dir.name
+                self.assertIn(f"/{owner}", readme, skill_dir)
+                self.assertIn(f"Прямой `/{name}` не является поддерживаемой", readme, skill_dir)
+
 
 if __name__ == "__main__":
     unittest.main()

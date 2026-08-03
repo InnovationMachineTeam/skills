@@ -47,7 +47,7 @@ The package is a reviewable bundle. It does not install or activate itself.
 ## Паспорт навыка
 
 - **Назначение:** Orchestrates complete, evidence-backed agent-skill workflows across skill-scout, skill-harvester, skill-architect, skill-evaluator, skill-doctor, skill-optimizer, skill-refactor, skill-manager, and prompt-optimize.
-- **Версия:** `1.4.1`.
+- **Версия:** `1.4.2`.
 - **Видимость:** public: канонический навык каталога; фактическая активация зависит от целевого host.
 - **Теги каталога:** `orchestration`, `workflow`.
 
@@ -56,6 +56,16 @@ The package is a reviewable bundle. It does not install or activate itself.
 A user asks to skillify, build, productionize, research, repair, improve, compare, split, merge, adopt, migrate, install, or govern skills through a multi-stage or end-to-end workflow; explicitly requests one of the named builder scenarios, including evaluate-skill; or supplies mixed context whose correct specialist sequence must be inferred. Accept an explicit scenario or classify from context, ask focused questions when target, outcome, authority, or destination is materially ambiguous, maintain resumable phase state, and verify gates before completion. Prefer the direct specialist for a single bounded phase. Do not replace specialist judgment or mutate, install, publish, or retire skills by assumption.
 
 Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.
+
+## Полный пример команды
+
+Иллюстративный полный вызов; адаптируйте пути, ограничения и критерии приёмки к своей задаче:
+
+```text
+/skill-builder Use skill-builder scenario full-lifecycle to turn this recurring workflow into a production-ready skill.
+```
+
+**Ожидаемый результат:** выбирается маршрут `route`; итог перечисляет созданные или изменённые артефакты, фактически выполненные проверки, ограничения, остаточные риски и следующий шаг. Наличие файлов само по себе не считается доказательством установки, активации или публикации.
 
 ## Варианты использования
 

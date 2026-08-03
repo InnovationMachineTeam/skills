@@ -1,7 +1,7 @@
 {
   "name": "agent-os-evaluator",
   "displayName": "Agent Os Evaluator",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Independently evaluates frozen Agentic OS architecture, implementations and release evidence across plane boundaries, schemas, registry reconciliation, policy enforcement, durable execution, knowledge provenance, observability...",
   "skills": [
     "./skills"

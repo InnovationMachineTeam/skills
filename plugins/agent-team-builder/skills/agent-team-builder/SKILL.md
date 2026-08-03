@@ -2,7 +2,7 @@
 name: agent-team-builder
 description: Materializes an approved, versioned agent-team specification into a staged `.agents` structure, canonical definitions, owner-private skills or commands, public capability candidates, host adapters, registry/map transactions and verification evidence. Use when a reviewed team design is ready to build, rebuild, migrate or dry-run. Requires an exact approved spec, destination and write authority. Do not redesign roles, substitute models or permissions, activate agents, create worktrees, publish private assets, or operate the team; route design changes to agent-team-architect and lifecycle execution to agent-team-manager.
 metadata:
-  version: "1.0.1"
+  version: "1.0.2"
 ---
 
 # Build an Approved Agent Team

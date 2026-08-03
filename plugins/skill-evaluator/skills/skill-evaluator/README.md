@@ -36,7 +36,7 @@ python3 scripts/run_fixture_evals.py
 ## Паспорт навыка
 
 - **Назначение:** Designs, writes, audits, runs, and compares trustworthy evaluations for SKILL.md-based agent skills, including routing and trigger datasets, behavioral and output-quality cases, script and tool tests, security and authority probes, catalog coexistence, portability, lifecycle, cost, latency, and regression evidence.
-- **Версия:** `1.1.1`.
+- **Версия:** `1.1.2`.
 - **Видимость:** public: канонический навык каталога; фактическая активация зависит от целевого host.
 - **Теги каталога:** `evaluation`, `testing`.
 
@@ -45,6 +45,16 @@ python3 scripts/run_fixture_evals.py
 A user asks to evaluate or benchmark a skill, create evals or trigger fixtures, test whether a description routes correctly, validate bundled scripts, review evaluation coverage or leakage, compare a candidate with a baseline, or provide an independent release verdict. Keep evaluation separate from diagnosis, repair, optimization, architecture, and activation; route those to skill-doctor, skill-optimizer, skill-architect, skill-refactor, or skill-manager.
 
 Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.
+
+## Полный пример команды
+
+Иллюстративный полный вызов; адаптируйте пути, ограничения и критерии приёмки к своей задаче:
+
+```text
+/skill-evaluator Design a versioned evaluation plan and acceptance gates for this skill, but do not run anything.
+```
+
+**Ожидаемый результат:** выбирается маршрут `evaluation-plan`; итог перечисляет созданные или изменённые артефакты, фактически выполненные проверки, ограничения, остаточные риски и следующий шаг. Наличие файлов само по себе не считается доказательством установки, активации или публикации.
 
 ## Варианты использования
 

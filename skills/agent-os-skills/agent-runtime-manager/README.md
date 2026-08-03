@@ -5,7 +5,7 @@
 ## Паспорт навыка
 
 - **Назначение:** Governs platform-level durable task and run lifecycle with queues, attempts, leases, fencing, idempotency, checkpoints, cancellation, deadlines, backpressure, scoped execution, artifacts, compensation and dead-letter recovery.
-- **Версия:** `1.0.1`.
+- **Версия:** `1.0.2`.
 - **Видимость:** public: канонический навык каталога; фактическая активация зависит от целевого host.
 - **Теги каталога:** `agents`, `runtime`, `durability`.
 
@@ -14,6 +14,16 @@
 Designing, validating, operating or recovering Agentic OS runtime state across workers or teams. Do not design teams or agents, enforce permission only in prompts, silently retry permanent or ambiguous side effects, or mutate pinned agent/workflow/model/policy versions during a run.
 
 Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.
+
+## Полный пример команды
+
+Иллюстративный полный вызов; адаптируйте пути, ограничения и критерии приёмки к своей задаче:
+
+```text
+/agent-runtime-manager Create a durable run record and queue this task.
+```
+
+**Ожидаемый результат:** выбирается маршрут `start`; итог перечисляет созданные или изменённые артефакты, фактически выполненные проверки, ограничения, остаточные риски и следующий шаг. Наличие файлов само по себе не считается доказательством установки, активации или публикации.
 
 ## Варианты использования
 

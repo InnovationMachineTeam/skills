@@ -1,7 +1,7 @@
 {
   "name": "skill-optimizer",
   "displayName": "Skill Optimizer",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Measures and improves a healthy existing SKILL.md-based agent skill while preserving intended behavior, capability boundary, and authority",
   "skills": [
     "./skills"

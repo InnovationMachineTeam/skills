@@ -2,7 +2,7 @@
 name: skill-refactor
 description: Assesses and safely changes capability boundaries and visibility across existing SKILL.md-based agent skills by composing, merging, splitting, extracting references or subskills, promoting private skills to public, demoting unused public skills to agent-private, and creating compatibility facades. Use when a user asks whether skills should be combined, divided, extracted, shared across agents, narrowed to one agent, or migrated while preserving triggers, authority, resources, tests, consumers, registry bindings, and rollback. Produce an evidence-backed boundary decision before mutation. Do not use for read-only comparison alone, independent evaluation, ordinary optimization, new unrelated skill creation, or installation; route those to skill-harvester, skill-evaluator, skill-optimizer, skill-architect, or skill-manager.
 metadata:
-  version: "1.2.1"
+  version: "1.2.2"
 ---
 
 # Refactor Skill Boundaries

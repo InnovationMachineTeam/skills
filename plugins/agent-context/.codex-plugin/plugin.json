@@ -1,6 +1,6 @@
 {
   "name": "agent-context",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Builds a provenance-bearing design-time context package for creating, evaluating or changing one agent from explicitly scoped codebases, repositories, documents, sessions, traces, incidents and authorized web research",
   "homepage": "https://github.com/InnovationMachineTeam/skills",
   "repository": "https://github.com/InnovationMachineTeam/skills",

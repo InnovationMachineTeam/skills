@@ -64,7 +64,7 @@ registered; runtime loader обязан исключать их из global disc
 ## Паспорт навыка
 
 - **Назначение:** Classifies skill ideas and supplied material, selects an archetype and the minimum viable placement—inline instruction, private agent command, private agent skill, or public skill—then designs, creates, registers, or updates the capability through routed master prompts.
-- **Версия:** `1.2.1`.
+- **Версия:** `1.2.2`.
 - **Видимость:** public: канонический навык каталога; фактическая активация зависит от целевого host.
 - **Теги каталога:** `creation`, `architecture`.
 
@@ -73,6 +73,16 @@ registered; runtime loader обязан исключать их из global disc
 The user explicitly invokes $skill-architect, asks for skill-archetype, resource, visibility, placement, or registration decisions, requests the routed master-prompt workflow, or arrives through an exact creation handoff from skill-builder, skill-scout, skill-harvester, or skill-refactor. Do not claim generic unnamed “create or update a skill” requests that need no architecture decision; leave those to the bundled skill-creator.
 
 Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.
+
+## Полный пример команды
+
+Иллюстративный полный вызов; адаптируйте пути, ограничения и критерии приёмки к своей задаче:
+
+```text
+/skill-architect Use $skill-architect.
+```
+
+**Ожидаемый результат:** выбирается маршрут `clarify`; итог перечисляет созданные или изменённые артефакты, фактически выполненные проверки, ограничения, остаточные риски и следующий шаг. Наличие файлов само по себе не считается доказательством установки, активации или публикации.
 
 ## Варианты использования
 

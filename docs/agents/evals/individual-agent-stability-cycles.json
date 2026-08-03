@@ -7,53 +7,53 @@
   "donors": [
     {
       "name": "agent-architect",
-      "version": "1.0.1",
-      "content_sha256": "sha256:e709a22e93d6fc149d6187f56824a8947fc5cbb94ecac95f834b47e9e6ec3db2"
+      "version": "1.0.2",
+      "content_sha256": "sha256:60622bfcca088fa04a70d7fd9e4814098de4ae83269c2c2c12c1800f4a99094f"
     },
     {
       "name": "agent-best-practices",
-      "version": "1.0.1",
-      "content_sha256": "sha256:227f4d9a16a1676aa6dabb69f7db9a2561e186fbd7cd22b9e51df1f23d05c27a"
+      "version": "1.0.2",
+      "content_sha256": "sha256:dc74626d4e95dc5626278d9988d33c43aadaa0c7b3884ebd50fceb7f74d97e52"
     },
     {
       "name": "agent-builder",
-      "version": "1.0.1",
-      "content_sha256": "sha256:c4b3b5346b4eb26510dcb2318da0296c01654092deea1ce0af492d50e2d4aa8e"
+      "version": "1.0.2",
+      "content_sha256": "sha256:4d314d0bc95669706222f398ea6cfc2cbd72513edcf00819184932fad36442e5"
     },
     {
       "name": "agent-context",
-      "version": "1.0.1",
-      "content_sha256": "sha256:d7352118a902b36e05a2abf339f0b83fc29876b697228c45186f34d810cdc70c"
+      "version": "1.0.2",
+      "content_sha256": "sha256:cfc40dd33a92e15daa8194d8d25d870bc033dbc1781c3aade17f8a6580719beb"
     },
     {
       "name": "agent-doctor",
-      "version": "1.0.1",
-      "content_sha256": "sha256:c17aacd2045e47e84071a7c40ea8543b34352a8623757dc348722b458c32f872"
+      "version": "1.0.2",
+      "content_sha256": "sha256:fe322e919bd9689fb4d89f8e72b0cccf02afc3d78164bc0b217fe2f3fded01c0"
     },
     {
       "name": "agent-evaluator",
-      "version": "1.0.1",
-      "content_sha256": "sha256:b3da5418ef54ae73d51af7f20dc22331a0b578d3219abffc7b26d2eaf092af17"
+      "version": "1.0.2",
+      "content_sha256": "sha256:bc44c8256ea670de409be421a2f5b9fa0451c2c286ceb521a060836a27fcb17c"
     },
     {
       "name": "agent-manager",
-      "version": "1.0.1",
-      "content_sha256": "sha256:dacfd6eb787fee69891ce24becb39331e85aea89f30d9ab22f4f73ddec24b023"
+      "version": "1.0.2",
+      "content_sha256": "sha256:e2d3153290e86d41c8edd1485da2a7b91b66e39fcdba2906e6876a4f905f602b"
     },
     {
       "name": "agent-optimizer",
-      "version": "1.0.1",
-      "content_sha256": "sha256:a2ebaaa91f6a194c51c1a05cbcf49a2ea78b675a881e4e27883804c945823472"
+      "version": "1.0.2",
+      "content_sha256": "sha256:af8ecd8a4ceae1368522d069f63190d885a171bf31e3bdd2179b8476c5c47d99"
     },
     {
       "name": "agent-refactor",
-      "version": "1.0.1",
-      "content_sha256": "sha256:ad655548e1068260d2279741301b4aa5761736a4cf12a66059fd64fcbc3a5f89"
+      "version": "1.0.2",
+      "content_sha256": "sha256:4edd42b3abeed844ba7b0d05d08f90574a4aad8129cb0d5f9820bf4584255217"
     },
     {
       "name": "agent-scout",
-      "version": "1.0.1",
-      "content_sha256": "sha256:fd2fb7c8ce7a7499f9b4e75c68e318573bae396f5a9c8a03ceb1ef16e29f63c8"
+      "version": "1.0.2",
+      "content_sha256": "sha256:290a2bc09df8ed9762370d65d152e247ca447c51b7decda3a663164099b27959"
     }
   ],
   "cycles": [
@@ -145,14 +145,14 @@
     "pack_holdout_frozen": true,
     "release": {
       "status": "stable",
-      "version": "1.0.1",
-      "marketplace_release": "3.5.1",
+      "version": "1.0.2",
+      "marketplace_release": "3.8.0",
       "locator": "skills/agent-skills/agentkit",
-      "content_sha256": "sha256:6e95c9305893839a77c80ff19cbd63f3ce9989bce783508743d369607b0f6bfe",
+      "content_sha256": "sha256:a7f967da8c693d34fe54c3abee3b61157c12220731d377ee2c2b5f4bd097255c",
       "discoverable": true,
       "e2e_command": "agentkit e2e",
-      "evaluation_plan": "docs/agents/evals/agentkit-1.0.1-plan.json",
-      "evaluation_result": "docs/agents/evals/agentkit-1.0.1-results.json",
+      "evaluation_plan": "docs/agents/evals/agentkit-1.0.2-plan.json",
+      "evaluation_result": "docs/agents/evals/agentkit-1.0.2-results.json",
       "rollback": "direct invocation of locked donors"
     },
     "remaining_requirements": []

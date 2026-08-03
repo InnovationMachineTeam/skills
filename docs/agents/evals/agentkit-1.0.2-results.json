@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "evaluation_id": "agentkit-1.0.2-full-command-documentation",
+  "run_id": "agentkit-1.0.2-2026-08-03-r1",
+  "target_hash": "sha256:a7f967da8c693d34fe54c3abee3b61157c12220731d377ee2c2b5f4bd097255c",
+  "verdict": "PASS",
+  "release_recommendation": "REPOSITORY_SOURCE_READY_NO_HOST_ACTIVATION",
+  "layer_verdicts": {
+    "readme-coverage": "PASS",
+    "private-visibility": "PASS",
+    "donor-lock": "PASS",
+    "structure": "PASS",
+    "behavior": "PASS",
+    "portability": "PASS",
+    "lifecycle": "PASS"
+  },
+  "evidence": {
+    "readme_generator": "PASS: 48/48 canonical skill README files current",
+    "command_contract": "PASS: public skills use their slash command; five package-private skills use their owning public parent",
+    "agentkit_donors": "PASS: 10/10 current",
+    "metaskillpack_donors": "PASS: 12/12 current",
+    "repository_validation": "PASS: 43 public skills, three marketplaces and 43 individual plugins",
+    "documentation_validation": "PASS: 120 canonical files before this release note",
+    "unit_tests": "PASS: 81/81",
+    "staged_packages": "PASS: 43 selective packages plus im-skills-all@3.8.0; portable validation covered 43 public and 5 package-private skills"
+  },
+  "blocking_findings": [],
+  "limitations": [
+    "No host installation, activation or external publication was run or authorized.",
+    "Examples are illustrative blueprints and must be adapted to actual paths, inputs and authority."
+  ]
+}

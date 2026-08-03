@@ -2,7 +2,7 @@
 name: agent-model-router
 description: Designs, audits and stages policy-constrained runtime routing across a pinned multi-model pool using typed task, risk, data, tool, context, latency, cost and quality features. Use when multi-model per-request routing is measurably justified and needs thresholds, escalation, fallbacks, outage handling, shadow/canary evidence, drift detection or rollback. Do not use for one-time design-time model selection, provider purchasing or configuration, unverified model comparisons, or allowing task text to choose a provider or weaken data controls.
 metadata:
-  version: "1.0.1"
+  version: "1.0.2"
 ---
 
 # Govern Runtime Model Routing

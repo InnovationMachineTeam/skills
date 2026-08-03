@@ -2,7 +2,7 @@
 name: agent-skill-mapper
 description: Maps governed public and owner-private skills or commands to existing agents using mission fit, permissions, trust, context cost, evidence and capability budgets. Use when auditing agent capabilities, reconciling agent definitions with registries or skills-lock files, recommending versioned bindings, detecting gaps or excessive tool access, or preparing a controlled mapping update. Read only by default. Do not create agents or skills, promote private capabilities, silently edit agent definitions, or operate the team; route missing capability creation to the relevant architect and team design changes to agent-team-architect.
 metadata:
-  version: "1.0.1"
+  version: "1.0.2"
 ---
 
 # Map Skills to Agents

@@ -5,7 +5,7 @@
 ## Паспорт навыка
 
 - **Назначение:** Governs the lifecycle of one registered agent or subagent through inventory, candidate registration, approval, shadow, canary, activation, suspension, migration, rollback, deprecation and retirement with version, registry, documentation and runtime verification.
-- **Версия:** `1.0.1`.
+- **Версия:** `1.0.2`.
 - **Видимость:** public: канонический навык каталога; фактическая активация зависит от целевого host.
 - **Теги каталога:** `agents`, `lifecycle`, `governance`.
 
@@ -14,6 +14,16 @@
 Managing an individual agent definition or instance, reconciling its desired and observed state, planning a rollout, or retiring it safely. Do not design or evaluate agents, operate teams, administer an entire Agentic OS registry, infer activation authority, issue credentials, or equate file presence with active state.
 
 Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.
+
+## Полный пример команды
+
+Иллюстративный полный вызов; адаптируйте пути, ограничения и критерии приёмки к своей задаче:
+
+```text
+/agent-manager Inventory the registered and observed state of this individual agent.
+```
+
+**Ожидаемый результат:** выбирается маршрут `inventory`; итог перечисляет созданные или изменённые артефакты, фактически выполненные проверки, ограничения, остаточные риски и следующий шаг. Наличие файлов само по себе не считается доказательством установки, активации или публикации.
 
 ## Варианты использования
 

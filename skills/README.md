@@ -12,6 +12,25 @@ and `plugins/` are projections and must not be edited directly.
 | [metaskills](metaskills/README.md) | create, evaluate, optimize, and govern skills | `skill-builder`, `metaskillpack` |
 | [prompt-skills](prompt-skills/README.md) | durable prompt design, reconstruction, optimization, and packaging | `prompt-optimize`, `prompt-master` |
 
+## Full command examples
+
+Choose the narrowest skill that owns the requested outcome. These examples are
+illustrative and must be adapted to the current repository and authority.
+
+```text
+/agent-builder Create and evaluate a private accessibility-review agent for this repository, write its reports under docs/accessibility, and require human approval before publication
+```
+
+Expected result: a governed single-agent package with observable evaluation and
+lifecycle evidence.
+
+```text
+/skill-builder Create a private skill that audits WYSIWYG-editor accessibility requirements and returns a verification-ready report template
+```
+
+Expected result: a versioned skill package with routing, behavior, boundaries,
+documentation, and verification artifacts.
+
 ## Capability placement
 
 - keep a tiny stable rule inline in its owning agent;

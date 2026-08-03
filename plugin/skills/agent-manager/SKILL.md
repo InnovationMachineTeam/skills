@@ -2,7 +2,7 @@
 name: agent-manager
 description: Governs the lifecycle of one registered agent or subagent through inventory, candidate registration, approval, shadow, canary, activation, suspension, migration, rollback, deprecation and retirement with version, registry, documentation and runtime verification. Use when managing an individual agent definition or instance, reconciling its desired and observed state, planning a rollout, or retiring it safely. Do not design or evaluate agents, operate teams, administer an entire Agentic OS registry, infer activation authority, issue credentials, or equate file presence with active state.
 metadata:
-  version: "1.0.1"
+  version: "1.0.2"
 ---
 
 # Manage One Agent Lifecycle

@@ -5,7 +5,7 @@
 ## Паспорт навыка
 
 - **Назначение:** Defines and audits Agentic OS telemetry, traces, SLOs, alerts, MAPE-K observations and bounded incident diagnostics linking task, run, agent, model, prompt, skill, tool, policy, approval, artifact, cost and versions.
-- **Версия:** `1.0.1`.
+- **Версия:** `1.0.2`.
 - **Видимость:** public: канонический навык каталога; фактическая активация зависит от целевого host.
 - **Теги каталога:** `agents`, `observability`, `operations`.
 
@@ -14,6 +14,16 @@
 Instrumenting or diagnosing loops, stuck leases, retry storms, drift, retrieval poison, model degradation, cost anomalies or observer health. Read-only by default; do not repair production state, expose sensitive payloads, infer causes from symptoms, or claim semantic quality from availability metrics.
 
 Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.
+
+## Полный пример команды
+
+Иллюстративный полный вызов; адаптируйте пути, ограничения и критерии приёмки к своей задаче:
+
+```text
+/agent-observer Validate and summarize this Agentic OS trace.
+```
+
+**Ожидаемый результат:** выбирается маршрут `inspect`; итог перечисляет созданные или изменённые артефакты, фактически выполненные проверки, ограничения, остаточные риски и следующий шаг. Наличие файлов само по себе не считается доказательством установки, активации или публикации.
 
 ## Варианты использования
 

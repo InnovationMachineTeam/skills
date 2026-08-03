@@ -5,7 +5,7 @@
 ## Паспорт навыка
 
 - **Назначение:** Designs, simulates and governs versioned Agentic OS authorization and approval policy across subjects, assets, actions, tools, data classes, environments, risks, conditions, expiry and obligations, with separate policy decision and enforcement points.
-- **Версия:** `1.0.1`.
+- **Версия:** `1.0.2`.
 - **Видимость:** public: канонический навык каталога; фактическая активация зависит от целевого host.
 - **Теги каталога:** `agents`, `policy`, `security`.
 
@@ -14,6 +14,16 @@
 Default-deny decisions, scoped approvals, policy conflicts, rollout, emergency revocation, audit or enforcement mapping. Do not treat LLM instructions as permission, issue credentials, bypass unavailable approvers, replay approvals, or execute the requested action itself.
 
 Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.
+
+## Полный пример команды
+
+Иллюстративный полный вызов; адаптируйте пути, ограничения и критерии приёмки к своей задаче:
+
+```text
+/agent-policy-manager May this release run push to the private marketplace?
+```
+
+**Ожидаемый результат:** выбирается маршрут `decide`; итог перечисляет созданные или изменённые артефакты, фактически выполненные проверки, ограничения, остаточные риски и следующий шаг. Наличие файлов само по себе не считается доказательством установки, активации или публикации.
 
 ## Варианты использования
 

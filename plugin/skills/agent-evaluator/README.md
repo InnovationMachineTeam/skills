@@ -5,7 +5,7 @@
 ## Паспорт навыка
 
 - **Назначение:** Independently designs, writes, audits, runs and compares evaluations for one frozen agent or subagent definition and its bounded runtime behavior.
-- **Версия:** `1.0.1`.
+- **Версия:** `1.0.2`.
 - **Видимость:** public: канонический навык каталога; фактическая активация зависит от целевого host.
 - **Теги каталога:** `agents`, `evaluation`, `testing`.
 
@@ -14,6 +14,16 @@
 Routing, outcome, tool, permission, delegation, state, memory, documentation, resilience, cost, latency, lifecycle or release evidence for an individual agent. Do not evaluate an entire team or Agentic OS, repair or optimize the candidate during a frozen run, reveal holdout answers, activate agents, or average away blocking failures; use agent-team workflows or agent-os-evaluator for broader systems.
 
 Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.
+
+## Полный пример команды
+
+Иллюстративный полный вызов; адаптируйте пути, ограничения и критерии приёмки к своей задаче:
+
+```text
+/agent-evaluator Create a frozen evaluation plan for this single coding agent.
+```
+
+**Ожидаемый результат:** выбирается маршрут `plan`; итог перечисляет созданные или изменённые артефакты, фактически выполненные проверки, ограничения, остаточные риски и следующий шаг. Наличие файлов само по себе не считается доказательством установки, активации или публикации.
 
 ## Варианты использования
 

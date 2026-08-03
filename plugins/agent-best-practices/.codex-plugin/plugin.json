@@ -1,6 +1,6 @@
 {
   "name": "agent-best-practices",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Maintains and applies an evidence-linked corpus of best practices for individual agents, subagents, agent teams, orchestration, documentation, evaluation and Agentic OS",
   "homepage": "https://github.com/InnovationMachineTeam/skills",
   "repository": "https://github.com/InnovationMachineTeam/skills",
