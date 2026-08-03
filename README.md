@@ -319,7 +319,7 @@ See [GOVERNANCE.md](GOVERNANCE.md), [SECURITY.md](SECURITY.md), and [CONTRIBUTIN
 
 | Channel | Languages |
 |---|---|
-| [LinkedIn — Stanislav Us](https://www.linkedin.com/in/stanislavus/) | English, Russian |
+| [LinkedIn — Stanislav Usoltsev](https://www.linkedin.com/in/stanislavus/) | English, Russian |
 | [X — @stanislavus86](https://x.com/stanislavus86) | English, Russian |
 | [Telegram — @stanislavus86](https://t.me/stanislavus86) | English, Russian |
 | [Telegram — Innovation Machine](https://t.me/InnovationMachine) | Russian |
