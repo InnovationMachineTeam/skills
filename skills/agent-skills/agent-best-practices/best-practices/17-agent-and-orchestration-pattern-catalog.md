@@ -1,254 +1,261 @@
-# Каталог паттернов агентов и оркестрации
+# Agent and Orchestration Pattern Catalog
 
-## Как читать каталог
+## How to read the catalog
 
-Паттерн — повторяемое решение задачи в определённом контексте, а не название
-фреймворка или универсальная рекомендация. Для каждого применения фиксируйте:
+A pattern is a repeatable solution to a problem in a specific context, not the
+name of a framework or a universal recommendation. For each use, record:
 
-- проблему и силы: качество, задержка, стоимость, риск, параллелизм;
-- preconditions и контекст применимости;
-- участников, владельца состояния и границы полномочий;
-- основной поток, stop conditions и failure path;
-- evidence, по которому паттерн считается полезным;
-- последствия: новые состояния отказа, стоимость и операционная нагрузка.
+- the problem and forces: quality, latency, cost, risk, parallelism;
+- preconditions and applicability context;
+- participants, the state owner, and authority boundaries;
+- the main flow, stop conditions, and failure path;
+- the evidence by which the pattern is judged useful;
+- consequences: new failure modes, cost, and operational burden.
 
-Паттерны можно компоновать, но каждый дополнительный цикл и участник должен
-закрывать измеримый риск. Академический каталог agent patterns также предлагает
-описывать решения через context, forces, solution и consequences
+Patterns can be composed, but each additional loop and participant must address
+a measurable risk. The academic catalog of agent patterns also recommends
+describing solutions through context, forces, solution, and consequences
 ([Agent Design Pattern Catalogue](https://arxiv.org/abs/2405.10467)).
 
-## Уровень 1. Один вызов или один агент
+## Level 1. One call or one agent
 
-| Паттерн | Когда применять | Контракт | Главный риск |
+| Pattern | When to apply | Contract | Primary risk |
 |---|---|---|---|
-| Structured generation | Выход потребляет программа | Схема + validation + repair/fail | Валидная форма при неверном содержании |
-| Retrieval-grounded response | Нужны внешние или изменяемые факты | Query → evidence с provenance → ответ | Нерелевантный или отравленный контекст |
-| Tool-use loop | Для результата нужны действия | Decide → call → observe → stop | Бесконечный цикл или опасный side effect |
-| ReAct | Следующий шаг зависит от наблюдения | Reason → act → observe с бюджетом | Ненужное раскрытие reasoning и drift |
-| Plan-and-execute | Задача длинная, но разбиение доступно заранее | Версионируемый plan + checkpoints | Устаревший план продолжают исполнять |
-| Generate–verify–repair | Ошибку можно обнаружить формальной проверкой | Candidate → deterministic verifier → bounded repair | «Ремонт» маскирует неверную постановку |
-| Reflection | Есть чёткая rubric и полезна самокоррекция | Draft → critique → revision, максимум N | Самоподтверждение и лишняя стоимость |
-| Human checkpoint | Решение необратимо или требует суждения | Evidence + варианты + последствия | Формальное одобрение без понимания |
-| Bounded autonomy | Допустима локальная самостоятельность | Scope + tools + budget + expiry + escalation | Незаметное расширение полномочий |
+| Structured generation | Output is consumed by a program | Schema + validation + repair/fail | Valid form with incorrect content |
+| Retrieval-grounded response | External or changing facts are needed | Query -> evidence with provenance -> answer | Irrelevant or poisoned context |
+| Tool-use loop | Actions are needed for the result | Decide -> call -> observe -> stop | Infinite loop or dangerous side effect |
+| ReAct | The next step depends on observation | Reason -> act -> observe with a budget | Unnecessary reasoning exposure and drift |
+| Plan-and-execute | The task is long, but decomposition is available in advance | Versioned plan + checkpoints | An outdated plan continues to execute |
+| Generate-verify-repair | The error can be detected by formal checking | Candidate -> deterministic verifier -> bounded repair | "Repair" masks a flawed framing |
+| Reflection | There is a clear rubric and self-correction is useful | Draft -> critique -> revision, max N | Self-confirmation and extra cost |
+| Human checkpoint | The decision is irreversible or requires judgment | Evidence + options + consequences | Formal approval without understanding |
+| Bounded autonomy | Limited local autonomy is acceptable | Scope + tools + budget + expiry + escalation | Silent expansion of authority |
 
-### Sense–think–act
+### Sense-think-act
 
-Минимальная модель агента: получить наблюдение, выбрать допустимое действие,
-выполнить его и оценить новое состояние. Она полезна как runtime primitive, но
-сама не задаёт стратегию, память или governance. MUST существовать terminal
-condition и лимиты шагов, времени, стоимости и side effects.
+The minimal agent model is: receive an observation, choose a permitted action,
+execute it, and evaluate the new state. It is useful as a runtime primitive,
+but does not itself define strategy, memory, or governance. A terminal
+condition and limits on steps, time, cost, and side effects MUST exist.
 
 ### Plan-and-execute
 
-Planner строит проверяемую последовательность или DAG, executor исполняет
-готовые узлы. Разделяйте их, когда план нужно проверить до действий или когда
-executor должен иметь меньше прав. Разрешайте replan только при зафиксированном
-drift, неуспешной проверке или новом evidence; изменения плана сохраняйте как
-события, а не перезаписывайте историю.
+The planner builds a verifiable sequence or DAG, and the executor runs ready
+nodes. Separate them when the plan must be checked before actions or when the
+executor should have fewer rights. Replanning should be allowed only on
+recorded drift, failed verification, or new evidence; plan changes should be
+saved as events rather than overwriting history.
 
-### Evaluator–optimizer
+### Evaluator-optimizer
 
-Producer и evaluator работают по rubric до достижения threshold или бюджета.
-Критерии задаются до первой генерации. Для значимого риска evaluator SHOULD
-быть независим по контексту, модели, данным или хотя бы prompt; самокритика
-producer не считается независимой проверкой. Этот workflow входит в базовые
-паттерны Anthropic
+Producer and evaluator work against a rubric until reaching a threshold or the
+budget. Criteria are defined before the first generation. For meaningful risk,
+the evaluator SHOULD be independent by context, model, data, or at least
+prompt; the producer's self-critique does not count as independent review. This
+workflow is part of Anthropic's core patterns
 ([Building effective agents](https://www.anthropic.com/engineering/building-effective-agents)).
 
-## Уровень 2. Делегирование субагентам
+## Level 2. Delegation to subagents
 
 ### Task envelope
 
-Каждая делегация содержит `goal`, `context_refs`, `constraints`, `owned_scope`,
-`forbidden_actions`, `deliverables`, `acceptance`, `budget` и `return_schema`.
-Это transactional boundary: исполнитель возвращает результат и evidence, а не
-продолжает самовольно расширять задачу.
+Each delegation contains `goal`, `context_refs`, `constraints`, `owned_scope`,
+`forbidden_actions`, `deliverables`, `acceptance`, `budget`, and
+`return_schema`. This is a transactional boundary: the executor returns a result
+and evidence rather than unilaterally expanding the task.
 
 ### Context capsule
 
-Субагент получает минимальный самодостаточный пакет: цель, необходимые факты,
-ссылки на канонические артефакты, локальные правила и известные решения. Не
-копируйте всю историю разговора: большой общий контекст увеличивает coupling,
-стоимость и вероятность следовать устаревшей инструкции.
+A subagent receives a minimal self-contained package: goal, necessary facts,
+links to canonical artifacts, local rules, and known decisions. Do not copy the
+entire conversation history: a large shared context increases coupling, cost,
+and the chance of following stale instructions.
 
 ### Manager-as-tools
 
-Главный агент сохраняет владение диалогом и вызывает специалистов как tools.
-Подходит, когда нужен единый голос, глобальная политика и синтез. Менеджер MUST
-валидировать ответы, потому что успешное завершение вызова не доказывает
-правильность результата.
+The main agent keeps ownership of the dialog and calls specialists as tools. It
+fits cases that need a single voice, global policy, and synthesis. The manager
+MUST validate responses, because successful completion of a call does not prove
+the correctness of the result.
 
 ### Handoff
 
-Управление и дальнейший диалог передаются специалисту. Это полезно, когда новый
-агент должен непосредственно уточнять доменную задачу. Нужны route history,
-максимальная глубина, запрет ping-pong и fallback owner. OpenAI различает
-`agents as tools` и handoffs именно по владельцу дальнейшего взаимодействия
+Control and the subsequent dialog are transferred to a specialist. This is
+useful when the new agent must directly clarify the domain task. Route history,
+maximum depth, ping-pong prevention, and a fallback owner are required. OpenAI
+distinguishes `agents as tools` from handoffs precisely by who owns the
+subsequent interaction
 ([Agents SDK](https://openai.github.io/openai-agents-python/multi_agent/)).
 
-### Fork–join
+### Fork-join
 
-Оркестратор параллельно запускает независимые подзадачи и объединяет результаты.
-До запуска проверяйте independence, write-set и общий bottleneck. Join обязан
-обработать partial failure, timeout, duplicate и несовместимые выводы.
+The orchestrator launches independent subtasks in parallel and combines the
+results. Before launch, check independence, write-set, and the shared
+bottleneck. The join must handle partial failure, timeout, duplicates, and
+incompatible conclusions.
 
-Варианты:
+Variants:
 
-- **scatter–gather** — разные источники или аспекты, затем нормализация;
-- **map–reduce** — одинаковая операция над разделами, затем ассоциативное
-  свёртывание;
-- **competing hypotheses** — независимые объяснения и попытки опровержения;
-- **candidate ensemble** — несколько решений и отдельный selector;
-- **review army** — только релевантные критики, выбранные scope detector.
+- **scatter-gather** - different sources or aspects, then normalization;
+- **map-reduce** - the same operation over partitions, then associative
+  reduction;
+- **competing hypotheses** - independent explanations and attempts to falsify
+  them;
+- **candidate ensemble** - several solutions and a separate selector;
+- **review army** - only relevant critics selected by a scope detector.
 
 ### Blackboard
 
-Агенты публикуют типизированные claims, evidence и задачи в общем durable store,
-не пересылая всё через свободный чат. Blackboard полезен для расследований и
-длительной команды, но MUST иметь schema, ownership, conflict policy,
-provenance, TTL и compaction. Shared mutable prompt не является blackboard.
+Agents publish typed claims, evidence, and tasks into a shared durable store
+instead of forwarding everything through free-form chat. A blackboard is useful
+for investigations and long-lived teams, but it MUST have schema, ownership,
+conflict policy, provenance, TTL, and compaction. A shared mutable prompt is
+not a blackboard.
 
 ### Independent verifier
 
-Исполнитель создаёт результат, verifier проверяет outcome по исходному intent и
-прямому evidence. Для высокого риска verifier read-only и не получает summary
-исполнителя как единственный источник. Если он исправляет результат, роль
-verifier заканчивается и после исправления нужен новый gate.
+The executor creates the result; the verifier checks the outcome against the
+original intent and direct evidence. For high risk, the verifier is read-only
+and does not receive the executor's summary as its only source. If the verifier
+fixes the result, the verifier role ends and a new gate is needed after the
+fix.
 
 ### Hierarchical delegation
 
-Менеджеры делегируют поддеревьям специалистов, когда плоская координация
-перегружена. Ограничьте глубину, fan-out и суммарный бюджет; capability и
-permissions могут только сужаться вниз по дереву. Рекурсивная делегация без
-глобального task graph создаёт дублирование и потерю ответственности.
+Managers delegate to trees of specialists when flat coordination is overloaded.
+Limit depth, fan-out, and total budget; capability and permissions may only
+narrow down the tree. Recursive delegation without a global task graph creates
+duplication and loss of accountability.
 
-## Уровень 3. Оркестраторы
+## Level 3. Orchestrators
 
-| Паттерн | Решение | Предпочтительная реализация |
+| Pattern | Solution | Preferred implementation |
 |---|---|---|
-| Router | Выбрать один capability по типу запроса | Typed classifier + confidence + fallback |
-| Supervisor | Назначать шаги и удерживать общий goal | LLM локально, код для budgets и gates |
-| Pipeline | Последовательность стабильных преобразований | Workflow-as-code |
-| State machine | Явные состояния и разрешённые переходы | Durable deterministic runtime |
-| DAG scheduler | Dependencies и параллельные waves | Code + leases + idempotency |
-| Dynamic graph | План зависит от наблюдений | Ограниченный LLM planner + validated graph |
-| Policy-gated workflow | Side effects зависят от риска | Deterministic policy decision/enforcement |
-| Reconciliation controller | Свести desired и observed state | Периодический идемпотентный loop |
+| Router | Choose one capability by request type | Typed classifier + confidence + fallback |
+| Supervisor | Assign steps and maintain the overall goal | LLM locally, code for budgets and gates |
+| Pipeline | Stable sequence of transformations | Workflow-as-code |
+| State machine | Explicit states and allowed transitions | Durable deterministic runtime |
+| DAG scheduler | Dependencies and parallel waves | Code + leases + idempotency |
+| Dynamic graph | The plan depends on observations | Limited LLM planner + validated graph |
+| Policy-gated workflow | Side effects depend on risk | Deterministic policy decision/enforcement |
+| Reconciliation controller | Reconcile desired and observed state | Periodic idempotent loop |
 
 ### Router
 
-Routing contract включает выбранный маршрут, confidence, признаки решения и
-fallback. Проверяйте false-positive triggers, overlapping routes и поведение на
-out-of-domain input. При низкой уверенности выбирайте безопасный общий workflow
-или запрос уточнения, а не случайного специалиста.
+The routing contract includes the chosen route, confidence, decision features,
+and fallback. Check false-positive triggers, overlapping routes, and behavior on
+out-of-domain input. At low confidence, choose a safe general workflow or ask
+for clarification rather than picking a random specialist.
 
-### State machine и DAG
+### State machine and DAG
 
-State machine лучше свободного LLM-плана, если процесс повторяем, содержит
-approval, деньги, production или долгие ожидания. DAG добавляет параллелизм и
-dependencies. Модель MAY предложить узлы, но runtime валидирует типы,
-допустимые edges, permissions, cycles и resource limits до исполнения.
+A state machine is better than a free-form LLM plan when the process is
+repeatable and involves approval, money, production, or long waits. A DAG adds
+parallelism and dependencies. The model MAY propose nodes, but the runtime
+validates types, allowed edges, permissions, cycles, and resource limits before
+execution.
 
 ### Reconciliation controller
 
-Контроллер регулярно сравнивает desired state с observed state и планирует
-минимальное исправление. Подходит для orphan tasks, зависших approvals,
-устаревших skill installations и конфигурационного drift. Операция должна быть
-идемпотентной, а destructive reconciliation — требовать отдельного gate.
+The controller regularly compares desired state with observed state and plans
+the smallest correction. It fits orphan tasks, stuck approvals, stale skill
+installations, and configuration drift. The operation must be idempotent, and
+destructive reconciliation should require a separate gate.
 
 ### Policy decision / enforcement split
 
-Policy Decision Point вычисляет решение из проверяемых атрибутов; Policy
-Enforcement Point технически блокирует недопустимое действие. LLM может
-объяснять правила и классифицировать контекст, но не должна быть единственным
-enforcement-механизмом.
+The Policy Decision Point computes a decision from verifiable attributes; the
+Policy Enforcement Point technically blocks a disallowed action. An LLM may
+explain rules and classify context, but should not be the sole enforcement
+mechanism.
 
-## Уровень 4. Команды агентов
+## Level 4. Agent teams
 
 ### Lead + specialists
 
-Lead владеет mission, task graph и интеграцией; специалисты — непересекающимися
-deliverables. Это default team pattern. Lead не должен становиться bottleneck:
-стандартизируйте status/evidence и разрешайте прямую peer-коммуникацию только
-для явных interfaces.
+The lead owns the mission, task graph, and integration; specialists own
+non-overlapping deliverables. This is the default team pattern. The lead should
+not become a bottleneck: standardize status/evidence and allow direct peer
+communication only for explicit interfaces.
 
 ### Cross-functional pod
 
-Небольшая команда покрывает intent, domain, build, verification и operations
-одного bounded outcome. Pod эффективнее функционального «пула», когда может
-завершить vertical slice без fine-grained внешней координации. Это согласуется
-с DORA-практикой loosely coupled teams
+A small team covers intent, domain, build, verification, and operations for one
+bounded outcome. A pod is more effective than a functional "pool" when it can
+finish a vertical slice without fine-grained outside coordination. This aligns
+with DORA's loosely coupled teams practice
 ([DORA](https://dora.dev/capabilities/loosely-coupled-teams/)).
 
-### Driver–navigator
+### Driver-navigator
 
-Driver создаёт артефакт, navigator непрерывно проверяет направление, риски и
-следующий шаг. Роли меняются только на checkpoint. Паттерн полезен для сложной
-миграции или debugging, но navigator не заменяет независимый финальный review.
+The driver creates the artifact, while the navigator continuously checks
+direction, risks, and the next step. Roles switch only at a checkpoint. The
+pattern is useful for complex migration or debugging, but the navigator does
+not replace an independent final review.
 
-### Producer–critic / red–blue
+### Producer-critic / red-blue
 
-Producer предлагает решение, critic ищет опровержения и misuse cases. Для
-security red team не должна иметь production credentials; blue team владеет
-mitigations, а независимый gate подтверждает остаточный риск.
+The producer proposes a solution; the critic looks for refutations and misuse
+cases. For security, the red team must not have production credentials; the blue
+team owns mitigations, and an independent gate confirms residual risk.
 
 ### Debate / jury
 
-Участники сначала формируют независимые позиции, затем обмениваются evidence;
-judge применяет заранее заданную rubric. Используйте только если разнообразие
-гипотез улучшает evals. Большинство голосов не превращает неподтверждённый факт
-в истинный.
+Participants first form independent positions, then exchange evidence; a judge
+applies a predefined rubric. Use this only if diversity of hypotheses improves
+evals. A majority does not turn an unverified fact into truth.
 
 ### Contract-net / bidding
 
-Оркестратор публикует task envelope, подходящие агенты отвечают capability,
-стоимостью, сроком и confidence, затем policy выбирает исполнителя. Полезно в
-гетерогенной среде; опасно, если self-reported confidence не откалиброван.
+The orchestrator publishes a task envelope, suitable agents respond with
+capability, cost, timeline, and confidence, and a policy chooses the executor.
+This is useful in a heterogeneous environment and dangerous if self-reported
+confidence is not calibrated.
 
 ### Choreography
 
-Участники реагируют на типизированные события без центрального пошагового
-дирижёра. Это снижает центральный bottleneck, но усложняет глобальную картину,
-порядок и compensation. Для high-impact процесса сохраняйте accountable owner,
-correlation ID и наблюдаемую process projection.
+Participants react to typed events without a central step-by-step conductor.
+This reduces the central bottleneck but complicates the global picture,
+ordering, and compensation. For a high-impact process, preserve an accountable
+owner, a correlation ID, and an observable process projection.
 
-## Паттерны безопасности и надёжности
+## Security and reliability patterns
 
-- **Least-privilege envelope** — временные права только на конкретную задачу.
-- **Write-set partitioning** — один активный writer на файл/ресурс/aggregate.
-- **Sandbox per worker** — процессная/контейнерная граница для недоверенного кода.
-- **Worktree per worker** — изоляция изменений; не security boundary.
-- **Idempotency key** — повторная доставка не дублирует side effect.
-- **Lease + heartbeat** — временное владение и обнаружение orphan worker.
-- **Circuit breaker** — прекращает вызовы деградировавшего capability.
-- **Bulkhead** — отдельные очереди/бюджеты ограничивают blast radius.
-- **Backpressure** — intake замедляется раньше, чем рушится downstream.
-- **Retry budget** — ограниченные повторы только transient failure с jitter.
-- **Dead-letter state** — неисправимая задача сохраняется с evidence.
-- **Saga** — длинный workflow имеет compensation для каждого принятого шага.
-- **Checkpoint/resume** — durable state позволяет безопасно продолжить после сбоя.
-- **Canary/shadow** — новая версия сравнивается на ограниченном трафике.
+- **Least-privilege envelope** - temporary rights only for a specific task.
+- **Write-set partitioning** - one active writer per file/resource/aggregate.
+- **Sandbox per worker** - a process/container boundary for untrusted code.
+- **Worktree per worker** - change isolation; not a security boundary.
+- **Idempotency key** - redelivery does not duplicate a side effect.
+- **Lease + heartbeat** - temporary ownership and orphan worker detection.
+- **Circuit breaker** - stops calls to a degraded capability.
+- **Bulkhead** - separate queues/budgets limit blast radius.
+- **Backpressure** - intake slows before downstream collapses.
+- **Retry budget** - bounded retries only for transient failure with jitter.
+- **Dead-letter state** - an irreparable task is preserved with evidence.
+- **Saga** - a long workflow has compensation for each committed step.
+- **Checkpoint/resume** - durable state allows safe continuation after failure.
+- **Canary/shadow** - a new version is compared on limited traffic.
 
-## Антипаттерны
+## Anti-patterns
 
-| Антипаттерн | Почему ломается | Замена |
+| Anti-pattern | Why it fails | Replacement |
 |---|---|---|
-| Recursive swarm | Неограниченные cost, depth и duplicate work | Bounded task graph |
-| Chat as database | Нет schema, consistency и replay | Durable state + event log |
-| Shared mutable context | Stale reads и неявные конфликты | Versioned artifacts |
-| Everyone can write everything | Merge conflicts и неясное владение | Write-set + merge owner |
+| Recursive swarm | Unbounded cost, depth, and duplicate work | Bounded task graph |
+| Chat as database | No schema, consistency, or replay | Durable state + event log |
+| Shared mutable context | Stale reads and implicit conflicts | Versioned artifacts |
+| Everyone can write everything | Merge conflicts and unclear ownership | Write-set + merge owner |
 | Author is sole judge | Confirmation bias | Independent verifier |
-| Infinite reflection | Нет нового evidence | Bounded loop + external check |
-| Routing by labels only | Overlap и prompt gaming | Evals + confidence + fallback |
-| Deep handoff chain | Потеря intent и ответственности | Route limit + accountable owner |
-| Consensus as truth | Коррелированные ошибки | Source/evidence adjudication |
-| LLM as policy engine | Недетерминированный enforcement | PDP/PEP split |
+| Infinite reflection | No new evidence | Bounded loop + external check |
+| Routing by labels only | Overlap and prompt gaming | Evals + confidence + fallback |
+| Deep handoff chain | Loss of intent and accountability | Route limit + accountable owner |
+| Consensus as truth | Correlated errors | Source/evidence adjudication |
+| LLM as policy engine | Non-deterministic enforcement | PDP/PEP split |
 
-## Минимальная запись решения о паттерне
+## Minimal pattern decision record
 
 ```yaml
 pattern: fork-join-with-independent-verifier
-problem: проверить релиз по четырём независимым аспектам
+problem: verify a release across four independent aspects
 forces: [latency, independence, security]
 participants: [orchestrator, qa, security, reliability, verifier]
 state_owner: orchestrator
@@ -258,5 +265,4 @@ failure_policy: partial_results_then_escalate
 evidence: eval/release-review-v3
 consequences:
   positive: shorter_review_latency
-  negative: higher_cost_and_synthesis_complexity
 ```

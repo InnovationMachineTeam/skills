@@ -1,7 +1,7 @@
 {
   "name": "agent-builder",
   "displayName": "Agent Builder",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Orchestrates complete evidence-backed workflows for one agent or subagent across agent-scout, agent-context, agent-architect, agent-evaluator, agent-doctor… Companion skill plugins are required for full functionality; see README.md.",
   "skills": [
     "./skills"

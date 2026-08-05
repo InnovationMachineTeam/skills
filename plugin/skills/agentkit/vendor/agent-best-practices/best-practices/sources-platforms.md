@@ -1,177 +1,185 @@
-# Источники: платформы, runtime и протоколы
+# Sources: Platforms, Runtimes, and Protocols
 
-Проверено: **2026-07-30**. Ссылки ведут на первичные/официальные материалы.
+Checked: **2026-07-30**. Links point to primary/official materials.
 
-## Anthropic и Claude Code
+## Anthropic and Claude Code
 
 ### [Building effective agents](https://www.anthropic.com/engineering/building-effective-agents)
 
-Ключевое: workflows и agents — разные механизмы; начинать с простого; prompt
+Key point: workflows and agents are different mechanisms; start simple; prompt
 chaining, routing, parallelization, orchestrator-workers, evaluator-optimizer;
-autonomous loop требует ground truth, stop conditions и guardrails; tool
-interface должен быть понятным и тестируемым.
+an autonomous loop requires ground truth, stop conditions, and guardrails; the
+tool interface must be understandable and testable.
 
 ### [Agents overview](https://code.claude.com/docs/en/agents)
 
-Сравнивает subagents, agent view, agent teams, workflows и background shell.
-Помогает выбирать поверхность координации, а не называть любую параллельность
-«командой агентов».
+Compares subagents, agent view, agent teams, workflows, and background shell.
+It helps choose the coordination surface instead of calling any parallelism an
+"agent team."
 
 ### [Subagents](https://code.claude.com/docs/en/sub-agents)
 
-Изолированный контекст; project/user/org scopes; tools, model, worktree,
-skills, memory, hooks и permissions; explicit/automatic/background invocation;
-focus, least tools, version control и независимый parallel research.
+Isolated context; project/user/org scopes; tools, model, worktree, skills,
+memory, hooks, and permissions; explicit/automatic/background invocation;
+focus, least tools, version control, and independent parallel research.
 
 ### [Agent view](https://code.claude.com/docs/en/agent-view)
 
-Human-dispatched независимые background sessions, состояния needs-input/
-working/completed и supervisor view. Подходит для нескольких самостоятельных
-задач, которыми управляет человек.
+Human-dispatched independent background sessions, needs-input/working/completed
+states, and a supervisor view. Suitable for multiple independent tasks managed
+by a human.
 
 ### [Agent teams](https://code.claude.com/docs/en/agent-teams)
 
-Lead + peers, shared task list и direct messaging. Полезно для parallel research,
-competing hypotheses и cross-layer ownership; плохо для последовательных задач
-и same-file edits. Teams не дают автоматическую worktree isolation.
+Lead + peers, shared task list, and direct messaging. Useful for parallel
+research, competing hypotheses, and cross-layer ownership; poor fit for
+sequential tasks and same-file edits. Teams do not provide automatic worktree
+isolation.
 
 ### [Workflows](https://code.claude.com/docs/en/workflows)
 
-JavaScript workflow удерживает plan и intermediate state вне main context;
-подходит для repeatable orchestration масштаба десятков/сотен шагов. Raw plan
-нужно review до запуска; workflow рассматривается как код.
+A JavaScript workflow keeps the plan and intermediate state outside the main
+context; it suits repeatable orchestration at the scale of tens or hundreds of
+steps. The raw plan must be reviewed before execution; the workflow is treated
+as code.
 
 ### [Worktrees](https://code.claude.com/docs/en/worktrees)
 
-Отдельные checkout для changes. Shared git metadata, project plugins и approvals
-означают, что worktree не является полной security boundary. `.worktreeinclude`
-следует использовать осторожно для ignored files.
+Separate checkouts for changes. Shared git metadata, project plugins, and
+approvals mean that a worktree is not a full security boundary.
+`.worktreeinclude` should be used carefully for ignored files.
 
-## OpenAI и Codex
+## OpenAI and Codex
 
 ### [A practical guide to building agents](https://openai.com/business/guides-and-resources/a-practical-guide-to-building-ai-agents/)
 
-Agent = model + tools + instructions. Сначала single agent; split при сложной
-логике или tool overlap. Manager/agents-as-tools и decentralized handoffs;
-layered guardrails; risk-rated tools; human intervention по failure threshold и
-high-risk actions; model optimization только после eval baseline.
+Agent = model + tools + instructions. Start with a single agent; split when the
+logic is complex or there is tool overlap. Manager/agents-as-tools and
+decentralized handoffs; layered guardrails; risk-rated tools; human
+intervention based on failure thresholds and high-risk actions; model
+optimization only after an eval baseline exists.
 
 ### [AGENTS.md](https://learn.chatgpt.com/docs/agent-configuration/agents-md)
 
-Иерархические durable project instructions. Ближайший файл уточняет общие
-правила; инструкции должны быть компактными, практичными и ссылаться на подробные
-документы.
+Hierarchical durable project instructions. The nearest file refines general
+rules; instructions should be compact, practical, and link to detailed
+documents.
 
 ### [Codex subagents](https://learn.chatgpt.com/docs/agent-configuration/subagents)
 
-Subagents для bounded exploration, tests и triage; clean contexts уменьшают
-context pollution. Custom agents должны быть узкими и иметь явную tool surface.
-Read-heavy parallelism безопаснее same-file write parallelism.
+Subagents for bounded exploration, tests, and triage; clean contexts reduce
+context pollution. Custom agents should be narrow and have an explicit tool
+surface. Read-heavy parallelism is safer than same-file write parallelism.
 
 ### [OpenAI Agents SDK: orchestration](https://openai.github.io/openai-agents-python/multi_agent/)
 
-Разделяет LLM orchestration и code orchestration. `agents as tools` оставляет
-manager владельцем ответа; `handoffs` передаёт control специалисту. Code patterns:
-chains, evaluator loop и parallel execution.
+Distinguishes LLM orchestration from code orchestration. `agents as tools`
+leaves the manager as the owner of the answer; `handoffs` transfer control to
+the specialist. Code patterns: chains, evaluator loop, and parallel execution.
 
 ### [OpenAI Agents SDK: tracing](https://openai.github.io/openai-agents-python/tracing/)
 
-Traces/spans для runs, agents, generations, tools, guardrails и handoffs.
-Sensitive inputs/outputs требуют отдельной настройки и data policy.
+Traces/spans for runs, agents, generations, tools, guardrails, and handoffs.
+Sensitive inputs/outputs require dedicated configuration and data policy.
 
 ## Cursor
 
 ### [Agent overview](https://cursor.com/docs/agent/overview)
 
-Общая модель Cursor Agent и tool-driven coding workflow.
+The overall Cursor Agent model and a tool-driven coding workflow.
 
 ### [Subagents](https://cursor.com/docs/subagents)
 
-Foreground/background subagents с собственным context; planner→implementer→
-verifier; independent verifier; resume; cloud agents на отдельных VM/branches;
-различие между one-shot skill и multi-step subagent.
+Foreground/background subagents with their own context;
+planner→implementer→verifier; independent verifier; resume; cloud agents on
+separate VMs/branches; the distinction between a one-shot skill and a multi-
+step subagent.
 
 ### [Cloud Agent best practices](https://cursor.com/docs/cloud-agent/best-practices)
 
-Сначала воспроизводимая environment, secrets/network/local tests, затем prompt.
-Rules/skills хранят repo procedures; tools должны быть удобны для агента и не
-создавать огромный вывод.
+First a reproducible environment, secrets/network/local tests, then the prompt.
+Rules/skills store repo procedures; tools should be agent-friendly and should
+not produce excessive output.
 
 ### [Automations](https://cursor.com/docs/cloud-agent/automations)
 
 Schedule/SCM/Slack/webhook/issue/incident triggers; service-account ownership;
-prompt задаёт decision rules, quality bar и no-op outcome. Persistent memory и
-MCP расширяют риск supply-chain/poisoning.
+the prompt defines decision rules, the quality bar, and the no-op outcome.
+Persistent memory and MCP expand supply-chain/poisoning risk.
 
 ### [Bugbot](https://cursor.com/docs/bugbot)
 
-Автоматический incremental PR review, severity, analytics, dry-run и optional
-autofix. Findings не должны считаться blocking без явно настроенной policy.
+Automatic incremental PR review, severity, analytics, dry-run, and optional
+autofix. Findings should not be treated as blocking without an explicitly
+configured policy.
 
 ### [Security agents](https://cursor.com/docs/security-agents)
 
-PR Security Reviewer и scheduled Vulnerability Scanner; custom checks,
-instructions/tools; metrics и audit per run.
+PR Security Reviewer and scheduled Vulnerability Scanner; custom checks,
+instructions/tools; metrics and audit per run.
 
 ### [Approval agents](https://cursor.com/docs/approval-agents)
 
-Approval не заменяет full review. Exact-path policies, stricter fallback,
-невозможность change ослабить собственную base policy.
+Approval does not replace full review. Exact-path policies, stricter fallback,
+and the inability of a change to weaken its own base policy.
 
 ### [Cloud Agent security](https://cursor.com/docs/cloud-agent/security)
 
-MicroVM isolation, lifecycle и retention; auto-run + internet создают injection
-и exfiltration risks; mitigations включают egress, redaction, review и signed
-commits.
+MicroVM isolation, lifecycle, and retention; auto-run + internet create
+injection and exfiltration risks; mitigations include egress, redaction,
+review, and signed commits.
 
 ### [Cloud Agent network](https://cursor.com/docs/cloud-agent/security-network)
 
-Allow-all/default+allowlist/allowlist-only; exact hosts предпочтительнее
+Allow-all/default+allowlist/allowlist-only; exact hosts are preferable to
 wildcards; environment/team/enterprise precedence.
 
-### Дополнительные материалы Cursor
+### Additional Cursor Materials
 
 - [Agent best practices](https://cursor.com/blog/agent-best-practices) —
-  practical prompting и task setup.
-- [Cloud agent lessons](https://cursor.com/blog/cloud-agent-lessons) — environment
-  как продукт, durable execution, state separation и self-healing.
+  practical prompting and task setup.
+- [Cloud agent lessons](https://cursor.com/blog/cloud-agent-lessons) —
+  environment as a product, durable execution, state separation, and
+  self-healing.
 - [Cloud agent development environments](https://cursor.com/blog/cloud-agent-development-environments)
-  — воспроизводимое окружение агента.
+  — reproducible agent environment.
 - [Agent autonomy and auto-review](https://cursor.com/blog/agent-autonomy-auto-review)
-  — автономность, review и границы доверия.
+  — autonomy, review, and trust boundaries.
 
-## Google и interoperability
+## Google and Interoperability
 
 ### [Google ADK multi-agent workflows](https://adk.dev/agents/multi-agents/)
 
-Композиция specialized agents, delegation и shared session state.
+Composition of specialized agents, delegation, and shared session state.
 
 ### [Google ADK workflow agents](https://adk.dev/agents/workflow-agents/)
 
-Deterministic sequential, loop и parallel orchestration без model decision;
-новые graph/dynamic workflows дают больше контроля.
+Deterministic sequential, loop, and parallel orchestration without model
+decision; newer graph/dynamic workflows provide more control.
 
 ### [A2A specification](https://a2a-protocol.org/latest/specification/)
 
-Cross-platform agent discovery и interaction: Agent Cards, skills,
+Cross-platform agent discovery and interaction: Agent Cards, skills,
 capabilities, tasks, messages, artifacts, streaming, async updates, cancel,
-versioning, auth и security. Применять для opaque agents за runtime/org boundary.
+versioning, auth, and security. Apply it to opaque agents behind a runtime/org
+boundary.
 
 ### [MCP specification](https://modelcontextprotocol.io/specification/latest)
 
-Стандарт host/client/server для доступа модели к tools, resources и prompts.
-MCP и A2A дополняют друг друга: MCP — tool/data plane, A2A — agent-to-agent task
-plane.
+The host/client/server standard for giving a model access to tools, resources,
+and prompts. MCP and A2A complement each other: MCP is the tool/data plane,
+A2A is the agent-to-agent task plane.
 
 ## Microsoft
 
 ### [AI agent orchestration patterns](https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/ai-agent-design-patterns)
 
-Лестница сложности и multi-agent patterns; специализация даёт модульность, но
-добавляет distributed-systems failures, latency, cost и security complexity.
+The complexity ladder and multi-agent patterns; specialization provides
+modularity, but adds distributed-systems failures, latency, cost, and security
+complexity.
 
 ### [Multi-agent patterns](https://learn.microsoft.com/en-us/agents/architecture/multi-agent-patterns)
 
 Least privilege, typed payloads, descriptive errors, parallelism, human
-approvals; MCP для tools/data, A2A для cross-platform opaque agents; users должны
-видеть collaboration и иметь cancel/skip.
+approvals; MCP for tools/data, A2A for cross-platform opaque agents; users
+should see collaboration and have cancel/skip controls.

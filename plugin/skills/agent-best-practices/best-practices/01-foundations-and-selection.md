@@ -1,84 +1,84 @@
-# Основания и выбор архитектуры
+# Foundations and Architecture Selection
 
-## Термины
+## Terms
 
-**Вызов модели** преобразует вход в выход и не ведёт самостоятельный цикл.
+**Model call** transforms input into output and does not run its own loop.
 
-**Workflow** направляет модели и инструменты по заранее определённому коду или
-графу. Модель может принимать локальные решения, но общий контрольный поток
-остаётся детерминированным.
+**Workflow** directs models and tools through pre-defined code or a graph. The
+model may make local decisions, but the overall control flow remains
+deterministic.
 
-**Агент** получает цель, инструкции и инструменты, самостоятельно выбирает
-несколько действий и работает до явного условия остановки.
+**Agent** receives a goal, instructions, and tools, independently chooses
+multiple actions, and works until an explicit stop condition.
 
-**Субагент** — ограниченный агент, которому родитель делегировал конкретный
-результат. Он работает в отдельном контексте и возвращает структурированный
-handoff.
+**Subagent** is a constrained agent to which a parent delegated a specific
+outcome. It runs in a separate context and returns a structured handoff.
 
-**Оркестратор** выбирает исполнителей, передаёт им контекст, управляет
-зависимостями, бюджетами, повторными попытками и итоговой проверкой. Он может
-быть LLM-агентом, программой или гибридом.
+**Orchestrator** selects executors, passes them context, manages dependencies,
+budgets, retries, and final verification. It may be an LLM agent, a program, or
+a hybrid.
 
-**Команда агентов** — набор равноправных или иерархических участников с
-раздельными контекстами, общей доской задач и каналом обмена сообщениями.
+**Agent team** is a set of peer or hierarchical participants with separate
+contexts, a shared task board, and a messaging channel.
 
-**Agent OS** — эксплуатационный слой над агентами: каталог возможностей,
-маршрутизация, состояние, память, policy engine, sandbox, approvals,
-наблюдаемость, evals, артефакты и lifecycle.
+**Agent OS** is the operational layer above agents: capability catalog,
+routing, state, memory, policy engine, sandbox, approvals, observability,
+evals, artifacts, and lifecycle.
 
-Это разграничение соответствует различию Anthropic между workflows и agents и
-актуальным поверхностям Claude Code: subagents, agent view, agent teams и
-workflow scripts ([Anthropic](https://www.anthropic.com/engineering/building-effective-agents),
+This distinction aligns with Anthropic's distinction between workflows and
+agents and with current Claude Code surfaces: subagents, agent view, agent
+teams, and workflow scripts ([Anthropic](https://www.anthropic.com/engineering/building-effective-agents),
 [Claude Code](https://code.claude.com/docs/en/agents)).
 
-## Когда агент вообще нужен
+## When an Agent Is Actually Needed
 
-Агент оправдан, если задача сочетает несколько признаков:
+An agent is justified if the task combines several traits:
 
-- требует неоднозначных решений, которые трудно выразить стабильным ruleset;
-- работает с неструктурированным входом;
-- имеет несколько возможных путей и требует адаптации по результатам действий;
-- использует инструменты для получения ground truth;
-- допускает проверяемое условие завершения и безопасный предел автономности.
+- it requires ambiguous decisions that are hard to express as a stable ruleset;
+- it works with unstructured input;
+- it has multiple possible paths and requires adaptation based on action
+  results;
+- it uses tools to obtain ground truth;
+- it has a verifiable completion condition and a safe autonomy limit.
 
-Если задача полностью формализуема и предсказуема, MUST использовать обычный
-код. OpenAI рекомендует агентность для сложной логики правил и
-неструктурированных данных, но начинать с простого решения
-([руководство](https://openai.com/business/guides-and-resources/a-practical-guide-to-building-ai-agents/)).
+If the task is fully formalizable and predictable, you MUST use regular code.
+OpenAI recommends agentic behavior for complex rule logic and unstructured data,
+but to start with a simple solution
+([guide](https://openai.com/business/guides-and-resources/a-practical-guide-to-building-ai-agents/)).
 
-## Матрица выбора
+## Selection Matrix
 
-| Ситуация | Рекомендуемый механизм |
+| Situation | Recommended mechanism |
 |---|---|
-| Чёткий алгоритм и схема данных | Детерминированный код |
-| Один интеллектуальный шаг | Один вызов модели + structured output |
-| Известная последовательность шагов | Prompt chain или workflow-as-code |
-| Динамический выбор инструментов | Один агент с узким набором tools |
-| Шумное исследование загрязняет основной контекст | Субагент |
-| Независимые части можно выполнить одновременно | Параллельные субагенты |
-| Один ответ должен иметь единого владельца | Manager / agents-as-tools |
-| Специалист должен продолжить диалог напрямую | Handoff |
-| Участникам нужны peer-to-peer обсуждение и общая доска | Agent team |
-| Десятки или сотни повторяемых шагов | Workflow-as-code / graph |
-| Разные runtime или владельцы сервисов | A2A с опубликованным контрактом |
+| Clear algorithm and data schema | Deterministic code |
+| One intelligent step | One model call + structured output |
+| Known sequence of steps | Prompt chain or workflow-as-code |
+| Dynamic tool selection | One agent with a narrow toolset |
+| Noisy exploration pollutes the main context | Subagent |
+| Independent parts can run simultaneously | Parallel subagents |
+| One answer must have a single owner | Manager / agents-as-tools |
+| A specialist should continue the dialog directly | Handoff |
+| Participants need peer-to-peer discussion and a shared board | Agent team |
+| Dozens or hundreds of repeatable steps | Workflow-as-code / graph |
+| Different runtimes or service owners | A2A with a published contract |
 
-## Сигналы для разделения одного агента
+## Signals to Split One Agent
 
-Сначала улучшите описание инструментов, параметры, примеры и инструкции. Затем
-разделяйте агента, если evals показывают хотя бы одну устойчивую проблему:
+First improve tool descriptions, parameters, examples, and instructions. Then
+split the agent if evals show at least one persistent problem:
 
-- prompt содержит слишком много конфликтующих ветвей;
-- инструменты семантически похожи, и агент выбирает неправильный;
-- домены требуют разных прав или источников данных;
-- длинные tool outputs вытесняют цель из контекста;
-- разные части требуют разных моделей, бюджетов или критериев качества;
-- независимая проверка должна быть защищена от anchoring исполнителя.
+- the prompt contains too many conflicting branches;
+- tools are semantically similar and the agent picks the wrong one;
+- domains require different rights or data sources;
+- long tool outputs push the goal out of context;
+- different parts require different models, budgets, or quality criteria;
+- independent verification must be protected from implementer anchoring.
 
-Количество инструментов само по себе не является критерием: OpenAI отмечает,
-что важнее их пересечение и различимость, а не фиксированный порог
-([источник](https://openai.com/business/guides-and-resources/a-practical-guide-to-building-ai-agents/)).
+The number of tools by itself is not a criterion: OpenAI notes that overlap and
+distinguishability matter more than a fixed threshold
+([source](https://openai.com/business/guides-and-resources/a-practical-guide-to-building-ai-agents/)).
 
-## Базовые циклы
+## Core Loops
 
 ### Agent loop
 
@@ -87,16 +87,16 @@ goal → observe → decide → act → inspect result
                        ↘ stop / escalate / retry
 ```
 
-Каждый цикл MUST иметь:
+Each loop MUST have:
 
-- типизированные exit conditions;
-- максимальное число шагов, время и стоимость;
-- обработку отмены;
-- классификацию ошибок на retryable, user-action и terminal;
-- фиксацию событий и полученных артефактов;
-- эскалацию при превышении порога отказов или риска.
+- typed exit conditions;
+- a maximum number of steps, time, and cost;
+- cancellation handling;
+- error classification into retryable, user-action, and terminal;
+- event and acquired-artifact recording;
+- escalation when the failure or risk threshold is exceeded.
 
-### Evaluator–optimizer loop
+### Evaluator-optimizer loop
 
 ```text
 producer → candidate → evaluator → pass
@@ -104,42 +104,43 @@ producer → candidate → evaluator → pass
                        producer
 ```
 
-Цикл применим, только если критерии оценки достаточно определённы. MUST иметь
-лимит итераций и политику «лучший из известных», иначе агенты могут бесконечно
-переписывать результат.
+The loop is applicable only if the evaluation criteria are sufficiently
+defined. It MUST have an iteration limit and a "best known result" policy,
+otherwise agents may rewrite the output forever.
 
-### Orchestrator–workers
+### Orchestrator-workers
 
 ```text
 request → orchestrator → task graph → workers → evidence → synthesis → verify
 ```
 
-Оркестратор SHOULD оставаться тонким: хранить цель, решения и состояние, но не
-дублировать работу исполнителей. Этот паттерн согласуется с Anthropic,
-OpenAI Agents SDK и GSD.
+The orchestrator SHOULD stay thin: store the goal, decisions, and state, but
+not duplicate worker activity. This pattern aligns with Anthropic, the OpenAI
+Agents SDK, and GSD.
 
-## Прогрессивная строгость
+## Progressive Rigor
 
-Выбирайте уровень процесса по риску, а не по размеру команды:
+Choose the process level by risk, not by team size:
 
-| Уровень | Применение | Обязательные артефакты |
+| Level | Use case | Required artifacts |
 |---|---|---|
-| Lite | Обратимое локальное изменение | intent, diff, verification |
-| Standard | Несколько компонентов или пользовательский flow | spec, plan, tests, review |
-| High assurance | Данные, auth, деньги, миграции, compliance | threat model, NFR, traceability, approvals, rollback |
-| Continuous ADLC | Автономная поставка и production feedback | bet register, live policies, traces, evals, signals |
+| Lite | Reversible local change | intent, diff, verification |
+| Standard | Multiple components or a user flow | spec, plan, tests, review |
+| High assurance | Data, auth, money, migrations, compliance | threat model, NFR, traceability, approvals, rollback |
+| Continuous ADLC | Autonomous delivery and production feedback | bet register, live policies, traces, evals, signals |
 
-OpenSpec называет это progressive rigor; BMAD и GSD дают полные фазовые
-контуры; ADLC предлагает непрерывные режимы Intent–Generate–Validate–Govern–
-Deploy–Observe. Эти модели совместимы, если строгость включается политикой риска,
-а не навязывается всем задачам одинаково.
+OpenSpec calls this progressive rigor; BMAD and GSD provide full phased
+contours; ADLC offers continuous Intent-Generate-Validate-Govern-Deploy-Observe
+modes. These models are compatible if rigor is enabled by risk policy rather
+than imposed uniformly on all tasks.
 
-## Антипаттерны выбора
+## Selection Anti-patterns
 
-- «Сделаем swarm, потому что это современно».
-- Несколько агентов с одинаковыми ролями без механизма независимого голосования.
-- LLM-оркестрация для полностью предсказуемой последовательности.
-- Один мегa-агент с пересекающимися инструментами и противоречивыми persona.
-- Делегирование без contract, owner и done criteria.
-- Параллельная запись в одни файлы без изоляции или протокола merge.
-- Автономный loop без стоп-условий, бюджета и оператора отмены.
+- "Let's build a swarm because it's modern."
+- Multiple agents with identical roles and no independent voting mechanism.
+- LLM orchestration for a fully predictable sequence.
+- One mega-agent with overlapping tools and contradictory personas.
+- Delegation without a contract, owner, and done criteria.
+- Parallel writes to the same files without isolation or a merge protocol.
+- An autonomous loop without stop conditions, budget, and a cancellation
+  operator.

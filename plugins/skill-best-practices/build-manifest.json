@@ -1,7 +1,7 @@
 {
   "format": 2,
   "plugin": "skill-best-practices",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "source_layout": "skills/",
   "bundle_layout": "skills/<name>/",
   "platforms": [
@@ -21,18 +21,18 @@
   "files": [
     {
       "path": ".claude-plugin/plugin.json",
-      "sha256": "0542f68218a8006800695df4faaec9bbda5190eb98c203f4569094ffda684ae5",
+      "sha256": "477650359b84299e01271fd503231df766cad55437edf89cc5183b629573378f",
       "bytes": 370
     },
     {
       "path": ".codex-plugin/plugin.json",
-      "sha256": "6cf4de79c09d859e9118031db93ede89811e780bfbcfaa25d472e7225ea3dac4",
-      "bytes": 1240
+      "sha256": "925aab830ddc1730e8641ad14a43dcc401e0bdffa343a4ce6431b766e3e3909b",
+      "bytes": 1202
     },
     {
       "path": ".cursor-plugin/plugin.json",
-      "sha256": "2378d6dfa6fe1f32ff724045d4f64dcc1abf8679514ce95ab684a8bb886a8fd4",
-      "bytes": 572
+      "sha256": "9e106d00b2273eaadae515c67c5e34d3abf94fd2daa6ed82a8e43e5d5fdacb10",
+      "bytes": 534
     },
     {
       "path": "README.md",
@@ -41,12 +41,12 @@
     },
     {
       "path": "skills/skill-best-practices/README.md",
-      "sha256": "37279bb35804b230f796ddacaf8cfb60ab13d4a8113e9e94a90aa732ae9bb300",
-      "bytes": 14324
+      "sha256": "03b3bcd39408c6b295385d827c0a3bfa7e3151e450c3279bb71d4528bdc0531c",
+      "bytes": 11218
     },
     {
       "path": "skills/skill-best-practices/SKILL.md",
-      "sha256": "0666a50c742f33d3e89a5bb9c12f466c6e542ee962d1a3bd5684777e187807ac",
+      "sha256": "18cbc7e7aba119fcc9e9eabe9a65dcac18ddb81063f170a4b97070c18781cc76",
       "bytes": 10722
     },
     {

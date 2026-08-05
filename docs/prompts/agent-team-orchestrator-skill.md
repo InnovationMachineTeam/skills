@@ -1,8 +1,8 @@
-# Мастер-промпт навыка `agent-team-orchestrator`
+# Master Prompt For The `agent-team-orchestrator` Skill
 
-Применяй после [agent-skill-base.md](agent-skill-base.md). Создай runtime-facing
-skill, который исполняет approved team definition через bounded task graph. Он
-не проектирует команду, не редактирует agent definitions и не обходит policy.
+Apply after [agent-skill-base.md](agent-skill-base.md). Create a runtime-facing
+skill that executes an approved team definition through a bounded task graph. It
+does not design the team, edit agent definitions, or bypass policy.
 
 ## Runtime procedure
 

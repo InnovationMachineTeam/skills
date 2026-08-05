@@ -1,142 +1,154 @@
-# Источники: паттерны, циклы и operating model
+# Sources: Patterns, Cycles, and the Operating Model
 
-Проверено: **2026-07-30**.
+Checked: **2026-07-30**.
 
-## Каталоги и reference architectures
+## Catalogs and Reference Architectures
 
 ### [Agent Design Pattern Catalogue](https://arxiv.org/abs/2405.10467)
 
-Академический каталог из 18 архитектурных паттернов foundation-model agents.
-Полезен прежде всего единым шаблоном pattern description: context, forces,
-solution, consequences и relations, а не как обязательный checklist.
+An academic catalog of 18 architectural patterns for foundation-model agents.
+It is most useful for its unified pattern-description template: context,
+forces, solution, consequences, and relations, rather than as a mandatory
+checklist.
 
 ### [Taxonomy of Architecture Options for Foundation Model-based Agents](https://arxiv.org/abs/2408.02920)
 
-Таксономия design-time и run-time решений и decision model. Помогает отличить
-архитектурный выбор от конкретной реализации или vendor feature.
+A taxonomy of design-time and run-time decisions and a decision model. It helps
+distinguish architectural choices from a specific implementation or vendor
+feature.
 
 ### [System-Theoretic Agentic Design Patterns](https://arxiv.org/abs/2601.19752)
 
-Рассматривает patterns как взаимодействие пяти подсистем: reasoning/world
-model, perception/grounding, action, learning/adaptation и inter-agent
-communication. Используется как дополнительная современная перспектива;
-практические правила сверяются с официальными runtime и security sources.
+Treats patterns as the interaction of five subsystems: reasoning/world model,
+perception/grounding, action, learning/adaptation, and inter-agent
+communication. It is used as an additional modern perspective; practical rules
+are cross-checked against official runtime and security sources.
 
 ### [Responsible GenAI agent reference architecture](https://arxiv.org/abs/2311.13148)
 
-Reference architecture для foundation-model agents с responsible AI concerns.
-Полезна для separation of concerns и связи технических компонентов с assurance.
+A reference architecture for foundation-model agents with responsible AI
+concerns. It is useful for separation of concerns and for linking technical
+components to assurance.
 
-## Базовые agent/workflow patterns
+## Core Agent/Workflow Patterns
 
 ### [Anthropic — Building effective agents](https://www.anthropic.com/engineering/building-effective-agents)
 
-Различает workflows и autonomous agents; описывает prompt chaining, routing,
-parallelization, orchestrator–workers и evaluator–optimizer. Основной принцип —
-начинать с минимально достаточной сложности и измерять улучшение.
+Distinguishes workflows from autonomous agents; describes prompt chaining,
+routing, parallelization, orchestrator-workers, and evaluator-optimizer. The
+core principle is to start with minimally sufficient complexity and measure the
+improvement.
 
 ### [OpenAI Agents SDK — Orchestrating multiple agents](https://openai.github.io/openai-agents-python/multi_agent/)
 
-Разделяет LLM-driven и code-driven orchestration, manager/agents-as-tools и
-handoffs. Даёт практические формы chains, loops, parallel execution и routing.
+Distinguishes LLM-driven and code-driven orchestration, manager/agents-as-tools,
+and handoffs. It provides practical forms for chains, loops, parallel
+execution, and routing.
 
 ### [Microsoft Azure — AI agent design patterns](https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/ai-agent-design-patterns)
 
-Описывает выбор single/multi-agent patterns и подчёркивает, что многоагентная
-система наследует failure modes распределённых систем.
+Describes the choice between single-agent and multi-agent patterns and
+emphasizes that a multi-agent system inherits the failure modes of distributed
+systems.
 
 ### [Microsoft — Multi-agent patterns](https://learn.microsoft.com/en-us/agents/architecture/multi-agent-patterns)
 
-Практические topology, communication, MCP/A2A, security и human oversight.
-Platform-specific детали не переносятся в универсальные MUST без адаптации.
+Practical topologies, communication, MCP/A2A, security, and human oversight.
+Platform-specific details are not promoted to universal MUSTs without
+adaptation.
 
 ### [Google ADK — Workflow agents](https://adk.dev/agents/workflow-agents/)
 
-Детерминированные sequential, parallel и loop workflows, а также граница между
-workflow и adaptive agent orchestration.
+Deterministic sequential, parallel, and loop workflows, as well as the boundary
+between workflow and adaptive agent orchestration.
 
-## Циклы
+## Cycles
 
 ### [ASQ — PDCA cycle](https://asq.org/quality-resources/pdca-cycle)
 
-Официальное профессиональное описание Plan–Do–Check–Act как повторяемого метода
-изменений и continuous improvement. В агентных системах применяется к process и
-release improvement, а не вместо runtime control loop.
+An official professional description of Plan-Do-Check-Act as a repeatable
+method for change and continuous improvement. In agent systems it applies to
+process and release improvement, not as a substitute for a runtime control
+loop.
 
 ### [Air University — OODA loop](https://www.airuniversity.af.edu/AFCLC/News/Article-Display/Article/1777083/cultural-ksas-skill-development-using-the-ooda-loop/)
 
-Observe–Orient–Decide–Act для решений в меняющейся среде. Источник подчёркивает,
-что orientation и ранний анализ нельзя механически сжимать ради скорости.
+Observe-Orient-Decide-Act for decision-making in a changing environment. The
+source emphasizes that orientation and early analysis cannot be mechanically
+compressed for speed.
 
 ### [IBM — MAPE-K control loop](https://dominoweb.draco.res.ibm.com/reports/h-0219.pdf)
 
-Monitor, Analyze, Plan и Execute используют общую Knowledge; autonomic manager
-связан с managed element через sensors/effectors. База для self-management,
-reconciliation и Agent OS operations.
+Monitor, Analyze, Plan, and Execute use shared Knowledge; the autonomic manager
+is connected to the managed element through sensors/effectors. This is a basis
+for self-management, reconciliation, and Agent OS operations.
 
 ### [Lean Startup principles](https://theleanstartup.com/principles)
 
-Build–Measure–Learn проверяет гипотезы через минимальный продукт/эксперимент,
-измеряет фактическую реакцию и приводит к pivot/persevere. Полезен для discovery
-необходимости agent/skill и проверки ценности.
+Build-Measure-Learn tests hypotheses through a minimal product or experiment,
+measures actual response, and leads to pivot/persevere decisions. It is useful
+for discovering whether an agent/skill is needed and for validating value.
 
 ### [Chris Argyris — Double Loop Learning in Organizations](https://hbr.org/1977/09/double-loop-learning-in-organizations)
 
-Различает коррекцию действий внутри существующих норм и пересмотр самих целей,
-правил и предположений. Применяется при системных повторяющихся failures и metric
-gaming; изменение intent/policy остаётся ответственностью человека.
+Distinguishes correcting actions within existing norms from revising the goals,
+rules, and assumptions themselves. It applies to systemic recurring failures
+and metric gaming; changing intent/policy remains a human responsibility.
 
 ### [ADLC](https://www.adlc.io/)
 
-Intent, Generate, Validate, Govern, Deploy и Observe — concurrent modes для
-agentic delivery. Соединяет экспериментальную генерацию, постоянную validation,
-human governance, deployment и production learning.
+Intent, Generate, Validate, Govern, Deploy, and Observe are concurrent modes
+for agentic delivery. It connects experimental generation, continuous
+validation, human governance, deployment, and production learning.
 
-## Risk, delivery и operations
+## Risk, Delivery, and Operations
 
 ### [NIST AI RMF Core](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/)
 
-Govern является сквозной функцией, Map, Measure и Manage применяются итеративно
-на всём lifecycle. Включает inventory, роли, independent review, monitoring и
-safe decommissioning; это risk framework, не последовательный checklist.
+Govern is a cross-cutting function; Map, Measure, and Manage are applied
+iteratively throughout the lifecycle. It includes inventory, roles,
+independent review, monitoring, and safe decommissioning; this is a risk
+framework, not a sequential checklist.
 
 ### [DORA — Continuous delivery](https://dora.dev/capabilities/continuous-delivery/)
 
-Связывает low-risk delivery с deployable state, test/deployment automation,
-small batches, fast feedback, security и observability. Используется для
-release/eval loops и operational metrics агентов, skills и workflows.
+Links low-risk delivery to deployable state, test/deployment automation, small
+batches, fast feedback, security, and observability. It is used for
+release/eval loops and operational metrics for agents, skills, and workflows.
 
 ### [DORA — Continuous integration](https://dora.dev/capabilities/continuous-integration/)
 
-Быстрые tests на каждом небольшом change и немедленное исправление regression.
-Поддерживает script/tool development и сокращает feedback cycle.
+Fast tests on every small change and immediate regression fixes. It supports
+script/tool development and shortens the feedback cycle.
 
 ### [Google SRE — Monitoring distributed systems](https://sre.google/sre-book/monitoring-distributed-systems/)
 
-Latency, traffic, errors и saturation — системная база; Agent OS добавляет
-outcome, routing, tool, approval, safety, cost и lifecycle signals.
+Latency, traffic, errors, and saturation are the system baseline; Agent OS adds
+outcome, routing, tool, approval, safety, cost, and lifecycle signals.
 
-## Протоколы
+## Protocols
 
 ### [Model Context Protocol](https://modelcontextprotocol.io/specification/latest)
 
-Стандартизирует подключение tools/data/prompts. Discovery capability не
-означает permission; authorization, validation и isolation остаются за host.
+Standardizes connecting tools/data/prompts. Discovery capability does not imply
+permission; authorization, validation, and isolation remain the host's
+responsibility.
 
 ### [A2A Protocol](https://a2a-protocol.org/latest/specification/)
 
-Межагентные discovery, tasks, messages и artifacts для независимых систем.
-Полезен на организационных/runtime boundaries; локальные субагенты не обязаны
-использовать сетевой протокол.
+Inter-agent discovery, tasks, messages, and artifacts for independent systems.
+It is useful at organizational/runtime boundaries; local subagents do not need
+to use a network protocol.
 
-## Политика применения источников
+## Source Application Policy
 
-1. Стандарт или official current documentation задаёт платформенные факты.
-2. Official engineering guidance задаёт проверенную практическую эвристику.
-3. Peer-reviewed/preprint catalogue даёт pattern language и alternatives.
-4. Реализация подтверждает feasibility, но не превращает локальный выбор в MUST.
-5. Любой pattern проходит локальные risk assessment и evals.
+1. A standard or current official documentation defines platform facts.
+2. Official engineering guidance defines validated practical heuristics.
+3. A peer-reviewed/preprint catalog provides pattern language and alternatives.
+4. An implementation confirms feasibility, but does not turn a local choice
+   into a MUST.
+5. Every pattern must pass local risk assessment and evals.
 
-Если источник описывает trade-off, документ сохраняет условия выбора. Если
-источники конфликтуют по факту runtime, приоритет имеет versioned specification
-и проверка текущего поведения.
+If a source describes a trade-off, the document preserves the conditions for
+selection. If sources conflict on runtime facts, the versioned specification
+and verification of current behavior take priority.

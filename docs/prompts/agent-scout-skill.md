@@ -1,18 +1,18 @@
-# Мастер-промпт навыка `agent-scout`
+# Master Prompt For The `agent-scout` Skill
 
-Применяй после [agent-skill-base.md](agent-skill-base.md). Создай skill, который
-находит и приоритизирует обоснованные возможности для agents и agent-oriented
-skills, но ничего не создаёт и не активирует.
+Apply after [agent-skill-base.md](agent-skill-base.md). Create a skill that
+finds and prioritizes justified opportunities for agents and agent-oriented
+skills, but creates and activates nothing.
 
 ## Capability boundary
 
-Skill должен отвечать на вопрос: «какой минимальный механизм стоит создать или
-переиспользовать для этого повторяющегося outcome?» Он не проектирует candidate,
-не пишет production prompts и не устанавливает assets.
+The skill must answer: "what is the minimal mechanism worth creating or reusing
+for this recurring outcome?" It does not design the candidate, write production
+prompts, or install assets.
 
 ## Source routes
 
-Поддержи минимально необходимые routes:
+Support the minimally necessary routes:
 
 - session/task insights;
 - repository/workflow mining;
@@ -21,12 +21,13 @@ Skill должен отвечать на вопрос: «какой минима
 - supplied article/document/corpus;
 - explicit idea assessment.
 
-Source scope всегда явный. Не считай private session history доступной без
-переданного export или host authorization. Удаляй secrets/PII из evidence.
+Source scope is always explicit. Do not treat private session history as
+available without a provided export or host authorization. Remove secrets/PII
+from evidence.
 
 ## Decision taxonomy
 
-Для каждой opportunity верни ровно одно решение:
+For each opportunity, return exactly one decision:
 
 - `USE_CODE_OR_WORKFLOW`;
 - `USE_EXISTING_AGENT`;
@@ -38,27 +39,28 @@ Source scope всегда явный. Не считай private session history 
 - `RESEARCH`;
 - `REJECT`.
 
-Не смешивай решение о создании agent и skill: agent выполняет runtime mission,
-agent-oriented skill управляет его design/evaluation/lifecycle.
+Do not blur the decision between creating an agent and a skill: an agent
+performs a runtime mission, while an agent-oriented skill governs its
+design/evaluation/lifecycle.
 
 ## Worth model
 
-Оцени:
+Evaluate:
 
-- frequency и recurring pain;
-- value и measurable outcome;
-- variability/uncertainty, требующие agent reasoning;
-- decomposability и need for tools/state;
-- existing coverage и extension cost;
-- side-effect risk и human judgment;
+- frequency and recurring pain;
+- value and measurable outcome;
+- variability/uncertainty that requires agent reasoning;
+- decomposability and need for tools/state;
+- existing coverage and extension cost;
+- side-effect risk and human judgment;
 - data/access availability;
 - evaluation feasibility;
-- ownership, maintenance и retirement cost;
-- более простой alternative.
+- ownership, maintenance, and retirement cost;
+- the simpler alternative.
 
-Не выдавай численный score без evidence. Используй score только для ranking
-после hard gates: safety, authority, no owner или no evaluation path могут
-заблокировать рекомендацию.
+Do not issue a numeric score without evidence. Use a score only for ranking
+after the hard gates: safety, authority, no owner, or no evaluation path may
+block the recommendation.
 
 ## Required artifacts
 
@@ -82,22 +84,24 @@ confidence: low
 
 ## Evaluation
 
-Создай positive/negative routing cases и проверяй:
+Create positive/negative routing cases and verify that the skill:
 
-- не предлагает agent для deterministic script;
-- находит существующее coverage до `CREATE_NEW_AGENT`;
-- различает runtime agent и agent-oriented skill;
-- не считает одну встречу recurring workflow;
-- сохраняет uncertainty и recommends research при пробелах;
-- не извлекает private/sensitive evidence без authority;
-- допускает успешный terminal outcome «ничего не создавать».
+- does not propose an agent for a deterministic script;
+- finds existing coverage before `CREATE_NEW_AGENT`;
+- distinguishes a runtime agent from an agent-oriented skill;
+- does not treat a single occurrence as a recurring workflow;
+- preserves uncertainty and recommends research when gaps remain;
+- does not extract private/sensitive evidence without authority;
+- allows the successful terminal outcome of "create nothing".
 
 ## Handoff
 
-Для каждой оправданной agent opportunity укажи, какие canonical documents и
-decision records потребуются, но не создавай дерево `docs/`. Передавай это как
-input в [agent-documentation-contract.md](agent-documentation-contract.md).
+For each justified agent opportunity, specify which canonical documents and
+decision records will be required, but do not create the `docs/` tree. Pass
+this as input to
+[agent-documentation-contract.md](agent-documentation-contract.md).
 
-Передавай approved opportunity в `agent-context` при недостатке evidence или в
-`agent-architect` при готовом intent. Handoff содержит objective, sources,
-constraints, alternatives, risk, preserved systems и unresolved questions.
+Hand off the approved opportunity to `agent-context` when evidence is
+insufficient, or to `agent-architect` when the intent is ready. The handoff
+contains objective, sources, constraints, alternatives, risk, preserved
+systems, and unresolved questions.

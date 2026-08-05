@@ -1,64 +1,63 @@
-# Мастер-промпты для создания навыков по работе с агентами
+# Master Prompts For Agent Skill Creation
 
-Эти prompts создают **agent-oriented skills**: навыки, которые проектируют,
-исследуют, оценивают, диагностируют, оптимизируют, управляют или оркестрируют
-agents. Они не являются готовыми production agents и не дают права активировать
-agent в runtime.
+These prompts create **agent-oriented skills**: skills that design, research,
+evaluate, diagnose, optimize, manage, or orchestrate agents. They are not
+ready-made production agents and do not grant permission to activate an agent
+at runtime.
 
-Практические контексты для запуска этих prompts находятся в
-[Onboarding Guide](../ONBOARDING.md) и [worked use cases](../use-cases/README.md).
-Сначала выбирается минимальная operating unit и artifact graph, затем prompt;
-роль или skill не следует создавать только потому, что для него существует
-шаблон.
+Practical launch contexts for these prompts are in the
+[Onboarding Guide](../ONBOARDING.md) and [worked use cases](../use-cases/README.md).
+First choose the minimum sufficient operating unit and artifact graph, then the
+prompt; do not create a role or skill only because a template exists for it.
 
-## Правило композиции
+## Composition Rule
 
-Всегда используйте:
+Always use:
 
 ```text
-agent-skill-base.md + ровно один specialist prompt
+agent-skill-base.md + exactly one specialist prompt
 ```
 
-Base задаёт общий skill-creation contract. Specialist prompt добавляет
-agent-domain procedure. Не объединяйте все prompts в один mega-prompt.
+The base defines the shared skill-creation contract. The specialist prompt adds
+the agent-domain procedure. Do not merge all prompts into one mega-prompt.
 
-## Маршрутизация
+## Routing
 
-| Желаемый skill | Prompt |
+| Desired skill | Prompt |
 |---|---|
-| Ищет обоснованные возможности для agents | [agent-scout-skill.md](agent-scout-skill.md) |
-| Собирает context из repositories/docs/traces | [agent-context-skill.md](agent-context-skill.md) |
-| Проектирует одного agent или subagent | [agent-architect-skill.md](agent-architect-skill.md) |
-| Создаёт evals и release evidence | [agent-evaluator-skill.md](agent-evaluator-skill.md) |
-| Диагностирует и минимально исправляет | [agent-doctor-skill.md](agent-doctor-skill.md) |
-| Улучшает здорового агента по метрике | [agent-optimizer-skill.md](agent-optimizer-skill.md) |
-| Меняет boundaries и topology | [agent-refactor-skill.md](agent-refactor-skill.md) |
-| Управляет registry, rollout и retirement | [agent-manager-skill.md](agent-manager-skill.md) |
-| Оркестрирует полный lifecycle | [agent-builder-skill.md](agent-builder-skill.md) |
-| Поддерживает evidence corpus практик | [agent-best-practices-skill.md](agent-best-practices-skill.md) |
-| Собирает explicit composite toolkit | [agentkit-composite-skill.md](agentkit-composite-skill.md) |
+| Finds evidence-backed opportunities for agents | [agent-scout-skill.md](agent-scout-skill.md) |
+| Gathers context from repositories, docs, and traces | [agent-context-skill.md](agent-context-skill.md) |
+| Designs a single agent or subagent | [agent-architect-skill.md](agent-architect-skill.md) |
+| Creates evals and release evidence | [agent-evaluator-skill.md](agent-evaluator-skill.md) |
+| Diagnoses and minimally repairs | [agent-doctor-skill.md](agent-doctor-skill.md) |
+| Improves a healthy agent against a metric | [agent-optimizer-skill.md](agent-optimizer-skill.md) |
+| Changes boundaries and topology | [agent-refactor-skill.md](agent-refactor-skill.md) |
+| Manages registry, rollout, and retirement | [agent-manager-skill.md](agent-manager-skill.md) |
+| Orchestrates the full lifecycle | [agent-builder-skill.md](agent-builder-skill.md) |
+| Maintains an evidence corpus of practices | [agent-best-practices-skill.md](agent-best-practices-skill.md) |
+| Assembles an explicit composite toolkit | [agentkit-composite-skill.md](agentkit-composite-skill.md) |
 
-## Team lifecycle prompts
+## Team Lifecycle Prompts
 
-Эти prompts также применяются после `agent-skill-base.md`:
+These prompts are also applied after `agent-skill-base.md`:
 
-| Желаемый skill | Prompt |
+| Desired skill | Prompt |
 |---|---|
-| Проектирует роли, topology и team contract | [agent-team-architect-skill.md](agent-team-architect-skill.md) |
-| Управляет lifecycle и specialist routes | [agent-team-manager-skill.md](agent-team-manager-skill.md) |
-| Материализует approved team spec | [agent-team-builder-skill.md](agent-team-builder-skill.md) |
-| Исполняет approved team task graph | [agent-team-orchestrator-skill.md](agent-team-orchestrator-skill.md) |
-| Сопоставляет agents и skills | [agent-skill-mapper-skill.md](agent-skill-mapper-skill.md) |
-| Выбирает актуальные модели под роли | [agent-model-selector-skill.md](agent-model-selector-skill.md) |
-| Управляет worktrees/workspaces | [agent-workspace-manager-skill.md](agent-workspace-manager-skill.md) |
-| Управляет docs/wiki/graph knowledge | [agent-knowledge-manager-skill.md](agent-knowledge-manager-skill.md) |
+| Designs roles, topology, and the team contract | [agent-team-architect-skill.md](agent-team-architect-skill.md) |
+| Manages lifecycle and specialist routes | [agent-team-manager-skill.md](agent-team-manager-skill.md) |
+| Materializes the approved team spec | [agent-team-builder-skill.md](agent-team-builder-skill.md) |
+| Executes the approved team task graph | [agent-team-orchestrator-skill.md](agent-team-orchestrator-skill.md) |
+| Maps agents and skills | [agent-skill-mapper-skill.md](agent-skill-mapper-skill.md) |
+| Selects current models for roles | [agent-model-selector-skill.md](agent-model-selector-skill.md) |
+| Manages worktrees/workspaces | [agent-workspace-manager-skill.md](agent-workspace-manager-skill.md) |
+| Manages docs/wiki/graph knowledge | [agent-knowledge-manager-skill.md](agent-knowledge-manager-skill.md) |
 
 ## Agentic OS prompts
 
-Для platform capability используй композицию:
+For platform capability, use this composition:
 
 ```text
-agent-skill-base.md + agent-os-base.md + ровно один Agentic OS specialist
+agent-skill-base.md + agent-os-base.md + exactly one Agentic OS specialist
 ```
 
 | Plane/capability | Prompt |
@@ -73,37 +72,37 @@ agent-skill-base.md + agent-os-base.md + ровно один Agentic OS speciali
 | MCP/A2A/host adapters | [agent-protocol-manager-skill.md](agent-protocol-manager-skill.md) |
 | Independent platform evaluation | [agent-os-evaluator-skill.md](agent-os-evaluator-skill.md) |
 
-Knowledge plane использует `agent-knowledge-manager-skill.md` с invariants из
-`agent-os-base.md`; не создавай второй дублирующий knowledge skill без отдельного
+The knowledge plane uses `agent-knowledge-manager-skill.md` with invariants from
+`agent-os-base.md`; do not create a second duplicate knowledge skill without a separate
 permission/state/SLO boundary.
 
 ## Placement overlays
 
-Перед созданием capability для конкретного agent запустите
-[agent-capability-placement.md](agent-capability-placement.md). Он выбирает
-inline rule, private command, private skill, public skill, tool/script или
+Before creating a capability for a specific agent, run
+[agent-capability-placement.md](agent-capability-placement.md). It selects
+inline rule, private command, private skill, public skill, tool/script, or
 workflow.
 
-| Решение | Дополнительный prompt |
+| Decision | Additional prompt |
 |---|---|
-| Private agent skill | [agent-private-skill.md](agent-private-skill.md) после base + primary archetype |
+| Private agent skill | [agent-private-skill.md](agent-private-skill.md) after base + primary archetype |
 | Private agent command | [agent-private-command.md](agent-private-command.md) |
-| Promotion/demotion | [agent-skill-visibility-migration.md](agent-skill-visibility-migration.md) через `skill-refactor` |
+| Promotion/demotion | [agent-skill-visibility-migration.md](agent-skill-visibility-migration.md) via `skill-refactor` |
 
-Visibility overlay не является новым primary archetype. `private` означает
-agent-scoped discovery/binding; он не делает файлы секретными.
+The visibility overlay is not a new primary archetype. `private` means
+agent-scoped discovery/binding; it does not make files secret.
 
-Когда skill создаёт, изменяет, оценивает или активирует agent definition,
-добавляйте [agent-documentation-contract.md](agent-documentation-contract.md)
-как общий профиль. Он не заменяет specialist prompt.
+When a skill creates, changes, evaluates, or activates an agent definition,
+add [agent-documentation-contract.md](agent-documentation-contract.md)
+as a shared profile. It does not replace the specialist prompt.
 
-## Входной envelope
+## Input Envelope
 
-Перед запуском нормализуйте запрос:
+Normalize the request before starting:
 
 ```yaml
 skill_to_create: agent-architect
-user_outcome: проектировать безопасных tool-using agents
+user_outcome: design safe tool-using agents
 target_hosts: [codex, claude-code]
 agent_assets: [agent_card, workflow, eval_plan]
 sources: []
@@ -119,44 +118,44 @@ constraints: []
 destination: path/to/reviewable/bundle
 ```
 
-Если `user_outcome`, target или destination материально неоднозначны, задайте
-один–три вопроса. Для остальных пробелов используйте безопасные assumptions.
+If `user_outcome`, the target, or the destination is materially ambiguous, ask
+one to three questions. For all other gaps, use safe assumptions.
 
-## Как применять
+## How To Apply
 
-1. Полностью прочитать [agent-skill-base.md](agent-skill-base.md).
-2. Выбрать один specialist prompt по observable outcome.
-3. Передать user input, source artifacts, target-host rules и approvals.
-4. Выполнить prompt, а не копировать его в итоговый `SKILL.md`.
-5. Передать immutable candidate независимому `skill-evaluator`.
-6. Installation/publication/runtime activation выполнять отдельным lifecycle
-   действием после approval.
+1. Fully read [agent-skill-base.md](agent-skill-base.md).
+2. Choose one specialist prompt by observable outcome.
+3. Pass in user input, source artifacts, target-host rules, and approvals.
+4. Execute the prompt rather than copying it into the final `SKILL.md`.
+5. Hand the immutable candidate to an independent `skill-evaluator`.
+6. Perform installation/publication/runtime activation as a separate lifecycle
+   action after approval.
 
-Для team use case сначала сформируйте outcome/artifact/capability/authority
-graphs через `agent-team-architect`, затем применяйте placement prompt к каждой
-capability. Owner-only процедуры создаются как private skills/commands внутри
-agent; public skill создаётся только при обоснованном multi-consumer reuse. Все
-созданные assets и bindings включаются в registry/map transaction candidate.
+For a team use case, first form the outcome/artifact/capability/authority
+graphs through `agent-team-architect`, then apply the placement prompt to each
+capability. Owner-only procedures are created as private skills/commands inside
+the agent; a public skill is created only when multi-consumer reuse is justified.
+All created assets and bindings are included in the registry/map transaction candidate.
 
-## Общие выходы
+## Common Outputs
 
-Каждый prompt должен создать или обновить reviewable skill bundle и вернуть:
+Each prompt must create or update a reviewable skill bundle and return:
 
-- classification и capability boundary;
-- положительные, отрицательные и ambiguous triggers;
-- созданные files/resources;
+- classification and capability boundary;
+- positive, negative, and ambiguous triggers;
+- created files/resources;
 - schemas agent artifacts;
-- validation и eval evidence;
-- authority, security и lifecycle risks;
+- validation and eval evidence;
+- authority, security, and lifecycle risks;
 - installation/publication status;
-- точный следующий handoff.
+- the exact next handoff.
 
-## Терминология
+## Terminology
 
 - **Agent definition** — immutable design/configuration candidate.
-- **Agent instance/run** — конкретное runtime исполнение.
-- **Agent-oriented skill** — skill, который работает с definitions, runs,
-  traces, registry или lifecycle.
+- **Agent instance/run** — a concrete runtime execution.
+- **Agent-oriented skill** — a skill that works with definitions, runs,
+  traces, the registry, or the lifecycle.
 - **Agent OS** — platform control/execution/knowledge/assurance/operations layer.
-- **Activation** — разрешение runtime маршрутизировать реальные задачи к
-  определённой agent version.
+- **Activation** — permission for the runtime to route real tasks to
+  a specific agent version.

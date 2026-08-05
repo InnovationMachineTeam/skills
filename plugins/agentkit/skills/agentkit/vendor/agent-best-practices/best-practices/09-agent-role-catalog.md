@@ -1,135 +1,136 @@
-# Каталог типовых агентов
+# Catalog of Standard Agent Roles
 
-Этот файл перечисляет прикладные специализации. Ролевые архетипы, lifecycle
-accountability, human oversight и separation of duties описаны в
+This file lists application specializations. Role archetypes, lifecycle
+accountability, human oversight, and separation of duties are described in
 [21-role-patterns-and-separation-of-duties.md](21-role-patterns-and-separation-of-duties.md).
 
-## Как пользоваться каталогом
+## How to use the catalog
 
-Роль — не обязательный отдельный агент. Сначала определите capability и
-security boundary. Объединяйте роли, если у них общие tools, context и критерии;
-разделяйте, если нужны независимость, специализация, разные права или
-параллелизм.
+A role is not necessarily a separate agent. First define the capability and
+security boundary. Combine roles if they share tools, context, and criteria;
+separate them if independence, specialization, different rights, or parallelism
+are required.
 
-Каждой роли задайте owner, входы, выходы, write-set, tools, permissions, evals и
-escalation rules.
+For each role, define the owner, inputs, outputs, write-set, tools,
+permissions, evals, and escalation rules.
 
-## PDLC и Discovery
+## PDLC and Discovery
 
-| Агент | Ответственность | Основные выходы |
+| Agent | Responsibility | Primary outputs |
 |---|---|---|
-| Opportunity scout | Собирает сигналы, проблемы и возможности | opportunity backlog |
-| Research planner | Формулирует вопросы, метод и критерии доказательства | research plan |
-| Market researcher | Рынок, конкуренты, alternatives | cited market report |
-| Domain researcher | Доменные правила, failure modes, regulation | domain context |
-| User researcher | Интервью/наблюдения, не подменяя человека | evidence synthesis |
+| Opportunity scout | Gathers signals, problems, and opportunities | opportunity backlog |
+| Research planner | Formulates questions, method, and evidence criteria | research plan |
+| Market researcher | Market, competitors, alternatives | cited market report |
+| Domain researcher | Domain rules, failure modes, regulation | domain context |
+| User researcher | Interviews/observations without substituting for a human | evidence synthesis |
 | JTBD analyst | Jobs, pains, gains, alternatives | jobs map |
-| Hypothesis/bet steward | Ведёт bet register и resolution signals | governed bets |
+| Hypothesis/bet steward | Maintains the bet register and resolution signals | governed bets |
 | Product strategist | Outcomes, positioning, non-goals | vision/strategy |
 | Product manager | Scope, priorities, PRD/spec lifecycle | product requirements |
 | UX researcher | Research questions, usability evidence | UX findings |
 | UX/service designer | Journeys, states, service blueprint | experience design |
-| Experiment designer | Протокол эксперимента и decision thresholds | experiment plan |
+| Experiment designer | Experiment protocol and decision thresholds | experiment plan |
 
 ## Requirements engineering
 
-| Агент | Ответственность | Независимый gate |
+| Agent | Responsibility | Independent gate |
 |---|---|---|
-| Requirements elicitor | Находит stakeholders, needs, constraints | coverage review |
-| Requirements analyst | Делает требования атомарными и тестируемыми | ambiguity lint |
+| Requirements elicitor | Identifies stakeholders, needs, constraints | coverage review |
+| Requirements analyst | Makes requirements atomic and testable | ambiguity lint |
 | Functional analyst | Observable capabilities, rules, scenarios | acceptance review |
-| Quality-attribute analyst | Performance, reliability, security и др. | measurable NFR gate |
+| Quality-attribute analyst | Performance, reliability, security, and more | measurable NFR gate |
 | Constraint/compliance analyst | Legal, organizational, technical constraints | compliance owner |
-| Traceability manager | Связи intent→requirement→design→test→release | orphan detection |
-| Requirements verifier | Проверяет completeness, consistency, feasibility | read-only verdict |
+| Traceability manager | Links intent→requirement→design→test→release | orphan detection |
+| Requirements verifier | Checks completeness, consistency, feasibility | read-only verdict |
 
 ## SDLC / Architecture
 
-| Агент | Ответственность | Выходы |
+| Agent | Responsibility | Outputs |
 |---|---|---|
 | Solution architect | Boundaries, integrations, trade-offs | architecture overview |
 | Enterprise architect | Portfolio/platform alignment | capability map |
 | Data architect | Data model, lineage, retention | data architecture |
 | API/contract architect | Interfaces, versioning, compatibility | API contracts |
-| Security architect | Threat model и control design | threats/controls |
+| Security architect | Threat model and control design | threats/controls |
 | Reliability architect | SLO, failure domains, recovery | reliability plan |
 | Privacy engineer | Data minimization, purpose, consent | privacy controls |
-| Cost/FinOps analyst | Cost model и budgets | cost envelope |
-| ADR steward | Decision quality и lifecycle | decision log |
+| Cost/FinOps analyst | Cost model and budgets | cost envelope |
+| ADR steward | Decision quality and lifecycle | decision log |
 
 ## Implementation
 
-| Агент | Ответственность | Ограничение |
+| Agent | Responsibility | Constraint |
 |---|---|---|
-| Planner | DAG, slices, write-sets, verification | не реализует |
-| Codebase mapper | Структура, patterns, dependencies | read-only |
-| Implementer | Один bounded deliverable | exclusive write-set |
-| Refactoring agent | Поведение-сохраняющие изменения | characterization tests |
+| Planner | DAG, slices, write-sets, verification | does not implement |
+| Codebase mapper | Structure, patterns, dependencies | read-only |
+| Implementer | One bounded deliverable | exclusive write-set |
+| Refactoring agent | Behavior-preserving changes | characterization tests |
 | Migration agent | Schema/data/code migration | rollback + dry-run |
-| Integration agent | Соединяет independently built slices | merge owner |
-| Test engineer | Автоматические tests по risk model | не подтверждает собственный код |
-| Documentation agent | Обновляет документы по shipped behavior | fact verification |
+| Integration agent | Connects independently built slices | merge owner |
+| Test engineer | Automated tests based on the risk model | does not confirm its own code |
+| Documentation agent | Updates documents to match shipped behavior | fact verification |
 
-## Quality и assurance
+## Quality and assurance
 
-| Агент | Фокус |
+| Agent | Focus |
 |---|---|
-| Plan reviewer | Достижимость goal и coverage |
+| Plan reviewer | Goal achievability and coverage |
 | Code reviewer | Correctness, maintainability, defects |
-| Goal verifier | Outcome против spec, не tasks |
-| Security reviewer | Threat mitigations и misuse cases |
+| Goal verifier | Outcome against spec, not tasks |
+| Security reviewer | Threat mitigations and misuse cases |
 | Performance reviewer | Budgets, bottlenecks, regressions |
 | Accessibility reviewer | WCAG/user flows/assistive behavior |
-| Test architect | Risk-based strategy и traceability |
+| Test architect | Risk-based strategy and traceability |
 | Eval designer | Dataset, rubrics, graders, thresholds |
 | Adversarial tester | Prompt injection, tool misuse, edge cases |
-| Compliance assessor | Evidence против control requirements |
-| Release gatekeeper | Сводит evidence и policy в go/no-go |
+| Compliance assessor | Evidence against control requirements |
+| Release gatekeeper | Consolidates evidence and policy into go/no-go |
 
-## Delivery и Operations
+## Delivery and Operations
 
-| Агент | Ответственность |
+| Agent | Responsibility |
 |---|---|
-| Release orchestrator | Версии, changelog, checks, approvals |
-| Deployment agent | Promotion/canary в утверждённом envelope |
-| Canary observer | Production signals и rollback trigger |
+| Release orchestrator | Versions, changelog, checks, approvals |
+| Deployment agent | Promotion/canary within the approved envelope |
+| Canary observer | Production signals and rollback trigger |
 | SRE/reliability agent | SLO, alerts, capacity, runbooks |
-| Incident triage agent | Классификация, evidence, safe routing |
-| Incident commander assistant | Timeline и coordination; человек accountable |
-| Root-cause investigator | Гипотезы и доказательства до fix |
-| Rollback/recovery agent | Проверенная обратимая процедура |
-| Cost monitor | Spend anomalies и budget enforcement |
-| Documentation drift detector | Несоответствие docs/code/runtime |
+| Incident triage agent | Classification, evidence, safe routing |
+| Incident commander assistant | Timeline and coordination; human remains accountable |
+| Root-cause investigator | Hypotheses and evidence before a fix |
+| Rollback/recovery agent | Verified reversible procedure |
+| Cost monitor | Spend anomalies and budget enforcement |
+| Documentation drift detector | Mismatch between docs/code/runtime |
 
-## Agent OS и governance
+## Agent OS and governance
 
-| Агент | Ответственность |
+| Agent | Responsibility |
 |---|---|
-| Intent router | Выбор workflow/capability с confidence |
+| Intent router | Chooses a workflow/capability with confidence |
 | Orchestrator | DAG, dispatch, integration, verification |
 | Scheduler | Dependencies, leases, retries, backpressure |
-| Policy agent/service | Объясняет policy; enforcement остаётся детерминированным |
-| Approval broker | Собирает evidence для accountable approver |
-| Context builder | Формирует минимальный grounded context pack |
-| Memory curator | Проверяет, классифицирует и устаревает memory |
-| Knowledge indexer | Индексы и provenance |
-| Agent registry steward | Версии, compatibility, lifecycle |
-| Agent evaluator | Offline/online evals и regression gates |
-| Trace analyst | Находит loops, routing и tool failures |
-| Agent security monitor | Поведение, privilege и injection signals |
-| Workflow doctor | Диагностика stuck/orphan/inconsistent runs |
+| Policy agent/service | Explains policy; enforcement remains deterministic |
+| Approval broker | Collects evidence for the accountable approver |
+| Context builder | Builds the minimal grounded context pack |
+| Memory curator | Verifies, classifies, and expires memory |
+| Knowledge indexer | Indexes and provenance |
+| Agent registry steward | Versions, compatibility, lifecycle |
+| Agent evaluator | Offline/online evals and regression gates |
+| Trace analyst | Finds loops, routing, and tool failures |
+| Agent security monitor | Behavior, privilege, and injection signals |
+| Workflow doctor | Diagnoses stuck/orphan/inconsistent runs |
 
-## Командные композиции
+## Team compositions
 
 ### Discovery pod
 
 Research planner + market/domain/user researchers + product strategist +
-skeptical evaluator. Product owner принимает bet.
+skeptical evaluator. The product owner accepts the bet.
 
 ### Feature delivery pod
 
-Requirements analyst + architect + planner + scoped implementers + test engineer
-+ verifier + documentation agent. Оркестратор не пишет те же файлы.
+Requirements analyst + architect + planner + scoped implementers + test
+engineer + verifier + documentation agent. The orchestrator does not write the
+same files.
 
 ### High-risk change pod
 
@@ -139,21 +140,22 @@ release gatekeeper + accountable human.
 ### Incident pod
 
 Triage + competing-hypothesis investigators + SRE + recovery agent + timeline
-scribe. Incident commander остаётся человеком для high-impact решений.
+scribe. The incident commander remains human for high-impact decisions.
 
 ### Agent improvement pod
 
 Trace analyst + eval designer + prompt/tool engineer + security reviewer +
-canary owner. Изменение не проходит production gate без regression evidence.
+canary owner. A change does not pass the production gate without regression
+evidence.
 
-## Роли, которые нельзя бездумно объединять
+## Roles that must not be merged thoughtlessly
 
-- implementer и единственный verifier;
-- policy author и единственный policy approver;
-- deployment agent и безусловный release approver;
-- memory writer и единственный fact verifier;
-- incident fixer и единственный root-cause investigator;
-- requirements author и единственный stakeholder proxy.
+- implementer and sole verifier;
+- policy author and sole policy approver;
+- deployment agent and unconditional release approver;
+- memory writer and sole fact verifier;
+- incident fixer and sole root-cause investigator;
+- requirements author and sole stakeholder proxy.
 
-Separation of duties особенно важен для денег, персональных данных, security,
-production и compliance.
+Separation of duties is especially important for money, personal data, security,
+production, and compliance.

@@ -2,73 +2,73 @@
 
 <!-- generated-skill-readme:start -->
 
-## Паспорт навыка
+## Skill Profile
 
-- **Назначение:** Designs, audits and improves durable system, developer and agent prompts governing roles, instruction priority, tools, autonomy, safety, validation and outputs.
-- **Версия:** `3.0.3`.
-- **Видимость:** public: канонический навык каталога; фактическая активация зависит от целевого host.
-- **Теги каталога:** `prompts`, `optimization`.
+- **Purpose:** Designs, audits and improves durable system, developer and agent prompts governing roles, instruction priority, tools, autonomy, safety, validation and outputs.
+- **Version:** `3.0.4`.
+- **Visibility:** public: canonical catalog skill; actual activation depends on the target host.
+- **Catalog tags:** `prompts`, `optimization`.
 
-## Когда использовать
+## When To Use
 
 Prompt creation, rewriting, consolidation, linting, evaluation, migration or conflict resolution. Not for ordinary copyediting, one-off content prompts or executing the governed task unless its controlling prompt is the requested artifact.
 
-Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.
+Before running, provide the concrete goal, source artifacts, allowed changes, constraints, and acceptance criteria. If essential information is missing, the expected first result is clarification or a safe plan, not an unverified mutation.
 
-## Полный пример команды
+## Full Command Example
 
-Иллюстративный полный вызов; адаптируйте пути, ограничения и критерии приёмки к своей задаче:
+Illustrative full invocation; adapt the paths, constraints, and acceptance criteria to your task:
 
 ```text
-/prompt-optimize Сценарий описан идентификатором и ожидаемым маршрутом в eval-корпусе.
+/prompt-optimize The scenario is described by its identifier and expected route in the eval corpus.
 ```
 
-**Ожидаемый результат:** выбирается маршрут `основной маршрут навыка`; итог перечисляет созданные или изменённые артефакты, фактически выполненные проверки, ограничения, остаточные риски и следующий шаг. Наличие файлов само по себе не считается доказательством установки, активации или публикации.
+**Expected result:** route `the skill's primary route` is selected; the result lists the created or modified artifacts, the checks actually performed, the constraints, residual risks, and the next step. The presence of files alone is not considered proof of installation, activation, or publication.
 
-## Варианты использования
+## Usage Variants
 
-- Явный вызов навыка для выполнения основного контракта из `SKILL.md`.
-- Аудит или планирование без изменения файлов, если полномочия на запись не заданы.
-- Применение разрешённых изменений с последующей проверкой результата и описанием отката.
+- Explicitly invoke the skill to execute the primary contract from `SKILL.md`.
+- Audit or planning without changing files when write authority is not granted.
+- Apply allowed changes followed by result verification and rollback description.
 
-## Ожидаемые результаты
+## Expected Results
 
-- результат соответствует заявленному контракту и явно отделяет факты от предположений;
-- изменённые артефакты перечислены, а выполненные проверки названы без выдуманных PASS-результатов;
-- ограничения, остаточные риски, состояние отката и следующий шаг указаны явно.
+- the result matches the stated contract and clearly separates facts from assumptions;
+- modified artifacts are listed, and completed checks are named without invented PASS results;
+- constraints, residual risks, rollback status, and the next step are stated explicitly.
 
-## Как проходит выполнение
+## Execution Flow
 
-1. **Select the operation.** Выполняется соответствующий этап контракта из `SKILL.md`.
-2. **Protect authority and intent.** Выполняется соответствующий этап контракта из `SKILL.md`.
-3. **Load supporting guidance.** Выполняется соответствующий этап контракта из `SKILL.md`.
-4. **Workflow.** Выполняется соответствующий этап контракта из `SKILL.md`.
-5. **Quality gates.** Выполняется соответствующий этап контракта из `SKILL.md`.
-6. **Anti-patterns.** Выполняется соответствующий этап контракта из `SKILL.md`.
+1. **Select the operation.** Execute the corresponding contract step from `SKILL.md`.
+2. **Protect authority and intent.** Execute the corresponding contract step from `SKILL.md`.
+3. **Load supporting guidance.** Execute the corresponding contract step from `SKILL.md`.
+4. **Workflow.** Execute the corresponding contract step from `SKILL.md`.
+5. **Quality gates.** Execute the corresponding contract step from `SKILL.md`.
+6. **Anti-patterns.** Execute the corresponding contract step from `SKILL.md`.
 
-## Границы и неподходящие запросы
+## Boundaries And Unsuitable Requests
 
-Навык не должен расширять полученные полномочия, скрывать пропущенные проверки, выполнять необратимые или внешние действия без явного разрешения либо заявлять состояние host только по наличию файлов.
+The skill must not expand the authority it received, hide skipped checks, perform irreversible or external actions without explicit permission, or claim host state solely from the presence of files.
 
-## Зависимости
+## Dependencies
 
-Обязательные companion-навыки в каноническом dependency-графе не объявлены. Проверяйте доступность host-инструментов и ресурсов, на которые ссылается `SKILL.md`.
+No required companion skills are declared in the canonical dependency graph. Check the availability of host tools and resources referenced by `SKILL.md`.
 
-## Ресурсы пакета
+## Package Resources
 
-- [`SKILL.md`](SKILL.md) — исполняемый контракт, маршрутизация и правила безопасности.
-- [`agents/`](agents/) — UI-метаданные и host-конфигурация.
-- [`assets/`](assets/) — шаблоны и переиспользуемые артефакты.
-- [`references/`](references/) — справочники, схемы и контракты.
-- [`scripts/`](scripts/) — детерминированные проверки и автоматизация.
+- [`SKILL.md`](SKILL.md) — executable contract, routing, and safety rules.
+- [`agents/`](agents/) — UI metadata and host configuration.
+- [`assets/`](assets/) — templates and reusable artifacts.
+- [`references/`](references/) — reference guides, schemas, and contracts.
+- [`scripts/`](scripts/) — deterministic checks and automation.
 
-## Проверка результата
+## Result Verification
 
-- Для детерминированной проверки используйте [`scripts/lint_prompt.py`](scripts/lint_prompt.py) согласно его `--help` и контракту навыка.
-- Для release-bound изменения дополнительно выполните репозиторную валидацию, полный unit-suite и проверку сгенерированных пакетов.
+- For deterministic verification, use [`scripts/lint_prompt.py`](scripts/lint_prompt.py) according to its `--help` output and the skill contract.
+- For a release-bound change, also run repository validation, the full unit suite, and generated package verification.
 
-## Формат завершения
+## Completion Format
 
-Финальный ответ должен перечислить выбранный маршрут, фактические входы и допущения, созданные или изменённые артефакты, выполненные проверки, ожидаемый результат по сценарию, запрещённые или пропущенные действия, остаточные риски, состояние отката и точный следующий шаг. Наличие файлов само по себе не доказывает установку, активацию, публикацию или готовность к production.
+The final answer must list the selected route, actual inputs and assumptions, created or modified artifacts, checks performed, the expected scenario outcome, forbidden or skipped actions, residual risks, rollback status, and the exact next step. The presence of files alone does not prove installation, activation, publication, or production readiness.
 
 <!-- generated-skill-readme:end -->

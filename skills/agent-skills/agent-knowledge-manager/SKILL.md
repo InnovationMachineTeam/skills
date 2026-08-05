@@ -2,7 +2,7 @@
 name: agent-knowledge-manager
 description: Curates provenance-bearing project knowledge and sanitized agent memory through a docs inbox, review, publication, freshness, contradiction, retrieval and retirement lifecycle, with optional Obsidian-compatible links and deterministic Graphify projections. Use when ingesting session learnings or sources, validating knowledge metadata, publishing or superseding facts and decisions, building minimal context capsules, detecting stale or conflicting knowledge, or regenerating a knowledge graph. Do not store secrets, raw chain-of-thought or live runtime state, treat similarity as truth, silently publish candidates, or deploy vector/graph infrastructure without a measured decision gate.
 metadata:
-  version: "1.0.2"
+  version: "1.0.3"
 ---
 
 # Curate Project Knowledge

@@ -1,37 +1,37 @@
-# Контекст, память и состояние
+# Context, Memory, and State
 
-## Четыре разных понятия
+## Four Different Concepts
 
-| Понятие | Горизонт | Пример |
+| Concept | Horizon | Example |
 |---|---|---|
-| Context | Один model call/run | task brief, выбранные файлы |
-| Session state | Один диалог | текущий plan, tool results |
-| Workflow state | До завершения процесса | DAG, leases, checkpoints |
-| Memory | Между runs | подтверждённые решения и learnings |
+| Context | One model call/run | task brief, selected files |
+| Session state | One dialog | current plan, tool results |
+| Workflow state | Until process completion | DAG, leases, checkpoints |
+| Memory | Across runs | confirmed decisions and learnings |
 
-Смешивание этих слоёв создаёт stale decisions, неконтролируемое разрастание
-prompt и невозможность recovery.
+Mixing these layers creates stale decisions, uncontrolled prompt growth, and
+impossible recovery.
 
-## Context engineering
+## Context Engineering
 
-Контекст — ограниченный бюджет. Формируйте его как пакет:
+Context is a limited budget. Build it as a package:
 
-1. цель и acceptance criteria;
-2. актуальные ограничения;
-3. минимальные source excerpts или ссылки;
-4. текущий state snapshot;
-5. tools и permissions;
+1. goal and acceptance criteria;
+2. current constraints;
+3. minimal source excerpts or links;
+4. current state snapshot;
+5. tools and permissions;
 6. output contract;
-7. открытые вопросы.
+7. open questions.
 
-Порядок важен: high-signal инструкции и критерии не должны тонуть в raw logs.
-Большие tool outputs обрезаются, сохраняются как артефакт и передаются ссылкой.
-GSD Pi устанавливает явный предел на переменный вывод tools как защиту от
-context overflow ([репозиторий](https://github.com/open-gsd/gsd-pi)).
+Order matters: high-signal instructions and criteria must not drown in raw
+logs. Large tool outputs are truncated, saved as an artifact, and passed by
+reference. GSD Pi sets an explicit cap on variable tool output as a safeguard
+against context overflow ([repository](https://github.com/open-gsd/gsd-pi)).
 
-## Progressive disclosure
+## Progressive Disclosure
 
-Агент сначала получает индекс и summaries, затем загружает детали по запросу:
+The agent first receives indexes and summaries, then loads details on demand:
 
 ```text
 docs/INDEX.md
@@ -40,33 +40,34 @@ docs/INDEX.md
       → code/test evidence
 ```
 
-Не загружайте весь `docs/`, всю память или все tools «на всякий случай».
-Retrieval должен учитывать scope, freshness, authority и permission.
+Do not load the entire `docs/`, all memory, or all tools "just in case."
+Retrieval should account for scope, freshness, authority, and permission.
 
-## Durable state
+## Durable State
 
-Значимое решение MUST быть записано до контекстной границы или dispatch.
-Хороший state spine содержит:
+A significant decision MUST be recorded before a context boundary or dispatch.
+A good state spine contains:
 
-- текущую цель/phase;
-- статус задач и owners;
-- принятые решения;
-- blockers и approvals;
-- ссылки на artifacts;
-- последнее доказанное состояние;
+- current goal/phase;
+- task status and owners;
+- adopted decisions;
+- blockers and approvals;
+- artifact references;
+- last proven state;
 - resume instruction.
 
-GSD Core показывает преимущество plain-text `.planning/STATE.md`; OpenSpec —
-change folders; gstack — context-save/context-restore. Общий паттерн: важное
-состояние живёт вне диалога, версионируется и читается новым контекстом.
+GSD Core demonstrates the advantage of plain-text `.planning/STATE.md`;
+OpenSpec uses change folders; gstack uses context-save/context-restore. The
+general pattern is that important state lives outside the dialog, is versioned,
+and is read by a new context.
 
-## Memory pipeline
+## Memory Pipeline
 
 ```text
 candidate → sanitize → verify → classify → approve → store → retrieve → revalidate
 ```
 
-Memory item SHOULD иметь:
+A memory item SHOULD have:
 
 ```yaml
 id: learning-checkout-timeout
@@ -83,71 +84,71 @@ sensitivity: internal
 status: candidate | approved | stale | revoked
 ```
 
-Автоматически найденная «информация» остаётся candidate до проверки. Cursor
-предупреждает, что persistent memories могут быть отравлены недоверенным input
+Automatically discovered "information" remains a candidate until verified.
+Cursor warns that persistent memories can be poisoned by untrusted input
 ([automations](https://cursor.com/docs/cloud-agent/automations)).
 
-## Что хранить
+## What to Store
 
-Храните:
+Store:
 
-- устойчивые решения с rationale;
-- подтверждённые особенности codebase;
-- повторяющиеся failure modes и fixes;
-- предпочтения пользователя с явным scope;
-- проверенные команды и runbooks;
-- итоги ретроспектив и eval regressions.
+- stable decisions with rationale;
+- confirmed codebase characteristics;
+- recurring failure modes and fixes;
+- user preferences with explicit scope;
+- verified commands and runbooks;
+- retrospective outcomes and eval regressions.
 
-Не храните:
+Do not store:
 
-- secrets и токены;
-- необработанный chain-of-thought;
-- неподтверждённые предположения как факты;
-- случайные tool outputs;
-- персональные данные без основания;
-- сведения без provenance или срока пересмотра.
+- secrets and tokens;
+- raw chain-of-thought;
+- unverified assumptions as facts;
+- random tool outputs;
+- personal data without justification;
+- information without provenance or a review deadline.
 
-## Сводка и compaction
+## Summary and Compaction
 
-Сводка MUST сохранять:
+A summary MUST preserve:
 
-- цель;
-- решения и их основания;
-- изменения и hashes;
-- проверки;
-- незавершённое и blockers;
-- следующую конкретную операцию.
+- the goal;
+- decisions and their rationale;
+- changes and hashes;
+- verifications;
+- incomplete work and blockers;
+- the next concrete operation.
 
-Она не должна быть хронологическим пересказом. Сравнивайте summary с durable
-artifacts; при расхождении источник истины — проверенный artifact/code, а не
-текст сводки.
+It must not be a chronological retelling. Compare the summary to durable
+artifacts; on conflict, the source of truth is the verified artifact/code, not
+the summary text.
 
-## Восстановление
+## Recovery
 
 Resume protocol:
 
-1. определить repo/worktree/branch;
-2. загрузить task/workflow state;
-3. проверить, что referenced commits и artifacts существуют;
-4. выявить drift с момента checkpoint;
-5. подтвердить leases и истечение approvals;
-6. восстановить только необходимый context;
-7. продолжить с первой незавершённой проверяемой операции.
+1. identify repo/worktree/branch;
+2. load task/workflow state;
+3. verify that referenced commits and artifacts exist;
+4. detect drift since the checkpoint;
+5. confirm leases and approval expiration;
+6. restore only the required context;
+7. continue with the first unfinished verifiable operation.
 
-Нельзя просто доверять строке «продолжить с шага 4» без проверки живого
-состояния.
+You cannot simply trust the line "continue from step 4" without checking live
+state.
 
-## Knowledge freshness
+## Knowledge Freshness
 
-У документа или memory item должны быть owner и обновляющий триггер:
+A document or memory item must have an owner and an update trigger:
 
-- изменение API/code path;
-- релиз;
+- API/code-path change;
+- release;
 - incident;
-- изменение policy;
-- истечение review period;
-- выявленный конфликт;
-- провал eval.
+- policy change;
+- review-period expiration;
+- detected conflict;
+- eval failure.
 
-Stale knowledge не удаляется молча: оно помечается, исключается из
-автоматического применения и отправляется владельцу на review.
+Stale knowledge is not silently deleted: it is marked, excluded from automatic
+use, and sent to the owner for review.

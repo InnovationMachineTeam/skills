@@ -1,7 +1,7 @@
 {
   "name": "agentkit",
   "displayName": "Agentkit",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Explicit composite toolkit for the version-locked individual-agent lifecycle skills",
   "skills": [
     "./skills"

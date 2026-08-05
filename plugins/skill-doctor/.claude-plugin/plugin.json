@@ -1,7 +1,7 @@
 {
   "name": "skill-doctor",
   "displayName": "Skill Doctor",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Diagnoses unhealthy, unsafe or inconsistent skills and verifies minimal repairs",
   "skills": [
     "./skills"

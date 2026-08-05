@@ -1,7 +1,7 @@
 {
   "name": "skill-best-practices",
   "displayName": "Skill Best Practices",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "Maintains an evidence-linked corpus for authoring, routing, evaluating, securing, optimizing and governing agent skills",
   "skills": [
     "./skills"

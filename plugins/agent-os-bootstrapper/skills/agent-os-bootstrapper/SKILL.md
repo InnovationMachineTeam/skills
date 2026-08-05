@@ -2,7 +2,7 @@
 name: agent-os-bootstrapper
 description: Materializes an approved Agentic OS architecture as one staged, reproducible vertical walking skeleton from authenticated request through policy, registry, durable task and lease, bounded execution, artifact verification, telemetry and terminal state. Use when an exact approved architecture and destination are ready for local bootstrap, rebuild or migration. Do not redesign planes, use production credentials, activate or roll out production, retain partial active state, or expand beyond the approved vertical slice.
 metadata:
-  version: "1.0.2"
+  version: "1.0.3"
 ---
 
 # Bootstrap an Approved Agentic OS Slice

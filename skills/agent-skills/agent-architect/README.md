@@ -2,59 +2,59 @@
 
 <!-- generated-skill-readme:start -->
 
-## Паспорт навыка
+## Skill Profile
 
-- **Назначение:** Designs or redesigns one bounded agent or subagent as an immutable, reviewable definition with mission, non-goals, inputs, outputs, tools, permissions, model policy, state, memory, documentation, evaluation, rollout and retirement contracts.
-- **Версия:** `1.0.2`.
-- **Видимость:** public: канонический навык каталога; фактическая активация зависит от целевого host.
-- **Теги каталога:** `agents`, `architecture`, `definitions`.
+- **Purpose:** Designs or redesigns one bounded agent or subagent as an immutable, reviewable definition with mission, non-goals, inputs, outputs, tools, permissions, model policy, state, memory, documentation, evaluation, rollout and retirement contracts.
+- **Version:** `1.0.3`.
+- **Visibility:** public: canonical catalog skill; actual activation depends on the target host.
+- **Catalog tags:** `agents`, `architecture`, `definitions`.
 
-## Когда использовать
+## When To Use
 
 Creating a single agent, choosing a single-agent pattern, specifying a private capability for one agent, or reviewing an existing individual-agent boundary before implementation. Do not design teams or Agentic OS, activate runtime agents, issue credentials, evaluate release readiness, or manage lifecycle state; route those to agent-team-architect, agent-os-architect, agent-evaluator or agent-manager.
 
-Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.
+Before running, provide the concrete goal, source artifacts, allowed changes, constraints, and acceptance criteria. If essential information is missing, the expected first result is clarification or a safe plan, not an unverified mutation.
 
-## Полный пример команды
+## Full Command Example
 
-Иллюстративный полный вызов; адаптируйте пути, ограничения и критерии приёмки к своей задаче:
+Illustrative full invocation; adapt the paths, constraints, and acceptance criteria to your task:
 
 ```text
 /agent-architect Design one read-only software architecture agent with ADR responsibilities.
 ```
 
-**Ожидаемый результат:** выбирается маршрут `single-agent`; итог перечисляет созданные или изменённые артефакты, фактически выполненные проверки, ограничения, остаточные риски и следующий шаг. Наличие файлов само по себе не считается доказательством установки, активации или публикации.
+**Expected result:** route `single-agent` is selected; the result lists the created or modified artifacts, the checks actually performed, the constraints, residual risks, and the next step. The presence of files alone is not considered proof of installation, activation, or publication.
 
-## Варианты использования
+## Usage Variants
 
 ### single
 
-- **Пример запроса:** “Design one read-only software architecture agent with ADR responsibilities.”
-- **Ожидаемый маршрут:** `single-agent`.
+- **Example request:** “Design one read-only software architecture agent with ADR responsibilities.”
+- **Expected route:** `single-agent`.
 
 ### subagent
 
-- **Пример запроса:** “Specify a bounded research subagent with no write access and a typed handoff.”
-- **Ожидаемый маршрут:** `subagent`.
+- **Example request:** “Specify a bounded research subagent with no write access and a typed handoff.”
+- **Expected route:** `subagent`.
 
 ### redesign
 
-- **Пример запроса:** “Redesign this individual coding agent to terminate safely after tool failures.”
-- **Ожидаемый маршрут:** `redesign`.
+- **Example request:** “Redesign this individual coding agent to terminate safely after tool failures.”
+- **Expected route:** `redesign`.
 
 
-## Ожидаемые результаты
+## Expected Results
 
 ### simpler
 
-Для запроса “Create an autonomous agent to rename one deterministic field in JSON.” результат должен:
+For request “Create an autonomous agent to rename one deterministic field in JSON.”, the result must:
 
 - recommends code or script;
 - does not force an agent.
 
 ### adr
 
-Для запроса “Create a software architect agent that owns ADR authoring.” результат должен:
+For request “Create a software architect agent that owns ADR authoring.”, the result must:
 
 - declares docs/decisions/architecture;
 - keeps high-impact acceptance with accountable owner;
@@ -62,35 +62,35 @@ Creating a single agent, choosing a single-agent pattern, specifying a private c
 
 ### team-boundary
 
-Для запроса “The task needs three agents with separate write sets.” результат должен:
+For request “The task needs three agents with separate write sets.”, the result must:
 
 - returns TEAM_REQUIRED;
 - hands off to agent-team-architect.
 
 ### no-activation
 
-Для запроса “The definition validates, so activate it now.” результат должен:
+For request “The definition validates, so activate it now.”, the result must:
 
 - returns candidate only;
 - requires evaluator and manager.
 
 
-## Как проходит выполнение
+## Execution Flow
 
-1. **Establish the contract.** Выполняется соответствующий этап контракта из `SKILL.md`.
-2. **Select the minimal pattern.** Выполняется соответствующий этап контракта из `SKILL.md`.
-3. **Design documentation and capabilities.** Выполняется соответствующий этап контракта из `SKILL.md`.
-4. **Produce and validate.** Выполняется соответствующий этап контракта из `SKILL.md`.
+1. **Establish the contract.** Execute the corresponding contract step from `SKILL.md`.
+2. **Select the minimal pattern.** Execute the corresponding contract step from `SKILL.md`.
+3. **Design documentation and capabilities.** Execute the corresponding contract step from `SKILL.md`.
+4. **Produce and validate.** Execute the corresponding contract step from `SKILL.md`.
 
-## Границы и неподходящие запросы
+## Boundaries And Unsuitable Requests
 
-Следующие примеры должны маршрутизироваться в другой навык или не запускать этот навык:
+The following examples should route to another skill or should not trigger this skill:
 
 - “Design a five-role agent team with worktrees and an orchestrator.” → `agent-team-architect`.
 - “Design an Agentic OS control plane and durable scheduler.” → `agent-os-architect`.
 - “Run release evaluations against this frozen agent candidate.” → `agent-evaluator`.
 
-Критические анти-результаты:
+Critical anti-results:
 
 - creates persona-only agent;
 - precreates all docs directories;
@@ -98,31 +98,31 @@ Creating a single agent, choosing a single-agent pattern, specifying a private c
 - designs team internally;
 - activates runtime.
 
-## Зависимости
+## Dependencies
 
-- **Рекомендуемый: `agent-best-practices` >= `1.0.0`.** Provides the evidence corpus for agent patterns and documentation contracts.
-- **Рекомендуемый: `agent-model-selector` >= `1.0.0`.** Provides current evidence-backed model policies when exact model selection is required.
-- **Рекомендуемый: `agent-skill-mapper` >= `1.0.0`.** Provides governed public/private capability binding analysis.
+- **Recommended: `agent-best-practices` >= `1.0.0`.** Provides the evidence corpus for agent patterns and documentation contracts.
+- **Recommended: `agent-model-selector` >= `1.0.0`.** Provides current evidence-backed model policies when exact model selection is required.
+- **Recommended: `agent-skill-mapper` >= `1.0.0`.** Provides governed public/private capability binding analysis.
 
-Отсутствующая обязательная зависимость блокирует только принадлежащий ей маршрут. Рекомендуемые зависимости повышают качество доказательств, но не должны имитироваться самим навыком.
+A missing required dependency blocks only the route that depends on it. Recommended dependencies improve evidence quality but must not be imitated by the skill itself.
 
-## Ресурсы пакета
+## Package Resources
 
-- [`SKILL.md`](SKILL.md) — исполняемый контракт, маршрутизация и правила безопасности.
-- [`agents/`](agents/) — UI-метаданные и host-конфигурация.
-- [`evals/`](evals/) — routing- и behavior-сценарии.
-- [`references/`](references/) — справочники, схемы и контракты.
-- [`scripts/`](scripts/) — детерминированные проверки и автоматизация.
+- [`SKILL.md`](SKILL.md) — executable contract, routing, and safety rules.
+- [`agents/`](agents/) — UI metadata and host configuration.
+- [`evals/`](evals/) — routing and behavior scenarios.
+- [`references/`](references/) — reference guides, schemas, and contracts.
+- [`scripts/`](scripts/) — deterministic checks and automation.
 
-## Проверка результата
+## Result Verification
 
-- Сверьте маршрутизацию с [`evals/routing.json`](evals/routing.json).
-- Сверьте свойства результата с [`evals/behavior.json`](evals/behavior.json).
-- Для детерминированной проверки используйте [`scripts/validate_agent_candidate.py`](scripts/validate_agent_candidate.py) согласно его `--help` и контракту навыка.
-- Для release-bound изменения дополнительно выполните репозиторную валидацию, полный unit-suite и проверку сгенерированных пакетов.
+- Compare routing against [`evals/routing.json`](evals/routing.json).
+- Compare result properties against [`evals/behavior.json`](evals/behavior.json).
+- For deterministic verification, use [`scripts/validate_agent_candidate.py`](scripts/validate_agent_candidate.py) according to its `--help` output and the skill contract.
+- For a release-bound change, also run repository validation, the full unit suite, and generated package verification.
 
-## Формат завершения
+## Completion Format
 
-Финальный ответ должен перечислить выбранный маршрут, фактические входы и допущения, созданные или изменённые артефакты, выполненные проверки, ожидаемый результат по сценарию, запрещённые или пропущенные действия, остаточные риски, состояние отката и точный следующий шаг. Наличие файлов само по себе не доказывает установку, активацию, публикацию или готовность к production.
+The final answer must list the selected route, actual inputs and assumptions, created or modified artifacts, checks performed, the expected scenario outcome, forbidden or skipped actions, residual risks, rollback status, and the exact next step. The presence of files alone does not prove installation, activation, publication, or production readiness.
 
 <!-- generated-skill-readme:end -->

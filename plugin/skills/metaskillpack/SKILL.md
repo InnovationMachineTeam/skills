@@ -2,7 +2,7 @@
 name: metaskillpack
 description: Provides a self-contained, explicitly invoked toolkit for creating, discovering, researching, optimizing, diagnosing, governing, harvesting, refactoring, evaluating, packaging, and orchestrating agent skills through isolated snapshots of the InnovationMachine metaskills. Use only when the user names $metaskillpack, writes `metaskillpack MODE`, asks to use the packaged metaskill toolkit, or requests its status or upgrade. Do not claim generic specialist requests; prefer the individually installed skill unless this package is explicitly selected. Check donor versions without changing donor skills, load only the chosen mode, and stage upgrades safely.
 metadata:
-  version: "1.5.1"
+  version: "1.5.2"
 ---
 
 # Run the Metaskill Toolkit

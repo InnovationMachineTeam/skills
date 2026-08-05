@@ -2,7 +2,7 @@
 name: skill-builder
 description: Orchestrates evidence-backed, multi-stage skill creation, adoption, evaluation, repair, optimization, refactoring, migration and governance through specialist skills. Use for end-to-end skill lifecycle requests or mixed inputs requiring a resumable specialist sequence. Prefer a direct specialist for one bounded phase. Do not replace specialist judgment or install, publish, activate, migrate or retire skills without authority.
 metadata:
-  version: "1.5.0"
+  version: "1.5.1"
 ---
 
 # Orchestrate Skill Building

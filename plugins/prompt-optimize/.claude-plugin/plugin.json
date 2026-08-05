@@ -1,7 +1,7 @@
 {
   "name": "prompt-optimize",
   "displayName": "Prompt Optimize",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "description": "Designs, audits and improves durable system, developer and agent prompts governing roles, instruction priority, tools, autonomy, safety, validation and outputs",
   "skills": [
     "./skills"

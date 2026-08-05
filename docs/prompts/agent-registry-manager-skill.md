@@ -1,7 +1,7 @@
-# Мастер-промпт навыка `agent-registry-manager`
+# Master Prompt For The `agent-registry-manager` Skill
 
-Применяй после [agent-os-base.md](agent-os-base.md). Создай control-plane skill
-для typed desired-state registries of agents, skills, commands, workflows,
+Apply after [agent-os-base.md](agent-os-base.md). Create a control-plane skill
+for typed desired-state registries of agents, skills, commands, workflows,
 teams, tools, models and policies.
 
 Implement stable IDs, discriminated kinds, SemVer/revision strategy, content

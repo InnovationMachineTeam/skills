@@ -69,7 +69,7 @@ def main() -> int:
             repository_url=distribution["repository_url"],
             license_name=distribution["license"],
             codex_category=distribution["codex_category"],
-            keywords=["agent-skills", category, *item.get("tags", [])],
+            keywords=item.get("keywords", ["agent-skills", category, *item.get("tags", [])]),
             skill_names=[name],
             dependencies=dependency_payload,
             marketplace_name=release["marketplace"]["name"],

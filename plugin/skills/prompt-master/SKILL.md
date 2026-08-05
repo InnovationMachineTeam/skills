@@ -2,7 +2,7 @@
 name: prompt-master
 description: Builds versioned prompt packages by reconstructing, generalizing, specializing, merging, decomposing, auditing or optimizing durable prompts. Use for prompt-master, functional reconstruction from outputs, multi-prompt composition, or complete Compact, Standard or Production packages. Use prompt-optimize for one bounded rewrite or audit. Do not execute the governed task or claim exact recovery of unknown hidden instructions.
 metadata:
-  version: "1.1.0"
+  version: "1.1.1"
 ---
 
 # Build Evidence-Backed Prompt Packages

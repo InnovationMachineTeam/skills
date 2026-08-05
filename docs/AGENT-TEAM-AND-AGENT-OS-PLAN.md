@@ -1,68 +1,69 @@
-# Единый план: команды агентов, skills mapping и Agent OS
+# Unified Plan: Agent Teams, Skills Mapping, and Agent OS
 
-Статус: **implemented — phases 0–8 completed**
+Status: **implemented - phases 0-8 completed**
 
-Дата: **2026-07-31**
+Date: **2026-07-31**
 
 Scope: agent-oriented skills, project-local `.agents`, registries, team workflows,
-model selection, docs/memory и Agentic OS.
+model selection, docs/memory, and Agentic OS.
 
-Результат реализации выпущен в marketplace `3.2.0`; stable individual-agent
-portfolio и `agentkit@1.0.0` завершены в `3.3.0`. Исторические proposed/approved
-формулировки ниже сохранены как rationale. Текущий пользовательский workflow и
-конкретные сценарии находятся в [ONBOARDING.md](ONBOARDING.md) и
-[use-cases/](use-cases/README.md).
+The implementation outcome was released in marketplace `3.2.0`; the stable
+individual-agent portfolio and `agentkit@1.0.0` were completed in `3.3.0`. The
+historical proposed/approved wording below is preserved as rationale. The
+current user workflow and concrete scenarios are documented in
+[ONBOARDING.md](ONBOARDING.md) and [use-cases/](use-cases/README.md).
 
-## 1. Решения, предлагаемые на ревью
+## 1. Decisions Proposed for Review
 
-1. Создать `agent-team-manager`, `agent-team-builder`,
-   `agent-team-orchestrator` и `agent-skill-mapper`, но развести их decision
-   rights и mutation boundaries.
-2. Добавить `agent-team-architect`: без отдельного design owner manager или
-   builder неизбежно станет mega-skill.
-3. Не создавать `agent-harvester` на первом этапе. Расширить `agent-context` и
-   использовать `skill-harvester` для generic source intake.
-4. Использовать JSON как canonical asset registry/map, JSON Schema для validation и
-   генерировать Markdown-представления для людей, LLM Wiki и Obsidian.
-5. Хранить project-local definitions, teams, workflows, prompts и skills в
-   `.agents/`; не хранить там secrets и durable runtime history.
-6. Рассматривать `docs/` как curated knowledge/documentation plane, но не как
-   единственное runtime state или автоматически доверенную память.
-7. Ввести `agent-model-selector`: model assignment является проверяемым design
-   decision, а не свободным полем автора.
-8. Разложить Agent OS на несколько plane-oriented skills и master prompts, а не
-   создавать один всемогущий `agent-os` skill.
-9. Сначала создать schemas, validators и read-only inventory; только потом
-   разрешить builders/mappers менять agent definitions.
-10. Изменения существующих metaskills выполнять отдельными кандидатами с
-    SemVer, evals, generated rebuild и rollback.
-11. Использовать `docs/AGENT-ASSET-REGISTRY.json` как canonical discriminated
-    registry для agents, skills, commands, workflows и teams. Старое имя
-    `AGENT-SKILLS-REGISTRY` не создавать как второй source of truth.
-12. Private command наследует версию agent definition и имеет собственные
-    revision/content hash; private/public skill сохраняет собственный SemVer.
-13. `owner_agent_ref` задаёт technical consumer, а `accountable_owner` —
-    ответственного человека или команду; agent не является governance owner.
+1. Create `agent-team-manager`, `agent-team-builder`,
+   `agent-team-orchestrator`, and `agent-skill-mapper`, but separate their
+   decision rights and mutation boundaries.
+2. Add `agent-team-architect`: without a separate design owner, the manager or
+   builder will inevitably become a mega-skill.
+3. Do not create `agent-harvester` in the first stage. Extend `agent-context`
+   and use `skill-harvester` for generic source intake.
+4. Use JSON as the canonical asset registry/map, use JSON Schema for validation,
+   and generate Markdown views for humans, an LLM Wiki, and Obsidian.
+5. Store project-local definitions, teams, workflows, prompts, and skills in
+   `.agents/`; do not store secrets or durable runtime history there.
+6. Treat `docs/` as a curated knowledge/documentation plane, but not as the
+   only runtime state or automatically trusted memory.
+7. Introduce `agent-model-selector`: model assignment is a reviewable design
+   decision, not a free-form author field.
+8. Decompose Agent OS into multiple plane-oriented skills and master prompts,
+   rather than creating a single all-powerful `agent-os` skill.
+9. Create schemas, validators, and read-only inventory first; only then allow
+   builders/mappers to mutate agent definitions.
+10. Make changes to existing metaskills as separate candidates with SemVer,
+    evals, generated rebuilds, and rollback.
+11. Use `docs/AGENT-ASSET-REGISTRY.json` as the canonical discriminated
+    registry for agents, skills, commands, workflows, and teams. Do not create
+    the old name `AGENT-SKILLS-REGISTRY` as a second source of truth.
+12. A private command inherits the version of the agent definition and has its
+    own revision/content hash; a private/public skill retains its own SemVer.
+13. `owner_agent_ref` defines the technical consumer, while
+    `accountable_owner` defines the responsible person or team; an agent is not
+    a governance owner.
 
-## 2. Текущее состояние
+## 2. Current State
 
-- `.agents/` содержит Codex marketplace manifest и локальные инструкции; project
-  agent definitions в этом repository пока не активированы.
-- `skills-lock.json` в repository сейчас отсутствует; любые skills-lock formats
-  должны discover/validate, а не предполагаться.
-- `docs/AGENT-ASSET-REGISTRY.*` и `docs/AGENT-SKILLS-MAP.*` реализованы как
-  canonical JSON + generated Markdown review views.
-- Agent best-practices corpus существует в
+- `.agents/` contains the Codex marketplace manifest and local instructions;
+  project agent definitions in this repository are not yet activated.
+- `skills-lock.json` is currently absent from the repository; any skills-lock
+  formats must be discovered/validated, not assumed.
+- `docs/AGENT-ASSET-REGISTRY.*` and `docs/AGENT-SKILLS-MAP.*` are implemented
+  as canonical JSON plus generated Markdown review views.
+- The agent best-practices corpus exists in
   `skills/agent-skills/agent-best-practices/best-practices/`.
-- Общий base и master prompts для agent-oriented skills существуют в
+- Shared base and master prompts for agent-oriented skills exist in
   `docs/prompts/`.
-- Canonical skills находятся в одном уровне категорий под `skills/`; generated
-  plugin trees редактировать напрямую нельзя.
+- Canonical skills live in a single category level under `skills/`; generated
+  plugin trees must not be edited directly.
 
-Следствие: первый implementation slice — contracts и read-only discovery, а не
-автоматическое создание команды.
+Consequence: the first implementation slice is contracts and read-only
+discovery, not automatic team creation.
 
-## 3. Целевая модель
+## 3. Target Model
 
 ```mermaid
 flowchart TD
@@ -86,61 +87,62 @@ flowchart TD
     OBS --> TM
 ```
 
-`agent-team-manager` является control-plane facade и lifecycle coordinator. Он
-может довести end-to-end запрос до результата через specialists, но не
-реализует их работу внутри себя.
+`agent-team-manager` is the control-plane facade and lifecycle coordinator. It
+may carry an end-to-end request through to completion via specialists, but it
+does not implement their work internally.
 
-### 3.1 Оптимизация роста skills: public и agent-private capabilities
+### 3.1 Optimizing Skill Growth: Public and Agent-Private Capabilities
 
-Решение: принять идею с уточнением semantics. `private` означает
-**agent-scoped discovery и binding**, но не secrecy. Процесс с filesystem access
-может прочитать файл; confidentiality обеспечивают repository ACL, sandbox,
-runtime identity/policy и раздельные credentials.
+Decision: adopt the idea with clarified semantics. `private` means
+**agent-scoped discovery and binding**, not secrecy. A process with filesystem
+access can read the file; confidentiality is enforced by repository ACLs,
+sandboxing, runtime identity/policy, and separate credentials.
 
-Visibility — отдельный profile поверх primary archetype, а не новый тип skill.
-Перед созданием каждого capability применяется placement gate:
+Visibility is a separate profile layered on top of the primary archetype, not a
+new skill type. Before creating each capability, apply the placement gate:
 
-| Decision | Критерий |
+| Decision | Criterion |
 |---|---|
-| `INLINE` | короткое stable правило без resources, tests и lifecycle |
-| `PRIVATE_COMMAND` | один agent, narrow named action/template |
-| `PRIVATE_SKILL` | один agent, reusable multi-step capability с resources/scripts/evals |
-| `PUBLIC_SKILL` | два independent consumers или independent owner/contract/release lifecycle |
-| `TOOL_SCRIPT` | deterministic execution — главный constraint |
-| `WORKFLOW` | durable stages/state/coordination — главный constraint |
-| `USE_EXISTING`/`REJECT` | duplication или insufficient value |
+| `INLINE` | short stable rule without resources, tests, or lifecycle |
+| `PRIVATE_COMMAND` | one agent, narrow named action/template |
+| `PRIVATE_SKILL` | one agent, reusable multi-step capability with resources/scripts/evals |
+| `PUBLIC_SKILL` | two independent consumers or an independent owner/contract/release lifecycle |
+| `TOOL_SCRIPT` | deterministic execution is the primary constraint |
+| `WORKFLOW` | durable stages/state/coordination is the primary constraint |
+| `USE_EXISTING`/`REJECT` | duplication or insufficient value |
 
-Это предотвращает uncontrolled public skill sprawl и разрастание непрозрачных
-mega-prompts внутри agents. Private skill сохраняет identity, SemVer, evals и
-registry entry; private command имеет облегчённый contract и регистрируется как
-owned agent asset.
+This prevents uncontrolled public skill sprawl and the growth of opaque
+mega-prompts inside agents. A private skill retains identity, SemVer, evals,
+and a registry entry; a private command has a lightweight contract and is
+registered as an owned agent asset.
 
-Promotion `private → public` выполняется при появлении второго independent
-consumer либо самостоятельного lifecycle. Demotion `public → private` допустим
-только после consumer inventory, доказавшего одного remaining owner. Обе
-операции являются topology migrations через `skill-refactor`, а не folder move.
+Promotion `private -> public` occurs when a second independent consumer or an
+independent lifecycle appears. Demotion `public -> private` is allowed only
+after consumer inventory proves a single remaining owner. Both operations are
+topology migrations through `skill-refactor`, not folder moves.
 
-## 4. Границы новых навыков
+## 4. Boundaries of the New Skills
 
-### 4.1 `agent-team-architect` — добавить
+### 4.1 `agent-team-architect` - add
 
 Primary archetype: orchestration/design workflow.
 
-Ответственность:
+Responsibilities:
 
-- анализировать goal, codebase, documents, data, constraints и risk;
-- построить capability/task graph;
-- решить, где нужен code/workflow, agent, subagent, orchestrator или human;
-- определить roles, mission, non-goals, tools, permissions, context, state;
-- выбрать topology, communication, handoff и independent verification;
-- выбрать sequential/parallel/DAG/dynamic workflow;
-- определить worktree/write-set strategy;
-- запросить model recommendation у `agent-model-selector`;
-- запросить skill bindings у `agent-skill-mapper`;
-- создать immutable `AGENT-TEAM-SPEC.json` и human-readable plan.
+- analyze the goal, codebase, documents, data, constraints, and risk;
+- build the capability/task graph;
+- decide where code/workflow, an agent, a subagent, an orchestrator, or a
+  human is needed;
+- define roles, mission, non-goals, tools, permissions, context, and state;
+- choose topology, communication, handoff, and independent verification;
+- choose a sequential/parallel/DAG/dynamic workflow;
+- define the worktree/write-set strategy;
+- request a model recommendation from `agent-model-selector`;
+- request skill bindings from `agent-skill-mapper`;
+- create an immutable `AGENT-TEAM-SPEC.json` and a human-readable plan.
 
-Не создаёт `.agents` и не запускает team. Design change после approval создаёт
-новую spec revision.
+It does not create `.agents` and does not launch the team. A design change
+after approval creates a new spec revision.
 
 ### 4.2 `agent-team-manager`
 
@@ -148,73 +150,73 @@ Primary archetype: meta/router + lifecycle orchestration.
 
 Modes:
 
-- `assess` — worth, inventory и readiness;
-- `design` — dispatch `agent-team-architect`;
-- `build` — dispatch `agent-team-builder` после approval;
-- `map-skills` — dispatch `agent-skill-mapper`;
-- `evaluate` — dispatch evaluator;
-- `activate/suspend/retire` — dispatch lifecycle manager;
-- `run` — dispatch `agent-team-orchestrator`;
-- `audit/reconcile` — registry, definitions, mappings и observed state;
-- `resume` — восстановить phase ledger и drift check.
+- `assess` - worth, inventory, and readiness;
+- `design` - dispatch `agent-team-architect`;
+- `build` - dispatch `agent-team-builder` after approval;
+- `map-skills` - dispatch `agent-skill-mapper`;
+- `evaluate` - dispatch evaluator;
+- `activate/suspend/retire` - dispatch lifecycle manager;
+- `run` - dispatch `agent-team-orchestrator`;
+- `audit/reconcile` - registry, definitions, mappings, and observed state;
+- `resume` - restore the phase ledger and run a drift check.
 
-Общий flow:
+Overall flow:
 
-1. Resolve outcome, exact sources, authority и destination.
-2. Inventory existing agents, skills, locks, workflows и docs.
-3. `agent-scout` проверяет необходимость agents/roles.
-4. `skill-scout` проверяет необходимость новых skills.
-5. `agent-context`/`skill-harvester` заполняют evidence gaps.
-6. Architect создаёт team spec и alternative workflows.
-7. Manager показывает варианты, модели, worktrees, mutations и risks.
-8. После выбора builder создаёт staged project-local artifacts.
-9. Evaluator проверяет definitions, routing, delegation, safety и E2E.
-10. Manager обновляет lifecycle state только после approval/evidence.
+1. Resolve the outcome, exact sources, authority, and destination.
+2. Inventory existing agents, skills, locks, workflows, and docs.
+3. `agent-scout` checks whether agents/roles are necessary.
+4. `skill-scout` checks whether new skills are necessary.
+5. `agent-context`/`skill-harvester` fill evidence gaps.
+6. The architect creates the team spec and alternative workflows.
+7. The manager presents options, models, worktrees, mutations, and risks.
+8. After selection, the builder creates staged project-local artifacts.
+9. The evaluator verifies definitions, routing, delegation, safety, and E2E.
+10. The manager updates lifecycle state only after approval/evidence.
 
-Manager не изменяет active definitions одновременно с evaluation и не запускает
-команду по одному факту создания файлов.
+The manager does not mutate active definitions at the same time as evaluation
+and does not launch the team merely because files were created.
 
 ### 4.3 `agent-team-builder`
 
 Primary archetype: artifact/template + script-backed workflow.
 
-Вход: approved, versioned `AGENT-TEAM-SPEC.json`.
+Input: approved, versioned `AGENT-TEAM-SPEC.json`.
 
-Ответственность:
+Responsibilities:
 
-- создать staged `.agents` tree;
-- вызвать `agent-architect` для role/agent master prompts и definitions;
-- вызвать `skill-architect` для отсутствующих project-local skills;
-- создать orchestrator/team/workflow prompts;
-- создать Agent OS prompt только если spec требует platform layer;
-- materialize model policies и skill bindings;
-- создать/update canonical registry/map кандидаты атомарно;
-- запустить schemas, official validators и package evals;
-- вернуть diff, artifacts, evidence и rollback.
+- create a staged `.agents` tree;
+- call `agent-architect` for role/agent master prompts and definitions;
+- call `skill-architect` for missing project-local skills;
+- create orchestrator/team/workflow prompts;
+- create an Agent OS prompt only if the spec requires a platform layer;
+- materialize model policies and skill bindings;
+- create/update canonical registry/map candidates atomically;
+- run schemas, official validators, and package evals;
+- return the diff, artifacts, evidence, and rollback.
 
-Builder не принимает решение, нужна ли команда, не выбирает topology заново и
-не активирует built agents.
+The builder does not decide whether a team is needed, does not reselect the
+topology, and does not activate built agents.
 
 ### 4.4 `agent-team-orchestrator`
 
 Primary archetype: runtime orchestration.
 
-Вход: approved team/version, task envelope, authority и budgets.
+Input: approved team/version, task envelope, authority, and budgets.
 
-Ответственность:
+Responsibilities:
 
-- классифицировать task относительно team capabilities;
-- предложить 2–4 viable workflows при существенном design choice;
-- построить task DAG, dependencies, owners и exit gates;
-- выбрать sequential/parallel/fork–join/worktree execution;
-- dispatch agents/subagents с minimal context capsules;
-- управлять leases, budgets, checkpoints, retries и cancellation;
-- интегрировать результаты через independent verifier;
-- вести run state и evidence;
-- завершать, эскалировать или безопасно останавливать run.
+- classify the task against team capabilities;
+- propose 2-4 viable workflows when there is a significant design choice;
+- build the task DAG, dependencies, owners, and exit gates;
+- choose sequential/parallel/fork-join/worktree execution;
+- dispatch agents/subagents with minimal context capsules;
+- manage leases, budgets, checkpoints, retries, and cancellation;
+- integrate outcomes through an independent verifier;
+- maintain run state and evidence;
+- complete, escalate, or safely stop the run.
 
-Не меняет static team/agent/skill definitions во время run. Improvement signal
-идёт manager/doctor/optimizer как новый candidate change.
+It does not mutate static team/agent/skill definitions during a run.
+Improvement signals go to manager/doctor/optimizer as a new candidate change.
 
 ### 4.5 `agent-skill-mapper`
 
@@ -222,92 +224,94 @@ Primary archetype: evaluation/tool integration.
 
 Modes:
 
-- `inventory` — read-only agents/skills/locks/registry;
-- `recommend` — candidate mappings с evidence;
-- `apply` — staged agent/map updates после approval;
-- `verify` — host discovery и functional binding;
-- `reconcile` — drift, missing/unknown/incompatible bindings;
-- `unmap/migrate` — consumer-safe removal/replacement.
+- `inventory` - read-only agents/skills/locks/registry;
+- `recommend` - candidate mappings with evidence;
+- `apply` - staged agent/map updates after approval;
+- `verify` - host discovery and functional binding;
+- `reconcile` - drift, missing/unknown/incompatible bindings;
+- `unmap/migrate` - consumer-safe removal/replacement.
 
-Источники:
+Sources:
 
 - registered project agents;
 - `.agents` definitions;
 - canonical skill registry;
-- `skills-lock.json`, если он существует и schema известна;
+- `skills-lock.json`, if it exists and its schema is known;
 - project-created skills;
-- installed/discoverable skills target host;
+- installed/discoverable target-host skills;
 - marketplace/lock/provenance metadata;
 - behavior/routing/security eval evidence.
 
-Matching учитывает capability, positive/negative triggers, input/output schemas,
+Matching considers capability, positive/negative triggers, input/output schemas,
 host compatibility, versions, tools, permissions, data policy, risk, context
-cost, owner и eval status. Semantic similarity или имя skill недостаточны.
+cost, owner, and eval status. Semantic similarity or a skill name alone is not
+sufficient.
 
 Mutation rules:
 
-1. Show candidate mapping and exact agent diff.
-2. Verify skill provenance, version, availability и trust state.
+1. Show the candidate mapping and exact agent diff.
+2. Verify skill provenance, version, availability, and trust state.
 3. Obtain mutation authority.
-4. Update canonical map and generated agent bindings in one staged candidate.
-5. Bump affected agent version.
-6. Run routing, coexistence, authority и E2E evals.
-7. Update registry version/hash after pass.
-8. Never install missing skill by implication; hand off to `skill-manager`.
+4. Update the canonical map and generated agent bindings in one staged
+   candidate.
+5. Bump the affected agent version.
+6. Run routing, coexistence, authority, and E2E evals.
+7. Update the registry version/hash after pass.
+8. Never install a missing skill by implication; hand off to `skill-manager`.
 
-### 4.6 `agent-model-selector` — добавить как обязательный dependency
+### 4.6 `agent-model-selector` - add as a required dependency
 
 Primary archetype: evaluation/router.
 
-Ответственность:
+Responsibilities:
 
-- discover current host/provider model catalog;
+- discover the current host/provider model catalog;
 - derive capability constraints for each role/task;
-- create representative task set and safety/latency/cost floors;
+- create a representative task set and safety/latency/cost floors;
 - evaluate candidate models and reasoning/effort settings;
-- recommend fixed, tiered or routed model policy;
-- record version/snapshot, evidence, fallback и review date;
-- trigger re-evaluation on deprecation, behavior drift or task change.
+- recommend a fixed, tiered, or routed model policy;
+- record version/snapshot, evidence, fallback, and review date;
+- trigger re-evaluation on deprecation, behavior drift, or task change.
 
-Model selector не меняет model assignment in-place; builder/manager applies an
-approved policy and bumps the agent version.
+The model selector does not change model assignment in place; builder/manager
+applies an approved policy and bumps the agent version.
 
-### 4.7 `agent-workspace-manager` — рекомендуется
+### 4.7 `agent-workspace-manager` - recommended
 
-Отдельный script-backed skill нужен, если команды регулярно выполняют
-параллельные code changes.
+A separate script-backed skill is required if teams regularly execute parallel
+code changes.
 
-Ответственность:
+Responsibilities:
 
-- worktree inventory и collision check;
-- create/assign worktree to exact task/write-set;
-- verify base revision и branch policy;
-- heartbeat/status и orphan detection;
+- worktree inventory and collision check;
+- create/assign a worktree to an exact task/write-set;
+- verify base revision and branch policy;
+- heartbeat/status and orphan detection;
 - integration handoff;
-- safe cleanup после merge/abandonment.
+- safe cleanup after merge/abandonment.
 
-Worktree не является security boundary и не нужен для read-only research,
-непересекающихся artifacts вне Git или короткой single-agent задачи.
+A worktree is not a security boundary and is unnecessary for read-only
+research, non-overlapping artifacts outside Git, or a short single-agent task.
 
-### 4.8 `agent-knowledge-manager` — рекомендуется
+### 4.8 `agent-knowledge-manager` - recommended
 
-Владеет curated docs/memory plane, provenance, freshness, Graphify и optional
-indexes. Не является runtime conversation memory и не разрешает всем agents
-перезаписывать knowledge base.
+Owns the curated docs/memory plane, provenance, freshness, Graphify, and
+optional indexes. It is not runtime conversation memory and does not allow all
+agents to overwrite the knowledge base.
 
-## 5. Решение по `agent-harvester`
+## 5. Decision on `agent-harvester`
 
-**Не создавать сейчас.**
+**Do not create it now.**
 
-Причины:
+Reasons:
 
-- `skill-harvester` уже умеет repository/document/session/trace intake;
-- созданный master prompt `agent-context` покрывает agent definitions, policies,
-  traces, runbooks, pairwise comparison и external intake;
-- отдельный harvester создаст overlap по triggers, inbox и provenance;
-- downstream output всё равно должен пройти architect/evaluator.
+- `skill-harvester` already supports repository/document/session/trace intake;
+- the created master prompt `agent-context` covers agent definitions, policies,
+  traces, runbooks, pairwise comparison, and external intake;
+- a separate harvester would create overlap in triggers, inbox, and provenance;
+- downstream output still must pass through architect/evaluator.
 
-В `agent-context` следует добавить routes:
+The following routes should be added to `agent-context`:
 
 - `external-agent-intake`;
 - `agent-pattern-harvest`;
@@ -315,19 +319,19 @@ indexes. Не является runtime conversation memory и не разреш�
 - `team-context-build`;
 - `agent-pairwise-comparison`.
 
-Пересмотреть решение после двух условий одновременно:
+Revisit this decision only after both conditions are met:
 
-1. Не менее трёх recurring workflows требуют извлекать reusable agent
-   components из чужих agent ecosystems.
-2. Выход отличается от `AGENT_CONTEXT.md`: нужен versioned component manifest,
-   license/supply-chain review и downstream packaging.
+1. At least three recurring workflows need to extract reusable agent
+   components from external agent ecosystems.
+2. The output differs from `AGENT_CONTEXT.md`: a versioned component manifest,
+   license/supply-chain review, and downstream packaging are required.
 
-Тогда `agent-harvester` может отвечать именно за reusable component intake, а
-`agent-context` — за evidence context конкретного решения.
+Then `agent-harvester` may own reusable component intake specifically, while
+`agent-context` owns the evidence context of a particular decision.
 
-## 6. Registry и mapping format
+## 6. Registry and Mapping Format
 
-### 6.1 Решение о формате
+### 6.1 Format decision
 
 Canonical:
 
@@ -346,16 +350,16 @@ Schemas:
 - `docs/schemas/agent-team-spec.schema.json`;
 - `docs/schemas/agent-definition.schema.json`.
 
-Почему не Markdown-only: таблицы не дают строгих types, uniqueness,
-referential integrity и atomic validation. Почему не YAML canonical: удобство
-ручного редактирования не компенсирует неоднозначные scalar types, anchors и
-различия parsers. JSON остаётся portable и хорошо валидируется; Markdown
-генерируется для Obsidian/GitHub.
+Why not Markdown-only: tables do not provide strict types, uniqueness,
+referential integrity, or atomic validation. Why not YAML as canonical: the
+convenience of manual editing does not offset ambiguous scalar types, anchors,
+and parser differences. JSON remains portable and validates well; Markdown is
+generated for Obsidian/GitHub.
 
 ### 6.2 Registry contract
 
-Asset registry хранит typed inventory и lifecycle, а не runtime state. Stable
-ID не зависит от locator; file move не меняет identity:
+The asset registry stores typed inventory and lifecycle, not runtime state. A
+stable ID does not depend on a locator; a file move does not change identity:
 
 ```json
 {
@@ -420,18 +424,19 @@ ID не зависит от locator; file move не меняет identity:
 }
 ```
 
-Discovered unregistered asset добавляется как candidate/unreviewed только в
-staged inventory; обнаружение не означает trust, assignment или activation.
+A discovered unregistered asset is added as candidate/unreviewed only in staged
+inventory; discovery does not imply trust, assignment, or activation.
 
-Для private skill/command `owner_agent_ref` обязателен, `allowed_consumers` включает
-owner, locator находится внутри canonical agent-private root, а
-`discoverability` равен `agent_scoped`. Validator запрещает public entry в
-private root и private binding для неразрешённого agent.
+For a private skill/command, `owner_agent_ref` is required,
+`allowed_consumers` includes the owner, the locator is inside the canonical
+agent-private root, and `discoverability` is `agent_scoped`. The validator
+forbids a public entry in a private root and a private binding for an
+unauthorized agent.
 
 ### 6.3 Mapping contract
 
-Map — canonical binding source. Host adapters render embedded skill lists from
-него; вручную поддерживать две независимые maps запрещено.
+The map is the canonical binding source. Host adapters render embedded skill
+lists from it; manually maintaining two independent maps is forbidden.
 
 ```json
 {
@@ -454,23 +459,24 @@ Map — canonical binding source. Host adapters render embedded skill lists from
 }
 ```
 
-Validator проверяет uniqueness, agent/skill references, compatible versions,
-status, cycles, unavailable required skill, permission escalation и parity с
-generated host bindings.
+The validator checks uniqueness, agent/skill references, compatible versions,
+status, cycles, unavailable required skills, permission escalation, and parity
+with generated host bindings.
 
-### 6.4 Version policy при skill mapping
+### 6.4 Version policy for skill mapping
 
-- **Patch**: исправлен non-functional metadata/description, runtime binding не
-  изменился.
-- **Minor**: добавлен backward-compatible optional/required capability без
-  изменения mission/input/output/authority; behavior evals обязательны.
-- **Major**: удалён/replaced required skill, изменены mission, contracts,
-  permissions, data classes, state ownership или compatibility.
-- Mapping revision увеличивается при любом изменении map.
-- Registry agent entry обновляется только вместе с definition hash и candidate
-  evidence; version нельзя увеличить без реального artifact change.
+- **Patch**: non-functional metadata/description was fixed; the runtime binding
+  did not change.
+- **Minor**: a backward-compatible optional/required capability was added
+  without changing mission/input/output/authority; behavior evals are required.
+- **Major**: a required skill was removed/replaced, or mission, contracts,
+  permissions, data classes, state ownership, or compatibility changed.
+- The mapping revision increments on every map change.
+- The registry agent entry updates only together with the definition hash and
+  candidate evidence; the version must not increment without a real artifact
+  change.
 
-## 7. Целевая `.agents` структура
+## 7. Target `.agents` Structure
 
 ```text
 .agents/
@@ -501,38 +507,39 @@ Rules:
 
 - `.agents/definitions`, `teams`, `workflows`, `skills`, `prompts`, `policies`
   are version-controlled procedural assets.
-- `.agents/state` contains runs, leases, heartbeats, worktree assignments and
+- `.agents/state` contains runs, leases, heartbeats, worktree assignments, and
   checkpoints; secrets are external, and retention is explicit.
-- `AGENTS.md` remains repository instruction surface, not a substitute for agent
-  definitions or registry.
+- `AGENTS.md` remains the repository instruction surface, not a substitute for
+  agent definitions or the registry.
 - Platform-specific file names/locations are adapters and MUST be verified
   against current host docs before generation.
-- Generated projections contain source/hash headers and are not manually edited.
+- Generated projections contain source/hash headers and are not edited
+  manually.
 - Global loaders scan only approved public roots. Runtime attaches an agent's
-  private root after identity/policy resolution; wildcard scan of
+  private root after identity/policy resolution; wildcard scanning of
   `definitions/*/skills` is forbidden.
 - Every public/private skill and private command is registered. Path placement
-  is evidence, while registry plus observed loader behavior form the enforced
-  contract.
+  is evidence, while the registry plus observed loader behavior form the
+  enforced contract.
 
-## 8. Model recommendation policy
+## 8. Model Recommendation Policy
 
-### 8.1 Основной принцип
+### 8.1 Core principle
 
-Назначать не «самую умную» модель, а минимальную модель/configuration, которая
-стабильно проходит role-specific quality и safety floors. Official guidance
-также рекомендует соотносить capability, latency и cost и использовать smaller
-models для простых high-volume subtasks
+Do not assign the "smartest" model; assign the minimal model/configuration that
+consistently passes role-specific quality and safety floors. Official guidance
+also recommends matching capability, latency, and cost, and using smaller
+models for simple high-volume subtasks
 ([OpenAI models](https://developers.openai.com/api/docs/models),
 [Anthropic model choice](https://platform.claude.com/docs/en/about-claude/models/choosing-a-model),
 [Google Gemini models](https://ai.google.dev/gemini-api/docs/models),
 [Microsoft host guidance](https://learn.microsoft.com/en-us/agents/architecture/host-platform)).
 
-Model names ниже — current examples, checked 2026-07-30, а не вечные defaults.
-`agent-model-selector` обязан читать current provider/host catalog и запускать
-evals перед фиксацией production policy.
+The model names below are current examples, checked on 2026-07-30, not eternal
+defaults. `agent-model-selector` must read the current provider/host catalog and
+run evals before fixing a production policy.
 
-### 8.2 Рекомендуемые tiers для текущего Codex/OpenAI portfolio
+### 8.2 Recommended tiers for the current Codex/OpenAI portfolio
 
 | Role/task | Starting model policy | Reasoning | Escalation |
 |---|---|---|---|
@@ -546,17 +553,17 @@ evals перед фиксацией production policy.
 | Long-horizon critical analysis | Sol | xhigh; max/pro only if eval gain | human approval/peer review |
 
 OpenAI currently positions GPT-5.6 Sol for complex reasoning/coding, Terra for
-balance and Luna for high-volume cost-sensitive work. Current guidance says to
+balance, and Luna for high-volume cost-sensitive work. Current guidance says to
 test the same reasoning setting and one lower; `max`/pro should be reserved for
 measured quality-first workloads
 ([model guidance](https://developers.openai.com/api/docs/guides/latest-model)).
 
-Для Claude/Gemini adapters используйте те же tiers: capability-first model для
-architecture/high autonomy, balanced model для general specialists, fast model
-для routing/extraction/subagents. Anthropic отдельно рекомендует benchmark on
-actual prompts/data and notes that effort tuning may be better than switching
-models; Google distinguishes stable models from preview/latest/experimental and
-recommends pinned stable IDs for production.
+For Claude/Gemini adapters, use the same tiers: a capability-first model for
+architecture/high autonomy, a balanced model for general specialists, and a
+fast model for routing/extraction/subagents. Anthropic separately recommends
+benchmarking on actual prompts/data and notes that effort tuning may be better
+than switching models; Google distinguishes stable models from
+preview/latest/experimental and recommends pinned stable IDs for production.
 
 ### 8.3 Model policy artifact
 
@@ -593,11 +600,11 @@ recommends pinned stable IDs for production.
 
 Deterministic registry/schema/worktree checks remain scripts, not LLM tasks.
 
-## 9. Docs, LLM Wiki, Obsidian, Graphify и memory
+## 9. Docs, LLM Wiki, Obsidian, Graphify, and Memory
 
-### 9.1 Разделение хранилищ
+### 9.1 Storage separation
 
-| Слой | Source of truth | Содержимое |
+| Layer | Source of truth | Contents |
 |---|---|---|
 | Project knowledge | `docs/` | curated facts, decisions, requirements, runbooks |
 | Procedural capability | `.agents/`, skills | definitions, prompts, workflows, policies |
@@ -606,8 +613,8 @@ Deterministic registry/schema/worktree checks remain scripts, not LLM tasks.
 | External skill state | `skills-lock.json` when present | installed/resolved skill versions |
 | Search/graph indexes | generated/local services | derived BM25/vector/graph projections |
 
-Docs не должны хранить raw chain-of-thought, secrets, arbitrary production
-memory или rapidly changing scheduler state.
+Docs must not store raw chain-of-thought, secrets, arbitrary production memory,
+or rapidly changing scheduler state.
 
 ### 9.2 LLM Wiki / Obsidian-compatible structure
 
@@ -654,8 +661,8 @@ tags: [agents, orchestration]
 ---
 ```
 
-Use standard Markdown links as canonical; Obsidian wikilinks may be generated or
-added as optional aliases, but not the only machine-readable relation.
+Use standard Markdown links as canonical; Obsidian wikilinks may be generated
+or added as optional aliases, but not as the only machine-readable relation.
 
 LLM Wiki practices:
 
@@ -665,14 +672,14 @@ LLM Wiki practices:
 - source/provenance and checked date;
 - contradiction pages rather than silent overwrite;
 - owner/freshness/consumer for each durable document;
-- inbox → review → publish workflow;
+- inbox -> review -> publish workflow;
 - supersede decisions, preserve history;
 - summaries link to raw evidence rather than replace it.
 
 ### 9.3 Graphify
 
-Graphify derives nodes and typed edges from docs frontmatter, registries,
-maps, Markdown links, code/requirements/eval references.
+Graphify derives nodes and typed edges from docs frontmatter, registries, maps,
+Markdown links, and code/requirements/eval references.
 
 Recommended node types:
 
@@ -687,8 +694,9 @@ Recommended edges:
 - `IMPLEMENTS`, `VERIFIED_BY`, `DERIVED_FROM`, `SUPERSEDES`;
 - `OWNED_BY`, `GOVERNED_BY`, `OBSERVED_BY`, `AFFECTED_BY`.
 
-Generated graph содержит source locator, revision/hash, confidence и timestamp.
-Graph is a projection; canonical docs/registries remain authoritative.
+The generated graph contains a source locator, revision/hash, confidence, and
+timestamp. The graph is a projection; canonical docs/registries remain
+authoritative.
 
 ### 9.4 Vector and graph databases
 
@@ -698,39 +706,40 @@ Progressive adoption:
 2. **Level 1:** local full-text/BM25 and generated knowledge graph JSON.
 3. **Level 2:** Qdrant vector index for semantic retrieval.
 4. **Level 3:** Neo4j knowledge graph + Qdrant hybrid retrieval/GraphRAG.
-5. **Level 4:** managed multi-tenant knowledge plane with policy-aware retrieval.
+5. **Level 4:** managed multi-tenant knowledge plane with policy-aware
+   retrieval.
 
 Neo4j + Qdrant setup requires separate design:
 
 - Docker/managed deployment and version pins;
-- data classification, network, auth, backup and retention;
+- data classification, network, auth, backup, and retention;
 - embedding model/version and reindex policy;
 - tenant/project isolation;
 - deletion propagation and source tombstones;
 - ingestion idempotency and reconciliation;
 - hybrid ranking and provenance in answers;
-- SLO, monitoring, cost and disaster recovery.
+- SLO, monitoring, cost, and disaster recovery.
 
-Do not deploy GraphRAG by default. Gate it on corpus scale, multi-hop query need,
-measured retrieval failures and available operator ownership.
+Do not deploy GraphRAG by default. Gate it on corpus scale, multi-hop query
+need, measured retrieval failures, and available operator ownership.
 
 ### 9.5 Memory write policy
 
-- Working memory belongs to current run and expires.
+- Working memory belongs to the current run and expires.
 - Episodic memory stores sanitized event summaries with provenance/TTL.
 - Semantic memory enters docs only after curation/verification.
 - Procedural memory is versioned agents/skills/workflows.
 - Policy memory comes only from controlled authoritative files.
-- Agents write new facts to inbox/candidate state; knowledge steward approves
+- Agents write new facts to inbox/candidate state; a knowledge steward approves
   publication.
 - Retrieval records source IDs and does not treat vector similarity as truth.
 
-## 10. Agent OS: skill и prompt decomposition
+## 10. Agent OS: Skill and Prompt Decomposition
 
-Один Agent OS master prompt будет слишком широк. Создать shared
-`docs/prompts/agent-os-base.md` и ровно один plane-specific prompt.
+One Agent OS master prompt will be too broad. Create a shared
+`docs/prompts/agent-os-base.md` and exactly one plane-specific prompt.
 
-### 10.1 Первая очередь Agent OS
+### 10.1 First-wave Agent OS
 
 | Skill | Plane | Master prompt |
 |---|---|---|
@@ -743,53 +752,62 @@ measured retrieval failures and available operator ownership.
 | `agent-observer` | operations | `agent-observer-skill.md` |
 | `agent-os-evaluator` | assurance | `agent-os-evaluator-skill.md` |
 
-### 10.2 Вторая очередь Agent OS
+### 10.2 Second-wave Agent OS
 
-| Skill | Когда выделять |
+| Skill | When to split out |
 |---|---|
-| `agent-model-router` | Multi-model routing нужен в production, не только design |
-| `agent-protocol-manager` | Реальные MCP/A2A cross-boundary integrations |
+| `agent-model-router` | Multi-model routing is needed in production, not only in design |
+| `agent-protocol-manager` | Real MCP/A2A cross-boundary integrations |
 | `agent-scheduler` | Durable multi-tenant queues/leases/backpressure |
-| `agent-memory-manager` | Runtime memory отделилась от curated knowledge |
-| `agent-incident-manager` | Есть production SLO/on-call и recurring incidents |
-| `agent-cost-manager` | Spend требует отдельного budget/FinOps control plane |
+| `agent-memory-manager` | Runtime memory has separated from curated knowledge |
+| `agent-incident-manager` | There are production SLO/on-call and recurring incidents |
+| `agent-cost-manager` | Spend requires a dedicated budget/FinOps control plane |
 
-Не создавать отдельный skill, если это только route существующего manager или
-скрипт. Разделять при отдельных permissions, owner, SLO, state и release cadence.
+Do not create a separate skill if it is only a route of an existing manager or
+a script. Split only when there are separate permissions, owner, SLO, state,
+and release cadence.
 
 ### 10.3 `agent-os-base.md` contract
 
-Общий prompt должен требовать:
+The shared prompt must require:
 
 - experience/control/execution/knowledge/assurance/operations planes;
 - desired versus observed state;
 - capability/agent/skill/workflow/model registries;
-- identity, least privilege, PDP/PEP и approval;
+- identity, least privilege, PDP/PEP, and approval;
 - durable task state, idempotency, leases, checkpoints, cancellation;
-- artifact/provenance graph и memory tiers;
-- telemetry, budgets, reconciliation, incident and recovery;
+- artifact/provenance graph and memory tiers;
+- telemetry, budgets, reconciliation, incident, and recovery;
 - model selection/router policy;
-- MCP/A2A adapters через ports-and-adapters;
-- eval, shadow, canary, rollback, deprecation and retirement;
+- MCP/A2A adapters through ports-and-adapters;
+- eval, shadow, canary, rollback, deprecation, and retirement;
 - operator ownership and SLO.
 
 ### 10.4 Agent OS master prompts to create
 
-1. `agent-os-base.md` — shared platform contract.
-2. `agent-os-architect-skill.md` — planes, boundaries, ADRs, threat/failure model.
-3. `agent-os-bootstrapper-skill.md` — minimal walking skeleton and staged setup.
-4. `agent-registry-manager-skill.md` — identities, manifests, versions, desired state.
-5. `agent-runtime-manager-skill.md` — execution leases, queues, checkpoints, saga.
-6. `agent-knowledge-manager-skill.md` — docs/wiki/graph/vector ingestion and curation.
-7. `agent-policy-manager-skill.md` — policies, approvals, credentials and audit.
-8. `agent-observer-skill.md` — traces, SLO, MAPE-K, budgets and incidents.
-9. `agent-model-router-skill.md` — fixed/tiered/dynamic model routing with evals.
-10. `agent-protocol-manager-skill.md` — MCP/A2A and host adapters.
-11. `agent-os-evaluator-skill.md` — distributed, safety, resilience and lifecycle evals.
+1. `agent-os-base.md` - shared platform contract.
+2. `agent-os-architect-skill.md` - planes, boundaries, ADRs, threat/failure
+   model.
+3. `agent-os-bootstrapper-skill.md` - minimal walking skeleton and staged
+   setup.
+4. `agent-registry-manager-skill.md` - identities, manifests, versions,
+   desired state.
+5. `agent-runtime-manager-skill.md` - execution leases, queues, checkpoints,
+   saga.
+6. `agent-knowledge-manager-skill.md` - docs/wiki/graph/vector ingestion and
+   curation.
+7. `agent-policy-manager-skill.md` - policies, approvals, credentials, and
+   audit.
+8. `agent-observer-skill.md` - traces, SLO, MAPE-K, budgets, and incidents.
+9. `agent-model-router-skill.md` - fixed/tiered/dynamic model routing with
+   evals.
+10. `agent-protocol-manager-skill.md` - MCP/A2A and host adapters.
+11. `agent-os-evaluator-skill.md` - distributed, safety, resilience, and
+    lifecycle evals.
 
-## 11. Master prompts для team skills
+## 11. Master Prompts for Team Skills
 
-Добавить в `docs/prompts/`:
+Add to `docs/prompts/`:
 
 1. `agent-team-architect-skill.md`;
 2. `agent-team-manager-skill.md`;
@@ -804,11 +822,11 @@ measured retrieval failures and available operator ownership.
 11. `agent-private-command.md`;
 12. `agent-skill-visibility-migration.md`.
 
-Каждый применяется после existing `agent-skill-base.md`. Team prompts не должны
-дублировать plane-specific Agent OS prompts; team работает в проектном scope,
-Agent OS — platform/multi-run/multi-team scope.
+Each is applied after the existing `agent-skill-base.md`. Team prompts must not
+duplicate plane-specific Agent OS prompts; a team operates in project scope,
+Agent OS in platform/multi-run/multi-team scope.
 
-Builder дополнительно создаёт role prompts для:
+The builder additionally creates role prompts for:
 
 - lead/orchestrator;
 - bounded specialist/subagent;
@@ -820,38 +838,39 @@ Builder дополнительно создаёт role prompts для:
 - context/knowledge curator;
 - operator/incident role.
 
-Создавать только роли, доказанные task/capability graph. Одна role может
-остаться human responsibility или mode существующего agent.
+Create only roles proven by the task/capability graph. One role may remain a
+human responsibility or a mode of an existing agent.
 
-## 12. Изменения существующих skills
+## 12. Changes to Existing Skills
 
 ### 12.1 `skill-architect`
 
-Добавить:
+Add:
 
 - optional `agent-system-profile.md`;
 - registry write contract;
-- atomic update of staged bundle + registry candidate;
-- creation record с version/hash/owner/status/provenance;
+- atomic update of the staged bundle + registry candidate;
+- creation record with version/hash/owner/status/provenance;
 - generated Markdown projection update;
-- rollback, conflict and missing-registry behavior;
-- routing exclusions between skill и runtime agent changes;
+- rollback, conflict, and missing-registry behavior;
+- routing exclusions between skill changes and runtime agent changes;
 - placement gate and visibility profile;
-- public/private canonical roots, owner/consumer validation and access evals.
+- public/private canonical roots, owner/consumer validation, and access evals.
 
-Созданный skill регистрируется в
-`docs/AGENT-ASSET-REGISTRY.json`; Markdown view генерируется. Если registry не
-существует, initializer создаёт schema-valid candidate only after destination
-and authority are resolved.
+The created skill is registered in `docs/AGENT-ASSET-REGISTRY.json`; the
+Markdown view is generated. If the registry does not exist, the initializer
+creates a schema-valid candidate only after destination and authority are
+resolved.
 
-Baseline реализован в `skill-architect@1.1.0`: visibility остаётся overlay, а
-не девятым archetype; Phase 1 добавляет shared schema и atomic registry tooling.
+Baseline is implemented in `skill-architect@1.1.0`: visibility remains an
+overlay rather than a ninth archetype; Phase 1 adds the shared schema and
+atomic registry tooling.
 
 ### 12.2 `agent-architect` master prompt
 
-Добавить:
+Add:
 
-- required registry candidate update for created agent definition;
+- required registry candidate update for the created agent definition;
 - exact version/hash/model-policy/owner/risk/lifecycle fields;
 - no direct active registration;
 - generated Markdown view;
@@ -860,48 +879,49 @@ Baseline реализован в `skill-architect@1.1.0`: visibility остаё�
 
 ### 12.3 `skill-scout`
 
-Добавить decisions for `CREATE_AGENT_SKILL`, `USE_EXISTING_AGENT`,
-`USE_CODE_OR_WORKFLOW`; никогда не создавать agent по одному repeated keyword.
+Add decisions for `CREATE_AGENT_SKILL`, `USE_EXISTING_AGENT`,
+`USE_CODE_OR_WORKFLOW`; never create an agent from a repeated keyword alone.
 
 ### 12.4 `skill-harvester`
 
-Добавить agent-related harvest units, но сохранить generic source-inbox
-boundary. Не выдавать harvested agent definition как trusted/active.
+Add agent-related harvest units, but keep the generic source-inbox boundary. Do
+not output a harvested agent definition as trusted/active.
 
 ### 12.5 `skill-evaluator`
 
-Добавить профиль agent-oriented skills: registry/map parity, definition
+Add an agent-oriented skills profile: registry/map parity, definition
 versioning, model-selection evidence, delegation/worktree/runtime side effects.
 
 ### 12.6 `skill-builder`
 
-Добавить scenario `create-agent-lifecycle-skill` и prompt routing в new team/OS
-master prompts. Он создаёт skills, а не активирует agents.
+Add scenario `create-agent-lifecycle-skill` and prompt routing into the new
+team/OS master prompts. It creates skills, not activated agents.
 
 ### 12.7 `skill-manager`
 
-Управляет installed skills и `skills-lock.json`, но не runtime agents. Передаёт
-verified installed inventory mapper-у; не меняет agent bindings.
+Manages installed skills and `skills-lock.json`, but not runtime agents. It
+hands verified installed inventory to the mapper; it does not mutate agent
+bindings.
 
-Добавить separate inventory public/private roots, registry parity, owner and
-allowed-consumer enforcement. Private activation означает scoped attachment, а
-не copy в public root. Baseline реализован в `skill-manager@1.1.0`.
+Add separate inventory of public/private roots, registry parity, and owner and
+allowed-consumer enforcement. Private activation means scoped attachment, not a
+copy into a public root. Baseline is implemented in `skill-manager@1.1.0`.
 
 ### 12.8 `agent-best-practices`
 
-Когда будет создан, он владеет refresh current provider/model/host guidance и
-формирует modification prompts. Current static corpus остаётся source, но не
-автоматически переписывает active agents.
+When created, it owns refreshing current provider/model/host guidance and
+produces modification prompts. The current static corpus remains a source, but
+does not automatically rewrite active agents.
 
 ### 12.9 `skill-refactor`
 
-Добавить decisions `PROMOTE_PUBLIC` и `DEMOTE_PRIVATE`, consumer gate,
-registry/map/adapter migration, owner-agent SemVer impact, coexistence и access
-evals. Baseline реализован в `skill-refactor@1.1.0`.
+Add decisions `PROMOTE_PUBLIC` and `DEMOTE_PRIVATE`, a consumer gate,
+registry/map/adapter migration, owner-agent SemVer impact, coexistence, and
+access evals. Baseline is implemented in `skill-refactor@1.1.0`.
 
-## 13. Основные workflows
+## 13. Core Workflows
 
-### 13.1 Создание команды из project context
+### 13.1 Creating a team from project context
 
 ```text
 scope and authority
@@ -920,7 +940,7 @@ scope and authority
 → observation and learning
 ```
 
-### 13.2 Mapping новых или незарегистрированных skills
+### 13.2 Mapping new or unregistered skills
 
 ```text
 discover local/installed/locked skills
@@ -934,7 +954,7 @@ discover local/installed/locked skills
 → register verified mapping
 ```
 
-### 13.3 Task execution и worktrees
+### 13.3 Task execution and worktrees
 
 ```text
 task envelope
@@ -962,9 +982,10 @@ one bounded production use case
 → extract reusable platform capabilities
 ```
 
-Не начинать с универсальной multi-tenant platform до walking skeleton.
+Do not start with a universal multi-tenant platform before the walking
+skeleton.
 
-### 13.5 Создание private capability
+### 13.5 Creating a private capability
 
 ```text
 capability contract + consumers
@@ -977,7 +998,7 @@ capability contract + consumers
 → verify owner use + global non-discovery + unauthorized denial
 ```
 
-### 13.6 Promotion или demotion
+### 13.6 Promotion or demotion
 
 ```text
 consumer inventory
@@ -990,45 +1011,45 @@ consumer inventory
 → retire source
 ```
 
-## 14. Final phased implementation plan
+## 14. Final Phased Implementation Plan
 
-### Phase 0 — Decision lock — approved
+### Phase 0 - Decision lock - approved
 
 Deliverables:
 
 - approve skill boundaries and names;
 - approve JSON canonical + Markdown projections;
 - approve `.agents` layout;
-- approve public/private semantics, canonical roots and promotion threshold;
-- choose first target hosts/runtimes;
+- approve public/private semantics, canonical roots, and promotion threshold;
+- choose the first target hosts/runtimes;
 - choose whether external provider models are allowed;
 - designate owners/approvers/operators.
 
 Exit: ADR records decisions; no active mutation.
 
-### Phase 0.5 — Host conformance and walking-skeleton contract — completed
+### Phase 0.5 - Host conformance and walking-skeleton contract - completed
 
 Create:
 
-- ADR для asset registry, visibility, version inheritance и ownership;
-- current host capability matrix for Codex, Claude Code and Cursor;
-- canonical-to-host adapter contract with `native`, `generated` and
+- ADRs for asset registry, visibility, version inheritance, and ownership;
+- the current host capability matrix for Codex, Claude Code, and Cursor;
+- the canonical-to-host adapter contract with `native`, `generated`, and
   `unsupported` outcomes;
-- one fixture containing public skill, private skill, private command and one
-  owning agent;
+- one fixture containing a public skill, a private skill, a private command,
+  and one owning agent;
 - deny-by-default tests proving private roots are not global discovery roots.
 
-Codex adapter: project agents live in `.codex/agents/*.toml`; exact private
+Codex adapter: project agents live in `.codex/agents/*.toml`; the exact private
 skill path is enabled through agent-local `skills.config`. Claude adapter:
 preload does not restrict later Skill access, so strict private mode removes
-the Skill tool and embeds a hash-labelled projection. Cursor adapter uses the
+the Skill tool and embeds a hash-labeled projection. Cursor adapter uses the
 same conservative generated projection until native per-agent isolation is
 verified by a fixture on the target version.
 
 Exit: host assumptions are explicit and every unsupported native feature has a
 safe generated fallback or a blocking status.
 
-### Phase 1 — Schemas, registries and deterministic tooling — completed
+### Phase 1 - Schemas, registries, and deterministic tooling - completed
 
 Create:
 
@@ -1043,26 +1064,26 @@ Create:
 
 Tests: malformed refs, duplicates, missing asset, version mismatch, untrusted
 skill, mapping cycle, generated-view drift, private asset without owner,
-unauthorized private binding, public asset in private root, global private
-discovery and partial atomic update.
+unauthorized private binding, public asset in a private root, global private
+discovery, and partial atomic update.
 
 Exit: canonical inventory, fixture adapters, access-denial checks, transaction
-rollback, generated-view checks and repository validation pass. Installed-skill
-reconciliation with `skills-lock.json` remains a Phase 3 `skill-manager` route,
-not a blocker for the registry foundation.
+rollback, generated-view checks, and repository validation pass.
+Installed-skill reconciliation with `skills-lock.json` remains a Phase 3
+`skill-manager` route, not a blocker for the registry foundation.
 
-### Phase 2 — Master prompts — completed
+### Phase 2 - Master prompts - completed
 
 Team prompts from section 11 and Agent OS prompts from section 10 are stored in
-`docs/prompts/` and routed by `docs/prompts/README.md`. Positive, negative and
-collision cases are required inputs before authoring each skill in Phase 4–7.
+`docs/prompts/` and routed by `docs/prompts/README.md`. Positive, negative, and
+collision cases are required inputs before authoring each skill in Phase 4-7.
 
-Exit: prompts pass lint, authority, boundary and forward review.
+Exit: prompts pass lint, authority, boundary, and forward review.
 
 Placement/private/migration prompts from section 11 are already drafted and
-must be used as executable inputs for Phase 3–4 rather than copied into skills.
+must be used as executable inputs for Phase 3-4 rather than copied into skills.
 
-### Phase 3 — Modify foundational metaskills — completed
+### Phase 3 - Modify foundational metaskills - completed
 
 Candidate changes:
 
@@ -1075,19 +1096,19 @@ Candidate changes:
 - `skill-manager` visibility-aware inventory and lifecycle;
 - `skill-refactor` promotion/demotion topology routes.
 
-Each skill gets SemVer bump, routing/behavior/script evals, generated plugin
-rebuild and independent release evidence.
+Each skill gets a SemVer bump, routing/behavior/script evals, a generated
+plugin rebuild, and independent release evidence.
 
 Implemented in the `1.4.0` marketplace candidate: `skill-architect`,
 `skill-manager`, `skill-refactor`, `skill-scout`, `skill-harvester`,
-`skill-evaluator` and `skill-builder` now share the asset registry, owner-private
-placement and agent-system evaluation/orchestration contracts. `metaskillpack`
-was rebuilt from the updated read-only donor snapshots.
+`skill-evaluator`, and `skill-builder` now share the asset registry,
+owner-private placement, and agent-system evaluation/orchestration contracts.
+`metaskillpack` was rebuilt from the updated read-only donor snapshots.
 
 Exit: created skill and agent candidates register atomically; active registries
-are unchanged on failed validation.
+remain unchanged on failed validation.
 
-### Phase 4 — Core team design skills — completed
+### Phase 4 - Core team design skills - completed
 
 Build in order:
 
@@ -1097,37 +1118,38 @@ Build in order:
 4. `agent-team-builder` staged mode;
 5. `agent-team-manager` facade.
 
-Exit: sample project produces approved spec and staged `.agents` candidate with
-no runtime activation; unnecessary single-agent capabilities remain inline or
-private instead of becoming public skills.
+Exit: the sample project produces an approved spec and a staged `.agents`
+candidate with no runtime activation; unnecessary single-agent capabilities
+remain inline or private instead of becoming public skills.
 
-Implemented in the `1.5.0` marketplace candidate: all five skills have distinct
-decision and mutation boundaries, machine-readable contracts, deterministic
-validators, routing/behavior evals and forward/adversarial tests. The team
-builder requires an approved spec and always stages with `activation: false`;
-the mapper rejects cross-owner private bindings; the manager preserves durable
-checkpoints and delegates specialist work instead of becoming a mega-skill.
+Implemented in the `1.5.0` marketplace candidate: all five skills have
+distinct decision and mutation boundaries, machine-readable contracts,
+deterministic validators, routing/behavior evals, and forward/adversarial
+tests. The team builder requires an approved spec and always stages with
+`activation: false`; the mapper rejects cross-owner private bindings; the
+manager preserves durable checkpoints and delegates specialist work instead of
+becoming a mega-skill.
 
-### Phase 5 — Evaluation and runtime orchestration — completed
+### Phase 5 - Evaluation and runtime orchestration - completed
 
 Build:
 
 - `agent-team-orchestrator`;
-- `agent-workspace-manager` if code-parallel scenario selected;
+- `agent-workspace-manager` if the code-parallel scenario is selected;
 - team-level eval suite;
 - durable run/checkpoint contract;
-- cancellation, partial failure and recovery.
+- cancellation, partial failure, and recovery.
 
 Exit: forward tests cover sequential, parallel, one-worker failure, conflict,
-budget exhaustion, interruption/resume and worktree cleanup.
+budget exhaustion, interruption/resume, and worktree cleanup.
 
-Implemented in the `1.6.0` marketplace candidate: the runtime orchestrator owns
-only execution of approved active teams, while the workspace manager owns the
-separate worktree ledger and its mutation/cleanup boundary. Typed plan and
+Implemented in the `1.6.0` marketplace candidate: the runtime orchestrator
+owns only execution of approved active teams, while the workspace manager owns
+the separate worktree ledger and its mutation/cleanup boundary. Typed plan and
 ledger validators plus routing/behavior and forward/adversarial tests cover all
 exit scenarios without creating real worktrees or inferring runtime authority.
 
-### Phase 6 — Knowledge and memory plane — completed
+### Phase 6 - Knowledge and memory plane - completed
 
 Build:
 
@@ -1143,53 +1165,54 @@ Exit: agents can retrieve authoritative docs and propose memory updates without
 silently publishing unverified facts.
 
 Implemented in the `1.7.0` marketplace candidate: `agent-knowledge-manager`, a
-portable docs/frontmatter lifecycle, an inbox-to-curator publication gate and a
-deterministic source-hashed Graphify JSON projection. Forward and adversarial
-tests cover provenance, duplicate IDs, broken relations and candidate status;
-behavior evals cover poisoning, stale sources, deletion, access denial, drift
+portable docs/frontmatter lifecycle, an inbox-to-curator publication gate, and
+a deterministic source-hashed Graphify JSON projection. Forward and adversarial
+tests cover provenance, duplicate IDs, broken relations, and candidate status;
+behavior evals cover poisoning, stale sources, deletion, access denial, drift,
 and contradictions. External vector/graph infrastructure remains gated.
 
-### Phase 7 — Minimal Agent OS — completed
+### Phase 7 - Minimal Agent OS - completed
 
-Build only first-order skills needed by one bounded use case:
+Build only the first-order skills needed by one bounded use case:
 
 - `agent-os-architect` and bootstrapper;
 - registry/runtime/policy/observer/evaluator;
 - reuse model selector and knowledge manager;
 - one MCP/A2A adapter only if required.
 
-Exit: walking skeleton supports versioned agent, policy-gated task, durable
-state, trace, evaluation, recovery and retirement.
+Exit: the walking skeleton supports a versioned agent, policy-gated task,
+durable state, trace, evaluation, recovery, and retirement.
 
 Implemented in the `1.8.0` marketplace candidate for the bounded private
 marketplace release use case. Seven public plane-specific skills reuse the
-existing team, knowledge and marketplace layers. A synthetic no-production
+existing team, knowledge, and marketplace layers. A synthetic no-production
 fixture links architecture, bootstrap, desired-state reconciliation, policy,
-durable execution, telemetry and independent release evidence; combined
+durable execution, telemetry, and independent release evidence; combined
 adversarial failures are validated without deploying infrastructure.
 
-### Phase 8 — Marketplace and portfolio release — completed
+### Phase 8 - Marketplace and portfolio release - completed
 
 - package each skill independently;
-- category `skills/agents` or current marketplace equivalent;
+- category `skills/agents` or the current marketplace equivalent;
 - version and provenance entries;
 - collision tests with all `skill-*` skills;
 - individual install tests for Codex/Claude Code/Cursor as supported;
 - aggregate toolkit only after donor stability;
 - private canary before public release.
 
-Exit: validators and target-host E2E tests pass; rollback and ownership proven.
+Exit: validators and target-host E2E tests pass; rollback and ownership are
+proven.
 
 Completed for private marketplace release `1.8.0`. The portfolio suite proves
 collision-free coexistence and one-skill package isolation across all 28
 entries. All packages pass repository and Claude Code validation; the seven new
 Agentic OS plugins were selectively installed and enabled from the private
 GitHub-backed marketplace in Codex, then compared with their canonical package
-trees. Cursor passed the supported structural contract. Evidence, rollback and
+trees. Cursor passed the supported structural contract. Evidence, rollback, and
 ownership are recorded in
 [`docs/agent-os/PRIVATE-CANARY-REPORT.md`](agent-os/PRIVATE-CANARY-REPORT.md).
 
-## 15. Evaluation matrix
+## 15. Evaluation Matrix
 
 | Surface | Required cases |
 |---|---|
@@ -1201,74 +1224,75 @@ ownership are recorded in
 | Registry | atomic update, drift, duplicate ID, hash/version mismatch |
 | Visibility | owner use, global non-discovery, unauthorized denial, path/registry mismatch |
 | Placement | inline, private command, private skill, public, tool/workflow, duplication |
-| Migration | private→public, public→private, coexistence, consumers, rollback |
+| Migration | private->public, public->private, coexistence, consumers, rollback |
 | Model choice | quality, safety, variance, latency, cost, deprecation, fallback |
 | Memory/docs | provenance, stale fact, poisoning, deletion, conflict, no source |
 | Agent OS | duplicate event, expired lease, partition, backpressure, recovery |
 | Authority | denied tool, revoked approval, scope escalation, secret exposure |
-| Lifecycle | shadow, canary, rollback, deprecation, drain and retirement |
+| Lifecycle | shadow, canary, rollback, deprecation, drain, and retirement |
 
-## 16. Stop conditions и anti-patterns
+## 16. Stop Conditions and Anti-Patterns
 
 Stop implementation when:
 
-- target host/definition format is unresolved;
-- no owner/approver/operator exists for high-impact team;
-- registry schema or atomicity is not ready;
+- the target host/definition format is unresolved;
+- no owner/approver/operator exists for a high-impact team;
+- the registry schema or atomicity is not ready;
 - model choice has no representative eval set;
 - required data/tools cannot be accessed safely;
-- builder would need to edit active definitions without staged rollback;
+- the builder would need to edit active definitions without staged rollback;
 - GraphRAG has no measured need or operator;
-- new skill duplicates an existing coherent capability;
-- private capability has no stable owner or enforceable scoped loader.
+- the new skill duplicates an existing coherent capability;
+- the private capability has no stable owner or enforceable scoped loader.
 
 Avoid:
 
-- one team-manager that designs, builds, evaluates, activates and operates;
-- Markdown registry as sole source of truth;
-- registry and agent definitions maintained independently;
-- skills assigned by name similarity;
+- one team-manager that designs, builds, evaluates, activates, and operates;
+- a Markdown registry as the sole source of truth;
+- independently maintained registries and agent definitions;
+- assigning skills by name similarity;
 - auto-install of discovered skills;
-- private folder described as confidentiality boundary;
+- describing a private folder as a confidentiality boundary;
 - wildcard discovery of `.agents/definitions/*/skills`;
-- public skill created for every single-agent helper;
-- private/public migration implemented as folder move only;
-- model assigned by prestige or context-window size alone;
-- frontier model for every subtask;
-- worktree as sandbox;
-- docs as uncurated conversation dump;
-- vector search result treated as fact;
+- creating a public skill for every single-agent helper;
+- implementing private/public migration as a folder move only;
+- assigning a model by prestige or context-window size alone;
+- a frontier model for every subtask;
+- a worktree as a sandbox;
+- docs as an uncurated conversation dump;
+- treating a vector-search result as fact;
 - GraphRAG before source/provenance discipline;
-- Agent OS built before one production walking skeleton;
-- auto-evolution of prompts, policy or memory without new version and eval.
+- building Agent OS before one production walking skeleton;
+- auto-evolution of prompts, policy, or memory without a new version and eval.
 
-## 17. Review decisions and outcomes
+## 17. Review Decisions and Outcomes
 
-1. `agent-team-architect` реализован отдельным skill.
-2. JSON принят как canonical registry/map, Markdown — generated review view.
-3. `.agents` принят для project assets; Claude Code, Codex и Cursor имеют
-   отдельные generated adapters/manifests.
-4. `agent-model-selector` реализован отдельным evidence-backed gate.
-5. `agent-harvester` не создавался; generic intake остаётся у существующих
+1. `agent-team-architect` was implemented as a separate skill.
+2. JSON was accepted as the canonical registry/map; Markdown is the generated
+   review view.
+3. `.agents` was accepted for project assets; Claude Code, Codex, and Cursor
+   have separate generated adapters/manifests.
+4. `agent-model-selector` was implemented as a separate evidence-backed gate.
+5. `agent-harvester` was not created; generic intake remains with the existing
    context/harvester capabilities.
-6. Public/private walking skeleton и Agentic OS slice реализованы в fixtures и
-   release evidence.
-7. Cross-provider independence остаётся policy option, а не обязательным
-   требованием; evaluator correlation раскрывается.
-8. Ownership и review responsibilities зафиксированы в governance/catalog.
-9. Qdrant, Neo4j и GraphRAG остаются demand-driven setup decisions с
+6. The public/private walking skeleton and the Agentic OS slice were
+   implemented in fixtures and release evidence.
+7. Cross-provider independence remains a policy option, not a mandatory
+   requirement; evaluator correlation is disclosed.
+8. Ownership and review responsibilities are fixed in governance/catalog.
+9. Qdrant, Neo4j, and GraphRAG remain demand-driven setup decisions with
    provenance/access/deletion/freshness gates.
-10. Phases 0–8 завершены последовательно и проверены тестами.
-11. Placement gate и controlled private/public migration реализованы в
-    architecture, prompts, schemas, registries и skills.
+10. Phases 0-8 were completed sequentially and verified by tests.
+11. The placement gate and controlled private/public migration were implemented
+    in architecture, prompts, schemas, registries, and skills.
 
-## 18. Implemented outcome
+## 18. Implemented Outcome
 
-Schema-valid registry/map, team architecture/model/build layers, independent
-evaluation, manager/orchestrator, knowledge plane и минимальные Agentic OS
-capabilities реализованы и доступны как отдельные selectively installable
-skills. Composite `agentkit` выпущен только после двух стабильных donor cycles и
-трёх artifact-bound workflows. Следующий шаг для любого project deployment —
-не новый portfolio build, а scoped onboarding: выбрать один agent, team или
-Agentic OS vertical slice, создать необходимые private/public skills и пройти
-отдельные build, evaluation, activation и rollout gates.
+The schema-valid registry/map, team architecture/model/build layers,
+independent evaluation, manager/orchestrator, knowledge plane, and minimal
+Agentic OS capabilities are implemented and available as separate selectively
+installable skills. Composite `agentkit` was released only after two stable
+donor cycles and three artifact-bound workflows. The next step for any project
+deployment is not a new portfolio build, but scoped onboarding: select one
+agent, team, or Agentic OS vertical slice, create the required private/public
+skills, and pass separate build, evaluation, activation, and rollout gates.

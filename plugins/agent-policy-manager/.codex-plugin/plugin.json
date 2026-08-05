@@ -1,13 +1,11 @@
 {
   "name": "agent-policy-manager",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Designs, simulates and governs versioned Agentic OS authorization and approval policy across subjects, assets, actions, tools, data classes, environments, risks, conditions, expiry and obligations, with separate policy decision and...",
   "homepage": "https://github.com/InnovationMachineTeam/skills",
   "repository": "https://github.com/InnovationMachineTeam/skills",
   "license": "Proprietary",
   "keywords": [
-    "agent-os-skills",
-    "agent-skills",
     "agents",
     "policy",
     "security"

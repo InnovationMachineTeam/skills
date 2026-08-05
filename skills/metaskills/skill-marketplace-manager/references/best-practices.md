@@ -1,46 +1,45 @@
-# Лучшие практики проектирования маркетплейса навыков
+# Skill Marketplace Design Best Practices
 
-Статус: каноническая операционная справка `skill-marketplace-manager`  
-Последняя проверка источников: 30 июля 2026 года
+Status: canonical operating reference for `skill-marketplace-manager`
+Last source verification: July 30, 2026
 
-## Содержание
+## Contents
 
-1. [Главные решения](#главные-решения)
-2. [Каноническая структура](#каноническая-структура)
-3. [Категории и именование](#категории-и-именование)
-4. [Совместимость со skill.sh](#совместимость-со-skillsh)
-5. [Claude Code: плагин и маркетплейс](#claude-code-плагин-и-маркетплейс)
-6. [Версии и релизы](#версии-и-релизы)
-7. [Сборка и переносимость](#сборка-и-переносимость)
-8. [Валидация и тестирование](#валидация-и-тестирование)
-9. [Безопасность и корпоративное управление](#безопасность-и-корпоративное-управление)
-10. [Миграция](#миграция)
-11. [Документация и сопровождение](#документация-и-сопровождение)
-12. [Разрешение противоречий](#разрешение-противоречий)
-13. [Источники](#источники)
+1. [Core decisions](#core-decisions)
+2. [Canonical structure](#canonical-structure)
+3. [Categories and naming](#categories-and-naming)
+4. [skill.sh compatibility](#skillsh-compatibility)
+5. [Claude Code: plugin and marketplace](#claude-code-plugin-and-marketplace)
+6. [Versions and releases](#versions-and-releases)
+7. [Build and portability](#build-and-portability)
+8. [Validation and testing](#validation-and-testing)
+9. [Security and governance](#security-and-governance)
+10. [Migration](#migration)
+11. [Documentation and maintenance](#documentation-and-maintenance)
+12. [Resolving contradictions](#resolving-contradictions)
+13. [Sources](#sources)
 
-## Главные решения
+## Core decisions
 
-1. Хранить навыки в одном каноническом дереве `skills/`.
-2. Допускать не более одного уровня категории: `skills/<category>/<skill>/SKILL.md`.
-3. Генерировать harness-specific артефакты, а не поддерживать несколько ручных копий.
-4. Использовать отдельный marketplace manifest и отдельный самодостаточный aggregate plugin.
-5. Считать категории организацией каталога, но не пространством имён навыков.
-6. Разделять версию навыка, версию плагина и версию каталога.
-7. Пропускать релиз только после статической, интеграционной и поведенческой проверки.
-8. Выполнять миграцию через staging, пилот, обратимый cutover и явное подтверждение удаления старой структуры.
-9. Не изобретать поля зависимостей в host manifests: хранить companion-граф
-   отдельно, генерировать предупреждения и dependency-first install plan.
+1. Keep skills in a single canonical `skills/` tree.
+2. Allow no more than one category level: `skills/<category>/<skill>/SKILL.md`.
+3. Generate harness-specific artifacts instead of maintaining multiple manual copies.
+4. Use a separate marketplace manifest and a separate self-contained aggregate plugin.
+5. Treat categories as catalog organization, not as the skill namespace.
+6. Separate the skill version, plugin version, and catalog version.
+7. Allow a release only after static, integration, and behavioral verification.
+8. Perform migration through staging, a pilot, reversible cutover, and explicit confirmation before removing the old structure.
+9. Do not invent dependency fields in host manifests: keep the companion graph separately and generate warnings plus a dependency-first install plan.
 
-## Каноническая структура
+## Canonical structure
 
-Рекомендуемая форма репозитория:
+Recommended repository shape:
 
 ```text
 skill-marketplace/
 ├── .claude-plugin/
 │   └── marketplace.json
-├── skills/                         # единственный source of truth
+├── skills/                         # the only source of truth
 │   ├── metaskills/
 │   │   └── skill-architect/
 │   │       ├── SKILL.md
@@ -49,7 +48,7 @@ skill-marketplace/
 │   ├── product/
 │   ├── development/
 │   └── marketing/
-├── plugin/                         # генерируемый aggregate plugin
+├── plugin/                         # generated aggregate plugin
 │   ├── .claude-plugin/
 │   │   └── plugin.json
 │   ├── skills/
@@ -59,24 +58,20 @@ skill-marketplace/
 └── README.md
 ```
 
-Почему так:
+Why this structure:
 
-- `skills/` соответствует модели Agent Skills и обнаруживается skill.sh.
-- `.claude-plugin/marketplace.json` описывает устанавливаемые предложения каталога.
-- `plugin/` позволяет проверить весь набор локально через `claude --plugin-dir ./plugin`.
-- генерируемая копия защищает от зависимостей за пределами кэша плагина.
+- `skills/` matches the Agent Skills model and is discoverable by skill.sh.
+- `.claude-plugin/marketplace.json` describes installable catalog offerings.
+- `plugin/` lets you verify the whole set locally via `claude --plugin-dir ./plugin`.
+- the generated copy protects against dependencies outside the plugin cache.
 
-Не хранить две равноправные ручные копии одного навыка. Если потребитель требует другой layout, создать детерминированную сборку и проверять отсутствие drift по хешам.
+Do not keep two peer manual copies of the same skill. If a consumer requires a different layout, create a deterministic build and verify absence of drift by hashes.
 
-## Категории и именование
+## Categories and naming
 
-Использовать категории только для устойчивых доменов и ownership-политик. В
-текущем портфеле используются `agent-os-skills`, `agent-team-skills`,
-`agent-skills`, `metaskills` и `prompt-skills`; вторичную классификацию хранить в
-`tags`. Будущие категории добавлять только по мере появления устойчивого
-содержимого и владельца.
+Use categories only for stable domains and ownership policies. The current portfolio uses `agent-os-skills`, `agent-team-skills`, `agent-skills`, `metaskills`, and `prompt-skills`; keep secondary classification in `tags`. Add future categories only when stable content and an owner exist.
 
-Хорошие примеры:
+Good examples:
 
 - `metaskills`
 - `agent-workflows`
@@ -84,27 +79,27 @@ skill-marketplace/
 - `development`
 - `marketing`
 
-Не использовать `agents` для навыков, если тот же репозиторий содержит Claude Code plugins: `agents/` уже означает каталог custom subagents. Категория `agent-workflows` снимает неоднозначность.
+Do not use `agents` for skills if the same repository contains Claude Code plugins: `agents/` already means a custom subagents directory. The `agent-workflows` category removes the ambiguity.
 
-Правила:
+Rules:
 
-- имя навыка — lowercase kebab-case, совпадает с именем каталога;
-- имя уникально во всём aggregate plugin;
-- категория — одна основная таксономия;
-- `tags` — вторичная фасетная классификация;
-- пустые категории не создавать;
-- перенос между категориями не должен менять `name`, если поведение и идентичность навыка прежние.
+- the skill name is lowercase kebab-case and matches the directory name;
+- the name is unique across the entire aggregate plugin;
+- the category is a single primary taxonomy;
+- `tags` provide secondary faceted classification;
+- do not create empty categories;
+- moving between categories must not change `name` if the skill's behavior and identity are unchanged.
 
-## Совместимость со skill.sh
+## skill.sh compatibility
 
-CLI `skills` принимает GitHub/GitLab URL, `owner/repo`, прямой путь к навыку и локальный путь. Для совместимого каталога поддерживать:
+The `skills` CLI accepts a GitHub/GitLab URL, `owner/repo`, a direct path to a skill, and a local path. For a compatible catalog, support:
 
 ```text
 skills/<skill>/SKILL.md
 skills/<category>/<skill>/SKILL.md
 ```
 
-Не добавлять ещё один уровень вложенности. Проверять обнаружение до публикации:
+Do not add another nesting level. Verify discovery before publication:
 
 ```bash
 npx skills add . --list
@@ -112,13 +107,13 @@ npx skills add owner/repo --list
 npx skills add owner/repo --skill skill-architect --agent claude-code --agent codex
 ```
 
-Не устанавливать один и тот же навык одновременно через skill.sh и Claude marketplace в одну область видимости. Это создаёт дубликаты, неочевидный приоритет версий и конфликт триггеров.
+Do not install the same skill at the same time through skill.sh and the Claude marketplace into one visibility scope. That creates duplicates, unclear version precedence, and trigger conflicts.
 
-## Claude Code: плагин и маркетплейс
+## Claude Code: plugin and marketplace
 
-### Плагин
+### Plugin
 
-Корень плагина содержит `.claude-plugin/plugin.json`; компоненты располагаются рядом с `.claude-plugin`, а не внутри неё. Для категорий перечислить директории, непосредственно содержащие папки навыков:
+The plugin root contains `.claude-plugin/plugin.json`; components live alongside `.claude-plugin`, not inside it. For categories, list the directories that directly contain skill folders:
 
 ```json
 {
@@ -133,17 +128,17 @@ npx skills add owner/repo --skill skill-architect --agent claude-code --agent co
 }
 ```
 
-Локальная проверка:
+Local verification:
 
 ```bash
 claude --plugin-dir ./plugin
 ```
 
-Навыки плагина получают namespace от имени плагина. Не полагаться на namespace как на замену уникальности внутри одного aggregate plugin.
+Plugin skills receive a namespace from the plugin name. Do not rely on namespace as a substitute for uniqueness within a single aggregate plugin.
 
-### Маркетплейс
+### Marketplace
 
-Манифест хранить в `.claude-plugin/marketplace.json`. Для монорепозитория допустим shared-root pattern: marketplace entry указывает `source: "./"`, `strict: false` и явный `skills` path. Пример:
+Keep the manifest in `.claude-plugin/marketplace.json`. For a monorepo, a shared-root pattern is acceptable: the marketplace entry specifies `source: "./"`, `strict: false`, and an explicit `skills` path. Example:
 
 ```json
 {
@@ -164,174 +159,161 @@ claude --plugin-dir ./plugin
 }
 ```
 
-При `strict: false` marketplace entry сам определяет компоненты. Не дублировать конфликтующие component paths в root plugin manifest.
+With `strict: false`, the marketplace entry defines its own components. Do not duplicate conflicting component paths in the root plugin manifest.
 
-Проверять пользовательский путь:
+Verify the user path:
 
 ```text
 /plugin marketplace add owner/repository
 /plugin install metaskills@skill-toolkit-marketplace
 ```
 
-И CLI-эквивалент:
+And the CLI equivalent:
 
 ```bash
 claude plugin marketplace add owner/repository
 claude plugin install metaskills@skill-toolkit-marketplace
 ```
 
-## Версии и релизы
+## Versions and releases
 
-Различать три независимых понятия:
+Distinguish three independent concepts:
 
-| Версия | Где | Что меняется |
+| Version | Where | What changes |
 |---|---|---|
-| Версия навыка | `SKILL.md → metadata.version` | Контракт и содержимое отдельного навыка |
-| Версия плагина | `plugin.json → version` | Устанавливаемый aggregate bundle |
-| Версия marketplace entry | `marketplace.json → plugins[].version` | Релиз предложения каталога |
+| Skill version | `SKILL.md → metadata.version` | Contract and content of an individual skill |
+| Plugin version | `plugin.json → version` | Installable aggregate bundle |
+| Marketplace entry version | `marketplace.json → plugins[].version` | Release of a catalog offering |
 
-Использовать SemVer как политику проекта. При явных версиях повышать их в каждом релизе; иначе потребитель может не увидеть обновление. Не задавать одну и ту же release version одновременно в `plugin.json` и marketplace entry без автоматической проверки равенства. У Claude Code приоритет разрешения версии зависит от manifest/entry/source revision, поэтому дублирование вручную создаёт риск расхождения.
+Use SemVer as the project policy. When versions are explicit, bump them in every release; otherwise the consumer may not see the update. Do not set the same release version in both `plugin.json` and the marketplace entry without automatic equality verification. In Claude Code, version resolution priority depends on the manifest/entry/source revision, so manual duplication creates a divergence risk.
 
-Для изменения только одного навыка:
+For a change to only one skill:
 
-1. повысить `metadata.version` навыка;
-2. пересобрать bundle;
-3. повысить версию устанавливаемого предложения, которое содержит навык;
-4. зафиксировать changelog/release notes на уровне репозитория;
-5. проверить обновление из предыдущей опубликованной версии.
+1. bump the skill's `metadata.version`;
+2. rebuild the bundle;
+3. bump the version of the installable offering that contains the skill;
+4. record changelog/release notes at the repository level;
+5. verify upgrade from the previous published version.
 
-## Сборка и переносимость
+## Build and portability
 
-Плагин, установленный из marketplace, кэшируется. Поэтому каждый bundle должен быть самодостаточным:
+A plugin installed from a marketplace is cached. Therefore, each bundle must be self-contained:
 
-- копировать весь каталог навыка, включая `scripts/`, `references/`, `assets/`, `prompts/`, `evals/` и `agents/`;
-- исключать только заранее объявленный non-runtime мусор: `.DS_Store`, `__pycache__`, `*.pyc`, `.git`;
-- не оставлять `../` ссылки на исходный монорепозиторий;
-- не использовать абсолютные локальные пути;
-- отклонять symlink, если поведение целевого harness не проверено явно;
-- создавать сборку в новом staging-каталоге;
-- писать build manifest с SHA-256;
-- сравнивать build manifest в CI для обнаружения drift;
-- не редактировать generated bundle вручную.
+- copy the entire skill directory, including `scripts/`, `references/`, `assets/`, `prompts/`, `evals/`, and `agents/`;
+- exclude only predeclared non-runtime junk: `.DS_Store`, `__pycache__`, `*.pyc`, `.git`;
+- leave no `../` links to the source monorepo;
+- do not use absolute local paths;
+- reject symlinks unless target-harness behavior has been explicitly verified;
+- create the build in a new staging directory;
+- write a build manifest with SHA-256;
+- compare the build manifest in CI to detect drift;
+- do not edit the generated bundle manually.
 
-### Зависимости между навыками
+### Dependencies between skills
 
-Claude Code поддерживает `dependencies` в `plugin.json` и может автоматически
-устанавливать companion plugins из того же marketplace. У Codex нет
-документированного поля для зависимости одного plugin от другого; в
-`agents/openai.yaml` поддерживается только `dependencies.tools`, то есть
-зависимости от MCP-инструментов, а не от навыков. Поэтому переносимая модель
-должна иметь один источник и разные host projections:
+Claude Code supports `dependencies` in `plugin.json` and can automatically install companion plugins from the same marketplace. Codex has no documented field for one plugin depending on another; in `agents/openai.yaml`, only `dependencies.tools` is supported, meaning dependencies on MCP tools rather than skills. Therefore, the portable model must have one source and different host projections:
 
-- `required` означает, что без companion-навыка блокируется принадлежащий ему
-  маршрут, но не обязательно весь установленный навык;
-- `recommended` не устанавливается и не блокирует выполнение автоматически;
-- граф хранится отдельно от strict manifests и валидируется на неизвестные
-  имена, версии, дубликаты и циклы;
-- required edges проецируются в Claude manifest; package README и
-  machine-readable metadata содержат видимое предупреждение и fallback-порядок
-  установки для остальных hosts;
-- dependency-aware helper сначала показывает dry run и выполняет установку
-  только после явного `--execute`;
-- оркестратор не должен имитировать отсутствующий specialist;
-- копировать зависимости внутрь каждого индивидуального plugin нельзя, если
-  это создаёт несколько активных копий одной skill identity.
+- `required` means that without the companion skill, its owned route is blocked, but not necessarily the entire installed skill;
+- `recommended` is neither installed nor blocking automatically;
+- the graph is stored separately from strict manifests and validated for unknown names, versions, duplicates, and cycles;
+- required edges are projected into the Claude manifest; the package README and machine-readable metadata include a visible warning and a fallback installation order for other hosts;
+- the dependency-aware helper first shows a dry run and performs installation only after explicit `--execute`;
+- the orchestrator must not imitate a missing specialist;
+- dependencies must not be copied into each individual plugin if that creates multiple active copies of one skill identity.
 
-Если пользователю нужен один installable unit, безопаснее выпускать отдельный
-suite/aggregate plugin с уникальной install boundary и проверять, что он не
-активирован одновременно с пересекающимися индивидуальными plugins.
+If the user needs one installable unit, it is safer to release a separate suite/aggregate plugin with a unique install boundary and verify that it is not activated at the same time as overlapping individual plugins.
 
-## Валидация и тестирование
+## Validation and testing
 
-Минимальная матрица релиза:
+Minimum release matrix:
 
-| Слой | Проверка | Обязательный результат |
+| Layer | Check | Required result |
 |---|---|---|
-| Agent Skills | YAML, `name`, `description`, directory match, self-containment | PASS для каждого навыка |
-| Каталог | уникальные имена, глубина категорий, ссылки, версии | PASS |
-| Portable CLI | `npx skills add . --list` | все ожидаемые навыки обнаружены |
+| Agent Skills | YAML, `name`, `description`, directory match, self-containment | PASS for every skill |
+| Catalog | unique names, category depth, links, versions | PASS |
+| Portable CLI | `npx skills add . --list` | all expected skills discovered |
 | Claude marketplace | `claude plugin validate .` | PASS |
 | Claude plugin | `claude plugin validate ./plugin --strict` | PASS |
-| Local load | `claude --plugin-dir ./plugin` | representative skill доступен |
-| Routing | positive, negative, ambiguous, collision prompts | заданный threshold |
-| Behavior | минимум один сценарий на критичный маршрут | PASS |
-| Upgrade | previous → candidate | новая версия обнаружена |
+| Local load | `claude --plugin-dir ./plugin` | representative skill is available |
+| Routing | positive, negative, ambiguous, collision prompts | defined threshold |
+| Behavior | at least one scenario per critical route | PASS |
+| Upgrade | previous → candidate | new version detected |
 | Security | secrets, traversal, executable provenance, unsafe install | PASS |
 
-Portable helper этого навыка не заменяет harness-native validators. Если CLI недоступен, ставить `NOT RUN`, а не `PASS`.
+This skill's portable helper does not replace harness-native validators. If a CLI is unavailable, mark `NOT RUN`, not `PASS`.
 
-В CI разделить быстрые проверки pull request и более дорогие release gates. Не публиковать при drift, collision, invalid manifest, broken link, failed smoke test или отсутствующем version bump.
+In CI, separate fast pull request checks from more expensive release gates. Do not publish when there is drift, a collision, an invalid manifest, a broken link, a failed smoke test, or a missing version bump.
 
-## Безопасность и корпоративное управление
+## Security and governance
 
-- считать сторонний навык исполняемым supply-chain артефактом;
-- проверять provenance, лицензию, commit/tag и целостность;
-- читать скрипты до выполнения и запускать с минимальными полномочиями;
-- не хранить токены и credentials в манифестах, prompts, fixtures или логах;
-- закреплять доверенные marketplace sources административной политикой;
-- разделять author, reviewer и publisher для важных релизов;
-- поддерживать allowlist/denylist и процедуру срочного отзыва;
-- документировать телеметрию без содержимого пользовательских prompts и секретов;
-- проводить пилот в изолированной области видимости;
-- обеспечивать восстановление предыдущей версии.
+- treat a third-party skill as an executable supply-chain artifact;
+- verify provenance, license, commit/tag, and integrity;
+- read scripts before execution and run them with minimum authority;
+- do not store tokens or credentials in manifests, prompts, fixtures, or logs;
+- pin trusted marketplace sources by administrative policy;
+- separate author, reviewer, and publisher for important releases;
+- maintain allowlist/denylist controls and an urgent revocation procedure;
+- document telemetry without user prompt contents or secrets;
+- run a pilot in an isolated visibility scope;
+- ensure recovery of the previous version.
 
-Для private marketplace отдельно проверить authentication целевых пользователей и CI. Не считать доступ автора доказательством доступности для потребителя.
+For a private marketplace, separately verify authentication for target users and CI. Do not treat the author's access as proof of consumer availability.
 
-## Миграция
+## Migration
 
-Порядок миграции:
+Migration order:
 
-1. Зафиксировать inventory и hashes исходной структуры.
-2. Согласовать mapping `source → target`, категории и owners.
-3. Скопировать навыки в staging; не перемещать источник.
-4. Исправить только внутренние portability defects.
-5. Создать marketplace manifest.
-6. Собрать aggregate plugin из staging source.
-7. Запустить полную матрицу проверок.
-8. Провести пилотную установку.
-9. Согласовать cutover.
-10. Оставить старую структуру recoverable на установленный срок.
-11. Удалить или архивировать её только отдельным подтверждённым действием.
+1. Record the inventory and hashes of the source structure.
+2. Agree on the `source → target` mapping, categories, and owners.
+3. Copy skills into staging; do not move the source.
+4. Fix only internal portability defects.
+5. Create the marketplace manifest.
+6. Build the aggregate plugin from the staging source.
+7. Run the full verification matrix.
+8. Perform a pilot installation.
+9. Approve cutover.
+10. Leave the old structure recoverable for the defined period.
+11. Delete or archive it only through a separate confirmed action.
 
-Rollback должен быть описан до cutover и включать источник предыдущей версии, способ переустановки, критерии запуска и ответственного.
+Rollback must be described before cutover and include the source of the previous version, the reinstallation method, activation criteria, and the responsible owner.
 
-## Документация и сопровождение
+## Documentation and maintenance
 
-README маркетплейса должен содержать:
+The marketplace README must include:
 
-- назначение и поддерживаемые harnesses;
-- каталог предложений и категории;
-- команды установки и удаления;
-- локальную разработку;
-- политику версий и совместимости;
+- purpose and supported harnesses;
+- the offerings catalog and categories;
+- installation and removal commands;
+- local development;
+- versioning and compatibility policy;
 - security/reporting policy;
-- contribution и review gates;
+- contribution and review gates;
 - known limitations;
-- ownership и release process.
+- ownership and release process.
 
-Хранить этот файл внутри навыка как каноническую операционную справку. Центральный `skill-best-practices` может индексировать и отслеживать источники, но не должен становиться runtime-зависимостью установленного `skill-marketplace-manager`.
+Keep this file inside the skill as the canonical operating reference. The central `skill-best-practices` may index and track sources, but it must not become a runtime dependency of the installed `skill-marketplace-manager`.
 
-## Разрешение противоречий
+## Resolving contradictions
 
-### «Один плагин» против «плагин на категорию»
+### "One plugin" vs. "one plugin per category"
 
-Использовать оба представления для разных задач: generated aggregate plugin — для локальной разработки и полного набора; marketplace entries по категориям — для выборочной установки. Канонический source при этом остаётся один.
+Use both representations for different jobs: a generated aggregate plugin for local development and the full set; category-based marketplace entries for selective installation. The canonical source remains single.
 
-### `plugin.json` против `strict: false`
+### `plugin.json` vs. `strict: false`
 
-Для self-contained plugin использовать `plugin.json`. Для shared-root marketplace entries с явными component paths использовать `strict: false`. Не заставлять один root manifest описывать несовместимые наборы компонентов нескольких entries.
+Use `plugin.json` for a self-contained plugin. Use `strict: false` for shared-root marketplace entries with explicit component paths. Do not force one root manifest to describe incompatible component sets for multiple entries.
 
-### README внутри навыка
+### README inside the skill
 
-Общая экономия контекста рекомендует не добавлять вспомогательную документацию в каждый навык. Здесь README является явно запрошенным пользовательским интерфейсом сложного multi-mode инструмента. Runtime-инструкции остаются в `SKILL.md`, а README не требуется для выполнения маршрутов.
+General context-efficiency guidance recommends not adding supporting documentation to every skill. Here, the README is an explicitly requested user interface for a complex multi-mode tool. Runtime instructions remain in `SKILL.md`, and the README is not required for route execution.
 
-### Плоский каталог против категорий
+### Flat catalog vs. categories
 
-Плоский layout проще, но категории полезны при большом портфеле. Ограничение в один уровень обеспечивает совместимость с skill.sh и предотвращает произвольную глубину таксономии.
+A flat layout is simpler, but categories are useful for a large portfolio. The one-level limit preserves skill.sh compatibility and prevents arbitrary taxonomy depth.
 
-## Источники
+## Sources
 
-Первичные и официальные источники:
+Primary and official sources:
 
 - [Agent Skills Specification](https://agentskills.io/specification)
 - [Agent Skills — Best practices](https://agentskills.io/skill-creation/best-practices)
@@ -349,9 +331,9 @@ README маркетплейса должен содержать:
 - [Anthropic: Equipping agents for the real world with Agent Skills](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills)
 - [OpenAI: Build skills](https://learn.chatgpt.com/docs/build-skills)
 
-Анализируемые публичные реализации и паттерны:
+Analyzed public implementations and patterns:
 
 - [garrytan/gstack](https://github.com/garrytan/gstack)
 - [garrytan/gbrain](https://github.com/garrytan/gbrain)
 
-Перед изменением формата манифеста или release workflow повторно проверить актуальные harness-specific документы: эти контракты могут изменяться независимо от Agent Skills specification.
+Before changing a manifest format or release workflow, recheck the current harness-specific documents: these contracts can change independently of the Agent Skills specification.

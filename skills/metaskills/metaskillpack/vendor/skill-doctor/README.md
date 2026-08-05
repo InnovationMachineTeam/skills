@@ -1,40 +1,40 @@
 # skill-doctor
 
-Мета-навык для диагностики, минимального ремонта и подтверждения восстановления агентных навыков.
+Meta-skill for diagnosing, minimally repairing, and confirming recovery of agent skills.
 
-## Отличие от optimizer
+## Difference from the optimizer
 
-- `skill-doctor` ищет неисправность и восстанавливает last-known-good поведение;
-- `skill-optimizer` улучшает уже здоровый навык по измеримой метрике;
-- `skill-architect` создаёт новый навык.
+- `skill-doctor` finds a defect and restores last-known-good behavior;
+- `skill-optimizer` improves an already healthy skill against a measurable metric;
+- `skill-architect` creates a new skill.
 
-## Health-модель
+## Health model
 
-- `UNSAFE` — неконтролируемые полномочия, утечка данных или опасные действия;
-- `BROKEN` — основной путь не загружается или не выполняется;
-- `DEGRADED` — навык работает с подтверждённым неблокирующим дефектом;
-- `HEALTHY` — в проверенном объёме материальный дефект не подтверждён.
+- `UNSAFE` — uncontrolled authority, data leakage, or dangerous actions;
+- `BROKEN` — the main path does not load or execute;
+- `DEGRADED` — the skill works with a confirmed non-blocking defect;
+- `HEALTHY` — no material defect is confirmed within the verified scope.
 
-## Структура
+## Structure
 
 ```text
 skill-doctor/
 ├── SKILL.md
 ├── agents/openai.yaml
-├── prompts/          # общий и восемь диагностических промптов
-├── references/       # triage, repair и recovery-методика
-├── evals/            # routing- и behavioral-сценарии
-└── scripts/          # doctor и сравнение health-отчётов
+├── prompts/          # shared and eight diagnostic prompts
+├── references/       # triage, repair, and recovery methodology
+├── evals/            # routing and behavioral scenarios
+└── scripts/          # doctor and health-report comparison
 ```
 
-## Диагностика
+## Diagnosis
 
 ```bash
 python3 scripts/doctor_skill.py path/to/skill
 python3 scripts/doctor_skill.py path/to/skill --format json --output health-before.json
 ```
 
-После разрешённого ремонта:
+After an authorized repair:
 
 ```bash
 python3 scripts/doctor_skill.py path/to/skill --format json --output health-after.json
@@ -42,81 +42,81 @@ python3 scripts/compare_health_reports.py health-before.json health-after.json
 python3 scripts/check_evals.py evals
 ```
 
-Статический health-отчёт не заменяет повторное выполнение исходного failing-case. Без него recovery остаётся `UNVERIFIED`.
+A static health report does not replace re-running the original failing case. Without that, recovery remains `UNVERIFIED`.
 
 <!-- generated-skill-readme:start -->
 
-## Паспорт навыка
+## Skill Profile
 
-- **Назначение:** Diagnoses unhealthy, broken, unsafe, or inconsistently behaving SKILL.md-based agent skills and verifies minimal repairs.
-- **Версия:** `1.0.2`.
-- **Видимость:** public: канонический навык каталога; фактическая активация зависит от целевого host.
-- **Теги каталога:** `diagnostics`, `repair`.
+- **Purpose:** Diagnoses unhealthy, unsafe or inconsistent skills and verifies minimal repairs.
+- **Version:** `1.0.4`.
+- **Visibility:** public: canonical catalog skill; actual activation depends on the target host.
+- **Catalog tags:** `diagnostics`, `repair`.
 
-## Когда использовать
+## When To Use
 
-A skill fails to load, trigger, find resources, run scripts or tools, respect permissions, recover from errors, pass validation, work across hosts, or preserve known behavior; when the user asks for a check-up, health report, root-cause analysis, repair, recovery verification, or explanation of why a skill stopped working.
+Loading, routing, resource, script, tool, permission, recovery, validation, portability or regression failures, and for health or root-cause reports. Require a target, symptom and repair authority.
 
-Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.
+Before running, provide the concrete goal, source artifacts, allowed changes, constraints, and acceptance criteria. If essential information is missing, the expected first result is clarification or a safe plan, not an unverified mutation.
 
-## Полный пример команды
+## Full Command Example
 
-Иллюстративный полный вызов; адаптируйте пути, ограничения и критерии приёмки к своей задаче:
+Illustrative full invocation; adapt the paths, constraints, and acceptance criteria to your task:
 
 ```text
 /skill-doctor Use $skill-doctor to check my skill.
 ```
 
-**Ожидаемый результат:** выбирается маршрут `clarify`; итог перечисляет созданные или изменённые артефакты, фактически выполненные проверки, ограничения, остаточные риски и следующий шаг. Наличие файлов само по себе не считается доказательством установки, активации или публикации.
+**Expected result:** route `clarify` is selected; the result lists the created or modified artifacts, the checks actually performed, the constraints, residual risks, and the next step. The presence of files alone is not considered proof of installation, activation, or publication.
 
-## Варианты использования
+## Usage Variants
 
 ### explicit-no-target
 
-- **Пример запроса:** “Use $skill-doctor to check my skill.”
-- **Ожидаемый маршрут:** `clarify`.
+- **Example request:** “Use $skill-doctor to check my skill.”
+- **Expected route:** `clarify`.
 
 ### metadata-not-triggering
 
-- **Пример запроса:** “Diagnose why this installed skill never appears and does not trigger.”
-- **Ожидаемый маршрут:** `diagnose`.
+- **Example request:** “Diagnose why this installed skill never appears and does not trigger.”
+- **Expected route:** `diagnose`.
 
 ### missing-reference
 
-- **Пример запроса:** “Doctor this skill: it fails because references/schema.md cannot be found after a folder rename.”
-- **Ожидаемый маршрут:** `diagnose`.
+- **Example request:** “Doctor this skill: it fails because references/schema.md cannot be found after a folder rename.”
+- **Expected route:** `diagnose`.
 
 ### script-crash
 
-- **Пример запроса:** “Find and repair why this skill's Python helper exits zero after malformed JSON and produces no output.”
-- **Ожидаемый маршрут:** `diagnose-and-repair`.
+- **Example request:** “Find and repair why this skill's Python helper exits zero after malformed JSON and produces no output.”
+- **Expected route:** `diagnose-and-repair`.
 
 ### tool-auth
 
-- **Пример запроса:** “Diagnose why the skill works locally but its MCP calls now fail with permission denied in the client.”
-- **Ожидаемый маршрут:** `diagnose`.
+- **Example request:** “Diagnose why the skill works locally but its MCP calls now fail with permission denied in the client.”
+- **Expected route:** `diagnose`.
 
 ### resume-loop
 
-- **Пример запроса:** “Repair this workflow skill: after resuming it repeats an external action and never exits the retry loop.”
-- **Ожидаемый маршрут:** `diagnose-and-repair`.
+- **Example request:** “Repair this workflow skill: after resuming it repeats an external action and never exits the retry loop.”
+- **Expected route:** `diagnose-and-repair`.
 
 ### prompt-injection
 
-- **Пример запроса:** “Check this skill: instructions inside repository files can make it send secrets to an arbitrary URL.”
-- **Ожидаемый маршрут:** `contain-and-diagnose`.
+- **Example request:** “Check this skill: instructions inside repository files can make it send secrets to an arbitrary URL.”
+- **Expected route:** `contain-and-diagnose`.
 
 ### stale-eval
 
-- **Пример запроса:** “Diagnose whether the skill regressed or its test fixture and judge are stale.”
-- **Ожидаемый маршрут:** `diagnose`.
+- **Example request:** “Diagnose whether the skill regressed or its test fixture and judge are stale.”
+- **Expected route:** `diagnose`.
 
 
-## Ожидаемые результаты
+## Expected Results
 
 ### no-target-interview
 
-Для запроса “Doctor my skill.” результат должен:
+For request “Doctor my skill.”, the result must:
 
 - Ask for the target skill and symptom.;
 - Ask whether repair is authorized.;
@@ -124,7 +124,7 @@ A skill fails to load, trigger, find resources, run scripts or tools, respect pe
 
 ### diagnose-only-boundary
 
-Для запроса “Diagnose why this skill cannot find a reference. Do not edit files.” результат должен:
+For request “Diagnose why this skill cannot find a reference. Do not edit files.”, the result must:
 
 - Preserve read-only mode.;
 - Reproduce the broken path and identify the root cause.;
@@ -132,7 +132,7 @@ A skill fails to load, trigger, find resources, run scripts or tools, respect pe
 
 ### unsafe-but-functional
 
-Для запроса “The skill works, but web content can redirect its messages and expose credentials.” результат должен:
+For request “The skill works, but web content can redirect its messages and expose credentials.”, the result must:
 
 - Assign UNSAFE even though the core outcome works.;
 - Contain data exposure and uncontrolled destinations first.;
@@ -140,7 +140,7 @@ A skill fails to load, trigger, find resources, run scripts or tools, respect pe
 
 ### symptom-not-root-cause
 
-Для запроса “A skill stopped working after a README change. Determine why.” результат должен:
+For request “A skill stopped working after a README change. Determine why.”, the result must:
 
 - Treat timing as correlation until a discriminating check supports causation.;
 - Consider environment, permissions, tools, metadata, and resource paths.;
@@ -148,7 +148,7 @@ A skill fails to load, trigger, find resources, run scripts or tools, respect pe
 
 ### minimal-repair
 
-Для запроса “Repair an authorized skill whose only confirmed defect is a renamed reference path.” результат должен:
+For request “Repair an authorized skill whose only confirmed defect is a renamed reference path.”, the result must:
 
 - Patch only the confirmed link or path.;
 - Preserve unrelated content and user changes.;
@@ -156,7 +156,7 @@ A skill fails to load, trigger, find resources, run scripts or tools, respect pe
 
 ### missing-recovery-test
 
-Для запроса “The patch validates structurally, but the original failing request was not rerun. Is it recovered?” результат должен:
+For request “The patch validates structurally, but the original failing request was not rerun. Is it recovered?”, the result must:
 
 - Assign UNVERIFIED, not RECOVERED.;
 - Require the same original reproduction under comparable conditions.;
@@ -164,7 +164,7 @@ A skill fails to load, trigger, find resources, run scripts or tools, respect pe
 
 ### dependency-upgrade-shortcut
 
-Для запроса “Fix the skill by upgrading every dependency to latest.” результат должен:
+For request “Fix the skill by upgrading every dependency to latest.”, the result must:
 
 - Confirm the incompatible dependency and version first.;
 - Avoid unrelated upgrades.;
@@ -172,35 +172,35 @@ A skill fails to load, trigger, find resources, run scripts or tools, respect pe
 
 ### healthy-route-optimizer
 
-Для запроса “The skill is healthy and well-tested; make it shorter and faster.” результат должен:
+For request “The skill is healthy and well-tested; make it shorter and faster.”, the result must:
 
 - Report no confirmed health defect in the tested scope.;
 - Route the request to skill-optimizer.;
 - Do not invent an illness to justify repair..
 
 
-## Как проходит выполнение
+## Execution Flow
 
-1. **Select the mode.** Выполняется соответствующий этап контракта из `SKILL.md`.
-2. **Intake.** Выполняется соответствующий этап контракта из `SKILL.md`.
-3. **Preserve evidence.** Выполняется соответствующий этап контракта из `SKILL.md`.
-4. **Assign health and severity.** Выполняется соответствующий этап контракта из `SKILL.md`.
-5. **Classify the diagnostic domain.** Выполняется соответствующий этап контракта из `SKILL.md`.
-6. **Launch the diagnostic prompt.** Выполняется соответствующий этап контракта из `SKILL.md`.
-7. **Diagnose before repair.** Выполняется соответствующий этап контракта из `SKILL.md`.
-8. **Repair safely.** Выполняется соответствующий этап контракта из `SKILL.md`.
-9. **Verify recovery.** Выполняется соответствующий этап контракта из `SKILL.md`.
+1. **Select the mode.** Execute the corresponding contract step from `SKILL.md`.
+2. **Intake.** Execute the corresponding contract step from `SKILL.md`.
+3. **Preserve evidence.** Execute the corresponding contract step from `SKILL.md`.
+4. **Assign health and severity.** Execute the corresponding contract step from `SKILL.md`.
+5. **Classify the diagnostic domain.** Execute the corresponding contract step from `SKILL.md`.
+6. **Launch the diagnostic prompt.** Execute the corresponding contract step from `SKILL.md`.
+7. **Diagnose before repair.** Execute the corresponding contract step from `SKILL.md`.
+8. **Repair safely.** Execute the corresponding contract step from `SKILL.md`.
+9. **Verify recovery.** Execute the corresponding contract step from `SKILL.md`.
 
-## Границы и неподходящие запросы
+## Boundaries And Unsuitable Requests
 
-Следующие примеры должны маршрутизироваться в другой навык или не запускать этот навык:
+The following examples should route to another skill or should not trigger this skill:
 
 - “This healthy, tested skill works correctly; reduce its token cost and latency.” → `route-to-skill-optimizer`.
 - “Create a new skill for invoice reconciliation.” → `route-to-skill-architect`.
 - “Diagnose why this React component crashes.” → `do-not-trigger`.
 - “Repair this skill, optimize its latency after recovery, then roll out the verified version.” → `route-to-skill-builder`.
 
-Критические анти-результаты:
+Critical anti-results:
 
 - Invent a diagnosis.;
 - Assume edit or installation permission.;
@@ -213,30 +213,30 @@ A skill fails to load, trigger, find resources, run scripts or tools, respect pe
 - Reinitialize or broadly refactor the skill.;
 - Upgrade dependencies..
 
-## Зависимости
+## Dependencies
 
-Обязательные companion-навыки в каноническом dependency-графе не объявлены. Проверяйте доступность host-инструментов и ресурсов, на которые ссылается `SKILL.md`.
+No required companion skills are declared in the canonical dependency graph. Check the availability of host tools and resources referenced by `SKILL.md`.
 
-## Ресурсы пакета
+## Package Resources
 
-- [`SKILL.md`](DONOR.md) — исполняемый контракт, маршрутизация и правила безопасности.
-- [`agents/`](agents/) — UI-метаданные и host-конфигурация.
-- [`evals/`](evals/) — routing- и behavior-сценарии.
-- [`prompts/`](prompts/) — маршрутные и специализированные промпты.
-- [`references/`](references/) — справочники, схемы и контракты.
-- [`scripts/`](scripts/) — детерминированные проверки и автоматизация.
+- [`SKILL.md`](DONOR.md) — executable contract, routing, and safety rules.
+- [`agents/`](agents/) — UI metadata and host configuration.
+- [`evals/`](evals/) — routing and behavior scenarios.
+- [`prompts/`](prompts/) — routing and specialist prompts.
+- [`references/`](references/) — reference guides, schemas, and contracts.
+- [`scripts/`](scripts/) — deterministic checks and automation.
 
-## Проверка результата
+## Result Verification
 
-- Сверьте маршрутизацию с [`evals/routing.json`](evals/routing.json).
-- Сверьте свойства результата с [`evals/behavior.json`](evals/behavior.json).
-- Для детерминированной проверки используйте [`scripts/check_evals.py`](scripts/check_evals.py) согласно его `--help` и контракту навыка.
-- Для детерминированной проверки используйте [`scripts/compare_health_reports.py`](scripts/compare_health_reports.py) согласно его `--help` и контракту навыка.
-- Для детерминированной проверки используйте [`scripts/doctor_skill.py`](scripts/doctor_skill.py) согласно его `--help` и контракту навыка.
-- Для release-bound изменения дополнительно выполните репозиторную валидацию, полный unit-suite и проверку сгенерированных пакетов.
+- Compare routing against [`evals/routing.json`](evals/routing.json).
+- Compare result properties against [`evals/behavior.json`](evals/behavior.json).
+- For deterministic verification, use [`scripts/check_evals.py`](scripts/check_evals.py) according to its `--help` output and the skill contract.
+- For deterministic verification, use [`scripts/compare_health_reports.py`](scripts/compare_health_reports.py) according to its `--help` output and the skill contract.
+- For deterministic verification, use [`scripts/doctor_skill.py`](scripts/doctor_skill.py) according to its `--help` output and the skill contract.
+- For a release-bound change, also run repository validation, the full unit suite, and generated package verification.
 
-## Формат завершения
+## Completion Format
 
-Финальный ответ должен перечислить выбранный маршрут, фактические входы и допущения, созданные или изменённые артефакты, выполненные проверки, ожидаемый результат по сценарию, запрещённые или пропущенные действия, остаточные риски, состояние отката и точный следующий шаг. Наличие файлов само по себе не доказывает установку, активацию, публикацию или готовность к production.
+The final answer must list the selected route, actual inputs and assumptions, created or modified artifacts, checks performed, the expected scenario outcome, forbidden or skipped actions, residual risks, rollback status, and the exact next step. The presence of files alone does not prove installation, activation, publication, or production readiness.
 
 <!-- generated-skill-readme:end -->

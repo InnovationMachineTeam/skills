@@ -1,6 +1,6 @@
-# Трекинг задач, мониторинг и наблюдаемость
+# Task Tracking, Monitoring, and Observability
 
-## Каноническая модель задачи
+## Canonical task model
 
 ```yaml
 id: TASK-1042
@@ -21,11 +21,11 @@ evidence: [...]
 terminal_reason: ...
 ```
 
-Статус должен отражать факт scheduler, а не текст агента. `waiting` означает
-ожидание внешнего события; `blocked` — доказанно невыполненное precondition;
-`completed` — acceptance подтверждён evidence.
+Status must reflect scheduler fact, not the agent's text. `waiting` means
+waiting for an external event; `blocked` means a precondition is demonstrably
+unmet; `completed` means acceptance is confirmed by evidence.
 
-## Переходы состояния
+## State transitions
 
 ```text
 queued → ready → running ─┬→ completed
@@ -35,29 +35,29 @@ queued → ready → running ─┬→ completed
                          └→ cancelled
 ```
 
-Каждый переход — идемпотентное событие с actor, timestamp, reason и version.
-Optimistic concurrency или compare-and-swap предотвращает потерю обновлений.
+Each transition is an idempotent event with actor, timestamp, reason, and
+version. Optimistic concurrency or compare-and-swap prevents lost updates.
 
-## Leases, heartbeat и orphan detection
+## Leases, heartbeat, and orphan detection
 
-- owner получает lease на задачу/write-set;
-- heartbeat продлевает lease;
-- потерянный lease запрещает дальнейшую запись;
-- истёкшая задача переходит в reconciliation, не сразу к другому writer;
-- scheduler проверяет незавершённые side effects и artifacts;
-- повторный dispatch использует idempotency key.
+- the owner receives a lease for the task/write-set;
+- heartbeat extends the lease;
+- a lost lease forbids further writes;
+- an expired task moves to reconciliation, not immediately to another writer;
+- the scheduler checks unfinished side effects and artifacts;
+- redispatch uses an idempotency key.
 
-GSD Pi применяет fail-closed worktree/branch/lease safety. Это важнее
-optimistic предположения, что «агент всё ещё владеет задачей».
+GSD Pi applies fail-closed worktree/branch/lease safety. This is more important
+than optimistic assumptions that "the agent still owns the task."
 
-## Три уровня наблюдаемости
+## Three levels of observability
 
 ### Run-level
 
-- task success и terminal state;
+- task success and terminal state;
 - latency, turns, tool calls, tokens, cost;
 - retries, loops, cancellations;
-- human checkpoints и wait time;
+- human checkpoints and wait time;
 - agent/model/tool/policy versions.
 
 ### Step-level trace
@@ -71,17 +71,17 @@ optimistic предположения, что «агент всё ещё вла�
 - state transition;
 - error classification.
 
-OpenAI Agents SDK встроенно трассирует runs, agents, generations, tools,
-guardrails и handoffs
-([tracing](https://openai.github.io/openai-agents-python/tracing/)). Полное
-содержимое prompt/tool data чувствительно и должно быть opt-in/redacted.
+The OpenAI Agents SDK natively traces runs, agents, generations, tools,
+guardrails, and handoffs
+([tracing](https://openai.github.io/openai-agents-python/tracing/)). Full
+prompt/tool data is sensitive and should be opt-in/redacted.
 
 ### System-level
 
-- queue depth и age;
+- queue depth and age;
 - active/blocked/orphan tasks;
-- throughput и saturation;
-- error rate по capability/version;
+- throughput and saturation;
+- error rate by capability/version;
 - policy denials;
 - approval backlog;
 - eval regression;
@@ -89,8 +89,8 @@ guardrails и handoffs
 - stale memory/docs;
 - security anomalies.
 
-Для underlying service применяйте latency, traffic, errors и saturation из
-Google SRE, но добавляйте agent-specific signals
+For the underlying service, apply latency, traffic, errors, and saturation from
+Google SRE, but add agent-specific signals
 ([SRE](https://sre.google/sre-book/monitoring-distributed-systems/)).
 
 ## Agent-specific metrics
@@ -123,7 +123,7 @@ Google SRE, но добавляйте agent-specific signals
 - denied high-risk call rate;
 - output truncation rate.
 
-### Quality и cost
+### Quality and cost
 
 - rubric scores;
 - requirement/test coverage;
@@ -132,8 +132,8 @@ Google SRE, но добавляйте agent-specific signals
 - context cache hit;
 - stale-context incidents.
 
-Не оптимизируйте локальную метрику ценой outcome: низкая стоимость run с высоким
-rework хуже дорогого успешного run.
+Do not optimize a local metric at the expense of the outcome: a cheap run with
+high rework is worse than an expensive successful run.
 
 ## Dashboard views
 
@@ -141,47 +141,47 @@ rework хуже дорогого успешного run.
 2. **Owner** — success, cost, eval regressions, versions.
 3. **Security** — permissions, denials, anomalous tools, provenance.
 4. **Product** — resolved bets, user outcomes, incidents.
-5. **Developer** — traces, prompts/tools versions, failure clusters.
+5. **Developer** — traces, prompt/tool versions, failure clusters.
 
-Каждый график должен вести к конкретному run/task/evidence.
+Each chart should lead to a specific run/task/evidence item.
 
 ## Alerts
 
-Page только по actionable symptom:
+Page only on an actionable symptom:
 
-- critical side effect без требуемого approval;
+- critical side effect without required approval;
 - repeated destructive failure;
 - compromised credential/provenance signal;
-- runaway loop или budget explosion;
-- queue stall на critical workflow;
-- production SLO breach с agent action correlation.
+- runaway loop or budget explosion;
+- queue stall on a critical workflow;
+- production SLO breach correlated with agent action.
 
-Ticket, но не page:
+Ticket, but do not page:
 
 - gradual quality drift;
-- растущая стоимость;
+- rising cost;
 - stale docs/memory;
-- низкая полезность specialist;
+- low specialist usefulness;
 - non-critical orphan task.
 
 ## Audit log
 
-Append-only audit содержит кто/что/когда/почему:
+Append-only audit contains who/what/when/why:
 
 - human/agent identity;
 - delegated authority chain;
 - exact artifact/policy/tool digest;
-- approval token и scope;
-- внешнее действие и результат;
+- approval token and scope;
+- external action and result;
 - rollback/compensation;
 - data access class.
 
-Не записывайте secrets и raw sensitive content по умолчанию. Retention и access
-должны соответствовать data classification.
+Do not log secrets and raw sensitive content by default. Retention and access
+must match the data classification.
 
 ## Runbooks
 
-Обязательные операционные сценарии:
+Required operational scenarios:
 
 - stuck run;
 - orphan worker;
@@ -193,6 +193,6 @@ Append-only audit содержит кто/что/когда/почему:
 - memory poisoning;
 - compromised tool/agent version;
 - trace export failure;
-- emergency revoke и mass cancel.
+- emergency revoke and mass cancel.
 
-Runbook считается готовым только после упражнения или test simulation.
+A runbook is considered complete only after an exercise or test simulation.

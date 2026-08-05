@@ -1,7 +1,7 @@
 {
   "format": 2,
   "plugin": "agentkit",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "source_layout": "skills/",
   "bundle_layout": "skills/<name>/",
   "platforms": [
@@ -21,18 +21,18 @@
   "files": [
     {
       "path": ".claude-plugin/plugin.json",
-      "sha256": "25ba23d5e673e77ac110e97f095d8f28e3f575a812ed8c650f19ff74c576cb4a",
+      "sha256": "44168c9c87cef3cafc278b2b92ba4467de487e7b2b850f2b028ea67a44155caa",
       "bytes": 310
     },
     {
       "path": ".codex-plugin/plugin.json",
-      "sha256": "7fda7823dc35c39fd47817b484cf2118e7ff283749990a2daf63fbef4a7e6a1c",
-      "bytes": 1113
+      "sha256": "2915cbb184ffb77391c23209241938077ccce2475b723e5da29e3a3551742287",
+      "bytes": 1093
     },
     {
       "path": ".cursor-plugin/plugin.json",
-      "sha256": "0dc630014361e8bcf241c32bc4b76b03b40a82edb9e8012cd1ed2e55283460b4",
-      "bytes": 541
+      "sha256": "b8c66b90fb6f3c67f065ab863d382c57c6e6dedebe3849f915f83d3ff0a6f8e5",
+      "bytes": 521
     },
     {
       "path": "README.md",
@@ -41,12 +41,12 @@
     },
     {
       "path": "skills/agentkit/README.md",
-      "sha256": "d29611d670cc362d641464f6709b5c193a96a7251ee812cd1ecae77148987fac",
-      "bytes": 8643
+      "sha256": "54c35f02905a5ef13ea6b0befce5eaaeea30713491a6e5402b670b8bb3c9d687",
+      "bytes": 5822
     },
     {
       "path": "skills/agentkit/SKILL.md",
-      "sha256": "ebd49ddc4ab90f0cf2fb1d441d5e76e8471163ed564abc0aaf51e741ff1a2bef",
+      "sha256": "c72ee2c122c367c15280d84b8c5a3032d618536516ee1d9b5c23c24467ca72fe",
       "bytes": 4558
     },
     {
@@ -61,18 +61,18 @@
     },
     {
       "path": "skills/agentkit/donors.json",
-      "sha256": "e6ea054607031e8032b8305a986125920a0b9dfbd46636c4f5e9678e29e9262c",
-      "bytes": 7052
+      "sha256": "a96f452d81dc1b749ced74a1ce4070d1d39ef3acc778ea14eeb1d32f4dc06e14",
+      "bytes": 7030
     },
     {
       "path": "skills/agentkit/evals/behavior.json",
-      "sha256": "4e5e1b079764f19d1b8d486eff6bc9905e048635e90cf08b0afa6dc86a793785",
-      "bytes": 1934
+      "sha256": "63aecaca117f4eb14ea7f7f9cf7c1770dd6aefe62ab557ace84c12efa35572b3",
+      "bytes": 1861
     },
     {
       "path": "skills/agentkit/evals/routing.json",
-      "sha256": "bb8ef167bdc92734539857f0d5b1720d0f4518f5de30ae6970e1b695190890b0",
-      "bytes": 1508
+      "sha256": "1bcacade18bdc77c94422a10929888eece14a0bed5361dded0a530e2dcd481cf",
+      "bytes": 1363
     },
     {
       "path": "skills/agentkit/evals/scripts.json",
@@ -156,13 +156,13 @@
     },
     {
       "path": "skills/agentkit/vendor/agent-architect/DONOR.md",
-      "sha256": "b46c2f948b73577e39015f2505384f34066e0402a0903be8c859366baf5cf179",
+      "sha256": "a8fb04cb274fb2d0f41ac4b777c2a15e519f4c7e536cae204e7a5aa8bcd0b07c",
       "bytes": 3275
     },
     {
       "path": "skills/agentkit/vendor/agent-architect/README.md",
-      "sha256": "c8971569416aa5400133a5a10c7ad613db097052493bb93c295b2962d7d36b2f",
-      "bytes": 7981
+      "sha256": "9fc12c81866dab690e0771799604ebcb8ef4d19640ff958abf94fd1be38b9d6e",
+      "bytes": 5757
     },
     {
       "path": "skills/agentkit/vendor/agent-architect/agents/openai.yaml",
@@ -201,13 +201,13 @@
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/DONOR.md",
-      "sha256": "89407a484bcd377397111542f4e6fbf9ee7b5ffb0dc568a93ac43760bd179cae",
+      "sha256": "d66a953b6423fbb65049f1b62625c51589d87826120f37fcf01793f944cbd161",
       "bytes": 2991
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/README.md",
-      "sha256": "0544fda1483eecd7f8c0268a3d5f9903ee3fd06f4a2f4f9e67c56bf4afefc71b",
-      "bytes": 6816
+      "sha256": "9a156cbb7d9f6abeb8fe16a816b4574ef79264bfecff11476bb60a8ca024c3a2",
+      "bytes": 4739
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/agents/openai.yaml",
@@ -216,138 +216,138 @@
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/best-practices/01-foundations-and-selection.md",
-      "sha256": "85143a28ab5b0d4fb0137908ee790799fd7d3adbab71a6560e28d0cd0260ddc5",
-      "bytes": 9882
+      "sha256": "4a1cef98b6b5c9a7ba52a58bb23e90e309dc36e3293fd728849fbaae8c7724dd",
+      "bytes": 6019
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/best-practices/02-agent-design-and-contracts.md",
-      "sha256": "ede2f461b5ead685af6e456f3b74beac1a63dbdd1421fe95d556601e076637d8",
-      "bytes": 7897
+      "sha256": "4da3c72f76bffd97e9939e606aab2725b1e3e7a2d4a6b4334d4a29fa174ff94f",
+      "bytes": 5569
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/best-practices/03-subagents-and-delegation.md",
-      "sha256": "bae9c81f978ab6796894fbca131d0fd41ee28e79587364f7e46ec042294cd678",
-      "bytes": 8300
+      "sha256": "f0336aaf1d13cda479f4141cfeccc8eb91289c55623f5f01507e34e7fa213354",
+      "bytes": 5382
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/best-practices/04-orchestration-and-agent-teams.md",
-      "sha256": "d176621fee3742727ad83144fc68dc6dd0ed12e8218248d750c6cea2e9d62c1d",
-      "bytes": 8825
+      "sha256": "a33b70a87b8feb5ec86967eeb5763134f591e035b17234fdbd0b520a0f3eea5f",
+      "bytes": 6060
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/best-practices/05-agent-os-reference-architecture.md",
-      "sha256": "b020e9d4c4af4fd010b7771d8c23bfd215591da2ca8446d4a3f3690b54f84fde",
-      "bytes": 7484
+      "sha256": "66a346649374a6036496c6b6f64036b1ba272eb5c79c324d5395ab1f87040d89",
+      "bytes": 5829
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/best-practices/06-context-memory-and-state.md",
-      "sha256": "684f7a8cf66c89a33440d695d5c9c4bb18ad4b9311c1949def1ff7835dbb3a67",
-      "bytes": 6124
+      "sha256": "a48dd56faaa511870261a3d3fa88d54df72ee894348419355011859166b008d5",
+      "bytes": 4223
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/best-practices/07-documentation-as-operating-system.md",
-      "sha256": "412a8f03c4b59545e8af1e845c85fed7b9f4c911e062dfeb30466394de73be5d",
-      "bytes": 10524
+      "sha256": "994569ae56ad5241f832fb5ff7b20a78a6e5418f40ea822bb52eb65789016a93",
+      "bytes": 7588
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/best-practices/08-docs-catalog-and-templates.md",
-      "sha256": "5f3b78ebd53755b21469c5ceefa60abad1225a3a357b19a0f2d1007027be60fd",
-      "bytes": 6537
+      "sha256": "866b4441c31826116b4d6cad6be780ccddb204d0d4239b47fc315cc7f99f1833",
+      "bytes": 5834
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/best-practices/09-agent-role-catalog.md",
-      "sha256": "92057b1fbfc8febc3884253d27185c453037840898392556f5feea29d9d5d364",
-      "bytes": 8828
+      "sha256": "4bb45dc33e72c205953ccfcfe1f2650bcfa506380eef76d15040cb7f3c944181",
+      "bytes": 7566
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/best-practices/10-lifecycle-and-orchestration-processes.md",
-      "sha256": "702ce3f8fd2c80b998a29179fc1377bda87d5f7703c9f0420dcc674502668d53",
-      "bytes": 9314
+      "sha256": "dff0f8de1c5e79bfdfb84b00dea0e3411209322e72c43839c90eae04351fed27",
+      "bytes": 7188
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/best-practices/11-requirements-and-quality-attributes.md",
-      "sha256": "9fa23f7e0ef624184e75c33f629dc1ebd040a9f425467a605b65c15ccff88eb2",
-      "bytes": 5785
+      "sha256": "34d33d1b4737b8fdd74eefbdfec3708999e8a3acaa55135b51c24dd45699644f",
+      "bytes": 4960
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/best-practices/12-task-tracking-monitoring-and-observability.md",
-      "sha256": "c21ce00e7ecf4aa24103aa022fd26502d65c8a3dceb03d11abc4f36143399bec",
-      "bytes": 6211
+      "sha256": "d8f24b3bd0849b9e10dc07cdbf61a9dadeb103dda195b79bd452600d037ba7cc",
+      "bytes": 5312
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/best-practices/13-security-approvals-and-governance.md",
-      "sha256": "6551b14dd690625d30081b6b27b9832cd1653f8a6a88b4e08dc161206f097076",
-      "bytes": 7743
+      "sha256": "d69e084f0a0c353bc6273bdd3b1083c6fffccce0eeaae3877ae02d2f9552c873",
+      "bytes": 6493
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/best-practices/14-evaluation-and-continuous-improvement.md",
-      "sha256": "50f29c43a2c015450ba235a9aaa281b046c1221eb7bd185d2390538faced09ad",
-      "bytes": 6914
+      "sha256": "02aab7b43cc757991761f2015e1449771f8f4b0e9678f9cfda9a80cb82defa97",
+      "bytes": 5715
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/best-practices/15-implementation-case-studies.md",
-      "sha256": "46b3a9e3acafaf8ecd831761762f524aa3f7aff58a43fe937076e5f7e4f37409",
-      "bytes": 11686
+      "sha256": "b396285eae8fb6ab5833d297709800ce2aded4380939d2d2a9352fe1db74b5d3",
+      "bytes": 9602
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/best-practices/16-conflicts-and-resolutions.md",
-      "sha256": "991dc7cfcb5e19363d1a4d70f0c5836cd52dffeff05ee4464e3a020d077ba0c1",
-      "bytes": 8372
+      "sha256": "94e3b1137659da6257490e1a6594f5e0d6683ba47bbb650be37ac155de4a0a25",
+      "bytes": 6264
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/best-practices/17-agent-and-orchestration-pattern-catalog.md",
-      "sha256": "f52287d697ff21aff56828d77df7a89200d9584196c51720d281d7c6daf8b92d",
-      "bytes": 19176
+      "sha256": "0f9bbd209d82d8879e973debb505c4aed1452f56a69fd3e08d51e2a84d10a65a",
+      "bytes": 13057
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/best-practices/18-agent-os-and-runtime-pattern-catalog.md",
-      "sha256": "8a6034bf26d5df82f1670bc10fb1ee60168294a840d67f11c80f0ceed9db4ab7",
-      "bytes": 12516
+      "sha256": "a91f064cd6eeb0f5d3c051b41b9b3d13c2e8aa2ca9e9cfe24ce7ad012b7837fa",
+      "bytes": 9758
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/best-practices/19-skill-design-pattern-catalog.md",
-      "sha256": "523ce8da7326fde63cd3d17471a7a69cb26f0c8b962ee5952ee59529f0d2ef4d",
-      "bytes": 13105
+      "sha256": "8b449918c20f03619f6eae3f5cb0075f05f86159dadd502da6f004fc0a229d92",
+      "bytes": 9564
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/best-practices/20-agentic-cycles-and-lifecycles.md",
-      "sha256": "80b2456ba1731016ad85ae8047a1228de174bd6ab7b9867d612dfc3fe81e495d",
-      "bytes": 15303
+      "sha256": "3c7e561cd95de51adfac300f4d55a93107f6ea8fdbbb1df0e69c4b0489928dff",
+      "bytes": 9594
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/best-practices/21-role-patterns-and-separation-of-duties.md",
-      "sha256": "7c5515ce280e2af2a8ae36142ed27c250d634a88fc8e7cae74b2f56fd85ab616",
-      "bytes": 13900
+      "sha256": "144ef3f89e7a5ddbe39266a89b00418caf7cf2d7731e5e8a78519cb97df24b4b",
+      "bytes": 11519
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/best-practices/22-operating-model-and-pattern-selection.md",
-      "sha256": "b9bdcfd2b5aadc569940442fa7dad6fe9b856c78251ff517d08ab304ab3f5262",
-      "bytes": 12084
+      "sha256": "cbe4fdeb919287f8fc300c21749151a542fd9300651ab06a3ea1e1e9d2a18b88",
+      "bytes": 9861
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/best-practices/README.md",
-      "sha256": "2bba64f82c81960db1a69c0fc75f8b4bcf7a3c921886230d56a8de95d2c17213",
-      "bytes": 8111
+      "sha256": "bfdc378d519d3920ed1535f82766d4a74d08abc415720958acf22836219a384a",
+      "bytes": 5631
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/best-practices/sources-frameworks.md",
-      "sha256": "8449434c52fa670a747b5116afb11eb7e998360fbe80d42419a35e1976f1f7dd",
-      "bytes": 4464
+      "sha256": "938c14af8f7ec83aec68dc9d049ef2af4a41b18f0d5f3ee6ff00b5b3c8c75c36",
+      "bytes": 4122
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/best-practices/sources-patterns-and-cycles.md",
-      "sha256": "8fe7ee8666fe88752993b0272868347a8716c39be339be6dbfe11d849db4aa19",
-      "bytes": 8693
+      "sha256": "70c164db9690a8b9b220810dd676e464c67ae185600dda2bd190a2442b68f59d",
+      "bytes": 7011
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/best-practices/sources-platforms.md",
-      "sha256": "95eca5ac569cbee02a591f257fdf9153fc257205def9054a8b1603a4fcf64d2d",
-      "bytes": 9190
+      "sha256": "1cce4b7d5c19328b732d637e90a3fdba94245caf8c0b0e710dcca64cae0931a0",
+      "bytes": 7986
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/best-practices/sources-standards-and-docs.md",
-      "sha256": "b3f8f103121b8c9705905e284feabceb0b938cc7d38c4e9f027a619c4aa7f2c3",
-      "bytes": 5007
+      "sha256": "7ad1e92525634a482247a5fef8ef4726d75c11237298c1b714407689580bc25f",
+      "bytes": 4158
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/evals/behavior.json",
@@ -366,13 +366,13 @@
     },
     {
       "path": "skills/agentkit/vendor/agent-builder/DONOR.md",
-      "sha256": "700fe18099ecc1d75ea657b5744a6088f365c26c384f52ab0643a717ecc44651",
+      "sha256": "7393f6ac4f19f432343353236ae4cb7c42805d0217d593bc6a9f9e87547ccaa5",
       "bytes": 2914
     },
     {
       "path": "skills/agentkit/vendor/agent-builder/README.md",
-      "sha256": "f64b2059e822b4453843134a264a30962eafcb029fdffb2a85a7692288aa8569",
-      "bytes": 8454
+      "sha256": "f1a21d4fbd08bc6a3c2d7f1ccae506d3c9d8220ff329c9627db27ba65d49d96d",
+      "bytes": 6174
     },
     {
       "path": "skills/agentkit/vendor/agent-builder/agents/openai.yaml",
@@ -406,13 +406,13 @@
     },
     {
       "path": "skills/agentkit/vendor/agent-context/DONOR.md",
-      "sha256": "295aa270fe32d8f056cc277f4022ca6755533161c55b9e87797ffa4d1fe22571",
+      "sha256": "cf25212dee55b8bf7ee8099d524eb16a6bacb5fc817ea61f74105a87652a9c5c",
       "bytes": 2644
     },
     {
       "path": "skills/agentkit/vendor/agent-context/README.md",
-      "sha256": "f1b80422c9c72b27826d851967c1cd5ce334eba42dc88faa6977e01399be4008",
-      "bytes": 6954
+      "sha256": "d6909e09e75a2d805c51ea9681d0ccab065a3a0b423d54ae34fe3c92b6dfccd6",
+      "bytes": 4901
     },
     {
       "path": "skills/agentkit/vendor/agent-context/agents/openai.yaml",
@@ -441,13 +441,13 @@
     },
     {
       "path": "skills/agentkit/vendor/agent-doctor/DONOR.md",
-      "sha256": "857890e2edddac2fdc998847fa993d747918bdeac6f655c146739dd8d9a2c9cf",
+      "sha256": "7a0e291dd25d884d1cfd39e168db63f088ee57ab8569f33b0982e79e6686dadd",
       "bytes": 2569
     },
     {
       "path": "skills/agentkit/vendor/agent-doctor/README.md",
-      "sha256": "90f3a7b9058ffd42ce7cbfb8ad68dae47500b7127a75b9dbda70e2236688b9a0",
-      "bytes": 6599
+      "sha256": "dc468311622584d275d341c5ce6123fcc962c7140200340c90c9907664753fc8",
+      "bytes": 4618
     },
     {
       "path": "skills/agentkit/vendor/agent-doctor/agents/openai.yaml",
@@ -476,13 +476,13 @@
     },
     {
       "path": "skills/agentkit/vendor/agent-evaluator/DONOR.md",
-      "sha256": "6d6e626639951cc9ede50913078a360c06816282931be2c6119a3a230a8f67f5",
+      "sha256": "e778d77d7f320f3b8e38e9bb2ebe74d5e5fb30352a057b898dfb5f71fcf299dd",
       "bytes": 2870
     },
     {
       "path": "skills/agentkit/vendor/agent-evaluator/README.md",
-      "sha256": "c21cd14f99b6f20ca8c59285ac6a0ff873810dd626f93240c66bf5fe34f87a8d",
-      "bytes": 7159
+      "sha256": "074393e4c294ee18971870f0e820f1b0c63cf128e2c9ecbf4dabd9b3f4b0c21f",
+      "bytes": 5083
     },
     {
       "path": "skills/agentkit/vendor/agent-evaluator/agents/openai.yaml",
@@ -511,13 +511,13 @@
     },
     {
       "path": "skills/agentkit/vendor/agent-manager/DONOR.md",
-      "sha256": "ba8a81a00bea3c4288471c875eecf1d0d89d05a02a3a73dac45326cbf757fb0c",
+      "sha256": "e4d81c5c62f579b037b36084a54f2a79a8540d9420e8933e60afba8854c3dd9d",
       "bytes": 2714
     },
     {
       "path": "skills/agentkit/vendor/agent-manager/README.md",
-      "sha256": "0f9a00948818ac77263bba8ef2da56f41f282d76bb0e14383cf0074a66421983",
-      "bytes": 6952
+      "sha256": "6602a7d5ce5fcdebf9413865f15de49c92342231f7bd560e3d3fee14a37409b3",
+      "bytes": 4898
     },
     {
       "path": "skills/agentkit/vendor/agent-manager/agents/openai.yaml",
@@ -546,13 +546,13 @@
     },
     {
       "path": "skills/agentkit/vendor/agent-optimizer/DONOR.md",
-      "sha256": "2b189578b26691d46e1a628aded11f98cee17ad964e242425c110f47fd54f5b6",
+      "sha256": "ddb40532ace25eb0b21b6fe3c05d94060ea408142a01ecd53a1fd5ea00c7e1a0",
       "bytes": 2329
     },
     {
       "path": "skills/agentkit/vendor/agent-optimizer/README.md",
-      "sha256": "e1b7d153a200605b88f303bf92a8fb0ed73bc4ac6ac6cbe659ca94ca6d8dc029",
-      "bytes": 6421
+      "sha256": "a0c95b0317b56fc3d4395521b670a9c8e376a55c09dd4c903aa28d80b5349be7",
+      "bytes": 4353
     },
     {
       "path": "skills/agentkit/vendor/agent-optimizer/agents/openai.yaml",
@@ -581,13 +581,13 @@
     },
     {
       "path": "skills/agentkit/vendor/agent-refactor/DONOR.md",
-      "sha256": "83ee5aad7ec2f5c541176d464dafa7bef3348cbe2e4655b45427240bd71683f7",
+      "sha256": "8c8d0187db54ed13486c0aab0e8f4c757e64fdca8d48f01ddae03ee1dfef9edc",
       "bytes": 2683
     },
     {
       "path": "skills/agentkit/vendor/agent-refactor/README.md",
-      "sha256": "8d754c4b75a31488999a8f46a58dd95c292e8808c4f65d7d3cea3fcc54d098a9",
-      "bytes": 7217
+      "sha256": "bc7f123bd4129004d390b0e773210dea8a1874a584b20b4bebf0d0311b6814fb",
+      "bytes": 5188
     },
     {
       "path": "skills/agentkit/vendor/agent-refactor/agents/openai.yaml",
@@ -616,13 +616,13 @@
     },
     {
       "path": "skills/agentkit/vendor/agent-scout/DONOR.md",
-      "sha256": "3f42cc1bc78ce4c1b2b367370ab0ac63d9c9b50f193a814eeaea067bc38b8519",
+      "sha256": "52b462f47fc50af2b01c9b7a91eb56b7aa3794e16ed1bc8e94d6e1eaeae1c934",
       "bytes": 2490
     },
     {
       "path": "skills/agentkit/vendor/agent-scout/README.md",
-      "sha256": "1f78a9b7cc3ee30a120475aca5611544f4b1f069d86abe7dfab761be94acff6d",
-      "bytes": 6640
+      "sha256": "9ee005dae64607cefe1b20f6849479ee0ac432eb84204c2e31f8a90b715c770f",
+      "bytes": 4644
     },
     {
       "path": "skills/agentkit/vendor/agent-scout/agents/openai.yaml",

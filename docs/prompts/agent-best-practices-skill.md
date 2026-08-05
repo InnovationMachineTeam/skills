@@ -1,20 +1,20 @@
-# Мастер-промпт навыка `agent-best-practices`
+# Master Prompt For The `agent-best-practices` Skill
 
-Применяй после [agent-skill-base.md](agent-skill-base.md). Создай skill, который
-поддерживает evidence-linked, updateable corpus лучших практик agents,
-subagents, orchestration, teams, Agent OS и agent-oriented skills.
+Apply after [agent-skill-base.md](agent-skill-base.md). Create a skill that
+maintains an evidence-linked, updateable corpus of best practices for agents,
+subagents, orchestration, teams, Agent OS, and agent-oriented skills.
 
 ## Capability boundary
 
-Skill умеет query, audit, refresh, reconcile, rebuild и generate change prompt.
-Он не становится open-ended harvester, не переписывает active agents и не
-превращает vendor example в normative rule.
+The skill supports query, audit, refresh, reconcile, rebuild, and generate-change-prompt.
+It does not become an open-ended harvester, does not rewrite active agents, and
+does not turn a vendor example into a normative rule.
 
 ## Source registry
 
-Для каждого source храни stable ID, title, locator, publisher, authority tier,
-scope, source type, update method, status, last checked, summary и principal
-findings. Разделяй:
+For each source, store a stable ID, title, locator, publisher, authority tier,
+scope, source type, update method, status, last checked, summary, and principal
+findings. Separate:
 
 - normative protocols/specifications;
 - official platform documentation;
@@ -24,23 +24,23 @@ findings. Разделяй:
 - version-pinned implementations;
 - local derived practices.
 
-Platform fact не становится universal MUST. Implementation pattern не равен
-стандарту. У каждого claim должны быть source IDs, platform scope, status,
-revision и last rebuilt.
+A platform fact does not become a universal MUST. An implementation pattern is
+not the same as a standard. Every claim must have source IDs, platform scope,
+status, revision, and last rebuilt.
 
 ## Routes
 
-- `query` — ответ/checklist из текущего corpus;
-- `source-audit` — freshness/status без rebuild;
-- `refresh` — получить changed sources в staging;
-- `reconcile` — compare claims, conflicts and supersession;
-- `rebuild` — атомарно пересоздать thematic files;
-- `apply` — audit candidate agent/skill against practices;
-- `change-prompt` — создать master prompt для обновления managed portfolio.
+- `query` — answer/checklist from the current corpus;
+- `source-audit` — freshness/status without rebuild;
+- `refresh` — fetch changed sources into staging;
+- `reconcile` — compare claims, conflicts, and supersession;
+- `rebuild` — atomically rebuild thematic files;
+- `apply` — audit a candidate agent/skill against practices;
+- `change-prompt` — create a master prompt for updating the managed portfolio.
 
 ## Reconciliation
 
-Для каждого нового/изменённого claim выбери:
+For each new/changed claim, choose:
 
 - confirms existing;
 - narrows platform/version scope;
@@ -50,12 +50,12 @@ revision и last rebuilt.
 - represents a trade-off;
 - insufficient evidence.
 
-Fact conflict блокирует rebuild до resolution. Trade-off сохраняет alternatives
-и selection forces. Не скрывай removed/deprecated platform behavior.
+A fact conflict blocks the rebuild until resolution. A trade-off preserves
+alternatives and selection forces. Do not hide removed/deprecated platform behavior.
 
 ## Corpus themes
 
-Минимальные темы:
+Minimum themes:
 
 - foundations and selection;
 - agent contracts and patterns;
@@ -71,17 +71,17 @@ Fact conflict блокирует rebuild до resolution. Trade-off сохран
 
 ## Safe rebuild
 
-Документационные claims должны соответствовать
-[agent-documentation-contract.md](agent-documentation-contract.md), включая
-subject-first decisions, on-demand directories и explicit ownership.
+Documentation claims must conform to
+[agent-documentation-contract.md](agent-documentation-contract.md), including
+subject-first decisions, on-demand directories, and explicit ownership.
 
-Fetch/parse в staging, preserve snapshots/hashes, validate registry and claim
+Fetch/parse in staging, preserve snapshots/hashes, validate registry and claim
 links, build complete candidate corpus, compare semantic sections, run routing
 and behavior evals, then replace only authorized target. If nothing changed,
 report current without rewriting files.
 
 ## Managed portfolio prompt
 
-Generated change prompt перечисляет exact managed assets/versions, applicable
-practice deltas, required diffs, evals, migration and rollback. Он создаёт
+The generated change prompt lists exact managed assets/versions, applicable
+practice deltas, required diffs, evals, migration, and rollback. It creates
 candidate changes; publication/activation remains separate.

@@ -2,94 +2,94 @@
 
 <!-- generated-skill-readme:start -->
 
-## Паспорт навыка
+## Skill Profile
 
-- **Назначение:** Designs the minimum justified Agentic OS across experience, control, execution, knowledge, assurance and operations planes, including desired versus observed state, identities, schemas, policy points, protocols, SLOs, threat and failure models, deployment topology and staged evolution.
-- **Версия:** `1.0.2`.
-- **Видимость:** public: канонический навык каталога; фактическая активация зависит от целевого host.
-- **Теги каталога:** `agents`, `agent-os`, `architecture`.
+- **Purpose:** Designs the minimum justified Agentic OS across experience, control, execution, knowledge, assurance and operations planes, including desired versus observed state, identities, schemas, policy points, protocols, SLOs, threat and failure models, deployment topology and staged evolution.
+- **Version:** `1.0.3`.
+- **Visibility:** public: canonical catalog skill; actual activation depends on the target host.
+- **Catalog tags:** `agents`, `agent-os`, `architecture`.
 
-## Когда использовать
+## When To Use
 
 A team runtime is no longer sufficient and a user needs a platform architecture, build/extend/buy comparison, bounded walking skeleton or Agentic OS ADR. Design only; do not bootstrap infrastructure, operate runs, change registries or policies, or issue release verdicts.
 
-Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.
+Before running, provide the concrete goal, source artifacts, allowed changes, constraints, and acceptance criteria. If essential information is missing, the expected first result is clarification or a safe plan, not an unverified mutation.
 
-## Полный пример команды
+## Full Command Example
 
-Иллюстративный полный вызов; адаптируйте пути, ограничения и критерии приёмки к своей задаче:
+Illustrative full invocation; adapt the paths, constraints, and acceptance criteria to your task:
 
 ```text
 /agent-os-architect Design a minimal Agentic OS for multiple durable release runs.
 ```
 
-**Ожидаемый результат:** выбирается маршрут `design`; итог перечисляет созданные или изменённые артефакты, фактически выполненные проверки, ограничения, остаточные риски и следующий шаг. Наличие файлов само по себе не считается доказательством установки, активации или публикации.
+**Expected result:** route `design` is selected; the result lists the created or modified artifacts, the checks actually performed, the constraints, residual risks, and the next step. The presence of files alone is not considered proof of installation, activation, or publication.
 
-## Варианты использования
+## Usage Variants
 
 ### design
 
-- **Пример запроса:** “Design a minimal Agentic OS for multiple durable release runs.”
-- **Ожидаемый маршрут:** `design`.
+- **Example request:** “Design a minimal Agentic OS for multiple durable release runs.”
+- **Expected route:** `design`.
 
 ### buy
 
-- **Пример запроса:** “Compare build, extend and buy for our agent control plane.”
-- **Ожидаемый маршрут:** `compare`.
+- **Example request:** “Compare build, extend and buy for our agent control plane.”
+- **Expected route:** `compare`.
 
 
-## Ожидаемые результаты
+## Expected Results
 
 ### reject-platform
 
-Для запроса “Create Agentic OS for one short task.” результат должен:
+For request “Create Agentic OS for one short task.”, the result must:
 
 - returns simpler workflow unless platform evidence exists.
 
 ### threats
 
-Для запроса “Architect a multi-tenant runtime.” результат должен:
+For request “Architect a multi-tenant runtime.”, the result must:
 
 - defines six planes, trust zones, policy points, SLOs and recovery.
 
 
-## Как проходит выполнение
+## Execution Flow
 
-1. **Inventory and compare.** Выполняется соответствующий этап контракта из `SKILL.md`.
-2. **Design the vertical slice.** Выполняется соответствующий этап контракта из `SKILL.md`.
+1. **Inventory and compare.** Execute the corresponding contract step from `SKILL.md`.
+2. **Design the vertical slice.** Execute the corresponding contract step from `SKILL.md`.
 
-## Границы и неподходящие запросы
+## Boundaries And Unsuitable Requests
 
-Следующие примеры должны маршрутизироваться в другой навык или не запускать этот навык:
+The following examples should route to another skill or should not trigger this skill:
 
 - “Design two agents for one code review.” → `agent-team-architect`.
 
-Критические анти-результаты:
+Critical anti-results:
 
 - adds infrastructure by default;
 - treats LLM output as enforcement.
 
-## Зависимости
+## Dependencies
 
-Обязательные companion-навыки в каноническом dependency-графе не объявлены. Проверяйте доступность host-инструментов и ресурсов, на которые ссылается `SKILL.md`.
+No required companion skills are declared in the canonical dependency graph. Check the availability of host tools and resources referenced by `SKILL.md`.
 
-## Ресурсы пакета
+## Package Resources
 
-- [`SKILL.md`](SKILL.md) — исполняемый контракт, маршрутизация и правила безопасности.
-- [`agents/`](agents/) — UI-метаданные и host-конфигурация.
-- [`evals/`](evals/) — routing- и behavior-сценарии.
-- [`references/`](references/) — справочники, схемы и контракты.
-- [`scripts/`](scripts/) — детерминированные проверки и автоматизация.
+- [`SKILL.md`](SKILL.md) — executable contract, routing, and safety rules.
+- [`agents/`](agents/) — UI metadata and host configuration.
+- [`evals/`](evals/) — routing and behavior scenarios.
+- [`references/`](references/) — reference guides, schemas, and contracts.
+- [`scripts/`](scripts/) — deterministic checks and automation.
 
-## Проверка результата
+## Result Verification
 
-- Сверьте маршрутизацию с [`evals/routing.json`](evals/routing.json).
-- Сверьте свойства результата с [`evals/behavior.json`](evals/behavior.json).
-- Для детерминированной проверки используйте [`scripts/validate_architecture.py`](scripts/validate_architecture.py) согласно его `--help` и контракту навыка.
-- Для release-bound изменения дополнительно выполните репозиторную валидацию, полный unit-suite и проверку сгенерированных пакетов.
+- Compare routing against [`evals/routing.json`](evals/routing.json).
+- Compare result properties against [`evals/behavior.json`](evals/behavior.json).
+- For deterministic verification, use [`scripts/validate_architecture.py`](scripts/validate_architecture.py) according to its `--help` output and the skill contract.
+- For a release-bound change, also run repository validation, the full unit suite, and generated package verification.
 
-## Формат завершения
+## Completion Format
 
-Финальный ответ должен перечислить выбранный маршрут, фактические входы и допущения, созданные или изменённые артефакты, выполненные проверки, ожидаемый результат по сценарию, запрещённые или пропущенные действия, остаточные риски, состояние отката и точный следующий шаг. Наличие файлов само по себе не доказывает установку, активацию, публикацию или готовность к production.
+The final answer must list the selected route, actual inputs and assumptions, created or modified artifacts, checks performed, the expected scenario outcome, forbidden or skipped actions, residual risks, rollback status, and the exact next step. The presence of files alone does not prove installation, activation, publication, or production readiness.
 
 <!-- generated-skill-readme:end -->

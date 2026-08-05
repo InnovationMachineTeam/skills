@@ -2,7 +2,7 @@
 name: agent-observer
 description: Defines and audits Agentic OS telemetry, traces, SLOs, alerts, MAPE-K observations and bounded incident diagnostics linking task, run, agent, model, prompt, skill, tool, policy, approval, artifact, cost and versions. Use when instrumenting or diagnosing loops, stuck leases, retry storms, drift, retrieval poison, model degradation, cost anomalies or observer health. Read-only by default; do not repair production state, expose sensitive payloads, infer causes from symptoms, or claim semantic quality from availability metrics.
 metadata:
-  version: "1.0.2"
+  version: "1.0.3"
 ---
 
 # Observe Agentic OS Runs

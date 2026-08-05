@@ -1,12 +1,11 @@
 {
   "name": "agent-doctor",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Diagnoses unhealthy or broken behavior in one agent or subagent, reproduces symptoms from definitions and traces, identifies a root cause, applies an explicitly authorized minimal repair to a new candidate revision, and verifies recovery",
   "homepage": "https://github.com/InnovationMachineTeam/skills",
   "repository": "https://github.com/InnovationMachineTeam/skills",
   "license": "Proprietary",
   "keywords": [
-    "agent-skills",
     "agents",
     "diagnostics",
     "repair"

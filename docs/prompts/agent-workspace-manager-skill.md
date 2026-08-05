@@ -1,9 +1,9 @@
-# Мастер-промпт навыка `agent-workspace-manager`
+# Master Prompt For The `agent-workspace-manager` Skill
 
-Применяй после [agent-skill-base.md](agent-skill-base.md). Создай skill для
-безопасной выдачи isolated workspaces/worktrees агентам с независимыми
-write-sets. Он не решает task decomposition и не удаляет workspace без
-проверенного ownership/retention gate.
+Apply after [agent-skill-base.md](agent-skill-base.md). Create a skill for
+safe allocation of isolated workspaces/worktrees to agents with independent
+write-sets. It does not handle task decomposition and does not delete a workspace
+without a verified ownership/retention gate.
 
 ## Procedure
 

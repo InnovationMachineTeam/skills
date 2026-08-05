@@ -1,62 +1,62 @@
 # skill-marketplace-manager
 
-`skill-marketplace-manager` — мета-навык для проектирования, сборки, проверки, миграции и выпуска репозиториев навыков. Он ориентирован на переносимый Agent Skills layout, skill.sh и plugin harnesses, прежде всего Claude Code.
+`skill-marketplace-manager` is a meta-skill for designing, building, validating, migrating, and releasing skill repositories. It is oriented toward a portable Agent Skills layout, skill.sh, and plugin harnesses, primarily Claude Code.
 
-> Текущий статус: `1.4.0`. Навык создан как reviewable package. Он не выполняет публикацию, глобальную установку, удаление прежней структуры или миграционный cutover без явного разрешения.
+> Current status: `1.4.0`. The skill is created as a reviewable package. It does not perform publication, global installation, removal of the previous structure, or migration cutover without explicit permission.
 
-## Что решает навык
+## What the skill solves
 
-Навык помогает ответить на вопросы уровня всего каталога:
+The skill helps answer catalog-wide questions:
 
-- где находится канонический источник навыков;
-- как организовать `skills/` и категории;
-- как совместить skill.sh и Claude Code;
-- нужен ли один aggregate plugin или несколько marketplace entries;
-- как генерировать самодостаточный plugin bundle;
-- как управлять версиями навыков и дистрибутива;
-- как объявлять и проверять companion-зависимости без неподдерживаемых полей manifests;
-- как проверить обнаружение, установку, обновление и rollback;
-- как безопасно перенести существующий портфель в marketplace.
+- where the canonical skill source lives;
+- how to organize `skills/` and categories;
+- how to align skill.sh and Claude Code;
+- whether to use one aggregate plugin or multiple marketplace entries;
+- how to generate a self-contained plugin bundle;
+- how to manage skill and distribution versions;
+- how to declare and validate companion dependencies without unsupported manifest fields;
+- how to verify discovery, installation, upgrade, and rollback;
+- how to migrate an existing portfolio into a marketplace safely.
 
-Он не заменяет `skill-architect` для проектирования поведения отдельного навыка и `skill-evaluator` для независимой оценки качества его работы.
+It does not replace `skill-architect` for designing the behavior of an individual skill or `skill-evaluator` for independently assessing the quality of its work.
 
-## Режимы работы
+## Operating modes
 
-| Маршрут | Типичный запрос | Результат |
+| Route | Typical request | Result |
 |---|---|---|
-| `inventory-audit` | «Проверь этот репозиторий навыков» | inventory, manifest map, collisions, risks |
-| `architecture-design` | «Спроектируй marketplace для skill.sh и Claude Code» | целевая архитектура и ADR-подобное решение |
-| `scaffold-marketplace` | «Создай каркас marketplace» | локальная структура, manifests, templates |
-| `catalog-curation` | «Добавь/переклассифицируй навыки» | mapping и согласованные изменения каталога |
-| `build-sync` | «Собери aggregate plugin» | самодостаточный generated bundle и hashes |
-| `documentation` | «Документируй навыки и подготовь onboarding» | README, onboarding guide или audit report на основе канонических источников |
-| `validate-compatibility` | «Проверь совместимость и установку» | evidence report с PASS/WARN/FAIL/NOT RUN |
-| `migration` | «Перенеси текущие навыки в marketplace» | сначала DRAFT-план; apply только явно |
-| `release-distribution` | «Подготовь или выпусти релиз» | release plan/package/pilot; публикация по разрешению |
+| `inventory-audit` | “Review this skill repository” | inventory, manifest map, collisions, risks |
+| `architecture-design` | “Design a marketplace for skill.sh and Claude Code” | target architecture and an ADR-like decision |
+| `scaffold-marketplace` | “Create a marketplace scaffold” | local structure, manifests, templates |
+| `catalog-curation` | “Add or reclassify skills” | mapping and coordinated catalog changes |
+| `build-sync` | “Build an aggregate plugin” | self-contained generated bundle and hashes |
+| `documentation` | “Document the skills and prepare onboarding” | README, onboarding guide, or audit report based on canonical sources |
+| `validate-compatibility` | “Check compatibility and installation” | evidence report with PASS/WARN/FAIL/NOT RUN |
+| `migration` | “Move the current skills into a marketplace” | DRAFT plan first; apply only explicitly |
+| `release-distribution` | “Prepare or publish a release” | release plan/package/pilot; publication by permission |
 
-Дополнительно применяется режим полномочий:
+An authority mode is also applied:
 
-- `inspect` — только чтение;
-- `plan` — план без изменений;
-- `apply` — разрешённые локальные изменения;
-- `verify` — проверки без автоматического ремонта.
+- `inspect` — read-only;
+- `plan` — plan with no changes;
+- `apply` — authorized local changes;
+- `verify` — checks without automatic repair.
 
-Можно назвать маршрут прямо:
-
-```text
-Используй skill-marketplace-manager в режиме inventory-audit для ./repo.
-```
-
-Или описать цель естественным языком:
+You can name a route directly:
 
 ```text
-Подготовь этот набор навыков к установке через skill.sh и Claude Code,
-но пока ничего не публикуй.
+Use skill-marketplace-manager in inventory-audit mode for ./repo.
 ```
 
-Если контекста недостаточно, навык уточнит только решения, которые меняют архитектуру: целевые harnesses, visibility, canonical source, release boundary или допустимые мутации.
+Or describe the goal in natural language:
 
-## Рекомендуемый workflow
+```text
+Prepare this skill set for installation through skill.sh and Claude Code,
+but do not publish anything yet.
+```
+
+If context is insufficient, the skill will clarify only decisions that change the architecture: target harnesses, visibility, canonical source, release boundary, or permitted mutations.
+
+## Recommended workflow
 
 ```text
 inventory-audit
@@ -69,14 +69,14 @@ build-sync
       ↓
 validate-compatibility
       ↓
-migration pilot или release-distribution
+migration pilot or release-distribution
       ↓
 cutover / rollout / rollback decision
 ```
 
-Для существующего каталога начинать с `inventory-audit`. Для нового репозитория — с `architecture-design`. Для критичной миграции всегда отделять `plan` от `apply`.
+For an existing catalog, start with `inventory-audit`. For a new repository, start with `architecture-design`. For a critical migration, always separate `plan` from `apply`.
 
-## Рекомендуемая структура
+## Recommended structure
 
 ```text
 marketplace/
@@ -97,9 +97,9 @@ marketplace/
 └── README.md
 ```
 
-Подробное обоснование находится в [references/best-practices.md](references/best-practices.md).
+Detailed rationale is in [references/best-practices.md](references/best-practices.md).
 
-## Команды потребителей
+## Consumer commands
 
 skill.sh / Skills CLI:
 
@@ -123,9 +123,9 @@ claude plugin install metaskills@marketplace-name
 claude --plugin-dir ./plugin
 ```
 
-Не устанавливайте один и тот же навык через два канала в одну область видимости.
+Do not install the same skill through two channels into the same visibility scope.
 
-## Встроенные утилиты
+## Built-in utilities
 
 ### Portable validation
 
@@ -134,16 +134,16 @@ python3 scripts/validate_marketplace.py /path/to/marketplace
 python3 scripts/validate_marketplace.py /path/to/marketplace --json
 ```
 
-Проверяется:
+Checks:
 
-- допустимая глубина `skills/`;
-- `SKILL.md`, имя каталога и `metadata.version`;
-- глобальная уникальность имён;
-- небезопасные локальные ссылки;
-- базовая структура marketplace и plugin manifests;
-- существование объявленных локальных путей.
+- allowed `skills/` depth;
+- `SKILL.md`, directory name, and `metadata.version`;
+- global uniqueness of names;
+- unsafe local links;
+- baseline marketplace and plugin manifest structure;
+- existence of declared local paths.
 
-Эта проверка не заменяет официальные harness validators.
+This check does not replace official harness validators.
 
 ### Aggregate plugin build
 
@@ -154,7 +154,7 @@ python3 scripts/build_plugin_bundle.py /path/to/marketplace /new/staging/plugin 
   --description "Portable skill engineering toolkit"
 ```
 
-Утилита принимает только новый output directory, копирует полные skill packages, исключает стандартный мусор (`.DS_Store`, `__pycache__`, `*.pyc`, `.git`), создаёт `plugin.json` и `build-manifest.json`. Она отклоняет symlinks и не удаляет существующие каталоги.
+The utility accepts only a new output directory, copies full skill packages, excludes standard junk (`.DS_Store`, `__pycache__`, `*.pyc`, `.git`), creates `plugin.json` and `build-manifest.json`, rejects symlinks, and does not delete existing directories.
 
 ### Eval corpus
 
@@ -162,9 +162,9 @@ python3 scripts/build_plugin_bundle.py /path/to/marketplace /new/staging/plugin 
 python3 scripts/check_evals.py evals
 ```
 
-Проверяет целостность routing и behavioral cases. Harness-native или независимый evaluator должен отдельно выполнить сами кейсы.
+It checks the integrity of routing and behavioral cases. A harness-native or independent evaluator must execute the actual cases separately.
 
-## Полная проверка перед релизом
+## Full pre-release verification
 
 ```bash
 python3 scripts/validate_marketplace.py .
@@ -174,27 +174,27 @@ claude plugin validate ./plugin --strict
 claude --plugin-dir ./plugin
 ```
 
-Дополнительно прогнать trigger evals, behavior evals, обновление с предыдущей версии и security review. Если инструмент отсутствует, результат обозначается `NOT RUN`.
+Also run trigger evals, behavior evals, upgrade verification from the previous version, and security review. If a tool is unavailable, mark the result as `NOT RUN`.
 
-## Версии
+## Versions
 
-- `SKILL.md → metadata.version` относится к одному навыку.
-- `.claude-plugin/plugin.json → version` относится к plugin bundle.
-- marketplace entry version относится к устанавливаемому предложению каталога.
+- `SKILL.md → metadata.version` applies to one skill.
+- `.claude-plugin/plugin.json → version` applies to the plugin bundle.
+- marketplace entry version applies to the installable catalog offering.
 
-Версии не должны автоматически считаться одинаковыми. При изменении устанавливаемого содержимого требуется новый distribution release.
+Versions must not be assumed to be identical automatically. Changing installable content requires a new distribution release.
 
-## Безопасность
+## Safety
 
-- Внешние навыки считать supply-chain input.
-- До запуска изучать scripts и provenance.
-- Не хранить secrets в skill packages, manifests, fixtures и логах.
-- Собирать в staging, затем проверять и только потом продвигать.
-- Проводить пилот до широкого rollout.
-- Хранить предыдущий known-good release до завершения окна rollback.
-- Публикация, глобальная установка и удаление требуют отдельного явного решения.
+- Treat external skills as supply-chain input.
+- Inspect scripts and provenance before execution.
+- Do not store secrets in skill packages, manifests, fixtures, or logs.
+- Build in staging, then verify, and only then promote.
+- Run a pilot before broad rollout.
+- Keep the previous known-good release until the rollback window is complete.
+- Publication, global installation, and removal require a separate explicit decision.
 
-## Состав пакета
+## Package contents
 
 ```text
 skill-marketplace-manager/
@@ -211,153 +211,153 @@ skill-marketplace-manager/
 └── evals/
 ```
 
-`references/best-practices.md` является канонической runtime-справкой. Центральный `skill-best-practices` может индексировать и обновлять источники, но установленный навык не зависит от соседних каталогов.
+`references/best-practices.md` is the canonical runtime reference. The central `skill-best-practices` can index and update sources, but the installed skill does not depend on neighboring directories.
 
-## Ограничения
+## Limitations
 
-- Форматы harnesses меняются; перед релизом требуется повторная проверка официальной документации.
-- Portable validator проверяет только кроссплатформенные инварианты.
-- Реальная installability подтверждается только загрузкой representative skill в целевом harness.
-- Навык не принимает за пользователя решения о public/private visibility, лицензии, owners и release channel.
+- Harness formats change; official documentation must be rechecked before release.
+- The portable validator checks only cross-platform invariants.
+- Real installability is confirmed only by loading a representative skill in the target harness.
+- The skill does not make decisions on the user's behalf about public/private visibility, licensing, owners, or release channel.
 
-## Быстрые примеры
+## Quick examples
 
 ```text
-Проведи read-only аудит ./skills-repo и найди коллизии skill.sh/Claude Code.
+Run a read-only audit of ./skills-repo and find skill.sh/Claude Code collisions.
 ```
 
 ```text
-Спроектируй marketplace с metaskills и development, один canonical source,
-aggregate plugin для локального тестирования. Дай manifests на ревью.
+Design a marketplace with metaskills and development, one canonical source,
+and an aggregate plugin for local testing. Provide the manifests for review.
 ```
 
 ```text
-Составь пофазный план миграции ./legacy-skills, включая rollback и acceptance gates.
-Не применяй изменения.
+Create a phased migration plan for ./legacy-skills, including rollback and acceptance gates.
+Do not apply changes.
 ```
 
 ```text
-Собери candidate plugin в новый staging-каталог и проверь drift.
-Ничего не устанавливай и не публикуй.
+Build a candidate plugin in a new staging directory and check for drift.
+Do not install or publish anything.
 ```
 
 <!-- generated-skill-readme:start -->
 
-## Паспорт навыка
+## Skill Profile
 
-- **Назначение:** Design, inventory, scaffold, curate, build, document, validate, migrate, release, and audit repositories that distribute Agent Skills through skill.sh-compatible catalogs and plugin harnesses such as Claude Code.
-- **Версия:** `1.4.1`.
-- **Видимость:** public: канонический навык каталога; фактическая активация зависит от целевого host.
-- **Теги каталога:** `marketplace`, `distribution`.
+- **Purpose:** Design, inventory, scaffold, curate, build, document, validate, migrate, release, and audit repositories that distribute Agent Skills through skill.sh-compatible catalogs and plugin harnesses such as Claude Code.
+- **Version:** `1.4.2`.
+- **Visibility:** public: canonical catalog skill; actual activation depends on the target host.
+- **Catalog tags:** `marketplace`, `distribution`.
 
-## Когда использовать
+## When To Use
 
 Marketplace topology, category design, marketplace.json or plugin.json generation, portable skills/ layouts, aggregate plugin builds, skill documentation and onboarding sets, catalog governance, version policy, compatibility checks, staged migrations, publishing plans, or repository-wide skill distribution.
 
-Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.
+Before running, provide the concrete goal, source artifacts, allowed changes, constraints, and acceptance criteria. If essential information is missing, the expected first result is clarification or a safe plan, not an unverified mutation.
 
-## Полный пример команды
+## Full Command Example
 
-Иллюстративный полный вызов; адаптируйте пути, ограничения и критерии приёмки к своей задаче:
+Illustrative full invocation; adapt the paths, constraints, and acceptance criteria to your task:
 
 ```text
-/skill-marketplace-manager Проверь read-only репозиторий с 40 навыками: найди дубликаты имён, глубину категорий и manifest drift.
+/skill-marketplace-manager Inspect a read-only repository with 40 skills: find duplicate names, category depth issues, and manifest drift.
 ```
 
-**Ожидаемый результат:** выбирается маршрут `основной маршрут навыка`; итог перечисляет созданные или изменённые артефакты, фактически выполненные проверки, ограничения, остаточные риски и следующий шаг. Наличие файлов само по себе не считается доказательством установки, активации или публикации.
+**Expected result:** route `the skill's primary route` is selected; the result lists the created or modified artifacts, the checks actually performed, the constraints, residual risks, and the next step. The presence of files alone is not considered proof of installation, activation, or publication.
 
-## Варианты использования
+## Usage Variants
 
 ### route-inventory
 
-- **Пример запроса:** “Проверь read-only репозиторий с 40 навыками: найди дубликаты имён, глубину категорий и manifest drift.”
-- **Ожидаемый маршрут:** `основной маршрут навыка`.
+- **Example request:** “Inspect a read-only repository with 40 skills: find duplicate names, category depth issues, and manifest drift.”
+- **Expected route:** `the skill's primary route`.
 
 ### route-architecture
 
-- **Пример запроса:** “Предложи структуру каталога для skill.sh и Claude Code с выборочной установкой категорий.”
-- **Ожидаемый маршрут:** `основной маршрут навыка`.
+- **Example request:** “Propose a catalog structure for skill.sh and Claude Code with selective category installation.”
+- **Expected route:** `the skill's primary route`.
 
 ### route-scaffold
 
-- **Пример запроса:** “Создай локальный каркас нового marketplace с категориями metaskills и development, но не публикуй.”
-- **Ожидаемый маршрут:** `основной маршрут навыка`.
+- **Example request:** “Create a local scaffold for a new marketplace with metaskills and development categories, but do not publish it.”
+- **Expected route:** `the skill's primary route`.
 
 ### route-curation
 
-- **Пример запроса:** “Добавь эти три проверенных навыка в каталог, назначь одну категорию каждому и проверь коллизии.”
-- **Ожидаемый маршрут:** `основной маршрут навыка`.
+- **Example request:** “Add these three verified skills to the catalog, assign one category to each, and check for collisions.”
+- **Expected route:** `the skill's primary route`.
 
 ### route-build
 
-- **Пример запроса:** “Собери самодостаточный aggregate plugin в новый staging-каталог и сформируй hashes.”
-- **Ожидаемый маршрут:** `основной маршрут навыка`.
+- **Example request:** “Build a self-contained aggregate plugin in a new staging catalog and generate hashes.”
+- **Expected route:** `the skill's primary route`.
 
 ### route-documentation
 
-- **Пример запроса:** “Документируй канонические навыки и создай onboarding от установки до первого проверенного результата.”
-- **Ожидаемый маршрут:** `основной маршрут навыка`.
+- **Example request:** “Document the canonical skills and create onboarding from installation to the first verified outcome.”
+- **Expected route:** `the skill's primary route`.
 
 ### route-validation
 
-- **Пример запроса:** “Проверь, обнаруживаются ли навыки через skills CLI и Claude plugin, ничего не исправляй.”
-- **Ожидаемый маршрут:** `основной маршрут навыка`.
+- **Example request:** “Verify whether the skills are discoverable through the skills CLI and the Claude plugin, but do not fix anything.”
+- **Expected route:** `the skill's primary route`.
 
 ### route-migration-plan
 
-- **Пример запроса:** “Составь детальный план переноса outputs/* в marketplace с rollback. Пока не переноси.”
-- **Ожидаемый маршрут:** `основной маршрут навыка`.
+- **Example request:** “Prepare a detailed plan to migrate outputs/* into the marketplace with rollback. Do not migrate anything yet.”
+- **Expected route:** `the skill's primary route`.
 
 
-## Ожидаемые результаты
+## Expected Results
 
-- результат соответствует заявленному контракту и явно отделяет факты от предположений;
-- изменённые артефакты перечислены, а выполненные проверки названы без выдуманных PASS-результатов;
-- ограничения, остаточные риски, состояние отката и следующий шаг указаны явно.
+- the result matches the stated contract and clearly separates facts from assumptions;
+- modified artifacts are listed, and completed checks are named without invented PASS results;
+- constraints, residual risks, rollback status, and the next step are stated explicitly.
 
-## Как проходит выполнение
+## Execution Flow
 
-1. **Classify the request.** Выполняется соответствующий этап контракта из `SKILL.md`.
-2. **Establish the operating mode.** Выполняется соответствующий этап контракта из `SKILL.md`.
-3. **Run the common workflow.** Выполняется соответствующий этап контракта из `SKILL.md`.
-4. **Enforce architectural invariants.** Выполняется соответствующий этап контракта из `SKILL.md`.
-5. **Use deterministic helpers.** Выполняется соответствующий этап контракта из `SKILL.md`.
-6. **Dispatch private documentation work.** Выполняется соответствующий этап контракта из `SKILL.md`.
-7. **Apply route-specific rules.** Выполняется соответствующий этап контракта из `SKILL.md`.
-8. **Coordinate with adjacent skills.** Выполняется соответствующий этап контракта из `SKILL.md`.
-9. **Produce a completion report.** Выполняется соответствующий этап контракта из `SKILL.md`.
+1. **Classify the request.** Execute the corresponding contract step from `SKILL.md`.
+2. **Establish the operating mode.** Execute the corresponding contract step from `SKILL.md`.
+3. **Run the common workflow.** Execute the corresponding contract step from `SKILL.md`.
+4. **Enforce architectural invariants.** Execute the corresponding contract step from `SKILL.md`.
+5. **Use deterministic helpers.** Execute the corresponding contract step from `SKILL.md`.
+6. **Dispatch private documentation work.** Execute the corresponding contract step from `SKILL.md`.
+7. **Apply route-specific rules.** Execute the corresponding contract step from `SKILL.md`.
+8. **Coordinate with adjacent skills.** Execute the corresponding contract step from `SKILL.md`.
+9. **Produce a completion report.** Execute the corresponding contract step from `SKILL.md`.
 
-## Границы и неподходящие запросы
+## Boundaries And Unsuitable Requests
 
 Authoring one skill.
 
-Навык не должен расширять полученные полномочия, скрывать пропущенные проверки, выполнять необратимые или внешние действия без явного разрешения либо заявлять состояние host только по наличию файлов.
+The skill must not expand the authority it received, hide skipped checks, perform irreversible or external actions without explicit permission, or claim host state solely from the presence of files.
 
-## Зависимости
+## Dependencies
 
-Обязательные companion-навыки в каноническом dependency-графе не объявлены. Проверяйте доступность host-инструментов и ресурсов, на которые ссылается `SKILL.md`.
+No required companion skills are declared in the canonical dependency graph. Check the availability of host tools and resources referenced by `SKILL.md`.
 
-## Ресурсы пакета
+## Package Resources
 
-- [`SKILL.md`](SKILL.md) — исполняемый контракт, маршрутизация и правила безопасности.
-- [`agents/`](agents/) — UI-метаданные и host-конфигурация.
-- [`evals/`](evals/) — routing- и behavior-сценарии.
-- [`private-skills/`](private-skills/) — внутренние навыки, доступные только владельцу.
-- [`prompts/`](prompts/) — маршрутные и специализированные промпты.
-- [`references/`](references/) — справочники, схемы и контракты.
-- [`scripts/`](scripts/) — детерминированные проверки и автоматизация.
+- [`SKILL.md`](SKILL.md) — executable contract, routing, and safety rules.
+- [`agents/`](agents/) — UI metadata and host configuration.
+- [`evals/`](evals/) — routing and behavior scenarios.
+- [`private-skills/`](private-skills/) — internal skills available only to the owner.
+- [`prompts/`](prompts/) — routing and specialist prompts.
+- [`references/`](references/) — reference guides, schemas, and contracts.
+- [`scripts/`](scripts/) — deterministic checks and automation.
 
-## Проверка результата
+## Result Verification
 
-- Сверьте маршрутизацию с [`evals/routing.json`](evals/routing.json).
-- Сверьте свойства результата с [`evals/behavior.json`](evals/behavior.json).
-- Для детерминированной проверки используйте [`scripts/build_plugin_bundle.py`](scripts/build_plugin_bundle.py) согласно его `--help` и контракту навыка.
-- Для детерминированной проверки используйте [`scripts/check_evals.py`](scripts/check_evals.py) согласно его `--help` и контракту навыка.
-- Для детерминированной проверки используйте [`scripts/validate_marketplace.py`](scripts/validate_marketplace.py) согласно его `--help` и контракту навыка.
-- Для release-bound изменения дополнительно выполните репозиторную валидацию, полный unit-suite и проверку сгенерированных пакетов.
+- Compare routing against [`evals/routing.json`](evals/routing.json).
+- Compare result properties against [`evals/behavior.json`](evals/behavior.json).
+- For deterministic verification, use [`scripts/build_plugin_bundle.py`](scripts/build_plugin_bundle.py) according to its `--help` output and the skill contract.
+- For deterministic verification, use [`scripts/check_evals.py`](scripts/check_evals.py) according to its `--help` output and the skill contract.
+- For deterministic verification, use [`scripts/validate_marketplace.py`](scripts/validate_marketplace.py) according to its `--help` output and the skill contract.
+- For a release-bound change, also run repository validation, the full unit suite, and generated package verification.
 
-## Формат завершения
+## Completion Format
 
-Финальный ответ должен перечислить выбранный маршрут, фактические входы и допущения, созданные или изменённые артефакты, выполненные проверки, ожидаемый результат по сценарию, запрещённые или пропущенные действия, остаточные риски, состояние отката и точный следующий шаг. Наличие файлов само по себе не доказывает установку, активацию, публикацию или готовность к production.
+The final answer must list the selected route, actual inputs and assumptions, created or modified artifacts, checks performed, the expected scenario outcome, forbidden or skipped actions, residual risks, rollback status, and the exact next step. The presence of files alone does not prove installation, activation, publication, or production readiness.
 
 <!-- generated-skill-readme:end -->

@@ -1,7 +1,7 @@
-# Мастер-промпт навыка `agent-protocol-manager`
+# Master Prompt For The `agent-protocol-manager` Skill
 
-Применяй после [agent-os-base.md](agent-os-base.md). Создай ports-and-adapters
-skill for MCP, A2A, host and provider boundaries. Он не скрывает semantic
+Apply after [agent-os-base.md](agent-os-base.md). Create a ports-and-adapters
+skill for MCP, A2A, host, and provider boundaries. It does not hide semantic
 differences behind false portability.
 
 Inventory pinned protocol/host versions, discovery, authentication, capability

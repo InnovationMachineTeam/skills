@@ -2,7 +2,7 @@
 name: agent-os-evaluator
 description: Independently evaluates frozen Agentic OS architecture, implementations and release evidence across plane boundaries, schemas, registry reconciliation, policy enforcement, durable execution, knowledge provenance, observability, operator readiness, security, failure recovery, lifecycle and end-to-end outcomes. Use for evaluation plans, conformance, chaos/security/load tests, release gates, comparisons or migration evidence. Do not repair the candidate during a frozen run, reveal holdouts, average away blockers, or authorize deployment.
 metadata:
-  version: "1.0.2"
+  version: "1.0.3"
 ---
 
 # Evaluate a Frozen Agentic OS Candidate

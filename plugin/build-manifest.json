@@ -1,7 +1,7 @@
 {
   "format": 2,
   "plugin": "im-skills-all",
-  "version": "3.9.1",
+  "version": "3.9.2",
   "source_layout": "skills/",
   "bundle_layout": "skills/<name>/",
   "platforms": [
@@ -63,17 +63,17 @@
   "files": [
     {
       "path": ".claude-plugin/plugin.json",
-      "sha256": "406e26aa05d02bc1cc13c725c97045ec6c6ab26d14c282d59704a67258970f1f",
+      "sha256": "af9136bd5af5836e7d2ad7014fa455ac39542adbd57340409fb5a39fc6156bf5",
       "bytes": 288
     },
     {
       "path": ".codex-plugin/plugin.json",
-      "sha256": "75c55ed3a217631849776980bf42d2342cfc365de2bbab4d9377ad58ac3c0884",
+      "sha256": "66953f3db6da09a330b5011b90793242587de63b8d5c01456f27b94625f1543f",
       "bytes": 1066
     },
     {
       "path": ".cursor-plugin/plugin.json",
-      "sha256": "f22560fc4ed0b805fa36237d2b498e6d94c8ba0b8f489e2861c253d222a600b6",
+      "sha256": "d5f7156aef1d35a1484f64ab0d5fc879418a82b59847f16e0c3567344ce8627a",
       "bytes": 548
     },
     {
@@ -83,12 +83,12 @@
     },
     {
       "path": "skills/agent-architect/README.md",
-      "sha256": "b4acd6c1c86c7ffead487053cbc51eb2c02f8ec4bf2a97c0d0752da08af77150",
-      "bytes": 7981
+      "sha256": "e966fcc6ea90a2dafd97f96a02f1564b9215441ac6a7121d01e3daa6a6b4af27",
+      "bytes": 5757
     },
     {
       "path": "skills/agent-architect/SKILL.md",
-      "sha256": "b46c2f948b73577e39015f2505384f34066e0402a0903be8c859366baf5cf179",
+      "sha256": "a8fb04cb274fb2d0f41ac4b777c2a15e519f4c7e536cae204e7a5aa8bcd0b07c",
       "bytes": 3275
     },
     {
@@ -128,12 +128,12 @@
     },
     {
       "path": "skills/agent-best-practices/README.md",
-      "sha256": "e441a6ff8f35303f8d4f62280b1cc4830afc0dc11069e77aa2309ea9b30cb2d4",
-      "bytes": 6816
+      "sha256": "0db24618fb24e350005a794a5198f59a007fa1b1db7f297604eaf2f6be3b2325",
+      "bytes": 4739
     },
     {
       "path": "skills/agent-best-practices/SKILL.md",
-      "sha256": "89407a484bcd377397111542f4e6fbf9ee7b5ffb0dc568a93ac43760bd179cae",
+      "sha256": "d66a953b6423fbb65049f1b62625c51589d87826120f37fcf01793f944cbd161",
       "bytes": 2991
     },
     {
@@ -143,138 +143,138 @@
     },
     {
       "path": "skills/agent-best-practices/best-practices/01-foundations-and-selection.md",
-      "sha256": "85143a28ab5b0d4fb0137908ee790799fd7d3adbab71a6560e28d0cd0260ddc5",
-      "bytes": 9882
+      "sha256": "4a1cef98b6b5c9a7ba52a58bb23e90e309dc36e3293fd728849fbaae8c7724dd",
+      "bytes": 6019
     },
     {
       "path": "skills/agent-best-practices/best-practices/02-agent-design-and-contracts.md",
-      "sha256": "ede2f461b5ead685af6e456f3b74beac1a63dbdd1421fe95d556601e076637d8",
-      "bytes": 7897
+      "sha256": "4da3c72f76bffd97e9939e606aab2725b1e3e7a2d4a6b4334d4a29fa174ff94f",
+      "bytes": 5569
     },
     {
       "path": "skills/agent-best-practices/best-practices/03-subagents-and-delegation.md",
-      "sha256": "bae9c81f978ab6796894fbca131d0fd41ee28e79587364f7e46ec042294cd678",
-      "bytes": 8300
+      "sha256": "f0336aaf1d13cda479f4141cfeccc8eb91289c55623f5f01507e34e7fa213354",
+      "bytes": 5382
     },
     {
       "path": "skills/agent-best-practices/best-practices/04-orchestration-and-agent-teams.md",
-      "sha256": "d176621fee3742727ad83144fc68dc6dd0ed12e8218248d750c6cea2e9d62c1d",
-      "bytes": 8825
+      "sha256": "a33b70a87b8feb5ec86967eeb5763134f591e035b17234fdbd0b520a0f3eea5f",
+      "bytes": 6060
     },
     {
       "path": "skills/agent-best-practices/best-practices/05-agent-os-reference-architecture.md",
-      "sha256": "b020e9d4c4af4fd010b7771d8c23bfd215591da2ca8446d4a3f3690b54f84fde",
-      "bytes": 7484
+      "sha256": "66a346649374a6036496c6b6f64036b1ba272eb5c79c324d5395ab1f87040d89",
+      "bytes": 5829
     },
     {
       "path": "skills/agent-best-practices/best-practices/06-context-memory-and-state.md",
-      "sha256": "684f7a8cf66c89a33440d695d5c9c4bb18ad4b9311c1949def1ff7835dbb3a67",
-      "bytes": 6124
+      "sha256": "a48dd56faaa511870261a3d3fa88d54df72ee894348419355011859166b008d5",
+      "bytes": 4223
     },
     {
       "path": "skills/agent-best-practices/best-practices/07-documentation-as-operating-system.md",
-      "sha256": "412a8f03c4b59545e8af1e845c85fed7b9f4c911e062dfeb30466394de73be5d",
-      "bytes": 10524
+      "sha256": "994569ae56ad5241f832fb5ff7b20a78a6e5418f40ea822bb52eb65789016a93",
+      "bytes": 7588
     },
     {
       "path": "skills/agent-best-practices/best-practices/08-docs-catalog-and-templates.md",
-      "sha256": "5f3b78ebd53755b21469c5ceefa60abad1225a3a357b19a0f2d1007027be60fd",
-      "bytes": 6537
+      "sha256": "866b4441c31826116b4d6cad6be780ccddb204d0d4239b47fc315cc7f99f1833",
+      "bytes": 5834
     },
     {
       "path": "skills/agent-best-practices/best-practices/09-agent-role-catalog.md",
-      "sha256": "92057b1fbfc8febc3884253d27185c453037840898392556f5feea29d9d5d364",
-      "bytes": 8828
+      "sha256": "4bb45dc33e72c205953ccfcfe1f2650bcfa506380eef76d15040cb7f3c944181",
+      "bytes": 7566
     },
     {
       "path": "skills/agent-best-practices/best-practices/10-lifecycle-and-orchestration-processes.md",
-      "sha256": "702ce3f8fd2c80b998a29179fc1377bda87d5f7703c9f0420dcc674502668d53",
-      "bytes": 9314
+      "sha256": "dff0f8de1c5e79bfdfb84b00dea0e3411209322e72c43839c90eae04351fed27",
+      "bytes": 7188
     },
     {
       "path": "skills/agent-best-practices/best-practices/11-requirements-and-quality-attributes.md",
-      "sha256": "9fa23f7e0ef624184e75c33f629dc1ebd040a9f425467a605b65c15ccff88eb2",
-      "bytes": 5785
+      "sha256": "34d33d1b4737b8fdd74eefbdfec3708999e8a3acaa55135b51c24dd45699644f",
+      "bytes": 4960
     },
     {
       "path": "skills/agent-best-practices/best-practices/12-task-tracking-monitoring-and-observability.md",
-      "sha256": "c21ce00e7ecf4aa24103aa022fd26502d65c8a3dceb03d11abc4f36143399bec",
-      "bytes": 6211
+      "sha256": "d8f24b3bd0849b9e10dc07cdbf61a9dadeb103dda195b79bd452600d037ba7cc",
+      "bytes": 5312
     },
     {
       "path": "skills/agent-best-practices/best-practices/13-security-approvals-and-governance.md",
-      "sha256": "6551b14dd690625d30081b6b27b9832cd1653f8a6a88b4e08dc161206f097076",
-      "bytes": 7743
+      "sha256": "d69e084f0a0c353bc6273bdd3b1083c6fffccce0eeaae3877ae02d2f9552c873",
+      "bytes": 6493
     },
     {
       "path": "skills/agent-best-practices/best-practices/14-evaluation-and-continuous-improvement.md",
-      "sha256": "50f29c43a2c015450ba235a9aaa281b046c1221eb7bd185d2390538faced09ad",
-      "bytes": 6914
+      "sha256": "02aab7b43cc757991761f2015e1449771f8f4b0e9678f9cfda9a80cb82defa97",
+      "bytes": 5715
     },
     {
       "path": "skills/agent-best-practices/best-practices/15-implementation-case-studies.md",
-      "sha256": "46b3a9e3acafaf8ecd831761762f524aa3f7aff58a43fe937076e5f7e4f37409",
-      "bytes": 11686
+      "sha256": "b396285eae8fb6ab5833d297709800ce2aded4380939d2d2a9352fe1db74b5d3",
+      "bytes": 9602
     },
     {
       "path": "skills/agent-best-practices/best-practices/16-conflicts-and-resolutions.md",
-      "sha256": "991dc7cfcb5e19363d1a4d70f0c5836cd52dffeff05ee4464e3a020d077ba0c1",
-      "bytes": 8372
+      "sha256": "94e3b1137659da6257490e1a6594f5e0d6683ba47bbb650be37ac155de4a0a25",
+      "bytes": 6264
     },
     {
       "path": "skills/agent-best-practices/best-practices/17-agent-and-orchestration-pattern-catalog.md",
-      "sha256": "f52287d697ff21aff56828d77df7a89200d9584196c51720d281d7c6daf8b92d",
-      "bytes": 19176
+      "sha256": "0f9bbd209d82d8879e973debb505c4aed1452f56a69fd3e08d51e2a84d10a65a",
+      "bytes": 13057
     },
     {
       "path": "skills/agent-best-practices/best-practices/18-agent-os-and-runtime-pattern-catalog.md",
-      "sha256": "8a6034bf26d5df82f1670bc10fb1ee60168294a840d67f11c80f0ceed9db4ab7",
-      "bytes": 12516
+      "sha256": "a91f064cd6eeb0f5d3c051b41b9b3d13c2e8aa2ca9e9cfe24ce7ad012b7837fa",
+      "bytes": 9758
     },
     {
       "path": "skills/agent-best-practices/best-practices/19-skill-design-pattern-catalog.md",
-      "sha256": "523ce8da7326fde63cd3d17471a7a69cb26f0c8b962ee5952ee59529f0d2ef4d",
-      "bytes": 13105
+      "sha256": "8b449918c20f03619f6eae3f5cb0075f05f86159dadd502da6f004fc0a229d92",
+      "bytes": 9564
     },
     {
       "path": "skills/agent-best-practices/best-practices/20-agentic-cycles-and-lifecycles.md",
-      "sha256": "80b2456ba1731016ad85ae8047a1228de174bd6ab7b9867d612dfc3fe81e495d",
-      "bytes": 15303
+      "sha256": "3c7e561cd95de51adfac300f4d55a93107f6ea8fdbbb1df0e69c4b0489928dff",
+      "bytes": 9594
     },
     {
       "path": "skills/agent-best-practices/best-practices/21-role-patterns-and-separation-of-duties.md",
-      "sha256": "7c5515ce280e2af2a8ae36142ed27c250d634a88fc8e7cae74b2f56fd85ab616",
-      "bytes": 13900
+      "sha256": "144ef3f89e7a5ddbe39266a89b00418caf7cf2d7731e5e8a78519cb97df24b4b",
+      "bytes": 11519
     },
     {
       "path": "skills/agent-best-practices/best-practices/22-operating-model-and-pattern-selection.md",
-      "sha256": "b9bdcfd2b5aadc569940442fa7dad6fe9b856c78251ff517d08ab304ab3f5262",
-      "bytes": 12084
+      "sha256": "cbe4fdeb919287f8fc300c21749151a542fd9300651ab06a3ea1e1e9d2a18b88",
+      "bytes": 9861
     },
     {
       "path": "skills/agent-best-practices/best-practices/README.md",
-      "sha256": "2bba64f82c81960db1a69c0fc75f8b4bcf7a3c921886230d56a8de95d2c17213",
-      "bytes": 8111
+      "sha256": "bfdc378d519d3920ed1535f82766d4a74d08abc415720958acf22836219a384a",
+      "bytes": 5631
     },
     {
       "path": "skills/agent-best-practices/best-practices/sources-frameworks.md",
-      "sha256": "8449434c52fa670a747b5116afb11eb7e998360fbe80d42419a35e1976f1f7dd",
-      "bytes": 4464
+      "sha256": "938c14af8f7ec83aec68dc9d049ef2af4a41b18f0d5f3ee6ff00b5b3c8c75c36",
+      "bytes": 4122
     },
     {
       "path": "skills/agent-best-practices/best-practices/sources-patterns-and-cycles.md",
-      "sha256": "8fe7ee8666fe88752993b0272868347a8716c39be339be6dbfe11d849db4aa19",
-      "bytes": 8693
+      "sha256": "70c164db9690a8b9b220810dd676e464c67ae185600dda2bd190a2442b68f59d",
+      "bytes": 7011
     },
     {
       "path": "skills/agent-best-practices/best-practices/sources-platforms.md",
-      "sha256": "95eca5ac569cbee02a591f257fdf9153fc257205def9054a8b1603a4fcf64d2d",
-      "bytes": 9190
+      "sha256": "1cce4b7d5c19328b732d637e90a3fdba94245caf8c0b0e710dcca64cae0931a0",
+      "bytes": 7986
     },
     {
       "path": "skills/agent-best-practices/best-practices/sources-standards-and-docs.md",
-      "sha256": "b3f8f103121b8c9705905e284feabceb0b938cc7d38c4e9f027a619c4aa7f2c3",
-      "bytes": 5007
+      "sha256": "7ad1e92525634a482247a5fef8ef4726d75c11237298c1b714407689580bc25f",
+      "bytes": 4158
     },
     {
       "path": "skills/agent-best-practices/evals/behavior.json",
@@ -293,12 +293,12 @@
     },
     {
       "path": "skills/agent-builder/README.md",
-      "sha256": "5e4caab60dd401ad78471f5f07f08b96989e8d5638ac9b8c81817de70d26209a",
-      "bytes": 8454
+      "sha256": "1e86df390a3e6101228c73c40ddb7382b1832d520b130c757dabf21f8b78023e",
+      "bytes": 6174
     },
     {
       "path": "skills/agent-builder/SKILL.md",
-      "sha256": "700fe18099ecc1d75ea657b5744a6088f365c26c384f52ab0643a717ecc44651",
+      "sha256": "7393f6ac4f19f432343353236ae4cb7c42805d0217d593bc6a9f9e87547ccaa5",
       "bytes": 2914
     },
     {
@@ -333,12 +333,12 @@
     },
     {
       "path": "skills/agent-context/README.md",
-      "sha256": "9056f63a2770903eed70a210683121b52afdec732a856c9641dbe1b08913389a",
-      "bytes": 6954
+      "sha256": "999a8f5668b6257db8b048d054181f98fe50d4abf6aea9a9dcf8823b5f588b2d",
+      "bytes": 4901
     },
     {
       "path": "skills/agent-context/SKILL.md",
-      "sha256": "295aa270fe32d8f056cc277f4022ca6755533161c55b9e87797ffa4d1fe22571",
+      "sha256": "cf25212dee55b8bf7ee8099d524eb16a6bacb5fc817ea61f74105a87652a9c5c",
       "bytes": 2644
     },
     {
@@ -368,12 +368,12 @@
     },
     {
       "path": "skills/agent-doctor/README.md",
-      "sha256": "9a5911dd1e6668a36972ec350ca53df9dff7a923887991a08e5fac654f7390bf",
-      "bytes": 6599
+      "sha256": "cbc92bba23a5989ba356f9dbfdd6f642e38aeba1e4cd68e366f5b07596a5f86b",
+      "bytes": 4618
     },
     {
       "path": "skills/agent-doctor/SKILL.md",
-      "sha256": "857890e2edddac2fdc998847fa993d747918bdeac6f655c146739dd8d9a2c9cf",
+      "sha256": "7a0e291dd25d884d1cfd39e168db63f088ee57ab8569f33b0982e79e6686dadd",
       "bytes": 2569
     },
     {
@@ -403,12 +403,12 @@
     },
     {
       "path": "skills/agent-evaluator/README.md",
-      "sha256": "515163f2382b5185ec16f8c3f6c32dbc51d498f299a29048e4270978a61e045f",
-      "bytes": 7159
+      "sha256": "1b21f3b2445ee24f9c8ec82ff8a6b4920fed402181d944f1f2ef30462a939c95",
+      "bytes": 5083
     },
     {
       "path": "skills/agent-evaluator/SKILL.md",
-      "sha256": "6d6e626639951cc9ede50913078a360c06816282931be2c6119a3a230a8f67f5",
+      "sha256": "e778d77d7f320f3b8e38e9bb2ebe74d5e5fb30352a057b898dfb5f71fcf299dd",
       "bytes": 2870
     },
     {
@@ -438,12 +438,12 @@
     },
     {
       "path": "skills/agent-knowledge-manager/README.md",
-      "sha256": "cc17c8b4c8cdb59cd38fd146deb006523e569ea241fc67201968d7b522744d7b",
-      "bytes": 8658
+      "sha256": "3028050f421c380eee4479b63a14651462d1262fefee0ab16d1dc078a3f53acb",
+      "bytes": 6241
     },
     {
       "path": "skills/agent-knowledge-manager/SKILL.md",
-      "sha256": "dd03fa27a89673107fb79b4e665128bddc39a89895a7cdff55ee963fe62d8201",
+      "sha256": "349424b4864ef44c96a3f651b9fe4d0a8fadce8acd0ed3e4dd05fa81a22db6dc",
       "bytes": 3749
     },
     {
@@ -483,12 +483,12 @@
     },
     {
       "path": "skills/agent-manager/README.md",
-      "sha256": "71b038de540ca0d377ad37c20bcdff493fa22f7477892a163553e26b19976b2a",
-      "bytes": 6952
+      "sha256": "60825822e1b0c19893fb7351485bb9805c43b6f6ef20b7597ac6938c51445ec9",
+      "bytes": 4898
     },
     {
       "path": "skills/agent-manager/SKILL.md",
-      "sha256": "ba8a81a00bea3c4288471c875eecf1d0d89d05a02a3a73dac45326cbf757fb0c",
+      "sha256": "e4d81c5c62f579b037b36084a54f2a79a8540d9420e8933e60afba8854c3dd9d",
       "bytes": 2714
     },
     {
@@ -518,13 +518,13 @@
     },
     {
       "path": "skills/agent-master/README.md",
-      "sha256": "b599cbb792ea04d6267a122865bd5e43185dcd9a19bee32a2656151d00292440",
-      "bytes": 11517
+      "sha256": "b96a327c84a358eaf6e6971e55095b7482c05937b1673bab6522f1b0da3debe7",
+      "bytes": 8917
     },
     {
       "path": "skills/agent-master/SKILL.md",
-      "sha256": "f3c4e6574cc92ed3ba097d59c98315f34083e862be1489e0407b9588dbdc3206",
-      "bytes": 4636
+      "sha256": "c75b871a9ac38ad5d434e87d7315148f7700621a363012fa00b4ee12704af3aa",
+      "bytes": 4579
     },
     {
       "path": "skills/agent-master/agents/openai.yaml",
@@ -543,12 +543,12 @@
     },
     {
       "path": "skills/agent-master/private-skills/process-orchestrator-architect/README.md",
-      "sha256": "c34dabc95cd488fc2cd0804cfd9b17f2ff2788082f0a36ec99e42d83e9b2a37b",
-      "bytes": 6818
+      "sha256": "0bff4c92454e7a7d2ff520401d94ae57aa2827056f77ace07458ae7fa58047e7",
+      "bytes": 4689
     },
     {
       "path": "skills/agent-master/private-skills/process-orchestrator-architect/SKILL.md",
-      "sha256": "74ea2624f00d1d490d8b75dd9acea19ebb3266ff48a695c7a0463cb88b046cf4",
+      "sha256": "f985e1f3fe7b177591b7ec2c578812031735c03131355880df9343e17606dbab",
       "bytes": 3339
     },
     {
@@ -568,12 +568,12 @@
     },
     {
       "path": "skills/agent-master/private-skills/role-agent-architect/README.md",
-      "sha256": "f6899ced47fb370f04a380917651592a8785eb1c32ef61178a95a9a7284655ab",
-      "bytes": 6802
+      "sha256": "17e42172c8955db39f4db1abe9eec140b9c3cb5335647113f3d7c58a82e2eac6",
+      "bytes": 4673
     },
     {
       "path": "skills/agent-master/private-skills/role-agent-architect/SKILL.md",
-      "sha256": "4a8a940e814954a943d10a9c588d65ae8a6b5f8769a8e47a17ff573c7fa59c5e",
+      "sha256": "3088305dc16d8c59177d75827977bd4992f03fff0a4d895c1017a3172de91577",
       "bytes": 3049
     },
     {
@@ -593,12 +593,12 @@
     },
     {
       "path": "skills/agent-master/private-skills/role-skill-architect/README.md",
-      "sha256": "4b327443f4c48e855618209134d96af81a996ff4de487df6b07145fa9a529156",
-      "bytes": 6623
+      "sha256": "eba937fbf24e82e2d1014a4519d60fb9766e8463f4bed8bbc674bfd6e510af51",
+      "bytes": 4536
     },
     {
       "path": "skills/agent-master/private-skills/role-skill-architect/SKILL.md",
-      "sha256": "607792ceb3ccbac6880ca051f19aa94474fa40bc99676ff0eb57ff0d900a8fc4",
+      "sha256": "797ec054de8a8b1215a94efaa32a8f878dc38eff0e7fcd5a05b69174b58571bf",
       "bytes": 3310
     },
     {
@@ -618,12 +618,12 @@
     },
     {
       "path": "skills/agent-master/private-skills/skill-implementation-engineer/README.md",
-      "sha256": "8d63ab514200481b4c9ba121389269e4fe71e2ad78ff667410d7038bf0505c55",
-      "bytes": 6914
+      "sha256": "f5542369269ecd9bfc3fe95c56347110669198109c2404cfff0891446eac3b6a",
+      "bytes": 4785
     },
     {
       "path": "skills/agent-master/private-skills/skill-implementation-engineer/SKILL.md",
-      "sha256": "6c801841a3addcbc3be85e148d748be1fae6379f75d9d2f05f03adff1b3bb3f1",
+      "sha256": "45b1aab20f034c23671394ecff79975395d0f387106a3fd9e29ea92867d7662f",
       "bytes": 3582
     },
     {
@@ -663,7 +663,7 @@
     },
     {
       "path": "skills/agent-master/references/private-skill-registry.json",
-      "sha256": "f71b53fed31072d134c9348bb612270bd0c8fa994e38d6427c005004d3b0cc5f",
+      "sha256": "4d9eb9c1aa55c2791b1503c1192906da76b28a5065e8f7309eaa7b4d0316b91f",
       "bytes": 1636
     },
     {
@@ -688,12 +688,12 @@
     },
     {
       "path": "skills/agent-model-router/README.md",
-      "sha256": "336621daebe1392cf70400ec4a73ea1dd399caf00e1a4a667487b0eb5f2bab35",
-      "bytes": 7318
+      "sha256": "547479c26868e2230ed715f58f1638c681dc1fd135e0fa401adbb8c1133c5c39",
+      "bytes": 5192
     },
     {
       "path": "skills/agent-model-router/SKILL.md",
-      "sha256": "dc50f67c3d191b9dd9d07dae8f95dbc5660b0ad4c03c631b856d0cc2bacae788",
+      "sha256": "c45da5097909f13966a4dbf4bf3813a3424a468b31106874b8d15814379dc6f3",
       "bytes": 3564
     },
     {
@@ -728,12 +728,12 @@
     },
     {
       "path": "skills/agent-model-selector/README.md",
-      "sha256": "27277e52777ee5fdedd20df801c61ab2d11d796502d6fda670984e41bd32416a",
-      "bytes": 8669
+      "sha256": "082a4a49f0e3fa02a20639f810aaf8ec3c0514605c26ac9a38b1d744ee180434",
+      "bytes": 6301
     },
     {
       "path": "skills/agent-model-selector/SKILL.md",
-      "sha256": "ef6fd5c5c7aa36cf6f0e4c7ca6632bbe55ad7fbfc57a4329f40a935d438f8243",
+      "sha256": "7c758b3c23eb702108beee31fc6a18969d19829dadb1c34a1687c24e0932eef2",
       "bytes": 4118
     },
     {
@@ -773,12 +773,12 @@
     },
     {
       "path": "skills/agent-observer/README.md",
-      "sha256": "e652f18cae30517ddc4233a7fc7d5d254be8d687a9a54d495d56d3d4fe3b3ada",
-      "bytes": 6078
+      "sha256": "78ea89f8e3fe33abc350ad036d0ea42a9379e58a411d1e108da4c76ccdf800b3",
+      "bytes": 4004
     },
     {
       "path": "skills/agent-observer/SKILL.md",
-      "sha256": "c6e55fef063e1f020b0268672f74f7f657c77ad59ec540edd6ca1912f30601a6",
+      "sha256": "e4cd8c77a0be8da617bcec51813a4c8d0c7ff7951a12a6fd8c89a8a93cfd92f1",
       "bytes": 1726
     },
     {
@@ -808,12 +808,12 @@
     },
     {
       "path": "skills/agent-optimizer/README.md",
-      "sha256": "d2318da283eecf6734bad18891756e98075b0edc7a4221927c3605cb0d88a2fc",
-      "bytes": 6421
+      "sha256": "5e6c88fe2c0a54cfb0bac33ceb367c36d554f977dd52648f08dfd1452442f1d3",
+      "bytes": 4353
     },
     {
       "path": "skills/agent-optimizer/SKILL.md",
-      "sha256": "2b189578b26691d46e1a628aded11f98cee17ad964e242425c110f47fd54f5b6",
+      "sha256": "ddb40532ace25eb0b21b6fe3c05d94060ea408142a01ecd53a1fd5ea00c7e1a0",
       "bytes": 2329
     },
     {
@@ -843,12 +843,12 @@
     },
     {
       "path": "skills/agent-os-architect/README.md",
-      "sha256": "a07bcacf3d99a41ea7de32a9bbc25baf345a9437d17391d096097da7314d5db4",
-      "bytes": 6072
+      "sha256": "99b3ef0934fb3321a318a4b09a58a8148555798bf26a77515f7e7a9c9a07be4d",
+      "bytes": 4119
     },
     {
       "path": "skills/agent-os-architect/SKILL.md",
-      "sha256": "92cc282084ef75f22da05d4260110027fc09cea80e1386762a20cbfee72fa647",
+      "sha256": "1590ccf6d7381ecaf2e343bec3863a031ab107415d72aa5e5dbf470c5c80d434",
       "bytes": 2525
     },
     {
@@ -878,12 +878,12 @@
     },
     {
       "path": "skills/agent-os-bootstrapper/README.md",
-      "sha256": "5cf68c0505ded42e9aea531c8375bbf77e9b465c243471e47d6789eb014f971a",
-      "bytes": 6149
+      "sha256": "3c989a8ba3ea038a86815b40ae90af9e424c5e2c577b53a5720a8fdeb51de7c2",
+      "bytes": 4075
     },
     {
       "path": "skills/agent-os-bootstrapper/SKILL.md",
-      "sha256": "f23037e29cebcfbd6603f47704d2de45c19b5125151ef4463f8dff9a7afd6783",
+      "sha256": "516fb9fe517d4e74773d96fa312d6c17c418e627c5206c197fdbe96fa8374dac",
       "bytes": 1875
     },
     {
@@ -913,12 +913,12 @@
     },
     {
       "path": "skills/agent-os-evaluator/README.md",
-      "sha256": "0d0855972da260a5dbe422c0c29a9f618b28757aaae085980481285490294909",
-      "bytes": 6180
+      "sha256": "758f8bcb7174e3dc23de24fe8e7e6b65df0edce42a9c9231eec923cc835a72da",
+      "bytes": 4106
     },
     {
       "path": "skills/agent-os-evaluator/SKILL.md",
-      "sha256": "635f8d8b67b03bb194be155f86183774e2d483e8418143700832f352d0853e88",
+      "sha256": "14205e7d54a919b28ad0fe0bb3b43efeaaa62d175e1b1f0332ac3c340e5d3143",
       "bytes": 1797
     },
     {
@@ -948,12 +948,12 @@
     },
     {
       "path": "skills/agent-policy-manager/README.md",
-      "sha256": "21e20500a9ed09883c1d9af0ee0d5c492cbc114eaa87c560e4841f866f8e680e",
-      "bytes": 6125
+      "sha256": "9df2e5ee10b74aed6b62897d9ce3deff5aad44573fedc35391b3f4829a454ed6",
+      "bytes": 4051
     },
     {
       "path": "skills/agent-policy-manager/SKILL.md",
-      "sha256": "0caff68d7bd52ac6014594e0b82cbd23410650b5e95b2ed30c188cb14dbd93e0",
+      "sha256": "701da94dd5d67e603f02199e40733ffa6f44a347ffef36d84c3286e740b09e00",
       "bytes": 1780
     },
     {
@@ -983,12 +983,12 @@
     },
     {
       "path": "skills/agent-protocol-manager/README.md",
-      "sha256": "e74d58905909c9a6e1d791d1abfdc8432b0dac9401aefe294af5dee293e33805",
-      "bytes": 7239
+      "sha256": "fe28151fde71d419f5031084ada462f31ae69edadc806cabb0b12acfe4eb9452",
+      "bytes": 5128
     },
     {
       "path": "skills/agent-protocol-manager/SKILL.md",
-      "sha256": "9d7166f3bacc7b8f7568a00c111e6872c6fde60368802a6c09d139cc5b171a44",
+      "sha256": "eb31477d7218edf39d46eeb6893b24094e3d2efca60d815500d607861d796639",
       "bytes": 3467
     },
     {
@@ -1023,12 +1023,12 @@
     },
     {
       "path": "skills/agent-refactor/README.md",
-      "sha256": "06a569e02a89f484fb33c081615b8f170ff868be1f9b6cde1ee563209999236d",
-      "bytes": 7217
+      "sha256": "56ac049c908b432677c1d69ac2a0357fd1b9218c835e418239c3e135a46e4299",
+      "bytes": 5188
     },
     {
       "path": "skills/agent-refactor/SKILL.md",
-      "sha256": "83ee5aad7ec2f5c541176d464dafa7bef3348cbe2e4655b45427240bd71683f7",
+      "sha256": "8c8d0187db54ed13486c0aab0e8f4c757e64fdca8d48f01ddae03ee1dfef9edc",
       "bytes": 2683
     },
     {
@@ -1058,12 +1058,12 @@
     },
     {
       "path": "skills/agent-registry-manager/README.md",
-      "sha256": "2d43f5dc3428ca40845e0bd83f5d8f82d72c886d32c340c60fc7ec6904bc3ed2",
-      "bytes": 6103
+      "sha256": "41c1eda87d8de616f74dc21fbe7b4db2e5317b844ea945f665ac6626bec2114e",
+      "bytes": 4029
     },
     {
       "path": "skills/agent-registry-manager/SKILL.md",
-      "sha256": "287870fb074694d8061b078aee4a3b1c945320bf08aa42f36ce1df4ad1787d15",
+      "sha256": "615d8070bdf6ba83ecc6fb33ca8591816954370c0272281dba06da5833fc40c8",
       "bytes": 1914
     },
     {
@@ -1093,12 +1093,12 @@
     },
     {
       "path": "skills/agent-runtime-manager/README.md",
-      "sha256": "78dcb4e15197e3d8ab4350bb780633d6ebeaa8cf60673bf129877bc17f208de7",
-      "bytes": 6101
+      "sha256": "6b29c1e261aacbe8a5b4eabfbc7e50746fcdff73eb74795c704de9e49a1cef4c",
+      "bytes": 4027
     },
     {
       "path": "skills/agent-runtime-manager/SKILL.md",
-      "sha256": "19c8be7afd8168e294743db6ae0a3b7613c78cde6d9eb051e69f69bcd24650df",
+      "sha256": "bfa483c459a9a6519d9af86e6d9723b5941b50e294d5a4d62fa7f1173a5e692c",
       "bytes": 1833
     },
     {
@@ -1128,12 +1128,12 @@
     },
     {
       "path": "skills/agent-scout/README.md",
-      "sha256": "2870ad6e8f57427bfd0b652fab71b6ebda5d7e0ad80f5c3463ef45d0103355cf",
-      "bytes": 6640
+      "sha256": "b31fb489c38006aadf7377c7f615901f72276fd9a1db0f2876cd2b91b55b41e0",
+      "bytes": 4644
     },
     {
       "path": "skills/agent-scout/SKILL.md",
-      "sha256": "3f42cc1bc78ce4c1b2b367370ab0ac63d9c9b50f193a814eeaea067bc38b8519",
+      "sha256": "52b462f47fc50af2b01c9b7a91eb56b7aa3794e16ed1bc8e94d6e1eaeae1c934",
       "bytes": 2490
     },
     {
@@ -1163,12 +1163,12 @@
     },
     {
       "path": "skills/agent-skill-mapper/README.md",
-      "sha256": "558c8f264497007ccdee43fcac60ec7035f00af29addfc9971014c5d338abf33",
-      "bytes": 7450
+      "sha256": "9b117ae50f6aef176f59d3d9080733426839ea6c35b6485b45461aa03f8dee29",
+      "bytes": 5237
     },
     {
       "path": "skills/agent-skill-mapper/SKILL.md",
-      "sha256": "53166571f330ddc81baba99efef93a6962851cd99cbbfa5ddb3f370073d7fe07",
+      "sha256": "4b5d712987479066b0f7cd646cb840d0130af77c606995cffb0ebd21f1f55a08",
       "bytes": 3465
     },
     {
@@ -1208,12 +1208,12 @@
     },
     {
       "path": "skills/agent-team-architect/README.md",
-      "sha256": "a1a49635f6cebd743ecc2f71213bfbd21795ccd14a451c2d70d4f7989c94d9ed",
-      "bytes": 8353
+      "sha256": "745095d69c30b6368da3b0ed240a890a9c0294e09635f107a08cc24167a0a932",
+      "bytes": 6073
     },
     {
       "path": "skills/agent-team-architect/SKILL.md",
-      "sha256": "1f526e765f72833f119cb4fca55c4ee5fbd743693c57b4d20a4adfeb5fe6367f",
+      "sha256": "cc9baf6297607008729d9ec2b836135c5f66cf7ed30d5f860c8c8fbe89c4454c",
       "bytes": 4315
     },
     {
@@ -1253,12 +1253,12 @@
     },
     {
       "path": "skills/agent-team-builder/README.md",
-      "sha256": "8ababcdf6577a97758324fefc0260ecae5b05c38a3d835e9e3fb2b21ee1202d0",
-      "bytes": 7356
+      "sha256": "4a9572dad2ea1e5eee9f758183543eb32354df366d404b776644a595e1e2773b",
+      "bytes": 5143
     },
     {
       "path": "skills/agent-team-builder/SKILL.md",
-      "sha256": "777253f00473bb04938285d4bfd901ac2a5cbae45c7db85d684da91e298be6ab",
+      "sha256": "512af2c296bf62d409695a3257046274edbcc2903896ec15503e4cfe22a67b3e",
       "bytes": 3299
     },
     {
@@ -1298,12 +1298,12 @@
     },
     {
       "path": "skills/agent-team-manager/README.md",
-      "sha256": "d7f3ac0999a98b3e852678ecba4b717d47c784a92987600a5f4fad1d33e3e557",
-      "bytes": 8336
+      "sha256": "6e6603483d91e4abfb5fbbc0857aa0296e201d55c7667a3b86fa484af500fc5d",
+      "bytes": 5746
     },
     {
       "path": "skills/agent-team-manager/SKILL.md",
-      "sha256": "30e40eafacb77cae00d8cd369fbcd338214a3c84d63bd29bd44d5a91b3ae2177",
+      "sha256": "9082d11dd510c29690bacd4566da6c33673ee4c7627c7e228e5880ae97023681",
       "bytes": 4265
     },
     {
@@ -1348,12 +1348,12 @@
     },
     {
       "path": "skills/agent-team-orchestrator/README.md",
-      "sha256": "2bd3716d18db2b56301e9369db2851801b7eacbc49a858cd7e2af27a87edb9fb",
-      "bytes": 8394
+      "sha256": "a96e6fe813c3fd7e2094544ef1359f4d1998e5d20f3249a6ec919028ddbb720a",
+      "bytes": 6025
     },
     {
       "path": "skills/agent-team-orchestrator/SKILL.md",
-      "sha256": "d030952941dafef06b66b74e958bcd9e052017e93ca4a388f5bf542824b00f15",
+      "sha256": "57606d94db0f6c05be4f0aa5c472543db26b587d081fb158a617a8649cb3e834",
       "bytes": 3447
     },
     {
@@ -1393,12 +1393,12 @@
     },
     {
       "path": "skills/agent-workspace-manager/README.md",
-      "sha256": "f6d99ac7fada8ed5593ef0128e2bcc0340870d395b502ed613230769199069b2",
-      "bytes": 8373
+      "sha256": "422bb66820ef29f229a7a23e9279f567a30f5c4fd2f47a3f67e9affb0ae46f71",
+      "bytes": 6029
     },
     {
       "path": "skills/agent-workspace-manager/SKILL.md",
-      "sha256": "6a088a1a00fa5438ea6726a73c1746e0f0d90027c46e96bf64a41832156c092a",
+      "sha256": "dfc73aa71508949a91c6f138d5afdf5deafe0203dfde363e4b055d72230ba83d",
       "bytes": 3273
     },
     {
@@ -1438,12 +1438,12 @@
     },
     {
       "path": "skills/agentkit/README.md",
-      "sha256": "d29611d670cc362d641464f6709b5c193a96a7251ee812cd1ecae77148987fac",
-      "bytes": 8643
+      "sha256": "54c35f02905a5ef13ea6b0befce5eaaeea30713491a6e5402b670b8bb3c9d687",
+      "bytes": 5822
     },
     {
       "path": "skills/agentkit/SKILL.md",
-      "sha256": "ebd49ddc4ab90f0cf2fb1d441d5e76e8471163ed564abc0aaf51e741ff1a2bef",
+      "sha256": "c72ee2c122c367c15280d84b8c5a3032d618536516ee1d9b5c23c24467ca72fe",
       "bytes": 4558
     },
     {
@@ -1458,18 +1458,18 @@
     },
     {
       "path": "skills/agentkit/donors.json",
-      "sha256": "e6ea054607031e8032b8305a986125920a0b9dfbd46636c4f5e9678e29e9262c",
-      "bytes": 7052
+      "sha256": "a96f452d81dc1b749ced74a1ce4070d1d39ef3acc778ea14eeb1d32f4dc06e14",
+      "bytes": 7030
     },
     {
       "path": "skills/agentkit/evals/behavior.json",
-      "sha256": "4e5e1b079764f19d1b8d486eff6bc9905e048635e90cf08b0afa6dc86a793785",
-      "bytes": 1934
+      "sha256": "63aecaca117f4eb14ea7f7f9cf7c1770dd6aefe62ab557ace84c12efa35572b3",
+      "bytes": 1861
     },
     {
       "path": "skills/agentkit/evals/routing.json",
-      "sha256": "bb8ef167bdc92734539857f0d5b1720d0f4518f5de30ae6970e1b695190890b0",
-      "bytes": 1508
+      "sha256": "1bcacade18bdc77c94422a10929888eece14a0bed5361dded0a530e2dcd481cf",
+      "bytes": 1363
     },
     {
       "path": "skills/agentkit/evals/scripts.json",
@@ -1553,13 +1553,13 @@
     },
     {
       "path": "skills/agentkit/vendor/agent-architect/DONOR.md",
-      "sha256": "b46c2f948b73577e39015f2505384f34066e0402a0903be8c859366baf5cf179",
+      "sha256": "a8fb04cb274fb2d0f41ac4b777c2a15e519f4c7e536cae204e7a5aa8bcd0b07c",
       "bytes": 3275
     },
     {
       "path": "skills/agentkit/vendor/agent-architect/README.md",
-      "sha256": "c8971569416aa5400133a5a10c7ad613db097052493bb93c295b2962d7d36b2f",
-      "bytes": 7981
+      "sha256": "9fc12c81866dab690e0771799604ebcb8ef4d19640ff958abf94fd1be38b9d6e",
+      "bytes": 5757
     },
     {
       "path": "skills/agentkit/vendor/agent-architect/agents/openai.yaml",
@@ -1598,13 +1598,13 @@
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/DONOR.md",
-      "sha256": "89407a484bcd377397111542f4e6fbf9ee7b5ffb0dc568a93ac43760bd179cae",
+      "sha256": "d66a953b6423fbb65049f1b62625c51589d87826120f37fcf01793f944cbd161",
       "bytes": 2991
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/README.md",
-      "sha256": "0544fda1483eecd7f8c0268a3d5f9903ee3fd06f4a2f4f9e67c56bf4afefc71b",
-      "bytes": 6816
+      "sha256": "9a156cbb7d9f6abeb8fe16a816b4574ef79264bfecff11476bb60a8ca024c3a2",
+      "bytes": 4739
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/agents/openai.yaml",
@@ -1613,138 +1613,138 @@
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/best-practices/01-foundations-and-selection.md",
-      "sha256": "85143a28ab5b0d4fb0137908ee790799fd7d3adbab71a6560e28d0cd0260ddc5",
-      "bytes": 9882
+      "sha256": "4a1cef98b6b5c9a7ba52a58bb23e90e309dc36e3293fd728849fbaae8c7724dd",
+      "bytes": 6019
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/best-practices/02-agent-design-and-contracts.md",
-      "sha256": "ede2f461b5ead685af6e456f3b74beac1a63dbdd1421fe95d556601e076637d8",
-      "bytes": 7897
+      "sha256": "4da3c72f76bffd97e9939e606aab2725b1e3e7a2d4a6b4334d4a29fa174ff94f",
+      "bytes": 5569
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/best-practices/03-subagents-and-delegation.md",
-      "sha256": "bae9c81f978ab6796894fbca131d0fd41ee28e79587364f7e46ec042294cd678",
-      "bytes": 8300
+      "sha256": "f0336aaf1d13cda479f4141cfeccc8eb91289c55623f5f01507e34e7fa213354",
+      "bytes": 5382
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/best-practices/04-orchestration-and-agent-teams.md",
-      "sha256": "d176621fee3742727ad83144fc68dc6dd0ed12e8218248d750c6cea2e9d62c1d",
-      "bytes": 8825
+      "sha256": "a33b70a87b8feb5ec86967eeb5763134f591e035b17234fdbd0b520a0f3eea5f",
+      "bytes": 6060
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/best-practices/05-agent-os-reference-architecture.md",
-      "sha256": "b020e9d4c4af4fd010b7771d8c23bfd215591da2ca8446d4a3f3690b54f84fde",
-      "bytes": 7484
+      "sha256": "66a346649374a6036496c6b6f64036b1ba272eb5c79c324d5395ab1f87040d89",
+      "bytes": 5829
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/best-practices/06-context-memory-and-state.md",
-      "sha256": "684f7a8cf66c89a33440d695d5c9c4bb18ad4b9311c1949def1ff7835dbb3a67",
-      "bytes": 6124
+      "sha256": "a48dd56faaa511870261a3d3fa88d54df72ee894348419355011859166b008d5",
+      "bytes": 4223
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/best-practices/07-documentation-as-operating-system.md",
-      "sha256": "412a8f03c4b59545e8af1e845c85fed7b9f4c911e062dfeb30466394de73be5d",
-      "bytes": 10524
+      "sha256": "994569ae56ad5241f832fb5ff7b20a78a6e5418f40ea822bb52eb65789016a93",
+      "bytes": 7588
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/best-practices/08-docs-catalog-and-templates.md",
-      "sha256": "5f3b78ebd53755b21469c5ceefa60abad1225a3a357b19a0f2d1007027be60fd",
-      "bytes": 6537
+      "sha256": "866b4441c31826116b4d6cad6be780ccddb204d0d4239b47fc315cc7f99f1833",
+      "bytes": 5834
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/best-practices/09-agent-role-catalog.md",
-      "sha256": "92057b1fbfc8febc3884253d27185c453037840898392556f5feea29d9d5d364",
-      "bytes": 8828
+      "sha256": "4bb45dc33e72c205953ccfcfe1f2650bcfa506380eef76d15040cb7f3c944181",
+      "bytes": 7566
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/best-practices/10-lifecycle-and-orchestration-processes.md",
-      "sha256": "702ce3f8fd2c80b998a29179fc1377bda87d5f7703c9f0420dcc674502668d53",
-      "bytes": 9314
+      "sha256": "dff0f8de1c5e79bfdfb84b00dea0e3411209322e72c43839c90eae04351fed27",
+      "bytes": 7188
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/best-practices/11-requirements-and-quality-attributes.md",
-      "sha256": "9fa23f7e0ef624184e75c33f629dc1ebd040a9f425467a605b65c15ccff88eb2",
-      "bytes": 5785
+      "sha256": "34d33d1b4737b8fdd74eefbdfec3708999e8a3acaa55135b51c24dd45699644f",
+      "bytes": 4960
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/best-practices/12-task-tracking-monitoring-and-observability.md",
-      "sha256": "c21ce00e7ecf4aa24103aa022fd26502d65c8a3dceb03d11abc4f36143399bec",
-      "bytes": 6211
+      "sha256": "d8f24b3bd0849b9e10dc07cdbf61a9dadeb103dda195b79bd452600d037ba7cc",
+      "bytes": 5312
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/best-practices/13-security-approvals-and-governance.md",
-      "sha256": "6551b14dd690625d30081b6b27b9832cd1653f8a6a88b4e08dc161206f097076",
-      "bytes": 7743
+      "sha256": "d69e084f0a0c353bc6273bdd3b1083c6fffccce0eeaae3877ae02d2f9552c873",
+      "bytes": 6493
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/best-practices/14-evaluation-and-continuous-improvement.md",
-      "sha256": "50f29c43a2c015450ba235a9aaa281b046c1221eb7bd185d2390538faced09ad",
-      "bytes": 6914
+      "sha256": "02aab7b43cc757991761f2015e1449771f8f4b0e9678f9cfda9a80cb82defa97",
+      "bytes": 5715
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/best-practices/15-implementation-case-studies.md",
-      "sha256": "46b3a9e3acafaf8ecd831761762f524aa3f7aff58a43fe937076e5f7e4f37409",
-      "bytes": 11686
+      "sha256": "b396285eae8fb6ab5833d297709800ce2aded4380939d2d2a9352fe1db74b5d3",
+      "bytes": 9602
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/best-practices/16-conflicts-and-resolutions.md",
-      "sha256": "991dc7cfcb5e19363d1a4d70f0c5836cd52dffeff05ee4464e3a020d077ba0c1",
-      "bytes": 8372
+      "sha256": "94e3b1137659da6257490e1a6594f5e0d6683ba47bbb650be37ac155de4a0a25",
+      "bytes": 6264
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/best-practices/17-agent-and-orchestration-pattern-catalog.md",
-      "sha256": "f52287d697ff21aff56828d77df7a89200d9584196c51720d281d7c6daf8b92d",
-      "bytes": 19176
+      "sha256": "0f9bbd209d82d8879e973debb505c4aed1452f56a69fd3e08d51e2a84d10a65a",
+      "bytes": 13057
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/best-practices/18-agent-os-and-runtime-pattern-catalog.md",
-      "sha256": "8a6034bf26d5df82f1670bc10fb1ee60168294a840d67f11c80f0ceed9db4ab7",
-      "bytes": 12516
+      "sha256": "a91f064cd6eeb0f5d3c051b41b9b3d13c2e8aa2ca9e9cfe24ce7ad012b7837fa",
+      "bytes": 9758
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/best-practices/19-skill-design-pattern-catalog.md",
-      "sha256": "523ce8da7326fde63cd3d17471a7a69cb26f0c8b962ee5952ee59529f0d2ef4d",
-      "bytes": 13105
+      "sha256": "8b449918c20f03619f6eae3f5cb0075f05f86159dadd502da6f004fc0a229d92",
+      "bytes": 9564
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/best-practices/20-agentic-cycles-and-lifecycles.md",
-      "sha256": "80b2456ba1731016ad85ae8047a1228de174bd6ab7b9867d612dfc3fe81e495d",
-      "bytes": 15303
+      "sha256": "3c7e561cd95de51adfac300f4d55a93107f6ea8fdbbb1df0e69c4b0489928dff",
+      "bytes": 9594
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/best-practices/21-role-patterns-and-separation-of-duties.md",
-      "sha256": "7c5515ce280e2af2a8ae36142ed27c250d634a88fc8e7cae74b2f56fd85ab616",
-      "bytes": 13900
+      "sha256": "144ef3f89e7a5ddbe39266a89b00418caf7cf2d7731e5e8a78519cb97df24b4b",
+      "bytes": 11519
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/best-practices/22-operating-model-and-pattern-selection.md",
-      "sha256": "b9bdcfd2b5aadc569940442fa7dad6fe9b856c78251ff517d08ab304ab3f5262",
-      "bytes": 12084
+      "sha256": "cbe4fdeb919287f8fc300c21749151a542fd9300651ab06a3ea1e1e9d2a18b88",
+      "bytes": 9861
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/best-practices/README.md",
-      "sha256": "2bba64f82c81960db1a69c0fc75f8b4bcf7a3c921886230d56a8de95d2c17213",
-      "bytes": 8111
+      "sha256": "bfdc378d519d3920ed1535f82766d4a74d08abc415720958acf22836219a384a",
+      "bytes": 5631
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/best-practices/sources-frameworks.md",
-      "sha256": "8449434c52fa670a747b5116afb11eb7e998360fbe80d42419a35e1976f1f7dd",
-      "bytes": 4464
+      "sha256": "938c14af8f7ec83aec68dc9d049ef2af4a41b18f0d5f3ee6ff00b5b3c8c75c36",
+      "bytes": 4122
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/best-practices/sources-patterns-and-cycles.md",
-      "sha256": "8fe7ee8666fe88752993b0272868347a8716c39be339be6dbfe11d849db4aa19",
-      "bytes": 8693
+      "sha256": "70c164db9690a8b9b220810dd676e464c67ae185600dda2bd190a2442b68f59d",
+      "bytes": 7011
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/best-practices/sources-platforms.md",
-      "sha256": "95eca5ac569cbee02a591f257fdf9153fc257205def9054a8b1603a4fcf64d2d",
-      "bytes": 9190
+      "sha256": "1cce4b7d5c19328b732d637e90a3fdba94245caf8c0b0e710dcca64cae0931a0",
+      "bytes": 7986
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/best-practices/sources-standards-and-docs.md",
-      "sha256": "b3f8f103121b8c9705905e284feabceb0b938cc7d38c4e9f027a619c4aa7f2c3",
-      "bytes": 5007
+      "sha256": "7ad1e92525634a482247a5fef8ef4726d75c11237298c1b714407689580bc25f",
+      "bytes": 4158
     },
     {
       "path": "skills/agentkit/vendor/agent-best-practices/evals/behavior.json",
@@ -1763,13 +1763,13 @@
     },
     {
       "path": "skills/agentkit/vendor/agent-builder/DONOR.md",
-      "sha256": "700fe18099ecc1d75ea657b5744a6088f365c26c384f52ab0643a717ecc44651",
+      "sha256": "7393f6ac4f19f432343353236ae4cb7c42805d0217d593bc6a9f9e87547ccaa5",
       "bytes": 2914
     },
     {
       "path": "skills/agentkit/vendor/agent-builder/README.md",
-      "sha256": "f64b2059e822b4453843134a264a30962eafcb029fdffb2a85a7692288aa8569",
-      "bytes": 8454
+      "sha256": "f1a21d4fbd08bc6a3c2d7f1ccae506d3c9d8220ff329c9627db27ba65d49d96d",
+      "bytes": 6174
     },
     {
       "path": "skills/agentkit/vendor/agent-builder/agents/openai.yaml",
@@ -1803,13 +1803,13 @@
     },
     {
       "path": "skills/agentkit/vendor/agent-context/DONOR.md",
-      "sha256": "295aa270fe32d8f056cc277f4022ca6755533161c55b9e87797ffa4d1fe22571",
+      "sha256": "cf25212dee55b8bf7ee8099d524eb16a6bacb5fc817ea61f74105a87652a9c5c",
       "bytes": 2644
     },
     {
       "path": "skills/agentkit/vendor/agent-context/README.md",
-      "sha256": "f1b80422c9c72b27826d851967c1cd5ce334eba42dc88faa6977e01399be4008",
-      "bytes": 6954
+      "sha256": "d6909e09e75a2d805c51ea9681d0ccab065a3a0b423d54ae34fe3c92b6dfccd6",
+      "bytes": 4901
     },
     {
       "path": "skills/agentkit/vendor/agent-context/agents/openai.yaml",
@@ -1838,13 +1838,13 @@
     },
     {
       "path": "skills/agentkit/vendor/agent-doctor/DONOR.md",
-      "sha256": "857890e2edddac2fdc998847fa993d747918bdeac6f655c146739dd8d9a2c9cf",
+      "sha256": "7a0e291dd25d884d1cfd39e168db63f088ee57ab8569f33b0982e79e6686dadd",
       "bytes": 2569
     },
     {
       "path": "skills/agentkit/vendor/agent-doctor/README.md",
-      "sha256": "90f3a7b9058ffd42ce7cbfb8ad68dae47500b7127a75b9dbda70e2236688b9a0",
-      "bytes": 6599
+      "sha256": "dc468311622584d275d341c5ce6123fcc962c7140200340c90c9907664753fc8",
+      "bytes": 4618
     },
     {
       "path": "skills/agentkit/vendor/agent-doctor/agents/openai.yaml",
@@ -1873,13 +1873,13 @@
     },
     {
       "path": "skills/agentkit/vendor/agent-evaluator/DONOR.md",
-      "sha256": "6d6e626639951cc9ede50913078a360c06816282931be2c6119a3a230a8f67f5",
+      "sha256": "e778d77d7f320f3b8e38e9bb2ebe74d5e5fb30352a057b898dfb5f71fcf299dd",
       "bytes": 2870
     },
     {
       "path": "skills/agentkit/vendor/agent-evaluator/README.md",
-      "sha256": "c21cd14f99b6f20ca8c59285ac6a0ff873810dd626f93240c66bf5fe34f87a8d",
-      "bytes": 7159
+      "sha256": "074393e4c294ee18971870f0e820f1b0c63cf128e2c9ecbf4dabd9b3f4b0c21f",
+      "bytes": 5083
     },
     {
       "path": "skills/agentkit/vendor/agent-evaluator/agents/openai.yaml",
@@ -1908,13 +1908,13 @@
     },
     {
       "path": "skills/agentkit/vendor/agent-manager/DONOR.md",
-      "sha256": "ba8a81a00bea3c4288471c875eecf1d0d89d05a02a3a73dac45326cbf757fb0c",
+      "sha256": "e4d81c5c62f579b037b36084a54f2a79a8540d9420e8933e60afba8854c3dd9d",
       "bytes": 2714
     },
     {
       "path": "skills/agentkit/vendor/agent-manager/README.md",
-      "sha256": "0f9a00948818ac77263bba8ef2da56f41f282d76bb0e14383cf0074a66421983",
-      "bytes": 6952
+      "sha256": "6602a7d5ce5fcdebf9413865f15de49c92342231f7bd560e3d3fee14a37409b3",
+      "bytes": 4898
     },
     {
       "path": "skills/agentkit/vendor/agent-manager/agents/openai.yaml",
@@ -1943,13 +1943,13 @@
     },
     {
       "path": "skills/agentkit/vendor/agent-optimizer/DONOR.md",
-      "sha256": "2b189578b26691d46e1a628aded11f98cee17ad964e242425c110f47fd54f5b6",
+      "sha256": "ddb40532ace25eb0b21b6fe3c05d94060ea408142a01ecd53a1fd5ea00c7e1a0",
       "bytes": 2329
     },
     {
       "path": "skills/agentkit/vendor/agent-optimizer/README.md",
-      "sha256": "e1b7d153a200605b88f303bf92a8fb0ed73bc4ac6ac6cbe659ca94ca6d8dc029",
-      "bytes": 6421
+      "sha256": "a0c95b0317b56fc3d4395521b670a9c8e376a55c09dd4c903aa28d80b5349be7",
+      "bytes": 4353
     },
     {
       "path": "skills/agentkit/vendor/agent-optimizer/agents/openai.yaml",
@@ -1978,13 +1978,13 @@
     },
     {
       "path": "skills/agentkit/vendor/agent-refactor/DONOR.md",
-      "sha256": "83ee5aad7ec2f5c541176d464dafa7bef3348cbe2e4655b45427240bd71683f7",
+      "sha256": "8c8d0187db54ed13486c0aab0e8f4c757e64fdca8d48f01ddae03ee1dfef9edc",
       "bytes": 2683
     },
     {
       "path": "skills/agentkit/vendor/agent-refactor/README.md",
-      "sha256": "8d754c4b75a31488999a8f46a58dd95c292e8808c4f65d7d3cea3fcc54d098a9",
-      "bytes": 7217
+      "sha256": "bc7f123bd4129004d390b0e773210dea8a1874a584b20b4bebf0d0311b6814fb",
+      "bytes": 5188
     },
     {
       "path": "skills/agentkit/vendor/agent-refactor/agents/openai.yaml",
@@ -2013,13 +2013,13 @@
     },
     {
       "path": "skills/agentkit/vendor/agent-scout/DONOR.md",
-      "sha256": "3f42cc1bc78ce4c1b2b367370ab0ac63d9c9b50f193a814eeaea067bc38b8519",
+      "sha256": "52b462f47fc50af2b01c9b7a91eb56b7aa3794e16ed1bc8e94d6e1eaeae1c934",
       "bytes": 2490
     },
     {
       "path": "skills/agentkit/vendor/agent-scout/README.md",
-      "sha256": "1f78a9b7cc3ee30a120475aca5611544f4b1f069d86abe7dfab761be94acff6d",
-      "bytes": 6640
+      "sha256": "9ee005dae64607cefe1b20f6849479ee0ac432eb84204c2e31f8a90b715c770f",
+      "bytes": 4644
     },
     {
       "path": "skills/agentkit/vendor/agent-scout/agents/openai.yaml",
@@ -2048,12 +2048,12 @@
     },
     {
       "path": "skills/metaskillpack/README.md",
-      "sha256": "36a7d2459703005bd58af22e2c9cc09f5156f687c8c0616deff1c00376b64ab8",
-      "bytes": 10919
+      "sha256": "0bd97ea4c24187f49f3a57947f74160c5ed396cf36776e21a086a6880fd22372",
+      "bytes": 7747
     },
     {
       "path": "skills/metaskillpack/SKILL.md",
-      "sha256": "2a371b641fd1f0c9ca4b1a6659759b1ac80a906a2805e3dd8eadc2d81ba0446e",
+      "sha256": "7e1ad8d963e2b95eb73aa4d7bb0b60fba1790b4187ee15cbd6ca26f48dde075d",
       "bytes": 9260
     },
     {
@@ -2063,7 +2063,7 @@
     },
     {
       "path": "skills/metaskillpack/donors.json",
-      "sha256": "67ba3ede47ac5ba99ef92842e64f83025c3de49b1d8329dbf71a969e3b7aa5d0",
+      "sha256": "0cd1fa77e4872fa7b17e7b1f09bebe52e1b13a10ce35c46980d9b6a8a6e2db9d",
       "bytes": 4550
     },
     {
@@ -2123,13 +2123,13 @@
     },
     {
       "path": "skills/metaskillpack/vendor/prompt-optimize/DONOR.md",
-      "sha256": "464f04b6cf29cd659e2a07bdf2924e09a8302c833b1c5441fc5608c9b9a05ecb",
-      "bytes": 9345
+      "sha256": "1e0bc497af5490246a8eeae3a0920bd34ed9ceefd1239d483e02e200e3a6e68b",
+      "bytes": 9285
     },
     {
       "path": "skills/metaskillpack/vendor/prompt-optimize/README.md",
-      "sha256": "a84090b47dc90c34b116973f3681ae8f4e620034b9e9ae1bb9e9636362017674",
-      "bytes": 6594
+      "sha256": "b9cf15f8fc246946cb0063c2c085fedea7171926bde48c8a25241ed50f07051e",
+      "bytes": 4013
     },
     {
       "path": "skills/metaskillpack/vendor/prompt-optimize/agents/openai.yaml",
@@ -2178,13 +2178,13 @@
     },
     {
       "path": "skills/metaskillpack/vendor/skill-architect/DONOR.md",
-      "sha256": "b21da8e492dde81a097c7fb5817697e9cc8ca6f5a8fccf04fd873c4e29a849b5",
+      "sha256": "5fc81c03bdc5abaeb9b247fe8cd9333608c6c22f15ba6dbdb7650943c8267637",
       "bytes": 11073
     },
     {
       "path": "skills/metaskillpack/vendor/skill-architect/README.md",
-      "sha256": "8a642b553b189621f76cafc57c55f389c40c0d722cc4c6500ae746228e00d1b0",
-      "bytes": 15708
+      "sha256": "09ee50ca79c9edb2e1a77ea83c29af934c410f5dbe4173765d825291c062ed03",
+      "bytes": 12044
     },
     {
       "path": "skills/metaskillpack/vendor/skill-architect/agents/openai.yaml",
@@ -2288,13 +2288,13 @@
     },
     {
       "path": "skills/metaskillpack/vendor/skill-best-practices/DONOR.md",
-      "sha256": "c33ad2621ab1887f4796fcb299d5f6b9985fbff9f0ca91eaaa28869b807489ae",
-      "bytes": 11084
+      "sha256": "18cbc7e7aba119fcc9e9eabe9a65dcac18ddb81063f170a4b97070c18781cc76",
+      "bytes": 10722
     },
     {
       "path": "skills/metaskillpack/vendor/skill-best-practices/README.md",
-      "sha256": "cd1cdc3362c37713cdb8cf6561037c3f6a42ee9247c6912082e5b8d68a2e0f69",
-      "bytes": 14807
+      "sha256": "b3840b755b9c80cdca200dd2843e96b42f19f3277e70b43f28e4cd94de7ddbea",
+      "bytes": 11218
     },
     {
       "path": "skills/metaskillpack/vendor/skill-best-practices/agents/openai.yaml",
@@ -2503,13 +2503,13 @@
     },
     {
       "path": "skills/metaskillpack/vendor/skill-best-practices/sources/anthropic.md",
-      "sha256": "54914bf480ac20c304600681d9c20c6e3365b515e3ffedfd2ddad7a5eab30de4",
-      "bytes": 1802
+      "sha256": "e77ffd7b1a99c8ccd1858bae40c2a753a7cbd83e0a47046a6fb00a0d0fb39fc4",
+      "bytes": 2411
     },
     {
       "path": "skills/metaskillpack/vendor/skill-best-practices/sources/baseline-snapshot.json",
-      "sha256": "287bd9bbc0e04741d95621083958ab2341c01e624c08d0ef66583293566a5583",
-      "bytes": 7615
+      "sha256": "b6ace1156588bffff97c4f744026fc71d63f6b5851da53d326be3f8ab4509cc0",
+      "bytes": 8363
     },
     {
       "path": "skills/metaskillpack/vendor/skill-best-practices/sources/exemplars.md",
@@ -2538,23 +2538,23 @@
     },
     {
       "path": "skills/metaskillpack/vendor/skill-best-practices/sources/registry.json",
-      "sha256": "8edfb92d3bcd8bd65f05c2f80482e2129ab555bcc4914816f92827fe8af265f6",
-      "bytes": 11956
+      "sha256": "b93a02446c96be9878d95a7559c7cd421a65c42bb0ab1bfa4f733ee192c011cf",
+      "bytes": 12826
     },
     {
       "path": "skills/metaskillpack/vendor/skill-best-practices/sources/resources.md",
-      "sha256": "d3386eb4d514b573d50bcb151ab782a3816c9f00c43818c0bab4247191ea468f",
-      "bytes": 4046
+      "sha256": "ba4d37b5d3fec5b9e0d715e698c42c10f802ae824007f3a7dd22a975ac4521b0",
+      "bytes": 4297
     },
     {
       "path": "skills/metaskillpack/vendor/skill-builder/DONOR.md",
-      "sha256": "758e63b4ee6d85109300f0f46b235fc1650d012cd2ca6d570a4b268446061dac",
-      "bytes": 12386
+      "sha256": "5ef6ef1237062b9007a4067aa0b51fe32df82e190d9a7e2d65c61f4b780f0215",
+      "bytes": 4349
     },
     {
       "path": "skills/metaskillpack/vendor/skill-builder/README.md",
-      "sha256": "76f7fa7606eac81a3ebaae297e9df3d29d23810e8510bd1780152f202b6f1766",
-      "bytes": 15532
+      "sha256": "408cd6411ee29327f509c968fac29ddda9816b20a20d02f5e115ae1b2e4daa27",
+      "bytes": 11691
     },
     {
       "path": "skills/metaskillpack/vendor/skill-builder/agents/openai.yaml",
@@ -2563,8 +2563,8 @@
     },
     {
       "path": "skills/metaskillpack/vendor/skill-builder/evals/behavior.json",
-      "sha256": "ad1f97ef36f53cd69009dd1fc70f4c21ae742a3d1fc789ac6854ec5a5a682b0f",
-      "bytes": 6106
+      "sha256": "96285309678ed30e8623b8b2fefc259686ad07ec9f3a6c669f8e86df764bd000",
+      "bytes": 7245
     },
     {
       "path": "skills/metaskillpack/vendor/skill-builder/evals/routing.json",
@@ -2585,6 +2585,11 @@
       "path": "skills/metaskillpack/vendor/skill-builder/prompts/compare-and-refactor.md",
       "sha256": "9a26eb7e2f3327aee2ac4e7983f7e8b16ebb9c4449936e12fef6489a136dd057",
       "bytes": 1309
+    },
+    {
+      "path": "skills/metaskillpack/vendor/skill-builder/prompts/constrained-profile.md",
+      "sha256": "4389f0453a0bc3626d8f6038f8e908968cacae5f7d0dffede37f40286822aab4",
+      "bytes": 673
     },
     {
       "path": "skills/metaskillpack/vendor/skill-builder/prompts/create-from-spec.md",
@@ -2652,6 +2657,11 @@
       "bytes": 1188
     },
     {
+      "path": "skills/metaskillpack/vendor/skill-builder/prompts/standard-profile.md",
+      "sha256": "2e667566b0af4a2cc6a3ae528141e443bcdebd0c075004044e8599a0be9499c6",
+      "bytes": 440
+    },
+    {
       "path": "skills/metaskillpack/vendor/skill-builder/references/authority-and-lifecycle.md",
       "sha256": "7a325e89c1af6a182ead438fd716aec32ce7c252918b6be980eb581f715d2ddd",
       "bytes": 1610
@@ -2670,6 +2680,11 @@
       "path": "skills/metaskillpack/vendor/skill-builder/references/handoff-contracts.md",
       "sha256": "7bd1c5ec071f005d0a3a20e4b425ca5bcdd3d741903ad6448208e30ecfdac474",
       "bytes": 3231
+    },
+    {
+      "path": "skills/metaskillpack/vendor/skill-builder/references/model-capability-profiles.md",
+      "sha256": "2eea431984c143e276c460dd1128ba325930c7f318f1c6f0fb508e527104a54b",
+      "bytes": 752
     },
     {
       "path": "skills/metaskillpack/vendor/skill-builder/references/scenario-catalog.md",
@@ -2708,13 +2723,13 @@
     },
     {
       "path": "skills/metaskillpack/vendor/skill-doctor/DONOR.md",
-      "sha256": "3624046533e3900994afc06edbca5c75f2cfa26f1ea1929ce81c9d876463e47b",
-      "bytes": 8688
+      "sha256": "5f07595ce7debe3a38fd9afdf8dd1a4e4fe7a76ee0ed7a28a7092f1f2051450d",
+      "bytes": 8316
     },
     {
       "path": "skills/metaskillpack/vendor/skill-doctor/README.md",
-      "sha256": "68c26defa6fd2657d8b30d26fea3f4261d3bcaef781bcf90b0d039ffdf82a3b9",
-      "bytes": 13516
+      "sha256": "ba91995234ef24fbef407ea392410ef46503786ee16cbc921a29ff827bd08161",
+      "bytes": 10017
     },
     {
       "path": "skills/metaskillpack/vendor/skill-doctor/agents/openai.yaml",
@@ -2818,13 +2833,13 @@
     },
     {
       "path": "skills/metaskillpack/vendor/skill-evaluator/DONOR.md",
-      "sha256": "53264b7a190f2e29123031a79125d469f60894d730b1d150c17cc4294cbe0076",
+      "sha256": "ad9b04d8693863004773c77b23c42ef00be26bbf5ab5e0bda9659a8cc3819cfb",
       "bytes": 10478
     },
     {
       "path": "skills/metaskillpack/vendor/skill-evaluator/README.md",
-      "sha256": "7a96a1d628d1e4d030beb480d362ecf36486d6a5dd34142a218f60aabdd5e175",
-      "bytes": 14307
+      "sha256": "edf0fd729136630d779769ea003ae37ab846ef95d21dba4f05b858446edc6fa6",
+      "bytes": 11063
     },
     {
       "path": "skills/metaskillpack/vendor/skill-evaluator/agents/openai.yaml",
@@ -3023,13 +3038,13 @@
     },
     {
       "path": "skills/metaskillpack/vendor/skill-harvester/DONOR.md",
-      "sha256": "2330cebf8ee385572c568da804cfb4b04ffa47a564e5ed207c49cabcaa507440",
-      "bytes": 11100
+      "sha256": "4ba6da893e71daa6560b4120f0ad40f8523dbc4bf985dac3a9af976db3237282",
+      "bytes": 10765
     },
     {
       "path": "skills/metaskillpack/vendor/skill-harvester/README.md",
-      "sha256": "afa4f6a06778799198e65578f7ada8ac2d880bd63d2def37fd35e6930e6f7179",
-      "bytes": 16509
+      "sha256": "9817ed31b7333e4e289d5ea794e8b1c3a9bcd7739a19e00ec688d6525b48cf8b",
+      "bytes": 11698
     },
     {
       "path": "skills/metaskillpack/vendor/skill-harvester/agents/openai.yaml",
@@ -3188,13 +3203,13 @@
     },
     {
       "path": "skills/metaskillpack/vendor/skill-manager/DONOR.md",
-      "sha256": "cb7dd12cbb16ffddc1afb8c8f0935451578e126cd49a1c88a48a4724ef7945c3",
-      "bytes": 11024
+      "sha256": "59378b9be9783e2b2bf57e130201b181ab62b4261904f5e5504eb0742e666eaf",
+      "bytes": 10489
     },
     {
       "path": "skills/metaskillpack/vendor/skill-manager/README.md",
-      "sha256": "2b0772e4a73dbe662bc7792c826b29805e36d66929cdaf378e05225c02185fff",
-      "bytes": 15823
+      "sha256": "b4ad2ff8eaf40217cb734fd1279f3d5a40f8c86e6912bf38de72e10f27fe22db",
+      "bytes": 11412
     },
     {
       "path": "skills/metaskillpack/vendor/skill-manager/agents/openai.yaml",
@@ -3308,13 +3323,13 @@
     },
     {
       "path": "skills/metaskillpack/vendor/skill-marketplace-manager/DONOR.md",
-      "sha256": "c4adadb01b4108876218fc41b2f312b7298f20dfa1321d33b53d934c5aef71b6",
+      "sha256": "8d7ac9403504aee065182490ef9a3bcec910ed1df061c6b5557d1a711714e40f",
       "bytes": 10670
     },
     {
       "path": "skills/metaskillpack/vendor/skill-marketplace-manager/README.md",
-      "sha256": "153fa35ebc7c059dc9a6161571ab5fba535b68addfa237ed21219cdaead8e410",
-      "bytes": 21642
+      "sha256": "f19549e0049489b39f13c6478de8c84d338791b3a9b8df6a16923595e20de825",
+      "bytes": 14989
     },
     {
       "path": "skills/metaskillpack/vendor/skill-marketplace-manager/agents/openai.yaml",
@@ -3323,23 +3338,23 @@
     },
     {
       "path": "skills/metaskillpack/vendor/skill-marketplace-manager/evals/behavior.json",
-      "sha256": "f4364ae5c78d71deab288bbfe8cccb1406d4a78825be87f3ea0204e93dd72820",
-      "bytes": 4409
+      "sha256": "139981810d21c08927e37edc687c6657d668c99fb4a581d16daa858fb7191022",
+      "bytes": 3902
     },
     {
       "path": "skills/metaskillpack/vendor/skill-marketplace-manager/evals/routing.json",
-      "sha256": "93fe40722538ef86e81b6431386b2113d4ffd39ff30609861161587d11dcd0a6",
-      "bytes": 3929
+      "sha256": "2961c72f792e1ee80e99ac8c250f993767a29679d2fab48bc1582e23ef77be87",
+      "bytes": 3351
     },
     {
       "path": "skills/metaskillpack/vendor/skill-marketplace-manager/private-skills/skill-documentation-writer/DONOR.md",
-      "sha256": "403d72b082ff1571117c0a303f45dcee5cff3b8f673ce2381934e97c198fbaed",
+      "sha256": "e96e0ee4d9224f05a31041753c6f9ca8f335138fa27bf7b5207e8756aaf9b9e4",
       "bytes": 7610
     },
     {
       "path": "skills/metaskillpack/vendor/skill-marketplace-manager/private-skills/skill-documentation-writer/README.md",
-      "sha256": "42841d37330da6b8dbf342ad7b6ad3c618d856459ed74a3d09dd87c580992135",
-      "bytes": 8771
+      "sha256": "3025529c815932adb2bfd758bf3a01edb524323c4a58e5224cc10938318293ce",
+      "bytes": 6392
     },
     {
       "path": "skills/metaskillpack/vendor/skill-marketplace-manager/private-skills/skill-documentation-writer/assets/marketplace-onboarding-template.md",
@@ -3413,8 +3428,8 @@
     },
     {
       "path": "skills/metaskillpack/vendor/skill-marketplace-manager/references/best-practices.md",
-      "sha256": "fd19d810b3620c6b923ff6b0f768f3fd3c1449a4b7c29bff4a9bde65d42b83e1",
-      "bytes": 23086
+      "sha256": "8d2ad923d004bc4d4a11fa8445fb7b977c8cdc0708e31e87ab0b95b0a2fb1dea",
+      "bytes": 15619
     },
     {
       "path": "skills/metaskillpack/vendor/skill-marketplace-manager/references/integration-contracts.md",
@@ -3433,7 +3448,7 @@
     },
     {
       "path": "skills/metaskillpack/vendor/skill-marketplace-manager/references/private-skill-registry.json",
-      "sha256": "4e1464292c3374c06808feabb64f28b68ac47ffaa89937c6b2373cc0c47139a3",
+      "sha256": "62454f168d9b59262cdea337a8b9b0ad64cd41f0217d5ef67dfe9cce7aedba84",
       "bytes": 778
     },
     {
@@ -3453,13 +3468,13 @@
     },
     {
       "path": "skills/metaskillpack/vendor/skill-optimizer/DONOR.md",
-      "sha256": "64deb02afc5759bf613ebd25163c968d8b295ad85d8e001bafa3fbdbbd59f7e9",
+      "sha256": "7ed13d2f258969350b3ddd258262193b89a2282c7f1e1e451ed98449cc356c4f",
       "bytes": 8846
     },
     {
       "path": "skills/metaskillpack/vendor/skill-optimizer/README.md",
-      "sha256": "822d12a5173bc591e835404f7282da9866f3d360e1c529c9207434e7a02a805d",
-      "bytes": 14627
+      "sha256": "48bbae98b8c49fa06a93a1eeb3ee4ce140d374e121f77d518800e34bf1d7e800",
+      "bytes": 11142
     },
     {
       "path": "skills/metaskillpack/vendor/skill-optimizer/agents/openai.yaml",
@@ -3568,13 +3583,13 @@
     },
     {
       "path": "skills/metaskillpack/vendor/skill-refactor/DONOR.md",
-      "sha256": "2b50c2713a50b5bea0c33cf7d1563762435d10e9964c0bfcafd787b6eb77679c",
+      "sha256": "3990f02e41b37684b30cda2f9c0c9db4d8ef6e7ed36d534c2d40b4f4378eaef1",
       "bytes": 7864
     },
     {
       "path": "skills/metaskillpack/vendor/skill-refactor/README.md",
-      "sha256": "7376e261202803b2ac4b2f8cbbed4e187b4168f2cf4c8b88ab44e9002f88446f",
-      "bytes": 13526
+      "sha256": "d1731252809494dcb453c171d0429e2e71c5a95ff88c45004ccd7138892b5133",
+      "bytes": 10314
     },
     {
       "path": "skills/metaskillpack/vendor/skill-refactor/agents/openai.yaml",
@@ -3688,13 +3703,13 @@
     },
     {
       "path": "skills/metaskillpack/vendor/skill-scout/DONOR.md",
-      "sha256": "f30e0ef5f532782635212bafeb122bd1bbba485550c81299a6f201d1ad652022",
+      "sha256": "77d5b57e3c3e65e35a2bea1c342e8f6fde86f4729f3e24f2049f8700248981a1",
       "bytes": 6931
     },
     {
       "path": "skills/metaskillpack/vendor/skill-scout/README.md",
-      "sha256": "959bd02891b47458fb95dbf35ddcd4e43fb7bed3f4ef4f2c0818a406d2d65109",
-      "bytes": 12683
+      "sha256": "ab2d30ca1c8b0f2e4630a7b2a9d30ca1c93d3fe2a5e9aa1e318884a1fc391851",
+      "bytes": 9360
     },
     {
       "path": "skills/metaskillpack/vendor/skill-scout/agents/openai.yaml",
@@ -3798,12 +3813,12 @@
     },
     {
       "path": "skills/prompt-master/README.md",
-      "sha256": "78231a4fa89138458a4742fec6945b990b405f23b2c038477c7ba3e10595754d",
-      "bytes": 10567
+      "sha256": "ccf58207783f4172004168a813a10fad3e66dac6039772279fde60a0cdc3ebd7",
+      "bytes": 8134
     },
     {
       "path": "skills/prompt-master/SKILL.md",
-      "sha256": "762b11c71a80b3cf683137d63e6704d78366aff80bfc1beae47c71764e82c01b",
+      "sha256": "e1dd1b6660f573ae0cf543de15529a12e398603fe0fb011d2bdc3b3be483afac",
       "bytes": 3777
     },
     {
@@ -3838,8 +3853,8 @@
     },
     {
       "path": "skills/prompt-master/references/mode-and-depth-contract.md",
-      "sha256": "5272ef83e448105d68d60478498c1afdda280c714fcd38e3d5564c4fa6001d32",
-      "bytes": 5565
+      "sha256": "80bc61256895e131266e45dc4e1e72c721c002cefc312894100929016317ec08",
+      "bytes": 5521
     },
     {
       "path": "skills/prompt-master/references/model-capability-profiles.md",
@@ -3858,12 +3873,12 @@
     },
     {
       "path": "skills/prompt-optimize/README.md",
-      "sha256": "676d66a780b6ecd6d3c777a417d5d4a14d98f92fe70658b8ac5dc17ee2b8d7d4",
-      "bytes": 6549
+      "sha256": "17a89a91cd562f5e934d1b44af88a0da88ffe4b9c5192c1b85aabbdd6fb26472",
+      "bytes": 4013
     },
     {
       "path": "skills/prompt-optimize/SKILL.md",
-      "sha256": "067162155780f28cd2346ee5ee2429bc9fafb499e81b0cf06efb42ca057e9346",
+      "sha256": "1e0bc497af5490246a8eeae3a0920bd34ed9ceefd1239d483e02e200e3a6e68b",
       "bytes": 9285
     },
     {
@@ -3913,12 +3928,12 @@
     },
     {
       "path": "skills/skill-architect/README.md",
-      "sha256": "34ae82a042651133408b9a4818f7e429be1d3abd6bc0eff5deb7115752f22085",
-      "bytes": 15708
+      "sha256": "0d1722216527bd568b2768daaa9d777cf88ac0fede25fec8ecfec1c264bfd2b4",
+      "bytes": 12044
     },
     {
       "path": "skills/skill-architect/SKILL.md",
-      "sha256": "b21da8e492dde81a097c7fb5817697e9cc8ca6f5a8fccf04fd873c4e29a849b5",
+      "sha256": "5fc81c03bdc5abaeb9b247fe8cd9333608c6c22f15ba6dbdb7650943c8267637",
       "bytes": 11073
     },
     {
@@ -4023,12 +4038,12 @@
     },
     {
       "path": "skills/skill-best-practices/README.md",
-      "sha256": "37279bb35804b230f796ddacaf8cfb60ab13d4a8113e9e94a90aa732ae9bb300",
-      "bytes": 14324
+      "sha256": "03b3bcd39408c6b295385d827c0a3bfa7e3151e450c3279bb71d4528bdc0531c",
+      "bytes": 11218
     },
     {
       "path": "skills/skill-best-practices/SKILL.md",
-      "sha256": "0666a50c742f33d3e89a5bb9c12f466c6e542ee962d1a3bd5684777e187807ac",
+      "sha256": "18cbc7e7aba119fcc9e9eabe9a65dcac18ddb81063f170a4b97070c18781cc76",
       "bytes": 10722
     },
     {
@@ -4283,12 +4298,12 @@
     },
     {
       "path": "skills/skill-builder/README.md",
-      "sha256": "84df69cbcc03c76ce25595576f18573c2ad46fe7d3d69a3cd032ed5035940e65",
-      "bytes": 14514
+      "sha256": "6dc11e5d740fdd38f1ad68d616d4a0994eef73c545dfae5d5a1a0e0a31bea897",
+      "bytes": 11691
     },
     {
       "path": "skills/skill-builder/SKILL.md",
-      "sha256": "8b8a1c19ad471625fd84d695ebf6368010e8aa2945a5bc1c9267c83ddc3179ca",
+      "sha256": "5ef6ef1237062b9007a4067aa0b51fe32df82e190d9a7e2d65c61f4b780f0215",
       "bytes": 4349
     },
     {
@@ -4458,12 +4473,12 @@
     },
     {
       "path": "skills/skill-doctor/README.md",
-      "sha256": "d29fa3efd22ba8d9cd0c068370223897279701215e60116cbc685c7bf301ed47",
-      "bytes": 13348
+      "sha256": "bf60a5e6bba73fc27299dce3a9c69de263a9f8271f1982cf1569c304c1983511",
+      "bytes": 10017
     },
     {
       "path": "skills/skill-doctor/SKILL.md",
-      "sha256": "61ac3bb585963c2c68b9d1dc9468cd789140d8ecf8776d3d525e7f170a8150c9",
+      "sha256": "5f07595ce7debe3a38fd9afdf8dd1a4e4fe7a76ee0ed7a28a7092f1f2051450d",
       "bytes": 8316
     },
     {
@@ -4568,12 +4583,12 @@
     },
     {
       "path": "skills/skill-evaluator/README.md",
-      "sha256": "15961163b263a57164134058ebe5974087d7abecf6f889f1aa5f08887606b4b0",
-      "bytes": 14307
+      "sha256": "a02ee99528170975895ae56ec7ebcc48984869ec6873492bab66f4d47ad3fadf",
+      "bytes": 11063
     },
     {
       "path": "skills/skill-evaluator/SKILL.md",
-      "sha256": "53264b7a190f2e29123031a79125d469f60894d730b1d150c17cc4294cbe0076",
+      "sha256": "ad9b04d8693863004773c77b23c42ef00be26bbf5ab5e0bda9659a8cc3819cfb",
       "bytes": 10478
     },
     {
@@ -4773,12 +4788,12 @@
     },
     {
       "path": "skills/skill-harvester/README.md",
-      "sha256": "4aecff5e9f179ea142b420abca0b74b91fd15ed4893bb413136e55fff3b74e34",
-      "bytes": 16114
+      "sha256": "4e521c7b7b937ea2ff9b10c4deb7e6747dc0b306bfba1276b1fea9ecccaeb3b5",
+      "bytes": 11698
     },
     {
       "path": "skills/skill-harvester/SKILL.md",
-      "sha256": "1184b13a3a20124dcededfe6773ae59c16694bc89e7aa5973ea77b5455b4f368",
+      "sha256": "4ba6da893e71daa6560b4120f0ad40f8523dbc4bf985dac3a9af976db3237282",
       "bytes": 10765
     },
     {
@@ -4938,12 +4953,12 @@
     },
     {
       "path": "skills/skill-manager/README.md",
-      "sha256": "a907e1913f6d1021c13eaa3c54645688bf2a28dd15a779a04f1636ea768fbb4b",
-      "bytes": 15669
+      "sha256": "a476971580b67954a53465677f0b0cddd1375d5f3a62b80279d500ad930a9395",
+      "bytes": 11412
     },
     {
       "path": "skills/skill-manager/SKILL.md",
-      "sha256": "110dbb2bf04ecbdf2e3e0677b1b5d53015dd06591554fca4e6eb95533d95bfd0",
+      "sha256": "59378b9be9783e2b2bf57e130201b181ab62b4261904f5e5504eb0742e666eaf",
       "bytes": 10489
     },
     {
@@ -5058,12 +5073,12 @@
     },
     {
       "path": "skills/skill-marketplace-manager/README.md",
-      "sha256": "2b5af77833230d4709357b05e9307b75191e7b5a674ceedabb1272b0448b7ec4",
-      "bytes": 21642
+      "sha256": "cc4e39d2ef03ee902923d7067b585ef70e7afe531c55bb4dbbc2959752cabbf6",
+      "bytes": 14989
     },
     {
       "path": "skills/skill-marketplace-manager/SKILL.md",
-      "sha256": "9c385d7fe98d2e862532698c5e78b19d09cc5efc788a1e19d67325633dd30fe8",
+      "sha256": "b7f4f43e2042afdab19082b078efd1e6f76f4fa78ca18a7dbac0a922396cafc7",
       "bytes": 10670
     },
     {
@@ -5073,22 +5088,22 @@
     },
     {
       "path": "skills/skill-marketplace-manager/evals/behavior.json",
-      "sha256": "f4364ae5c78d71deab288bbfe8cccb1406d4a78825be87f3ea0204e93dd72820",
-      "bytes": 4409
+      "sha256": "139981810d21c08927e37edc687c6657d668c99fb4a581d16daa858fb7191022",
+      "bytes": 3902
     },
     {
       "path": "skills/skill-marketplace-manager/evals/routing.json",
-      "sha256": "93fe40722538ef86e81b6431386b2113d4ffd39ff30609861161587d11dcd0a6",
-      "bytes": 3929
+      "sha256": "2961c72f792e1ee80e99ac8c250f993767a29679d2fab48bc1582e23ef77be87",
+      "bytes": 3351
     },
     {
       "path": "skills/skill-marketplace-manager/private-skills/skill-documentation-writer/README.md",
-      "sha256": "46ff794c72538ba276a56fc5ae413b41ff9c7c6bef9e3a521cb15cc742a9ed74",
-      "bytes": 8771
+      "sha256": "77874f00ea03fc372dc5e1ca8156622157093b6cac096d48861b3ff3a4ad1a8e",
+      "bytes": 6392
     },
     {
       "path": "skills/skill-marketplace-manager/private-skills/skill-documentation-writer/SKILL.md",
-      "sha256": "403d72b082ff1571117c0a303f45dcee5cff3b8f673ce2381934e97c198fbaed",
+      "sha256": "e96e0ee4d9224f05a31041753c6f9ca8f335138fa27bf7b5207e8756aaf9b9e4",
       "bytes": 7610
     },
     {
@@ -5163,8 +5178,8 @@
     },
     {
       "path": "skills/skill-marketplace-manager/references/best-practices.md",
-      "sha256": "fd19d810b3620c6b923ff6b0f768f3fd3c1449a4b7c29bff4a9bde65d42b83e1",
-      "bytes": 23086
+      "sha256": "8d2ad923d004bc4d4a11fa8445fb7b977c8cdc0708e31e87ab0b95b0a2fb1dea",
+      "bytes": 15619
     },
     {
       "path": "skills/skill-marketplace-manager/references/integration-contracts.md",
@@ -5183,7 +5198,7 @@
     },
     {
       "path": "skills/skill-marketplace-manager/references/private-skill-registry.json",
-      "sha256": "4e1464292c3374c06808feabb64f28b68ac47ffaa89937c6b2373cc0c47139a3",
+      "sha256": "62454f168d9b59262cdea337a8b9b0ad64cd41f0217d5ef67dfe9cce7aedba84",
       "bytes": 778
     },
     {
@@ -5203,12 +5218,12 @@
     },
     {
       "path": "skills/skill-optimizer/README.md",
-      "sha256": "1b7f3c1862abc093547a4dc2af04e509a462c3e8edc948a3c0e5b49d904e6af8",
-      "bytes": 14627
+      "sha256": "4afd071abef714640f3a65d935300cdf49e4d43ce19da0cee586dd5da316ef24",
+      "bytes": 11142
     },
     {
       "path": "skills/skill-optimizer/SKILL.md",
-      "sha256": "64deb02afc5759bf613ebd25163c968d8b295ad85d8e001bafa3fbdbbd59f7e9",
+      "sha256": "7ed13d2f258969350b3ddd258262193b89a2282c7f1e1e451ed98449cc356c4f",
       "bytes": 8846
     },
     {
@@ -5318,12 +5333,12 @@
     },
     {
       "path": "skills/skill-refactor/README.md",
-      "sha256": "a6852292e0e08c3f7aaa4f551d895e411227d071e91726bca9cde40f3151e5a3",
-      "bytes": 13526
+      "sha256": "44bca0da1e2429cc8a94d551fa99229897750d5ea6686730ebfdfb4bdd1df90c",
+      "bytes": 10314
     },
     {
       "path": "skills/skill-refactor/SKILL.md",
-      "sha256": "2b50c2713a50b5bea0c33cf7d1563762435d10e9964c0bfcafd787b6eb77679c",
+      "sha256": "3990f02e41b37684b30cda2f9c0c9db4d8ef6e7ed36d534c2d40b4f4378eaef1",
       "bytes": 7864
     },
     {
@@ -5438,12 +5453,12 @@
     },
     {
       "path": "skills/skill-scout/README.md",
-      "sha256": "b4c2229ef13334a779b79210a0af49eef624e380e65a16a45fdddb6a40bb2629",
-      "bytes": 12683
+      "sha256": "c660f4fe6a5a796f2ae08a90836895f0548eb84b7d65ae83f440777dc7a40542",
+      "bytes": 9360
     },
     {
       "path": "skills/skill-scout/SKILL.md",
-      "sha256": "f30e0ef5f532782635212bafeb122bd1bbba485550c81299a6f201d1ad652022",
+      "sha256": "77d5b57e3c3e65e35a2bea1c342e8f6fde86f4729f3e24f2049f8700248981a1",
       "bytes": 6931
     },
     {

@@ -2,7 +2,7 @@
 name: agent-doctor
 description: Diagnoses unhealthy or broken behavior in one agent or subagent, reproduces symptoms from definitions and traces, identifies a root cause, applies an explicitly authorized minimal repair to a new candidate revision, and verifies recovery. Use for routing failures, tool misuse, permission denials, loops, stale context, memory poisoning, document drift, runtime errors or regressions in an individual agent. Do not optimize a healthy agent, redesign teams or Agentic OS, change mission or authority under a repair label, edit production state without approval, or declare release readiness.
 metadata:
-  version: "1.0.2"
+  version: "1.0.3"
 ---
 
 # Diagnose One Agent

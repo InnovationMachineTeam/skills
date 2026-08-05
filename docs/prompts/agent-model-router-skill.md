@@ -1,7 +1,7 @@
-# Мастер-промпт навыка `agent-model-router`
+# Master Prompt For The `agent-model-router` Skill
 
-Применяй после [agent-os-base.md](agent-os-base.md). Создай control-plane skill
-для fixed, tiered or dynamic model routing only when multi-model operation is
+Apply after [agent-os-base.md](agent-os-base.md). Create a control-plane skill
+for fixed, tiered, or dynamic model routing only when multi-model operation is
 measurably justified.
 
 Route from typed task/risk/data/tool/context/latency/cost features to an

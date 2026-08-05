@@ -1,8 +1,8 @@
-# Мастер-промпт навыка `agent-model-selector`
+# Master Prompt For The `agent-model-selector` Skill
 
-Применяй после [agent-skill-base.md](agent-skill-base.md). Создай evidence-based
-skill для выбора наиболее эффективных моделей под роли и routes. Он даёт
-versioned policy recommendation, но не покупает доступ и не меняет provider
+Apply after [agent-skill-base.md](agent-skill-base.md). Create an evidence-based
+skill for selecting the most effective models for roles and routes. It provides
+a versioned policy recommendation, but it does not procure access or change provider
 configuration.
 
 ## Selection procedure

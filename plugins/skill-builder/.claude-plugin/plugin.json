@@ -1,7 +1,7 @@
 {
   "name": "skill-builder",
   "displayName": "Skill Builder",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "Orchestrates evidence-backed, multi-stage skill creation, adoption, evaluation, repair, optimization, refactoring, migration and governance through specialist skills Companion skill plugins are required for full functionality; see README.md.",
   "skills": [
     "./skills"

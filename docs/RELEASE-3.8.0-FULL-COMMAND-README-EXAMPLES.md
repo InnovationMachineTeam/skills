@@ -5,7 +5,7 @@ publication, installation, activation, or production change was performed.
 
 ## Scope
 
-- added a durable `## Полный пример команды` section to all 48 canonical skill
+- added a durable `## Full Command Example` section to all 48 canonical skill
   README files;
 - public skills show a complete `/skill-name <task>` invocation;
 - five package-private skills show invocation through their actual owning

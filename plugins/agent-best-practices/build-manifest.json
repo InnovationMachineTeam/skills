@@ -1,7 +1,7 @@
 {
   "format": 2,
   "plugin": "agent-best-practices",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "source_layout": "skills/",
   "bundle_layout": "skills/<name>/",
   "platforms": [
@@ -21,18 +21,18 @@
   "files": [
     {
       "path": ".claude-plugin/plugin.json",
-      "sha256": "ff8da63a94f59c8663d808ce1b44c3102068c7d0337d9410b9db81fec85257c1",
+      "sha256": "9c38a026f639dc65bc71316c93fed24a1086ffc13945c5f30150259bf703638a",
       "bytes": 419
     },
     {
       "path": ".codex-plugin/plugin.json",
-      "sha256": "b40380619b2025281ee4c831ed785c5fb08c55ffdbee661e1748e340090cd03a",
-      "bytes": 1329
+      "sha256": "1aae41131b79e0543f65b3f40eeaca74beaa6bc1f3e46f93c1401ae88cda0af3",
+      "bytes": 1309
     },
     {
       "path": ".cursor-plugin/plugin.json",
-      "sha256": "4f46b8cbaebb5b0f099828573941c117bb9c3cecac0f9d2ab2616d80dcbccfc4",
-      "bytes": 617
+      "sha256": "b97f58cf069fcac0fe2d67312817d2bbd21190ee523866a7eb8a2c14948ecccc",
+      "bytes": 597
     },
     {
       "path": "README.md",
@@ -41,12 +41,12 @@
     },
     {
       "path": "skills/agent-best-practices/README.md",
-      "sha256": "e441a6ff8f35303f8d4f62280b1cc4830afc0dc11069e77aa2309ea9b30cb2d4",
-      "bytes": 6816
+      "sha256": "0db24618fb24e350005a794a5198f59a007fa1b1db7f297604eaf2f6be3b2325",
+      "bytes": 4739
     },
     {
       "path": "skills/agent-best-practices/SKILL.md",
-      "sha256": "89407a484bcd377397111542f4e6fbf9ee7b5ffb0dc568a93ac43760bd179cae",
+      "sha256": "d66a953b6423fbb65049f1b62625c51589d87826120f37fcf01793f944cbd161",
       "bytes": 2991
     },
     {
@@ -56,138 +56,138 @@
     },
     {
       "path": "skills/agent-best-practices/best-practices/01-foundations-and-selection.md",
-      "sha256": "85143a28ab5b0d4fb0137908ee790799fd7d3adbab71a6560e28d0cd0260ddc5",
-      "bytes": 9882
+      "sha256": "4a1cef98b6b5c9a7ba52a58bb23e90e309dc36e3293fd728849fbaae8c7724dd",
+      "bytes": 6019
     },
     {
       "path": "skills/agent-best-practices/best-practices/02-agent-design-and-contracts.md",
-      "sha256": "ede2f461b5ead685af6e456f3b74beac1a63dbdd1421fe95d556601e076637d8",
-      "bytes": 7897
+      "sha256": "4da3c72f76bffd97e9939e606aab2725b1e3e7a2d4a6b4334d4a29fa174ff94f",
+      "bytes": 5569
     },
     {
       "path": "skills/agent-best-practices/best-practices/03-subagents-and-delegation.md",
-      "sha256": "bae9c81f978ab6796894fbca131d0fd41ee28e79587364f7e46ec042294cd678",
-      "bytes": 8300
+      "sha256": "f0336aaf1d13cda479f4141cfeccc8eb91289c55623f5f01507e34e7fa213354",
+      "bytes": 5382
     },
     {
       "path": "skills/agent-best-practices/best-practices/04-orchestration-and-agent-teams.md",
-      "sha256": "d176621fee3742727ad83144fc68dc6dd0ed12e8218248d750c6cea2e9d62c1d",
-      "bytes": 8825
+      "sha256": "a33b70a87b8feb5ec86967eeb5763134f591e035b17234fdbd0b520a0f3eea5f",
+      "bytes": 6060
     },
     {
       "path": "skills/agent-best-practices/best-practices/05-agent-os-reference-architecture.md",
-      "sha256": "b020e9d4c4af4fd010b7771d8c23bfd215591da2ca8446d4a3f3690b54f84fde",
-      "bytes": 7484
+      "sha256": "66a346649374a6036496c6b6f64036b1ba272eb5c79c324d5395ab1f87040d89",
+      "bytes": 5829
     },
     {
       "path": "skills/agent-best-practices/best-practices/06-context-memory-and-state.md",
-      "sha256": "684f7a8cf66c89a33440d695d5c9c4bb18ad4b9311c1949def1ff7835dbb3a67",
-      "bytes": 6124
+      "sha256": "a48dd56faaa511870261a3d3fa88d54df72ee894348419355011859166b008d5",
+      "bytes": 4223
     },
     {
       "path": "skills/agent-best-practices/best-practices/07-documentation-as-operating-system.md",
-      "sha256": "412a8f03c4b59545e8af1e845c85fed7b9f4c911e062dfeb30466394de73be5d",
-      "bytes": 10524
+      "sha256": "994569ae56ad5241f832fb5ff7b20a78a6e5418f40ea822bb52eb65789016a93",
+      "bytes": 7588
     },
     {
       "path": "skills/agent-best-practices/best-practices/08-docs-catalog-and-templates.md",
-      "sha256": "5f3b78ebd53755b21469c5ceefa60abad1225a3a357b19a0f2d1007027be60fd",
-      "bytes": 6537
+      "sha256": "866b4441c31826116b4d6cad6be780ccddb204d0d4239b47fc315cc7f99f1833",
+      "bytes": 5834
     },
     {
       "path": "skills/agent-best-practices/best-practices/09-agent-role-catalog.md",
-      "sha256": "92057b1fbfc8febc3884253d27185c453037840898392556f5feea29d9d5d364",
-      "bytes": 8828
+      "sha256": "4bb45dc33e72c205953ccfcfe1f2650bcfa506380eef76d15040cb7f3c944181",
+      "bytes": 7566
     },
     {
       "path": "skills/agent-best-practices/best-practices/10-lifecycle-and-orchestration-processes.md",
-      "sha256": "702ce3f8fd2c80b998a29179fc1377bda87d5f7703c9f0420dcc674502668d53",
-      "bytes": 9314
+      "sha256": "dff0f8de1c5e79bfdfb84b00dea0e3411209322e72c43839c90eae04351fed27",
+      "bytes": 7188
     },
     {
       "path": "skills/agent-best-practices/best-practices/11-requirements-and-quality-attributes.md",
-      "sha256": "9fa23f7e0ef624184e75c33f629dc1ebd040a9f425467a605b65c15ccff88eb2",
-      "bytes": 5785
+      "sha256": "34d33d1b4737b8fdd74eefbdfec3708999e8a3acaa55135b51c24dd45699644f",
+      "bytes": 4960
     },
     {
       "path": "skills/agent-best-practices/best-practices/12-task-tracking-monitoring-and-observability.md",
-      "sha256": "c21ce00e7ecf4aa24103aa022fd26502d65c8a3dceb03d11abc4f36143399bec",
-      "bytes": 6211
+      "sha256": "d8f24b3bd0849b9e10dc07cdbf61a9dadeb103dda195b79bd452600d037ba7cc",
+      "bytes": 5312
     },
     {
       "path": "skills/agent-best-practices/best-practices/13-security-approvals-and-governance.md",
-      "sha256": "6551b14dd690625d30081b6b27b9832cd1653f8a6a88b4e08dc161206f097076",
-      "bytes": 7743
+      "sha256": "d69e084f0a0c353bc6273bdd3b1083c6fffccce0eeaae3877ae02d2f9552c873",
+      "bytes": 6493
     },
     {
       "path": "skills/agent-best-practices/best-practices/14-evaluation-and-continuous-improvement.md",
-      "sha256": "50f29c43a2c015450ba235a9aaa281b046c1221eb7bd185d2390538faced09ad",
-      "bytes": 6914
+      "sha256": "02aab7b43cc757991761f2015e1449771f8f4b0e9678f9cfda9a80cb82defa97",
+      "bytes": 5715
     },
     {
       "path": "skills/agent-best-practices/best-practices/15-implementation-case-studies.md",
-      "sha256": "46b3a9e3acafaf8ecd831761762f524aa3f7aff58a43fe937076e5f7e4f37409",
-      "bytes": 11686
+      "sha256": "b396285eae8fb6ab5833d297709800ce2aded4380939d2d2a9352fe1db74b5d3",
+      "bytes": 9602
     },
     {
       "path": "skills/agent-best-practices/best-practices/16-conflicts-and-resolutions.md",
-      "sha256": "991dc7cfcb5e19363d1a4d70f0c5836cd52dffeff05ee4464e3a020d077ba0c1",
-      "bytes": 8372
+      "sha256": "94e3b1137659da6257490e1a6594f5e0d6683ba47bbb650be37ac155de4a0a25",
+      "bytes": 6264
     },
     {
       "path": "skills/agent-best-practices/best-practices/17-agent-and-orchestration-pattern-catalog.md",
-      "sha256": "f52287d697ff21aff56828d77df7a89200d9584196c51720d281d7c6daf8b92d",
-      "bytes": 19176
+      "sha256": "0f9bbd209d82d8879e973debb505c4aed1452f56a69fd3e08d51e2a84d10a65a",
+      "bytes": 13057
     },
     {
       "path": "skills/agent-best-practices/best-practices/18-agent-os-and-runtime-pattern-catalog.md",
-      "sha256": "8a6034bf26d5df82f1670bc10fb1ee60168294a840d67f11c80f0ceed9db4ab7",
-      "bytes": 12516
+      "sha256": "a91f064cd6eeb0f5d3c051b41b9b3d13c2e8aa2ca9e9cfe24ce7ad012b7837fa",
+      "bytes": 9758
     },
     {
       "path": "skills/agent-best-practices/best-practices/19-skill-design-pattern-catalog.md",
-      "sha256": "523ce8da7326fde63cd3d17471a7a69cb26f0c8b962ee5952ee59529f0d2ef4d",
-      "bytes": 13105
+      "sha256": "8b449918c20f03619f6eae3f5cb0075f05f86159dadd502da6f004fc0a229d92",
+      "bytes": 9564
     },
     {
       "path": "skills/agent-best-practices/best-practices/20-agentic-cycles-and-lifecycles.md",
-      "sha256": "80b2456ba1731016ad85ae8047a1228de174bd6ab7b9867d612dfc3fe81e495d",
-      "bytes": 15303
+      "sha256": "3c7e561cd95de51adfac300f4d55a93107f6ea8fdbbb1df0e69c4b0489928dff",
+      "bytes": 9594
     },
     {
       "path": "skills/agent-best-practices/best-practices/21-role-patterns-and-separation-of-duties.md",
-      "sha256": "7c5515ce280e2af2a8ae36142ed27c250d634a88fc8e7cae74b2f56fd85ab616",
-      "bytes": 13900
+      "sha256": "144ef3f89e7a5ddbe39266a89b00418caf7cf2d7731e5e8a78519cb97df24b4b",
+      "bytes": 11519
     },
     {
       "path": "skills/agent-best-practices/best-practices/22-operating-model-and-pattern-selection.md",
-      "sha256": "b9bdcfd2b5aadc569940442fa7dad6fe9b856c78251ff517d08ab304ab3f5262",
-      "bytes": 12084
+      "sha256": "cbe4fdeb919287f8fc300c21749151a542fd9300651ab06a3ea1e1e9d2a18b88",
+      "bytes": 9861
     },
     {
       "path": "skills/agent-best-practices/best-practices/README.md",
-      "sha256": "2bba64f82c81960db1a69c0fc75f8b4bcf7a3c921886230d56a8de95d2c17213",
-      "bytes": 8111
+      "sha256": "bfdc378d519d3920ed1535f82766d4a74d08abc415720958acf22836219a384a",
+      "bytes": 5631
     },
     {
       "path": "skills/agent-best-practices/best-practices/sources-frameworks.md",
-      "sha256": "8449434c52fa670a747b5116afb11eb7e998360fbe80d42419a35e1976f1f7dd",
-      "bytes": 4464
+      "sha256": "938c14af8f7ec83aec68dc9d049ef2af4a41b18f0d5f3ee6ff00b5b3c8c75c36",
+      "bytes": 4122
     },
     {
       "path": "skills/agent-best-practices/best-practices/sources-patterns-and-cycles.md",
-      "sha256": "8fe7ee8666fe88752993b0272868347a8716c39be339be6dbfe11d849db4aa19",
-      "bytes": 8693
+      "sha256": "70c164db9690a8b9b220810dd676e464c67ae185600dda2bd190a2442b68f59d",
+      "bytes": 7011
     },
     {
       "path": "skills/agent-best-practices/best-practices/sources-platforms.md",
-      "sha256": "95eca5ac569cbee02a591f257fdf9153fc257205def9054a8b1603a4fcf64d2d",
-      "bytes": 9190
+      "sha256": "1cce4b7d5c19328b732d637e90a3fdba94245caf8c0b0e710dcca64cae0931a0",
+      "bytes": 7986
     },
     {
       "path": "skills/agent-best-practices/best-practices/sources-standards-and-docs.md",
-      "sha256": "b3f8f103121b8c9705905e284feabceb0b938cc7d38c4e9f027a619c4aa7f2c3",
-      "bytes": 5007
+      "sha256": "7ad1e92525634a482247a5fef8ef4726d75c11237298c1b714407689580bc25f",
+      "bytes": 4158
     },
     {
       "path": "skills/agent-best-practices/evals/behavior.json",

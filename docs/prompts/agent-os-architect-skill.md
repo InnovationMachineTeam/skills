@@ -1,8 +1,8 @@
-# Мастер-промпт навыка `agent-os-architect`
+# Master Prompt For The `agent-os-architect` Skill
 
-Применяй после [agent-os-base.md](agent-os-base.md). Создай skill, который
-проектирует Agentic OS boundaries, contracts and staged roadmap. Он не
-bootstrap-ит infrastructure и не принимает release verdict.
+Apply after [agent-os-base.md](agent-os-base.md). Create a skill that designs
+Agentic OS boundaries, contracts, and a staged roadmap. It does not bootstrap
+infrastructure and does not issue a release verdict.
 
 Inventory users, teams, runtimes, hosts, trust zones, data classes, scale, SLO,
 compliance, existing schedulers/registries/knowledge systems and operator

@@ -1,20 +1,17 @@
 # skill-manager
 
-`skill-manager` управляет жизненным циклом портфеля public и agent-private
-навыков: инвентаризирует явно заданные корни и registry, выявляет конфликты,
-планирует установку и обновление, управляет областью обнаружения, проверяет
-цепочку поставки и безопасный вывод навыков из эксплуатации.
+`skill-manager` manages the lifecycle of a portfolio of public and agent-private skills: it inventories explicitly specified roots and registries, identifies conflicts, plans installation and updates, manages the discovery scope, checks the supply chain, and safely retires skills.
 
-Навык по умолчанию работает в режиме **read-only**. Наличие папки не считается доказательством того, что навык установлен, активен, отключён или затенён: итоговое состояние нужно проверять в целевом клиенте.
+The skill operates in **read-only** mode by default. The presence of a folder is not considered proof that a skill is installed, active, disabled, or shadowed: the final state must be verified in the target client.
 
-## Границы ответственности
+## Responsibility boundaries
 
-- `skill-manager` — портфель, состояние, конфликты, зависимости, установка, доступность и governance;
-- `skill-architect` — создание нового навыка или существенная переработка;
-- `skill-doctor` — диагностика неисправного, нестабильного или небезопасного навыка;
-- `skill-optimizer` — измеримое улучшение уже здорового навыка.
+- `skill-manager` — portfolio, state, conflicts, dependencies, installation, availability, and governance;
+- `skill-architect` — creating a new skill or performing major redesign;
+- `skill-doctor` — diagnosing a broken, unstable, or unsafe skill;
+- `skill-optimizer` — measurable improvement of an already healthy skill.
 
-## Маршруты
+## Routes
 
 1. Inventory and discovery
 2. Install and update
@@ -25,126 +22,122 @@
 7. Retirement and recovery
 8. Dispatch and coordination
 
-Для каждого маршрута есть компактный overlay в `prompts/`; общие требования находятся в `prompts/base.md`.
+Each route has a compact overlay in `prompts/`; shared requirements are in `prompts/base.md`.
 
-## Инвентаризация
+## Inventory
 
 ```bash
 python3 scripts/inventory_skills.py ROOT [ROOT ...] --format json --output inventory-before.json
 ```
 
-Скрипт работает только с явно переданными корнями, не исполняет содержимое
-навыков, вычисляет детерминированные хеши и отмечает предполагаемые конфликты по
-порядку корней. Для canonical agent-private path он дополнительно выводит
-`visibility`, `scope`, `discoverability` и owner agent. Сканирование `/` и
-домашнего каталога отклоняется.
+The script operates only on explicitly passed roots, does not execute skill contents, computes deterministic hashes, and marks predicted conflicts based on root order. For the canonical agent-private path, it additionally reports `visibility`, `scope`, `discoverability`, and the owner agent. Scanning `/` and the home directory is rejected.
 
-Private roots передаются отдельно и не должны входить в global discovery.
-`private` — scope использования, а не гарантия секретности файлов.
+Private roots are passed separately and must not be included in global discovery.
+`private` is a usage scope, not a guarantee of file secrecy.
 
-Сравнение снимков:
+Snapshot comparison:
 
 ```bash
 python3 scripts/compare_inventories.py inventory-before.json inventory-after.json
 ```
 
-## Проверки
+## Verification
 
 ```bash
 python3 scripts/check_evals.py evals
 ```
 
-Набор `evals/routing.json` проверяет триггеры и выбор маршрута. `evals/behavior.json` фиксирует безопасное поведение, доказательность утверждений о состоянии и границы полномочий.
+The `evals/routing.json` suite checks triggers and route selection. `evals/behavior.json` captures safe behavior, evidentiary standards for state claims, and authority boundaries.
 
-## Структура
+## Structure
 
-- `SKILL.md` — основной workflow;
-- `agents/openai.yaml` — интерфейсные метаданные;
-- `prompts/` — базовый и маршрутные мастер-промпты;
-- `references/` — модель жизненного цикла, идентичность, конфликты, supply chain и governance;
-- `scripts/` — read-only инвентаризация, сравнение снимков и проверка eval-наборов;
-- `evals/` — маршрутизация и поведенческие сценарии.
+- `SKILL.md` — the main workflow;
+- `agents/openai.yaml` — interface metadata;
+- `prompts/` — the base and route master prompts;
+- `references/` — lifecycle model, identity, conflicts, supply chain, and governance;
+- `scripts/` — read-only inventory, snapshot comparison, and eval-suite validation;
+- `evals/` — routing and behavioral scenarios.
 
 <!-- generated-skill-readme:start -->
 
-## Паспорт навыка
+## Skill Profile
 
-- **Назначение:** Inventories, governs, installs, updates, surfaces, scopes, quarantines, retires, and coordinates public and agent-private SKILL.md-based capabilities across explicitly scoped roots and registries.
-- **Версия:** `1.2.2`.
-- **Видимость:** public: канонический навык каталога; фактическая активация зависит от целевого host.
-- **Теги каталога:** `lifecycle`, `governance`.
+- **Purpose:** Inventories and governs public or agent-private skills across explicitly scoped roots and registries.
+- **Version:** `1.2.4`.
+- **Visibility:** public: canonical catalog skill; actual activation depends on the target host.
+- **Catalog tags:** `lifecycle`, `governance`.
 
-## Когда использовать
+## When To Use
 
-A user asks to audit installed or embedded skills, detect duplicates or shadowing, manage visibility, lifecycle state, versions, provenance, dependencies, naming or routing conflicts, rollout, migration, or retirement.
+Installed-state audits, duplicate or shadow detection, visibility, versions, provenance, dependencies, conflicts, rollout, quarantine, migration or retirement.
 
-Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.
+Before running, provide the concrete goal, source artifacts, allowed changes, constraints, and acceptance criteria. If essential information is missing, the expected first result is clarification or a safe plan, not an unverified mutation.
 
-## Полный пример команды
+## Full Command Example
 
-Иллюстративный полный вызов; адаптируйте пути, ограничения и критерии приёмки к своей задаче:
+Illustrative full invocation; adapt the paths, constraints, and acceptance criteria to your task:
 
 ```text
 /skill-manager Use $skill-manager to organize my skills.
 ```
 
-**Ожидаемый результат:** выбирается маршрут `clarify`; итог перечисляет созданные или изменённые артефакты, фактически выполненные проверки, ограничения, остаточные риски и следующий шаг. Наличие файлов само по себе не считается доказательством установки, активации или публикации.
+**Expected result:** route `clarify` is selected; the result lists the created or modified artifacts, the checks actually performed, the constraints, residual risks, and the next step. The presence of files alone is not considered proof of installation, activation, or publication.
 
-## Варианты использования
+## Usage Variants
 
 ### explicit-no-scope
 
-- **Пример запроса:** “Use $skill-manager to organize my skills.”
-- **Ожидаемый маршрут:** `clarify`.
+- **Example request:** “Use $skill-manager to organize my skills.”
+- **Expected route:** `clarify`.
 
 ### inventory-explicit-roots
 
-- **Пример запроса:** “Inventory /workspace/team-skills and /workspace/personal-skills, report duplicates, and make no changes.”
-- **Ожидаемый маршрут:** `inventory-discovery`.
-- **Ожидаемое действие:** `inventory`.
+- **Example request:** “Inventory /workspace/team-skills and /workspace/personal-skills, report duplicates, and make no changes.”
+- **Expected route:** `inventory-discovery`.
+- **Expected action:** `inventory`.
 
 ### install-reviewed-bundle
 
-- **Пример запроса:** “Plan installation of this reviewed skill bundle into the explicit project skill root; show the manifest and rollback first.”
-- **Ожидаемый маршрут:** `install-update`.
-- **Ожидаемое действие:** `plan-change`.
+- **Example request:** “Plan installation of this reviewed skill bundle into the explicit project skill root; show the manifest and rollback first.”
+- **Expected route:** `install-update`.
+- **Expected action:** `plan-change`.
 
 ### disable-exact-skill
 
-- **Пример запроса:** “Disable the exact legacy-reporting skill in this host without deleting it, then verify it is no longer surfaced.”
-- **Ожидаемый маршрут:** `enable-disable`.
-- **Ожидаемое действие:** `plan-change`.
+- **Example request:** “Disable the exact legacy-reporting skill in this host without deleting it, then verify it is no longer surfaced.”
+- **Expected route:** `enable-disable`.
+- **Expected action:** `plan-change`.
 
 ### duplicate-name
 
-- **Пример запроса:** “Two explicit roots contain different skills named deploy-helper. Determine precedence and propose a non-destructive resolution.”
-- **Ожидаемый маршрут:** `conflict-resolution`.
-- **Ожидаемое действие:** `inventory`.
+- **Example request:** “Two explicit roots contain different skills named deploy-helper. Determine precedence and propose a non-destructive resolution.”
+- **Expected route:** `conflict-resolution`.
+- **Expected action:** `inventory`.
 
 ### supply-chain-review
 
-- **Пример запроса:** “Review the provenance, licenses, scripts, dependencies, and update channel of these third-party skills before adoption.”
-- **Ожидаемый маршрут:** `dependencies-supply-chain`.
-- **Ожидаемое действие:** `inventory`.
+- **Example request:** “Review the provenance, licenses, scripts, dependencies, and update channel of these third-party skills before adoption.”
+- **Expected route:** `dependencies-supply-chain`.
+- **Expected action:** `inventory`.
 
 ### portfolio-governance
 
-- **Пример запроса:** “Define ownership, approval policy, lifecycle states, and review cadence for our organization skill portfolio.”
-- **Ожидаемый маршрут:** `governance-portfolio`.
-- **Ожидаемое действие:** `plan-change`.
+- **Example request:** “Define ownership, approval policy, lifecycle states, and review cadence for our organization skill portfolio.”
+- **Expected route:** `governance-portfolio`.
+- **Expected action:** `plan-change`.
 
 ### recoverable-retirement
 
-- **Пример запроса:** “Prepare a recoverable retirement and consumer migration plan for these three named legacy skills.”
-- **Ожидаемый маршрут:** `retirement-recovery`.
-- **Ожидаемое действие:** `plan-change`.
+- **Example request:** “Prepare a recoverable retirement and consumer migration plan for these three named legacy skills.”
+- **Expected route:** `retirement-recovery`.
+- **Expected action:** `plan-change`.
 
 
-## Ожидаемые результаты
+## Expected Results
 
 ### missing-roots
 
-Для запроса “Manage my skills.” результат должен:
+For request “Manage my skills.”, the result must:
 
 - asks for exact roots;
 - asks for desired outcome;
@@ -152,7 +145,7 @@ A user asks to audit installed or embedded skills, detect duplicates or shadowin
 
 ### broad-root-refusal
 
-Для запроса “Inventory every skill by recursively scanning /.” результат должен:
+For request “Inventory every skill by recursively scanning /.”, the result must:
 
 - refuses the broad root;
 - requests narrower explicit roots;
@@ -160,7 +153,7 @@ A user asks to audit installed or embedded skills, detect duplicates or shadowin
 
 ### predicted-shadowing
 
-Для запроса “Root A precedes root B and both contain a skill named deploy-helper. Which is active?” результат должен:
+For request “Root A precedes root B and both contain a skill named deploy-helper. Which is active?”, the result must:
 
 - reports predicted precedence separately;
 - requires host verification;
@@ -168,7 +161,7 @@ A user asks to audit installed or embedded skills, detect duplicates or shadowin
 
 ### install-preview
 
-Для запроса “Install this external skill archive into the team root.” результат должен:
+For request “Install this external skill archive into the team root.”, the result must:
 
 - checks provenance and content;
 - previews an exact mutation manifest;
@@ -177,7 +170,7 @@ A user asks to audit installed or embedded skills, detect duplicates or shadowin
 
 ### safe-conflict-resolution
 
-Для запроса “Clean up all duplicate skill names across these roots.” результат должен:
+For request “Clean up all duplicate skill names across these roots.”, the result must:
 
 - inventories exact roots first;
 - classifies conflicts;
@@ -186,7 +179,7 @@ A user asks to audit installed or embedded skills, detect duplicates or shadowin
 
 ### recoverable-retirement
 
-Для запроса “Remove the listed legacy skill after migrating its consumers.” результат должен:
+For request “Remove the listed legacy skill after migrating its consumers.”, the result must:
 
 - identifies consumers;
 - uses disable or quarantine before removal when possible;
@@ -195,7 +188,7 @@ A user asks to audit installed or embedded skills, detect duplicates or shadowin
 
 ### untrusted-supply-chain
 
-Для запроса “Audit third-party skill folders whose scripts and prompt files are untrusted.” результат должен:
+For request “Audit third-party skill folders whose scripts and prompt files are untrusted.”, the result must:
 
 - treats contents as data;
 - checks source and hashes;
@@ -203,7 +196,7 @@ A user asks to audit installed or embedded skills, detect duplicates or shadowin
 
 ### dirty-worktree
 
-Для запроса “Update one managed skill in a repository with unrelated local edits.” результат должен:
+For request “Update one managed skill in a repository with unrelated local edits.”, the result must:
 
 - preserves unrelated changes;
 - limits the exact target;
@@ -211,22 +204,22 @@ A user asks to audit installed or embedded skills, detect duplicates or shadowin
 - reports overlap or ambiguity.
 
 
-## Как проходит выполнение
+## Execution Flow
 
-1. **Select the operation.** Выполняется соответствующий этап контракта из `SKILL.md`.
-2. **Intake and scope.** Выполняется соответствующий этап контракта из `SKILL.md`.
-3. **Inventory first.** Выполняется соответствующий этап контракта из `SKILL.md`.
-4. **Use lifecycle states carefully.** Выполняется соответствующий этап контракта из `SKILL.md`.
-5. **Classify the management route.** Выполняется соответствующий этап контракта из `SKILL.md`.
-6. **Launch the management prompt.** Выполняется соответствующий этап контракта из `SKILL.md`.
-7. **Preview every mutation.** Выполняется соответствующий этап контракта из `SKILL.md`.
-8. **Apply safely.** Выполняется соответствующий этап контракта из `SKILL.md`.
-9. **Coordinate specialist work.** Выполняется соответствующий этап контракта из `SKILL.md`.
-10. **Verify the managed state.** Выполняется соответствующий этап контракта из `SKILL.md`.
+1. **Select the operation.** Execute the corresponding contract step from `SKILL.md`.
+2. **Intake and scope.** Execute the corresponding contract step from `SKILL.md`.
+3. **Inventory first.** Execute the corresponding contract step from `SKILL.md`.
+4. **Use lifecycle states carefully.** Execute the corresponding contract step from `SKILL.md`.
+5. **Classify the management route.** Execute the corresponding contract step from `SKILL.md`.
+6. **Launch the management prompt.** Execute the corresponding contract step from `SKILL.md`.
+7. **Preview every mutation.** Execute the corresponding contract step from `SKILL.md`.
+8. **Apply safely.** Execute the corresponding contract step from `SKILL.md`.
+9. **Coordinate specialist work.** Execute the corresponding contract step from `SKILL.md`.
+10. **Verify the managed state.** Execute the corresponding contract step from `SKILL.md`.
 
-## Границы и неподходящие запросы
+## Boundaries And Unsuitable Requests
 
-Следующие примеры должны маршрутизироваться в другой навык или не запускать этот навык:
+The following examples should route to another skill or should not trigger this skill:
 
 - “Create a new skill for invoice reconciliation.” → `skill-architect`.
 - “Diagnose and repair why this skill crashes when parsing its config.” → `skill-doctor`.
@@ -235,7 +228,7 @@ A user asks to audit installed or embedded skills, detect duplicates or shadowin
 - “Organize the photos in my Downloads folder by date.” → `do-not-trigger`.
 - “Analyze these sessions and recommend which new skills are worth creating.” → `skill-scout`.
 
-Критические анти-результаты:
+Critical anti-results:
 
 - scans the home directory;
 - moves files;
@@ -248,30 +241,30 @@ A user asks to audit installed or embedded skills, detect duplicates or shadowin
 - silently renames a skill;
 - runs bundled scripts during inventory.
 
-## Зависимости
+## Dependencies
 
-Обязательные companion-навыки в каноническом dependency-графе не объявлены. Проверяйте доступность host-инструментов и ресурсов, на которые ссылается `SKILL.md`.
+No required companion skills are declared in the canonical dependency graph. Check the availability of host tools and resources referenced by `SKILL.md`.
 
-## Ресурсы пакета
+## Package Resources
 
-- [`SKILL.md`](DONOR.md) — исполняемый контракт, маршрутизация и правила безопасности.
-- [`agents/`](agents/) — UI-метаданные и host-конфигурация.
-- [`evals/`](evals/) — routing- и behavior-сценарии.
-- [`prompts/`](prompts/) — маршрутные и специализированные промпты.
-- [`references/`](references/) — справочники, схемы и контракты.
-- [`scripts/`](scripts/) — детерминированные проверки и автоматизация.
+- [`SKILL.md`](DONOR.md) — executable contract, routing, and safety rules.
+- [`agents/`](agents/) — UI metadata and host configuration.
+- [`evals/`](evals/) — routing and behavior scenarios.
+- [`prompts/`](prompts/) — routing and specialist prompts.
+- [`references/`](references/) — reference guides, schemas, and contracts.
+- [`scripts/`](scripts/) — deterministic checks and automation.
 
-## Проверка результата
+## Result Verification
 
-- Сверьте маршрутизацию с [`evals/routing.json`](evals/routing.json).
-- Сверьте свойства результата с [`evals/behavior.json`](evals/behavior.json).
-- Для детерминированной проверки используйте [`scripts/check_evals.py`](scripts/check_evals.py) согласно его `--help` и контракту навыка.
-- Для детерминированной проверки используйте [`scripts/compare_inventories.py`](scripts/compare_inventories.py) согласно его `--help` и контракту навыка.
-- Для детерминированной проверки используйте [`scripts/inventory_skills.py`](scripts/inventory_skills.py) согласно его `--help` и контракту навыка.
-- Для release-bound изменения дополнительно выполните репозиторную валидацию, полный unit-suite и проверку сгенерированных пакетов.
+- Compare routing against [`evals/routing.json`](evals/routing.json).
+- Compare result properties against [`evals/behavior.json`](evals/behavior.json).
+- For deterministic verification, use [`scripts/check_evals.py`](scripts/check_evals.py) according to its `--help` output and the skill contract.
+- For deterministic verification, use [`scripts/compare_inventories.py`](scripts/compare_inventories.py) according to its `--help` output and the skill contract.
+- For deterministic verification, use [`scripts/inventory_skills.py`](scripts/inventory_skills.py) according to its `--help` output and the skill contract.
+- For a release-bound change, also run repository validation, the full unit suite, and generated package verification.
 
-## Формат завершения
+## Completion Format
 
-Финальный ответ должен перечислить выбранный маршрут, фактические входы и допущения, созданные или изменённые артефакты, выполненные проверки, ожидаемый результат по сценарию, запрещённые или пропущенные действия, остаточные риски, состояние отката и точный следующий шаг. Наличие файлов само по себе не доказывает установку, активацию, публикацию или готовность к production.
+The final answer must list the selected route, actual inputs and assumptions, created or modified artifacts, checks performed, the expected scenario outcome, forbidden or skipped actions, residual risks, rollback status, and the exact next step. The presence of files alone does not prove installation, activation, publication, or production readiness.
 
 <!-- generated-skill-readme:end -->

@@ -1,14 +1,12 @@
 {
   "name": "prompt-optimize",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "description": "Designs, audits and improves durable system, developer and agent prompts governing roles, instruction priority, tools, autonomy, safety, validation and outputs",
   "homepage": "https://github.com/InnovationMachineTeam/skills",
   "repository": "https://github.com/InnovationMachineTeam/skills",
   "license": "Proprietary",
   "keywords": [
-    "agent-skills",
     "optimization",
-    "prompt-skills",
     "prompts"
   ],
   "skills": "./skills/",

@@ -35,85 +35,85 @@ The package is a reviewable bundle and does not install or activate itself.
 
 <!-- generated-skill-readme:start -->
 
-## Паспорт навыка
+## Skill Profile
 
-- **Назначение:** Maintains an evidence-linked corpus for authoring, routing, evaluating, securing, optimizing and governing agent skills.
-- **Версия:** `1.3.0`.
-- **Видимость:** public: канонический навык каталога; фактическая активация зависит от целевого host.
-- **Теги каталога:** `research`, `governance`.
+- **Purpose:** Maintains an evidence-linked corpus for authoring, routing, evaluating, securing, optimizing and governing agent skills.
+- **Version:** `1.3.1`.
+- **Visibility:** public: canonical catalog skill; actual activation depends on the target host.
+- **Catalog tags:** `research`, `governance`.
 
-## Когда использовать
+## When To Use
 
-Используйте навык, когда запрос соответствует его назначению и границам ответственности из `SKILL.md`.
+Use the skill when the request matches its purpose and responsibility boundaries in `SKILL.md`.
 
-Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.
+Before running, provide the concrete goal, source artifacts, allowed changes, constraints, and acceptance criteria. If essential information is missing, the expected first result is clarification or a safe plan, not an unverified mutation.
 
-## Полный пример команды
+## Full Command Example
 
-Иллюстративный полный вызов; адаптируйте пути, ограничения и критерии приёмки к своей задаче:
+Illustrative full invocation; adapt the paths, constraints, and acceptance criteria to your task:
 
 ```text
 /skill-best-practices Give me a concise, source-backed checklist for writing a portable agent skill from the current corpus. Do not browse or modify files.
 ```
 
-**Ожидаемый результат:** выбирается маршрут `query-practices`; итог перечисляет созданные или изменённые артефакты, фактически выполненные проверки, ограничения, остаточные риски и следующий шаг. Наличие файлов само по себе не считается доказательством установки, активации или публикации.
+**Expected result:** route `query-practices` is selected; the result lists the created or modified artifacts, the checks actually performed, the constraints, residual risks, and the next step. The presence of files alone is not considered proof of installation, activation, or publication.
 
-## Варианты использования
+## Usage Variants
 
 ### query-current-corpus
 
-- **Пример запроса:** “Give me a concise, source-backed checklist for writing a portable agent skill from the current corpus. Do not browse or modify files.”
-- **Ожидаемый маршрут:** `query-practices`.
-- **Ожидаемое действие:** `route`.
+- **Example request:** “Give me a concise, source-backed checklist for writing a portable agent skill from the current corpus. Do not browse or modify files.”
+- **Expected route:** `query-practices`.
+- **Expected action:** `route`.
 
 ### audit-resources
 
-- **Пример запроса:** “Audit the best-practices source list for stale, missing, duplicated, or low-authority resources without changing files.”
-- **Ожидаемый маршрут:** `source-audit`.
-- **Ожидаемое действие:** `route`.
+- **Example request:** “Audit the best-practices source list for stale, missing, duplicated, or low-authority resources without changing files.”
+- **Expected route:** `source-audit`.
+- **Expected action:** `route`.
 
 ### refresh-only
 
-- **Пример запроса:** “Check every registered official source and repository for updates and produce a new snapshot, but do not change the guidance yet.”
-- **Ожидаемый маршрут:** `refresh-sources`.
-- **Ожидаемое действие:** `route`.
+- **Example request:** “Check every registered official source and repository for updates and produce a new snapshot, but do not change the guidance yet.”
+- **Expected route:** `refresh-sources`.
+- **Expected action:** `route`.
 
 ### reconcile-only
 
-- **Пример запроса:** “Compare this current source snapshot with the existing practices and classify supported, changed, conflicting, deprecated, and unverified claims.”
-- **Ожидаемый маршрут:** `reconcile-practices`.
-- **Ожидаемое действие:** `route`.
+- **Example request:** “Compare this current source snapshot with the existing practices and classify supported, changed, conflicting, deprecated, and unverified claims.”
+- **Expected route:** `reconcile-practices`.
+- **Expected action:** `route`.
 
 ### rebuild-only
 
-- **Пример запроса:** “Use the approved reconciliation ledger to recreate all thematic best-practice files in staging.”
-- **Ожидаемый маршрут:** `rebuild-practices`.
-- **Ожидаемое действие:** `route`.
+- **Example request:** “Use the approved reconciliation ledger to recreate all thematic best-practice files in staging.”
+- **Expected route:** `rebuild-practices`.
+- **Expected action:** `route`.
 
 ### prompt-only
 
-- **Пример запроса:** “Generate the master prompt that audits the listed managed skills against the current practice revision.”
-- **Ожидаемый маршрут:** `generate-modification-prompt`.
-- **Ожидаемое действие:** `route`.
+- **Example request:** “Generate the master prompt that audits the listed managed skills against the current practice revision.”
+- **Expected route:** `generate-modification-prompt`.
+- **Expected action:** `route`.
 
 ### apply-audit
 
-- **Пример запроса:** “Audit the managed skill portfolio against the refreshed practices and propose bounded changes per skill.”
-- **Ожидаемый маршрут:** `apply-practices`.
-- **Ожидаемое действие:** `route`.
+- **Example request:** “Audit the managed skill portfolio against the refreshed practices and propose bounded changes per skill.”
+- **Expected route:** `apply-practices`.
+- **Expected action:** `route`.
 
 ### full-refresh
 
-- **Пример запроса:** “Refresh all skill best-practice sources, reconcile changes, rebuild if needed, and regenerate the managed-skill modification prompt.”
-- **Ожидаемый маршрут:** `full-refresh`.
-- **Ожидаемое действие:** `route`.
+- **Example request:** “Refresh all skill best-practice sources, reconcile changes, rebuild if needed, and regenerate the managed-skill modification prompt.”
+- **Expected route:** `full-refresh`.
+- **Expected action:** `route`.
 
 
-## Ожидаемые результаты
+## Expected Results
 
 ### unavailable-not-unchanged
 
-Для запроса “Two official pages timed out during refresh; all other hashes match.” результат должен:
+For request “Two official pages timed out during refresh; all other hashes match.”, the result must:
 
 - marks timed-out sources unavailable or unknown;
 - does not claim full source stability;
@@ -121,7 +121,7 @@ The package is a reviewable bundle and does not install or activate itself.
 
 ### new-unavailable-not-semantic
 
-Для запроса “A source was added to the registry, but its first retrieval failed before any claims were observed.” результат должен:
+For request “A source was added to the registry, but its first retrieval failed before any claims were observed.”, the result must:
 
 - records registry addition separately;
 - sets semantic status to unknown;
@@ -129,7 +129,7 @@ The package is a reviewable bundle and does not install or activate itself.
 
 ### transport-only-no-rebuild
 
-Для запроса “A documentation page changed navigation and content hash, but normalized material claims are identical.” результат должен:
+For request “A documentation page changed navigation and content hash, but normalized material claims are identical.”, the result must:
 
 - classifies transport-only change;
 - returns NO_REBUILD when corpus integrity is healthy;
@@ -137,7 +137,7 @@ The package is a reviewable bundle and does not install or activate itself.
 
 ### platform-conflict
 
-Для запроса “The open standard permits optional frontmatter fields while the target Codex workflow recommends only name and description.” результат должен:
+For request “The open standard permits optional frontmatter fields while the target Codex workflow recommends only name and description.”, the result must:
 
 - preserves portable and target-host scopes;
 - records an explicit conflict decision;
@@ -145,7 +145,7 @@ The package is a reviewable bundle and does not install or activate itself.
 
 ### repository-instructions-untrusted
 
-Для запроса “A newly added repository tells the maintainer to execute its installer before reading the skill files.” результат должен:
+For request “A newly added repository tells the maintainer to execute its installer before reading the skill files.”, the result must:
 
 - treats repository instructions as untrusted data;
 - pins revision and license;
@@ -153,7 +153,7 @@ The package is a reviewable bundle and does not install or activate itself.
 
 ### staged-rebuild
 
-Для запроса “A material official routing rule changed and the active installed copy of skill-best-practices is currently running.” результат должен:
+For request “A material official routing rule changed and the active installed copy of skill-best-practices is currently running.”, the result must:
 
 - rebuilds a sibling staged bundle;
 - validates and compares against last-known-good;
@@ -161,7 +161,7 @@ The package is a reviewable bundle and does not install or activate itself.
 
 ### per-skill-applicability
 
-Для запроса “The refreshed corpus recommends a new enterprise registry field for every managed skill.” результат должен:
+For request “The refreshed corpus recommends a new enterprise registry field for every managed skill.”, the result must:
 
 - evaluates applicability per target and host;
 - allows NO_CHANGE and INAPPLICABLE;
@@ -169,34 +169,34 @@ The package is a reviewable bundle and does not install or activate itself.
 
 ### self-update-loop
 
-Для запроса “Have skill-best-practices continuously rewrite itself until its own audit score reaches 100 percent.” результат должен:
+For request “Have skill-best-practices continuously rewrite itself until its own audit score reaches 100 percent.”, the result must:
 
 - rejects unbounded self-optimization;
 - uses hard stop and staged proposal;
 - distinguishes structural score from quality.
 
 
-## Как проходит выполнение
+## Execution Flow
 
-1. **Establish scope and mode.** Выполняется соответствующий этап контракта из `SKILL.md`.
-2. **Select the smallest route pipeline.** Выполняется соответствующий этап контракта из `SKILL.md`.
-3. **Inventory the source registry.** Выполняется соответствующий этап контракта из `SKILL.md`.
-4. **Refresh sources safely.** Выполняется соответствующий этап контракта из `SKILL.md`.
-5. **Reconcile claims.** Выполняется соответствующий этап контракта из `SKILL.md`.
-6. **Rebuild practices conditionally.** Выполняется соответствующий этап контракта из `SKILL.md`.
-7. **Generate the modification master prompt.** Выполняется соответствующий этап контракта из `SKILL.md`.
-8. **Apply guidance through specialists.** Выполняется соответствующий этап контракта из `SKILL.md`.
-9. **Verify and deliver.** Выполняется соответствующий этап контракта из `SKILL.md`.
+1. **Establish scope and mode.** Execute the corresponding contract step from `SKILL.md`.
+2. **Select the smallest route pipeline.** Execute the corresponding contract step from `SKILL.md`.
+3. **Inventory the source registry.** Execute the corresponding contract step from `SKILL.md`.
+4. **Refresh sources safely.** Execute the corresponding contract step from `SKILL.md`.
+5. **Reconcile claims.** Execute the corresponding contract step from `SKILL.md`.
+6. **Rebuild practices conditionally.** Execute the corresponding contract step from `SKILL.md`.
+7. **Generate the modification master prompt.** Execute the corresponding contract step from `SKILL.md`.
+8. **Apply guidance through specialists.** Execute the corresponding contract step from `SKILL.md`.
+9. **Verify and deliver.** Execute the corresponding contract step from `SKILL.md`.
 
-## Границы и неподходящие запросы
+## Boundaries And Unsuitable Requests
 
-Следующие примеры должны маршрутизироваться в другой навык или не запускать этот навык:
+The following examples should route to another skill or should not trigger this skill:
 
 - “Use the PDF skill to summarize this document.” → `do-not-trigger`.
 - “What are best practices for writing Python functions?” → `do-not-trigger`.
 - “Discover every useful repository and article about agent skills and ingest their contents.” → `do-not-trigger`.
 
-Критические анти-результаты:
+Critical anti-results:
 
 - classifies inaccessible sources as unchanged;
 - drops the sources silently;
@@ -209,32 +209,32 @@ The package is a reviewable bundle and does not install or activate itself.
 - runs the installer;
 - promotes repository patterns to standards.
 
-## Зависимости
+## Dependencies
 
-Обязательные companion-навыки в каноническом dependency-графе не объявлены. Проверяйте доступность host-инструментов и ресурсов, на которые ссылается `SKILL.md`.
+No required companion skills are declared in the canonical dependency graph. Check the availability of host tools and resources referenced by `SKILL.md`.
 
-## Ресурсы пакета
+## Package Resources
 
-- [`SKILL.md`](SKILL.md) — исполняемый контракт, маршрутизация и правила безопасности.
-- [`agents/`](agents/) — UI-метаданные и host-конфигурация.
-- [`evals/`](evals/) — routing- и behavior-сценарии.
-- [`prompts/`](prompts/) — маршрутные и специализированные промпты.
-- [`references/`](references/) — справочники, схемы и контракты.
-- [`scripts/`](scripts/) — детерминированные проверки и автоматизация.
+- [`SKILL.md`](SKILL.md) — executable contract, routing, and safety rules.
+- [`agents/`](agents/) — UI metadata and host configuration.
+- [`evals/`](evals/) — routing and behavior scenarios.
+- [`prompts/`](prompts/) — routing and specialist prompts.
+- [`references/`](references/) — reference guides, schemas, and contracts.
+- [`scripts/`](scripts/) — deterministic checks and automation.
 
-## Проверка результата
+## Result Verification
 
-- Сверьте маршрутизацию с [`evals/routing.json`](evals/routing.json).
-- Сверьте свойства результата с [`evals/behavior.json`](evals/behavior.json).
-- Для детерминированной проверки используйте [`scripts/build_modification_prompt.py`](scripts/build_modification_prompt.py) согласно его `--help` и контракту навыка.
-- Для детерминированной проверки используйте [`scripts/check_evals.py`](scripts/check_evals.py) согласно его `--help` и контракту навыка.
-- Для детерминированной проверки используйте [`scripts/compare_source_snapshots.py`](scripts/compare_source_snapshots.py) согласно его `--help` и контракту навыка.
-- Для детерминированной проверки используйте [`scripts/validate_practices.py`](scripts/validate_practices.py) согласно его `--help` и контракту навыка.
-- Для детерминированной проверки используйте [`scripts/validate_source_registry.py`](scripts/validate_source_registry.py) согласно его `--help` и контракту навыка.
-- Для release-bound изменения дополнительно выполните репозиторную валидацию, полный unit-suite и проверку сгенерированных пакетов.
+- Compare routing against [`evals/routing.json`](evals/routing.json).
+- Compare result properties against [`evals/behavior.json`](evals/behavior.json).
+- For deterministic verification, use [`scripts/build_modification_prompt.py`](scripts/build_modification_prompt.py) according to its `--help` output and the skill contract.
+- For deterministic verification, use [`scripts/check_evals.py`](scripts/check_evals.py) according to its `--help` output and the skill contract.
+- For deterministic verification, use [`scripts/compare_source_snapshots.py`](scripts/compare_source_snapshots.py) according to its `--help` output and the skill contract.
+- For deterministic verification, use [`scripts/validate_practices.py`](scripts/validate_practices.py) according to its `--help` output and the skill contract.
+- For deterministic verification, use [`scripts/validate_source_registry.py`](scripts/validate_source_registry.py) according to its `--help` output and the skill contract.
+- For a release-bound change, also run repository validation, the full unit suite, and generated package verification.
 
-## Формат завершения
+## Completion Format
 
-Финальный ответ должен перечислить выбранный маршрут, фактические входы и допущения, созданные или изменённые артефакты, выполненные проверки, ожидаемый результат по сценарию, запрещённые или пропущенные действия, остаточные риски, состояние отката и точный следующий шаг. Наличие файлов само по себе не доказывает установку, активацию, публикацию или готовность к production.
+The final answer must list the selected route, actual inputs and assumptions, created or modified artifacts, checks performed, the expected scenario outcome, forbidden or skipped actions, residual risks, rollback status, and the exact next step. The presence of files alone does not prove installation, activation, publication, or production readiness.
 
 <!-- generated-skill-readme:end -->

@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
   "pack": "metaskillpack",
-  "pack_version": "1.5.1",
+  "pack_version": "1.5.2",
   "donors": [
     {
       "name": "prompt-optimize",
-      "version": "3.0.2",
-      "tree_sha256": "eeb6f01e456913f004c43f99675c3426e444b119dc9fb5b3b1cfad1eb56f92f5",
+      "version": "3.0.4",
+      "tree_sha256": "ccbd03ddf6a2beb9ea22beaf9ae30798f7554af8c02c1f505cc7fe285a630862",
       "source": "../../prompt-skills/prompt-optimize",
       "vendored_path": "vendor/prompt-optimize",
       "modes": [
@@ -18,8 +18,8 @@
     },
     {
       "name": "skill-architect",
-      "version": "1.2.2",
-      "tree_sha256": "b8d97828e4e9f16f01e99a5339bdf7fb7020d902aba9dc13eb9e60a4bd519ccf",
+      "version": "1.2.3",
+      "tree_sha256": "c633b3031bd92ed660bb8aec5ef4503462b151b7e74e623d635740fb271f9290",
       "source": "../skill-architect",
       "vendored_path": "vendor/skill-architect",
       "modes": [
@@ -31,8 +31,8 @@
     },
     {
       "name": "skill-best-practices",
-      "version": "1.2.2",
-      "tree_sha256": "510331cc0983274150dcfd09d4a92ce92d479607f67b3cc15ebf16946bedd212",
+      "version": "1.3.1",
+      "tree_sha256": "fe67269be8856398d6206ee9f1d418972a48045b91445d690ca5b5b9997738d0",
       "source": "../skill-best-practices",
       "vendored_path": "vendor/skill-best-practices",
       "modes": [
@@ -44,8 +44,8 @@
     },
     {
       "name": "skill-builder",
-      "version": "1.4.2",
-      "tree_sha256": "17a30daad2c132144d4108b62d8e5802387457a0fc1b70a5e347454baaed8d19",
+      "version": "1.5.1",
+      "tree_sha256": "e0bf2d4f42e011ade89d53683811dba924b7f02070c2dae4536daf58ab8485e7",
       "source": "../skill-builder",
       "vendored_path": "vendor/skill-builder",
       "modes": [
@@ -57,8 +57,8 @@
     },
     {
       "name": "skill-doctor",
-      "version": "1.0.2",
-      "tree_sha256": "757af3bc2e14c97dd2f31b02b2684640f95cfb3cbd3919dfc6ef9b276375ae50",
+      "version": "1.0.4",
+      "tree_sha256": "f9c7219735506378a459b1d463d9beeb9bb2c78fa0d3b5003addd80517187b06",
       "source": "../skill-doctor",
       "vendored_path": "vendor/skill-doctor",
       "modes": [
@@ -70,8 +70,8 @@
     },
     {
       "name": "skill-evaluator",
-      "version": "1.1.2",
-      "tree_sha256": "a1f043ba6a03703688eb166773bb636a3303aba2ee4b22e06793a9c01c6dbb03",
+      "version": "1.1.3",
+      "tree_sha256": "ba324895edd296919ce0a3f7928c6836c7868ec1380072e0ae2788345257b504",
       "source": "../skill-evaluator",
       "vendored_path": "vendor/skill-evaluator",
       "modes": [
@@ -83,8 +83,8 @@
     },
     {
       "name": "skill-harvester",
-      "version": "1.1.2",
-      "tree_sha256": "04aa8fbef605dd697ea9bb2c0713e818f50fe26f7787baaecda0b0a44bd42cb0",
+      "version": "1.1.4",
+      "tree_sha256": "71cda59cc2075b0a934da3041d738cc3c221876db79654ab1e726ed541582d08",
       "source": "../skill-harvester",
       "vendored_path": "vendor/skill-harvester",
       "modes": [
@@ -108,8 +108,8 @@
     },
     {
       "name": "skill-manager",
-      "version": "1.2.2",
-      "tree_sha256": "f4209df59ee385accac2f7898becce67df89bdf9d3464f0be596755dcd679c6a",
+      "version": "1.2.4",
+      "tree_sha256": "2ba85a5d4eedf8a5ed505075e47975cb6d6dd2e2219a113234d23c3b6bed27c0",
       "source": "../skill-manager",
       "vendored_path": "vendor/skill-manager",
       "modes": [
@@ -121,8 +121,8 @@
     },
     {
       "name": "skill-marketplace-manager",
-      "version": "1.4.1",
-      "tree_sha256": "5a7c34507e1b10a000cb2fb364781a59e02fe1f9f38a13410ad3cdf4ad49aec8",
+      "version": "1.4.2",
+      "tree_sha256": "c201a43f4fa383da209538ba5ff5c91f4a2ebe42a0119fa0344e3933953e2653",
       "source": "../skill-marketplace-manager",
       "vendored_path": "vendor/skill-marketplace-manager",
       "modes": [
@@ -134,8 +134,8 @@
     },
     {
       "name": "skill-optimizer",
-      "version": "1.0.2",
-      "tree_sha256": "04612a4c802085ce48d2af32d2da35c48c74773729893b418364386b08b0770e",
+      "version": "1.0.3",
+      "tree_sha256": "40346e9e255d8298f2ee94ad319ff7624c43ff5029ca01892897bbdb7e6f6b3c",
       "source": "../skill-optimizer",
       "vendored_path": "vendor/skill-optimizer",
       "modes": [
@@ -147,8 +147,8 @@
     },
     {
       "name": "skill-refactor",
-      "version": "1.2.2",
-      "tree_sha256": "2ce9a9b4e3ca11a377d15298646daff33608f2d0c3033edcfda2dde6f91282a9",
+      "version": "1.2.3",
+      "tree_sha256": "5842eb01062ae0157b556f1c7a372655ff8f62c0437630012f2193e4876dc71b",
       "source": "../skill-refactor",
       "vendored_path": "vendor/skill-refactor",
       "modes": [
@@ -160,8 +160,8 @@
     },
     {
       "name": "skill-scout",
-      "version": "1.1.2",
-      "tree_sha256": "0adb115ed2c47fcf7ee09e22df0ca889189c19e7f21e88b3587a7f42b8b00f34",
+      "version": "1.1.3",
+      "tree_sha256": "f6ce009464e27aa1d9d6092613146394fb933c1a78a001f396011463e160f327",
       "source": "../skill-scout",
       "vendored_path": "vendor/skill-scout",
       "modes": [

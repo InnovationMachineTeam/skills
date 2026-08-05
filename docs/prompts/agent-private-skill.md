@@ -1,40 +1,40 @@
-# Мастер-промпт private agent skill
+# Master Prompt For A Private Agent Skill
 
-Применяй после `agent-skill-base.md`, одного primary archetype prompt и решения
-`PRIVATE_SKILL` из `agent-capability-placement.md`.
+Apply after `agent-skill-base.md`, one primary archetype prompt, and the
+`PRIVATE_SKILL` decision from `agent-capability-placement.md`.
 
 ## Contract
 
-Создай обычный versioned/tested skill bundle, но размести его в
-`.agents/definitions/<agent-id>/skills/<skill>/`. Требуй stable owner agent,
-allowed consumers, target host adapter и candidate registry/map update.
-Не встраивай secrets или runtime state.
+Create a normal versioned/tested skill bundle, but place it in
+`.agents/definitions/<agent-id>/skills/<skill>/`. Require a stable owner agent,
+allowed consumers, target host adapter, and candidate registry/map update.
+Do not embed secrets or runtime state.
 
 ## Registration
 
-Entry содержит identity, name, semantic version, content hash, locator,
+The entry contains identity, name, semantic version, content hash, locator,
 `visibility: private`, `scope: agent`, `discoverability: agent_scoped`,
-`owner_agent_ref`, `allowed_consumers`, provenance, trust, lifecycle и evidence.
-`allowed_consumers` содержит только owner agent; отдельно укажи accountable
-human/team owner. Agent definition ссылается на skill через canonical map.
-Registry и map обновляются одной revision-checked транзакцией с rollback.
-Behavior-changing
-skill update увеличивает agent version по compatibility policy.
+`owner_agent_ref`, `allowed_consumers`, provenance, trust, lifecycle, and evidence.
+`allowed_consumers` contains only the owner agent; separately specify the
+accountable human/team owner. The agent definition references the skill through
+the canonical map. Registry and map are updated in one revision-checked
+transaction with rollback. A behavior-changing skill update increments the
+agent version according to the compatibility policy.
 
-## Loader и tests
+## Loader and tests
 
-Global discovery исключает `.agents/definitions/*/skills`. Host adapter получает
-private root только после выбора approved agent identity. Проверь:
+Global discovery excludes `.agents/definitions/*/skills`. The host adapter gets
+the private root only after selecting an approved agent identity. Verify:
 
-- owner explicit invocation и intended trigger;
-- отсутствие в global discovery;
-- denial другого agent и missing owner;
+- explicit owner invocation and intended trigger;
+- absence from global discovery;
+- denial for another agent and missing owner;
 - registry/map path/version/hash parity;
-- prompt-injection, permissions и resource boundaries;
-- rollback и stale adapter detection.
+- prompt injection, permissions, and resource boundaries;
+- rollback and stale adapter detection.
 
-## Завершение
+## Completion
 
-Верни bundle, owner-agent diff, registry/map diff, generated adapters,
-validation/eval evidence и lifecycle status. Не называй capability secret и не
-активируй её по факту создания файлов.
+Return the bundle, owner-agent diff, registry/map diff, generated adapters,
+validation/eval evidence, and lifecycle status. Do not call the capability
+secret and do not activate it merely by creating files.

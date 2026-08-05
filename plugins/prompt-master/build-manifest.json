@@ -1,7 +1,7 @@
 {
   "format": 2,
   "plugin": "prompt-master",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "source_layout": "skills/",
   "bundle_layout": "skills/<name>/",
   "platforms": [
@@ -21,18 +21,18 @@
   "files": [
     {
       "path": ".claude-plugin/plugin.json",
-      "sha256": "09deb49c83bbeeb6572ac4066d287a9034e7e56816acf5cb661af4985276add8",
+      "sha256": "300e32fe0eccbeb8a820f1a582acd22a27a49963e26770d31aaa3bbe0ff5841f",
       "bytes": 500
     },
     {
       "path": ".codex-plugin/plugin.json",
-      "sha256": "fcc184c750ad0dd20cd619df9f15b6c33c90399fc3d2bd9a617f32f9c5f2a69c",
-      "bytes": 1455
+      "sha256": "f7f7c7c327a4ddaf3909816410b18191c18f5c1108c1c398b875fef35020b700",
+      "bytes": 1414
     },
     {
       "path": ".cursor-plugin/plugin.json",
-      "sha256": "f4cf85d92b80b40eea6f5204bc4cb1c7b17cdf467b066f8509093c89c5014789",
-      "bytes": 707
+      "sha256": "f4bbe86205a41e0238e24835e7195a08a5763e0aab1802012699d88deb3a14db",
+      "bytes": 666
     },
     {
       "path": "README.md",
@@ -46,12 +46,12 @@
     },
     {
       "path": "skills/prompt-master/README.md",
-      "sha256": "78231a4fa89138458a4742fec6945b990b405f23b2c038477c7ba3e10595754d",
-      "bytes": 10567
+      "sha256": "ccf58207783f4172004168a813a10fad3e66dac6039772279fde60a0cdc3ebd7",
+      "bytes": 8134
     },
     {
       "path": "skills/prompt-master/SKILL.md",
-      "sha256": "762b11c71a80b3cf683137d63e6704d78366aff80bfc1beae47c71764e82c01b",
+      "sha256": "e1dd1b6660f573ae0cf543de15529a12e398603fe0fb011d2bdc3b3be483afac",
       "bytes": 3777
     },
     {
@@ -86,8 +86,8 @@
     },
     {
       "path": "skills/prompt-master/references/mode-and-depth-contract.md",
-      "sha256": "5272ef83e448105d68d60478498c1afdda280c714fcd38e3d5564c4fa6001d32",
-      "bytes": 5565
+      "sha256": "80bc61256895e131266e45dc4e1e72c721c002cefc312894100929016317ec08",
+      "bytes": 5521
     },
     {
       "path": "skills/prompt-master/references/model-capability-profiles.md",

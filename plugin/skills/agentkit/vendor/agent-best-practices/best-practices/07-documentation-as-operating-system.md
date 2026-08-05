@@ -1,25 +1,25 @@
-# Документация как операционная система проекта
+# Documentation as the Project Operating System
 
-## Зачем проекту `docs/`
+## Why a Project Needs `docs/`
 
-Для агентной разработки `docs/` — не витрина после релиза, а разделяемая
-долговременная память людей и агентов. Она отвечает на четыре вопроса:
+For agentic development, `docs/` is not a post-release showcase, but the shared
+long-term memory of humans and agents. It answers four questions:
 
-1. Зачем существует система и какой outcome нужен?
-2. Что система обязана делать и не делать?
-3. Как она устроена и почему выбраны эти решения?
-4. Как её построить, проверить, выпустить и эксплуатировать?
+1. Why does the system exist and what outcome is needed?
+2. What must the system do and not do?
+3. How is it designed and why were these decisions chosen?
+4. How should it be built, tested, released, and operated?
 
-Код остаётся источником истины для текущей реализации, спецификация — для
-ожидаемого поведения, decision records — для rationale, runbooks — для
-операционных процедур. Нельзя объявлять один документ источником истины для
-всех видов знания.
+Code remains the source of truth for the current implementation, the
+specification for expected behavior, decision records for rationale, and
+runbooks for operating procedures. You must not declare one document to be the
+source of truth for all types of knowledge.
 
-## Рекомендуемая структура
+## Recommended Structure
 
 ```text
 docs/
-├── README.md                  # карта документации и правила использования
+├── README.md                  # documentation map and usage rules
 ├── product/                   # vision, outcomes, users, roadmap, bets
 ├── discovery/                 # research, interviews, hypotheses, experiments
 ├── requirements/              # functional, quality, constraints, traceability
@@ -39,28 +39,28 @@ docs/
 └── generated/                 # reproducible projections; do not edit manually
 ```
 
-Это расширяет Diátaxis — tutorials, how-to, reference и explanation —
-документами жизненного цикла продукта и агентной системы
-([Diátaxis](https://diataxis.fr/)). Не создавайте пустые папки заранее: дерево
-расширяется по фактическим потребностям.
+This extends Diataxis, including tutorials, how-to, reference, and explanation,
+with product and agent-system lifecycle documents
+([Diataxis](https://diataxis.fr/)). Do not create empty folders in advance: the
+tree grows according to actual needs.
 
-## Классы документов
+## Document Classes
 
-Каждый файл должен быть одним из классов:
+Each file must belong to one of these classes:
 
-| Класс | Примеры | Правило |
+| Class | Examples | Rule |
 |---|---|---|
-| Canonical | PRD, spec, API contract, policy | Единственный активный владелец истины данного типа |
-| Decision | ADR, governance decision | Append-mostly; supersede, не переписывать историю |
-| Operational | Runbook, rollback, incident plan | Проверять упражнениями и production signals |
-| Guidance | How-to, tutorial, explanation | Оптимизировать под задачу читателя |
-| Evidence | Test report, research, eval | Immutable snapshot с provenance |
-| Projection | Индекс, dashboard, generated API docs | Пересоздавать из canonical sources |
-| Ephemeral | Черновик, scratch analysis | TTL или явное архивирование |
+| Canonical | PRD, spec, API contract, policy | The single active owner of truth for that type |
+| Decision | ADR, governance decision | Append-mostly; supersede, do not rewrite history |
+| Operational | Runbook, rollback, incident plan | Validate through drills and production signals |
+| Guidance | How-to, tutorial, explanation | Optimize for the reader's task |
+| Evidence | Test report, research, eval | Immutable snapshot with provenance |
+| Projection | Index, dashboard, generated API docs | Regenerate from canonical sources |
+| Ephemeral | Draft, scratch analysis | TTL or explicit archival |
 
-## Метаданные документа
+## Document Metadata
 
-Canonical и operational документы SHOULD иметь frontmatter:
+Canonical and operational documents SHOULD have frontmatter:
 
 ```yaml
 ---
@@ -80,116 +80,118 @@ agent_access: read
 ---
 ```
 
-Для небольшого проекта достаточно owner, status, last_reviewed и links. Не
-добавляйте метаданные, которые никто не проверяет.
+For a small project, owner, status, last_reviewed, and links are enough. Do not
+add metadata that nobody verifies.
 
-## Как агенты работают с документацией
+## How Agents Work with Documentation
 
-### Перед задачей
+### Before the task
 
-1. Найти ближайшие `AGENTS.md`/runtime instructions.
-2. Прочитать `docs/README.md` и релевантный domain index.
-3. Определить canonical sources и проверить freshness.
-4. Загрузить только необходимые документы.
-5. Сообщить о конфликте документа с кодом, не выбирать молча.
+1. Find the nearest `AGENTS.md`/runtime instructions.
+2. Read `docs/README.md` and the relevant domain index.
+3. Identify canonical sources and check freshness.
+4. Load only the necessary documents.
+5. Report a document/code conflict rather than choosing silently.
 
-### Во время задачи
+### During the task
 
-- ссылаться на IDs и anchors, а не копировать длинные фрагменты;
-- фиксировать решения в ADR, а не только в conversation;
-- обновлять spec вместе с изменением намеренного поведения;
-- вести evidence и traceability;
-- не редактировать generated файлы напрямую;
-- соблюдать document ownership и write-set.
+- refer to IDs and anchors rather than copying long fragments;
+- record decisions in ADRs, not only in the conversation;
+- update the spec together with any intentional behavior change;
+- maintain evidence and traceability;
+- do not edit generated files directly;
+- follow document ownership and write-set constraints.
 
-### После задачи
+### After the task
 
-- обновить документы, затронутые поведением или операцией;
-- запустить docs checks;
-- отметить superseded/archived материалы;
-- сохранить evidence и release/change note;
-- проверить ссылки и отсутствие stale statements;
-- не объявлять завершение, если required documentation gate не пройден.
+- update documents affected by behavior or operations;
+- run docs checks;
+- mark superseded/archived materials;
+- save evidence and the release/change note;
+- verify links and the absence of stale statements;
+- do not declare completion if the required documentation gate has not passed.
 
-## Документация и код
+## Documentation and Code
 
-Используйте двустороннюю проверку:
+Use bidirectional validation:
 
-- **docs → code**: требования, interfaces и ADR подтверждены реализацией;
-- **code → docs**: публичные интерфейсы, deployment и runbooks отражают текущий
-  код.
+- **docs -> code**: requirements, interfaces, and ADRs are confirmed by the
+  implementation;
+- **code -> docs**: public interfaces, deployment, and runbooks reflect the
+  current code.
 
-GSD применяет doc verifier против live codebase; OpenSpec рекомендует review
-proposal/spec до кода и coherence verification после реализации; gstack
-генерирует Diátaxis-документы из shipped behavior. Общая практика: генерация
-помогает, но независимая фактическая проверка обязательна.
+GSD applies a doc verifier against the live codebase; OpenSpec recommends
+proposal/spec review before code and coherence verification after
+implementation; gstack generates Diataxis documents from shipped behavior. The
+shared practice is that generation helps, but independent factual verification
+is mandatory.
 
-## Иерархические инструкции
+## Hierarchical Instructions
 
-`AGENTS.md`, `CLAUDE.md` и Cursor rules — не замена `docs/`. Это компактный
-операционный index:
+`AGENTS.md`, `CLAUDE.md`, and Cursor rules are not a replacement for `docs/`.
+They are a compact operational index:
 
-- карта репозитория;
-- команды build/test/verify;
-- критические ограничения;
+- repository map;
+- build/test/verify commands;
+- critical constraints;
 - definition of done;
-- ссылки на подробные документы.
+- links to detailed documents.
 
-Инструкции SHOULD быть короткими и располагаться ближе к области действия.
-Codex загружает цепочку от глобального файла до текущей директории, причём
-ближайшие правила переопределяют общие
+Instructions SHOULD be short and placed close to their scope of action. Codex
+loads the chain from the global file to the current directory, with nearer rules
+overriding general ones
 ([AGENTS.md](https://learn.chatgpt.com/docs/agent-configuration/agents-md)).
-Не копируйте в каждый файл одну и ту же политику: держите каноническую версию и
-ссылки.
+Do not copy the same policy into every file: keep the canonical version and
+links.
 
-## Диаграммы
+## Diagrams
 
-Для архитектуры используйте минимально полезные уровни C4: system context и
-containers обычно достаточны; component и code — только где добавляют ценность
-([C4](https://c4model.com/diagrams)). Каждая диаграмма должна иметь:
+For architecture, use the minimally useful C4 levels: system context and
+containers are usually sufficient; component and code only where they add value
+([C4](https://c4model.com/diagrams)). Each diagram must have:
 
-- цель и аудиторию;
-- scope и уровень абстракции;
-- легенду;
-- подписанные отношения;
-- дату/версию;
-- link на source DSL;
+- purpose and audience;
+- scope and abstraction level;
+- legend;
+- labeled relationships;
+- date/version;
+- link to the source DSL;
 - owner.
 
-Не смешивайте разные уровни в одной «карте из коробок».
+Do not mix different levels in one "map of boxes."
 
-## Архитектурные решения
+## Architectural Decisions
 
-ADR фиксирует один значимый выбор: context, decision drivers, рассмотренные
-варианты, outcome, последствия и способ подтверждения. Используйте status
-`proposed/accepted/rejected/superseded/deprecated`. MADR даёт компактный
-Markdown-формат ([MADR](https://adr.github.io/madr/)).
+An ADR records one significant choice: context, decision drivers, considered
+options, outcome, consequences, and how it will be confirmed. Use status
+`proposed/accepted/rejected/superseded/deprecated`. MADR provides a compact
+Markdown format ([MADR](https://adr.github.io/madr/)).
 
-Агент MAY предложить ADR, но accountable human или policy owner принимает
-high-impact решение.
+An agent MAY propose an ADR, but an accountable human or policy owner makes the
+high-impact decision.
 
-## Docs quality gates
+## Docs Quality Gates
 
-- ссылки и anchors валидны;
-- обязательные metadata присутствуют;
-- нет необъяснённых TODO/placeholders;
-- code snippets исполняются или проверяются;
-- public API reference совпадает со schema;
-- владелец и freshness определены;
-- requirements имеют verification;
-- диаграммы рендерятся;
-- glossary terms используются согласованно;
-- sensitive data отсутствуют;
-- generated outputs воспроизводимы.
+- links and anchors are valid;
+- required metadata is present;
+- there are no unexplained TODOs/placeholders;
+- code snippets execute or are validated;
+- public API reference matches the schema;
+- owner and freshness are defined;
+- requirements have verification;
+- diagrams render;
+- glossary terms are used consistently;
+- sensitive data is absent;
+- generated outputs are reproducible.
 
-## Антипаттерны
+## Anti-patterns
 
-- свалка `docs/misc/` без index и owner;
-- дублирование одного требования в PRD, spec и plan без traceability;
-- огромный `AGENTS.md`, который пытается заменить всю документацию;
-- автогенерация текста без fact verification;
-- хранение живого state только в conversation;
-- удаление старого решения вместо `superseded`;
-- runbook, который никогда не выполнялся;
-- документирование внутренних деталей в behavioral spec;
-- обновление docs отдельной поздней фазой после релиза.
+- a `docs/misc/` dumping ground with no index and owner;
+- duplicating one requirement across PRD, spec, and plan without traceability;
+- a huge `AGENTS.md` that tries to replace all documentation;
+- auto-generated text without fact verification;
+- storing live state only in the conversation;
+- deleting an old decision instead of marking it `superseded`;
+- a runbook that has never been executed;
+- documenting internal details in a behavioral spec;
+- updating docs as a separate late phase after release.

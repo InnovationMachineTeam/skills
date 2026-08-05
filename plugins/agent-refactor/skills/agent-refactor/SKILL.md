@@ -2,7 +2,7 @@
 name: agent-refactor
 description: Assesses and safely changes the capability, ownership or topology boundaries of existing individual agents through merge, split, extraction, composition, promotion to a team, or public/private capability and documentation migration. Use when an agent has mixed missions, duplicated roles, unsafe authority coupling, excessive context, changing consumers, or needs a versioned topology migration. Do not tune a healthy agent, repair a local defect, design a new agent from scratch, silently rewrite teams or Agentic OS, move folders without consumer migration, or activate the result.
 metadata:
-  version: "1.0.2"
+  version: "1.0.3"
 ---
 
 # Refactor Agent Boundaries

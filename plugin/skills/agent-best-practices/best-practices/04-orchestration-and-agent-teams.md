@@ -1,91 +1,93 @@
-# Оркестрация и команды агентов
+# Orchestration and Agent Teams
 
-## Выбор control plane
+## Choosing the Control Plane
 
-| Control plane | Сильная сторона | Основной риск |
+| Control plane | Strength | Primary risk |
 |---|---|---|
-| Код / state machine | Предсказуемость, тестируемость, бюджет | Слабая адаптация к новому |
-| LLM-оркестратор | Динамическая декомпозиция и routing | Непредсказуемость и drift |
-| Гибрид | Код держит gates, LLM решает локально | Сложнее интерфейсы |
+| Code / state machine | Predictability, testability, budget control | Weak adaptation to novelty |
+| LLM orchestrator | Dynamic decomposition and routing | Unpredictability and drift |
+| Hybrid | Code holds the gates, LLM decides locally | Interfaces are more complex |
 
-По умолчанию используйте гибрид: программа владеет lifecycle, permissions,
-budgets и durable state; модель — классификацией, планированием и выбором внутри
-ограниченного набора действий. OpenAI Agents SDK явно разделяет LLM и code
-orchestration, а Google ADK предлагает deterministic sequential, parallel и loop
-workflows ([OpenAI](https://openai.github.io/openai-agents-python/multi_agent/),
+Use hybrid by default: the program owns lifecycle, permissions, budgets, and
+durable state; the model owns classification, planning, and selection within a
+limited action set. The OpenAI Agents SDK explicitly separates LLM and code
+orchestration, and Google ADK offers deterministic sequential, parallel, and
+loop workflows ([OpenAI](https://openai.github.io/openai-agents-python/multi_agent/),
 [Google ADK](https://adk.dev/agents/workflow-agents/)).
 
-## Основные топологии
+## Core Topologies
 
 ### Router
 
-Классифицирует запрос и передаёт его одному специалисту. Хорош для непересекающихся
-доменов. Routing output MUST быть типизирован, иметь confidence и fallback.
+Classifies the request and passes it to one specialist. Good for
+non-overlapping domains. Routing output MUST be typed and include confidence and
+fallback.
 
 ### Manager / agents as tools
 
-Менеджер остаётся владельцем диалога, вызывает специалистов и синтезирует
-результат. Выбирайте, когда нужна единая политика, тон ответа или финальная
-ответственность.
+The manager remains the owner of the dialog, invokes specialists, and
+synthesizes the result. Choose this when you need a unified policy, response
+tone, or final accountability.
 
 ### Handoff network
 
-Специалист получает контроль и может передать его дальше. Подходит для service
-triage, но требует защиты от ping-pong, максимума переходов и route history.
+A specialist gains control and can pass it on further. Suitable for service
+triage, but requires protection against ping-pong, a maximum number of
+transfers, and route history.
 
-### Orchestrator–workers
+### Orchestrator-workers
 
-Оркестратор динамически строит подзадачи, workers выполняют их, затем результат
-собирается и проверяется. Лучший случай — сложная работа, где число и тип частей
-неизвестны заранее.
+The orchestrator dynamically builds subtasks, workers execute them, and then the
+result is assembled and verified. Best suited to complex work where the number
+and type of parts are unknown in advance.
 
 ### Pipeline
 
-Последовательные узкие агенты: research → plan → implement → verify. Полезен,
-когда выход каждого шага является контрактным входом следующего.
+Sequential narrow agents: research -> plan -> implement -> verify. Useful when
+the output of each step is the contractual input of the next.
 
 ### Fan-out / fan-in
 
-Независимые специалисты работают параллельно, aggregator нормализует и
-разрешает конфликты. Используйте для разных источников, аспектов review или
+Independent specialists work in parallel, and an aggregator normalizes and
+resolves conflicts. Use this for multiple sources, review dimensions, or
 competing hypotheses.
 
-### Evaluator–optimizer
+### Evaluator-optimizer
 
-Producer улучшает артефакт по feedback evaluator до pass или бюджета. Критерии
-и лимит должны задаваться до запуска.
+The producer improves the artifact based on evaluator feedback until pass or
+budget limit. Criteria and limits must be defined before launch.
 
 ### Debate / jury
 
-Несколько независимых кандидатов и судья. Применяется там, где diversity
-обоснована evals. Участники не должны видеть ответы друг друга до первой оценки,
-иначе независимость фиктивна.
+Several independent candidates and a judge. Use where diversity is justified by
+evals. Participants must not see each other's answers before the first
+evaluation, or the independence is fake.
 
-## Команда агентов
+## Agent Team
 
-Команда нужна не для любой параллельности. В отличие от субагентов, peers могут
-координироваться напрямую и разделять task board. Это полезно для:
+A team is not needed for every kind of parallelism. Unlike subagents, peers can
+coordinate directly and share a task board. This is useful for:
 
-- параллельного исследования с обменом открытиями;
-- разделения frontend/backend/infra с чёткими interfaces;
-- проверки конкурирующих debugging hypotheses;
-- adversarial review, где критики оспаривают план друг друга;
-- длительных работ, где lead перераспределяет задачи.
+- parallel research with exchange of discoveries;
+- splitting frontend/backend/infra with clear interfaces;
+- validating competing debugging hypotheses;
+- adversarial review where critics challenge one another's plans;
+- long-running work where a lead reallocates tasks.
 
-Не используйте team для строгой последовательности, короткой задачи, сильного
-пересечения файлов или когда все решения должен принимать один контекст.
+Do not use a team for a strict sequence, a short task, heavy file overlap, or
+when one context must make all decisions.
 
-Claude рекомендует начинать с 3–5 teammates и нескольких чётких задач на
-каждого, но это платформенная эвристика, не универсальная норма
-([agent teams](https://code.claude.com/docs/en/agent-teams)). Начните с 2–3
-исполнителей и масштабируйте после измерения bottleneck.
+Claude recommends starting with 3-5 teammates and several clear tasks for each,
+but that is a platform heuristic, not a universal norm
+([agent teams](https://code.claude.com/docs/en/agent-teams)). Start with 2-3
+executors and scale after measuring the bottleneck.
 
-## Командный charter
+## Team Charter
 
-Перед запуском команда получает:
+Before launch, the team receives:
 
 ```yaml
-mission: Доказать готовность checkout к релизу
+mission: Prove checkout readiness for release
 lead: release-orchestrator
 members:
   - id: qa
@@ -106,69 +108,69 @@ exit:
   - release gate evaluated
 ```
 
-MUST определить lead, owners, каноническое состояние, протокол сообщений,
-write-set, merge owner и stop conditions.
+It MUST define the lead, owners, canonical state, message protocol, write-set,
+merge owner, and stop conditions.
 
-## Task graph и scheduler
+## Task Graph and Scheduler
 
-Каждая задача имеет:
+Each task has:
 
-- стабильный ID;
-- parent goal и acceptance criteria;
-- зависимости;
-- owner и lease;
-- risk class и approvals;
-- input/output refs;
-- status и timestamps;
-- attempt, budget и heartbeat;
-- evidence и terminal reason.
+- a stable ID;
+- parent goal and acceptance criteria;
+- dependencies;
+- owner and lease;
+- risk class and approvals;
+- input/output references;
+- status and timestamps;
+- attempt, budget, and heartbeat;
+- evidence and terminal reason.
 
-Scheduler MUST предотвращать двойное владение, проверять leases и не считать
-задачу завершённой по одному сообщению агента. Состояние переходов должно быть
-машиночитаемым и идемпотентным.
+The scheduler MUST prevent double ownership, validate leases, and must not treat
+a task as complete based on one agent message alone. State transitions must be
+machine-readable and idempotent.
 
 ## Workflow-as-code
 
-Когда сценарий повторяется или содержит десятки шагов, план переносится из
-prompt в version-controlled code. Claude Code workflows подчёркивают, что код
-держит план и промежуточное состояние, а в основной контекст возвращается
-финальный результат ([workflows](https://code.claude.com/docs/en/workflows)).
+When a scenario repeats or contains dozens of steps, move the plan from the
+prompt into version-controlled code. Claude Code workflows emphasize that code
+holds the plan and intermediate state, while only the final result returns to
+the main context ([workflows](https://code.claude.com/docs/en/workflows)).
 
-Workflow SHOULD иметь:
+Workflow SHOULD have:
 
-- dry-run и визуализацию плана;
-- deterministic gates и typed payloads;
+- dry-run and plan visualization;
+- deterministic gates and typed payloads;
 - checkpoints/resume;
-- retry и compensation policy;
-- unit tests для routing и transitions;
+- retry and compensation policy;
+- unit tests for routing and transitions;
 - trace correlation;
-- возможность отмены;
-- явный human-in-the-loop;
-- ограниченный набор разрешённых agents/tools.
+- cancellation support;
+- explicit human-in-the-loop;
+- a limited set of allowed agents/tools.
 
-Перед выполнением сгенерированного workflow человек должен видеть его raw plan,
-особенно side effects и сеть.
+Before executing a generated workflow, a human must see its raw plan, especially
+side effects and network usage.
 
-## Разрешение конфликтов
+## Conflict Resolution
 
-Aggregator не должен «усреднять» несовместимые результаты. Он:
+The aggregator must not "average out" incompatible results. It:
 
-1. нормализует claims и evidence;
-2. отличает factual conflict от различия предпочтений;
-3. проверяет authoritative sources и freshness;
-4. запрашивает дополнительное доказательство;
-5. применяет предопределённую policy;
-6. передаёт человеку high-impact неоднозначность.
+1. normalizes claims and evidence;
+2. distinguishes factual conflict from preference differences;
+3. checks authoritative sources and freshness;
+4. requests additional proof;
+5. applies predefined policy;
+6. hands high-impact ambiguity to a human.
 
-Решение фиксируется как ADR/decision record с отклонёнными альтернативами.
+The decision is recorded as an ADR/decision record with rejected alternatives.
 
-## Distributed-systems reality
+## Distributed-systems Reality
 
-Многоагентная система наследует проблемы распределённых систем: duplicate
-delivery, потерю сообщений, split brain, stale reads, network partition,
-cascading retries и orphan jobs. Microsoft рекомендует учитывать эти режимы до
-выбора multi-agent pattern
+A multi-agent system inherits distributed-systems problems: duplicate delivery,
+message loss, split brain, stale reads, network partition, cascading retries,
+and orphan jobs. Microsoft recommends accounting for these modes before choosing
+a multi-agent pattern
 ([Azure Architecture Center](https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/ai-agent-design-patterns)).
 
-Применяйте correlation IDs, idempotency keys, leases, heartbeats, durable queue,
-dead-letter state, backpressure, circuit breakers и reconciliation jobs.
+Apply correlation IDs, idempotency keys, leases, heartbeats, a durable queue,
+dead-letter state, backpressure, circuit breakers, and reconciliation jobs.

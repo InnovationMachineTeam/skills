@@ -1,9 +1,9 @@
-# Мастер-промпт навыка `agent-team-builder`
+# Master Prompt For The `agent-team-builder` Skill
 
-Применяй после [agent-skill-base.md](agent-skill-base.md). Создай skill, который
-материализует только approved `agent-team-spec` в staging, а затем генерирует
-project adapters. Он не меняет architecture, не выбирает новые роли и не
-активирует runtime.
+Apply after [agent-skill-base.md](agent-skill-base.md). Create a skill that
+materializes only the approved `agent-team-spec` in staging, then generates
+project adapters. It does not change the architecture, choose new roles, or
+activate the runtime.
 
 ## Build contract
 

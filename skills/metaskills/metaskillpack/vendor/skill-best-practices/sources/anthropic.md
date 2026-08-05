@@ -15,3 +15,7 @@ Describes the Claude API's current host contract: skills execute through a code-
 ## SRC-ANT-004 — Engineering article
 
 Provides architectural rationale: general agents need procedural and organizational knowledge packaged into discoverable folders; progressive loading makes expertise composable and scalable; portability reduces repeated prompt engineering. It is conceptual evidence, not the current API or schema contract.
+
+## SRC-ANT-005 — Claude 5 context-engineering guidance
+
+Reports that advanced Claude 5 models benefit from fewer overlapping blanket constraints, contextual judgment, progressive disclosure, simple tool descriptions, lightweight project instructions, and high-fidelity references such as code, tests, artifacts and rubrics. This is model-generation-specific engineering guidance rather than a portable skill standard. Apply it through capability evidence: retain explicit steps, schemas and checks for simpler or unvalidated models, while keeping safety and authority invariants identical across profiles.

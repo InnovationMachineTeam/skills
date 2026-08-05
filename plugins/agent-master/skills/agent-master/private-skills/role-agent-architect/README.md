@@ -2,42 +2,42 @@
 
 <!-- generated-skill-readme:start -->
 
-## Паспорт навыка
+## Skill Profile
 
-- **Назначение:** Creates one complete bounded specialist-agent specification from an approved process-orchestrator role, including inherited-skill audit, capability gaps, role contract, knowledge, tools, permissions, tasks, handoffs, self-review, Human-in-the-loop, errors, context, metrics, evals, agent card, and system prompt.
-- **Версия:** `1.0.2`.
-- **Видимость:** package-private: вызывается только родительским `agent-master` и не публикуется отдельно.
+- **Purpose:** Creates one complete bounded specialist-agent specification from an approved process-orchestrator role, including inherited-skill audit, capability gaps, role contract, knowledge, tools, permissions, tasks, handoffs, self-review, Human-in-the-loop, errors, context, metrics, evals, agent card, and system prompt.
+- **Version:** `1.0.3`.
+- **Visibility:** package-private: invoked only by its parent `agent-master` and not published separately.
 
-## Когда использовать
+## When To Use
 
-Используйте навык, когда запрос соответствует его назначению и границам ответственности из `SKILL.md`.
+Use the skill when the request matches its purpose and responsibility boundaries in `SKILL.md`.
 
-Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.
+Before running, provide the concrete goal, source artifacts, allowed changes, constraints, and acceptance criteria. If essential information is missing, the expected first result is clarification or a safe plan, not an unverified mutation.
 
-## Полный пример команды
+## Full Command Example
 
-Этот package-private навык не вызывается напрямую. Иллюстративный запрос передаётся через родительский `/agent-master`:
+This package-private skill is not invoked directly. The illustrative request is passed through its parent `/agent-master`:
 
 ```text
 /agent-master Agent-master dispatches the approved evidence-reviewer role with the orchestrator spec and its proposed skills.
 ```
 
-**Ожидаемый результат:** выбирается маршрут `role-agent-architect`; итог перечисляет созданные или изменённые артефакты, фактически выполненные проверки, ограничения, остаточные риски и следующий шаг. Наличие файлов само по себе не считается доказательством установки, активации или публикации.
-Прямой `/role-agent-architect` не является поддерживаемой публичной командой; родитель `agent-master` обязан передать ограниченный dispatch-контракт и проверить результат.
+**Expected result:** route `role-agent-architect` is selected; the result lists the created or modified artifacts, the checks actually performed, the constraints, residual risks, and the next step. The presence of files alone is not considered proof of installation, activation, or publication.
+Direct `/role-agent-architect` is not a supported public command; parent `agent-master` must pass a bounded dispatch contract and verify the result.
 
-## Варианты использования
+## Usage Variants
 
 ### approved-role
 
-- **Пример запроса:** “Agent-master dispatches the approved evidence-reviewer role with the orchestrator spec and its proposed skills.”
-- **Ожидаемый маршрут:** `role-agent-architect`.
+- **Example request:** “Agent-master dispatches the approved evidence-reviewer role with the orchestrator spec and its proposed skills.”
+- **Expected route:** `role-agent-architect`.
 
 
-## Ожидаемые результаты
+## Expected Results
 
 ### skill-audit
 
-Для запроса “The orchestrator proposes six overlapping skills for one reviewer role.” результат должен:
+For request “The orchestrator proposes six overlapping skills for one reviewer role.”, the result must:
 
 - audits every proposed skill;
 - explains merge, split, move, or exclusion;
@@ -45,7 +45,7 @@
 
 ### neighbor-boundary
 
-Для запроса “The role is an analyst, but the task asks it to approve a regulated release.” результат должен:
+For request “The role is an analyst, but the task asks it to approve a regulated release.”, the result must:
 
 - refuses approval authority;
 - creates a handoff or Human gate;
@@ -53,7 +53,7 @@
 
 ### complete-package
 
-Для запроса “Create the specialist agent package for an approved role.” результат должен:
+For request “Create the specialist agent package for an approved role.”, the result must:
 
 - returns role contract;
 - returns input/output and handoff contracts;
@@ -61,46 +61,46 @@
 - returns eval cases.
 
 
-## Как проходит выполнение
+## Execution Flow
 
-1. **Verify the handoff.** Выполняется соответствующий этап контракта из `SKILL.md`.
-2. **Audit inherited capabilities.** Выполняется соответствующий этап контракта из `SKILL.md`.
-3. **Specify bounded behavior.** Выполняется соответствующий этап контракта из `SKILL.md`.
-4. **Design interactions and recovery.** Выполняется соответствующий этап контракта из `SKILL.md`.
-5. **Evaluate and hand off.** Выполняется соответствующий этап контракта из `SKILL.md`.
+1. **Verify the handoff.** Execute the corresponding contract step from `SKILL.md`.
+2. **Audit inherited capabilities.** Execute the corresponding contract step from `SKILL.md`.
+3. **Specify bounded behavior.** Execute the corresponding contract step from `SKILL.md`.
+4. **Design interactions and recovery.** Execute the corresponding contract step from `SKILL.md`.
+5. **Evaluate and hand off.** Execute the corresponding contract step from `SKILL.md`.
 
-## Границы и неподходящие запросы
+## Boundaries And Unsuitable Requests
 
-Следующие примеры должны маршрутизироваться в другой навык или не запускать этот навык:
+The following examples should route to another skill or should not trigger this skill:
 
 - “Create some useful agents for my company.” → `agent-master`.
 - “Turn the approved evidence-triangulation capability into a skill package.” → `role-skill-architect`.
 
-Критические анти-результаты:
+Critical anti-results:
 
 - silently drops capabilities;
 - copies every proposal unchanged;
 - impersonates the approver;
 - claims runtime activation.
 
-## Зависимости
+## Dependencies
 
-Внешних зависимостей каталога нет. Родительский `agent-master` передаёт этому private-навыку только ограниченный dispatch-конверт и проверяет его результат.
+There are no external catalog dependencies. Parent `agent-master` passes only a bounded dispatch envelope to this private skill and verifies its result.
 
-## Ресурсы пакета
+## Package Resources
 
-- [`SKILL.md`](SKILL.md) — исполняемый контракт, маршрутизация и правила безопасности.
-- [`evals/`](evals/) — routing- и behavior-сценарии.
-- [`references/`](references/) — справочники, схемы и контракты.
+- [`SKILL.md`](SKILL.md) — executable contract, routing, and safety rules.
+- [`evals/`](evals/) — routing and behavior scenarios.
+- [`references/`](references/) — reference guides, schemas, and contracts.
 
-## Проверка результата
+## Result Verification
 
-- Сверьте маршрутизацию с [`evals/routing.json`](evals/routing.json).
-- Сверьте свойства результата с [`evals/behavior.json`](evals/behavior.json).
-- Для release-bound изменения дополнительно выполните репозиторную валидацию, полный unit-suite и проверку сгенерированных пакетов.
+- Compare routing against [`evals/routing.json`](evals/routing.json).
+- Compare result properties against [`evals/behavior.json`](evals/behavior.json).
+- For a release-bound change, also run repository validation, the full unit suite, and generated package verification.
 
-## Формат завершения
+## Completion Format
 
-Финальный ответ должен перечислить выбранный маршрут, фактические входы и допущения, созданные или изменённые артефакты, выполненные проверки, ожидаемый результат по сценарию, запрещённые или пропущенные действия, остаточные риски, состояние отката и точный следующий шаг. Наличие файлов само по себе не доказывает установку, активацию, публикацию или готовность к production.
+The final answer must list the selected route, actual inputs and assumptions, created or modified artifacts, checks performed, the expected scenario outcome, forbidden or skipped actions, residual risks, rollback status, and the exact next step. The presence of files alone does not prove installation, activation, publication, or production readiness.
 
 <!-- generated-skill-readme:end -->

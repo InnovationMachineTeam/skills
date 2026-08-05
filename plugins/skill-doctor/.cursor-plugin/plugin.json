@@ -1,14 +1,12 @@
 {
   "name": "skill-doctor",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Diagnoses unhealthy, unsafe or inconsistent skills and verifies minimal repairs",
   "homepage": "https://github.com/InnovationMachineTeam/skills",
   "repository": "https://github.com/InnovationMachineTeam/skills",
   "license": "Proprietary",
   "keywords": [
-    "agent-skills",
     "diagnostics",
-    "metaskills",
     "repair"
   ],
   "skills": "./skills/",

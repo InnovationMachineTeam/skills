@@ -2,7 +2,7 @@
 name: skill-doctor
 description: Diagnoses unhealthy, unsafe or inconsistent skills and verifies minimal repairs. Use for loading, routing, resource, script, tool, permission, recovery, validation, portability or regression failures, and for health or root-cause reports. Require a target, symptom and repair authority. Route independent evaluation to skill-evaluator and healthy performance or quality improvements to skill-optimizer.
 metadata:
-  version: "1.0.3"
+  version: "1.0.4"
 ---
 
 # Diagnose Agent Skills

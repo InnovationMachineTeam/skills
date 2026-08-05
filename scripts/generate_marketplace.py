@@ -74,6 +74,9 @@ def main() -> int:
                 "description": short_description(description),
                 "version": version,
                 "tags": sorted(set(["agent-skills", category, *item.get("tags", [])])),
+                "keywords": sorted(
+                    set(item.get("keywords", ["agent-skills", category, *item.get("tags", [])]))
+                ),
             }
         )
 
@@ -129,7 +132,7 @@ def main() -> int:
                 "homepage": distribution["repository_url"],
                 "repository": distribution["repository_url"],
                 "license": distribution["license"],
-                "keywords": item["tags"],
+                "keywords": item["keywords"],
                 "category": item["category"],
                 "tags": item["tags"],
             }

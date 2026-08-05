@@ -1,16 +1,16 @@
-# Оценка и непрерывное улучшение
+# Evaluation and Continuous Improvement
 
-## Оценивайте систему, а не красноречие
+## Evaluate the system, not eloquence
 
-Главная метрика — доля задач, где требуемый outcome доказан при допустимых
-риске, стоимости и времени. Отдельно оцениваются:
+The primary metric is the share of tasks where the required outcome is proven
+within acceptable risk, cost, and time. Also evaluate separately:
 
-1. отдельный агент;
+1. the individual agent;
 2. tool use;
 3. routing/delegation;
 4. handoff;
 5. workflow/team end-to-end;
-6. policy и approvals;
+6. policy and approvals;
 7. recovery;
 8. production impact.
 
@@ -25,114 +25,116 @@ tool/schema/policy unit tests
 static validation
 ```
 
-Нижние уровни быстрые и детерминированные; верхние реалистичнее, но дороже.
+Lower levels are faster and more deterministic; upper levels are more realistic
+but more expensive.
 
 ## Dataset
 
-Corpus SHOULD включать:
+The corpus SHOULD include:
 
 - representative happy paths;
 - ambiguous requests;
 - boundary/edge/error/recovery;
-- adversarial и prompt injection;
+- adversarial and prompt injection;
 - permission denials;
 - stale/conflicting context;
 - missing agent/tool;
 - timeout/cancel/retry;
-- parallel conflicts и duplicated work;
+- parallel conflicts and duplicated work;
 - long-running resume;
 - platform-specific cases;
-- реальные production failures.
+- real production failures.
 
-Разделяйте train/development и held-out regression set. Не подгоняйте prompt по
-held-out cases.
+Separate the train/development set and the held-out regression set. Do not tune
+the prompt on held-out cases.
 
 ## Rubric
 
-Пример dimension set:
+Example dimension set:
 
-| Dimension | Что измеряется |
+| Dimension | What is measured |
 |---|---|
-| Goal achievement | Достигнут ли observable outcome |
-| Correctness | Факты, расчёты, code behavior |
-| Completeness | Покрытие обязательных требований |
-| Grounding | Claims подтверждены источниками/evidence |
-| Scope discipline | Нет лишних действий |
-| Tool correctness | Выбор, аргументы, порядок, side effects |
-| Delegation quality | Правильные задачи и контекст |
-| Handoff quality | Полнота статуса и продолжения |
+| Goal achievement | Whether the observable outcome was achieved |
+| Correctness | Facts, calculations, code behavior |
+| Completeness | Coverage of mandatory requirements |
+| Grounding | Claims supported by sources/evidence |
+| Scope discipline | No unnecessary actions |
+| Tool correctness | Choice, arguments, order, side effects |
+| Delegation quality | Correct tasks and context |
+| Handoff quality | Completeness of status and continuation |
 | Safety | Policy, privacy, approvals, injection resistance |
-| Recovery | Ошибки, retries, cancel/resume |
-| Efficiency | Cost/latency/tool calls при успехе |
+| Recovery | Errors, retries, cancel/resume |
+| Efficiency | Cost/latency/tool calls at success |
 | Operability | Trace, artifacts, diagnosability |
 
-Для каждого score задайте behavioral anchors, а не только 1–5.
+For each score, define behavioral anchors, not just 1-5.
 
 ## Graders
 
-Используйте комбинацию:
+Use a combination of:
 
 - deterministic assertions;
 - schema validators;
 - test execution;
 - source/code comparison;
 - policy simulator;
-- LLM judge с rubric;
+- LLM judge with rubric;
 - pairwise comparison;
 - human/domain expert review.
 
-LLM judge не должен быть единственным судьёй для security, money, compliance и
-необратимых side effects. Проверяйте judge calibration и inter-rater agreement.
+An LLM judge must not be the sole judge for security, money, compliance, and
+irreversible side effects. Check judge calibration and inter-rater agreement.
 
-## Проверка оркестрации
+## Orchestration verification
 
-Тестируйте не только финальный ответ:
+Test not only the final answer:
 
-- router выбрал правильный path;
-- ненужный агент не был запущен;
-- context pack минимален и достаточен;
-- child permissions не расширились;
-- DAG и waves корректны;
+- the router selected the correct path;
+- an unnecessary agent was not launched;
+- the context pack is minimal and sufficient;
+- child permissions did not expand;
+- the DAG and waves are correct;
 - no duplicate write ownership;
-- aggregator сохранил dissent/evidence;
-- budget и max depth соблюдены;
-- failure не был замаскирован общим успехом;
-- cancel/retry/resume идемпотентны.
+- the aggregator preserved dissent/evidence;
+- the budget and max depth were respected;
+- failure was not masked by overall success;
+- cancel/retry/resume are idempotent.
 
 ## Team evals
 
-Сравнивайте team с single-agent baseline:
+Compare the team against a single-agent baseline:
 
 - quality lift;
-- latency и cost multiplier;
+- latency and cost multiplier;
 - coordination overhead;
 - conflict/duplicate rate;
 - critical-path speedup;
-- diversity/independence specialists;
+- diversity/independence of specialists;
 - synthesis loss;
 - operator intervention.
 
-Если team не даёт измеримого выигрыша, вернитесь к более простой архитектуре.
+If the team does not provide a measurable gain, return to a simpler
+architecture.
 
 ## Trigger/routing evals
 
-Набор positive, negative и near-miss prompts измеряет precision/recall. Особенно
-важны:
+A set of positive, negative, and near-miss prompts measures precision/recall.
+Especially important:
 
-- запросы, где agent MUST сработать;
-- похожие запросы, где срабатывать не должен;
-- конфликт нескольких agents;
-- недостаточный context;
-- explicit override пользователя;
+- requests where the agent MUST trigger;
+- similar requests where it must not trigger;
+- conflict between several agents;
+- insufficient context;
+- explicit user override;
 - multilingual/paraphrase cases.
 
 ## Security evals
 
 - direct/indirect prompt injection;
-- exfiltration через tool arguments/output;
-- privilege escalation и confused deputy;
+- exfiltration via tool arguments/output;
+- privilege escalation and confused deputy;
 - malicious memory/doc/tool/agent card;
-- approval replay или digest mismatch;
+- approval replay or digest mismatch;
 - unsafe handoff;
 - network allowlist bypass;
 - unsafe code execution;
@@ -140,37 +142,37 @@ LLM judge не должен быть единственным судьёй дл�
 - resource exhaustion;
 - emergency revoke.
 
-Связывайте их с OWASP Agentic Top 10 и локальным threat model.
+Link them to the OWASP Agentic Top 10 and the local threat model.
 
 ## Efficiency optimization
 
-OpenAI рекомендует сначала установить quality baseline на сильной модели, затем
-заменять её более дешёвой там, где eval target сохраняется
+OpenAI recommends first establishing a quality baseline on a strong model, then
+replacing it with a cheaper one where the eval target is preserved
 ([guide](https://openai.com/business/guides-and-resources/a-practical-guide-to-building-ai-agents/)).
 
-Оптимизируйте по порядку:
+Optimize in this order:
 
-1. устранить ненужные calls/tools/agents;
-2. улучшить routing и context retrieval;
-3. уменьшить variable outputs;
-4. кэшировать стабильный context;
-5. подобрать модель по узлу DAG;
-6. параллелить только critical path;
-7. сокращать retries через descriptive errors.
+1. remove unnecessary calls/tools/agents;
+2. improve routing and context retrieval;
+3. reduce variable outputs;
+4. cache stable context;
+5. choose the model per DAG node;
+6. parallelize only the critical path;
+7. reduce retries through descriptive errors.
 
-## Release gate агента
+## Agent release gate
 
-Перед новой версией:
+Before a new version:
 
 - static/schema checks pass;
 - unit/tool/policy tests pass;
-- held-out eval не регрессировал сверх budget;
+- the held-out eval has not regressed beyond budget;
 - critical safety cases pass;
-- cost/latency в envelope;
-- docs/contract/changelog обновлены;
-- compatibility и migration проверены;
-- canary cohort и rollback определены;
-- owner/approver подписали evidence bundle.
+- cost/latency remain within the envelope;
+- docs/contract/changelog are updated;
+- compatibility and migration are checked;
+- canary cohort and rollback are defined;
+- owner/approver sign the evidence bundle.
 
 ## Production learning loop
 
@@ -185,8 +187,9 @@ trace/feedback/incident
   → monitor
 ```
 
-Не изменяйте prompt вслепую по единичному примеру. Сначала классифицируйте слой
-причины; часто проблема в tool contract, stale docs или permissions.
+Do not change a prompt blindly based on a single example. First classify the
+causal layer; often the problem is the tool contract, stale docs, or
+permissions.
 
 ## Eval report
 
@@ -206,4 +209,5 @@ trace/feedback/incident
 ## Follow-up owners
 ```
 
-Results без версии prompt/model/tools/policy и dataset digest невоспроизводимы.
+Results without the prompt/model/tools/policy version and dataset digest are not
+reproducible.

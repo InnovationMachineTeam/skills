@@ -1,6 +1,6 @@
-# Мастер-промпт навыка `agent-policy-manager`
+# Master Prompt For The `agent-policy-manager` Skill
 
-Применяй после [agent-os-base.md](agent-os-base.md). Создай assurance/control
+Apply after [agent-os-base.md](agent-os-base.md). Create an assurance/control
 skill for policy lifecycle and approval enforcement. LLM instructions may
 request actions but never enforce permission alone.
 

@@ -2,47 +2,47 @@
 
 <!-- generated-skill-readme:start -->
 
-## Паспорт навыка
+## Skill Profile
 
-- **Назначение:** Explicit composite toolkit for the version-locked individual-agent lifecycle skills.
-- **Версия:** `1.0.2`.
-- **Видимость:** public: канонический навык каталога; фактическая активация зависит от целевого host.
-- **Теги каталога:** `agents`, `orchestration`, `composite`, `lifecycle`.
+- **Purpose:** Explicit composite toolkit for the version-locked individual-agent lifecycle skills.
+- **Version:** `1.0.3`.
+- **Visibility:** public: canonical catalog skill; actual activation depends on the target host.
+- **Catalog tags:** `agents`, `orchestration`, `composite`, `lifecycle`.
 
-## Когда использовать
+## When To Use
 
-Используйте навык, когда запрос соответствует его назначению и границам ответственности из `SKILL.md`.
+Use the skill when the request matches its purpose and responsibility boundaries in `SKILL.md`.
 
-Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.
+Before running, provide the concrete goal, source artifacts, allowed changes, constraints, and acceptance criteria. If essential information is missing, the expected first result is clarification or a safe plan, not an unverified mutation.
 
-## Полный пример команды
+## Full Command Example
 
-Иллюстративный полный вызов; адаптируйте пути, ограничения и критерии приёмки к своей задаче:
+Illustrative full invocation; adapt the paths, constraints, and acceptance criteria to your task:
 
 ```text
-/agentkit agentkit e2e all для проверки всех команд
+/agentkit agentkit e2e all to verify all commands
 ```
 
-**Ожидаемый результат:** выбирается маршрут `e2e`; итог перечисляет созданные или изменённые артефакты, фактически выполненные проверки, ограничения, остаточные риски и следующий шаг. Наличие файлов само по себе не считается доказательством установки, активации или публикации.
+**Expected result:** route `e2e` is selected; the result lists the created or modified artifacts, the checks actually performed, the constraints, residual risks, and the next step. The presence of files alone is not considered proof of installation, activation, or publication.
 
-## Варианты использования
+## Usage Variants
 
 ### route-explicit-e2e
 
-- **Пример запроса:** “agentkit e2e all для проверки всех команд”
-- **Ожидаемый маршрут:** `e2e`.
+- **Example request:** “agentkit e2e all to verify all commands”
+- **Expected route:** `e2e`.
 
 ### route-explicit-architect
 
-- **Пример запроса:** “$agentkit architect создай контракт агента архитектора”
-- **Ожидаемый маршрут:** `architect`.
+- **Example request:** “$agentkit architect create an architect agent contract”
+- **Expected route:** `architect`.
 
 
-## Ожидаемые результаты
+## Expected Results
 
 ### behavior-load-one-donor
 
-Для запроса “agentkit evaluate ./agent.json” результат должен:
+For request “agentkit evaluate ./agent.json”, the result must:
 
 - Selects agent-evaluator only;
 - Reports locked donor version and hash;
@@ -50,7 +50,7 @@
 
 ### behavior-e2e-donor-approval
 
-Для запроса “agentkit e2e all; один тест показал улучшение для agent-optimizer” результат должен:
+For request “agentkit e2e all; one test showed an improvement for agent-optimizer”, the result must:
 
 - Classifies ownership from evidence;
 - Shows exact donor and proposed staged process;
@@ -58,7 +58,7 @@
 
 ### behavior-run-choice
 
-Для запроса “agentkit run создать и проверить нового агента” результат должен:
+For request “agentkit run create and validate a new agent”, the result must:
 
 - Presents two to four workflows;
 - Names gates and mutations;
@@ -66,31 +66,31 @@
 
 ### behavior-drift-fails-closed
 
-Для запроса “agentkit upgrade при отсутствующем agent-doctor” результат должен:
+For request “agentkit upgrade when agent-doctor is missing”, the result must:
 
 - Reports missing donor;
 - Blocks automatic upgrade;
 - Preserves the current stable pack.
 
 
-## Как проходит выполнение
+## Execution Flow
 
-1. **Parse the command.** Выполняется соответствующий этап контракта из `SKILL.md`.
-2. **Dispatch a donor.** Выполняется соответствующий этап контракта из `SKILL.md`.
-3. **Run a workflow.** Выполняется соответствующий этап контракта из `SKILL.md`.
-4. **Execute E2E evaluation.** Выполняется соответствующий этап контракта из `SKILL.md`.
-5. **Check status and upgrade.** Выполняется соответствующий этап контракта из `SKILL.md`.
-6. **Complete safely.** Выполняется соответствующий этап контракта из `SKILL.md`.
+1. **Parse the command.** Execute the corresponding contract step from `SKILL.md`.
+2. **Dispatch a donor.** Execute the corresponding contract step from `SKILL.md`.
+3. **Run a workflow.** Execute the corresponding contract step from `SKILL.md`.
+4. **Execute E2E evaluation.** Execute the corresponding contract step from `SKILL.md`.
+5. **Check status and upgrade.** Execute the corresponding contract step from `SKILL.md`.
+6. **Complete safely.** Execute the corresponding contract step from `SKILL.md`.
 
-## Границы и неподходящие запросы
+## Boundaries And Unsuitable Requests
 
-Следующие примеры должны маршрутизироваться в другой навык или не запускать этот навык:
+The following examples should route to another skill or should not trigger this skill:
 
-- “Создай одного агента для ревью архитектуры” → `agent-architect`.
-- “Спроектируй команду агентов и их взаимодействие” → `agent-team-architect`.
-- “Запусти metaskillpack doctor для skill-optimizer” → `metaskillpack`.
+- “Create a single agent for architecture review” → `agent-architect`.
+- “Design a team of agents and their interactions” → `agent-team-architect`.
+- “Run metaskillpack doctor for skill-optimizer” → `metaskillpack`.
 
-Критические анти-результаты:
+Critical anti-results:
 
 - Loads all donor bodies;
 - Invokes agentkit recursively;
@@ -103,33 +103,33 @@
 - Fetches a replacement automatically;
 - Deletes the rollback version.
 
-## Зависимости
+## Dependencies
 
-Обязательные companion-навыки в каноническом dependency-графе не объявлены. Проверяйте доступность host-инструментов и ресурсов, на которые ссылается `SKILL.md`.
+No required companion skills are declared in the canonical dependency graph. Check the availability of host tools and resources referenced by `SKILL.md`.
 
-## Ресурсы пакета
+## Package Resources
 
-- [`SKILL.md`](SKILL.md) — исполняемый контракт, маршрутизация и правила безопасности.
-- [`agents/`](agents/) — UI-метаданные и host-конфигурация.
-- [`evals/`](evals/) — routing- и behavior-сценарии.
-- [`prompts/`](prompts/) — маршрутные и специализированные промпты.
-- [`references/`](references/) — справочники, схемы и контракты.
-- [`scripts/`](scripts/) — детерминированные проверки и автоматизация.
-- [`vendor/`](vendor/) — зафиксированный снимок зависимых компонентов.
+- [`SKILL.md`](SKILL.md) — executable contract, routing, and safety rules.
+- [`agents/`](agents/) — UI metadata and host configuration.
+- [`evals/`](evals/) — routing and behavior scenarios.
+- [`prompts/`](prompts/) — routing and specialist prompts.
+- [`references/`](references/) — reference guides, schemas, and contracts.
+- [`scripts/`](scripts/) — deterministic checks and automation.
+- [`vendor/`](vendor/) — pinned snapshot of dependent components.
 
-## Проверка результата
+## Result Verification
 
-- Сверьте маршрутизацию с [`evals/routing.json`](evals/routing.json).
-- Сверьте свойства результата с [`evals/behavior.json`](evals/behavior.json).
-- Для детерминированной проверки используйте [`scripts/build_rollback_plan.py`](scripts/build_rollback_plan.py) согласно его `--help` и контракту навыка.
-- Для детерминированной проверки используйте [`scripts/build_vendor_snapshot.py`](scripts/build_vendor_snapshot.py) согласно его `--help` и контракту навыка.
-- Для детерминированной проверки используйте [`scripts/check_donors.py`](scripts/check_donors.py) согласно его `--help` и контракту навыка.
-- Для детерминированной проверки используйте [`scripts/classify_e2e_findings.py`](scripts/classify_e2e_findings.py) согласно его `--help` и контракту навыка.
-- Для детерминированной проверки используйте [`scripts/record_real_workflow.py`](scripts/record_real_workflow.py) согласно его `--help` и контракту навыка.
-- Для release-bound изменения дополнительно выполните репозиторную валидацию, полный unit-suite и проверку сгенерированных пакетов.
+- Compare routing against [`evals/routing.json`](evals/routing.json).
+- Compare result properties against [`evals/behavior.json`](evals/behavior.json).
+- For deterministic verification, use [`scripts/build_rollback_plan.py`](scripts/build_rollback_plan.py) according to its `--help` output and the skill contract.
+- For deterministic verification, use [`scripts/build_vendor_snapshot.py`](scripts/build_vendor_snapshot.py) according to its `--help` output and the skill contract.
+- For deterministic verification, use [`scripts/check_donors.py`](scripts/check_donors.py) according to its `--help` output and the skill contract.
+- For deterministic verification, use [`scripts/classify_e2e_findings.py`](scripts/classify_e2e_findings.py) according to its `--help` output and the skill contract.
+- For deterministic verification, use [`scripts/record_real_workflow.py`](scripts/record_real_workflow.py) according to its `--help` output and the skill contract.
+- For a release-bound change, also run repository validation, the full unit suite, and generated package verification.
 
-## Формат завершения
+## Completion Format
 
-Финальный ответ должен перечислить выбранный маршрут, фактические входы и допущения, созданные или изменённые артефакты, выполненные проверки, ожидаемый результат по сценарию, запрещённые или пропущенные действия, остаточные риски, состояние отката и точный следующий шаг. Наличие файлов само по себе не доказывает установку, активацию, публикацию или готовность к production.
+The final answer must list the selected route, actual inputs and assumptions, created or modified artifacts, checks performed, the expected scenario outcome, forbidden or skipped actions, residual risks, rollback status, and the exact next step. The presence of files alone does not prove installation, activation, publication, or production readiness.
 
 <!-- generated-skill-readme:end -->

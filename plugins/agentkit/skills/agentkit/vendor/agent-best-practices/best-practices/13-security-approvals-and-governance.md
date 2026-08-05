@@ -1,47 +1,47 @@
-# Безопасность, approvals и governance
+# Security, Approvals, and Governance
 
-## Модель угроз
+## Threat model
 
-Агентная система расширяет классический threat model:
+An agentic system expands the classic threat model:
 
 - goal/prompt hijacking;
-- tool misuse и unexpected code execution;
+- tool misuse and unexpected code execution;
 - identity/privilege abuse;
-- malicious agent, tool, skill, MCP/A2A или dependency;
+- malicious agent, tool, skill, MCP/A2A, or dependency;
 - memory/context poisoning;
-- sensitive data leakage через prompts, tools, logs и artifacts;
+- sensitive data leakage via prompts, tools, logs, and artifacts;
 - insecure inter-agent communication;
-- denial of service и resource exhaustion;
-- cascading failures и rogue loops;
+- denial of service and resource exhaustion;
+- cascading failures and rogue loops;
 - human-agent trust exploitation;
-- supply-chain substitution и version drift.
+- supply-chain substitution and version drift.
 
-OWASP Top 10 for Agentic Applications покрывает эти классы и должен
-использоваться как baseline, но не заменяет domain threat model
+OWASP Top 10 for Agentic Applications covers these classes and should be used
+as a baseline, but it does not replace the domain threat model
 ([OWASP](https://genai.owasp.org/2025/12/09/owasp-top-10-for-agentic-applications-the-benchmark-for-agentic-security-in-the-age-of-autonomous-ai/)).
 
-## Непересекающиеся security boundaries
+## Non-overlapping security boundaries
 
-Разделяйте:
+Separate:
 
 - model instructions;
 - deterministic policy enforcement;
 - sandbox/process isolation;
 - filesystem/worktree isolation;
 - network egress;
-- identity и credentials;
+- identity and credentials;
 - data authorization;
 - human approval;
 - audit.
 
-Prompt-запрет не является access control. Worktree не является sandbox.
-Guardrail classifier не заменяет authentication, authorization и стандартную
-software security; это также подчёркивает OpenAI
+A prompt prohibition is not access control. A worktree is not a sandbox.
+A guardrail classifier does not replace authentication, authorization, and
+standard software security; OpenAI emphasizes this as well
 ([guide](https://openai.com/business/guides-and-resources/a-practical-guide-to-building-ai-agents/)).
 
 ## Least privilege
 
-Каждый run получает минимальные:
+Each run receives the minimum:
 
 - tools;
 - filesystem paths;
@@ -52,113 +52,114 @@ software security; это также подчёркивает OpenAI
 - duration;
 - delegation depth.
 
-Permissions SHOULD быть capability-based и привязаны к run/task. Не выдавайте
-долгоживущий универсальный токен команде агентов. Потомок не может расширить
-authority родителя.
+Permissions SHOULD be capability-based and bound to the run/task. Do not issue a
+long-lived universal token to an agent team. A descendant cannot expand the
+parent's authority.
 
 ## Risk-classified tools
 
-| Риск | Пример | Policy |
+| Risk | Example | Policy |
 |---|---|---|
 | Low | Read public docs | auto |
 | Medium | Local reversible edit | sandbox + log |
 | High | Push branch, update ticket | preview + scoped approval/policy |
 | Critical | Public release, prod delete, payment | accountable human + exact digest + dual control |
 
-Оценка учитывает read/write, reversibility, blast radius, data sensitivity,
-financial/reputational impact и externality.
+Assessment accounts for read/write, reversibility, blast radius, data
+sensitivity, financial/reputational impact, and externality.
 
 ## Approval protocol
 
-Approval MUST быть:
+Approval MUST be:
 
-- информированным: intent, exact action, target, diff, risk, alternatives;
+- informed: intent, exact action, target, diff, risk, alternatives;
 - scoped: tool, resource, parameters, duration;
-- bound: digest/version, чтобы последующее изменение аннулировало approval;
-- attributable: approver identity и authority;
-- revocable и auditable;
-- fail-closed при ambiguity.
+- bound: digest/version, so a later change invalidates the approval;
+- attributable: approver identity and authority;
+- revocable and auditable;
+- fail-closed under ambiguity.
 
-Policy change из рассматриваемого change не может ослабить собственный gate.
-Cursor Approval Agents применяют base policy и exact-path policies; при
-неоднозначности требуют более строгий режим
+A policy change from the change under review cannot weaken its own gate. Cursor
+Approval Agents apply base policy and exact-path policies; under ambiguity they
+require the stricter mode
 ([docs](https://cursor.com/docs/approval-agents)).
 
-LLM approval agent MAY подготовить recommendation, но не заменяет accountable
-human для critical действий.
+An LLM approval agent MAY prepare a recommendation, but it does not replace the
+accountable human for critical actions.
 
-## Prompt injection и недоверенный контент
+## Prompt injection and untrusted content
 
-- считать web, issue, PDF, code comments, tool outputs и messages данными, а не
-  инструкциями;
-- отделять system/task instructions от retrieved content;
-- маркировать provenance и trust level;
-- не исполнять команды из content без policy и user intent;
-- минимизировать доступ tools у reader/researcher;
-- применять output encoding/validation перед downstream tools;
-- использовать canary tokens и anomaly detection;
-- проверять indirect injection в memory и docs;
-- не позволять одному недоверенному источнику изменять policy/memory.
+- treat web pages, issues, PDFs, code comments, tool outputs, and messages as
+  data, not instructions;
+- separate system/task instructions from retrieved content;
+- label provenance and trust level;
+- do not execute commands from content without policy and user intent;
+- minimize tool access for reader/researcher roles;
+- apply output encoding/validation before downstream tools;
+- use canary tokens and anomaly detection;
+- check indirect injection into memory and docs;
+- do not let one untrusted source change policy/memory.
 
-## Sandbox и worktree
+## Sandbox and worktree
 
-Write-capable агент запускается в disposable environment с:
+A write-capable agent runs in a disposable environment with:
 
-- ограниченным filesystem;
+- restricted filesystem;
 - process/resource limits;
 - scoped network egress;
 - ephemeral runtime secrets;
 - clean dependency/bootstrap path;
 - artifact export allowlist;
 - signed commits/provenance;
-- human review перед merge.
+- human review before merge.
 
-Cursor Cloud Agents используют отдельные microVM, но сами предупреждают, что
-auto-run commands и internet создают риск injection/exfiltration
+Cursor Cloud Agents use separate microVMs, but they explicitly warn that
+auto-run commands and internet access create injection/exfiltration risk
 ([security](https://cursor.com/docs/cloud-agent/security),
 [network](https://cursor.com/docs/cloud-agent/security-network)).
 
-Worktree решает collision и branch isolation. Дополнительно проверяйте root,
-branch, lease и main checkout. Shared `.git`, plugins и approvals могут
-оставаться общими.
+Worktree solves collision and branch isolation. Also verify the root, branch,
+lease, and main checkout. Shared `.git`, plugins, and approvals may still be
+common.
 
 ## Network policy
 
-- deny by default для high-risk runs;
-- allowlist exact domains/ports, не широкие wildcards;
-- separate build-time и runtime access;
-- egress proxy с identity и audit;
-- запрет metadata endpoints и private networks без необходимости;
+- deny by default for high-risk runs;
+- allowlist exact domains/ports, not broad wildcards;
+- separate build-time and runtime access;
+- egress proxy with identity and audit;
+- block metadata endpoints and private networks unless needed;
 - DNS rebinding/redirect checks;
 - download size/type/digest limits;
-- secrets не попадают в URLs или logs;
-- внешние agents проходят authentication, authorization и capability validation.
+- secrets do not appear in URLs or logs;
+- external agents undergo authentication, authorization, and capability
+  validation.
 
-MCP применяется для tools/data, A2A — для opaque cross-platform agents; оба
-требуют identity, contracts и least privilege, а не только protocol compliance.
+MCP is used for tools/data, A2A for opaque cross-platform agents; both require
+identity, contracts, and least privilege, not just protocol compliance.
 
 ## Supply chain
 
-- pin versions и digests;
+- pin versions and digests;
 - verify signatures/provenance;
-- registry lifecycle и revocation;
-- manifest capabilities сверяются с фактической регистрацией;
-- dependency/tool descriptions проходят review;
-- eval/security scan до activation;
+- registry lifecycle and revocation;
+- manifest capabilities are checked against actual registration;
+- dependency/tool descriptions pass review;
+- eval/security scan before activation;
 - canary rollout;
-- inventory всех активных agent, skill, tool, MCP и A2A endpoints;
-- emergency disable без обновления prompt.
+- inventory of all active agent, skill, tool, MCP, and A2A endpoints;
+- emergency disable without prompt updates.
 
-## Memory и logs
+## Memory and logs
 
-Memory write — привилегированное действие. Требуйте provenance, sanitization,
-scope, TTL и reviewer. Sensitive trace content по умолчанию отключается или
-редактируется; OpenAI отмечает, что generation и function spans могут хранить
+Memory writes are privileged actions. Require provenance, sanitization, scope,
+TTL, and a reviewer. Sensitive trace content is disabled or redacted by
+default; OpenAI notes that generation and function spans may store
 inputs/outputs ([tracing](https://openai.github.io/openai-agents-python/tracing/)).
 
 ## Governance
 
-Определите RACI для:
+Define RACI for:
 
 - agent owner;
 - tool/data owner;
@@ -169,30 +170,30 @@ inputs/outputs ([tracing](https://openai.github.io/openai-agents-python/tracing/
 - publisher/release owner;
 - compliance/privacy/security reviewers.
 
-Governance решает alignment и accountability, а не повторяет QA. ADLC помещает
-человека в слой Govern: агент генерирует и валидирует, человек отвечает за
-стратегическое решение
+Governance resolves alignment and accountability rather than repeating QA. ADLC
+places the human in the Govern layer: the agent generates and validates, the
+human is responsible for the strategic decision
 ([ADLC](https://www.adlc.io/)).
 
 ## Security gates
 
-До activation:
+Before activation:
 
 - threat model;
 - tool/permission diff;
 - prompt injection tests;
 - negative authorization tests;
 - sandbox/network tests;
-- provenance и dependency scan;
+- provenance and dependency scan;
 - audit completeness;
 - emergency stop drill;
 - misuse evals.
 
-После activation:
+After activation:
 
 - anomaly detection;
 - privilege/use review;
-- incident feedback в evals;
+- incident feedback into evals;
 - version drift detection;
 - periodic access recertification;
 - revoke stale/unowned agents.

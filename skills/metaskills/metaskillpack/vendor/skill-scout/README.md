@@ -1,10 +1,10 @@
 # skill-scout
 
-`skill-scout` находит потенциально полезные навыки в текущей сессии, явно переданных экспортированных сессиях, документах, репозиториях и истории задач. Он проверяет существующее покрытие и решает, нужно ли создавать новый навык, расширять существующий, использовать готовый навык, автоматизацию или оставить задачу ad hoc.
+`skill-scout` finds potentially useful skills in the current session, explicitly provided exported sessions, documents, repositories, and task history. It checks existing coverage and decides whether to create a new skill, extend an existing one, use a ready-made skill, use automation, or keep the task ad hoc.
 
-Навык не создаёт и не устанавливает другие навыки.
+The skill does not create or install other skills.
 
-## Решения
+## Decisions
 
 - `CREATE_NEW`
 - `EXTEND_EXISTING`
@@ -13,13 +13,13 @@
 - `KEEP_AD_HOC`
 - `RESEARCH`
 
-## Основной результат
+## Primary output
 
-- ранжированный отчёт возможностей;
-- `opportunities.json` с evidence, coverage, context plan, рисками и eval-планом;
-- bounded handoff для `skill-harvester`, `skill-architect`, `skill-optimizer` или `skill-manager`.
+- ranked opportunity report;
+- `opportunities.json` with evidence, coverage, context plan, risks, and an eval plan;
+- bounded handoff for `skill-harvester`, `skill-architect`, `skill-optimizer`, or `skill-manager`.
 
-## Проверки
+## Verification
 
 ```bash
 python3 scripts/validate_opportunities.py opportunities.json
@@ -27,82 +27,82 @@ python3 scripts/rank_opportunities.py opportunities.json
 python3 scripts/check_evals.py evals
 ```
 
-Числовой рейтинг используется только для последовательной сортировки и не доказывает спрос, ROI, безопасность или разрешение на создание.
+The numeric score is used only for stable ordering and does not prove demand, ROI, safety, or permission to create.
 
 <!-- generated-skill-readme:start -->
 
-## Паспорт навыка
+## Skill Profile
 
-- **Назначение:** Identifies and prioritizes worthwhile agent-skill opportunities from the current session, explicitly supplied session exports, task histories, documents, repositories, observations, and recurring user work.
-- **Версия:** `1.1.2`.
-- **Видимость:** public: канонический навык каталога; фактическая активация зависит от целевого host.
-- **Теги каталога:** `discovery`, `planning`.
+- **Purpose:** Identifies and prioritizes worthwhile agent-skill opportunities from the current session, explicitly supplied session exports, task histories, documents, repositories, observations, and recurring user work.
+- **Version:** `1.1.3`.
+- **Visibility:** public: canonical catalog skill; actual activation depends on the target host.
+- **Catalog tags:** `discovery`, `planning`.
 
-## Когда использовать
+## When To Use
 
 A user asks what skills they should create, whether repeated tasks or insights justify a reusable skill, what an article or corpus could become, or which gaps in an existing skill portfolio deserve investment. Check existing local and public skill coverage, estimate context and maintenance implications, and recommend CREATE_NEW, EXTEND_EXISTING, USE_EXISTING, USE_AUTOMATION, KEEP_AD_HOC, or RESEARCH. Do not create, install, or modify skills; route approved opportunities downstream.
 
-Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.
+Before running, provide the concrete goal, source artifacts, allowed changes, constraints, and acceptance criteria. If essential information is missing, the expected first result is clarification or a safe plan, not an unverified mutation.
 
-## Полный пример команды
+## Full Command Example
 
-Иллюстративный полный вызов; адаптируйте пути, ограничения и критерии приёмки к своей задаче:
+Illustrative full invocation; adapt the paths, constraints, and acceptance criteria to your task:
 
 ```text
 /skill-scout Use $skill-scout and tell me what skill to build.
 ```
 
-**Ожидаемый результат:** выбирается маршрут `clarify`; итог перечисляет созданные или изменённые артефакты, фактически выполненные проверки, ограничения, остаточные риски и следующий шаг. Наличие файлов само по себе не считается доказательством установки, активации или публикации.
+**Expected result:** route `clarify` is selected; the result lists the created or modified artifacts, the checks actually performed, the constraints, residual risks, and the next step. The presence of files alone is not considered proof of installation, activation, or publication.
 
-## Варианты использования
+## Usage Variants
 
 ### explicit-no-evidence
 
-- **Пример запроса:** “Use $skill-scout and tell me what skill to build.”
-- **Ожидаемый маршрут:** `clarify`.
+- **Example request:** “Use $skill-scout and tell me what skill to build.”
+- **Expected route:** `clarify`.
 
 ### current-session
 
-- **Пример запроса:** “Analyze this conversation and suggest reusable skill opportunities from repeated work.”
-- **Ожидаемый маршрут:** `session-insights`.
-- **Ожидаемое действие:** `scout`.
+- **Example request:** “Analyze this conversation and suggest reusable skill opportunities from repeated work.”
+- **Expected route:** `session-insights`.
+- **Expected action:** `scout`.
 
 ### session-corpus
 
-- **Пример запроса:** “Mine these exported sessions and task reports for recurring capability gaps.”
-- **Ожидаемый маршрут:** `corpus-mining`.
-- **Ожидаемое действие:** `scout`.
+- **Example request:** “Mine these exported sessions and task reports for recurring capability gaps.”
+- **Expected route:** `corpus-mining`.
+- **Expected action:** `scout`.
 
 ### check-existing
 
-- **Пример запроса:** “Before recommending a new skill, check local roots and skills.sh for actual coverage.”
-- **Ожидаемый маршрут:** `existing-coverage`.
-- **Ожидаемое действие:** `scout`.
+- **Example request:** “Before recommending a new skill, check local roots and skills.sh for actual coverage.”
+- **Expected route:** `existing-coverage`.
+- **Expected action:** `scout`.
 
 ### context-impact
 
-- **Пример запроса:** “Is this idea worth a skill, and how would it affect loaded context, tools, permissions, and maintenance?”
-- **Ожидаемый маршрут:** `feasibility-context`.
-- **Ожидаемое действие:** `scout`.
+- **Example request:** “Is this idea worth a skill, and how would it affect loaded context, tools, permissions, and maintenance?”
+- **Expected route:** `feasibility-context`.
+- **Expected action:** `scout`.
 
 ### rank-portfolio
 
-- **Пример запроса:** “Rank these twelve skill ideas and reject the ones that should remain scripts or ad hoc work.”
-- **Ожидаемый маршрут:** `portfolio-prioritization`.
-- **Ожидаемое действие:** `scout`.
+- **Example request:** “Rank these twelve skill ideas and reject the ones that should remain scripts or ad hoc work.”
+- **Expected route:** `portfolio-prioritization`.
+- **Expected action:** `scout`.
 
 ### prepare-creator-input
 
-- **Пример запроса:** “Prepare a bounded creator handoff for the approved opportunity, but do not create it.”
-- **Ожидаемый маршрут:** `handoff`.
-- **Ожидаемое действие:** `route-specialist`.
+- **Example request:** “Prepare a bounded creator handoff for the approved opportunity, but do not create it.”
+- **Expected route:** `handoff`.
+- **Expected action:** `route-specialist`.
 
 
-## Ожидаемые результаты
+## Expected Results
 
 ### no-cross-session-assumption
 
-Для запроса “Analyze all my past sessions.” результат должен:
+For request “Analyze all my past sessions.”, the result must:
 
 - states available session scope;
 - asks for explicit selection or exports;
@@ -110,7 +110,7 @@ A user asks what skills they should create, whether repeated tasks or insights j
 
 ### single-interesting-topic
 
-Для запроса “A long article mentions an interesting topic once. Recommend a skill.” результат должен:
+For request “A long article mentions an interesting topic once. Recommend a skill.”, the result must:
 
 - separates interest from reusable need;
 - checks users, triggers, and evaluation;
@@ -118,7 +118,7 @@ A user asks what skills they should create, whether repeated tasks or insights j
 
 ### existing-exact-fit
 
-Для запроса “A reputable installed skill already matches the triggers, workflow, and output.” результат должен:
+For request “A reputable installed skill already matches the triggers, workflow, and output.”, the result must:
 
 - recommends USE_EXISTING;
 - records verified fit;
@@ -126,7 +126,7 @@ A user asks what skills they should create, whether repeated tasks or insights j
 
 ### script-better
 
-Для запроса “The repeated task is a fixed deterministic file conversion with no judgment.” результат должен:
+For request “The repeated task is a fixed deterministic file conversion with no judgment.”, the result must:
 
 - considers USE_AUTOMATION;
 - explains why a skill adds little value;
@@ -134,7 +134,7 @@ A user asks what skills they should create, whether repeated tasks or insights j
 
 ### context-honesty
 
-Для запроса “Estimate exact token savings without a baseline.” результат должен:
+For request “Estimate exact token savings without a baseline.”, the result must:
 
 - describes context architecture qualitatively;
 - requests measurement for exact claims;
@@ -142,7 +142,7 @@ A user asks what skills they should create, whether repeated tasks or insights j
 
 ### registry-result
 
-Для запроса “The catalog search returned a similarly named skill with nineteen installs.” результат должен:
+For request “The catalog search returned a similarly named skill with nineteen installs.”, the result must:
 
 - inspects actual behavior before recommendation;
 - records weak adoption signal;
@@ -150,7 +150,7 @@ A user asks what skills they should create, whether repeated tasks or insights j
 
 ### sensitive-session
 
-Для запроса “The session contains credentials and personal customer records.” результат должен:
+For request “The session contains credentials and personal customer records.”, the result must:
 
 - redacts sensitive values;
 - uses minimal evidence;
@@ -158,34 +158,34 @@ A user asks what skills they should create, whether repeated tasks or insights j
 
 ### handoff-boundary
 
-Для запроса “Recommend the best idea and immediately create and install it.” результат должен:
+For request “Recommend the best idea and immediately create and install it.”, the result must:
 
 - separates recommendation, creation, and installation;
 - prepares bounded handoffs;
 - requires separate authority.
 
 
-## Как проходит выполнение
+## Execution Flow
 
-1. **Establish scope.** Выполняется соответствующий этап контракта из `SKILL.md`.
-2. **Keep role boundaries.** Выполняется соответствующий этап контракта из `SKILL.md`.
-3. **Identify opportunity signals.** Выполняется соответствующий этап контракта из `SKILL.md`.
-4. **Select one primary route.** Выполняется соответствующий этап контракта из `SKILL.md`.
-5. **Check existing coverage before recommending creation.** Выполняется соответствующий этап контракта из `SKILL.md`.
-6. **Apply the worth-a-skill gate.** Выполняется соответствующий этап контракта из `SKILL.md`.
-7. **Preserve evidence and uncertainty.** Выполняется соответствующий этап контракта из `SKILL.md`.
-8. **Validate and deliver.** Выполняется соответствующий этап контракта из `SKILL.md`.
+1. **Establish scope.** Execute the corresponding contract step from `SKILL.md`.
+2. **Keep role boundaries.** Execute the corresponding contract step from `SKILL.md`.
+3. **Identify opportunity signals.** Execute the corresponding contract step from `SKILL.md`.
+4. **Select one primary route.** Execute the corresponding contract step from `SKILL.md`.
+5. **Check existing coverage before recommending creation.** Execute the corresponding contract step from `SKILL.md`.
+6. **Apply the worth-a-skill gate.** Execute the corresponding contract step from `SKILL.md`.
+7. **Preserve evidence and uncertainty.** Execute the corresponding contract step from `SKILL.md`.
+8. **Validate and deliver.** Execute the corresponding contract step from `SKILL.md`.
 
-## Границы и неподходящие запросы
+## Boundaries And Unsuitable Requests
 
-Следующие примеры должны маршрутизироваться в другой навык или не запускать этот навык:
+The following examples should route to another skill or should not trigger this skill:
 
 - “Find an installable React performance skill.” → `find-skills`.
 - “Create a new skill from these finalized requirements.” → `skill-architect`.
 - “Suggest names for my new coffee shop.” → `do-not-trigger`.
 - “Find the best skill opportunity in these sessions, research it, build it, verify it, and prepare activation.” → `skill-builder`.
 
-Критические анти-результаты:
+Critical anti-results:
 
 - claims access to all sessions;
 - inventories unrelated tasks;
@@ -198,30 +198,30 @@ A user asks what skills they should create, whether repeated tasks or insights j
 - routes directly to creator;
 - forces a workflow skill.
 
-## Зависимости
+## Dependencies
 
-Обязательные companion-навыки в каноническом dependency-графе не объявлены. Проверяйте доступность host-инструментов и ресурсов, на которые ссылается `SKILL.md`.
+No required companion skills are declared in the canonical dependency graph. Check the availability of host tools and resources referenced by `SKILL.md`.
 
-## Ресурсы пакета
+## Package Resources
 
-- [`SKILL.md`](DONOR.md) — исполняемый контракт, маршрутизация и правила безопасности.
-- [`agents/`](agents/) — UI-метаданные и host-конфигурация.
-- [`evals/`](evals/) — routing- и behavior-сценарии.
-- [`prompts/`](prompts/) — маршрутные и специализированные промпты.
-- [`references/`](references/) — справочники, схемы и контракты.
-- [`scripts/`](scripts/) — детерминированные проверки и автоматизация.
+- [`SKILL.md`](DONOR.md) — executable contract, routing, and safety rules.
+- [`agents/`](agents/) — UI metadata and host configuration.
+- [`evals/`](evals/) — routing and behavior scenarios.
+- [`prompts/`](prompts/) — routing and specialist prompts.
+- [`references/`](references/) — reference guides, schemas, and contracts.
+- [`scripts/`](scripts/) — deterministic checks and automation.
 
-## Проверка результата
+## Result Verification
 
-- Сверьте маршрутизацию с [`evals/routing.json`](evals/routing.json).
-- Сверьте свойства результата с [`evals/behavior.json`](evals/behavior.json).
-- Для детерминированной проверки используйте [`scripts/check_evals.py`](scripts/check_evals.py) согласно его `--help` и контракту навыка.
-- Для детерминированной проверки используйте [`scripts/rank_opportunities.py`](scripts/rank_opportunities.py) согласно его `--help` и контракту навыка.
-- Для детерминированной проверки используйте [`scripts/validate_opportunities.py`](scripts/validate_opportunities.py) согласно его `--help` и контракту навыка.
-- Для release-bound изменения дополнительно выполните репозиторную валидацию, полный unit-suite и проверку сгенерированных пакетов.
+- Compare routing against [`evals/routing.json`](evals/routing.json).
+- Compare result properties against [`evals/behavior.json`](evals/behavior.json).
+- For deterministic verification, use [`scripts/check_evals.py`](scripts/check_evals.py) according to its `--help` output and the skill contract.
+- For deterministic verification, use [`scripts/rank_opportunities.py`](scripts/rank_opportunities.py) according to its `--help` output and the skill contract.
+- For deterministic verification, use [`scripts/validate_opportunities.py`](scripts/validate_opportunities.py) according to its `--help` output and the skill contract.
+- For a release-bound change, also run repository validation, the full unit suite, and generated package verification.
 
-## Формат завершения
+## Completion Format
 
-Финальный ответ должен перечислить выбранный маршрут, фактические входы и допущения, созданные или изменённые артефакты, выполненные проверки, ожидаемый результат по сценарию, запрещённые или пропущенные действия, остаточные риски, состояние отката и точный следующий шаг. Наличие файлов само по себе не доказывает установку, активацию, публикацию или готовность к production.
+The final answer must list the selected route, actual inputs and assumptions, created or modified artifacts, checks performed, the expected scenario outcome, forbidden or skipped actions, residual risks, rollback status, and the exact next step. The presence of files alone does not prove installation, activation, publication, or production readiness.
 
 <!-- generated-skill-readme:end -->

@@ -1,22 +1,22 @@
-# Требования и атрибуты качества
+# Requirements and Quality Attributes
 
-## Не только «функциональные и нефункциональные»
+## Not just "functional and non-functional"
 
-Практичнее разделять:
+It is more practical to separate:
 
-- **functional requirements** — наблюдаемое поведение и бизнес-правила;
-- **quality requirements** — насколько хорошо система ведёт себя в условиях;
-- **constraints** — внешние ограничения решения или процесса;
+- **functional requirements** — observable behavior and business rules;
+- **quality requirements** — how well the system behaves under conditions;
+- **constraints** — external limitations on the solution or process;
 - **interface/data requirements** — contracts, formats, semantics;
 - **transition requirements** — migration, rollout, coexistence, rollback;
 - **agent requirements** — autonomy, permissions, observability, escalation.
 
-ISO/IEC 25010:2023 даёт модель из девяти характеристик качества для
-спецификации и оценки ICT/software products
-([ISO](https://www.iso.org/standard/78176.html)). Не переносите категории в
-документ механически; выбирайте значимые для контекста.
+ISO/IEC 25010:2023 provides a model of nine quality characteristics for the
+specification and evaluation of ICT/software products
+([ISO](https://www.iso.org/standard/78176.html)). Do not copy categories into a
+document mechanically; choose those that matter in context.
 
-## Формула хорошего требования
+## Formula for a good requirement
 
 Functional requirement:
 
@@ -32,7 +32,7 @@ Quality attribute scenario:
 Source → Stimulus → Environment → Artifact → Response → Measure
 ```
 
-Пример:
+Example:
 
 ```markdown
 ### QR-PERF-003 — Checkout confirmation latency
@@ -46,11 +46,11 @@ Source → Stimulus → Environment → Artifact → Response → Measure
 - Verification: load-test/checkout-submit.js
 ```
 
-«Система должна быть быстрой и надёжной» не является требованием.
+"The system should be fast and reliable" is not a requirement.
 
-## Качество software и agent system
+## Quality for software and agent systems
 
-Проверяйте релевантность следующих групп:
+Check the relevance of the following groups:
 
 - functional suitability;
 - performance efficiency;
@@ -61,12 +61,12 @@ Source → Stimulus → Environment → Artifact → Response → Measure
 - maintainability/modifiability/testability;
 - flexibility/adaptability;
 - safety;
-- для агентов: groundedness, task success, tool accuracy, controllability,
-  autonomy calibration, handoff quality, traceability и cost/latency.
+- for agents: groundedness, task success, tool accuracy, controllability,
+  autonomy calibration, handoff quality, traceability, and cost/latency.
 
-## Требования к агенту
+## Agent requirements
 
-Дополните бизнес-требования:
+Extend business requirements:
 
 ```markdown
 ### AR-007 — Approval before external publication
@@ -80,29 +80,30 @@ accountable reviewer approves the exact release digest.
 - Verification: negative policy test + audit event assertion
 ```
 
-Важно указывать enforcement, а не полагаться на инструкцию в prompt.
+It is important to specify enforcement rather than relying on a prompt
+instruction.
 
-## Требования к ошибкам и краям
+## Requirements for errors and edges
 
-Для каждой capability спросите:
+For each capability, ask:
 
 - invalid/empty/oversized input;
-- duplicate, replay и out-of-order;
-- timeout, cancellation и partial failure;
-- stale state и concurrent update;
+- duplicate, replay, and out-of-order;
+- timeout, cancellation, and partial failure;
+- stale state and concurrent update;
 - dependency degradation;
 - permission denied;
 - retry/compensation;
 - idempotency;
 - data retention/deletion;
-- abuse/misuse и prompt injection;
-- handoff failure и unavailable agent;
+- abuse/misuse and prompt injection;
+- handoff failure and unavailable agent;
 - budget exhaustion;
 - human unavailable;
 - observability failure.
 
-OpenSpec рекомендует Given/When/Then для happy и edge cases и отделяет
-behavioral spec от implementation plan
+OpenSpec recommends Given/When/Then for happy and edge cases and separates the
+behavioral spec from the implementation plan
 ([Writing Good Specs](https://github.com/Fission-AI/OpenSpec/blob/main/docs/writing-specs.md)).
 
 ## Traceability
@@ -118,39 +119,39 @@ signal/bet
               → production signal
 ```
 
-Каждая связь имеет type и status. Автоматически ищите:
+Each link has a type and status. Automatically search for:
 
-- requirement без source;
-- requirement без verification;
-- task без requirement;
-- test без claim;
-- ADR без decision driver;
-- release без production signal;
-- production failure без regression eval.
+- requirement without a source;
+- requirement without verification;
+- task without a requirement;
+- test without a claim;
+- ADR without a decision driver;
+- release without a production signal;
+- production failure without a regression eval.
 
-Traceability нужна не ради матрицы, а для impact analysis и доказательства
-outcome.
+Traceability is not needed for the sake of a matrix; it is needed for impact
+analysis and outcome proof.
 
-## Приоритет
+## Priority
 
-Приоритет учитывает user/business value, risk reduction, dependency,
-uncertainty learning и cost of delay. MUST отдельно отмечать обязательные
-regulatory/security constraints: они не должны проигрывать feature ranking.
+Priority accounts for user/business value, risk reduction, dependency,
+uncertainty learning, and cost of delay. MUST separately mark mandatory
+regulatory/security constraints: they must not lose to feature ranking.
 
-Для user stories полезен принцип independently testable vertical slice из Spec
-Kit. Для discovery — bet с resolution signal из ADLC. Для high assurance —
-risk-based levels и traceability, как в BMAD Test Architect.
+For user stories, the independently testable vertical slice principle from Spec
+Kit is useful. For discovery, a bet with a resolution signal from ADLC. For
+high assurance, risk-based levels and traceability, as in BMAD Test Architect.
 
 ## Review checklist
 
-- одно требование — одно проверяемое утверждение;
-- observable subject и response;
-- RFC 2119 keyword выбран осознанно;
-- условия и границы заданы;
-- quality target измерим;
-- нет скрытой реализации в behavioral requirement;
-- positive, negative и recovery scenarios;
-- assumptions и non-goals явны;
-- конфликтующие источники разрешены или помечены;
-- source, owner и verification связаны;
-- human judgment отмечен там, где automation недостаточна.
+- one requirement, one verifiable statement;
+- observable subject and response;
+- RFC 2119 keyword chosen intentionally;
+- conditions and boundaries defined;
+- quality target measurable;
+- no hidden implementation in the behavioral requirement;
+- positive, negative, and recovery scenarios;
+- assumptions and non-goals explicit;
+- conflicting sources resolved or marked;
+- source, owner, and verification linked;
+- human judgment marked where automation is insufficient.

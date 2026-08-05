@@ -2,7 +2,7 @@
 name: skill-manager
 description: Inventories and governs public or agent-private skills across explicitly scoped roots and registries. Use for installed-state audits, duplicate or shadow detection, visibility, versions, provenance, dependencies, conflicts, rollout, quarantine, migration or retirement. Route evaluation, harvesting, refactoring and end-to-end building to their specialists. Default to read-only preview; require exact roots and authority before lifecycle mutations.
 metadata:
-  version: "1.2.3"
+  version: "1.2.4"
 ---
 
 # Manage Agent Skills

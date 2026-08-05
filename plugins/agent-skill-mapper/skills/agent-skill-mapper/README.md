@@ -2,69 +2,69 @@
 
 <!-- generated-skill-readme:start -->
 
-## Паспорт навыка
+## Skill Profile
 
-- **Назначение:** Maps governed public and owner-private skills or commands to existing agents using mission fit, permissions, trust, context cost, evidence and capability budgets.
-- **Версия:** `1.0.2`.
-- **Видимость:** public: канонический навык каталога; фактическая активация зависит от целевого host.
-- **Теги каталога:** `agents`, `skills`, `mapping`.
+- **Purpose:** Maps governed public and owner-private skills or commands to existing agents using mission fit, permissions, trust, context cost, evidence and capability budgets.
+- **Version:** `1.0.3`.
+- **Visibility:** public: canonical catalog skill; actual activation depends on the target host.
+- **Catalog tags:** `agents`, `skills`, `mapping`.
 
-## Когда использовать
+## When To Use
 
 Auditing agent capabilities, reconciling agent definitions with registries or skills-lock files, recommending versioned bindings, detecting gaps or excessive tool access, or preparing a controlled mapping update. Read only by default. Do not create agents or skills, promote private capabilities, silently edit agent definitions, or operate the team; route missing capability creation to the relevant architect and team design changes to agent-team-architect.
 
-Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.
+Before running, provide the concrete goal, source artifacts, allowed changes, constraints, and acceptance criteria. If essential information is missing, the expected first result is clarification or a safe plan, not an unverified mutation.
 
-## Полный пример команды
+## Full Command Example
 
-Иллюстративный полный вызов; адаптируйте пути, ограничения и критерии приёмки к своей задаче:
+Illustrative full invocation; adapt the paths, constraints, and acceptance criteria to your task:
 
 ```text
 /agent-skill-mapper Inventory all skills available to these registered agents.
 ```
 
-**Ожидаемый результат:** выбирается маршрут `inventory`; итог перечисляет созданные или изменённые артефакты, фактически выполненные проверки, ограничения, остаточные риски и следующий шаг. Наличие файлов само по себе не считается доказательством установки, активации или публикации.
+**Expected result:** route `inventory` is selected; the result lists the created or modified artifacts, the checks actually performed, the constraints, residual risks, and the next step. The presence of files alone is not considered proof of installation, activation, or publication.
 
-## Варианты использования
+## Usage Variants
 
 ### inventory
 
-- **Пример запроса:** “Inventory all skills available to these registered agents.”
-- **Ожидаемый маршрут:** `inventory`.
+- **Example request:** “Inventory all skills available to these registered agents.”
+- **Expected route:** `inventory`.
 
 ### recommend
 
-- **Пример запроса:** “Which versioned skills should each agent receive?”
-- **Ожидаемый маршрут:** `recommend`.
+- **Example request:** “Which versioned skills should each agent receive?”
+- **Expected route:** `recommend`.
 
 ### audit
 
-- **Пример запроса:** “Audit the current agent-to-skill map for excess permissions.”
-- **Ожидаемый маршрут:** `audit`.
+- **Example request:** “Audit the current agent-to-skill map for excess permissions.”
+- **Expected route:** `audit`.
 
 ### apply
 
-- **Пример запроса:** “Apply this approved mapping transaction and bump agent versions.”
-- **Ожидаемый маршрут:** `apply`.
+- **Example request:** “Apply this approved mapping transaction and bump agent versions.”
+- **Expected route:** `apply`.
 
 ### promote
 
-- **Пример запроса:** “Can this private agent skill be promoted for team use?”
-- **Ожидаемый маршрут:** `private-promotion`.
+- **Example request:** “Can this private agent skill be promoted for team use?”
+- **Expected route:** `private-promotion`.
 
 
-## Ожидаемые результаты
+## Expected Results
 
 ### private-boundary
 
-Для запроса “Map agent-a's private command to agent-b.” результат должен:
+For request “Map agent-a's private command to agent-b.”, the result must:
 
 - rejects cross-owner mapping;
 - offers explicit promotion workflow.
 
 ### read-only
 
-Для запроса “Recommend capabilities for the team.” результат должен:
+For request “Recommend capabilities for the team.”, the result must:
 
 - does not mutate files;
 - uses exact versions and evidence;
@@ -72,55 +72,55 @@ Auditing agent capabilities, reconciling agent definitions with registries or sk
 
 ### authorized-apply
 
-Для запроса “Apply approved map revision 7.” результат должен:
+For request “Apply approved map revision 7.”, the result must:
 
 - checks expected revisions;
 - bumps changed agent versions;
 - supports rollback.
 
 
-## Как проходит выполнение
+## Execution Flow
 
-1. **Establish inventory and authority.** Выполняется соответствующий этап контракта из `SKILL.md`.
-2. **Score candidates through hard gates.** Выполняется соответствующий этап контракта из `SKILL.md`.
-3. **Decide and explain.** Выполняется соответствующий этап контракта из `SKILL.md`.
-4. **Apply only an authorized transaction.** Выполняется соответствующий этап контракта из `SKILL.md`.
+1. **Establish inventory and authority.** Execute the corresponding contract step from `SKILL.md`.
+2. **Score candidates through hard gates.** Execute the corresponding contract step from `SKILL.md`.
+3. **Decide and explain.** Execute the corresponding contract step from `SKILL.md`.
+4. **Apply only an authorized transaction.** Execute the corresponding contract step from `SKILL.md`.
 
-## Границы и неподходящие запросы
+## Boundaries And Unsuitable Requests
 
-Следующие примеры должны маршрутизироваться в другой навык или не запускать этот навык:
+The following examples should route to another skill or should not trigger this skill:
 
 - “Create a new PDF extraction skill.” → `skill-architect`.
 - “Design the roles for a research agent team.” → `agent-team-architect`.
 
-Критические анти-результаты:
+Critical anti-results:
 
 - silently copies private content;
 - activates mappings;
 - overwrites concurrent changes.
 
-## Зависимости
+## Dependencies
 
-Обязательные companion-навыки в каноническом dependency-графе не объявлены. Проверяйте доступность host-инструментов и ресурсов, на которые ссылается `SKILL.md`.
+No required companion skills are declared in the canonical dependency graph. Check the availability of host tools and resources referenced by `SKILL.md`.
 
-## Ресурсы пакета
+## Package Resources
 
-- [`SKILL.md`](SKILL.md) — исполняемый контракт, маршрутизация и правила безопасности.
-- [`agents/`](agents/) — UI-метаданные и host-конфигурация.
-- [`evals/`](evals/) — routing- и behavior-сценарии.
-- [`references/`](references/) — справочники, схемы и контракты.
-- [`scripts/`](scripts/) — детерминированные проверки и автоматизация.
+- [`SKILL.md`](SKILL.md) — executable contract, routing, and safety rules.
+- [`agents/`](agents/) — UI metadata and host configuration.
+- [`evals/`](evals/) — routing and behavior scenarios.
+- [`references/`](references/) — reference guides, schemas, and contracts.
+- [`scripts/`](scripts/) — deterministic checks and automation.
 
-## Проверка результата
+## Result Verification
 
-- Сверьте маршрутизацию с [`evals/routing.json`](evals/routing.json).
-- Сверьте свойства результата с [`evals/behavior.json`](evals/behavior.json).
-- Для детерминированной проверки используйте [`scripts/check_evals.py`](scripts/check_evals.py) согласно его `--help` и контракту навыка.
-- Для детерминированной проверки используйте [`scripts/validate_mapping.py`](scripts/validate_mapping.py) согласно его `--help` и контракту навыка.
-- Для release-bound изменения дополнительно выполните репозиторную валидацию, полный unit-suite и проверку сгенерированных пакетов.
+- Compare routing against [`evals/routing.json`](evals/routing.json).
+- Compare result properties against [`evals/behavior.json`](evals/behavior.json).
+- For deterministic verification, use [`scripts/check_evals.py`](scripts/check_evals.py) according to its `--help` output and the skill contract.
+- For deterministic verification, use [`scripts/validate_mapping.py`](scripts/validate_mapping.py) according to its `--help` output and the skill contract.
+- For a release-bound change, also run repository validation, the full unit suite, and generated package verification.
 
-## Формат завершения
+## Completion Format
 
-Финальный ответ должен перечислить выбранный маршрут, фактические входы и допущения, созданные или изменённые артефакты, выполненные проверки, ожидаемый результат по сценарию, запрещённые или пропущенные действия, остаточные риски, состояние отката и точный следующий шаг. Наличие файлов само по себе не доказывает установку, активацию, публикацию или готовность к production.
+The final answer must list the selected route, actual inputs and assumptions, created or modified artifacts, checks performed, the expected scenario outcome, forbidden or skipped actions, residual risks, rollback status, and the exact next step. The presence of files alone does not prove installation, activation, publication, or production readiness.
 
 <!-- generated-skill-readme:end -->

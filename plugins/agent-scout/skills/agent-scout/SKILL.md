@@ -2,7 +2,7 @@
 name: agent-scout
 description: Identifies and prioritizes justified opportunities for one agent or subagent from tasks, sessions, code, documents, incidents and recurring work, then checks whether code, a model call, workflow, existing agent, team or Agentic OS already fits. Use when deciding whether to create or extend an agent, finding duplicate or missing agent capabilities, or producing an evidence-backed agent opportunity manifest. Read only by default. Do not design, build, install or activate agents, treat frequency or persona names as proof, or recommend a new agent without coverage, maintenance, authority and evaluation analysis.
 metadata:
-  version: "1.0.2"
+  version: "1.0.3"
 ---
 
 # Scout Agent Opportunities

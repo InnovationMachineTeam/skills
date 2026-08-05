@@ -143,6 +143,6 @@ smallest profile that covers every material constraint.
 
 ## Source basis
 
-Derived from the user-supplied `Мастер-промпт для улучшения и реконструкции
-промптов.pdf`. The skill operationalizes its behavior; it does not preserve the
+Derived from the user-supplied `Master Prompt for Improving and Reconstructing
+Prompts.pdf`. The skill operationalizes its behavior; it does not preserve the
 PDF as a runtime dependency or reproduce it verbatim.

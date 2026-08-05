@@ -1,13 +1,11 @@
 {
   "name": "skill-optimizer",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Measures and improves a healthy existing SKILL.md-based agent skill while preserving intended behavior, capability boundary, and authority",
   "homepage": "https://github.com/InnovationMachineTeam/skills",
   "repository": "https://github.com/InnovationMachineTeam/skills",
   "license": "Proprietary",
   "keywords": [
-    "agent-skills",
-    "metaskills",
     "optimization",
     "quality"
   ],

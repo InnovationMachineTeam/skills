@@ -1,8 +1,8 @@
-# Мастер-промпт навыка `agent-os-bootstrapper`
+# Master Prompt For The `agent-os-bootstrapper` Skill
 
-Применяй после [agent-os-base.md](agent-os-base.md). Создай skill, который
-материализует approved Agentic OS walking skeleton in staging with one vertical
-flow. Он не расширяет architecture или запускает production rollout.
+Apply after [agent-os-base.md](agent-os-base.md). Create a skill that
+materializes an approved Agentic OS walking skeleton in staging with one vertical
+flow. It does not expand the architecture or start a production rollout.
 
 Build one authenticated request → policy decision → queued task → leased worker
 → bounded tool call → artifact/evidence → verifier → terminal state flow. Use

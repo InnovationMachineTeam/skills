@@ -1,10 +1,11 @@
-# Процессы жизненного цикла и оркестрации
+# Lifecycle and Orchestration Processes
 
-Этот файл описывает end-to-end процессы. Сравнение runtime, improvement,
-delivery, risk и learning loops, а также lifecycle отдельных сущностей вынесено
-в [20-agentic-cycles-and-lifecycles.md](20-agentic-cycles-and-lifecycles.md).
+This file describes end-to-end processes. The comparison of runtime,
+improvement, delivery, risk, and learning loops, as well as the lifecycles of
+individual entities, is covered in
+[20-agentic-cycles-and-lifecycles.md](20-agentic-cycles-and-lifecycles.md).
 
-## Универсальный контур
+## Universal loop
 
 ```text
 Intent → Context → Specify → Plan → Generate ↔ Validate → Govern
@@ -12,172 +13,173 @@ Intent → Context → Specify → Plan → Generate ↔ Validate → Govern
 Observe ← Operate ← Deploy ← Release readiness ← Integrate
 ```
 
-Это не обязательный waterfall. Для простой задачи контур сжимается; в ADLC
-Generate, Validate и Observe идут параллельно. Но ни один run не должен терять
-intent, evidence и governance.
+This is not a mandatory waterfall. For a simple task, the loop compresses; in
+ADLC, Generate, Validate, and Observe run in parallel. But no run should lose
+intent, evidence, or governance.
 
-## 1. Intake и выбор режима
+## 1. Intake and mode selection
 
-1. Нормализовать запрос в goal, context, constraints, done.
-2. Классифицировать неопределённость, риск, reversibility и scope.
-3. Проверить существующие capabilities и не создавать дубликат агента.
-4. Выбрать механизм: code, workflow, agent, subagents или team.
-5. Определить autonomy level и approvals.
-6. Создать run/task IDs и начальный trace.
+1. Normalize the request into goal, context, constraints, and done.
+2. Classify uncertainty, risk, reversibility, and scope.
+3. Check existing capabilities and avoid creating a duplicate agent.
+4. Choose the mechanism: code, workflow, agent, subagents, or team.
+5. Define the autonomy level and approvals.
+6. Create run/task IDs and the initial trace.
 
-Выход: intent record + выбранный workflow с rationale.
+Output: intent record + selected workflow with rationale.
 
 ## 2. Discovery
 
-Используйте при неизвестной проблеме или решении:
+Use when the problem or solution is unknown:
 
-1. Сформулировать research questions и decision to inform.
-2. Разделить источники/аспекты между read-only researchers.
-3. Собрать evidence с provenance и датой.
-4. Отделить факты, интерпретации и gaps.
-5. Провести adversarial synthesis.
-6. Сформировать bet: hypothesis, generation target, resolution signal, deadline.
-7. Human governance: продолжить, изменить или остановить.
+1. Formulate research questions and the decision to inform.
+2. Split sources/aspects across read-only researchers.
+3. Gather evidence with provenance and date.
+4. Separate facts, interpretations, and gaps.
+5. Perform adversarial synthesis.
+6. Form a bet: hypothesis, generation target, resolution signal, deadline.
+7. Human governance: continue, change course, or stop.
 
-OpenSpec `/explore` намеренно не пишет код и артефакты до прояснения; Agent OS
-сначала ищет reference implementations и standards; gstack следует принципу
-search before building. Это снижает преждевременную реализацию.
+OpenSpec `/explore` intentionally does not write code or artifacts until the
+problem is clarified; Agent OS looks for reference implementations and
+standards first; gstack follows the principle of search before building. This
+reduces premature implementation.
 
 ## 3. Requirements
 
-1. Определить stakeholders и system boundary.
-2. Извлечь потребности, бизнес-правила и constraints.
-3. Создать атомарные functional requirements.
-4. Операционализировать quality attributes сценариями и targets.
-5. Добавить error, abuse, edge и recovery cases.
-6. Зафиксировать assumptions и non-goals.
-7. Построить traceability до источников и verification.
-8. Независимо проверить ambiguity, conflicts, feasibility и testability.
-9. Human approval для scope и high-impact trade-offs.
+1. Define stakeholders and the system boundary.
+2. Elicit needs, business rules, and constraints.
+3. Create atomic functional requirements.
+4. Operationalize quality attributes with scenarios and targets.
+5. Add error, abuse, edge, and recovery cases.
+6. Record assumptions and non-goals.
+7. Build traceability to sources and verification.
+8. Independently review ambiguity, conflicts, feasibility, and testability.
+9. Human approval for scope and high-impact trade-offs.
 
-## 4. Architecture и planning
+## 4. Architecture and planning
 
-1. Построить context/container view и critical flows.
-2. Найти architecturally significant requirements.
-3. Рассмотреть варианты и оформить ADR.
-4. Декомпозировать на independently valuable vertical slices.
-5. Для каждого slice задать owner, write-set, dependencies и verification.
-6. Построить DAG и waves.
-7. Добавить threat, migration, rollout и rollback plan.
-8. Plan reviewer проверяет достижение goal backward.
-9. Зафиксировать preconditions и human checkpoints.
+1. Build the context/container view and critical flows.
+2. Identify architecturally significant requirements.
+3. Consider options and record an ADR.
+4. Decompose into independently valuable vertical slices.
+5. For each slice, define the owner, write-set, dependencies, and verification.
+6. Build the DAG and waves.
+7. Add a threat, migration, rollout, and rollback plan.
+8. The plan reviewer checks goal achievement backward from the goal.
+9. Record preconditions and human checkpoints.
 
-Spec Kit отделяет WHAT от HOW и группирует tasks по independently testable user
-stories; GSD добавляет must-haves, artifacts и key links; OpenSpec позволяет
-возвращаться между artifacts. Используйте их совместно, не превращая plan в
-неизменяемый контракт.
+Spec Kit separates WHAT from HOW and groups tasks by independently testable
+user stories; GSD adds must-haves, artifacts, and key links; OpenSpec allows
+moving back and forth between artifacts. Use them together without turning the
+plan into an immutable contract.
 
 ## 5. Execution
 
-Для каждой wave:
+For each wave:
 
-1. Проверить dependencies и preconditions read-only действиями.
-2. Выдать leases и permission envelopes.
-3. Dispatch независимых scoped implementers.
-4. Каждый исполнитель тестирует и возвращает evidence.
-5. Integration owner проверяет collisions и contracts.
-6. Запустить targeted reviews.
-7. Обновить durable state и следующий ready set.
+1. Check dependencies and preconditions with read-only actions.
+2. Issue leases and permission envelopes.
+3. Dispatch independent scoped implementers.
+4. Each implementer tests and returns evidence.
+5. The integration owner checks collisions and contracts.
+6. Run targeted reviews.
+7. Update durable state and the next ready set.
 
-Первый slice SHOULD быть tracer/walking skeleton: тонкий production-quality
-end-to-end путь, который проверяет интеграцию до расширения.
+The first slice SHOULD be a tracer/walking skeleton: a thin end-to-end
+production-quality path that verifies integration before expansion.
 
 ## 6. Verification
 
-Verification выполняется от outcome:
+Verification is executed from the outcome backward:
 
-1. Из goal/spec вывести truths.
-2. Для каждой truth определить artifacts и wiring.
-3. Проверить live code/runtime, не доверяя summary.
-4. Запустить tests/evals и проверить scenarios.
-5. Классифицировать `verified`, `failed`, `uncertain`, `human_needed`.
-6. Создать gap plan, а не молча исправлять вне роли.
-7. Повторить только failed items плюс regression checks.
+1. Derive truths from the goal/spec.
+2. For each truth, determine the artifacts and wiring.
+3. Check live code/runtime instead of trusting a summary.
+4. Run tests/evals and verify scenarios.
+5. Classify `verified`, `failed`, `uncertain`, `human_needed`.
+6. Create a gap plan instead of silently fixing outside the role.
+7. Repeat only failed items plus regression checks.
 
-OpenSpec проверяет completeness/correctness/coherence; GSD — truth/artifact/
-wiring. Объединённый gate должен учитывать оба взгляда.
+OpenSpec checks completeness/correctness/coherence; GSD checks
+truth/artifact/wiring. The combined gate should account for both views.
 
-## 7. Release и deploy
+## 7. Release and deploy
 
-1. Проверить версии, migrations, docs, security и rollback.
-2. Сформировать release evidence bundle.
-3. Policy engine вычисляет требуемые approvals.
-4. Deploy agent действует только в approved envelope.
-5. Использовать feature flag/canary и автоматические rollback triggers.
-6. Верифицировать production behavior и signals.
-7. Закрыть change только после observation window.
+1. Check versions, migrations, docs, security, and rollback.
+2. Form the release evidence bundle.
+3. The policy engine computes the required approvals.
+4. The deploy agent acts only within the approved envelope.
+5. Use feature flag/canary and automated rollback triggers.
+6. Verify production behavior and signals.
+7. Close the change only after the observation window.
 
-ADLC подчёркивает agent-orchestrated, human-approved deploy и recoverability
+ADLC emphasizes agent-orchestrated, human-approved deployment and recoverability
 ([ADLC](https://www.adlc.io/)).
 
-## 8. Observe и learn
+## 8. Observe and learn
 
-1. Собирать product, system и agent signals.
-2. Связывать их с bet, requirement и run.
-3. Находить anomalies, drift, high-cost paths и repeated failures.
-4. Создавать candidate learnings с provenance.
-5. Проверять и утверждать изменения memory/policy.
-6. Добавлять production cases в eval dataset.
-7. Формировать новые bets или corrective changes.
+1. Collect product, system, and agent signals.
+2. Link them to the bet, requirement, and run.
+3. Identify anomalies, drift, high-cost paths, and repeated failures.
+4. Create candidate learnings with provenance.
+5. Verify and approve changes to memory/policy.
+6. Add production cases to the eval dataset.
+7. Form new bets or corrective changes.
 
-## Типовые процессы оркестрации
+## Standard orchestration processes
 
 ### Parallel research
 
-Разделение по независимым источникам → fan-out → evidence normalization →
-conflict resolution → synthesis → source audit.
+Split by independent sources → fan-out → evidence normalization → conflict
+resolution → synthesis → source audit.
 
 ### Competing-hypothesis debugging
 
-Один investigator на гипотезу → запрещены fixes → общий evidence board →
+One investigator per hypothesis → fixes forbidden → shared evidence board →
 falsification → root-cause gate → scoped fix → regression verification.
 
 ### Cross-layer feature
 
-Contract-first plan → backend/frontend/data agents с непересекающимися
+Contract-first plan → backend/frontend/data agents with non-overlapping
 write-sets → integration agent → E2E verifier.
 
 ### Review army
 
-Scope detector выбирает релевантных specialists → независимый parallel review →
-deduplication → severity/evidence gate → fix owner. gstack добавляет адаптивный
-gating по исторической полезности specialist, но security и migrations SHOULD
-оставаться insurance checks.
+The scope detector chooses relevant specialists → independent parallel review →
+deduplication → severity/evidence gate → fix owner. gstack adds adaptive gating
+based on the historical usefulness of each specialist, but security and
+migrations SHOULD remain insurance checks.
 
-### Evaluator–optimizer
+### Evaluator-optimizer
 
-Зафиксировать rubric → producer → evaluator → actionable feedback → bounded
-retry → best-candidate selection → human review при неоднозначности.
+Freeze the rubric → producer → evaluator → actionable feedback → bounded retry
+→ best-candidate selection → human review when ambiguous.
 
 ### Long-running workflow
 
 Durable job manifest → heartbeat → checkpoints → resumable artifacts → timeout
-и cancel → human input state → reconciliation после restart.
+and cancel → human input state → reconciliation after restart.
 
 ### Multi-repo change
 
-Shared intent/spec repo → per-repo change owners/worktrees → versioned interface
-contracts → integration environment → cross-repo verifier → coordinated release.
+Shared intent/spec repo → per-repo change owners/worktrees → versioned
+interface contracts → integration environment → cross-repo verifier →
+coordinated release.
 
 ## Checkpoint types
 
-- **Decision** — несколько допустимых вариантов, меняющих outcome.
-- **Approval** — рискованное действие готово к выполнению.
-- **Input required** — отсутствуют credentials/данные/внешняя операция.
-- **Verification** — автоматические проверки недостаточны для человеческого
-  суждения.
-- **Blocker** — precondition доказанно не выполнен.
+- **Decision** — multiple valid options that change the outcome.
+- **Approval** — a risky action is ready for execution.
+- **Input required** — credentials/data/external operation missing.
+- **Verification** — automated checks are insufficient for human judgment.
+- **Blocker** — a precondition is demonstrably unmet.
 
-Checkpoint содержит контекст, варианты, последствия, рекомендацию, evidence и
-что продолжится после ответа.
+A checkpoint contains context, options, consequences, a recommendation,
+evidence, and what continues after the answer.
 
 ## Pause/resume
 
-Pause сохраняет current task, branch/worktree, commits, decisions, blockers,
-active jobs, expected artifacts, verify/resume commands. Resume проверяет drift
-и не принимает старое состояние на веру.
+Pause saves the current task, branch/worktree, commits, decisions, blockers,
+active jobs, expected artifacts, and verify/resume commands. Resume checks for
+drift and does not take old state on faith.

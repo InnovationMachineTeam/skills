@@ -1,8 +1,8 @@
-# Мастер-промпт навыка `agent-os-evaluator`
+# Master Prompt For The `agent-os-evaluator` Skill
 
-Применяй после [agent-os-base.md](agent-os-base.md). Создай independent
+Apply after [agent-os-base.md](agent-os-base.md). Create an independent
 assurance skill for Agentic OS architecture, implementation and release
-evidence. Он не ремонтирует candidate во время frozen run.
+evidence. It does not repair the candidate during a frozen run.
 
 Evaluate plane boundaries, schema/API compatibility, registry reconciliation,
 policy enforcement, durable execution, knowledge provenance, observability,

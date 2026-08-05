@@ -1,64 +1,64 @@
-# Субагенты и делегирование
+# Subagents and Delegation
 
-## Когда делегировать
+## When to Delegate
 
-Субагент полезен, когда задача:
+A subagent is useful when the task:
 
-- имеет чёткую границу и проверяемый результат;
-- может выполняться независимо;
-- создаёт много промежуточного шума;
-- требует отдельной экспертизы, tools или permission set;
-- выигрывает от независимой проверки без контекста автора;
-- может безопасно исполняться параллельно.
+- has a clear boundary and a verifiable outcome;
+- can be executed independently;
+- creates a lot of intermediate noise;
+- requires separate expertise, tools, or a permission set;
+- benefits from independent review without the author's context;
+- can safely run in parallel.
 
-Не делегируйте, если передача контекста сложнее самой задачи, работа требует
-частых синхронных решений или два исполнителя будут редактировать одни файлы.
+Do not delegate if handing off context is harder than the task itself, if the
+work requires frequent synchronous decisions, or if two executors will edit the
+same files.
 
-## Хорошие единицы делегирования
+## Good Delegation Units
 
-- исследовать конкретный вопрос и вернуть evidence table;
-- составить план для одного bounded change;
-- реализовать модуль с эксклюзивным ownership;
-- запустить тестовый сегмент и классифицировать сбои;
-- провести read-only security, accessibility или performance review;
-- проверить один документ против исходного кода;
-- испытать одну конкурирующую гипотезу причины дефекта.
+- investigate a specific question and return an evidence table;
+- produce a plan for one bounded change;
+- implement a module with exclusive ownership;
+- run a test segment and classify failures;
+- perform a read-only security, accessibility, or performance review;
+- check one document against the source code;
+- test one competing defect-cause hypothesis.
 
-Плохие единицы: «изучи проект», «сделай всё», «помоги главному агенту».
+Bad units: "study the project," "do everything," "help the main agent."
 
-## Делегирование как протокол
+## Delegation as a Protocol
 
-Оркестратор MUST выполнить шесть шагов:
+The orchestrator MUST perform six steps:
 
-1. **Decompose** — построить задачи и зависимости.
-2. **Assign** — назначить owner, write-set, tools и бюджет.
-3. **Brief** — передать task envelope и ссылки на источники.
-4. **Observe** — следить за lifecycle, но не дублировать работу.
-5. **Integrate** — проверить схему, evidence и конфликты.
-6. **Verify** — независимо проверить итоговый outcome.
+1. **Decompose**: build tasks and dependencies.
+2. **Assign**: assign owner, write-set, tools, and budget.
+3. **Brief**: pass the task envelope and source references.
+4. **Observe**: monitor the lifecycle, but do not duplicate the work.
+5. **Integrate**: verify schema, evidence, and conflicts.
+6. **Verify**: independently verify the final outcome.
 
-После dispatch оркестратор не должен выполнять ту же задачу параллельно. GSD
-делает это явным правилом, чтобы предотвращать дублирование и конфликтующие
-правки.
+After dispatch, the orchestrator must not perform the same task in parallel.
+GSD makes this an explicit rule to prevent duplication and conflicting edits.
 
-## Контекстная изоляция
+## Context Isolation
 
-Отдельный контекст уменьшает context rot, но создаёт обязанность передачи:
+A separate context reduces context rot, but creates an obligation to pass:
 
-- цели и причины;
-- текущих решений и запретов;
-- необходимых файлов или artifact refs;
-- фактического состояния workspace;
-- ожидаемой формы ответа;
-- информации, чего субагент не знает.
+- the goal and the reasons behind it;
+- current decisions and prohibitions;
+- required files or artifact references;
+- the actual workspace state;
+- the expected response format;
+- information about what the subagent does not know.
 
-Перед dispatch всё нужное SHOULD быть сохранено в файлы или durable state.
-Разговорная память родителя не является надёжной шиной данных.
+Before dispatch, everything needed SHOULD be saved to files or durable state.
+The parent's conversational memory is not a reliable data bus.
 
-## Владение и write-set
+## Ownership and Write-set
 
-Для write-heavy работы каждый субагент получает эксклюзивный набор файлов или
-отдельный worktree:
+For write-heavy work, each subagent gets an exclusive file set or a separate
+worktree:
 
 ```yaml
 ownership:
@@ -73,21 +73,21 @@ ownership:
     - infra/prod/**
 ```
 
-Если write-set пересекаются:
+If write-sets overlap:
 
-1. разбейте задачу иначе;
-2. назначьте одного writer и остальных reviewers;
-3. используйте отдельные branches/worktrees и явный merge owner;
-4. сериализуйте критический участок.
+1. split the task differently;
+2. assign one writer and make the others reviewers;
+3. use separate branches/worktrees and an explicit merge owner;
+4. serialize the critical section.
 
-Claude Agent Teams прямо предупреждает, что teammates не получают
-автоматической файловой изоляции; worktree нужно организовывать отдельно
-([документация](https://code.claude.com/docs/en/agent-teams)).
+Claude Agent Teams explicitly warns that teammates do not get automatic file
+isolation; worktree management must be organized separately
+([documentation](https://code.claude.com/docs/en/agent-teams)).
 
-## Параллелизм
+## Parallelism
 
-Параллельно запускаются только задачи без незавершённых зависимостей и с
-непересекающимися side effects. Представляйте план как DAG:
+Run in parallel only tasks with no unfinished dependencies and no overlapping
+side effects. Represent the plan as a DAG:
 
 ```text
 research ─┬─> api plan ─> api implementation ─┐
@@ -95,62 +95,63 @@ research ─┬─> api plan ─> api implementation ─┐
 security review ──────────────────────────────┘
 ```
 
-Wave — набор готовых узлов DAG. Следующая wave начинается после проверки
-выходов предыдущей. Маркер «можно параллельно» SHOULD выводиться из dependency
-graph и ownership, а не назначаться интуитивно.
+A wave is a set of ready nodes in the DAG. The next wave begins after the
+previous outputs are verified. The "can run in parallel" marker SHOULD be
+derived from the dependency graph and ownership, not assigned intuitively.
 
 ## Handoff
 
-Handoff — передача контроля, а не только текста. Он должен включать:
+Handoff is transfer of control, not just transfer of text. It must include:
 
-- состояние `completed/partial/blocked/failed`;
-- что изменено и где;
-- доказательства и результаты проверок;
-- открытые решения и риски;
-- точку продолжения;
-- рекомендуемого следующего владельца.
+- `completed/partial/blocked/failed` status;
+- what changed and where;
+- evidence and verification results;
+- open decisions and risks;
+- the continuation point;
+- the recommended next owner.
 
-Используйте manager/agent-as-tool, если один агент обязан синтезировать единый
-ответ. Используйте handoff, если специалист должен стать владельцем следующего
-диалога. Это официальное различие OpenAI Agents SDK
+Use manager/agent-as-tool if one agent must synthesize a single answer. Use
+handoff if a specialist should become the owner of the next dialog. This is the
+official distinction in the OpenAI Agents SDK
 ([orchestration](https://openai.github.io/openai-agents-python/multi_agent/)).
 
-## Независимая проверка
+## Independent Verification
 
-Verifier SHOULD:
+The verifier SHOULD:
 
-- получать цель и артефакты, но не reasoning автора;
-- начинать с гипотезы «результат не доказан»;
-- проверять outcome, а не число закрытых задач;
-- читать исходный код и запускать проверки;
-- различать `failed`, `uncertain` и `human_needed`;
-- не исправлять найденное, если его роль read-only reviewer.
+- receive the goal and artifacts, but not the author's reasoning;
+- start with the hypothesis "the result is not proven";
+- verify the outcome, not the number of closed tasks;
+- read the source code and run checks;
+- distinguish `failed`, `uncertain`, and `human_needed`;
+- not fix what it finds if its role is read-only reviewer.
 
-Разделение implementer/verifier снижает confirmation bias. Cursor рекомендует
-скептический verifier, а GSD формализует goal-backward verification
+Separating implementer and verifier reduces confirmation bias. Cursor
+recommends a skeptical verifier, and GSD formalizes goal-backward verification
 ([Cursor](https://cursor.com/docs/subagents),
 [GSD](https://github.com/open-gsd/gsd-core)).
 
-## Ограничение глубины
+## Limiting Depth
 
-Не опирайтесь на максимальную глубину конкретной платформы: она меняется и
-различается. Организационная практика:
+Do not rely on a specific platform's maximum depth: it changes and differs
+across platforms. Organizational practice:
 
-- по умолчанию — один уровень делегирования;
-- второй уровень — только для явного manager pattern;
-- рекурсивные команды запрещены;
-- каждый потомок наследует или ужесточает budgets и permissions;
-- trace сохраняет полный parent/child graph.
+- by default, one delegation level;
+- a second level only for an explicit manager pattern;
+- recursive teams are prohibited;
+- each child inherits or tightens budgets and permissions;
+- the trace preserves the full parent/child graph.
 
-Чем глубже дерево, тем хуже видны расход, ответственность, ошибки и отмена.
+The deeper the tree, the worse visibility becomes for spending,
+accountability, errors, and cancellation.
 
-## Завершение и отмена
+## Completion and Cancellation
 
-Оркестратор MUST уметь:
+The orchestrator MUST be able to:
 
-- отменить всё дерево или конкретную ветвь;
-- дождаться всех обязательных результатов;
-- прекратить лишние задачи после достаточного ответа;
-- собрать partial handoff при timeout;
-- корректно завершить фоновых агентов;
-- не объявлять общий успех, пока обязательный verifier не завершён.
+- cancel the whole tree or a specific branch;
+- wait for all required results;
+- stop unnecessary tasks after a sufficient answer;
+- collect a partial handoff on timeout;
+- terminate background agents cleanly;
+- not declare overall success until the required verifier is complete.

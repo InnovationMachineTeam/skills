@@ -1,12 +1,11 @@
 {
   "name": "agent-scout",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Identifies and prioritizes justified opportunities for one agent or subagent from tasks, sessions, code, documents, incidents and recurring work, then checks whether code, a model call, workflow, existing agent, team or Agentic OS...",
   "homepage": "https://github.com/InnovationMachineTeam/skills",
   "repository": "https://github.com/InnovationMachineTeam/skills",
   "license": "Proprietary",
   "keywords": [
-    "agent-skills",
     "agents",
     "discovery",
     "planning"

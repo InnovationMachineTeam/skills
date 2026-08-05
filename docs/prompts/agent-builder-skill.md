@@ -1,14 +1,14 @@
-# Мастер-промпт навыка `agent-builder`
+# Master Prompt For The `agent-builder` Skill
 
-Применяй после [agent-skill-base.md](agent-skill-base.md). Создай lifecycle
-orchestrator одного agent/subagent, который переводит user outcome в минимальную
-цепочку specialist skills. Он не переimplements specialists и не активирует
-agents по предположению. Team lifecycle передавай `agent-team-manager`, Agent OS
-lifecycle — соответствующим `agent-os-*` skills.
+Apply after [agent-skill-base.md](agent-skill-base.md). Create a lifecycle
+orchestrator for a single agent/subagent that translates user outcome into the
+minimal chain of specialist skills. It does not reimplement specialists and
+does not activate agents by assumption. Send team lifecycle to
+`agent-team-manager`, and Agent OS lifecycle to the corresponding `agent-os-*` skills.
 
 ## Scenarios
 
-Поддержи только доказанно нужные scenarios:
+Support only scenarios with proven need:
 
 | Scenario | Principal flow |
 |---|---|
@@ -25,14 +25,14 @@ lifecycle — соответствующим `agent-os-*` skills.
 | `incident-recovery` | doctor/triage → recovery gate → manager → post-incident eval |
 | `resume` | restore state → verify drift → first valid incomplete phase |
 
-Если одна bounded phase удовлетворяет запрос, route прямо к specialist.
+If one bounded phase satisfies the request, route directly to the specialist.
 
 ## Scenario selection
 
-Выбирай один primary scenario по observable outcome. Учитывай exact target,
-current lifecycle state, symptom, authority, destination и required evidence.
-Не заставляй user выбирать внутренние имена skills, если intent ясен. При
-материальной неоднозначности задай один discriminating question.
+Choose one primary scenario by observable outcome. Account for the exact target,
+current lifecycle state, symptom, authority, destination, and required evidence.
+Do not force the user to choose internal skill names when intent is clear. If
+there is material ambiguity, ask one discriminating question.
 
 ## Phase envelope
 
@@ -60,7 +60,7 @@ pass to keep workflow moving.
 ## Handoff rules
 
 Pass only target, objective, evidence, scope, preserved invariants, authority,
-required output и forbidden effects. Resolve exact current specialist contract.
+required output and forbidden effects. Resolve the exact current specialist contract.
 Inspect returned artifacts/raw evidence; completion message is not evidence.
 Do not leak expected answers or previous defect hypothesis into independent
 holdout evaluation.
@@ -80,7 +80,7 @@ Use versioned run state for long, costly, resumable or consequential work:
 - observed drift and updated timestamp.
 
 Never store secrets or hidden reasoning. On resume verify target hashes, runtime
-state, approvals, running jobs и evidence freshness before continuing. Do not
+state, approvals, running jobs, and evidence freshness before continuing. Do not
 repeat completed non-idempotent actions.
 
 ## Gates
@@ -96,16 +96,16 @@ Include proportionally:
 - observation window and rollback;
 - SLO/runbook/incident readiness;
 - deprecation/retirement readiness.
-- capability placement, registry/map parity и private access-denial gate.
+- capability placement, registry/map parity, and private access-denial gate.
 
-При build agent definition включай только approved public bindings и private
-capabilities его own/allowed scope. Проверяй, что private root не попал в global
-host adapter. Partial build не должен оставлять активный asset без registry или
-registry reference на отсутствующий asset.
+When building an agent definition, include only approved public bindings and
+private capabilities within its own/allowed scope. Verify that the private root
+did not leak into the global host adapter. A partial build must not leave an
+active asset without a registry entry or a registry reference to a missing asset.
 
-Примени [agent-documentation-contract.md](agent-documentation-contract.md).
-Создавай только approved document roots из immutable agent spec, проверяй owner
-и consumer каждого artifact и не проектируй отсутствующий contract на ходу.
+Apply [agent-documentation-contract.md](agent-documentation-contract.md).
+Create only approved document roots from the immutable agent spec, verify the
+owner and consumer of each artifact, and do not invent a missing contract on the fly.
 
 ## Failure behavior
 

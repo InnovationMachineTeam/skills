@@ -9,7 +9,7 @@
   "skills": [
     {
       "name": "skill-documentation-writer",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "locator": "private-skills/skill-documentation-writer",
       "primary_archetype": "artifact-template",
       "secondary_traits": [

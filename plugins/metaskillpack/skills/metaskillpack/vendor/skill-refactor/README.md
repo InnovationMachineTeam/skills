@@ -1,8 +1,8 @@
 # skill-refactor
 
-`skill-refactor` оценивает и безопасно изменяет границы существующих навыков: оставляет их раздельными, соединяет через composition, физически объединяет, разделяет, извлекает references или subskills и создаёт временные compatibility facades.
+`skill-refactor` assesses and safely changes the boundaries of existing skills: it keeps them separate, links them through composition, physically merges them, splits them, extracts references or subskills, and creates temporary compatibility facades.
 
-## Решения
+## Decisions
 
 - `KEEP_SEPARATE`
 - `COMPOSE`
@@ -14,9 +14,9 @@
 - `PROMOTE_PUBLIC`
 - `DEMOTE_PRIVATE`
 
-По умолчанию навык выполняет read-only assessment. Мутации требуют точного плана, разрешения, validation и rollback.
+By default, the skill performs a read-only assessment. Mutations require a precise plan, permission, validation, and rollback.
 
-## Проверки
+## Verification
 
 ```bash
 python3 scripts/analyze_boundaries.py SKILL_DIR [SKILL_DIR ...] --output boundaries-before.json
@@ -25,91 +25,90 @@ python3 scripts/compare_boundaries.py boundaries-before.json boundaries-after.js
 python3 scripts/check_evals.py evals
 ```
 
-Структурная валидность и уменьшение числа файлов не доказывают корректность routing, поведения, consumers или host discovery.
+Structural validity and a reduced file count do not prove correctness of routing, behavior, consumers, or host discovery.
 
-Visibility migration учитывает registry/map, owner-agent version, consumers и
-host discovery. `private` означает agent-scoped binding, а не секретность.
+Visibility migration accounts for the registry/map, owner-agent version, consumers, and host discovery. `private` means agent-scoped binding, not secrecy.
 
 <!-- generated-skill-readme:start -->
 
-## Паспорт навыка
+## Skill Profile
 
-- **Назначение:** Assesses and safely changes capability boundaries and visibility across existing SKILL.md-based agent skills by composing, merging, splitting, extracting references or subskills, promoting private skills to public, demoting unused public skills to agent-private, and creating compatibility facades.
-- **Версия:** `1.2.2`.
-- **Видимость:** public: канонический навык каталога; фактическая активация зависит от целевого host.
-- **Теги каталога:** `refactoring`, `topology`.
+- **Purpose:** Assesses and safely changes capability boundaries and visibility across existing SKILL.md-based agent skills by composing, merging, splitting, extracting references or subskills, promoting private skills to public, demoting unused public skills to agent-private, and creating compatibility facades.
+- **Version:** `1.2.3`.
+- **Visibility:** public: canonical catalog skill; actual activation depends on the target host.
+- **Catalog tags:** `refactoring`, `topology`.
 
-## Когда использовать
+## When To Use
 
 A user asks whether skills should be combined, divided, extracted, shared across agents, narrowed to one agent, or migrated while preserving triggers, authority, resources, tests, consumers, registry bindings, and rollback. Produce an evidence-backed boundary decision before mutation.
 
-Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.
+Before running, provide the concrete goal, source artifacts, allowed changes, constraints, and acceptance criteria. If essential information is missing, the expected first result is clarification or a safe plan, not an unverified mutation.
 
-## Полный пример команды
+## Full Command Example
 
-Иллюстративный полный вызов; адаптируйте пути, ограничения и критерии приёмки к своей задаче:
+Illustrative full invocation; adapt the paths, constraints, and acceptance criteria to your task:
 
 ```text
 /skill-refactor Use $skill-refactor to reorganize my skills.
 ```
 
-**Ожидаемый результат:** выбирается маршрут `clarify`; итог перечисляет созданные или изменённые артефакты, фактически выполненные проверки, ограничения, остаточные риски и следующий шаг. Наличие файлов само по себе не считается доказательством установки, активации или публикации.
+**Expected result:** route `clarify` is selected; the result lists the created or modified artifacts, the checks actually performed, the constraints, residual risks, and the next step. The presence of files alone is not considered proof of installation, activation, or publication.
 
-## Варианты использования
+## Usage Variants
 
 ### explicit-no-target
 
-- **Пример запроса:** “Use $skill-refactor to reorganize my skills.”
-- **Ожидаемый маршрут:** `clarify`.
+- **Example request:** “Use $skill-refactor to reorganize my skills.”
+- **Expected route:** `clarify`.
 
 ### assess-topology
 
-- **Пример запроса:** “Assess whether these two skills should stay separate, compose, or merge; make no changes.”
-- **Ожидаемый маршрут:** `boundary-assessment`.
-- **Ожидаемое действие:** `assess`.
+- **Example request:** “Assess whether these two skills should stay separate, compose, or merge; make no changes.”
+- **Expected route:** `boundary-assessment`.
+- **Expected action:** `assess`.
 
 ### compose-independent
 
-- **Пример запроса:** “Keep both skills independently invocable but create a bounded workflow that coordinates them.”
-- **Ожидаемый маршрут:** `compose`.
-- **Ожидаемое действие:** `plan-refactor`.
+- **Example request:** “Keep both skills independently invocable but create a bounded workflow that coordinates them.”
+- **Expected route:** `compose`.
+- **Expected action:** `plan-refactor`.
 
 ### merge-overlap
 
-- **Пример запроса:** “These two skills have the same users, triggers, authority, and tests. Plan one canonical merged skill.”
-- **Ожидаемый маршрут:** `merge`.
-- **Ожидаемое действие:** `plan-refactor`.
+- **Example request:** “These two skills have the same users, triggers, authority, and tests. Plan one canonical merged skill.”
+- **Expected route:** `merge`.
+- **Expected action:** `plan-refactor`.
 
 ### split-domains
 
-- **Пример запроса:** “Split this multi-domain skill into independently triggered skills and preserve the old entry point.”
-- **Ожидаемый маршрут:** `split-extract`.
-- **Ожидаемое действие:** `plan-refactor`.
+- **Example request:** “Split this multi-domain skill into independently triggered skills and preserve the old entry point.”
+- **Expected route:** `split-extract`.
+- **Expected action:** `plan-refactor`.
 
 ### extract-reference
 
-- **Пример запроса:** “The workflow is cohesive but SKILL.md contains 700 lines of conditional schemas and examples. Extract references.”
-- **Ожидаемый маршрут:** `reference-extraction`.
-- **Ожидаемое действие:** `plan-refactor`.
+- **Example request:** “The workflow is cohesive but SKILL.md contains 700 lines of conditional schemas and examples. Extract references.”
+- **Expected route:** `reference-extraction`.
+- **Expected action:** `plan-refactor`.
 
 ### compatibility-facade
 
-- **Пример запроса:** “Create a temporary compatibility facade and consumer migration plan for the renamed skills.”
-- **Ожидаемый маршрут:** `facade-migration`.
-- **Ожидаемое действие:** `plan-refactor`.
+- **Example request:** “Create a temporary compatibility facade and consumer migration plan for the renamed skills.”
+- **Expected route:** `facade-migration`.
+- **Expected action:** `plan-refactor`.
 
 ### promote-private-public
 
-- **Пример запроса:** “A second independent agent now needs this private skill. Generalize and promote it to public with registry and consumer migration.”
-- **Ожидаемый маршрут:** `visibility-migration`.
-- **Ожидаемое действие:** `plan-refactor`.
+- **Example request:** “A second independent agent now needs this private skill. Generalize and promote it to public with registry and consumer migration.”
+- **Expected route:** `visibility-migration`.
+- **Expected action:** `plan-refactor`.
 
 
-## Ожидаемые результаты
+## Expected Results
 
 ### no-target
 
-Для запроса “Combine my skills.” результат должен:
+For request “Combine my skills.”, the result must:
 
 - asks for exact skill paths;
 - asks for desired outcome;
@@ -117,7 +116,7 @@ A user asks whether skills should be combined, divided, extracted, shared across
 
 ### permission-mismatch
 
-Для запроса “Merge a read-only research skill with a deployment skill that has production credentials.” результат должен:
+For request “Merge a read-only research skill with a deployment skill that has production credentials.”, the result must:
 
 - flags permission union;
 - prefers separation or composition;
@@ -125,7 +124,7 @@ A user asks whether skills should be combined, divided, extracted, shared across
 
 ### cohesive-large-skill
 
-Для запроса “Split this large skill whose sections share one trigger, state, and completion contract.” результат должен:
+For request “Split this large skill whose sections share one trigger, state, and completion contract.”, the result must:
 
 - considers EXTRACT_REFERENCE;
 - tests independent triggers;
@@ -133,7 +132,7 @@ A user asks whether skills should be combined, divided, extracted, shared across
 
 ### split-with-consumers
 
-Для запроса “Split the skill, delete the original immediately, and ignore existing consumers.” результат должен:
+For request “Split the skill, delete the original immediately, and ignore existing consumers.”, the result must:
 
 - inventories consumers;
 - proposes facade or staged migration;
@@ -141,7 +140,7 @@ A user asks whether skills should be combined, divided, extracted, shared across
 
 ### shared-resources
 
-Для запроса “Both new skills need the same changing policy reference and stateful script.” результат должен:
+For request “Both new skills need the same changing policy reference and stateful script.”, the result must:
 
 - assigns canonical ownership;
 - defines access and state boundaries;
@@ -149,7 +148,7 @@ A user asks whether skills should be combined, divided, extracted, shared across
 
 ### dirty-worktree
 
-Для запроса “Apply an approved split in a repository with unrelated local edits.” результат должен:
+For request “Apply an approved split in a repository with unrelated local edits.”, the result must:
 
 - preserves unrelated edits;
 - limits exact files;
@@ -157,7 +156,7 @@ A user asks whether skills should be combined, divided, extracted, shared across
 
 ### merge-validation
 
-Для запроса “The merged folder validates structurally, but routing and consumer tests were not run.” результат должен:
+For request “The merged folder validates structurally, but routing and consumer tests were not run.”, the result must:
 
 - marks result incomplete or inconclusive;
 - requires comparable behavior and consumer tests;
@@ -165,29 +164,29 @@ A user asks whether skills should be combined, divided, extracted, shared across
 
 ### facade-retirement
 
-Для запроса “The compatibility facade exists but actual host discovery is unknown.” результат должен:
+For request “The compatibility facade exists but actual host discovery is unknown.”, the result must:
 
 - requires host verification;
 - keeps retirement pending;
 - routes lifecycle work to manager.
 
 
-## Как проходит выполнение
+## Execution Flow
 
-1. **Establish scope and authority.** Выполняется соответствующий этап контракта из `SKILL.md`.
-2. **Keep role boundaries.** Выполняется соответствующий этап контракта из `SKILL.md`.
-3. **Capture a structural baseline.** Выполняется соответствующий этап контракта из `SKILL.md`.
-4. **Decide before changing.** Выполняется соответствующий этап контракта из `SKILL.md`.
-5. **Select one primary route.** Выполняется соответствующий этап контракта из `SKILL.md`.
-6. **Preview a refactor plan.** Выполняется соответствующий этап контракта из `SKILL.md`.
-7. **Apply safely.** Выполняется соответствующий этап контракта из `SKILL.md`.
-8. **Verify topology and behavior.** Выполняется соответствующий этап контракта из `SKILL.md`.
+1. **Establish scope and authority.** Execute the corresponding contract step from `SKILL.md`.
+2. **Keep role boundaries.** Execute the corresponding contract step from `SKILL.md`.
+3. **Capture a structural baseline.** Execute the corresponding contract step from `SKILL.md`.
+4. **Decide before changing.** Execute the corresponding contract step from `SKILL.md`.
+5. **Select one primary route.** Execute the corresponding contract step from `SKILL.md`.
+6. **Preview a refactor plan.** Execute the corresponding contract step from `SKILL.md`.
+7. **Apply safely.** Execute the corresponding contract step from `SKILL.md`.
+8. **Verify topology and behavior.** Execute the corresponding contract step from `SKILL.md`.
 
-## Границы и неподходящие запросы
+## Boundaries And Unsuitable Requests
 
 Read-only comparison alone, independent evaluation, ordinary optimization, new unrelated skill creation, or installation; route those to skill-harvester, skill-evaluator, skill-optimizer, skill-architect, or skill-manager.
 
-Следующие примеры должны маршрутизироваться в другой навык или не запускать этот навык:
+The following examples should route to another skill or should not trigger this skill:
 
 - “Compare these two skills and list shared patterns, differences, and good decisions without changing topology.” → `skill-harvester`.
 - “Reduce context cost in this healthy skill without changing its capability boundary.” → `skill-optimizer`.
@@ -196,7 +195,7 @@ Read-only comparison alone, independent evaluation, ordinary optimization, new u
 - “Refactor these two Python classes into one module.” → `do-not-trigger`.
 - “Compare these skills, choose a topology, create any extracted bundles, migrate consumers, and roll out safely.” → `skill-builder`.
 
-Критические анти-результаты:
+Critical anti-results:
 
 - scans broad roots;
 - merges by name;
@@ -209,31 +208,31 @@ Read-only comparison alone, independent evaluation, ordinary optimization, new u
 - duplicates shared knowledge;
 - deletes the original immediately.
 
-## Зависимости
+## Dependencies
 
-Обязательные companion-навыки в каноническом dependency-графе не объявлены. Проверяйте доступность host-инструментов и ресурсов, на которые ссылается `SKILL.md`.
+No required companion skills are declared in the canonical dependency graph. Check the availability of host tools and resources referenced by `SKILL.md`.
 
-## Ресурсы пакета
+## Package Resources
 
-- [`SKILL.md`](DONOR.md) — исполняемый контракт, маршрутизация и правила безопасности.
-- [`agents/`](agents/) — UI-метаданные и host-конфигурация.
-- [`evals/`](evals/) — routing- и behavior-сценарии.
-- [`prompts/`](prompts/) — маршрутные и специализированные промпты.
-- [`references/`](references/) — справочники, схемы и контракты.
-- [`scripts/`](scripts/) — детерминированные проверки и автоматизация.
+- [`SKILL.md`](DONOR.md) — executable contract, routing, and safety rules.
+- [`agents/`](agents/) — UI metadata and host configuration.
+- [`evals/`](evals/) — routing and behavior scenarios.
+- [`prompts/`](prompts/) — routing and specialist prompts.
+- [`references/`](references/) — reference guides, schemas, and contracts.
+- [`scripts/`](scripts/) — deterministic checks and automation.
 
-## Проверка результата
+## Result Verification
 
-- Сверьте маршрутизацию с [`evals/routing.json`](evals/routing.json).
-- Сверьте свойства результата с [`evals/behavior.json`](evals/behavior.json).
-- Для детерминированной проверки используйте [`scripts/analyze_boundaries.py`](scripts/analyze_boundaries.py) согласно его `--help` и контракту навыка.
-- Для детерминированной проверки используйте [`scripts/check_evals.py`](scripts/check_evals.py) согласно его `--help` и контракту навыка.
-- Для детерминированной проверки используйте [`scripts/compare_boundaries.py`](scripts/compare_boundaries.py) согласно его `--help` и контракту навыка.
-- Для детерминированной проверки используйте [`scripts/validate_refactor_plan.py`](scripts/validate_refactor_plan.py) согласно его `--help` и контракту навыка.
-- Для release-bound изменения дополнительно выполните репозиторную валидацию, полный unit-suite и проверку сгенерированных пакетов.
+- Compare routing against [`evals/routing.json`](evals/routing.json).
+- Compare result properties against [`evals/behavior.json`](evals/behavior.json).
+- For deterministic verification, use [`scripts/analyze_boundaries.py`](scripts/analyze_boundaries.py) according to its `--help` output and the skill contract.
+- For deterministic verification, use [`scripts/check_evals.py`](scripts/check_evals.py) according to its `--help` output and the skill contract.
+- For deterministic verification, use [`scripts/compare_boundaries.py`](scripts/compare_boundaries.py) according to its `--help` output and the skill contract.
+- For deterministic verification, use [`scripts/validate_refactor_plan.py`](scripts/validate_refactor_plan.py) according to its `--help` output and the skill contract.
+- For a release-bound change, also run repository validation, the full unit suite, and generated package verification.
 
-## Формат завершения
+## Completion Format
 
-Финальный ответ должен перечислить выбранный маршрут, фактические входы и допущения, созданные или изменённые артефакты, выполненные проверки, ожидаемый результат по сценарию, запрещённые или пропущенные действия, остаточные риски, состояние отката и точный следующий шаг. Наличие файлов само по себе не доказывает установку, активацию, публикацию или готовность к production.
+The final answer must list the selected route, actual inputs and assumptions, created or modified artifacts, checks performed, the expected scenario outcome, forbidden or skipped actions, residual risks, rollback status, and the exact next step. The presence of files alone does not prove installation, activation, publication, or production readiness.
 
 <!-- generated-skill-readme:end -->

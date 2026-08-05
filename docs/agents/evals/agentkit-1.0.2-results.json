@@ -2,7 +2,7 @@
   "schema_version": "1.0",
   "evaluation_id": "agentkit-1.0.2-full-command-documentation",
   "run_id": "agentkit-1.0.2-2026-08-03-r1",
-  "target_hash": "sha256:a7f967da8c693d34fe54c3abee3b61157c12220731d377ee2c2b5f4bd097255c",
+  "target_hash": "sha256:d2bd3fc861d5de30beb324fa75b62aa2f9b08056d3ea7d72ab0cb971b82a74db",
   "verdict": "PASS",
   "release_recommendation": "REPOSITORY_SOURCE_READY_NO_HOST_ACTIVATION",
   "layer_verdicts": {

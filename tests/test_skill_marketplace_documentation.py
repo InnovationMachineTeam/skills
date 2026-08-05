@@ -80,16 +80,16 @@ class SkillMarketplaceDocumentationTests(unittest.TestCase):
         for skill_file in skill_files:
             skill_dir = skill_file.parent
             readme = (skill_dir / "README.md").read_text(encoding="utf-8")
-            self.assertIn("## Полный пример команды", readme, skill_dir)
+            self.assertIn("## Full Command Example", readme, skill_dir)
             self.assertIn("```text\n/", readme, skill_dir)
-            self.assertIn("**Ожидаемый результат:**", readme, skill_dir)
+            self.assertIn("**Expected result:**", readme, skill_dir)
 
             parts = skill_dir.relative_to(ROOT / "skills").parts
             if "private-skills" in parts:
                 owner = parts[parts.index("private-skills") - 1]
                 name = skill_dir.name
                 self.assertIn(f"/{owner}", readme, skill_dir)
-                self.assertIn(f"Прямой `/{name}` не является поддерживаемой", readme, skill_dir)
+                self.assertIn(f"Direct `/{name}` is not a supported", readme, skill_dir)
 
 
 if __name__ == "__main__":

@@ -1,13 +1,11 @@
 {
   "name": "agent-master",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Builds a governed agent system from a process description",
   "homepage": "https://github.com/InnovationMachineTeam/skills",
   "repository": "https://github.com/InnovationMachineTeam/skills",
   "license": "Proprietary",
   "keywords": [
-    "agent-master",
-    "agent-skills",
     "agents",
     "autopilot",
     "factory",

@@ -1,13 +1,11 @@
 {
   "name": "agent-team-manager",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": ">- Companion skill plugins are required for full functionality; see README.md.",
   "homepage": "https://github.com/InnovationMachineTeam/skills",
   "repository": "https://github.com/InnovationMachineTeam/skills",
   "license": "Proprietary",
   "keywords": [
-    "agent-skills",
-    "agent-team-skills",
     "agents",
     "lifecycle",
     "orchestration"

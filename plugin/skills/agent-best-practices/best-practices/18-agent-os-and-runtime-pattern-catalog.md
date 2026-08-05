@@ -1,206 +1,215 @@
-# Паттерны Agent OS и runtime
+# Agent OS and Runtime Patterns
 
-## Agent OS как платформа управления
+## Agent OS as a management platform
 
-Agent OS — не «главный супер-агент», а platform layer, который делает выполнение
-агентов воспроизводимым, управляемым и наблюдаемым. Он отделяет вероятностные
-решения моделей от детерминированных control, security и state mechanisms.
+Agent OS is not a "main super-agent", but a platform layer that makes agent
+execution reproducible, governable, and observable. It separates probabilistic
+model decisions from deterministic control, security, and state mechanisms.
 
-Рекомендуемая декомпозиция:
+Recommended decomposition:
 
 ```text
-experience plane   — users, IDE, API, chat, approvals
-control plane      — intent, registry, planning, routing, policy, scheduler
-execution plane    — agents, tools, sandboxes, connectors, model gateways
-knowledge plane    — context, memory, artifacts, provenance, retrieval
-assurance plane    — evals, verification, security, audit, release gates
-operations plane   — telemetry, budgets, incidents, reconciliation, lifecycle
+experience plane   - users, IDE, API, chat, approvals
+control plane      - intent, registry, planning, routing, policy, scheduler
+execution plane    - agents, tools, sandboxes, connectors, model gateways
+knowledge plane    - context, memory, artifacts, provenance, retrieval
+assurance plane    - evals, verification, security, audit, release gates
+operations plane   - telemetry, budgets, incidents, reconciliation, lifecycle
 ```
 
-Planes — логические границы. В малой установке они могут работать в одном
-процессе, но их контракты и ответственность всё равно должны быть различимы.
+Planes are logical boundaries. In a small setup they may run in one process,
+but their contracts and accountability should still remain distinct.
 
 ## Control plane
 
 ### Capability registry
 
-Реестр описывает agents, skills, tools, workflows, модели и adapters через
-версионируемые manifests. Минимальные поля: identity, version, owner,
+The registry describes agents, skills, tools, workflows, models, and adapters
+through versioned manifests. Minimum fields: identity, version, owner,
 capabilities, trigger/input/output schemas, permissions, compatibility,
-dependencies, risk tier, eval status, lifecycle state и provenance.
+dependencies, risk tier, eval status, lifecycle state, and provenance.
 
-Discovery не означает authorization: найденный capability ещё должен пройти
-policy, compatibility и health gates.
+Discovery does not mean authorization: a discovered capability must still pass
+policy, compatibility, and health gates.
 
 ### Workflow registry
 
-Повторяемые процессы хранятся отдельно от runtime state. Definition immutable
-после публикации; run ссылается на точную версию. Обновление workflow не меняет
-уже начатые runs без явной migration policy.
+Repeatable processes are stored separately from runtime state. A definition is
+immutable after publication; a run references the exact version. Updating a
+workflow does not change already started runs without an explicit migration
+policy.
 
 ### Hybrid orchestrator
 
-Код владеет состояниями, retries, budgets, permissions, approvals и durable
-execution. Модель выполняет классификацию, локальное планирование и синтез в
-ограниченном пространстве. Любой сгенерированный plan проходит schema,
-capability, cycle, permission и cost validation.
+Code owns states, retries, budgets, permissions, approvals, and durable
+execution. The model performs classification, local planning, and synthesis in
+bounded space. Any generated plan passes schema, capability, cycle,
+permission, and cost validation.
 
 ### Desired-state reconciliation
 
-Для установленных skills, workers, schedules и long-running tasks храните
-desired и observed state. Reconciler исправляет drift идемпотентно и создаёт
-audit event. Этот паттерн надёжнее разовой команды `upgrade`, потому что
-обнаруживает частичные сбои и последующий drift.
+For installed skills, workers, schedules, and long-running tasks, keep desired
+and observed state. A reconciler fixes drift idempotently and creates an audit
+event. This pattern is more reliable than a one-off `upgrade` command because
+it detects partial failures and later drift.
 
 ## Execution plane
 
 ### Ports and adapters
 
-Канонический внутренний контракт изолирует platform-specific Claude Code,
-Codex, Cursor, MCP, A2A и vendor APIs. Adapter переводит manifests, tool calls,
-approvals и events, не протаскивая platform assumptions в core workflow.
+The canonical internal contract isolates platform-specific Claude Code, Codex,
+Cursor, MCP, A2A, and vendor APIs. An adapter translates manifests, tool calls,
+approvals, and events without leaking platform assumptions into the core
+workflow.
 
 ### Sandboxed worker
 
-Каждый run получает identity, readonly context, отдельное working state,
-разрешённые tools, network policy, secret grants, quotas и expiry. Credentials
-выдаются just-in-time и не попадают в prompt, logs или durable artifacts.
+Each run receives an identity, read-only context, separate working state,
+allowed tools, network policy, secret grants, quotas, and expiry. Credentials
+are issued just in time and do not enter prompts, logs, or durable artifacts.
 
 ### Execution lease
 
-Worker получает lease на task и продлевает heartbeat. После expiry scheduler
-может назначить задачу заново; поэтому side effects требуют idempotency key или
-проверки observed state. Lease не является distributed lock для внешней системы.
+A worker receives a lease on a task and extends it with a heartbeat. After
+expiry, the scheduler may assign the task again; therefore side effects require
+an idempotency key or an observed-state check. A lease is not a distributed
+lock for an external system.
 
 ### Outbox / inbox
 
-Изменение локального state и запись намерения отправить событие фиксируются
-атомарно; dispatcher доставляет событие повторяемо, consumer дедуплицирует по
-ID. Это устраняет классическую потерю между «сохранил задачу» и «отправил
-сообщение».
+A local state change and the intent to send an event are recorded atomically;
+the dispatcher delivers the event repeatedly, and the consumer deduplicates by
+ID. This eliminates the classic loss between "saved the task" and "sent the
+message."
 
 ### Saga
 
-Long-running workflow разбивается на локальные commits. Для каждого irreversible
-или externally visible шага задаётся compensation либо честно фиксируется, что
-шаг non-compensatable и требует более сильного approval до исполнения.
+A long-running workflow is split into local commits. For each irreversible or
+externally visible step, define compensation or explicitly record that the step
+is non-compensatable and requires stronger approval before execution.
 
-## Knowledge и state plane
+## Knowledge and state plane
 
 ### Event log + projections
 
-Append-only события являются историей run; task board, dashboard и current state
-строятся как projections. Это даёт replay и audit, но не требует применять full
-event sourcing к каждому документу. Команды должны быть idempotent, события —
-versioned и коррелированы с intent, actor и artifact versions.
+Append-only events are the run history; the task board, dashboard, and current
+state are built as projections. This enables replay and audit without requiring
+full event sourcing for every document. Commands should be idempotent, and
+events should be versioned and correlated with intent, actor, and artifact
+versions.
 
 ### Immutable artifact + mutable pointer
 
-Spec, plan, result, evaluation и release bundle сохраняются как content-addressed
-или immutable versions; короткий pointer обозначает current approved version.
-Это предотвращает незаметную подмену evidence и упрощает rollback.
+Spec, plan, result, evaluation, and release bundle are stored as
+content-addressed or immutable versions; a short pointer denotes the current
+approved version. This prevents silent substitution of evidence and simplifies
+rollback.
 
 ### Provenance graph
 
-Связи `derived_from`, `supersedes`, `implements`, `verified_by`, `released_as`
-дают traceability от intent до production observation. Edge содержит actor,
-timestamp, method и confidence. Summary без ссылок не добавляется как факт.
+Links such as `derived_from`, `supersedes`, `implements`, `verified_by`, and
+`released_as` provide traceability from intent to production observation. An
+edge contains actor, timestamp, method, and confidence. A summary without links
+is not added as fact.
 
 ### Tiered memory
 
-- run context — живёт один run;
-- episodic memory — проверенные события и результаты;
-- semantic memory — устойчивые факты с источником и TTL;
-- procedural memory — versioned skills/workflows;
-- policy memory — только authoritative controlled store.
+- run context - lives for a single run;
+- episodic memory - verified events and results;
+- semantic memory - stable facts with source and TTL;
+- procedural memory - versioned skills/workflows;
+- policy memory - only an authoritative controlled store.
 
-Запись в долгую память проходит curation, provenance, sensitivity и expiry.
+Writes to long-term memory pass curation, provenance, sensitivity, and expiry.
 
 ## Assurance plane
 
 ### Policy decision point / enforcement point
 
-PDP возвращает `allow`, `deny` или `require_approval` вместе с policy version и
-reason codes. PEP находится у реального action boundary и не полагается на
-послушание prompt. Policy changes версионируются и тестируются на historical
+The PDP returns `allow`, `deny`, or `require_approval` together with the policy
+version and reason codes. The PEP sits at the real action boundary and does not
+rely on prompt obedience. Policy changes are versioned and tested on historical
 decision cases.
 
 ### Evidence gate
 
-Gate принимает не текст «готово», а typed bundle: версии inputs, executed
-checks, raw results, coverage, exceptions, approvals и residual risks. Verdict
-машиночитаем и имеет expiry, если evidence быстро устаревает.
+A gate accepts not the text "done", but a typed bundle: input versions,
+executed checks, raw results, coverage, exceptions, approvals, and residual
+risks. The verdict is machine-readable and has an expiry if the evidence becomes
+stale quickly.
 
-### Shadow, canary и champion–challenger
+### Shadow, canary, and champion-challenger
 
-Новая версия сначала работает без side effects на production-like inputs,
-затем на ограниченной доле runs. Champion и challenger сравниваются по quality,
-safety, latency и cost; promotion требует заранее заданного threshold. Нельзя
-оптимизировать одну метрику ценой невидимого ухудшения остальных.
+A new version first runs without side effects on production-like inputs, then on
+a limited share of runs. Champion and challenger are compared on quality,
+safety, latency, and cost; promotion requires a predefined threshold. It is not
+acceptable to optimize one metric at the cost of invisible degradation in the
+others.
 
 ### Tamper-evident audit
 
-Audit record содержит actor/agent identity, delegated authority, exact versions,
-tool calls, approvals, side effects и evidence refs. Sensitive prompt content
-редактируется по policy, но факт действия и decision metadata сохраняются.
+An audit record contains actor/agent identity, delegated authority, exact
+versions, tool calls, approvals, side effects, and evidence refs. Sensitive
+prompt content is redacted by policy, but the fact of the action and decision
+metadata are preserved.
 
 ## Operations plane
 
 ### MAPE-K controller
 
-Runtime operations удобно строить как Monitor → Analyze → Plan → Execute над
-общим Knowledge. Sensors собирают signals, effectors меняют managed element.
-Классическая IBM-модель отдельно рассматривает управляемый элемент и autonomic
-manager
+Runtime operations are conveniently built as Monitor -> Analyze -> Plan ->
+Execute over shared Knowledge. Sensors collect signals, and effectors change
+the managed element. The classic IBM model treats the managed element and the
+autonomic manager separately
 ([IBM MAPE-K](https://dominoweb.draco.res.ibm.com/reports/h-0219.pdf)).
 
-### Bulkheads и budget governors
+### Bulkheads and budget governors
 
-Отдельные quotas по tenant, workflow, agent, model и tool предотвращают
-cascading exhaustion. Budget включает tokens, деньги, wall time, tool calls,
-parallel workers и retries. Превышение переводит run в явное terminal или
-human-input state, а не в бесконечное ухудшение качества.
+Separate quotas per tenant, workflow, agent, model, and tool prevent cascading
+exhaustion. A budget includes tokens, money, wall time, tool calls, parallel
+workers, and retries. Exceeding it moves a run into an explicit terminal or
+human-input state rather than endless quality degradation.
 
-### Circuit breaker и fallback ladder
+### Circuit breaker and fallback ladder
 
-Breaker открывается по ошибкам/latency конкретной dependency; fallback идёт по
-заранее утверждённой лестнице: retry → alternative model/tool → degraded
-read-only mode → human queue → stop. Fallback MUST сохранять security и quality
-floor; дешёвая модель не является допустимым fallback для любого решения.
+The breaker opens on errors/latency of a specific dependency; fallback follows a
+preapproved ladder: retry -> alternative model/tool -> degraded read-only mode
+-> human queue -> stop. A fallback MUST preserve the security and quality floor;
+a cheaper model is not an acceptable fallback for every decision.
 
-### Reconciliation и orphan recovery
+### Reconciliation and orphan recovery
 
-Периодический контроллер ищет expired leases, incomplete outbox, stale approval,
-broken pointer, incompatible skill и незакрытый run. Recovery создаёт новое
-событие и не переписывает историю. После максимума попыток задача попадает в
-dead-letter state с actionable diagnostics.
+A periodic controller looks for expired leases, incomplete outbox, stale
+approval, broken pointer, incompatible skill, and an unclosed run. Recovery
+creates a new event and does not rewrite history. After the maximum attempts,
+the task enters a dead-letter state with actionable diagnostics.
 
 ## Interoperability
 
-- **MCP** соединяет agent/runtime с tools, data и prompts; capability listing не
-  заменяет authorization
+- **MCP** connects an agent/runtime to tools, data, and prompts; capability
+  listing does not replace authorization
   ([MCP specification](https://modelcontextprotocol.io/specification/latest)).
-- **A2A** задаёт межагентное discovery, tasks, messages и artifacts между
-  независимыми системами
+- **A2A** defines cross-agent discovery, tasks, messages, and artifacts between
+  independent systems
   ([A2A specification](https://a2a-protocol.org/latest/specification/)).
-- Внутренние calls используют typed contracts независимо от транспорта.
-- Cross-boundary identity, policy, provenance и revocation обязательны.
-- Negotiated capability и protocol version сохраняются в run record.
+- Internal calls use typed contracts regardless of transport.
+- Cross-boundary identity, policy, provenance, and revocation are mandatory.
+- Negotiated capability and protocol version are preserved in the run record.
 
-## Lifecycle states платформенных сущностей
+## Lifecycle states of platform entities
 
-Единая модель для agent, skill, workflow, tool adapter и policy:
+One model for agent, skill, workflow, tool adapter, and policy:
 
 ```text
-draft → candidate → verified → approved → published → active
-                                ↓             ↓         ↓
-                              rejected      suspended  deprecated → retired
+draft -> candidate -> verified -> approved -> published -> active
+                                v             v         v
+                              rejected      suspended  deprecated -> retired
 ```
 
-`published` означает доступность в registry, `active` — разрешение на routing.
-Deprecated entity остаётся читаемой и содержит replacement/migration deadline.
-Retirement отзывает routes и credentials, архивирует evidence и проверяет, что
-активные dependents отсутствуют или мигрированы.
+`published` means availability in the registry; `active` means routing is
+allowed. A deprecated entity remains readable and includes a replacement/
+migration deadline. Retirement revokes routes and credentials, archives
+evidence, and verifies that active dependents are absent or migrated.
 
 ## Reference runtime contract
 
@@ -225,12 +234,13 @@ run:
 
 ## Agent OS anti-patterns
 
-- один глобальный prompt одновременно хранит policy, state и память;
-- registry без versions, owner, compatibility и revocation;
-- «exactly once» предполагается без idempotency и reconciliation;
-- observability сохраняет secrets или полный чувствительный контекст;
-- worktree или prompt используется как security boundary;
-- auto-upgrade меняет active behavior без eval, canary и rollback;
-- human approval запрашивается без diff, evidence и описания side effect;
-- long-running run нельзя отменить, продолжить или безопасно завершить;
-- retired agent остаётся доступным через старый route или credential.
+- one global prompt simultaneously stores policy, state, and memory;
+- a registry has no versions, owner, compatibility, or revocation;
+- "exactly once" is assumed without idempotency and reconciliation;
+- observability stores secrets or full sensitive context;
+- a worktree or prompt is used as a security boundary;
+- auto-upgrade changes active behavior without eval, canary, and rollback;
+- human approval is requested without a diff, evidence, or side-effect
+  description;
+- a long-running run cannot be canceled, resumed, or safely terminated;
+- a retired agent remains accessible through an old route or credential.

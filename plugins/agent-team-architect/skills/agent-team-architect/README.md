@@ -2,62 +2,62 @@
 
 <!-- generated-skill-readme:start -->
 
-## Паспорт навыка
+## Skill Profile
 
-- **Назначение:** Designs the smallest justified greenfield team of agents, subagents, specialists, an orchestrator, and human responsibilities from a task and capability graph, or redesigns an asset already defined as a team.
-- **Версия:** `1.1.2`.
-- **Видимость:** public: канонический навык каталога; фактическая активация зависит от целевого host.
-- **Теги каталога:** `agents`, `architecture`, `teams`.
+- **Purpose:** Designs the smallest justified greenfield team of agents, subagents, specialists, an orchestrator, and human responsibilities from a task and capability graph, or redesigns an asset already defined as a team.
+- **Version:** `1.1.3`.
+- **Visibility:** public: canonical catalog skill; actual activation depends on the target host.
+- **Catalog tags:** `agents`, `architecture`, `teams`.
 
-## Когда использовать
+## When To Use
 
 A new problem may need multiple agents, a confirmed PROMOTE_TO_TEAM decision needs roles and topology, or an existing team needs handoff, worktree, model or skill boundaries and a versioned specification. Produce design artifacts only.
 
-Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.
+Before running, provide the concrete goal, source artifacts, allowed changes, constraints, and acceptance criteria. If essential information is missing, the expected first result is clarification or a safe plan, not an unverified mutation.
 
-## Полный пример команды
+## Full Command Example
 
-Иллюстративный полный вызов; адаптируйте пути, ограничения и критерии приёмки к своей задаче:
+Illustrative full invocation; adapt the paths, constraints, and acceptance criteria to your task:
 
 ```text
 /agent-team-architect Assess whether this delivery workflow actually needs multiple agents or should stay a single agent.
 ```
 
-**Ожидаемый результат:** выбирается маршрут `worth-assessment`; итог перечисляет созданные или изменённые артефакты, фактически выполненные проверки, ограничения, остаточные риски и следующий шаг. Наличие файлов само по себе не считается доказательством установки, активации или публикации.
+**Expected result:** route `worth-assessment` is selected; the result lists the created or modified artifacts, the checks actually performed, the constraints, residual risks, and the next step. The presence of files alone is not considered proof of installation, activation, or publication.
 
-## Варианты использования
+## Usage Variants
 
 ### worth
 
-- **Пример запроса:** “Assess whether this delivery workflow actually needs multiple agents or should stay a single agent.”
-- **Ожидаемый маршрут:** `worth-assessment`.
+- **Example request:** “Assess whether this delivery workflow actually needs multiple agents or should stay a single agent.”
+- **Expected route:** `worth-assessment`.
 
 ### design
 
-- **Пример запроса:** “Design the minimal roles, handoffs, skills, models, and failure policy for an agent team.”
-- **Ожидаемый маршрут:** `design-team`.
+- **Example request:** “Design the minimal roles, handoffs, skills, models, and failure policy for an agent team.”
+- **Expected route:** `design-team`.
 
 ### redesign
 
-- **Пример запроса:** “Our current agent team has duplicate planner roles and no integration owner. Redesign the specification only.”
-- **Ожидаемый маршрут:** `redesign-team`.
+- **Example request:** “Our current agent team has duplicate planner roles and no integration owner. Redesign the specification only.”
+- **Expected route:** `redesign-team`.
 
 ### topology
 
-- **Пример запроса:** “Choose between manager-as-tools, handoffs, and a fork-join topology for these independent tasks.”
-- **Ожидаемый маршрут:** `topology`.
+- **Example request:** “Choose between manager-as-tools, handoffs, and a fork-join topology for these independent tasks.”
+- **Expected route:** `topology`.
 
 ### worktrees
 
-- **Пример запроса:** “Decide whether these coding agents need separate worktrees and define merge ownership.”
-- **Ожидаемый маршрут:** `worktree-policy`.
+- **Example request:** “Decide whether these coding agents need separate worktrees and define merge ownership.”
+- **Expected route:** `worktree-policy`.
 
 
-## Ожидаемые результаты
+## Expected Results
 
 ### reject-role-inflation
 
-Для запроса “Create separate planner, coordinator, orchestrator, lead, and manager roles even though they share tools, state, and outputs.” результат должен:
+For request “Create separate planner, coordinator, orchestrator, lead, and manager roles even though they share tools, state, and outputs.”, the result must:
 
 - requires boundary evidence;
 - combines redundant roles;
@@ -65,71 +65,71 @@ A new problem may need multiple agents, a confirmed PROMOTE_TO_TEAM decision nee
 
 ### private-placement
 
-Для запроса “Two agents should directly share one private skill inside the first agent folder.” результат должен:
+For request “Two agents should directly share one private skill inside the first agent folder.”, the result must:
 
 - rejects multi-owner private binding;
 - routes to public promotion assessment or separate capability.
 
 ### unsafe-parallel
 
-Для запроса “Put three agents in the same files in parallel and let them resolve conflicts later.” результат должен:
+For request “Put three agents in the same files in parallel and let them resolve conflicts later.”, the result must:
 
 - detects overlapping write-sets;
 - requires sequential work, separation, or merge protocol.
 
 ### design-not-activation
 
-Для запроса “The specification looks valid, so activate the team now.” результат должен:
+For request “The specification looks valid, so activate the team now.”, the result must:
 
 - returns design candidate only;
 - requires builder, evaluator, and lifecycle authority.
 
 
-## Как проходит выполнение
+## Execution Flow
 
-1. **Establish the outcome.** Выполняется соответствующий этап контракта из `SKILL.md`.
-2. **Build evidence graphs.** Выполняется соответствующий этап контракта из `SKILL.md`.
-3. **Specify every role and interaction.** Выполняется соответствующий этап контракта из `SKILL.md`.
-4. **Decide workspaces and lifecycle.** Выполняется соответствующий этап контракта из `SKILL.md`.
-5. **Produce and validate the specification.** Выполняется соответствующий этап контракта из `SKILL.md`.
+1. **Establish the outcome.** Execute the corresponding contract step from `SKILL.md`.
+2. **Build evidence graphs.** Execute the corresponding contract step from `SKILL.md`.
+3. **Specify every role and interaction.** Execute the corresponding contract step from `SKILL.md`.
+4. **Decide workspaces and lifecycle.** Execute the corresponding contract step from `SKILL.md`.
+5. **Produce and validate the specification.** Execute the corresponding contract step from `SKILL.md`.
 
-## Границы и неподходящие запросы
+## Boundaries And Unsuitable Requests
 
-Следующие примеры должны маршрутизироваться в другой навык или не запускать этот навык:
+The following examples should route to another skill or should not trigger this skill:
 
 - “Assess migration of this registered overloaded single agent into a team without designing the team yet.” → `agent-refactor`.
 - “Materialize this approved team spec under .agents and generate host adapters.” → `agent-team-builder`.
 - “Create a new PDF editing skill.” → `skill-architect`.
 
-Критические анти-результаты:
+Critical anti-results:
 
 - creates roles from titles alone;
 - expands private allow-list;
 - approves uncontrolled concurrent writes;
 - activates runtime.
 
-## Зависимости
+## Dependencies
 
-Обязательные companion-навыки в каноническом dependency-графе не объявлены. Проверяйте доступность host-инструментов и ресурсов, на которые ссылается `SKILL.md`.
+No required companion skills are declared in the canonical dependency graph. Check the availability of host tools and resources referenced by `SKILL.md`.
 
-## Ресурсы пакета
+## Package Resources
 
-- [`SKILL.md`](SKILL.md) — исполняемый контракт, маршрутизация и правила безопасности.
-- [`agents/`](agents/) — UI-метаданные и host-конфигурация.
-- [`evals/`](evals/) — routing- и behavior-сценарии.
-- [`references/`](references/) — справочники, схемы и контракты.
-- [`scripts/`](scripts/) — детерминированные проверки и автоматизация.
+- [`SKILL.md`](SKILL.md) — executable contract, routing, and safety rules.
+- [`agents/`](agents/) — UI metadata and host configuration.
+- [`evals/`](evals/) — routing and behavior scenarios.
+- [`references/`](references/) — reference guides, schemas, and contracts.
+- [`scripts/`](scripts/) — deterministic checks and automation.
 
-## Проверка результата
+## Result Verification
 
-- Сверьте маршрутизацию с [`evals/routing.json`](evals/routing.json).
-- Сверьте свойства результата с [`evals/behavior.json`](evals/behavior.json).
-- Для детерминированной проверки используйте [`scripts/check_evals.py`](scripts/check_evals.py) согласно его `--help` и контракту навыка.
-- Для детерминированной проверки используйте [`scripts/validate_team_spec.py`](scripts/validate_team_spec.py) согласно его `--help` и контракту навыка.
-- Для release-bound изменения дополнительно выполните репозиторную валидацию, полный unit-suite и проверку сгенерированных пакетов.
+- Compare routing against [`evals/routing.json`](evals/routing.json).
+- Compare result properties against [`evals/behavior.json`](evals/behavior.json).
+- For deterministic verification, use [`scripts/check_evals.py`](scripts/check_evals.py) according to its `--help` output and the skill contract.
+- For deterministic verification, use [`scripts/validate_team_spec.py`](scripts/validate_team_spec.py) according to its `--help` output and the skill contract.
+- For a release-bound change, also run repository validation, the full unit suite, and generated package verification.
 
-## Формат завершения
+## Completion Format
 
-Финальный ответ должен перечислить выбранный маршрут, фактические входы и допущения, созданные или изменённые артефакты, выполненные проверки, ожидаемый результат по сценарию, запрещённые или пропущенные действия, остаточные риски, состояние отката и точный следующий шаг. Наличие файлов само по себе не доказывает установку, активацию, публикацию или готовность к production.
+The final answer must list the selected route, actual inputs and assumptions, created or modified artifacts, checks performed, the expected scenario outcome, forbidden or skipped actions, residual risks, rollback status, and the exact next step. The presence of files alone does not prove installation, activation, publication, or production readiness.
 
 <!-- generated-skill-readme:end -->

@@ -1,173 +1,179 @@
-# Противоречия практик и решения
+# Practice Conflicts and Resolutions
 
-Большинство расхождений — не фактические противоречия, а разные точки на шкалах
-риск/сложность/интерактивность. Ниже зафиксированы решения, чтобы Agent OS не
-получила конфликтующие правила.
+Most differences are not factual contradictions, but different points on the
+risk/complexity/interactivity spectrum. The decisions below are recorded so that
+Agent OS does not inherit conflicting rules.
 
-## Workflow или агент
+## Workflow or agent
 
-**Различие:** deterministic workflows предсказуемы; autonomous agents гибки.
+**Difference:** deterministic workflows are predictable; autonomous agents are
+flexible.
 
-**Решение:** код владеет lifecycle, budgets, policies и irreversible gates;
-агент решает неоднозначные локальные задачи. Начинать с workflow/single agent,
-усложнять по eval evidence.
+**Resolution:** code owns lifecycle, budgets, policies, and irreversible gates;
+the agent solves ambiguous local tasks. Start with a workflow/single agent and
+increase complexity based on eval evidence.
 
-## Один агент или много
+## One agent or many
 
-**OpenAI/Anthropic:** сначала максимально простой single-agent.
+**OpenAI/Anthropic:** keep it as simple as possible with a single agent first.
 
-**Реализации:** GSD/BMAD/gstack активно специализируют роли.
+**Implementations:** GSD/BMAD/gstack actively specialize roles.
 
-**Решение:** специализация оправдана context isolation, distinct permissions,
-tool confusion, independent verification или parallel speedup. Само тематическое
-разделение не достаточно.
+**Resolution:** specialization is justified by context isolation, distinct
+permissions, tool confusion, independent verification, or parallel speedup.
+Thematic separation alone is not sufficient.
 
-## Жёсткие фазы или fluid actions
+## Rigid phases or fluid actions
 
-**GSD/BMAD/Spec Kit:** последовательные artifacts и gates.
+**GSD/BMAD/Spec Kit:** sequential artifacts and gates.
 
-**OpenSpec/ADLC:** итеративные actions; ADLC modes работают параллельно.
+**OpenSpec/ADLC:** iterative actions; ADLC modes operate in parallel.
 
-**Решение:** dependencies и assurance gates обязательны, фазовая блокировка —
-нет. Artifact graph разрешает возврат и итерацию. Lite/standard/high-assurance
-policies выбирают строгость.
+**Resolution:** dependencies and assurance gates are mandatory; phase blocking
+is not. An artifact graph permits return and iteration. Lite/standard/
+high-assurance policies choose the level of strictness.
 
-## Требования или bets
+## Requirements or bets
 
-**Классический SDLC:** требования описывают ожидаемое поведение.
+**Classic SDLC:** requirements describe expected behavior.
 
-**ADLC:** bets фиксируют неизвестное и resolution signal.
+**ADLC:** bets record the unknown and the resolution signal.
 
-**Решение:** bets применяются до подтверждения проблемы/решения; requirements —
-к выбранному generation target и обязательным constraints. Bet trace связывает
-learning с последующей spec.
+**Resolution:** bets apply before the problem/solution is confirmed;
+requirements apply to the selected generation target and mandatory constraints.
+A bet trace connects learning to the subsequent spec.
 
-## Thin orchestrator или активный manager
+## Thin orchestrator or active manager
 
-**GSD:** orchestrator не трогает source files.
+**GSD:** the orchestrator does not touch source files.
 
-**Manager pattern:** manager синтезирует и может выполнять часть работы.
+**Manager pattern:** the manager synthesizes and may do part of the work.
 
-**Решение:** orchestrator MUST не дублировать dispatched tasks. Он MAY делать
-малые интеграционные операции, если ownership явно закреплён и это не загрязняет
-контекст. Default — thin.
+**Resolution:** the orchestrator MUST not duplicate dispatched tasks. It MAY
+perform small integration operations if ownership is explicit and this does not
+pollute context. Default: thin.
 
-## Agents as tools или handoffs
+## Agents as tools or handoffs
 
-**Различие:** manager сохраняет user-facing ownership; handoff отдаёт его
-специалисту.
+**Difference:** the manager keeps user-facing ownership; a handoff transfers it
+to the specialist.
 
-**Решение:** agents-as-tools для bounded subtasks и единого ответа; handoff для
-полного владения следующим этапом. Route history и max transitions обязательны.
+**Resolution:** use agents-as-tools for bounded subtasks and a single final
+answer; use handoff for full ownership of the next phase. Route history and max
+transitions are mandatory.
 
-## Команда или параллельные субагенты
+## Team or parallel subagents
 
-**Различие:** команда даёт peer communication; субагенты возвращаются к lead.
+**Difference:** a team provides peer communication; subagents return to a lead.
 
-**Решение:** если participants не должны координироваться напрямую, fan-out/fan-in
-проще. Team только для genuine shared problem-solving/task board.
+**Resolution:** if participants do not need to coordinate directly, fan-out/
+fan-in is simpler. Use a team only for genuine shared problem-solving/task
+board work.
 
-## Worktree как изоляция
+## Worktree as isolation
 
-**Маркетинговое восприятие:** отдельный worktree выглядит безопасной средой.
+**Marketing perception:** a separate worktree looks like a safe environment.
 
-**Платформенные детали:** `.git`, plugins, approvals или credentials могут быть
-общими.
+**Platform details:** `.git`, plugins, approvals, or credentials may still be
+shared.
 
-**Решение:** worktree = change/collision isolation. Security boundary = sandbox +
-identity + filesystem/network policy. Документировать shared resources.
+**Resolution:** a worktree provides change/collision isolation. A security
+boundary is sandboxing plus identity plus filesystem/network policy. Shared
+resources must be documented.
 
-## Память или stateless agents
+## Memory or stateless agents
 
-**Плюс памяти:** continuity и learning.
+**Memory benefit:** continuity and learning.
 
-**Риск:** poisoning, staleness, privacy и скрытая зависимость.
+**Risk:** poisoning, staleness, privacy, and hidden dependency.
 
-**Решение:** raw sessions не становятся памятью. Candidate → verify → approve;
-provenance, scope, TTL, owner и revocation обязательны. Canonical docs/state
-приоритетнее memory.
+**Resolution:** raw sessions do not become memory. Candidate -> verify ->
+approve; provenance, scope, TTL, owner, and revocation are mandatory. Canonical
+docs/state take priority over memory.
 
-## Ссылаться на standard или копировать
+## Link to a standard or copy it
 
-**Ссылка:** остаётся актуальной, но ломает portability/reproducibility.
+**Link:** stays current, but harms portability/reproducibility.
 
-**Копия:** self-contained, но устаревает.
+**Copy:** self-contained, but becomes stale.
 
-**Решение:** active workflow читает canonical reference; immutable run/spec
-фиксирует version/digest или snapshot. Dependency graph помечает stale copies.
+**Resolution:** an active workflow reads the canonical reference; an immutable
+run/spec records a version/digest or snapshot. A dependency graph marks stale
+copies.
 
-## Markdown state или database
+## Markdown state or database
 
-**Markdown:** прозрачен людям, git-friendly.
+**Markdown:** transparent to humans, git-friendly.
 
-**DB:** транзакции, concurrency и queries.
+**DB:** transactions, concurrency, and queries.
 
-**Решение:** canonical structured store для runtime state, Markdown projection
-для review. В небольшом single-writer workflow Markdown допустим при schema/
-atomic-write/lock checks.
+**Resolution:** use a canonical structured store for runtime state and a
+Markdown projection for review. In a small single-writer workflow, Markdown is
+acceptable with schema/atomic-write/lock checks.
 
-## Автоматические gates или human review
+## Automatic gates or human review
 
 **ADLC:** loops over gates, continuous signals.
 
-**High-assurance:** блокирующие approvals.
+**High-assurance:** blocking approvals.
 
-**Решение:** automated continuous validation везде; human gate только для
-accountability, irreversible/high-impact action и genuine judgment. Он не
-повторяет автоматический checklist.
+**Resolution:** automated continuous validation everywhere; a human gate only
+for accountability, irreversible/high-impact action, and genuine judgment. It
+must not repeat the automated checklist.
 
-## LLM verifier или deterministic test
+## LLM verifier or deterministic test
 
-**LLM:** видит смысл и coherence.
+**LLM:** sees meaning and coherence.
 
-**Test:** воспроизводим и проверяет observable behavior.
+**Test:** reproducible and verifies observable behavior.
 
-**Решение:** deterministic evidence имеет приоритет; LLM связывает claims,
-находит gaps и оценивает judgment cases. Critical pass не основывается только на
-LLM.
+**Resolution:** deterministic evidence takes priority; the LLM links claims,
+finds gaps, and evaluates judgment cases. A critical pass must not rely only on
+the LLM.
 
-## Fail-open или fail-closed
+## Fail-open or fail-closed
 
-**OpenSpec lite:** verification warnings не блокируют archive.
+**OpenSpec lite:** verification warnings do not block archiving.
 
-**Security/GSD:** неопределённость часто требует human_needed/block.
+**Security/GSD:** uncertainty often requires human_needed/block.
 
-**Решение:** policy по risk class. Low reversible — accept-and-flag; high/critical
-— fail-closed или accountable approval. Статус никогда не скрывается.
+**Resolution:** policy is set by risk class. Low reversible risk: accept and
+flag. High/critical risk: fail-closed or accountable approval. Status is never
+hidden.
 
-## Полный контекст или прогрессивная загрузка
+## Full context or progressive loading
 
-**Полный контекст:** меньше risk пропуска.
+**Full context:** lower risk of omission.
 
-**Progressive disclosure:** меньше context rot/cost.
+**Progressive disclosure:** less context rot/cost.
 
-**Решение:** обязательный compact context spine + индекс; детали retrieval по
-релевантности. Critical constraints дублируются в task envelope, но canonical
-source сохраняется ссылкой.
+**Resolution:** a compact context spine plus index is mandatory; details are
+retrieved by relevance. Critical constraints are duplicated in the task
+envelope, while the canonical source remains linked.
 
-## «Boil the ocean» или минимализм
+## "Boil the ocean" or minimalism
 
-**gstack:** AI снижает marginal cost, стоит делать complete thing.
+**gstack:** AI lowers marginal cost, so it is worth doing the complete thing.
 
-**Anthropic/GSD Pi/OpenSpec:** complexity и ceremony только по необходимости.
+**Anthropic/GSD Pi/OpenSpec:** complexity and ceremony only when needed.
 
-**Решение:** полнота относится к agreed outcome и важным edge cases, а не к
-неограниченному scope. Budget, non-goals и diminishing returns ограничивают
-работу.
+**Resolution:** completeness applies to the agreed outcome and important edge
+cases, not to unlimited scope. Budget, non-goals, and diminishing returns bound
+the work.
 
-## Численные лимиты платформ
+## Numeric platform limits
 
-Глубина nesting, число teammates, размер context и inheritance permissions
-различаются и меняются.
+Nesting depth, number of teammates, context size, and inherited permissions
+vary and change.
 
-**Решение:** не встраивать vendor limits в универсальную архитектуру. Хранить
-runtime capability matrix и выбирать более строгие внутренние пределы.
+**Resolution:** do not embed vendor limits in universal architecture. Maintain a
+runtime capability matrix and choose stricter internal limits.
 
-## Итоговая policy разрешения новых конфликтов
+## Final policy for resolving new conflicts
 
-1. Определить, это факт, trade-off или platform limitation.
-2. Сравнить scope, risk tier и дату источников.
-3. Предпочесть primary/current official source для факта.
-4. Для trade-off использовать eval evidence и reversible default.
-5. Для high-impact ambiguity — human decision и ADR.
-6. Зафиксировать исключение, owner и review date.
+1. Determine whether it is a fact, a trade-off, or a platform limitation.
+2. Compare scope, risk tier, and source dates.
+3. Prefer the primary/current official source for facts.
+4. For trade-offs, use eval evidence and a reversible default.
+5. For high-impact ambiguity, require a human decision and an ADR.
+6. Record the exception, owner, and review date.

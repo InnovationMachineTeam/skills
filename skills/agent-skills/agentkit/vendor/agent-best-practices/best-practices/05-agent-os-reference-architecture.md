@@ -1,12 +1,12 @@
-# Референсная архитектура Agent OS
+# Agent OS Reference Architecture
 
-## Назначение
+## Purpose
 
-Agent OS превращает отдельные prompts и tools в управляемую систему. Она должна
-отделять **что агент умеет** от **кто, когда и с какими полномочиями может это
-запустить**.
+Agent OS turns isolated prompts and tools into a managed system. It must
+separate **what the agent can do** from **who, when, and with which authority
+can launch it**.
 
-## Слои
+## Layers
 
 ```text
 Experience plane
@@ -25,81 +25,81 @@ Assurance plane
   evals · verification · security · tracing · metrics · audit · incident response
 ```
 
-Assurance — сквозной слой, а не финальный этап.
+Assurance is a cross-cutting layer, not a final stage.
 
-## Реестр возможностей
+## Capability Registry
 
-Registry MUST хранить для каждого агента, workflow и tool:
+The registry MUST store for each agent, workflow, and tool:
 
-- стабильный ID, owner и semantic version;
-- purpose, inputs, outputs и examples;
-- required permissions и risk class;
-- поддерживаемые runtime/model;
-- dependencies и compatibility range;
-- evaluation status и last verified;
+- stable ID, owner, and semantic version;
+- purpose, inputs, outputs, and examples;
+- required permissions and risk class;
+- supported runtime/model;
+- dependencies and compatibility range;
+- evaluation status and last verified;
 - lifecycle: experimental, active, deprecated, revoked;
-- подпись, digest и provenance поставки.
+- supply signature, digest, and provenance.
 
-Роутер выбирает не имя агента из prompt, а capability, удовлетворяющую policy и
-контракту. Для внешних систем A2A Agent Card предоставляет discovery,
-capabilities, interfaces и security schemes
+The router selects not an agent name from a prompt, but a capability that
+satisfies policy and contract. For external systems, an A2A Agent Card provides
+discovery, capabilities, interfaces, and security schemes
 ([A2A specification](https://a2a-protocol.org/latest/specification/)).
 
-## Control plane
+## Control Plane
 
-Control plane отвечает за:
+The control plane is responsible for:
 
-- нормализацию intent;
-- выбор уровня автономности;
-- построение DAG;
-- проверку совместимости;
-- выделение budget и permission envelope;
+- intent normalization;
+- autonomy-level selection;
+- DAG construction;
+- compatibility checking;
+- budget and permission-envelope allocation;
 - lease/ownership;
-- approvals и checkpoints;
-- отмену, retries и recovery;
-- итоговую synthesis/verification;
+- approvals and checkpoints;
+- cancellation, retries, and recovery;
+- final synthesis/verification;
 - policy decision log.
 
-LLM может предложить план, но policy engine и scheduler SHOULD быть
-детерминированными.
+The LLM may propose a plan, but the policy engine and scheduler SHOULD be
+deterministic.
 
-## Execution plane
+## Execution Plane
 
-Каждый run получает:
+Each run receives:
 
-- immutable run ID и parent trace;
+- immutable run ID and parent trace;
 - agent/tool/model versions;
-- isolated workspace или read-only view;
+- isolated workspace or read-only view;
 - scoped credentials;
 - network policy;
-- input snapshot и artifact refs;
+- input snapshot and artifact references;
 - token/time/tool-call budget;
 - cancellation signal;
-- output sink и audit channel.
+- output sink and audit channel.
 
-Worktree изолирует изменения файлов, но не обязательно `.git`, permissions,
-plugins или secrets. Поэтому worktree MUST дополняться sandbox и policy
-([Claude worktrees](https://code.claude.com/docs/en/worktrees)).
+A worktree isolates file changes, but not necessarily `.git`, permissions,
+plugins, or secrets. Therefore, a worktree MUST be supplemented with a sandbox
+and policy ([Claude worktrees](https://code.claude.com/docs/en/worktrees)).
 
-## State model
+## State Model
 
-Разделяйте:
+Separate:
 
-1. **Source state** — код, канонические specs, policies.
-2. **Workflow state** — задачи, leases, checkpoints, retries.
-3. **Session state** — текущий контекст и временные результаты.
-4. **Memory** — проверенные повторно используемые знания.
-5. **Observability data** — append-only traces, metrics и audit.
-6. **Artifacts** — версии результатов с provenance.
+1. **Source state**: code, canonical specs, policies.
+2. **Workflow state**: tasks, leases, checkpoints, retries.
+3. **Session state**: current context and temporary results.
+4. **Memory**: verified reusable knowledge.
+5. **Observability data**: append-only traces, metrics, and audit.
+6. **Artifacts**: versioned outcomes with provenance.
 
-Markdown удобен для людей и агентов, но task scheduler SHOULD иметь строгую
-схему. GSD Core использует файловый `STATE.md`; GSD Pi сочетает локальную БД с
-Markdown projections. Рекомендуемый компромисс: структурированное каноническое
-состояние + человекочитаемые проекции, проверяемые на расхождение.
+Markdown is convenient for people and agents, but the task scheduler SHOULD have
+a strict schema. GSD Core uses file-based `STATE.md`; GSD Pi combines a local
+database with Markdown projections. The recommended compromise is structured
+canonical state plus human-readable projections that are checked for drift.
 
-## Artifact protocol
+## Artifact Protocol
 
-Артефакт MUST иметь:
+An artifact MUST have:
 
 ```yaml
 artifact_id: spec-checkout-v3
@@ -114,50 +114,51 @@ owner: product-checkout
 content_digest: sha256:...
 ```
 
-Производные документы ссылаются на источники; изменение канонического документа
-помечает зависимые артефакты stale.
+Derived documents reference their sources; changing a canonical document marks
+dependent artifacts as stale.
 
-## Policy и уровни автономности
+## Policy and Autonomy Levels
 
-| Уровень | Поведение |
+| Level | Behavior |
 |---|---|
-| A0 | Только совет, без tools |
+| A0 | Advice only, no tools |
 | A1 | Read-only tools |
-| A2 | Локальные обратимые изменения |
-| A3 | Внешние изменения с предварительным approval |
-| A4 | Делегированные действия в заранее утверждённом envelope |
-| A5 | Полностью автономный bounded loop с post-review |
+| A2 | Local reversible changes |
+| A3 | External changes with prior approval |
+| A4 | Delegated actions in a pre-approved envelope |
+| A5 | Fully autonomous bounded loop with post-review |
 
-Уровень назначается по сочетанию agent trust, action risk, data sensitivity и
-environment. Агент не может сам повысить свой уровень.
+The level is assigned based on the combination of agent trust, action risk,
+data sensitivity, and environment. An agent cannot raise its own level.
 
-## Runtime adapters
+## Runtime Adapters
 
-Универсальный контракт переводится в платформенные поверхности:
+The universal contract is translated into platform surfaces:
 
-- Codex: AGENTS.md, skills, custom agents, sandbox и worktrees;
-- Claude Code: CLAUDE.md, subagents, teams, hooks, workflows и worktrees;
-- Cursor: rules, subagents, cloud agents, automations, Bugbot и approval agents;
-- сервисные runtime: SDK, queue, sandbox, A2A/MCP и telemetry.
+- Codex: `AGENTS.md`, skills, custom agents, sandbox, and worktrees;
+- Claude Code: `CLAUDE.md`, subagents, teams, hooks, workflows, and worktrees;
+- Cursor: rules, subagents, cloud agents, automations, Bugbot, and approval
+  agents;
+- service runtimes: SDK, queue, sandbox, A2A/MCP, and telemetry.
 
-Адаптер MUST документировать несовпадения: глубину делегирования, наследование
-permissions, resume, background behavior, tool syntax и supported metadata.
+The adapter MUST document mismatches: delegation depth, permission inheritance,
+resume, background behavior, tool syntax, and supported metadata.
 
-## Расширения
+## Extensions
 
-Практика GSD Pi полезна как модель:
+GSD Pi practice is useful as a model:
 
-- `core` — недеактивируемый минимум;
-- `bundled` — поставляется с системой, но отключаем;
-- `community` — внешнее расширение;
-- manifest перечисляет version, compatibility, capabilities и dependencies;
+- `core`: non-disableable minimum;
+- `bundled`: ships with the system but can be disabled;
+- `community`: external extension;
+- manifest lists version, compatibility, capabilities, and dependencies;
 - topological load order;
-- уникальные namespaced tool IDs;
-- state reconstruction на всех lifecycle events;
-- bounded tool output и cancellation.
+- unique namespaced tool IDs;
+- state reconstruction on all lifecycle events;
+- bounded tool output and cancellation.
 
-Расширение без manifest MAY работать в development, но не должно попадать в
-управляемый registry.
+An extension without a manifest MAY work in development, but must not enter the
+managed registry.
 
 ## Lifecycle
 
@@ -165,20 +166,20 @@ permissions, resume, background behavior, tool syntax и supported metadata.
 proposed → experimental → evaluated → active → deprecated → revoked → archived
 ```
 
-Переходы требуют evidence. Revocation должна немедленно отключать новые runs и
-определять судьбу уже запущенных. Upgrade выполняется через compatibility check,
-canary evals и rollback.
+Transitions require evidence. Revocation must immediately disable new runs and
+define the fate of already-running ones. Upgrade is performed via compatibility
+checks, canary evals, and rollback.
 
-## Минимальный Agent OS
+## Minimal Agent OS
 
-Не начинайте с полной платформы. Достаточный MVP:
+Do not start with a full platform. A sufficient MVP:
 
-1. registry agents/tools;
-2. task envelope и result envelope;
+1. registry of agents/tools;
+2. task envelope and result envelope;
 3. deterministic permission policy;
 4. durable run/task state;
 5. sandbox/worktree adapter;
-6. traces и cost metrics;
+6. traces and cost metrics;
 7. eval suite;
 8. human approval queue;
 9. documentation index.

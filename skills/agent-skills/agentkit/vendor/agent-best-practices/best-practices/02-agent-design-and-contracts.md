@@ -1,13 +1,13 @@
-# Проектирование агента и его контракт
+# Agent Design and Its Contract
 
-## Минимальная спецификация агента
+## Minimal Agent Specification
 
-Каждый production-агент MUST иметь версионируемый контракт:
+Every production agent MUST have a versionable contract:
 
 ```yaml
 id: requirements-analyst
 version: 1.0.0
-purpose: Преобразовать проверенный intent в тестируемые требования
+purpose: Transform verified intent into testable requirements
 owns:
   - docs/requirements/
 inputs:
@@ -31,60 +31,60 @@ budgets:
   max_duration_minutes: 20
 ```
 
-Синтаксис конкретного runtime может отличаться, но семантические поля должны
-сохраняться.
+The syntax of a specific runtime may differ, but the semantic fields must be
+preserved.
 
-## Инструкции
+## Instructions
 
-Хорошая инструкция отвечает на семь вопросов:
+A good instruction answers seven questions:
 
-1. Какой результат агент создаёт?
-2. Что он не делает?
-3. Какие источники истины и в каком порядке использует?
-4. Какие инструменты доступны и когда?
-5. Как выглядит готовый результат?
-6. Что проверяется перед завершением?
-7. Когда агент останавливается и зовёт человека?
+1. What outcome does the agent produce?
+2. What does it not do?
+3. Which sources of truth does it use, and in what order?
+4. Which tools are available and when?
+5. What does a finished result look like?
+6. What is checked before completion?
+7. When does the agent stop and call a human?
 
-Практичный каркас:
+A practical scaffold:
 
 ```markdown
 ## Role
-Узкая компетенция и ответственность.
+Narrow competence and responsibility.
 
 ## Goal
-Наблюдаемый результат, а не список действий.
+Observable outcome, not a list of actions.
 
 ## Inputs and precedence
-Источники, freshness и порядок разрешения конфликтов.
+Sources, freshness, and conflict-resolution order.
 
 ## Scope
 In scope, out of scope, write-set.
 
 ## Process
-Ключевые решения и gates; не микроменеджмент очевидных действий.
+Key decisions and gates; not micromanagement of obvious actions.
 
 ## Output contract
-Схема ответа, артефакты, evidence и статус.
+Response schema, artifacts, evidence, and status.
 
 ## Validation
-Команды, rubrics, независимые проверки.
+Commands, rubrics, independent checks.
 
 ## Escalation and stop conditions
-Блокеры, риск, бюджет и ожидание пользователя.
+Blockers, risk, budget, and user wait state.
 ```
 
-Инструкции SHOULD быть конкретными и декларативными. Важные запреты оформляются
-как MUST NOT с причиной и проверкой. Не смешивайте persona, workflow и
-платформенные обходные пути в одном неструктурированном тексте.
+Instructions SHOULD be concrete and declarative. Important prohibitions are
+written as MUST NOT with a reason and a verification method. Do not mix persona,
+workflow, and platform-specific workarounds in one unstructured text.
 
-## Контракт задачи
+## Task Contract
 
-Оркестратор передаёт не «помоги с проектом», а task envelope:
+The orchestrator passes not "help with the project," but a task envelope:
 
 ```yaml
 task_id: REQ-042
-objective: Найти пропущенные quality requirements для checkout
+objective: Find missing quality requirements for checkout
 context_refs:
   - docs/product/prd.md
   - docs/architecture/context.md
@@ -100,21 +100,21 @@ dependencies: []
 deadline: 2026-07-30T16:00:00Z
 ```
 
-Контекст передаётся ссылками и компактной выжимкой. Родитель не должен полагать,
-что субагент видит историю диалога: Claude, Codex и Cursor подчёркивают
-изолированный контекст субагентов
+Context is passed via references and a compact brief. The parent must not
+assume that the subagent sees the dialog history: Claude, Codex, and Cursor all
+emphasize isolated subagent context
 ([Claude](https://code.claude.com/docs/en/sub-agents),
 [Codex](https://learn.chatgpt.com/docs/agent-configuration/subagents),
 [Cursor](https://cursor.com/docs/subagents)).
 
-## Контракт результата
+## Result Contract
 
-Результат MUST отличать выполненную работу от заявления о ней:
+The result MUST distinguish completed work from a claim about it:
 
 ```yaml
 task_id: REQ-042
 status: completed | partial | blocked | failed
-summary: Короткий вывод
+summary: Short conclusion
 artifacts:
   - path: docs/requirements/checkout-quality.md
     sha256: ...
@@ -129,52 +129,54 @@ risks: []
 handoff_to: requirements-owner
 ```
 
-MUST возвращать частичный результат при отмене или исчерпании бюджета, если он
-безопасен и полезен. `completed` недопустим без доказательств критериев done.
+It MUST return a partial result upon cancellation or budget exhaustion if that
+result is safe and useful. `completed` is invalid without evidence for the done
+criteria.
 
-## Инструменты
+## Tools
 
-Инструмент — часть интерфейса агента, а не просто API. Каждый tool SHOULD иметь:
+A tool is part of the agent interface, not just an API. Every tool SHOULD have:
 
-- уникальное глагольное имя;
-- одно назначение;
-- строгую схему аргументов и результата;
-- описание предусловий и side effects;
-- примеры типичного и пограничного вызова;
-- идемпотентность или idempotency key;
-- понятные ошибки, позволяющие самокоррекцию;
-- timeout, cancellation и bounded output;
-- классификацию риска и requirement approval;
-- audit event без лишних секретов.
+- a unique verb-based name;
+- one purpose;
+- a strict argument and result schema;
+- a description of preconditions and side effects;
+- examples of a typical and edge-case call;
+- idempotency or an idempotency key;
+- clear errors that allow self-correction;
+- timeout, cancellation, and bounded output;
+- risk classification and approval requirement;
+- an audit event without unnecessary secrets.
 
-Скрывайте редко используемые и опасные инструменты до момента необходимости.
-Похожие инструменты объединяйте или делайте названия и параметры явно
-различимыми. OpenAI и Anthropic связывают качество агента с качеством tool
-interface ([OpenAI](https://openai.com/business/guides-and-resources/a-practical-guide-to-building-ai-agents/),
+Hide rarely used and dangerous tools until needed. Merge similar tools or make
+their names and parameters clearly distinguishable. OpenAI and Anthropic tie
+agent quality to tool interface quality
+([OpenAI](https://openai.com/business/guides-and-resources/a-practical-guide-to-building-ai-agents/),
 [Anthropic](https://www.anthropic.com/engineering/building-effective-agents)).
 
-## Ошибки и восстановление
+## Errors and Recovery
 
-Минимальная таксономия:
+Minimal taxonomy:
 
-| Тип | Действие |
+| Type | Action |
 |---|---|
-| Validation error | Исправить аргументы, одна ограниченная повторная попытка |
-| Transient | Backoff + jitter в пределах retry budget |
-| Auth / permission | Остановиться и запросить нужную авторизацию без вывода секрета |
-| Policy denial | Не обходить; вернуть причину и безопасную альтернативу |
-| Dependency unavailable | Зафиксировать состояние, предложить resume |
+| Validation error | Fix arguments, one limited retry |
+| Transient | Backoff + jitter within the retry budget |
+| Auth / permission | Stop and request the needed authorization without exposing the secret |
+| Policy denial | Do not bypass; return the reason and a safe alternative |
+| Dependency unavailable | Record state, propose resume |
 | Ambiguous high-impact choice | Human checkpoint |
 | Irreversible side effect uncertain | Fail closed |
 | Budget exceeded | Partial handoff + resume token |
 
-Retry MUST быть привязан к типу ошибки. Повтор того же запроса без изменения
-условий — не стратегия восстановления.
+Retry MUST be tied to the error type. Repeating the same request without
+changing conditions is not a recovery strategy.
 
-## Версии и совместимость
+## Versions and Compatibility
 
-- Версионируйте agent contract, prompt, tool schema и output schema отдельно.
-- Breaking change входа, выхода или полномочий требует major version.
-- Оркестратор MUST проверять совместимость перед dispatch.
-- В trace записываются фактические версии агента, модели, tools и policy.
-- Поведение должно тестироваться на фиксированном corpus до и после обновления.
+- Version the agent contract, prompt, tool schema, and output schema
+  separately.
+- A breaking change to input, output, or authority requires a major version.
+- The orchestrator MUST check compatibility before dispatch.
+- The trace records the effective agent, model, tool, and policy versions.
+- Behavior should be tested on a fixed corpus before and after updates.

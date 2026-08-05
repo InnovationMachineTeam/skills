@@ -1,9 +1,9 @@
-# Мастер-промпт навыка `agent-skill-mapper`
+# Master Prompt For The `agent-skill-mapper` Skill
 
-Применяй после [agent-skill-base.md](agent-skill-base.md). Создай skill, который
-сопоставляет registered agents с project, installed and locked skills, затем
-предлагает или применяет versioned bindings. Он не создаёт новые capabilities и
-не меняет visibility/topology без `skill-refactor`.
+Apply after [agent-skill-base.md](agent-skill-base.md). Create a skill that
+matches registered agents with project, installed, and locked skills, then
+proposes or applies versioned bindings. It does not create new capabilities and
+does not change visibility/topology without `skill-refactor`.
 
 ## Sources
 

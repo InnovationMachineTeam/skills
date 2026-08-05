@@ -1,8 +1,8 @@
-# Мастер-промпт навыка `agent-observer`
+# Master Prompt For The `agent-observer` Skill
 
-Применяй после [agent-os-base.md](agent-os-base.md). Создай operations skill для
-observability, SLO monitoring, MAPE-K reconciliation and incident evidence. Он
-не исправляет production state без separate authority.
+Apply after [agent-os-base.md](agent-os-base.md). Create an operations skill for
+observability, SLO monitoring, MAPE-K reconciliation, and incident evidence. It
+does not modify production state without separate authority.
 
 Define trace/span/event schemas linking user task, run, agent, model, prompt,
 skill, tool, policy, approval, artifact and cost versions. Specify golden

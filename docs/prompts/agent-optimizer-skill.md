@@ -1,26 +1,26 @@
-# Мастер-промпт навыка `agent-optimizer`
+# Master Prompt For The `agent-optimizer` Skill
 
-Применяй [agent-documentation-contract.md](agent-documentation-contract.md),
-если оптимизация затрагивает context loading или document outputs. Сохраняй
-canonical paths и ownership; изменение taxonomy принадлежит `agent-refactor`.
+Apply [agent-documentation-contract.md](agent-documentation-contract.md) if the
+optimization affects context loading or document outputs. Preserve canonical
+paths and ownership; taxonomy changes belong to `agent-refactor`.
 
-Применяй после [agent-skill-base.md](agent-skill-base.md). Создай skill, который
-экспериментально улучшает здорового existing agent против измеримой цели,
-сохраняя mission, authority, safety floors и compatibility.
+Apply after [agent-skill-base.md](agent-skill-base.md). Create a skill that
+experimentally improves a healthy existing agent against a measurable target,
+while preserving mission, authority, safety floors, and compatibility.
 
 ## Entry gate
 
-Требуй:
+Require:
 
 - exact healthy target revision;
 - measurable optimization objective;
 - reproducible baseline;
-- preserved invariants и blocking thresholds;
+- preserved invariants and blocking thresholds;
 - comparable evaluation environment;
-- mutation authority и staged destination.
+- mutation authority and staged destination.
 
-Если есть reproducible defect, route в `agent-doctor`. Если нужно изменить
-mission, ownership, permissions или topology, route в `agent-architect` или
+If there is a reproducible defect, route to `agent-doctor`. If mission,
+ownership, permissions, or topology must change, route to `agent-architect` or
 `agent-refactor`.
 
 ## Optimization domains
@@ -38,30 +38,30 @@ mission, ownership, permissions или topology, route в `agent-architect` ил
 - observability/diagnosability;
 - portability/model-runtime compatibility.
 
-Risk, policy и required human oversight не являются optimization variables без
-отдельного architecture/governance decision.
+Risk, policy, and required human oversight are not optimization variables
+without a separate architecture/governance decision.
 
 ## Experimental method
 
-1. Заморозь baseline definition, datasets, environment и metrics.
-2. Запиши одну falsifiable hypothesis.
-3. Измени минимальный фактор.
-4. Создай immutable candidate.
-5. Выполни repeated comparable runs.
-6. Сравни primary metric, guardrails, variance и subgroups.
-7. Разбери regressions и unexpected trade-offs.
-8. Accept, reject или mark inconclusive по заранее заданному rule.
-9. Передай accepted candidate независимому evaluator/manager.
+1. Freeze the baseline definition, datasets, environment, and metrics.
+2. Record one falsifiable hypothesis.
+3. Change the minimal factor.
+4. Create an immutable candidate.
+5. Execute repeated comparable runs.
+6. Compare the primary metric, guardrails, variance, and subgroups.
+7. Analyze regressions and unexpected trade-offs.
+8. Accept, reject, or mark inconclusive by a predefined rule.
+9. Hand the accepted candidate to an independent evaluator/manager.
 
-Не выбирай лучший результат из множества запусков без учёта selection bias.
+Do not choose the best result from many runs without accounting for selection bias.
 
 ## Multi-objective guardrails
 
-Оптимизируй Pareto-aware: улучшение cost не может нарушить correctness/safety;
-снижение latency не оправдывает новые race/partial failures; compression не
-может удалить authority или recovery instructions.
+Optimize in a Pareto-aware way: improving cost cannot break correctness/safety;
+reduced latency does not justify new race/partial failures; compression cannot
+remove authority or recovery instructions.
 
-Минимальный report:
+Minimal report:
 
 ```yaml
 baseline: agent@1.2.0
@@ -76,12 +76,13 @@ regressions: []
 
 ## Agent-specific evals
 
-Проверяй соседние intents, tool denial, partial worker failure, budget pressure,
-state resume, memory freshness, adversarial context и canary-like load. Для
-orchestrators сравнивай end-to-end outcome, а не только качество отдельных
-workers.
+Verify neighboring intents, tool denial, partial worker failure, budget
+pressure, state resume, memory freshness, adversarial context, and canary-like
+load. For orchestrators, compare the end-to-end outcome, not just individual
+worker quality.
 
 ## Handoff
 
-Accepted candidate не становится active автоматически. `agent-evaluator`
-выдаёт independent layered verdict, `agent-manager` управляет rollout/rollback.
+An accepted candidate does not become active automatically. `agent-evaluator`
+produces the independent layered verdict, and `agent-manager` manages
+rollout/rollback.

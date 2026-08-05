@@ -1,7 +1,7 @@
 {
   "name": "skill-manager",
   "displayName": "Skill Manager",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "Inventories and governs public or agent-private skills across explicitly scoped roots and registries",
   "skills": [
     "./skills"

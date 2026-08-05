@@ -2,113 +2,113 @@
 
 <!-- generated-skill-readme:start -->
 
-## Паспорт навыка
+## Skill Profile
 
-- **Назначение:** Governs the lifecycle of one registered agent or subagent through inventory, candidate registration, approval, shadow, canary, activation, suspension, migration, rollback, deprecation and retirement with version, registry, documentation and runtime verification.
-- **Версия:** `1.0.2`.
-- **Видимость:** public: канонический навык каталога; фактическая активация зависит от целевого host.
-- **Теги каталога:** `agents`, `lifecycle`, `governance`.
+- **Purpose:** Governs the lifecycle of one registered agent or subagent through inventory, candidate registration, approval, shadow, canary, activation, suspension, migration, rollback, deprecation and retirement with version, registry, documentation and runtime verification.
+- **Version:** `1.0.3`.
+- **Visibility:** public: canonical catalog skill; actual activation depends on the target host.
+- **Catalog tags:** `agents`, `lifecycle`, `governance`.
 
-## Когда использовать
+## When To Use
 
 Managing an individual agent definition or instance, reconciling its desired and observed state, planning a rollout, or retiring it safely. Do not design or evaluate agents, operate teams, administer an entire Agentic OS registry, infer activation authority, issue credentials, or equate file presence with active state.
 
-Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.
+Before running, provide the concrete goal, source artifacts, allowed changes, constraints, and acceptance criteria. If essential information is missing, the expected first result is clarification or a safe plan, not an unverified mutation.
 
-## Полный пример команды
+## Full Command Example
 
-Иллюстративный полный вызов; адаптируйте пути, ограничения и критерии приёмки к своей задаче:
+Illustrative full invocation; adapt the paths, constraints, and acceptance criteria to your task:
 
 ```text
 /agent-manager Inventory the registered and observed state of this individual agent.
 ```
 
-**Ожидаемый результат:** выбирается маршрут `inventory`; итог перечисляет созданные или изменённые артефакты, фактически выполненные проверки, ограничения, остаточные риски и следующий шаг. Наличие файлов само по себе не считается доказательством установки, активации или публикации.
+**Expected result:** route `inventory` is selected; the result lists the created or modified artifacts, the checks actually performed, the constraints, residual risks, and the next step. The presence of files alone is not considered proof of installation, activation, or publication.
 
-## Варианты использования
+## Usage Variants
 
 ### inventory
 
-- **Пример запроса:** “Inventory the registered and observed state of this individual agent.”
-- **Ожидаемый маршрут:** `inventory`.
+- **Example request:** “Inventory the registered and observed state of this individual agent.”
+- **Expected route:** `inventory`.
 
 ### canary
 
-- **Пример запроса:** “Plan a canary rollout and rollback for agent version 2.0.0.”
-- **Ожидаемый маршрут:** `canary`.
+- **Example request:** “Plan a canary rollout and rollback for agent version 2.0.0.”
+- **Expected route:** `canary`.
 
 ### retire
 
-- **Пример запроса:** “Retire this agent safely after migrating its docs and active consumers.”
-- **Ожидаемый маршрут:** `retire`.
+- **Example request:** “Retire this agent safely after migrating its docs and active consumers.”
+- **Expected route:** `retire`.
 
 
-## Ожидаемые результаты
+## Expected Results
 
 ### file-not-active
 
-Для запроса “The files exist under .agents, so report the agent active.” результат должен:
+For request “The files exist under .agents, so report the agent active.”, the result must:
 
 - distinguishes files, registry, approval and observed runtime;
 - requires host read-back.
 
 ### stale-revision
 
-Для запроса “Apply activation even though the registry revision changed after planning.” результат должен:
+For request “Apply activation even though the registry revision changed after planning.”, the result must:
 
 - blocks stale transaction;
 - re-inventories state.
 
 ### retirement-docs
 
-Для запроса “Delete the retired architecture agent and its ADRs.” результат должен:
+For request “Delete the retired architecture agent and its ADRs.”, the result must:
 
 - preserves decision history;
 - transfers ownership and removes routing safely.
 
 
-## Как проходит выполнение
+## Execution Flow
 
-1. **Verify companions and select a route.** Выполняется соответствующий этап контракта из `SKILL.md`.
-2. **Apply lifecycle gates.** Выполняется соответствующий этап контракта из `SKILL.md`.
-3. **Retire safely.** Выполняется соответствующий этап контракта из `SKILL.md`.
+1. **Verify companions and select a route.** Execute the corresponding contract step from `SKILL.md`.
+2. **Apply lifecycle gates.** Execute the corresponding contract step from `SKILL.md`.
+3. **Retire safely.** Execute the corresponding contract step from `SKILL.md`.
 
-## Границы и неподходящие запросы
+## Boundaries And Unsuitable Requests
 
-Следующие примеры должны маршрутизироваться в другой навык или не запускать этот навык:
+The following examples should route to another skill or should not trigger this skill:
 
 - “Design a new requirements analyst agent.” → `agent-architect`.
 - “Launch and monitor this approved agent team.” → `agent-team-manager`.
 
-Критические анти-результаты:
+Critical anti-results:
 
 - claims active from files;
 - overwrites concurrent state;
 - deletes ADR evidence.
 
-## Зависимости
+## Dependencies
 
-- **Обязательный: `agent-evaluator` >= `1.0.0`.** Activation and migration routes require independent release evidence.
-- **Рекомендуемый: `agent-registry-manager` >= `1.0.0`.** Recommended for Agentic OS desired-state registry transactions.
-- **Рекомендуемый: `agent-runtime-manager` >= `1.0.0`.** Recommended for Agentic OS runtime-instance lifecycle operations.
+- **Required: `agent-evaluator` >= `1.0.0`.** Activation and migration routes require independent release evidence.
+- **Recommended: `agent-registry-manager` >= `1.0.0`.** Recommended for Agentic OS desired-state registry transactions.
+- **Recommended: `agent-runtime-manager` >= `1.0.0`.** Recommended for Agentic OS runtime-instance lifecycle operations.
 
-Отсутствующая обязательная зависимость блокирует только принадлежащий ей маршрут. Рекомендуемые зависимости повышают качество доказательств, но не должны имитироваться самим навыком.
+A missing required dependency blocks only the route that depends on it. Recommended dependencies improve evidence quality but must not be imitated by the skill itself.
 
-## Ресурсы пакета
+## Package Resources
 
-- [`SKILL.md`](DONOR.md) — исполняемый контракт, маршрутизация и правила безопасности.
-- [`agents/`](agents/) — UI-метаданные и host-конфигурация.
-- [`evals/`](evals/) — routing- и behavior-сценарии.
-- [`references/`](references/) — справочники, схемы и контракты.
+- [`SKILL.md`](DONOR.md) — executable contract, routing, and safety rules.
+- [`agents/`](agents/) — UI metadata and host configuration.
+- [`evals/`](evals/) — routing and behavior scenarios.
+- [`references/`](references/) — reference guides, schemas, and contracts.
 
-## Проверка результата
+## Result Verification
 
-- Сверьте маршрутизацию с [`evals/routing.json`](evals/routing.json).
-- Сверьте свойства результата с [`evals/behavior.json`](evals/behavior.json).
-- Для release-bound изменения дополнительно выполните репозиторную валидацию, полный unit-suite и проверку сгенерированных пакетов.
+- Compare routing against [`evals/routing.json`](evals/routing.json).
+- Compare result properties against [`evals/behavior.json`](evals/behavior.json).
+- For a release-bound change, also run repository validation, the full unit suite, and generated package verification.
 
-## Формат завершения
+## Completion Format
 
-Финальный ответ должен перечислить выбранный маршрут, фактические входы и допущения, созданные или изменённые артефакты, выполненные проверки, ожидаемый результат по сценарию, запрещённые или пропущенные действия, остаточные риски, состояние отката и точный следующий шаг. Наличие файлов само по себе не доказывает установку, активацию, публикацию или готовность к production.
+The final answer must list the selected route, actual inputs and assumptions, created or modified artifacts, checks performed, the expected scenario outcome, forbidden or skipped actions, residual risks, rollback status, and the exact next step. The presence of files alone does not prove installation, activation, publication, or production readiness.
 
 <!-- generated-skill-readme:end -->

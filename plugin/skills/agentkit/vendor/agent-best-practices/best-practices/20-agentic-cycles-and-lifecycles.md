@@ -1,184 +1,189 @@
-# Циклы и lifecycle для агентных систем
+# Cycles and Lifecycles for Agentic Systems
 
-## Цикл и lifecycle — разные вещи
+## A cycle and a lifecycle are different things
 
-- **Цикл управления** повторяет наблюдение, решение и действие во время работы.
-- **Цикл улучшения** меняет качество процесса или продукта между итерациями.
-- **Lifecycle** определяет состояния сущности от замысла до вывода из эксплуатации.
-- **Gate** принимает решение о переходе, но сам по себе не является циклом.
+- **A control cycle** repeats observation, decision, and action during runtime.
+- **An improvement cycle** changes the quality of the process or product between
+  iterations.
+- **A lifecycle** defines the states of an entity from conception to
+  retirement.
+- **A gate** decides a transition, but is not itself a cycle.
 
-Не выбирайте один «лучший» цикл для всего. Задайте один основной цикл на каждом
-уровне и явные сигналы между уровнями. Иначе система бесконечно «рефлексирует»
-внутри шага, пока внешний процесс ждёт проверяемый результат.
+Do not choose one "best" cycle for everything. Assign one primary cycle at each
+level and explicit signals between levels. Otherwise the system will reflect
+forever inside a step while the outer process waits for a verifiable result.
 
 ## Runtime micro-loops
 
-### Sense–think–act
+### Sense-think-act
 
 ```text
-sense → interpret/decide → act → observe result → stop or repeat
+sense -> interpret/decide -> act -> observe result -> stop or repeat
 ```
 
-Минимальный tool-using loop. Применяйте для bounded execution в стабильной
-среде. Требуются budgets, permitted actions, observation schema и terminal
-condition. Если действие дорого или необратимо, перед `act` вставляется policy
-gate.
+The minimal tool-using loop. Use it for bounded execution in a stable
+environment. Budgets, permitted actions, an observation schema, and a terminal
+condition are required. If the action is expensive or irreversible, insert a
+policy gate before `act`.
 
 ### ReAct
 
-Чередует локальное рассуждение и получение новых наблюдений. Подходит, когда
-невозможно спланировать весь путь заранее. Не храните скрытое reasoning как
-каноническое evidence: в trace нужны decision summary, input/output tools и
-проверяемые основания.
+Alternates local reasoning with new observations. It fits cases where the full
+path cannot be planned in advance. Do not store hidden reasoning as canonical
+evidence: the trace should contain the decision summary, tool inputs/outputs,
+and verifiable grounds.
 
 ### OODA
 
 ```text
-Observe → Orient → Decide → Act ↺
+Observe -> Orient -> Decide -> Act ↺
 ```
 
-Полезен для incidents, adversarial security, переговоров и быстро меняющейся
-среды. `Orient` — не украшение: здесь обновляются модель мира, assumptions,
-priorities и возможные действия. При слабой orientation ускорение только быстрее
-масштабирует ошибку; Air University отдельно подчёркивает ценность осознанного
-анализа на начальных стадиях
+Useful for incidents, adversarial security, negotiation, and rapidly changing
+environments. `Orient` is not decoration: this is where the world model,
+assumptions, priorities, and available actions are updated. With weak
+orientation, speed only scales the error faster; Air University explicitly notes
+the value of deliberate analysis in the early stages
 ([OODA overview](https://www.airuniversity.af.edu/AFCLC/News/Article-Display/Article/1777083/cultural-ksas-skill-development-using-the-ooda-loop/)).
 
 ### MAPE-K
 
 ```text
-Monitor → Analyze → Plan → Execute
-     ↖──── shared Knowledge ────↗
+Monitor -> Analyze -> Plan -> Execute
+     ^---- shared Knowledge ----^
 ```
 
-Подходит для Agent OS operations: health, cost, queue, drift, self-healing и
-reconciliation. Monitor собирает signals, Analyze диагностирует, Plan выбирает
-коррекцию, Execute действует через effectors, а Knowledge хранит модели,
-policies и историю. Sensors/effectors и managed element должны быть отделены от
-controller
+Fits Agent OS operations: health, cost, queue, drift, self-healing, and
+reconciliation. Monitor gathers signals, Analyze diagnoses, Plan selects a
+correction, Execute acts through effectors, and Knowledge stores models,
+policies, and history. Sensors/effectors and the managed element should be
+separate from the controller
 ([IBM](https://dominoweb.draco.res.ibm.com/reports/h-0219.pdf)).
 
-### Generate–evaluate–improve
+### Generate-evaluate-improve
 
-Producer создаёт candidate, evaluator применяет фиксированную rubric, затем
-producer делает bounded revision. Используйте для текстов, планов, кода и skill
-artifacts, когда критерии формализуемы. Заканчивайте по pass threshold, отсутствию
-измеримого улучшения, лимиту попыток или необходимости human judgment.
+The producer creates a candidate, the evaluator applies a fixed rubric, and the
+producer then performs a bounded revision. Use this for text, plans, code, and
+skill artifacts when criteria can be formalized. Stop on a pass threshold, lack
+of measurable improvement, attempt limit, or need for human judgment.
 
-## Циклы разработки и поставки
+## Development and delivery cycles
 
 ### PDCA
 
 ```text
-Plan → Do → Check → Act ↺
+Plan -> Do -> Check -> Act ↺
 ```
 
-PDCA полезен для контролируемого улучшения repeatable process: спланировать
-изменение и критерий, выполнить малый эксперимент, проверить фактический эффект,
-стандартизировать/скорректировать. ASQ описывает его как повторяемый
-четырёхшаговый подход к изменениям и continuous improvement
+PDCA is useful for controlled improvement of a repeatable process: plan a change
+and criterion, run a small experiment, check the actual effect, then
+standardize or adjust. ASQ describes it as a repeatable four-step approach to
+change and continuous improvement
 ([ASQ](https://asq.org/quality-resources/pdca-cycle)).
 
-Для agents:
+For agents:
 
-- Plan — hypothesis, baseline, evals и risk envelope;
-- Do — candidate version или ограниченный experiment;
-- Check — независимое сравнение quality/safety/cost/latency;
-- Act — promote, revise или abandon плюс обновление стандарта.
+- Plan - hypothesis, baseline, evals, and risk envelope;
+- Do - candidate version or limited experiment;
+- Check - independent comparison of quality/safety/cost/latency;
+- Act - promote, revise, or abandon, plus standard update.
 
-### Build–measure–learn
+### Build-measure-learn
 
 ```text
-hypothesis → build smallest experiment → measure behavior → learn/pivot/persevere
+hypothesis -> build smallest experiment -> measure behavior -> learn/pivot/persevere
 ```
 
-Используйте в discovery, когда неизвестно, нужен ли продукт/agent/skill и какую
-ценность он создаёт. Measure должен проверять поведение и outcome, а не объём
-созданных артефактов. Lean Startup определяет цикл как превращение идей в
-продукты, измерение реакции и решение pivot/persevere
+Use in discovery when it is unknown whether a product/agent/skill is needed and
+what value it creates. Measurement should verify behavior and outcome, not the
+volume of produced artifacts. Lean Startup defines the cycle as turning ideas
+into products, measuring reaction, and deciding whether to pivot or persevere
 ([Lean Startup](https://theleanstartup.com/principles)).
 
-### Test-driven и eval-driven development
+### Test-driven and eval-driven development
 
 ```text
-case/rubric → baseline failure → smallest change → pass → refactor → regression
+case/rubric -> baseline failure -> smallest change -> pass -> refactor -> regression
 ```
 
-TDD подходит к deterministic code/scripts. Eval-driven development расширяет
-его на вероятностные agents/skills:
+TDD fits deterministic code/scripts. Eval-driven development extends it to
+probabilistic agents/skills:
 
-1. Сохранить representative и adversarial cases до изменения.
-2. Зафиксировать baseline с повторными прогонами и confidence interval.
-3. Изменить один осмысленный factor.
-4. Сравнить quality, safety, latency и cost, не только aggregate score.
-5. Разобрать regressions и variance.
-6. Прогнать shadow/canary перед promotion.
-7. Добавить production failures как новые cases без утечки test answers в prompt.
+1. Save representative and adversarial cases before changing anything.
+2. Record a baseline with repeated runs and a confidence interval.
+3. Change one meaningful factor.
+4. Compare quality, safety, latency, and cost, not only an aggregate score.
+5. Analyze regressions and variance.
+6. Run shadow/canary before promotion.
+7. Add production failures as new cases without leaking test answers into the
+   prompt.
 
-DORA связывает continuous delivery с быстрым feedback, small batches,
-continuous testing, observability и deployable state
+DORA links continuous delivery to fast feedback, small batches, continuous
+testing, observability, and deployable state
 ([Continuous delivery](https://dora.dev/capabilities/continuous-delivery/)).
 
 ### ADLC
 
-ADLC задаёт шесть concurrent modes: Intent, Generate, Validate, Govern, Deploy и
-Observe. Это не waterfall: validation, governance и observation присутствуют
-на протяжении работы, а человек управляет bets и high-impact решениями
+ADLC defines six concurrent modes: Intent, Generate, Validate, Govern, Deploy,
+and Observe. It is not a waterfall: validation, governance, and observation are
+present throughout the work, while the human governs bets and high-impact
+decisions
 ([ADLC](https://www.adlc.io/)).
 
-Практическое отображение:
+Practical mapping:
 
-| Mode | Главный вопрос | Обязательный артефакт |
+| Mode | Primary question | Mandatory artifact |
 |---|---|---|
-| Intent | Какой outcome и почему? | intent/bet record |
-| Generate | Что создаём или изменяем? | candidate artifacts |
-| Validate | Работает ли и где ломается? | eval evidence |
-| Govern | Допустимы ли риск и полномочия? | policy decision/approval |
-| Deploy | Как безопасно ввести изменение? | release/rollback plan |
-| Observe | Что происходит в реальности? | linked production signals |
+| Intent | What outcome and why? | intent/bet record |
+| Generate | What are we creating or changing? | candidate artifacts |
+| Validate | Does it work and where does it fail? | eval evidence |
+| Govern | Are the risk and authority acceptable? | policy decision/approval |
+| Deploy | How is the change introduced safely? | release/rollback plan |
+| Observe | What is happening in reality? | linked production signals |
 
-## Циклы обучения
+## Learning cycles
 
 ### Single-loop learning
 
-Исправляет действие, чтобы достичь неизменной цели: изменить prompt, threshold,
-route или tool. Подходит для локальной оптимизации, если intent и policy всё ещё
-верны.
+Corrects the action to reach an unchanged goal: adjust a prompt, threshold,
+route, or tool. It fits local optimization when the intent and policy are still
+correct.
 
 ### Double-loop learning
 
-Проверяет также исходные цели, правила и assumptions: нужен ли вообще агент,
-верна ли metric, допустим ли autonomy level, не оптимизируем ли proxy. Этот
-подход связан с работой Криса Арджириса о double-loop learning
+Also checks the original goals, rules, and assumptions: is an agent needed at
+all, is the metric valid, is the autonomy level acceptable, are we optimizing a
+proxy. This approach is linked to Chris Argyris's work on double-loop learning
 ([Harvard Business Review](https://hbr.org/1977/09/double-loop-learning-in-organizations)).
 
-Запускайте double loop при повторяющемся классе отказов, gaming metric,
-неожиданном вреде, смене контекста или устойчивом отсутствии ценности. Изменение
-policy/intent требует accountable human, а не самовольной «эволюции» агента.
+Trigger double loop on a recurring failure class, metric gaming, unexpected
+harm, context shift, or persistent lack of value. Changing policy/intent
+requires an accountable human, not unauthorized "agent evolution."
 
 ### After-action review
 
-После значимого run или инцидента ответьте:
+After a significant run or incident, answer:
 
-1. Что ожидалось и почему?
-2. Что произошло по trace/evidence?
-3. Где расходятся модель и реальность?
-4. Что оставить, изменить или прекратить?
-5. Кто владеет action, сроком и проверкой эффекта?
+1. What was expected and why?
+2. What happened according to the trace/evidence?
+3. Where do the model and reality diverge?
+4. What should be kept, changed, or stopped?
+5. Who owns the action, deadline, and effect verification?
 
-Learning не завершён, пока action не попал в backlog/eval/runbook и не имеет
-owner. Memory update без проверки — не learning, а накопление шума.
+Learning is not complete until the action enters a backlog/eval/runbook and has
+an owner. A memory update without verification is not learning; it is noise
+accumulation.
 
-## Governance и risk cycles
+## Governance and risk cycles
 
 ### NIST AI RMF
 
-Govern — сквозная функция; Map, Measure и Manage применяются итеративно, а не как
-жёсткая последовательность. NIST подчёркивает continuous risk management,
-независимую проверку, роли, inventory и безопасный decommissioning
+Govern is a cross-cutting function; Map, Measure, and Manage are applied
+iteratively, not as a rigid sequence. NIST emphasizes continuous risk
+management, independent review, roles, inventory, and safe decommissioning
 ([AI RMF Core](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/)).
 
-| Function | Применение к agents/skills |
+| Function | Application to agents/skills |
 |---|---|
 | Govern | policy, owners, inventory, training, risk tier, retirement |
 | Map | intent, context, stakeholders, misuse, dependencies, impacts |
@@ -188,114 +193,73 @@ Govern — сквозная функция; Map, Measure и Manage примен�
 ### Security lifecycle
 
 ```text
-scope → threat model → prevent → verify → detect → respond → recover → learn
+scope -> threat model -> prevent -> verify -> detect -> respond -> recover -> learn
 ```
 
-Threat model обновляется при новом tool, data source, autonomy, cross-agent
-protocol или deployment boundary. Security verification идёт до release, а
-detection/recovery — после. Prompt injection считается untrusted input problem,
-а не отдельным разовым test case.
+The threat model is updated when there is a new tool, data source, autonomy,
+cross-agent protocol, or deployment boundary. Security verification happens
+before release, and detection/recovery after. Prompt injection is an untrusted
+input problem, not a separate one-off test case.
 
 ### Incident lifecycle
 
 ```text
-detect → triage → contain → diagnose → remediate → recover → review
+detect -> triage -> contain -> diagnose -> remediate -> recover -> review
 ```
 
-OODA управляет быстрыми решениями внутри инцидента, MAPE-K — автоматическими
-операционными контроллерами, incident lifecycle — ответственностью и переходами.
-Не смешивайте containment с root-cause fix: сначала ограничьте blast radius,
-затем докажите причину.
+OODA drives fast decisions inside the incident, MAPE-K drives automated
+operational controllers, and the incident lifecycle governs accountability and
+transitions. Do not confuse containment with root-cause fix: first limit blast
+radius, then prove the cause.
 
 ### Release lifecycle
 
 ```text
-candidate → offline eval → shadow → canary → progressive rollout
-          → promote | pause | rollback → observation window
+candidate -> offline eval -> shadow -> canary -> progressive rollout
+          -> promote | pause | rollback -> observation window
 ```
 
-Promotion criteria и rollback triggers задаются до canary. Для skill/agent
-обновления сохраняются точные versions модели, prompt, references, scripts,
-tools, policies и eval dataset.
+Promotion criteria and rollback triggers are set before the canary. For a
+skill/agent update, preserve the exact versions of the model, prompt,
+references, scripts, tools, policies, and eval dataset.
 
-## Lifecycle сущностей
+## Entity lifecycles
 
 ### Agent
 
 ```text
-discover need → design contract → prototype → evaluate → approve → publish
-→ activate → observe → improve → deprecate → retire
+discover need -> design contract -> prototype -> evaluate -> approve -> publish
+-> activate -> observe -> improve -> deprecate -> retire
 ```
 
 ### Skill
 
 ```text
-scout/harvest → architect → create → validate/evaluate → package → publish
-→ install/activate → observe → optimize/doctor → upgrade → deprecate → retire
+scout/harvest -> architect -> create -> validate/evaluate -> package -> publish
+-> install/activate -> observe -> optimize/doctor -> upgrade -> deprecate -> retire
 ```
 
 ### Workflow
 
 ```text
-model process → specify states/contracts → simulate → verify failures
-→ publish → run → reconcile → evolve/migrate → retire
+model process -> specify states/contracts -> simulate -> verify failures
+-> publish -> run -> reconcile -> evolve/migrate -> retire
 ```
 
 ### Memory item
 
 ```text
-candidate → verify provenance → classify/scope → approve → retrieve/use
-→ refresh/expire → supersede/delete/archive
+candidate -> verify provenance -> classify/scope -> approve -> retrieve/use
+-> refresh/expire -> supersede/delete/archive
 ```
 
 ### Tool/integration
 
 ```text
-assess → threat model → adapter contract → sandbox test → authorize → observe
-→ rotate credentials/update → revoke → retire
+assess -> threat model -> adapter contract -> sandbox test -> authorize -> observe
+-> rotate credentials/update -> revoke -> retire
 ```
 
-Каждое состояние имеет owner, entry evidence, allowed actions, exit gate,
-maximum age и recovery path. `Deprecated` — активная миграционная фаза, а не
-вечная метка.
-
-## Вложенная модель циклов
-
-```text
-Governance: NIST AI RMF / double-loop       cadence: quarter or major change
-Product:    Build–Measure–Learn             cadence: bet/experiment
-Delivery:   ADLC + eval-driven development  cadence: change/release
-Runtime:    ReAct or OODA                   cadence: step/decision
-Operations: MAPE-K                         cadence: seconds to hours
-Incident:   response lifecycle              cadence: event
-Improvement: PDCA / after-action review     cadence: release or period
-```
-
-Сигнал поднимается наружу, если внутренний цикл исчерпал бюджет, требует смены
-цели/policy, обнаружил новый high-impact risk или не может восстановить
-инвариант. Внешний цикл не должен микроменеджерить каждый tool call.
-
-## Как выбрать цикл
-
-| Ситуация | Основной цикл | Необходимое дополнение |
-|---|---|---|
-| Локальное tool use | Sense–think–act / ReAct | budgets + action gate |
-| Быстро меняющаяся угроза | OODA | human commander + audit |
-| Self-healing runtime | MAPE-K | deterministic effectors + SLO |
-| Улучшение стабильного процесса | PDCA | baseline + owner |
-| Неизвестная ценность/решение | Build–measure–learn | customer evidence |
-| Создание или upgrade агента | ADLC + eval-driven | governance + canary |
-| Повторяющийся системный провал | Double-loop | accountable policy review |
-| Production incident | Incident lifecycle | OODA внутри, AAR после |
-
-## Cycle anti-patterns
-
-- цикл без stop condition, owner или budget;
-- Check/Evaluate выполняет тот же контекст без внешнего evidence;
-- Plan бесконечно уточняется без experiment;
-- Measure собирает доступные метрики, не связанные с outcome;
-- Learn автоматически переписывает policy или долговременную память;
-- runtime reflection используется вместо deterministic validation;
-- все циклы превращены в последовательный waterfall;
-- improvement action не имеет срока и проверки эффекта;
-- lifecycle заканчивается `active`, без deprecation и retirement.
+Each state has an owner, entry evidence, allowed actions, an exit gate, a
+maximum age, and a recovery path. `Deprecated` is an active migration phase,
+not a permanent label.

@@ -1,9 +1,9 @@
-# Мастер-промпт навыка `agent-team-manager`
+# Master Prompt For The `agent-team-manager` Skill
 
-Применяй после [agent-skill-base.md](agent-skill-base.md). Создай lifecycle
-facade, который анализирует задачу, код, документы и данные, выбирает нужный
-team workflow и координирует specialist skills. Он не переimplementирует scout,
-harvester, architect, builder, mapper, evaluator или orchestrator.
+Apply after [agent-skill-base.md](agent-skill-base.md). Create a lifecycle
+facade that analyzes the task, code, documents, and data, selects the required
+team workflow, and coordinates specialist skills. It does not reimplement scout,
+harvester, architect, builder, mapper, evaluator, or orchestrator.
 
 ## Routes
 

@@ -2,7 +2,7 @@
 name: skill-architect
 description: Classifies skill ideas and supplied material, selects an archetype and the minimum viable placement—inline instruction, private agent command, private agent skill, or public skill—then designs, creates, registers, or updates the capability through routed master prompts. Use when the user explicitly invokes $skill-architect, asks for skill-archetype, resource, visibility, placement, or registration decisions, requests the routed master-prompt workflow, or arrives through an exact creation handoff from skill-builder, skill-scout, skill-harvester, or skill-refactor. Do not claim generic unnamed “create or update a skill” requests that need no architecture decision; leave those to the bundled skill-creator. Route independent evaluation of an existing skill to skill-evaluator, opportunity discovery to skill-scout, research extraction to skill-harvester, topology or visibility migration to skill-refactor, lifecycle changes to skill-manager, and end-to-end productionization to skill-builder.
 metadata:
-  version: "1.2.2"
+  version: "1.2.3"
 ---
 
 # Architect Agent Skills

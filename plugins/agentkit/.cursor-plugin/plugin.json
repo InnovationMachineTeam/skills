@@ -1,12 +1,11 @@
 {
   "name": "agentkit",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Explicit composite toolkit for the version-locked individual-agent lifecycle skills",
   "homepage": "https://github.com/InnovationMachineTeam/skills",
   "repository": "https://github.com/InnovationMachineTeam/skills",
   "license": "Proprietary",
   "keywords": [
-    "agent-skills",
     "agents",
     "composite",
     "lifecycle",

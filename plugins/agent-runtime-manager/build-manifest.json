@@ -1,7 +1,7 @@
 {
   "format": 2,
   "plugin": "agent-runtime-manager",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "source_layout": "skills/",
   "bundle_layout": "skills/<name>/",
   "platforms": [
@@ -21,18 +21,18 @@
   "files": [
     {
       "path": ".claude-plugin/plugin.json",
-      "sha256": "c3214e55ca84981141af7fa2cd06147b5782799ee8b8f5e3e356adbed4b24a1c",
+      "sha256": "04d54fe97377add61d882e5fff581390f15804f7d748d9c16bbe94621467eab4",
       "bytes": 478
     },
     {
       "path": ".codex-plugin/plugin.json",
-      "sha256": "93109685385b376f567d32880a769ed4af74a887d9dfcd82e0debe158809ac5c",
-      "bytes": 1462
+      "sha256": "57528fe95bbf5f81443c0a1917cf7d80d9ad02dfa9a0484e69383beca3e6174f",
+      "bytes": 1419
     },
     {
       "path": ".cursor-plugin/plugin.json",
-      "sha256": "7f251c458f94182983a04a48d5c5493afcc33989ecfdaebc1aa800eba150c125",
-      "bytes": 697
+      "sha256": "b1654b5bb47eb8eb08b94fb41bf81397b2bec6a2bf105d12b2494bc42dfb806e",
+      "bytes": 654
     },
     {
       "path": "README.md",
@@ -41,12 +41,12 @@
     },
     {
       "path": "skills/agent-runtime-manager/README.md",
-      "sha256": "78dcb4e15197e3d8ab4350bb780633d6ebeaa8cf60673bf129877bc17f208de7",
-      "bytes": 6101
+      "sha256": "6b29c1e261aacbe8a5b4eabfbc7e50746fcdff73eb74795c704de9e49a1cef4c",
+      "bytes": 4027
     },
     {
       "path": "skills/agent-runtime-manager/SKILL.md",
-      "sha256": "19c8be7afd8168e294743db6ae0a3b7613c78cde6d9eb051e69f69bcd24650df",
+      "sha256": "bfa483c459a9a6519d9af86e6d9723b5941b50e294d5a4d62fa7f1173a5e692c",
       "bytes": 1833
     },
     {

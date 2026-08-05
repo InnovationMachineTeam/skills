@@ -1,159 +1,160 @@
-# Operating model и выбор паттернов
+# Operating Model and Pattern Selection
 
-## Сначала классифицируйте задачу
+## Classify the task first
 
-Выбор начинается не с количества агентов. Оцените восемь осей:
+Selection does not begin with the number of agents. Evaluate eight axes:
 
-| Ось | Низкое значение | Высокое значение | Архитектурное следствие |
+| Axis | Low value | High value | Architectural implication |
 |---|---|---|---|
-| Неопределённость | Известный алгоритм | Путь зависит от evidence | Code/pipeline → adaptive agent |
-| Декомпозируемость | Сильная связность | Независимые части | Single context → fork–join |
-| Side-effect risk | Read-only/reversible | External/irreversible | Autonomy → approval/saga |
-| Длительность | Секунды | Часы/дни | In-memory → durable workflow |
-| Межсистемность | Один runtime | Vendors/organizations | Local calls → protocol/contracts |
-| Требуемая независимость | Self-check достаточен | Conflict/high stakes | Reflection → independent verifier |
-| Изменчивость | Stable facts/process | Dynamic environment | Snapshot → retrieval/observe/reconcile |
-| Масштаб | Один run | Multi-tenant/high volume | Inline → queues, quotas, SRE |
+| Uncertainty | Known algorithm | Path depends on evidence | Code/pipeline -> adaptive agent |
+| Decomposability | Tight coupling | Independent parts | Single context -> fork-join |
+| Side-effect risk | Read-only/reversible | External/irreversible | Autonomy -> approval/saga |
+| Duration | Seconds | Hours/days | In-memory -> durable workflow |
+| Cross-system scope | One runtime | Vendors/organizations | Local calls -> protocol/contracts |
+| Required independence | Self-check is sufficient | Conflict/high stakes | Reflection -> independent verifier |
+| Volatility | Stable facts/process | Dynamic environment | Snapshot -> retrieval/observe/reconcile |
+| Scale | One run | Multi-tenant/high volume | Inline -> queues, quotas, SRE |
 
-Дополнительно определите sensitivity, latency SLO, cost envelope, auditability,
-human judgment и blast radius.
+Also determine sensitivity, latency SLO, cost envelope, auditability, human
+judgment, and blast radius.
 
-## Лестница выбора
+## Selection ladder
 
 ```text
-Можно решить детерминированным кодом?
-  yes → code/tool + tests
-  no  → Достаточен один bounded model call?
-          yes → structured generation + validation
-          no  → Известна стабильная последовательность?
-                  yes → workflow/pipeline
-                  no  → Нужны новые наблюдения и адаптация?
-                          yes → single agent with tools
-                          no  → пересмотреть постановку
+Can this be solved with deterministic code?
+  yes -> code/tool + tests
+  no  -> Is one bounded model call sufficient?
+          yes -> structured generation + validation
+          no  -> Is a stable sequence known?
+                  yes -> workflow/pipeline
+                  no  -> Are new observations and adaptation needed?
+                          yes -> single agent with tools
+                          no  -> reframe the problem
 
-Независимые части дают доказанный выигрыш?
-  yes → subagents/fork–join
+Do independent parts provide a proven gain?
+  yes -> subagents/fork-join
 
-Нужна peer coordination или разделённое владение?
-  yes → agent team
+Is peer coordination or split ownership needed?
+  yes -> agent team
 
-Нужны durable multi-tenant governance и operations?
-  yes → Agent OS platform patterns
+Are durable multi-tenant governance and operations needed?
+  yes -> Agent OS platform patterns
 ```
 
-Каждый переход требует eval evidence или обязательной boundary-причины:
-разные permissions, context isolation, ownership, concurrency или protocol.
+Each transition requires eval evidence or a mandatory boundary reason:
+different permissions, context isolation, ownership, concurrency, or protocol.
 
 ## Pattern recipes
 
-### Исследование
+### Research
 
 ```text
 intent/questions
-  → router по независимым темам
-  → read-only researchers (fork–join)
-  → evidence blackboard с provenance
-  → contradiction resolver
-  → synthesis
-  → source/claim verifier
+  -> router by independent topics
+  -> read-only researchers (fork-join)
+  -> evidence blackboard with provenance
+  -> contradiction resolver
+  -> synthesis
+  -> source/claim verifier
 ```
 
-Роли: intent owner, research planner, source specialists, synthesizer,
-independent verifier. Цикл: Build–measure–learn для discovery; bounded
-generate–evaluate для отчёта.
+Roles: intent owner, research planner, source specialists, synthesizer,
+independent verifier. Cycle: Build-measure-learn for discovery; bounded
+generate-evaluate for the report.
 
-### Разработка feature
+### Feature development
 
 ```text
-intent/spec → architect/planner → DAG
-→ worktree-per-write-set executors
-→ integration owner → automated tests/evals
-→ independent verifier → release gate → canary → observe
+intent/spec -> architect/planner -> DAG
+-> worktree-per-write-set executors
+-> integration owner -> automated tests/evals
+-> independent verifier -> release gate -> canary -> observe
 ```
 
-Роли: product/intent owner, architect, implementers, integration owner,
-test/eval, security по risk, release owner, SRE. Цикл: ADLC + TDD/eval-driven;
-PDCA улучшает сам процесс поставки.
+Roles: product/intent owner, architect, implementers, integration owner,
+test/eval, security by risk, release owner, SRE. Cycle: ADLC + TDD/eval-driven;
+PDCA improves the delivery process itself.
 
 ### High-risk automation
 
 ```text
-map risk → plan → simulate/shadow → evidence gate → human approval
-→ least-privilege execution → postcondition → canary/progressive
-→ monitoring → compensation/rollback
+map risk -> plan -> simulate/shadow -> evidence gate -> human approval
+-> least-privilege execution -> postcondition -> canary/progressive
+-> monitoring -> compensation/rollback
 ```
 
-Добавьте PDP/PEP, saga, immutable audit и separation of duties. Agent не может
-сам расширять envelope или считать отсутствие ответа approval.
+Add PDP/PEP, saga, immutable audit, and separation of duties. An agent cannot
+expand its own envelope or treat silence as approval.
 
-### Диагностика инцидента
+### Incident diagnosis
 
 ```text
-detect → triage/contain → competing hypotheses
-→ evidence blackboard → falsification → root-cause gate
-→ scoped remediation → recovery verification → after-action review
+detect -> triage/contain -> competing hypotheses
+-> evidence blackboard -> falsification -> root-cause gate
+-> scoped remediation -> recovery verification -> after-action review
 ```
 
-OODA управляет быстрыми решениями; MAPE-K — автоматическими stabilizing
-controllers; double-loop review проверяет ошибочные assumptions после инцидента.
+OODA drives fast decisions; MAPE-K drives automated stabilizing controllers;
+double-loop review checks flawed assumptions after the incident.
 
-### Создание и развитие skill
+### Skill creation and evolution
 
 ```text
-scout/duplication check → context harvest → skill architecture
-→ atomic/composite build → trigger + outcome evals → security review
-→ package/publish → install/canary → observe → optimize/doctor
-→ upgrade or deprecate/retire
+scout/duplication check -> context harvest -> skill architecture
+-> atomic/composite build -> trigger + outcome evals -> security review
+-> package/publish -> install/canary -> observe -> optimize/doctor
+-> upgrade or deprecate/retire
 ```
 
-Роли: sponsor, skill architect/author, source curator, eval designer, security
-reviewer, publisher, marketplace owner, migration steward.
+Roles: sponsor, skill architect/author, source curator, eval designer,
+security reviewer, publisher, marketplace owner, migration steward.
 
 ### Agent OS
 
 ```text
-inventory/contracts → registry → hybrid control plane
-→ sandboxed execution + durable state → policy/evidence gates
-→ telemetry/budgets → reconciliation/incidents
-→ versioned rollout → lifecycle governance
+inventory/contracts -> registry -> hybrid control plane
+-> sandboxed execution + durable state -> policy/evidence gates
+-> telemetry/budgets -> reconciliation/incidents
+-> versioned rollout -> lifecycle governance
 ```
 
-Начните с одного workflow и общих primitives, а не с универсальной платформы.
-Платформенный слой извлекается после появления повторяемых требований.
+Start with one workflow and shared primitives, not a universal platform. The
+platform layer should be extracted after repeatable requirements appear.
 
-## Организационная модель
+## Organizational model
 
-### Три уровня владения
+### Three ownership levels
 
-1. **Asset ownership** — конкретный agent, skill, workflow, tool или dataset.
-2. **Service ownership** — end-to-end user journey и production SLO.
-3. **Platform/governance ownership** — registry, runtime, policy, security и
+1. **Asset ownership** - a specific agent, skill, workflow, tool, or dataset.
+2. **Service ownership** - the end-to-end user journey and production SLO.
+3. **Platform/governance ownership** - registry, runtime, policy, security, and
    portfolio lifecycle.
 
-Локально успешный agent может ухудшать общий journey, поэтому service owner
-владеет сквозным outcome. Platform owner не принимает продуктовые решения, а
-обеспечивает paved road и guardrails.
+A locally successful agent may worsen the overall journey, so the service owner
+owns the end-to-end outcome. The platform owner does not make product
+decisions, but provides the paved road and guardrails.
 
 ### Federated governance
 
-Центральная платформа задаёт minimum controls, manifests, risk tiers, identity,
-telemetry и publication gates. Доменные команды владеют capabilities, eval cases
-и on-call. Исключения имеют owner, rationale, expiry и compensating controls.
+The central platform defines minimum controls, manifests, risk tiers, identity,
+telemetry, and publication gates. Domain teams own capabilities, eval cases,
+and on-call. Exceptions have an owner, rationale, expiry, and compensating
+controls.
 
 ### Portfolio review
 
-Периодически проверяйте inventory:
+Periodically review the inventory:
 
-- usage, success, safety, latency и cost;
-- дублирующие/перекрывающиеся agents и skills;
-- stale owners, dependencies, sources и eval datasets;
-- compatibility и unsupported runtimes;
-- open incidents, exceptions и technical debt;
-- candidates на merge, split, deprecation или retirement.
+- usage, success, safety, latency, and cost;
+- duplicate/overlapping agents and skills;
+- stale owners, dependencies, sources, and eval datasets;
+- compatibility and unsupported runtimes;
+- open incidents, exceptions, and technical debt;
+- candidates for merge, split, deprecation, or retirement.
 
-## Gates по risk tier
+## Gates by risk tier
 
-| Tier | Пример | До запуска | Во время | После |
+| Tier | Example | Before launch | During | After |
 |---|---|---|---|---|
 | R0 | Read-only draft | Basic validation | Budget | Sample review |
 | R1 | Reversible local edit | Tests + scope | Checkpoints | Diff + verify |
@@ -161,29 +162,29 @@ telemetry и publication gates. Доменные команды владеют c
 | R3 | Production/data/money | Threat model + SoD + accountable approval | Strong PEP + live monitoring | Postcondition + rollback window |
 | R4 | Safety/legal critical | Formal governance and domain authority | Human command, constrained automation | Independent audit and incident readiness |
 
-Tier определяется максимальным потенциальным impact, а не уверенностью модели.
-Понижать tier может только утверждённый control evidence.
+The tier is determined by the maximum potential impact, not by model
+confidence. A tier may be lowered only by approved control evidence.
 
-## Метрики без metric gaming
+## Metrics without metric gaming
 
-Сбалансированный набор:
+Balanced set:
 
-- outcome success и task completion;
-- correctness/groundedness и severity-weighted failures;
-- safety violations, denied/approved actions и near misses;
-- latency, queue time, handoffs, retries и loop depth;
-- token/tool/compute cost на успешный outcome;
-- human intervention, override и escalation quality;
-- rollback/recovery time и orphan rate;
-- user/customer value и unintended impacts;
+- outcome success and task completion;
+- correctness/groundedness and severity-weighted failures;
+- safety violations, denied/approved actions, and near misses;
+- latency, queue time, handoffs, retries, and loop depth;
+- token/tool/compute cost per successful outcome;
+- human intervention, override, and escalation quality;
+- rollback/recovery time and orphan rate;
+- user/customer value and unintended impacts;
 - lifecycle health: owner/source/eval freshness, deprecated dependents.
 
-Aggregate score не заменяет hard safety floors и анализ подгрупп. Связывайте
-telemetry с exact versions и intent class.
+An aggregate score does not replace hard safety floors and subgroup analysis.
+Bind telemetry to exact versions and intent class.
 
-## Документация operating model
+## Operating model documentation
 
-Минимальный набор в `docs/`:
+Minimum set in `docs/`:
 
 ```text
 docs/
@@ -197,52 +198,53 @@ docs/
   lifecycle/       # inventory, deprecations, migrations, retirement
 ```
 
-Каждый документ имеет owner, audience, source of truth, freshness trigger и
-consumer. Runtime state и generated evidence не копируются вручную в prose;
-документ ссылается на canonical store.
+Each document has an owner, audience, source of truth, freshness trigger, and
+consumer. Runtime state and generated evidence are not copied manually into
+prose; the document links to the canonical store.
 
-## Definition of ready и done
+## Definition of ready and done
 
-### Ready для нового agent/skill
+### Ready for a new agent/skill
 
-- доказана потребность и проверены дубликаты;
-- определены intent, users, non-goals и risk tier;
-- выбран минимально достаточный механизм;
-- назначены owner, verifier, operator и retirement path;
-- существуют eval plan, permissions и source/provenance plan.
+- the need is proven and duplicates are checked;
+- intent, users, non-goals, and risk tier are defined;
+- the minimally sufficient mechanism is chosen;
+- owner, verifier, operator, and retirement path are assigned;
+- an eval plan, permissions, and a source/provenance plan exist.
 
-### Done для production capability
+### Done for a production capability
 
-- versioned contract и package опубликованы;
-- functional, negative-trigger, safety и regression evals пройдены;
-- owner/SLO/telemetry/runbook/alerts работают;
-- policy, approvals, sandbox и credentials проверены;
-- rollback, deprecation и retirement механизмы доступны;
-- production observation подтверждает outcome в заданном окне.
+- the versioned contract and package are published;
+- functional, negative-trigger, safety, and regression evals have passed;
+- owner/SLO/telemetry/runbook/alerts are operational;
+- policy, approvals, sandbox, and credentials are verified;
+- rollback, deprecation, and retirement mechanisms are available;
+- production observation confirms the outcome within the defined window.
 
-## Эволюция зрелости
+## Maturity evolution
 
-| Уровень | Характеристика | Следующий bottleneck |
+| Level | Characteristic | Next bottleneck |
 |---|---|---|
-| 0. Ad hoc | Prompt и ручной результат | Контракт и воспроизводимость |
-| 1. Repeatable | Skill/workflow, version control | Evals и ownership |
+| 0. Ad hoc | Prompt and manual result | Contract and reproducibility |
+| 1. Repeatable | Skill/workflow, version control | Evals and ownership |
 | 2. Controlled | Risk tiers, gates, independent verification | Runtime reliability |
 | 3. Operated | SLO, traces, budgets, incidents | Portfolio and learning |
 | 4. Adaptive | Canary, reconciliation, evidence-driven improvement | Governance of adaptation |
 | 5. Federated | Paved road + domain ownership + lifecycle | Continuous simplification |
 
-Зрелость не означает больше агентов. Высшая зрелость часто удаляет лишние
-agents, заменяет устойчивые шаги кодом и сокращает количество маршрутов.
+Maturity does not mean more agents. Higher maturity often removes unnecessary
+agents, replaces stable steps with code, and reduces the number of routes.
 
-## Финальный review checklist
+## Final review checklist
 
-- Какой pattern решает какую force и чем измерен?
-- Кто владеет intent, state, side effects, verification и residual risk?
-- Где проходят trust, security и write boundaries?
-- Как обрабатываются duplicate, timeout, partial failure и cancellation?
-- Какой цикл работает на runtime, delivery, operations и governance уровнях?
-- Когда внутренний цикл эскалирует наружу?
-- Какие роли должны быть независимы для этого risk tier?
-- Как воспроизвести run по versions, events и artifacts?
-- Как capability обновляется, откатывается, устаревает и выводится из работы?
-- Можно ли получить тот же outcome более простой архитектурой?
+- Which pattern addresses which force, and how is it measured?
+- Who owns intent, state, side effects, verification, and residual risk?
+- Where are the trust, security, and write boundaries?
+- How are duplicates, timeouts, partial failure, and cancellation handled?
+- Which cycle operates at the runtime, delivery, operations, and governance
+  levels?
+- When does the inner cycle escalate outward?
+- Which roles must be independent for this risk tier?
+- How is the run reproduced by versions, events, and artifacts?
+- How is the capability updated, rolled back, deprecated, and retired?
+- Can the same outcome be achieved with a simpler architecture?

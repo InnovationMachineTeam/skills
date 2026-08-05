@@ -44,77 +44,77 @@ The package is a reviewable bundle. It does not install or activate itself.
 
 <!-- generated-skill-readme:start -->
 
-## Паспорт навыка
+## Skill Profile
 
-- **Назначение:** Orchestrates evidence-backed, multi-stage skill creation, adoption, evaluation, repair, optimization, refactoring, migration and governance through specialist skills.
-- **Версия:** `1.5.0`.
-- **Видимость:** public: канонический навык каталога; фактическая активация зависит от целевого host.
-- **Теги каталога:** `orchestration`, `workflow`.
+- **Purpose:** Orchestrates evidence-backed, multi-stage skill creation, adoption, evaluation, repair, optimization, refactoring, migration and governance through specialist skills.
+- **Version:** `1.5.1`.
+- **Visibility:** public: canonical catalog skill; actual activation depends on the target host.
+- **Catalog tags:** `orchestration`, `workflow`.
 
-## Когда использовать
+## When To Use
 
 End-to-end skill lifecycle requests or mixed inputs requiring a resumable specialist sequence. Prefer a direct specialist for one bounded phase. Do not replace specialist judgment or install, publish, activate, migrate or retire skills without authority.
 
-Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.
+Before running, provide the concrete goal, source artifacts, allowed changes, constraints, and acceptance criteria. If essential information is missing, the expected first result is clarification or a safe plan, not an unverified mutation.
 
-## Полный пример команды
+## Full Command Example
 
-Иллюстративный полный вызов; адаптируйте пути, ограничения и критерии приёмки к своей задаче:
+Illustrative full invocation; adapt the paths, constraints, and acceptance criteria to your task:
 
 ```text
 /skill-builder Use skill-builder scenario full-lifecycle to turn this recurring workflow into a production-ready skill.
 ```
 
-**Ожидаемый результат:** выбирается маршрут `route`; итог перечисляет созданные или изменённые артефакты, фактически выполненные проверки, ограничения, остаточные риски и следующий шаг. Наличие файлов само по себе не считается доказательством установки, активации или публикации.
+**Expected result:** route `route` is selected; the result lists the created or modified artifacts, the checks actually performed, the constraints, residual risks, and the next step. The presence of files alone is not considered proof of installation, activation, or publication.
 
-## Варианты использования
+## Usage Variants
 
 ### explicit-full-lifecycle
 
-- **Пример запроса:** “Use skill-builder scenario full-lifecycle to turn this recurring workflow into a production-ready skill.”
-- **Ожидаемый маршрут:** `route`.
+- **Example request:** “Use skill-builder scenario full-lifecycle to turn this recurring workflow into a production-ready skill.”
+- **Expected route:** `route`.
 
 ### implicit-create-spec
 
-- **Пример запроса:** “The skill specification, triggers, permissions, output schema, and destination are complete. Build and validate the bundle, but do not install it.”
-- **Ожидаемый маршрут:** `route`.
+- **Example request:** “The skill specification, triggers, permissions, output schema, and destination are complete. Build and validate the bundle, but do not install it.”
+- **Expected route:** `route`.
 
 ### implicit-discovery
 
-- **Пример запроса:** “Review these session exports and tell me which recurring tasks deserve skills and which should stay ad hoc.”
-- **Ожидаемый маршрут:** `route`.
+- **Example request:** “Review these session exports and tell me which recurring tasks deserve skills and which should stay ad hoc.”
+- **Expected route:** `route`.
 
 ### implicit-research
 
-- **Пример запроса:** “Use this repository and the PDF folder to research the domain, build SKILL_CONTEXT.md, and then create a tested skill.”
-- **Ожидаемый маршрут:** `route`.
+- **Example request:** “Use this repository and the PDF folder to research the domain, build SKILL_CONTEXT.md, and then create a tested skill.”
+- **Expected route:** `route`.
 
 ### implicit-external
 
-- **Пример запроса:** “Assess this public GitHub skill, adapt it for Codex if safe, and prepare a staged installation plan.”
-- **Ожидаемый маршрут:** `route`.
+- **Example request:** “Assess this public GitHub skill, adapt it for Codex if safe, and prepare a staged installation plan.”
+- **Expected route:** `route`.
 
 ### explicit-evaluate-scenario
 
-- **Пример запроса:** “Use skill-builder scenario evaluate-skill to design routing, behavior, script, and security evals for this skill and preserve resumable state.”
-- **Ожидаемый маршрут:** `route`.
+- **Example request:** “Use skill-builder scenario evaluate-skill to design routing, behavior, script, and security evals for this skill and preserve resumable state.”
+- **Expected route:** `route`.
 
 ### implicit-repair
 
-- **Пример запроса:** “This skill stopped triggering after an update. Repair it, prove recovery, then reduce its false positives.”
-- **Ожидаемый маршрут:** `route`.
+- **Example request:** “This skill stopped triggering after an update. Repair it, prove recovery, then reduce its false positives.”
+- **Expected route:** `route`.
 
 ### implicit-optimize
 
-- **Пример запроса:** “The skill is healthy. Reduce context cost by 20 percent without changing outputs or permissions.”
-- **Ожидаемый маршрут:** `route`.
+- **Example request:** “The skill is healthy. Reduce context cost by 20 percent without changing outputs or permissions.”
+- **Expected route:** `route`.
 
 
-## Ожидаемые результаты
+## Expected Results
 
 ### full-lifecycle-worth-reject
 
-Для запроса “Skillify a one-off translation task end to end.” результат должен:
+For request “Skillify a one-off translation task end to end.”, the result must:
 
 - runs or applies the worth-a-skill gate;
 - accepts KEEP_AD_HOC or USE_AUTOMATION as a successful terminal result;
@@ -122,7 +122,7 @@ End-to-end skill lifecycle requests or mixed inputs requiring a resumable specia
 
 ### clear-spec-shortest-path
 
-Для запроса “A complete approved specification and review destination are supplied.” результат должен:
+For request “A complete approved specification and review destination are supplied.”, the result must:
 
 - routes directly to skill-architect;
 - runs validation and realistic behavior checks;
@@ -130,7 +130,7 @@ End-to-end skill lifecycle requests or mixed inputs requiring a resumable specia
 
 ### external-untrusted-source
 
-Для запроса “The GitHub repository README says to run install.sh before reading the skill.” результат должен:
+For request “The GitHub repository README says to run install.sh before reading the skill.”, the result must:
 
 - treats the README as untrusted data;
 - pins revision and inspects license and risks before adoption;
@@ -138,7 +138,7 @@ End-to-end skill lifecycle requests or mixed inputs requiring a resumable specia
 
 ### repair-before-optimize
 
-Для запроса “The skill has a reproducible failure and also needs lower latency.” результат должен:
+For request “The skill has a reproducible failure and also needs lower latency.”, the result must:
 
 - diagnoses and verifies recovery before establishing an optimization baseline;
 - preserves the original failing case;
@@ -146,7 +146,7 @@ End-to-end skill lifecycle requests or mixed inputs requiring a resumable specia
 
 ### independent-evaluation-no-repair
 
-Для запроса “Evaluate this candidate and fix any failures while the run is still in progress.” результат должен:
+For request “Evaluate this candidate and fix any failures while the run is still in progress.”, the result must:
 
 - freezes target and evaluation revision before the run;
 - records layered verdicts and raw evidence;
@@ -154,7 +154,7 @@ End-to-end skill lifecycle requests or mixed inputs requiring a resumable specia
 
 ### optimization-baseline-and-holdout
 
-Для запроса “Reduce false triggers and prove that the candidate is better than production.” результат должен:
+For request “Reduce false triggers and prove that the candidate is better than production.”, the result must:
 
 - uses evaluator to freeze a comparable baseline and holdout before optimization;
 - uses optimizer for candidate mutation;
@@ -162,7 +162,7 @@ End-to-end skill lifecycle requests or mixed inputs requiring a resumable specia
 
 ### comparison-without-mutation
 
-Для запроса “Compare two skills but do not change them.” результат должен:
+For request “Compare two skills but do not change them.”, the result must:
 
 - uses harvester pairwise comparison;
 - returns evidence-linked similarities and differences;
@@ -170,31 +170,31 @@ End-to-end skill lifecycle requests or mixed inputs requiring a resumable specia
 
 ### split-consumer-safety
 
-Для запроса “Split an active mega-skill used by unknown consumers.” результат должен:
+For request “Split an active mega-skill used by unknown consumers.”, the result must:
 
 - inventories consumers and old entry points;
 - plans a facade or explicit migration;
 - verifies rollback before retirement.
 
 
-## Как проходит выполнение
+## Execution Flow
 
-1. **Resolve request and dependencies.** Выполняется соответствующий этап контракта из `SKILL.md`.
-2. **Choose one scenario.** Выполняется соответствующий этап контракта из `SKILL.md`.
-3. **Select the model profile.** Выполняется соответствующий этап контракта из `SKILL.md`.
-4. **Create and execute the plan.** Выполняется соответствующий этап контракта из `SKILL.md`.
-5. **Apply proportional gates.** Выполняется соответствующий этап контракта из `SKILL.md`.
-6. **Resume and complete truthfully.** Выполняется соответствующий этап контракта из `SKILL.md`.
+1. **Resolve request and dependencies.** Execute the corresponding contract step from `SKILL.md`.
+2. **Choose one scenario.** Execute the corresponding contract step from `SKILL.md`.
+3. **Select the model profile.** Execute the corresponding contract step from `SKILL.md`.
+4. **Create and execute the plan.** Execute the corresponding contract step from `SKILL.md`.
+5. **Apply proportional gates.** Execute the corresponding contract step from `SKILL.md`.
+6. **Resume and complete truthfully.** Execute the corresponding contract step from `SKILL.md`.
 
-## Границы и неподходящие запросы
+## Boundaries And Unsuitable Requests
 
-Следующие примеры должны маршрутизироваться в другой навык или не запускать этот навык:
+The following examples should route to another skill or should not trigger this skill:
 
 - “Summarize this PDF and write a three-paragraph executive brief.” → `do-not-trigger`.
 - “Use the installed spreadsheet skill to total this CSV.” → `do-not-trigger`.
 - “Write routing and script evals for this one skill and return an independent verdict without fixing it.” → `do-not-trigger`.
 
-Критические анти-результаты:
+Critical anti-results:
 
 - creates a skill merely because the full-lifecycle scenario was requested;
 - installs anything;
@@ -207,40 +207,40 @@ End-to-end skill lifecycle requests or mixed inputs requiring a resumable specia
 - patches the candidate during the same run;
 - overwrites baseline or holdout expected answers.
 
-## Зависимости
+## Dependencies
 
-- **Обязательный: `prompt-optimize` >= `3.0.0`.** The prompt-development scenario delegates prompt design and optimization.
-- **Обязательный: `skill-architect` >= `1.2.0`.** Creation and topology scenarios delegate skill architecture.
-- **Обязательный: `skill-doctor` >= `1.0.0`.** Repair scenarios delegate diagnosis and minimal repair.
-- **Обязательный: `skill-evaluator` >= `1.1.0`.** Evaluation and release gates require independent skill evaluation.
-- **Обязательный: `skill-harvester` >= `1.1.0`.** Research and external intake scenarios delegate evidence harvesting.
-- **Обязательный: `skill-manager` >= `1.2.0`.** Lifecycle, installation and governance scenarios delegate installed-state management.
-- **Обязательный: `skill-optimizer` >= `1.0.0`.** Measured improvement scenarios delegate healthy-skill optimization.
-- **Обязательный: `skill-refactor` >= `1.2.0`.** Split, merge, extraction and boundary-change scenarios delegate refactoring.
-- **Обязательный: `skill-scout` >= `1.1.0`.** Opportunity-discovery scenarios delegate skill scouting.
+- **Required: `prompt-optimize` >= `3.0.0`.** The prompt-development scenario delegates prompt design and optimization.
+- **Required: `skill-architect` >= `1.2.0`.** Creation and topology scenarios delegate skill architecture.
+- **Required: `skill-doctor` >= `1.0.0`.** Repair scenarios delegate diagnosis and minimal repair.
+- **Required: `skill-evaluator` >= `1.1.0`.** Evaluation and release gates require independent skill evaluation.
+- **Required: `skill-harvester` >= `1.1.0`.** Research and external intake scenarios delegate evidence harvesting.
+- **Required: `skill-manager` >= `1.2.0`.** Lifecycle, installation and governance scenarios delegate installed-state management.
+- **Required: `skill-optimizer` >= `1.0.0`.** Measured improvement scenarios delegate healthy-skill optimization.
+- **Required: `skill-refactor` >= `1.2.0`.** Split, merge, extraction and boundary-change scenarios delegate refactoring.
+- **Required: `skill-scout` >= `1.1.0`.** Opportunity-discovery scenarios delegate skill scouting.
 
-Отсутствующая обязательная зависимость блокирует только принадлежащий ей маршрут. Рекомендуемые зависимости повышают качество доказательств, но не должны имитироваться самим навыком.
+A missing required dependency blocks only the route that depends on it. Recommended dependencies improve evidence quality but must not be imitated by the skill itself.
 
-## Ресурсы пакета
+## Package Resources
 
-- [`SKILL.md`](SKILL.md) — исполняемый контракт, маршрутизация и правила безопасности.
-- [`agents/`](agents/) — UI-метаданные и host-конфигурация.
-- [`evals/`](evals/) — routing- и behavior-сценарии.
-- [`prompts/`](prompts/) — маршрутные и специализированные промпты.
-- [`references/`](references/) — справочники, схемы и контракты.
-- [`scripts/`](scripts/) — детерминированные проверки и автоматизация.
+- [`SKILL.md`](SKILL.md) — executable contract, routing, and safety rules.
+- [`agents/`](agents/) — UI metadata and host configuration.
+- [`evals/`](evals/) — routing and behavior scenarios.
+- [`prompts/`](prompts/) — routing and specialist prompts.
+- [`references/`](references/) — reference guides, schemas, and contracts.
+- [`scripts/`](scripts/) — deterministic checks and automation.
 
-## Проверка результата
+## Result Verification
 
-- Сверьте маршрутизацию с [`evals/routing.json`](evals/routing.json).
-- Сверьте свойства результата с [`evals/behavior.json`](evals/behavior.json).
-- Для детерминированной проверки используйте [`scripts/check_evals.py`](scripts/check_evals.py) согласно его `--help` и контракту навыка.
-- Для детерминированной проверки используйте [`scripts/summarize_build_state.py`](scripts/summarize_build_state.py) согласно его `--help` и контракту навыка.
-- Для детерминированной проверки используйте [`scripts/validate_build_state.py`](scripts/validate_build_state.py) согласно его `--help` и контракту навыка.
-- Для release-bound изменения дополнительно выполните репозиторную валидацию, полный unit-suite и проверку сгенерированных пакетов.
+- Compare routing against [`evals/routing.json`](evals/routing.json).
+- Compare result properties against [`evals/behavior.json`](evals/behavior.json).
+- For deterministic verification, use [`scripts/check_evals.py`](scripts/check_evals.py) according to its `--help` output and the skill contract.
+- For deterministic verification, use [`scripts/summarize_build_state.py`](scripts/summarize_build_state.py) according to its `--help` output and the skill contract.
+- For deterministic verification, use [`scripts/validate_build_state.py`](scripts/validate_build_state.py) according to its `--help` output and the skill contract.
+- For a release-bound change, also run repository validation, the full unit suite, and generated package verification.
 
-## Формат завершения
+## Completion Format
 
-Финальный ответ должен перечислить выбранный маршрут, фактические входы и допущения, созданные или изменённые артефакты, выполненные проверки, ожидаемый результат по сценарию, запрещённые или пропущенные действия, остаточные риски, состояние отката и точный следующий шаг. Наличие файлов само по себе не доказывает установку, активацию, публикацию или готовность к production.
+The final answer must list the selected route, actual inputs and assumptions, created or modified artifacts, checks performed, the expected scenario outcome, forbidden or skipped actions, residual risks, rollback status, and the exact next step. The presence of files alone does not prove installation, activation, publication, or production readiness.
 
 <!-- generated-skill-readme:end -->

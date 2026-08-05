@@ -1,29 +1,29 @@
-# Каталог документов и минимальные шаблоны
+# Document Catalog and Minimal Templates
 
-## Выбор документов по размеру риска
+## Document selection by risk size
 
-| Артефакт | Lite | Standard | High assurance |
+| Artifact | Lite | Standard | High assurance |
 |---|---:|---:|---:|
 | Intent / change brief | MUST | MUST | MUST |
-| Behavioral spec | по необходимости | MUST | MUST |
+| Behavioral spec | as needed | MUST | MUST |
 | Functional requirements | inline | MUST | MUST |
-| Quality requirements | ключевые | MUST | MUST + traceability |
-| Architecture overview | ссылка | MUST | MUST |
-| ADR | значимый выбор | MUST для значимых решений | MUST |
-| Threat model | риск-зависимо | риск-зависимо | MUST |
+| Quality requirements | key only | MUST | MUST + traceability |
+| Architecture overview | reference | MUST | MUST |
+| ADR | significant choice | MUST for significant decisions | MUST |
+| Threat model | risk-dependent | risk-dependent | MUST |
 | Test/eval plan | smoke | MUST | MUST + independent review |
-| Runbook/rollback | при ops change | MUST для service | MUST |
-| Release evidence | кратко | MUST | MUST + approvals |
+| Runbook/rollback | for ops changes | MUST for service | MUST |
+| Release evidence | brief | MUST | MUST + approvals |
 
-## Product и Discovery
+## Product and Discovery
 
 ### `docs/product/vision.md`
 
-- проблема и целевые пользователи;
-- desired outcomes и business metrics;
-- принципы и non-goals;
-- стратегические ограничения;
-- owner и горизонт решения.
+- problem and target users;
+- desired outcomes and business metrics;
+- principles and non-goals;
+- strategic constraints;
+- owner and decision horizon.
 
 ### `docs/product/bets.md`
 
@@ -40,21 +40,21 @@
 - Status:
 ```
 
-Это операционализирует ADLC Intent: планирование формулирует проверяемую
-гипотезу, а не притворяется, что outcome уже известен
+This operationalizes ADLC Intent: planning formulates a testable hypothesis
+rather than pretending the outcome is already known
 ([ADLC](https://www.adlc.io/)).
 
 ### `docs/discovery/research-*.md`
 
 - research question;
-- method и выборка;
-- источники с датами;
-- findings vs interpretations;
+- method and sample;
+- sources with dates;
+- findings vs. interpretations;
 - contradictions;
 - limitations;
-- implications и follow-up experiments.
+- implications and follow-up experiments.
 
-## Требования и спецификации
+## Requirements and specifications
 
 ### `docs/requirements/<capability>.md`
 
@@ -96,27 +96,27 @@ docs/delivery/changes/<change-id>/
 └── archive.md        # shipped outcome and links
 ```
 
-Этот пакет объединяет сильные стороны Agent OS `specs/`, Spec Kit и OpenSpec:
-intent → behavior → design → tasks → evidence. Для brownfield полезны delta
-sections ADDED/MODIFIED/REMOVED
+This package combines the strengths of Agent OS `specs/`, Spec Kit, and
+OpenSpec: intent → behavior → design → tasks → evidence. For brownfield work,
+delta sections ADDED/MODIFIED/REMOVED are useful
 ([OpenSpec](https://github.com/Fission-AI/OpenSpec)).
 
-## Архитектура
+## Architecture
 
 ### `docs/architecture/README.md`
 
 - system context;
 - container map;
-- boundaries и owners;
+- boundaries and owners;
 - critical flows;
 - data classification;
 - external dependencies;
 - quality attribute scenarios;
-- risks и active ADRs;
-- links на code maps и runbooks.
+- risks and active ADRs;
+- links to code maps and runbooks.
 
-Для больших систем можно адаптировать arc42, но заполнять только значимые
-разделы ([arc42](https://arc42.org/)).
+For large systems, arc42 can be adapted, but only the meaningful sections should
+be filled in ([arc42](https://arc42.org/)).
 
 ### ADR
 
@@ -143,7 +143,7 @@ consulted: [security, checkout]
 
 ## Delivery
 
-### План
+### Plan
 
 ```markdown
 # Plan
@@ -160,16 +160,16 @@ consulted: [security, checkout]
 ## Done when
 ```
 
-План должен включать exact paths, зависимости и observable verification. GSD
-добавляет wave, depends_on, files_modified и goal-backward must-haves; Spec Kit
-группирует задачи по independently testable user stories.
+The plan MUST include exact paths, dependencies, and observable verification.
+GSD adds wave, depends_on, files_modified, and goal-backward must-haves; Spec
+Kit groups tasks by independently testable user stories.
 
 ### Release record
 
-- shipped scope и non-shipped scope;
+- shipped scope and non-shipped scope;
 - commits/PR/artifacts;
 - schema/data migrations;
-- tests/evals и approvals;
+- tests/evals and approvals;
 - feature flags/canary;
 - rollback;
 - monitoring window;
@@ -203,10 +203,10 @@ consulted: [security, checkout]
 - contributing factors;
 - response actions;
 - evidence;
-- root cause vs trigger;
+- root cause vs. trigger;
 - corrective actions with owners;
 - new tests/alerts/runbook changes;
-- agent behavior and tool traces, если участвовали агенты.
+- agent behavior and tool traces, if agents were involved.
 
 ## Agent system docs
 
@@ -240,18 +240,18 @@ docs/agents/
 - Runbook:
 ```
 
-## Индексы
+## Indexes
 
-`docs/README.md` — навигация, а не повтор содержания. Для каждого раздела он
-показывает:
+`docs/README.md` is navigation, not duplicated content. For each section it
+shows:
 
 - canonical documents;
 - owner;
 - audience;
 - status/freshness;
-- когда читать;
-- generated vs hand-authored;
+- when to read it;
+- generated vs. hand-authored;
 - archive location.
 
-Индекс MAY генерироваться из metadata, но ручные summaries должны оставаться
-короткими и проверяемыми.
+The index MAY be generated from metadata, but manual summaries SHOULD remain
+short and verifiable.

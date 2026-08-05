@@ -1,7 +1,7 @@
-# Мастер-промпт навыка `agent-runtime-manager`
+# Master Prompt For The `agent-runtime-manager` Skill
 
-Применяй после [agent-os-base.md](agent-os-base.md). Создай execution-plane skill
-для durable task/run lifecycle, not team design or agent authoring.
+Apply after [agent-os-base.md](agent-os-base.md). Create an execution-plane skill
+for the durable task/run lifecycle, not team design or agent authoring.
 
 Define typed task envelope and state machine; queue semantics; leases,
 heartbeats and fencing; idempotency/deduplication; attempts, checkpoints,

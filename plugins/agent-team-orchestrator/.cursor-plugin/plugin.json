@@ -1,13 +1,11 @@
 {
   "name": "agent-team-orchestrator",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Executes an approved, active agent-team definition through a bounded task graph with typed envelopes, minimal context capsules, leases, budgets, checkpoints, cancellation, recovery and independent verification",
   "homepage": "https://github.com/InnovationMachineTeam/skills",
   "repository": "https://github.com/InnovationMachineTeam/skills",
   "license": "Proprietary",
   "keywords": [
-    "agent-skills",
-    "agent-team-skills",
     "agents",
     "orchestration",
     "runtime"

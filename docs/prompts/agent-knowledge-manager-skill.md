@@ -1,9 +1,9 @@
-# Мастер-промпт навыка `agent-knowledge-manager`
+# Master Prompt For The `agent-knowledge-manager` Skill
 
-Применяй после [agent-skill-base.md](agent-skill-base.md). Создай skill для
-curated project knowledge и agent memory через `docs/`, LLM Wiki, optional
-Obsidian views и generated Graphify/GraphRAG projections. Он не хранит raw
-chain-of-thought, secrets или rapidly changing runtime state.
+Apply after [agent-skill-base.md](agent-skill-base.md). Create a skill for
+curated project knowledge and agent memory through `docs/`, an LLM Wiki, optional
+Obsidian views, and generated Graphify/GraphRAG projections. It does not store raw
+chain-of-thought, secrets, or rapidly changing runtime state.
 
 ## Knowledge contract
 

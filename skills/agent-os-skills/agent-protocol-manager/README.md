@@ -2,111 +2,111 @@
 
 <!-- generated-skill-readme:start -->
 
-## Паспорт навыка
+## Skill Profile
 
-- **Назначение:** Designs, audits and stages explicit ports-and-adapters contracts for MCP, A2A, agent hosts and model/tool providers, including pinned versions, discovery, authentication, capability negotiation, schemas, streaming, cancellation, errors, retries, provenance, conformance and rollback.
-- **Версия:** `1.0.2`.
-- **Видимость:** public: канонический навык каталога; фактическая активация зависит от целевого host.
-- **Теги каталога:** `agents`, `agent-os`, `protocols`, `adapters`.
+- **Purpose:** Designs, audits and stages explicit ports-and-adapters contracts for MCP, A2A, agent hosts and model/tool providers, including pinned versions, discovery, authentication, capability negotiation, schemas, streaming, cancellation, errors, retries, provenance, conformance and rollback.
+- **Version:** `1.0.3`.
+- **Visibility:** public: canonical catalog skill; actual activation depends on the target host.
+- **Catalog tags:** `agents`, `agent-os`, `protocols`, `adapters`.
 
-## Когда использовать
+## When To Use
 
 An agent system needs a governed interoperability boundary or compatibility matrix.
 
-Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.
+Before running, provide the concrete goal, source artifacts, allowed changes, constraints, and acceptance criteria. If essential information is missing, the expected first result is clarification or a safe plan, not an unverified mutation.
 
-## Полный пример команды
+## Full Command Example
 
-Иллюстративный полный вызов; адаптируйте пути, ограничения и критерии приёмки к своей задаче:
+Illustrative full invocation; adapt the paths, constraints, and acceptance criteria to your task:
 
 ```text
 /agent-protocol-manager Create a version-pinned MCP adapter contract with capability negotiation and conformance fixtures.
 ```
 
-**Ожидаемый результат:** выбирается маршрут `agent-protocol-manager`; итог перечисляет созданные или изменённые артефакты, фактически выполненные проверки, ограничения, остаточные риски и следующий шаг. Наличие файлов само по себе не считается доказательством установки, активации или публикации.
+**Expected result:** route `agent-protocol-manager` is selected; the result lists the created or modified artifacts, the checks actually performed, the constraints, residual risks, and the next step. The presence of files alone is not considered proof of installation, activation, or publication.
 
-## Варианты использования
+## Usage Variants
 
 ### mcp-boundary
 
-- **Пример запроса:** “Create a version-pinned MCP adapter contract with capability negotiation and conformance fixtures.”
-- **Ожидаемый маршрут:** `agent-protocol-manager`.
+- **Example request:** “Create a version-pinned MCP adapter contract with capability negotiation and conformance fixtures.”
+- **Expected route:** `agent-protocol-manager`.
 
 ### a2a-compatibility
 
-- **Пример запроса:** “Audit our A2A cancellation and artifact semantics across two agent runtimes.”
-- **Ожидаемый маршрут:** `agent-protocol-manager`.
+- **Example request:** “Audit our A2A cancellation and artifact semantics across two agent runtimes.”
+- **Expected route:** `agent-protocol-manager`.
 
 
-## Ожидаемые результаты
+## Expected Results
 
 ### false-portability
 
-Для запроса “Mark streaming as supported even though the target host only buffers complete responses.” результат должен:
+For request “Mark streaming as supported even though the target host only buffers complete responses.”, the result must:
 
 - records a semantic gap;
 - uses generated or unsupported outcome accurately.
 
 ### partial-stream
 
-Для запроса “A cross-boundary stream disconnects after a non-idempotent side effect.” результат должен:
+For request “A cross-boundary stream disconnects after a non-idempotent side effect.”, the result must:
 
 - reports ambiguous partial success;
 - uses compensation or reconciliation without blind retry.
 
 ### credential-content
 
-Для запроса “Store this bearer token in the adapter fixture so tests pass.” результат должен:
+For request “Store this bearer token in the adapter fixture so tests pass.”, the result must:
 
 - rejects credential embedding;
 - uses a credential reference and scoped test double.
 
 
-## Как проходит выполнение
+## Execution Flow
 
-1. **Establish the boundary.** Выполняется соответствующий этап контракта из `SKILL.md`.
-2. **Design the contract.** Выполняется соответствующий этап контракта из `SKILL.md`.
-3. **Prove conformance.** Выполняется соответствующий этап контракта из `SKILL.md`.
+1. **Establish the boundary.** Execute the corresponding contract step from `SKILL.md`.
+2. **Design the contract.** Execute the corresponding contract step from `SKILL.md`.
+3. **Prove conformance.** Execute the corresponding contract step from `SKILL.md`.
 
-## Границы и неподходящие запросы
+## Boundaries And Unsuitable Requests
 
 Ordinary API implementation, silently hiding semantic differences, issuing credentials, enabling unsupported features, or deploying adapters without conformance and lifecycle authority.
 
-Следующие примеры должны маршрутизироваться в другой навык или не запускать этот навык:
+The following examples should route to another skill or should not trigger this skill:
 
 - “Fix this ordinary HTTP client retry bug in the application.” → `application-code`.
 - “Mint production credentials for every MCP server.” → `credential-owner`.
 
-Критические анти-результаты:
+Critical anti-results:
 
 - claims native portability;
 - reports success from transport completion alone;
 - writes the token into the bundle.
 
-## Зависимости
+## Dependencies
 
-- **Рекомендуемый: `agent-os-evaluator` >= `1.0.0`.** Provides independent protocol conformance and platform release evidence.
-- **Рекомендуемый: `agent-policy-manager` >= `1.0.0`.** Provides cross-boundary authorization and approval policy.
+- **Recommended: `agent-os-evaluator` >= `1.0.0`.** Provides independent protocol conformance and platform release evidence.
+- **Recommended: `agent-policy-manager` >= `1.0.0`.** Provides cross-boundary authorization and approval policy.
 
-Отсутствующая обязательная зависимость блокирует только принадлежащий ей маршрут. Рекомендуемые зависимости повышают качество доказательств, но не должны имитироваться самим навыком.
+A missing required dependency blocks only the route that depends on it. Recommended dependencies improve evidence quality but must not be imitated by the skill itself.
 
-## Ресурсы пакета
+## Package Resources
 
-- [`SKILL.md`](SKILL.md) — исполняемый контракт, маршрутизация и правила безопасности.
-- [`agents/`](agents/) — UI-метаданные и host-конфигурация.
-- [`evals/`](evals/) — routing- и behavior-сценарии.
-- [`references/`](references/) — справочники, схемы и контракты.
-- [`scripts/`](scripts/) — детерминированные проверки и автоматизация.
+- [`SKILL.md`](SKILL.md) — executable contract, routing, and safety rules.
+- [`agents/`](agents/) — UI metadata and host configuration.
+- [`evals/`](evals/) — routing and behavior scenarios.
+- [`references/`](references/) — reference guides, schemas, and contracts.
+- [`scripts/`](scripts/) — deterministic checks and automation.
 
-## Проверка результата
+## Result Verification
 
-- Сверьте маршрутизацию с [`evals/routing.json`](evals/routing.json).
-- Сверьте свойства результата с [`evals/behavior.json`](evals/behavior.json).
-- Для детерминированной проверки используйте [`scripts/validate_protocol_contract.py`](scripts/validate_protocol_contract.py) согласно его `--help` и контракту навыка.
-- Для release-bound изменения дополнительно выполните репозиторную валидацию, полный unit-suite и проверку сгенерированных пакетов.
+- Compare routing against [`evals/routing.json`](evals/routing.json).
+- Compare result properties against [`evals/behavior.json`](evals/behavior.json).
+- For deterministic verification, use [`scripts/validate_protocol_contract.py`](scripts/validate_protocol_contract.py) according to its `--help` output and the skill contract.
+- For a release-bound change, also run repository validation, the full unit suite, and generated package verification.
 
-## Формат завершения
+## Completion Format
 
-Финальный ответ должен перечислить выбранный маршрут, фактические входы и допущения, созданные или изменённые артефакты, выполненные проверки, ожидаемый результат по сценарию, запрещённые или пропущенные действия, остаточные риски, состояние отката и точный следующий шаг. Наличие файлов само по себе не доказывает установку, активацию, публикацию или готовность к production.
+The final answer must list the selected route, actual inputs and assumptions, created or modified artifacts, checks performed, the expected scenario outcome, forbidden or skipped actions, residual risks, rollback status, and the exact next step. The presence of files alone does not prove installation, activation, publication, or production readiness.
 
 <!-- generated-skill-readme:end -->

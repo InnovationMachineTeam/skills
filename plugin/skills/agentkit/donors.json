@@ -1,16 +1,16 @@
 {
   "schema_version": 1,
   "pack": "agentkit",
-  "pack_version": "1.0.2",
+  "pack_version": "1.0.3",
   "source_repository": "InnovationMachineTeam/skills",
-  "source_revision": "working-tree-2026-08-03-readme-command-examples",
+  "source_revision": "working-tree-2026-08-05-english-docs-keywords",
   "donors": [
     {
       "name": "agent-architect",
-      "version": "1.0.2",
-      "source_revision": "working-tree-2026-08-03-readme-command-examples",
-      "source_tree_sha256": "sha256:60622bfcca088fa04a70d7fd9e4814098de4ae83269c2c2c12c1800f4a99094f",
-      "vendor_tree_sha256": "sha256:2d0014b3fc1941f558b266ad18572960ca0e548be02bf71867b8d282908b2db9",
+      "version": "1.0.3",
+      "source_revision": "working-tree-2026-08-05-english-docs-keywords",
+      "source_tree_sha256": "sha256:907134f6ba3691ed28c01ec60825f21a8341f23f363c0220bd76f283e6d8e981",
+      "vendor_tree_sha256": "sha256:91ca6517c6ec37f657f9254649c3cabee6b6723bf00bb1c2ab68b2d80ebe20b2",
       "vendored_path": "vendor/agent-architect",
       "entrypoint": "vendor/agent-architect/DONOR.md",
       "modes": [
@@ -24,10 +24,10 @@
     },
     {
       "name": "agent-best-practices",
-      "version": "1.0.2",
-      "source_revision": "working-tree-2026-08-03-readme-command-examples",
-      "source_tree_sha256": "sha256:dc74626d4e95dc5626278d9988d33c43aadaa0c7b3884ebd50fceb7f74d97e52",
-      "vendor_tree_sha256": "sha256:cea7e8c1971dde7df0dde67a5ce1d7f35902093b3e2304f02e17b35bac9c75ec",
+      "version": "1.0.3",
+      "source_revision": "working-tree-2026-08-05-english-docs-keywords",
+      "source_tree_sha256": "sha256:7eee0191805a6d3a9a52f84e0e82136b131b5f2702a16cac1d30d661c83dfb8d",
+      "vendor_tree_sha256": "sha256:c86209a76b4e5c599c84fc13e4b05891dff4eb6214958c35b4f0583fbf2dc331",
       "vendored_path": "vendor/agent-best-practices",
       "entrypoint": "vendor/agent-best-practices/DONOR.md",
       "modes": [
@@ -41,10 +41,10 @@
     },
     {
       "name": "agent-builder",
-      "version": "1.0.2",
-      "source_revision": "working-tree-2026-08-03-readme-command-examples",
-      "source_tree_sha256": "sha256:4d314d0bc95669706222f398ea6cfc2cbd72513edcf00819184932fad36442e5",
-      "vendor_tree_sha256": "sha256:a623b9bb1d4e2ecf48710bd0f1d4839cd1a06f2edbc2c9d6163583e49d32a22a",
+      "version": "1.0.3",
+      "source_revision": "working-tree-2026-08-05-english-docs-keywords",
+      "source_tree_sha256": "sha256:d1d6830b871e7fcffd38e4355c5705fb3c02e98e1c9bbc0abdce67da4e6b3c09",
+      "vendor_tree_sha256": "sha256:f944fdbe2f72711bbec3cac041c159201c5ab53625bfe02833e623378dae5f4a",
       "vendored_path": "vendor/agent-builder",
       "entrypoint": "vendor/agent-builder/DONOR.md",
       "modes": [
@@ -58,10 +58,10 @@
     },
     {
       "name": "agent-context",
-      "version": "1.0.2",
-      "source_revision": "working-tree-2026-08-03-readme-command-examples",
-      "source_tree_sha256": "sha256:cfc40dd33a92e15daa8194d8d25d870bc033dbc1781c3aade17f8a6580719beb",
-      "vendor_tree_sha256": "sha256:0f07a3e0153a400a48ed6bc987418fbd500e90d92e19455a4348b845b0d6c0b0",
+      "version": "1.0.3",
+      "source_revision": "working-tree-2026-08-05-english-docs-keywords",
+      "source_tree_sha256": "sha256:4a132c0ad231ddd0072578fe7286c099a61c3be4bdda95528b71b860e0d42b51",
+      "vendor_tree_sha256": "sha256:c11963b8929a15135995fc9a91da5fb8e217066393a9c859182cc3751f4dcf96",
       "vendored_path": "vendor/agent-context",
       "entrypoint": "vendor/agent-context/DONOR.md",
       "modes": [
@@ -75,10 +75,10 @@
     },
     {
       "name": "agent-doctor",
-      "version": "1.0.2",
-      "source_revision": "working-tree-2026-08-03-readme-command-examples",
-      "source_tree_sha256": "sha256:fe322e919bd9689fb4d89f8e72b0cccf02afc3d78164bc0b217fe2f3fded01c0",
-      "vendor_tree_sha256": "sha256:13afbe804cc9519de5d5857efa3b9eeaf45772f9a82f704ff0729dd66caad61c",
+      "version": "1.0.3",
+      "source_revision": "working-tree-2026-08-05-english-docs-keywords",
+      "source_tree_sha256": "sha256:ceaf03051b06890fb41df3b0fd1ee42a1a0229095429ab11464005e70c8b7af5",
+      "vendor_tree_sha256": "sha256:447abc4294cf9dbc1c08f27c6e1f013a97fca3808b0ddc61ae139a88f8c640e0",
       "vendored_path": "vendor/agent-doctor",
       "entrypoint": "vendor/agent-doctor/DONOR.md",
       "modes": [
@@ -92,10 +92,10 @@
     },
     {
       "name": "agent-evaluator",
-      "version": "1.0.2",
-      "source_revision": "working-tree-2026-08-03-readme-command-examples",
-      "source_tree_sha256": "sha256:bc44c8256ea670de409be421a2f5b9fa0451c2c286ceb521a060836a27fcb17c",
-      "vendor_tree_sha256": "sha256:f18a4acda0b3069b69017e68c5a49c9449249203c2174da667716aacc1a402d7",
+      "version": "1.0.3",
+      "source_revision": "working-tree-2026-08-05-english-docs-keywords",
+      "source_tree_sha256": "sha256:c167715ddc3826855c54865f9c0c77c14573407509ca7c02073f736ae53895c3",
+      "vendor_tree_sha256": "sha256:180e597dc5369554644033ca0b2ecadf6b44a6be613dd822ab9d085e6236d34c",
       "vendored_path": "vendor/agent-evaluator",
       "entrypoint": "vendor/agent-evaluator/DONOR.md",
       "modes": [
@@ -109,10 +109,10 @@
     },
     {
       "name": "agent-manager",
-      "version": "1.0.2",
-      "source_revision": "working-tree-2026-08-03-readme-command-examples",
-      "source_tree_sha256": "sha256:e2d3153290e86d41c8edd1485da2a7b91b66e39fcdba2906e6876a4f905f602b",
-      "vendor_tree_sha256": "sha256:4d8be02bde78f2895439ef1680773a83be632d9d3aef483fd656666976151d54",
+      "version": "1.0.3",
+      "source_revision": "working-tree-2026-08-05-english-docs-keywords",
+      "source_tree_sha256": "sha256:556137410a445824348ec15379ab6fd277f104c8cd18006502a301722387d6f1",
+      "vendor_tree_sha256": "sha256:ae77003c4b84e5cd9c80029e8914d815f4fca123555e42ca249fc3637f65f861",
       "vendored_path": "vendor/agent-manager",
       "entrypoint": "vendor/agent-manager/DONOR.md",
       "modes": [
@@ -126,10 +126,10 @@
     },
     {
       "name": "agent-optimizer",
-      "version": "1.0.2",
-      "source_revision": "working-tree-2026-08-03-readme-command-examples",
-      "source_tree_sha256": "sha256:af8ecd8a4ceae1368522d069f63190d885a171bf31e3bdd2179b8476c5c47d99",
-      "vendor_tree_sha256": "sha256:ac11e556e5cdb516091358e215ab9c6ee8a02a5025af39de30917d5a6eb14b1b",
+      "version": "1.0.3",
+      "source_revision": "working-tree-2026-08-05-english-docs-keywords",
+      "source_tree_sha256": "sha256:3d7a3b5956a938fb721e0a2b9dfcb1500d21b83d833e6fb3d1a5daeae2591c33",
+      "vendor_tree_sha256": "sha256:4ee3cc5dd3673e56a758857fd679ab702c25cae1d5a977b16771efb510ee1aed",
       "vendored_path": "vendor/agent-optimizer",
       "entrypoint": "vendor/agent-optimizer/DONOR.md",
       "modes": [
@@ -143,10 +143,10 @@
     },
     {
       "name": "agent-refactor",
-      "version": "1.0.2",
-      "source_revision": "working-tree-2026-08-03-readme-command-examples",
-      "source_tree_sha256": "sha256:4edd42b3abeed844ba7b0d05d08f90574a4aad8129cb0d5f9820bf4584255217",
-      "vendor_tree_sha256": "sha256:d6c0ab9c6aaaadafb87d448867de4022d32d6d3c4df1bd5caa3e4e250b155832",
+      "version": "1.0.3",
+      "source_revision": "working-tree-2026-08-05-english-docs-keywords",
+      "source_tree_sha256": "sha256:97587590d5e535ac8e4051e3951e6bd4233d8ea3f09a0f44248553c847980b05",
+      "vendor_tree_sha256": "sha256:35bdb828e1a23b8e53236b7685bab14c0d4f2765897cbd9bbc393d8605738cfc",
       "vendored_path": "vendor/agent-refactor",
       "entrypoint": "vendor/agent-refactor/DONOR.md",
       "modes": [
@@ -160,10 +160,10 @@
     },
     {
       "name": "agent-scout",
-      "version": "1.0.2",
-      "source_revision": "working-tree-2026-08-03-readme-command-examples",
-      "source_tree_sha256": "sha256:290a2bc09df8ed9762370d65d152e247ca447c51b7decda3a663164099b27959",
-      "vendor_tree_sha256": "sha256:7041b781005143c7f764ccaccfdbe19c9758ca28eeb6d38fcb9374efc3be0b8c",
+      "version": "1.0.3",
+      "source_revision": "working-tree-2026-08-05-english-docs-keywords",
+      "source_tree_sha256": "sha256:6396eb552f95ca599b05faeeec824bbff5a80fde5ecf9c23137b0b1b50d036fe",
+      "vendor_tree_sha256": "sha256:e6fc4a99feeb0d67c1f07547b5f7a1f532a5d668da2bd787edef3b3687cf540f",
       "vendored_path": "vendor/agent-scout",
       "entrypoint": "vendor/agent-scout/DONOR.md",
       "modes": [

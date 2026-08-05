@@ -2,7 +2,7 @@
 name: agent-evaluator
 description: Independently designs, writes, audits, runs and compares evaluations for one frozen agent or subagent definition and its bounded runtime behavior. Use for routing, outcome, tool, permission, delegation, state, memory, documentation, resilience, cost, latency, lifecycle or release evidence for an individual agent. Do not evaluate an entire team or Agentic OS, repair or optimize the candidate during a frozen run, reveal holdout answers, activate agents, or average away blocking failures; use agent-team workflows or agent-os-evaluator for broader systems.
 metadata:
-  version: "1.0.2"
+  version: "1.0.3"
 ---
 
 # Evaluate One Frozen Agent

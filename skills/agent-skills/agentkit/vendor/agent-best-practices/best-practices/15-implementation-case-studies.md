@@ -1,14 +1,14 @@
-# Практические реализации: сравнительный разбор
+# Practical Implementations: Comparative Analysis
 
-Исследование выполнено по default branches на 2026-07-30. Exact commits
-зафиксированы в [sources-frameworks.md](sources-frameworks.md).
+Research was conducted against default branches as of 2026-07-30. Exact commits
+are recorded in [sources-frameworks.md](sources-frameworks.md).
 
-## Сравнение
+## Comparison
 
-| Проект | Основная единица | State/knowledge | Оркестрация | Сильнейший паттерн |
+| Project | Primary unit | State/knowledge | Orchestration | Strongest pattern |
 |---|---|---|---|---|
-| Agent OS | standards + spec folder | product/standards/specs | интерактивные commands | релевантная инъекция standards |
-| BMAD | role agent + workflow skill | последовательные artifacts | фазовая карта + menus | progressive context by lifecycle |
+| Agent OS | standards + spec folder | product/standards/specs | interactive commands | relevant standards injection |
+| BMAD | role agent + workflow skill | sequential artifacts | phase map + menus | progressive context by lifecycle |
 | GSD Core | phase/plan/subagent | `.planning/STATE.md` + artifacts | thin orchestrator, waves | fresh-context agents + goal verification |
 | GSD Pi | runtime unit/extension | DB + Markdown projections | durable runtime/worktrees | extension-first Agent OS |
 | gstack | specialized skill | sessions/learnings/artifacts | router + specialist fan-out | product-to-ops role suite |
@@ -17,220 +17,225 @@
 
 ## Agent OS (`buildermethods/agent-os`)
 
-### Полезные решения
+### Useful solutions
 
-- Product context разделён на mission, roadmap и tech stack.
-- Standards индексируются и подбираются по текущей задаче.
-- Injection меняет форму в зависимости от conversation, skill или plan.
-- Неопределённый режим уточняется у пользователя.
-- Spec folder сохраняет plan, shaping decisions, standards, references и
-  visuals вместе.
-- Сначала ищутся похожие реализации в codebase.
+- Product context is divided into mission, roadmap, and tech stack.
+- Standards are indexed and selected for the current task.
+- Injection changes form depending on the conversation, skill, or plan.
+- An ambiguous mode is clarified with the user.
+- The spec folder keeps the plan, shaping decisions, standards, references, and
+  visuals together.
+- Similar implementations in the codebase are searched first.
 
-### Что перенять
+### What to adopt
 
-- индекс с краткими описаниями вместо загрузки всех standards;
-- context-sensitive format;
-- ссылки на canonical standard предпочтительнее копии, когда portability не
-  требует self-contained artifact;
-- «сохранить спецификацию» как первый deliverable плана;
-- lightweight shaping перед implementation.
+- an index with short descriptions instead of loading all standards;
+- a context-sensitive format;
+- links to the canonical standard are preferable to copies when portability does
+  not require a self-contained artifact;
+- "save the specification" as the first plan deliverable;
+- lightweight shaping before implementation.
 
-### Ограничения
+### Limitations
 
-Reference/copy choice может создавать drift; нужен dependency tracking. Полагаться
-только на интерактивные вопросы нельзя в headless workflow — требуется явная
-fallback policy.
+The reference/copy choice can create drift; dependency tracking is needed. It is
+not acceptable to rely only on interactive questions in a headless workflow; an
+explicit fallback policy is required.
 
 ## BMAD Method
 
-### Полезные решения
+### Useful solutions
 
-- Роли понятны бизнесу: analyst, PM, architect, developer, UX, writer.
-- Workflow skills отделены от свободных conversational triggers.
-- Analysis → Planning → Solutioning → Implementation производят artifacts,
-  которые становятся контекстом следующего шага.
-- `project-context.md` действует как project constitution.
-- Для тестирования есть лёгкий путь и отдельный enterprise-grade Test Architect
-  с risk priorities, NFR и traceability.
-- Readiness gate перед implementation.
+- Roles are understandable to the business: analyst, PM, architect, developer,
+  UX, writer.
+- Workflow skills are separated from free-form conversational triggers.
+- Analysis -> Planning -> Solutioning -> Implementation produce artifacts that
+  become context for the next step.
+- `project-context.md` acts as the project constitution.
+- For testing there is a lightweight path and a separate enterprise-grade Test
+  Architect with risk priorities, NFR, and traceability.
+- A readiness gate exists before implementation.
 
-### Что перенять
+### What to adopt
 
-- каталоги «роль → triggers → workflows → outputs»;
-- progressive context, а не одна длинная сессия;
-- два уровня process rigor;
-- самостоятельная роль technical writer;
-- requirements traceability и release gate для сложных доменов.
+- directories of "role -> triggers -> workflows -> outputs";
+- progressive context rather than one long session;
+- two levels of process rigor;
+- a dedicated technical writer role;
+- requirements traceability and a release gate for complex domains.
 
-### Ограничения
+### Limitations
 
-Персонажи и menus улучшают UX, но не должны заменять machine contracts.
-Фазовый процесс нужно уметь сжимать для small changes.
+Personas and menus improve UX, but should not replace machine contracts. A
+phased process must be compressible for small changes.
 
 ## GSD Core
 
-### Полезные решения
+### Useful solutions
 
-- Тонкий orchestrator держит state, а research/plan/execute/verify выполняются в
-  fresh-context specialized agents.
-- Durable Markdown artifacts переживают session reset.
-- Цикл Discuss → Plan → Execute → Verify → Ship.
-- План содержит wave, depends_on, files_modified и must-haves.
-- Каждый executor получает bounded plan; waves параллелят независимое.
-- Goal-backward verifier не доверяет SUMMARY и проверяет truths, artifacts,
-  wiring и prohibitions.
-- Учитываются human-needed cases вместо ложного auto-pass.
-- Есть quick/fast paths, pause/resume, workspaces, workstreams, hooks и context
-  monitoring.
+- A thin orchestrator holds state, while research/plan/execute/verify are
+  performed by fresh-context specialized agents.
+- Durable Markdown artifacts survive a session reset.
+- The cycle is Discuss -> Plan -> Execute -> Verify -> Ship.
+- The plan contains wave, depends_on, files_modified, and must-haves.
+- Each executor receives a bounded plan; waves parallelize independent work.
+- The goal-backward verifier does not trust SUMMARY and checks truths,
+  artifacts, wiring, and prohibitions.
+- Human-needed cases are accounted for instead of false auto-pass behavior.
+- There are quick/fast paths, pause/resume, workspaces, workstreams, hooks, and
+  context monitoring.
 
-### Что перенять
+### What to adopt
 
-- context isolation как архитектурный принцип;
-- обязательный structured handoff;
-- orchestrator не дублирует dispatched task;
-- state spine и recovery;
-- outcome verification, а не task completion;
+- context isolation as an architectural principle;
+- a mandatory structured handoff;
+- the orchestrator does not duplicate the dispatched task;
+- a state spine and recovery;
+- outcome verification rather than task completion;
 - fail-safe human judgment;
-- flat orchestration, предотвращающая глубокую рекурсию.
+- flat orchestration that prevents deep recursion.
 
-### Ограничения
+### Limitations
 
-Большой prompt/workflow surface повышает maintenance cost. Platform adapters и
-генерация должны сопровождаться parity tests; жёсткий full loop избыточен для
-простых задач.
+A large prompt/workflow surface increases maintenance cost. Platform adapters
+and generation should be accompanied by parity tests; a rigid full loop is
+excessive for simple tasks.
 
 ## GSD Pi
 
-### Полезные решения
+### Useful solutions
 
-- Extension-first: core минимален, capabilities живут в extensions/skills.
-- Manifest декларирует ID, semver, tier, compatibility, provides и dependencies.
-- Три tiers: core, bundled, community.
-- Topological dependency order и namespaced tools.
-- Stateful extensions восстанавливаются на session start/switch/tree changes.
-- Tool outputs ограничены, long operations слушают cancellation.
-- `pi.exec` централизует sandbox, timeouts и signals.
-- Project state хранится в DB с Markdown projections.
-- Worktree safety проверяет root, branch и lease fail-closed.
+- Extension-first: the core is minimal, capabilities live in
+  extensions/skills.
+- The manifest declares ID, semver, tier, compatibility, provides, and
+  dependencies.
+- Three tiers: core, bundled, community.
+- Topological dependency order and namespaced tools.
+- Stateful extensions are restored on session start/switch/tree changes.
+- Tool outputs are bounded; long operations listen for cancellation.
+- `pi.exec` centralizes sandboxing, timeouts, and signals.
+- Project state is stored in a DB with Markdown projections.
+- Worktree safety checks root, branch, and lease in fail-closed mode.
 
-### Что перенять
+### What to adopt
 
-- Agent OS registry/extension lifecycle;
-- capability manifest и compatibility check;
-- canonical structured state + reviewable projections;
-- headless/UI distinction;
-- state reconstruction contract;
-- extension testing как release requirement.
+- an Agent OS registry/extension lifecycle;
+- a capability manifest and compatibility check;
+- canonical structured state plus reviewable projections;
+- a headless/UI distinction;
+- a state reconstruction contract;
+- extension testing as a release requirement.
 
-### Ограничения
+### Limitations
 
-Manifest informational fields должны сверяться с фактически зарегистрированными
-capabilities. Missing dependencies/cycles лучше блокировать для high-assurance
-tier, а не только предупреждать.
+Manifest informational fields should be checked against the actually registered
+capabilities. Missing dependencies/cycles are better blocked for a
+high-assurance tier rather than only warned about.
 
 ## gstack
 
-### Полезные решения
+### Useful solutions
 
-- Router направляет planning, review, QA, debugging, security, release и docs к
-  узким skills.
-- Полный product-to-production набор ролей.
-- `office-hours`/CEO/engineering/design reviews разделяют перспективы.
-- Review army выбирает specialists по scope и запускает их независимо.
-- Историческая finding rate может отключать малоэффективных reviewers, кроме
+- A router directs planning, review, QA, debugging, security, release, and docs
+  to narrow skills.
+- A complete product-to-production set of roles.
+- `office-hours`/CEO/engineering/design reviews separate perspectives.
+- The review army selects specialists by scope and runs them independently.
+- Historical finding rate can disable low-effectiveness reviewers except for
   insurance roles.
-- Debugging следует «no fix without root cause».
-- `/ship`, deploy, canary и document-release образуют замкнутый delivery loop.
-- Context save/restore, learnings, timeline и opt-in telemetry.
-- Templates генерируют host-specific skill outputs; generated files не
-  редактируются напрямую.
-- Safety skills ограничивают destructive actions и write scope.
+- Debugging follows "no fix without root cause".
+- `/ship`, deploy, canary, and document-release form a closed delivery loop.
+- Context save/restore, learnings, timeline, and opt-in telemetry.
+- Templates generate host-specific skill outputs; generated files are not
+  edited directly.
+- Safety skills constrain destructive actions and write scope.
 
-### Что перенять
+### What to adopt
 
-- роль router, а не mega-skill;
-- адаптивный specialist selection, измеренный telemetry;
+- a router role rather than a mega-skill;
+- adaptive specialist selection measured by telemetry;
 - cross-model independent review;
-- operational skills рядом с development;
-- first-run и headless fallbacks;
-- learning pipeline, но с governance.
+- operational skills alongside development;
+- first-run and headless fallbacks;
+- a learning pipeline, but with governance.
 
-### Ограничения
+### Limitations
 
-Большой общий preamble дорог и может размывать основную задачу. Telemetry и
-memory требуют data governance. «Boil the ocean» полезен как продуктовая
-установка, но должен ограничиваться risk/cost budget.
+A large shared preamble is expensive and can dilute the main task. Telemetry and
+memory require data governance. "Boil the ocean" is useful as a product stance,
+but should be bounded by a risk/cost budget.
 
 ## GitHub Spec Kit
 
-### Полезные решения
+### Useful solutions
 
-- Constitution задаёт governing principles и semantic versioning изменений.
-- Scope guard не позволяет команде constitution незаметно начать реализацию.
-- WHAT/WHY отделены от HOW.
-- Spec содержит prioritized, independently testable user stories,
-  Given/When/Then, FR и measurable outcomes.
-- Plan проверяется constitution gate до и после design.
-- Tasks имеют IDs, exact paths, dependencies и `[P]` для безопасного
-  параллелизма.
+- The constitution defines governing principles and semantic versioning of
+  changes.
+- A scope guard prevents the constitution command from silently starting
+  implementation.
+- WHAT/WHY are separated from HOW.
+- The spec contains prioritized, independently testable user stories,
+  Given/When/Then, FR, and measurable outcomes.
+- The plan is checked against the constitution gate before and after design.
+- Tasks have IDs, exact paths, dependencies, and `[P]` for safe parallelism.
 - MVP-first vertical slices.
-- Extensions, presets и role bundles разделены.
-- Hooks до/после этапов расширяют процесс.
+- Extensions, presets, and role bundles are separated.
+- Hooks before/after stages extend the process.
 
-### Что перенять
+### What to adopt
 
-- project constitution с governance/versioning;
-- scope guard и deferred intents;
+- a project constitution with governance/versioning;
+- a scope guard and deferred intents;
 - user-story-oriented tasks;
 - explicit clarification markers;
-- complexity violations требуют rationale;
-- managed tooling updates отделены от evolution feature artifacts.
+- complexity violations require rationale;
+- managed tooling updates are separated from evolution feature artifacts.
 
-### Ограничения
+### Limitations
 
-«Executable specs» не означают, что spec автоматически истинна. Нужны human
-review, live-code verification и обновление при learning. Optional tests не
-должны оставаться optional для рискованных behavior changes.
+"Executable specs" do not mean the spec is automatically true. Human review,
+live-code verification, and updates based on learning are still needed.
+Optional tests should not remain optional for risky behavior changes.
 
 ## OpenSpec
 
-### Полезные решения
+### Useful solutions
 
-- Current specs отделены от proposed changes.
-- Change folder объединяет proposal, delta specs, design и tasks.
-- ADDED/MODIFIED/REMOVED делают brownfield evolution явным.
-- Specs описывают behavior, не implementation.
-- Progressive rigor: lite по умолчанию, full для cross-team/API/migration/
+- Current specs are separated from proposed changes.
+- A change folder combines the proposal, delta specs, design, and tasks.
+- ADDED/MODIFIED/REMOVED make brownfield evolution explicit.
+- Specs describe behavior, not implementation.
+- Progressive rigor: lite by default, full for cross-team/API/migration/
   security.
-- Actions не блокируют возвращение к раннему artifact.
-- `/explore` не пишет artifacts/code.
-- Verification проверяет completeness, correctness и coherence.
-- Review order: proposal → spec → design/tasks → code.
-- Git ownership остаётся у команды; tool не скрывает version-control semantics.
-- Один change — один основной owner; parallel changes — отдельные folders.
+- Actions do not block returning to an earlier artifact.
+- `/explore` does not write artifacts/code.
+- Verification checks completeness, correctness, and coherence.
+- Review order: proposal -> spec -> design/tasks -> code.
+- Git ownership remains with the team; the tool does not hide version-control
+  semantics.
+- One change has one primary owner; parallel changes use separate folders.
 
-### Что перенять
+### What to adopt
 
-- change package как review unit;
-- review intent до дорогого кода;
-- delta specs и archive;
-- право итеративно менять design после learning;
-- ceremony пропорционально stakes.
+- a change package as the review unit;
+- review intent before expensive code;
+- delta specs and archive;
+- the right to iteratively change design after learning;
+- ceremony proportional to stakes.
 
-### Ограничения
+### Limitations
 
-Non-blocking verification и archive warnings приемлемы для lite mode, но high
-assurance policy должна превращать critical gaps в blocking gate.
+Non-blocking verification and archive warnings are acceptable for lite mode, but
+a high-assurance policy should turn critical gaps into a blocking gate.
 
-## Синтез
+## Synthesis
 
-Рекомендуемая комбинированная модель:
+Recommended combined model:
 
-1. OpenSpec progressive rigor и change folders.
-2. Spec Kit constitution, WHAT/HOW separation и vertical slices.
-3. Agent OS indexed standards и reference discovery.
-4. BMAD lifecycle roles и traceability.
-5. GSD thin orchestration, fresh contexts, waves и verification.
-6. GSD Pi extension registry, durable state и safety.
-7. gstack product/quality/operations specialist suite и measured routing.
+1. OpenSpec progressive rigor and change folders.
+2. Spec Kit constitution, WHAT/HOW separation, and vertical slices.
+3. Agent OS indexed standards and reference discovery.
+4. BMAD lifecycle roles and traceability.
+5. GSD thin orchestration, fresh contexts, waves, and verification.
+6. GSD Pi extension registry, durable state, and safety.
+7. gstack product/quality/operations specialist suite and measured routing.

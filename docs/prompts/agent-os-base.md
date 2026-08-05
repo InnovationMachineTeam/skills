@@ -1,12 +1,12 @@
-# Общий мастер-промпт Agentic OS
+# General Agentic OS Master Prompt
 
-Используй этот contract после [agent-skill-base.md](agent-skill-base.md) и перед
-ровно одним Agentic OS specialist prompt. Создавай platform/control capability,
-а не mega-agent и не набор файлов без runtime contract.
+Use this contract after [agent-skill-base.md](agent-skill-base.md) and before
+exactly one Agentic OS specialist prompt. Create a platform/control capability,
+not a mega-agent and not a set of files without a runtime contract.
 
-## Planes и invariants
+## Planes And Invariants
 
-Разделяй:
+Separate:
 
 - experience plane: user/API entry, progress, approvals and explanations;
 - control plane: desired state, registry, policy, model/capability routing;
@@ -15,7 +15,7 @@
 - assurance plane: evals, security, compliance and release gates;
 - operations plane: telemetry, SLO, incidents, recovery and cost.
 
-Каждый plane имеет API/schema, accountable owner, state store, permissions,
+Each plane has an API/schema, accountable owner, state store, permissions,
 SLO, threat/failure model and lifecycle. LLM output is untrusted proposal until
 validated by deterministic policy/execution boundaries.
 

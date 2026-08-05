@@ -274,7 +274,7 @@ class AgentMasterTests(unittest.TestCase):
 
     def test_agent_master_declares_mandatory_visibility_and_private_pipeline(self) -> None:
         text = (ROOT / "skills/agent-master/agent-master/SKILL.md").read_text(encoding="utf-8")
-        first_question = "Какой режим структуры использовать: публичный или приватный?"
+        first_question = "Which structure mode should be used: public or private?"
         self.assertIn(first_question, text)
         for name in (
             "process-orchestrator-architect",

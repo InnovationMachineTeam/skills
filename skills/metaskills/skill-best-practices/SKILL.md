@@ -2,7 +2,7 @@
 name: skill-best-practices
 description: Maintains an evidence-linked corpus for authoring, routing, evaluating, securing, optimizing and governing agent skills. Use to query or refresh registered guidance, reconcile new claims, rebuild practices, audit managed skills or generate a bounded modification prompt. Use harvesting for open-ended discovery. Preserve provenance and platform scope; do not rewrite installed skills or promote exemplars to standards by assumption.
 metadata:
-  version: "1.3.0"
+  version: "1.3.1"
 ---
 
 # Maintain Skill Best Practices

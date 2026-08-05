@@ -1,19 +1,19 @@
-# Ролевые паттерны и разделение обязанностей
+# Role Patterns and Separation of Duties
 
-## Роль не равна агенту
+## A role is not equal to an agent
 
-Роль — набор ответственности, полномочий, входов и проверяемых результатов.
-Один человек или агент может выполнять несколько ролей в low-risk процессе;
-одна роль может быть реализована несколькими agents. Отдельный agent оправдан,
-если требуется независимый контекст, capability, security boundary,
-параллелизм или иной lifecycle owner.
+A role is a set of responsibilities, authority, inputs, and verifiable outputs.
+One person or agent may perform multiple roles in a low-risk process; one role
+may be implemented by multiple agents. A separate agent is justified if
+independent context, capability, a security boundary, parallelism, or a
+different lifecycle owner is required.
 
-Для каждой роли фиксируйте:
+For each role, record:
 
 ```yaml
 role: independent-verifier
 accountable_human: quality-owner
-mission: подтвердить outcome по исходному intent
+mission: confirm the outcome against the original intent
 inputs: [intent_ref, artifact_ref, eval_plan_ref]
 outputs: [typed_verdict, evidence_refs, gaps]
 permissions: [read_artifacts, run_approved_evals]
@@ -22,98 +22,102 @@ escalates_when: [uncertain_high_impact, conflicting_evidence]
 sla: 30m
 ```
 
-NIST AI RMF требует документировать роли, линии коммуникации и human-AI
-oversight на протяжении lifecycle; executive leadership сохраняет
-ответственность за AI risk decisions
+NIST AI RMF requires documenting roles, communication lines, and human-AI
+oversight throughout the lifecycle; executive leadership retains accountability
+for AI risk decisions
 ([AI RMF Core](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/)).
 
-## Базовые ролевые архетипы
+## Basic role archetypes
 
 ### Sponsor / accountable owner
 
-Определяет ценность, risk appetite и окончательную ответственность. Может
-делегировать работу, но не accountability. Принимает high-impact trade-offs,
-исключения и retirement решения.
+Defines value, risk appetite, and final accountability. May delegate work, but
+not accountability. Accepts high-impact trade-offs, exceptions, and retirement
+decisions.
 
 ### Intent owner
 
-Формулирует outcome, stakeholders, non-goals, constraints и success measures.
-Защищает процесс от локальной оптимизации не той задачи. В продуктовой работе
-обычно product owner; в incident — incident commander.
+Defines the outcome, stakeholders, non-goals, constraints, and success
+measures. Protects the process from local optimization of the wrong task. In
+product work this is usually the product owner; in an incident, the incident
+commander.
 
 ### Architect
 
-Выбирает boundaries, contracts, patterns и quality trade-offs. Не диктует каждый
-шаг исполнения; фиксирует architecturally significant decisions и последствия.
-Специализации: agent architect, workflow/orchestration architect, skill
-architect, platform/Agent OS architect, security и data architect.
+Chooses boundaries, contracts, patterns, and quality trade-offs. Does not
+dictate every execution step; records architecturally significant decisions and
+consequences. Specializations: agent architect, workflow/orchestration
+architect, skill architect, platform/Agent OS architect, security architect,
+and data architect.
 
 ### Builder / executor
 
-Создаёт bounded deliverable в выданном scope. Возвращает artifact, change log,
-tests и evidence; не объявляет собственную работу окончательно принятой.
+Creates a bounded deliverable within the assigned scope. Returns an artifact,
+change log, tests, and evidence; does not declare the work finally accepted.
 
 ### Orchestrator / coordinator
 
-Владеет task graph, dispatch, state, budgets, checkpoints и synthesis. Он
-ответственен за завершение процесса, но не должен подменять независимые domain,
-security и approval роли.
+Owns the task graph, dispatch, state, budgets, checkpoints, and synthesis. This
+role is responsible for completing the process, but must not replace
+independent domain, security, or approval roles.
 
 ### Verifier / evaluator
 
-Проверяет outcome, assumptions и regressions по заранее заданным критериям.
-Verifier отвечает «доказано ли?», evaluator — «насколько хорошо и устойчиво?». Для
-high risk они read-only относительно candidate и имеют независимые datasets или
-tools.
+Checks outcomes, assumptions, and regressions against predefined criteria. A
+verifier answers "is it proven?"; an evaluator answers "how good and how
+robust?" For high risk they are read-only relative to the candidate and use
+independent datasets or tools.
 
 ### Governor / approver
 
-Применяет policy и принимает residual risk. Approval broker может собрать
-evidence, но право решения остаётся у назначенного approver. У approval есть
-scope, expiry и revocation.
+Applies policy and accepts residual risk. An approval broker may collect
+evidence, but decision authority remains with the designated approver.
+Approvals have scope, expiry, and revocation.
 
 ### Curator / steward
 
-Поддерживает качество долгоживущего актива: registry, memory, knowledge,
-documentation, dataset, prompt/skill portfolio. Stewardship включает freshness,
-provenance, duplication, compatibility, deprecation и retirement.
+Maintains the quality of a long-lived asset: registry, memory, knowledge,
+documentation, dataset, prompt/skill portfolio. Stewardship includes freshness,
+provenance, duplication, compatibility, deprecation, and retirement.
 
 ### Operator / SRE
 
-Владеет SLO, capacity, telemetry, runbooks, recovery и operational readiness.
-Не обязан быть автором agent; production reality имеет приоритет над design
-assumptions.
+Owns SLO, capacity, telemetry, runbooks, recovery, and operational readiness.
+This role does not have to be the agent author; production reality takes
+priority over design assumptions.
 
 ### Observer / analyst
 
-Преобразует traces, costs, incidents и user outcomes в диагностический evidence.
-Не меняет active policy автоматически. Специализации: trace analyst, FinOps,
-quality analyst, drift detector.
+Turns traces, costs, incidents, and user outcomes into diagnostic evidence. It
+does not automatically change active policy. Specializations: trace analyst,
+FinOps, quality analyst, drift detector.
 
 ### Adversary / challenger
 
-Ищет counterexamples, abuse paths, hidden assumptions и correlated failures.
-Red team не принимает финальное решение и не получает лишних production rights.
+Looks for counterexamples, abuse paths, hidden assumptions, and correlated
+failures. A red team does not make the final decision and does not receive
+unnecessary production rights.
 
 ### Publisher / release manager
 
-Проверяет package identity, version, provenance, changelog, compatibility,
-signatures, gates и promotion. Publisher отличается от registry owner и автора.
+Checks package identity, version, provenance, changelog, compatibility,
+signatures, gates, and promotion. The publisher is distinct from the registry
+owner and the author.
 
 ### Incident roles
 
-- commander — приоритеты, коммуникация и accountability;
-- triage — severity и initial routing;
-- investigator — competing hypotheses и evidence;
-- containment/recovery operator — безопасные effectors;
-- scribe — timeline и decisions;
-- reviewer — post-incident learning и action tracking.
+- commander - priorities, communication, and accountability;
+- triage - severity and initial routing;
+- investigator - competing hypotheses and evidence;
+- containment/recovery operator - safe effectors;
+- scribe - timeline and decisions;
+- reviewer - post-incident learning and action tracking.
 
-## Роли по слоям системы
+## Roles by system layer
 
 ### Agent
 
-| Роль | Ответственность |
+| Role | Responsibility |
 |---|---|
 | Agent product owner | Outcome, users, risk tier, lifecycle |
 | Agent architect | Contract, tools, memory, autonomy, failure model |
@@ -124,9 +128,9 @@ signatures, gates и promotion. Publisher отличается от registry own
 | Agent operator | SLO, traces, budgets, incidents |
 | Agent registry steward | Versions, compatibility, status, deprecation |
 
-### Subagents и команды
+### Subagents and teams
 
-| Роль | Ответственность |
+| Role | Responsibility |
 |---|---|
 | Delegation designer | Task envelopes, context capsules, return schema |
 | Team lead | Mission, assignments, conflict/escalation policy |
@@ -134,11 +138,11 @@ signatures, gates и promotion. Publisher отличается от registry own
 | Specialist | Bounded domain deliverable |
 | Integration owner | Contract fit, merge, end-to-end wiring |
 | Communication moderator | Message schema, decision capture, loop prevention |
-| Independent verifier | Outcome и cross-agent failure modes |
+| Independent verifier | Outcome and cross-agent failure modes |
 
 ### Agent OS
 
-| Роль | Ответственность |
+| Role | Responsibility |
 |---|---|
 | Platform owner | Service strategy, roadmap, adoption, SLO |
 | Runtime engineer | Scheduler, execution, checkpoints, recovery |
@@ -149,16 +153,16 @@ signatures, gates и promotion. Publisher отличается от registry own
 | Observability owner | Telemetry schema, dashboards, alert quality |
 | Reliability/SRE owner | Capacity, resilience, incident readiness |
 | Cost/FinOps owner | Budget model, allocation, anomaly response |
-| Protocol/integration owner | MCP/A2A/adapters и compatibility |
+| Protocol/integration owner | MCP/A2A/adapters and compatibility |
 | Assurance owner | Evals, audit, release gates, evidence retention |
 
-### Skills и marketplace
+### Skills and marketplace
 
-| Роль | Ответственность |
+| Role | Responsibility |
 |---|---|
-| Skill sponsor | Need, audience, success and retirement |
+| Skill sponsor | Need, audience, success, and retirement |
 | Skill architect/author | Boundary, workflow, instructions, package |
-| Trigger/eval designer | Discovery precision и outcome evaluation |
+| Trigger/eval designer | Discovery precision and outcome evaluation |
 | Script maintainer | Deterministic core, portability, security |
 | Source curator | Provenance, licenses, freshness, external intake |
 | Skill reviewer | Structure, usability, conflicts, permissions |
@@ -182,65 +186,68 @@ signatures, gates и promotion. Publisher отличается от registry own
 
 ## Separation of duties
 
-### Обязательные разделения для высокого риска
+### Mandatory separations for high risk
 
-- author не является единственным verifier;
-- policy author не является единственным approver исключения;
-- deployer не является безусловным release approver;
-- registry publisher не является единственным supply-chain/security reviewer;
-- memory writer не является единственным fact/provenance verifier;
-- eval author не может выбирать только выгодные production samples;
-- incident fixer не закрывает root cause без независимого evidence review;
-- agent, который запрашивает расширение прав, не выдаёт их себе;
-- cost optimizer не может единолично понижать safety/quality floor;
-- retirement выполняется отдельно от решения, что актив больше не нужен.
+- the author is not the sole verifier;
+- the policy author is not the sole exception approver;
+- the deployer is not the unconditional release approver;
+- the registry publisher is not the sole supply-chain/security reviewer;
+- the memory writer is not the sole fact/provenance verifier;
+- the eval author cannot choose only favorable production samples;
+- the incident fixer does not close root cause without independent evidence
+  review;
+- an agent requesting expanded rights does not grant them to itself;
+- a cost optimizer cannot unilaterally lower the safety/quality floor;
+- retirement is executed separately from the decision that the asset is no
+  longer needed.
 
-### Temporal separation для малой команды
+### Temporal separation for a small team
 
-Если людей мало, один человек MAY носить несколько ролей, но разделяйте фазы:
+If staffing is limited, one person MAY wear several roles, but separate phases:
 
-1. До реализации зафиксировать rubric и risk policy.
-2. После реализации начать новый review context.
-3. Использовать independent automated checks и immutable evidence.
-4. Для irreversible/high-impact action получить второго approver.
-5. Зафиксировать role switching в audit record.
+1. Record the rubric and risk policy before implementation.
+2. Start a new review context after implementation.
+3. Use independent automated checks and immutable evidence.
+4. For irreversible/high-impact action, obtain a second approver.
+5. Record role switching in the audit record.
 
-LLM с другим prompt, но тем же контекстом и данными, — слабая независимость.
-Сильнее независимость по данным, tools, model/runtime и организационной
-подотчётности.
+An LLM with a different prompt but the same context and data is weak
+independence. Stronger independence comes from data, tools, model/runtime, and
+organizational accountability.
 
 ## Human oversight patterns
 
-| Паттерн | Человек | Применение |
+| Pattern | Human role | Application |
 |---|---|---|
-| Human-in-the-loop | Одобряет до действия | Деньги, publish, production, personal data |
-| Human-on-the-loop | Наблюдает и может остановить | Reversible bounded automation |
-| Human-over-the-loop | Задаёт policy, audits и risk envelope | Высокий объём low-risk runs |
-| Human-out-of-the-loop | Не участвует в run | Только доказанный low-risk, reversible scope |
+| Human-in-the-loop | Approves before action | Money, publish, production, personal data |
+| Human-on-the-loop | Observes and can stop | Reversible bounded automation |
+| Human-over-the-loop | Sets policy, audits, and risk envelope | High-volume low-risk runs |
+| Human-out-of-the-loop | Does not participate in the run | Only proven low-risk, reversible scope |
 
-Интерфейс oversight показывает intent, proposed action, affected resources,
-evidence, uncertainty, alternatives, reversibility и deadline. Кнопка «approve»
-без этих данных создаёт automation bias.
+The oversight interface shows intent, proposed action, affected resources,
+evidence, uncertainty, alternatives, reversibility, and deadline. An "approve"
+button without this data creates automation bias.
 
 ## Role anti-patterns
 
-- **Super-agent owner** — один агент ставит цель, исполняет, проверяет и одобряет.
-- **Responsibility without authority** — роль отвечает за SLO, но не может
-  остановить route/release.
-- **Authority without evidence** — approver видит только summary.
-- **Orchestrator as universal expert** — coordinator подменяет специалистов.
-- **Invisible steward** — долгоживущий registry/memory/dataset не имеет owner.
-- **Shared accountability** — «команда отвечает», но никто не принимает решение.
-- **Permanent temporary role** — incident или migration owner остаётся навсегда.
-- **Agent anthropomorphism** — persona считается доказательством компетенции.
-- **Reviewer writes the answer** — verdict смешан с remediation и теряет
-  независимость.
+- **Super-agent owner** - one agent sets the goal, executes, verifies, and
+  approves.
+- **Responsibility without authority** - a role owns the SLO but cannot stop a
+  route/release.
+- **Authority without evidence** - the approver sees only a summary.
+- **Orchestrator as universal expert** - the coordinator replaces specialists.
+- **Invisible steward** - a long-lived registry/memory/dataset has no owner.
+- **Shared accountability** - "the team is responsible," but nobody decides.
+- **Permanent temporary role** - an incident or migration owner never sunsets.
+- **Agent anthropomorphism** - persona is treated as proof of competence.
+- **Reviewer writes the answer** - the verdict is mixed with remediation and
+  loses independence.
 
-## Минимальная role assignment matrix
+## Minimal role assignment matrix
 
-Используйте DACI/RACI только как карту ответственности, не как замену workflow.
+Use DACI/RACI only as an accountability map, not as a workflow substitute.
 
-| Актив | Driver/Responsible | Approver/Accountable | Contributors | Informed |
+| Asset | Driver/Responsible | Approver/Accountable | Contributors | Informed |
 |---|---|---|---|---|
 | Agent contract | Agent architect | Agent owner | Security, eval, domain | Operator |
 | Skill release | Skill author | Publisher/portfolio owner | Reviewer, eval, security | Consumers |
@@ -250,5 +257,5 @@ evidence, uncertainty, alternatives, reversibility и deadline. Кнопка «a
 | Production promotion | Release manager | Release/risk owner | Eval, SRE, security | Support/users |
 | Retirement | Migration steward | Portfolio owner | Registry, IAM, data, SRE | Dependents |
 
-Матрица хранится рядом с inventory и пересматривается при смене risk tier,
-owner, tool permissions, audience или deployment context.
+The matrix is stored next to the inventory and reviewed whenever the risk tier,
+owner, tool permissions, audience, or deployment context changes.

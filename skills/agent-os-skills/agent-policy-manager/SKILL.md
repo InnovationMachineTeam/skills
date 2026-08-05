@@ -2,7 +2,7 @@
 name: agent-policy-manager
 description: Designs, simulates and governs versioned Agentic OS authorization and approval policy across subjects, assets, actions, tools, data classes, environments, risks, conditions, expiry and obligations, with separate policy decision and enforcement points. Use for default-deny decisions, scoped approvals, policy conflicts, rollout, emergency revocation, audit or enforcement mapping. Do not treat LLM instructions as permission, issue credentials, bypass unavailable approvers, replay approvals, or execute the requested action itself.
 metadata:
-  version: "1.0.2"
+  version: "1.0.3"
 ---
 
 # Govern Agentic OS Policy

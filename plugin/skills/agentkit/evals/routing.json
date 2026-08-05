@@ -4,7 +4,7 @@
   "cases": [
     {
       "id": "route-explicit-e2e",
-      "input": "agentkit e2e all для проверки всех команд",
+      "input": "agentkit e2e all to verify all commands",
       "expected_trigger": true,
       "expected_route": "e2e",
       "split": "regression",
@@ -12,7 +12,7 @@
     },
     {
       "id": "route-explicit-architect",
-      "input": "$agentkit architect создай контракт агента архитектора",
+      "input": "$agentkit architect create an architect agent contract",
       "expected_trigger": true,
       "expected_route": "architect",
       "split": "regression",
@@ -20,7 +20,7 @@
     },
     {
       "id": "route-direct-specialist-negative",
-      "input": "Создай одного агента для ревью архитектуры",
+      "input": "Create a single agent for architecture review",
       "expected_trigger": false,
       "expected_route": "agent-architect",
       "split": "regression",
@@ -28,7 +28,7 @@
     },
     {
       "id": "route-team-negative",
-      "input": "Спроектируй команду агентов и их взаимодействие",
+      "input": "Design a team of agents and their interactions",
       "expected_trigger": false,
       "expected_route": "agent-team-architect",
       "split": "regression",
@@ -36,7 +36,7 @@
     },
     {
       "id": "route-skillpack-negative",
-      "input": "Запусти metaskillpack doctor для skill-optimizer",
+      "input": "Run metaskillpack doctor for skill-optimizer",
       "expected_trigger": false,
       "expected_route": "metaskillpack",
       "split": "regression",

@@ -2,7 +2,7 @@
 name: skill-evaluator
 description: Designs, writes, audits, runs, and compares trustworthy evaluations for SKILL.md-based agent skills, including routing and trigger datasets, behavioral and output-quality cases, script and tool tests, security and authority probes, catalog coexistence, portability, lifecycle, cost, latency, and regression evidence. Use when a user asks to evaluate or benchmark a skill, create evals or trigger fixtures, test whether a description routes correctly, validate bundled scripts, review evaluation coverage or leakage, compare a candidate with a baseline, or provide an independent release verdict. Keep evaluation separate from diagnosis, repair, optimization, architecture, and activation; route those to skill-doctor, skill-optimizer, skill-architect, skill-refactor, or skill-manager.
 metadata:
-  version: "1.1.2"
+  version: "1.1.3"
 ---
 
 # Evaluate Agent Skills

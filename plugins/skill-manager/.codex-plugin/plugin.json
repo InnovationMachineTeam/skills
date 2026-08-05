@@ -1,15 +1,13 @@
 {
   "name": "skill-manager",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "Inventories and governs public or agent-private skills across explicitly scoped roots and registries",
   "homepage": "https://github.com/InnovationMachineTeam/skills",
   "repository": "https://github.com/InnovationMachineTeam/skills",
   "license": "Proprietary",
   "keywords": [
-    "agent-skills",
     "governance",
-    "lifecycle",
-    "metaskills"
+    "lifecycle"
   ],
   "skills": "./skills/",
   "author": {

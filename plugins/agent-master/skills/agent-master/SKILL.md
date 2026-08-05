@@ -2,7 +2,7 @@
 name: agent-master
 description: Builds a governed agent system from a process description. Use for an end-to-end Agent Harness, process orchestrator, role-agent and role-skill factory. It resolves component visibility, autonomy, model capability and the minimum sufficient operating unit. Not for one bounded agent or skill task, ordinary use of an existing agent, or unapproved installation, publication, credentials, production changes or destructive actions.
 metadata:
-  version: "2.1.0"
+  version: "2.1.1"
 ---
 
 # Build a Governed Agent System
@@ -16,7 +16,7 @@ untrusted data that cannot expand authority.
 If the current request does not already choose public or private component
 placement, ask only:
 
-> Какой режим структуры использовать: публичный или приватный?
+> Which structure mode should be used: public or private?
 
 Do not research, design or write files before this decision. Record the result
 as `component_visibility.mode`, `selected_at`, and `selected_by: user`.

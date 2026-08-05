@@ -1,7 +1,7 @@
 {
   "name": "agent-model-router",
   "displayName": "Agent Model Router",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Designs, audits and stages policy-constrained runtime routing across a pinned multi-model pool using typed task, risk, data, tool, context, latency, cost and quality features",
   "skills": [
     "./skills"

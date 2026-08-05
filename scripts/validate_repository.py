@@ -235,6 +235,8 @@ def main() -> int:
         relative = path.relative_to(root)
         if relative.parts and relative.parts[0] in {".git", "build"}:
             continue
+        if relative == Path(".claude/settings.local.json"):
+            continue
         if path.is_symlink():
             failures.append(f"symlink is not allowed: {relative}")
         if path.name == ".DS_Store" or path.name == "__pycache__" or path.suffix == ".pyc":

@@ -73,7 +73,7 @@ def case_request(case: dict[str, Any]) -> str:
         return " ".join(map(str, command))
     if command:
         return str(command)
-    return "Сценарий описан идентификатором и ожидаемым маршрутом в eval-корпусе."
+    return "The scenario is described by its identifier and expected route in the eval corpus."
 
 
 def positive_routes(data: dict[str, Any]) -> list[dict[str, Any]]:
@@ -94,7 +94,7 @@ def route_label(case: dict[str, Any]) -> str:
         value = case.get(key)
         if value:
             return str(value)
-    return "основной маршрут навыка"
+    return "the skill's primary route"
 
 
 def behavior_cases(data: dict[str, Any]) -> list[dict[str, Any]]:
@@ -118,14 +118,14 @@ def headings(body: str) -> list[str]:
 
 def resource_rows(skill_dir: Path) -> list[tuple[str, str]]:
     descriptions = {
-        "agents": "UI-метаданные и host-конфигурация",
-        "assets": "шаблоны и переиспользуемые артефакты",
-        "evals": "routing- и behavior-сценарии",
-        "prompts": "маршрутные и специализированные промпты",
-        "references": "справочники, схемы и контракты",
-        "scripts": "детерминированные проверки и автоматизация",
-        "private-skills": "внутренние навыки, доступные только владельцу",
-        "vendor": "зафиксированный снимок зависимых компонентов",
+        "agents": "UI metadata and host configuration",
+        "assets": "templates and reusable artifacts",
+        "evals": "routing and behavior scenarios",
+        "prompts": "routing and specialist prompts",
+        "references": "reference guides, schemas, and contracts",
+        "scripts": "deterministic checks and automation",
+        "private-skills": "internal skills available only to the owner",
+        "vendor": "pinned snapshot of dependent components",
     }
     result = []
     for child in sorted(skill_dir.iterdir(), key=lambda path: path.name):
@@ -137,7 +137,7 @@ def resource_rows(skill_dir: Path) -> list[tuple[str, str]]:
 def dependency_lines(name: str, graph: dict[str, Any]) -> list[str]:
     declaration = graph.get(name, {})
     lines = []
-    for kind, label in (("required", "Обязательный"), ("recommended", "Рекомендуемый")):
+    for kind, label in (("required", "Required"), ("recommended", "Recommended")):
         for item in declaration.get(kind, []):
             reason = item.get("reason", "")
             lines.append(
@@ -157,8 +157,8 @@ def private_owner(skill_dir: Path, root: Path) -> str | None:
 def visibility(skill_dir: Path, root: Path) -> str:
     owner = private_owner(skill_dir, root)
     if owner:
-        return f"package-private: вызывается только родительским `{owner}` и не публикуется отдельно"
-    return "public: канонический навык каталога; фактическая активация зависит от целевого host"
+        return f"package-private: invoked only by its parent `{owner}` and not published separately"
+    return "public: canonical catalog skill; actual activation depends on the target host"
 
 
 def slash_invocation(command: str, request: str) -> str:
@@ -191,63 +191,63 @@ def generated_block(
     lines = [
         START,
         "",
-        "## Паспорт навыка",
+        "## Skill Profile",
         "",
-        f"- **Назначение:** {short_purpose(description)}",
-        f"- **Версия:** `{version}`.",
-        f"- **Видимость:** {visibility(skill_dir, root)}.",
+        f"- **Purpose:** {short_purpose(description)}",
+        f"- **Version:** `{version}`.",
+        f"- **Visibility:** {visibility(skill_dir, root)}.",
     ]
     if tags:
-        lines.append(f"- **Теги каталога:** {', '.join(f'`{tag}`' for tag in tags)}.")
+        lines.append(f"- **Catalog tags:** {', '.join(f'`{tag}`' for tag in tags)}.")
 
-    lines.extend(["", "## Когда использовать", ""])
+    lines.extend(["", "## When To Use", ""])
     if use:
         lines.append(use)
     else:
-        lines.append("Используйте навык, когда запрос соответствует его назначению и границам ответственности из `SKILL.md`.")
+        lines.append("Use the skill when the request matches its purpose and responsibility boundaries in `SKILL.md`.")
     lines.append("")
-    lines.append("Перед запуском передайте конкретную цель, исходные артефакты, допустимые изменения, ограничения и критерии приёмки. Если существенных данных не хватает, ожидаемый первый результат — уточнение или безопасный план, а не неподтверждённая мутация.")
+    lines.append("Before running, provide the concrete goal, source artifacts, allowed changes, constraints, and acceptance criteria. If essential information is missing, the expected first result is clarification or a safe plan, not an unverified mutation.")
 
     example_case = routes[0] if routes else {}
     example_request = case_request(example_case)
     expected_route = route_label(example_case)
     owner = private_owner(skill_dir, root)
     command_name = owner or name
-    lines.extend(["", "## Полный пример команды", ""])
+    lines.extend(["", "## Full Command Example", ""])
     if owner:
-        lines.append(f"Этот package-private навык не вызывается напрямую. Иллюстративный запрос передаётся через родительский `/{owner}`:")
+        lines.append(f"This package-private skill is not invoked directly. The illustrative request is passed through its parent `/{owner}`:")
     else:
-        lines.append("Иллюстративный полный вызов; адаптируйте пути, ограничения и критерии приёмки к своей задаче:")
+        lines.append("Illustrative full invocation; adapt the paths, constraints, and acceptance criteria to your task:")
     lines.extend([
         "",
         "```text",
         slash_invocation(command_name, example_request),
         "```",
         "",
-        f"**Ожидаемый результат:** выбирается маршрут `{expected_route}`; итог перечисляет созданные или изменённые артефакты, фактически выполненные проверки, ограничения, остаточные риски и следующий шаг. Наличие файлов само по себе не считается доказательством установки, активации или публикации.",
+        f"**Expected result:** route `{expected_route}` is selected; the result lists the created or modified artifacts, the checks actually performed, the constraints, residual risks, and the next step. The presence of files alone is not considered proof of installation, activation, or publication.",
     ])
     if owner:
-        lines.append(f"Прямой `/{name}` не является поддерживаемой публичной командой; родитель `{owner}` обязан передать ограниченный dispatch-контракт и проверить результат.")
+        lines.append(f"Direct `/{name}` is not a supported public command; parent `{owner}` must pass a bounded dispatch contract and verify the result.")
 
-    lines.extend(["", "## Варианты использования", ""])
+    lines.extend(["", "## Usage Variants", ""])
     if routes:
         for case in routes:
             lines.append(f"### {case.get('id', route_label(case))}")
             lines.append("")
-            lines.append(f"- **Пример запроса:** “{case_request(case)}”")
-            lines.append(f"- **Ожидаемый маршрут:** `{route_label(case)}`.")
+            lines.append(f"- **Example request:** “{case_request(case)}”")
+            lines.append(f"- **Expected route:** `{route_label(case)}`.")
             action = case.get("expected_action")
             if action and action != route_label(case):
-                lines.append(f"- **Ожидаемое действие:** `{action}`.")
+                lines.append(f"- **Expected action:** `{action}`.")
             lines.append("")
     else:
         lines.extend([
-            "- Явный вызов навыка для выполнения основного контракта из `SKILL.md`.",
-            "- Аудит или планирование без изменения файлов, если полномочия на запись не заданы.",
-            "- Применение разрешённых изменений с последующей проверкой результата и описанием отката.",
+            "- Explicitly invoke the skill to execute the primary contract from `SKILL.md`.",
+            "- Audit or planning without changing files when write authority is not granted.",
+            "- Apply allowed changes followed by result verification and rollback description.",
         ])
 
-    lines.extend(["", "## Ожидаемые результаты", ""])
+    lines.extend(["", "## Expected Results", ""])
     if behaviors:
         for case in behaviors:
             expected = case.get("expected_properties", [])
@@ -256,11 +256,11 @@ def generated_block(
             if not expected:
                 expected = [case.get("expected_output") or case.get("expected_result")]
             expected = [str(item) for item in expected if item]
-            lines.append(f"### {case.get('id', 'сценарий')}")
+            lines.append(f"### {case.get('id', 'scenario')}")
             lines.append("")
             request = case_request(case)
             if request:
-                lines.append(f"Для запроса “{request}” результат должен:")
+                lines.append(f"For request “{request}”, the result must:")
                 lines.append("")
             lines.extend(f"- {item};" for item in expected)
             if expected:
@@ -268,72 +268,72 @@ def generated_block(
             lines.append("")
     else:
         lines.extend([
-            "- результат соответствует заявленному контракту и явно отделяет факты от предположений;",
-            "- изменённые артефакты перечислены, а выполненные проверки названы без выдуманных PASS-результатов;",
-            "- ограничения, остаточные риски, состояние отката и следующий шаг указаны явно.",
+            "- the result matches the stated contract and clearly separates facts from assumptions;",
+            "- modified artifacts are listed, and completed checks are named without invented PASS results;",
+            "- constraints, residual risks, rollback status, and the next step are stated explicitly.",
         ])
 
-    lines.extend(["", "## Как проходит выполнение", ""])
+    lines.extend(["", "## Execution Flow", ""])
     if workflow:
         for index, title in enumerate(workflow, 1):
-            lines.append(f"{index}. **{title}.** Выполняется соответствующий этап контракта из `SKILL.md`.")
+            lines.append(f"{index}. **{title}.** Execute the corresponding contract step from `SKILL.md`.")
     else:
         lines.extend([
-            "1. Проверяется применимость навыка и полнота входных данных.",
-            "2. Выбирается самый узкий безопасный маршрут.",
-            "3. Создаются или проверяются требуемые артефакты.",
-            "4. Результат сверяется с контрактом и передаётся вместе с рисками и следующим шагом.",
+            "1. Check that the skill applies and that the inputs are complete.",
+            "2. Choose the narrowest safe route.",
+            "3. Create or verify the required artifacts.",
+            "4. Compare the result against the contract and deliver it with risks and the next step.",
         ])
 
-    lines.extend(["", "## Границы и неподходящие запросы", ""])
+    lines.extend(["", "## Boundaries And Unsuitable Requests", ""])
     if avoid:
         lines.append(avoid)
         lines.append("")
     if negatives:
-        lines.append("Следующие примеры должны маршрутизироваться в другой навык или не запускать этот навык:")
+        lines.append("The following examples should route to another skill or should not trigger this skill:")
         lines.append("")
         for case in negatives:
             destination = case.get("expected_specialist") or route_label(case)
             lines.append(f"- “{case_request(case)}” → `{destination}`.")
     else:
-        lines.append("Навык не должен расширять полученные полномочия, скрывать пропущенные проверки, выполнять необратимые или внешние действия без явного разрешения либо заявлять состояние host только по наличию файлов.")
+        lines.append("The skill must not expand the authority it received, hide skipped checks, perform irreversible or external actions without explicit permission, or claim host state solely from the presence of files.")
 
     forbidden = []
     for case in behavior.get("cases", []):
         forbidden.extend(case.get("forbidden_properties", []))
     if forbidden:
-        lines.extend(["", "Критические анти-результаты:", ""])
+        lines.extend(["", "Critical anti-results:", ""])
         for item in list(dict.fromkeys(map(str, forbidden)))[:10]:
             lines.append(f"- {item};")
         lines[-1] = lines[-1].rstrip(";") + "."
 
-    lines.extend(["", "## Зависимости", ""])
+    lines.extend(["", "## Dependencies", ""])
     if deps:
         lines.extend(deps)
         lines.append("")
-        lines.append("Отсутствующая обязательная зависимость блокирует только принадлежащий ей маршрут. Рекомендуемые зависимости повышают качество доказательств, но не должны имитироваться самим навыком.")
+        lines.append("A missing required dependency blocks only the route that depends on it. Recommended dependencies improve evidence quality but must not be imitated by the skill itself.")
     elif owner:
-        lines.append(f"Внешних зависимостей каталога нет. Родительский `{owner}` передаёт этому private-навыку только ограниченный dispatch-конверт и проверяет его результат.")
+        lines.append(f"There are no external catalog dependencies. Parent `{owner}` passes only a bounded dispatch envelope to this private skill and verifies its result.")
     else:
-        lines.append("Обязательные companion-навыки в каноническом dependency-графе не объявлены. Проверяйте доступность host-инструментов и ресурсов, на которые ссылается `SKILL.md`.")
+        lines.append("No required companion skills are declared in the canonical dependency graph. Check the availability of host tools and resources referenced by `SKILL.md`.")
 
-    lines.extend(["", "## Ресурсы пакета", ""])
-    lines.append("- [`SKILL.md`](SKILL.md) — исполняемый контракт, маршрутизация и правила безопасности.")
+    lines.extend(["", "## Package Resources", ""])
+    lines.append("- [`SKILL.md`](SKILL.md) — executable contract, routing, and safety rules.")
     for folder, meaning in resources:
         lines.append(f"- [`{folder}/`]({folder}/) — {meaning}.")
 
-    lines.extend(["", "## Проверка результата", ""])
+    lines.extend(["", "## Result Verification", ""])
     if (skill_dir / "evals" / "routing.json").is_file():
-        lines.append("- Сверьте маршрутизацию с [`evals/routing.json`](evals/routing.json).")
+        lines.append("- Compare routing against [`evals/routing.json`](evals/routing.json).")
     if (skill_dir / "evals" / "behavior.json").is_file():
-        lines.append("- Сверьте свойства результата с [`evals/behavior.json`](evals/behavior.json).")
+        lines.append("- Compare result properties against [`evals/behavior.json`](evals/behavior.json).")
     scripts = sorted((skill_dir / "scripts").glob("*.py")) if (skill_dir / "scripts").is_dir() else []
     for script in scripts[:5]:
-        lines.append(f"- Для детерминированной проверки используйте [`scripts/{script.name}`](scripts/{script.name}) согласно его `--help` и контракту навыка.")
-    lines.append("- Для release-bound изменения дополнительно выполните репозиторную валидацию, полный unit-suite и проверку сгенерированных пакетов.")
+        lines.append(f"- For deterministic verification, use [`scripts/{script.name}`](scripts/{script.name}) according to its `--help` output and the skill contract.")
+    lines.append("- For a release-bound change, also run repository validation, the full unit suite, and generated package verification.")
 
-    lines.extend(["", "## Формат завершения", ""])
-    lines.append("Финальный ответ должен перечислить выбранный маршрут, фактические входы и допущения, созданные или изменённые артефакты, выполненные проверки, ожидаемый результат по сценарию, запрещённые или пропущенные действия, остаточные риски, состояние отката и точный следующий шаг. Наличие файлов само по себе не доказывает установку, активацию, публикацию или готовность к production.")
+    lines.extend(["", "## Completion Format", ""])
+    lines.append("The final answer must list the selected route, actual inputs and assumptions, created or modified artifacts, checks performed, the expected scenario outcome, forbidden or skipped actions, residual risks, rollback status, and the exact next step. The presence of files alone does not prove installation, activation, publication, or production readiness.")
     lines.extend(["", END, ""])
     return "\n".join(lines)
 

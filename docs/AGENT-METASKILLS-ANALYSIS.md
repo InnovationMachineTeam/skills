@@ -1,99 +1,101 @@
-# Перенос metaskill-паттернов на работу с агентами
+# Transferring Metaskill Patterns to Agent Work
 
-Дата анализа: **2026-07-30**.
+Analysis date: **2026-07-30**.
 
-## Краткий вывод
+## Executive Summary
 
-Подход из `skills/metaskills/` применим к агентам на двух уровнях:
+The approach from `skills/metaskills/` applies to agents at two levels:
 
-1. **Как архитектура навыков для работы с агентами** — `agent-architect`,
-   `agent-evaluator`, `agent-doctor`, `agent-manager` и другие skills используют
-   тонкий router, route-specific prompts, references, scripts и evals.
-2. **Как operating model самих агентов** — bounded handoffs, immutable
-   candidates, independent evaluation, lifecycle states, donor locks,
-   checkpoints и authority gates переносятся в Agent OS.
+1. **As a skill architecture for working with agents**: `agent-architect`,
+   `agent-evaluator`, `agent-doctor`, `agent-manager`, and other skills use a
+   thin router, route-specific prompts, references, scripts, and evals.
+2. **As the operating model of the agents themselves**: bounded handoffs,
+   immutable candidates, independent evaluation, lifecycle states, donor locks,
+   checkpoints, and authority gates carry over into Agent OS.
 
-Буквально копировать portfolio нельзя. Skill — загружаемый capability package;
-agent — runtime actor с identity, tools, state, memory, budgets, delegation и
-side effects. Поэтому agent-oriented skills должны проверять не только
-структуру/trigger, но также execution traces, permissions, recovery, SLO,
-human oversight и decommissioning.
+The portfolio cannot be copied literally. A skill is a loadable capability
+package; an agent is a runtime actor with identity, tools, state, memory,
+budgets, delegation, and side effects. Therefore, agent-oriented skills must
+validate not only structure and triggers, but also execution traces,
+permissions, recovery, SLOs, human oversight, and decommissioning.
 
-Рекомендуемый результат — отдельный portfolio навыков для управления агентами,
-создаваемый по мастер-промптам из [prompts/README.md](prompts/README.md). Не
-следует добавлять `agent` как девятый первичный архетип `skill-architect`: это
-домен применения навыка, а не его механизм. Вместо этого нужен agent-system
-profile, накладываемый на существующие archetypes workflow, evaluation,
-orchestration, tool integration и meta/router.
+The recommended outcome is a separate portfolio of skills for managing agents,
+created from the master prompts in [prompts/README.md](prompts/README.md). `agent`
+should not be added as a ninth primary archetype to `skill-architect`: it is a
+skill application domain, not a mechanism. Instead, an agent-system profile is
+needed, layered onto the existing workflow, evaluation, orchestration, tool
+integration, and meta/router archetypes.
 
-## Что представляет собой текущая система metaskills
+## What the Current Metaskill System Is
 
-В portfolio 12 metaskills и один связанный prompt skill:
+The portfolio contains 12 metaskills and one related prompt skill:
 
 - lifecycle specialists: `skill-scout`, `skill-harvester`, `skill-architect`,
   `skill-evaluator`, `skill-doctor`, `skill-optimizer`, `skill-refactor`,
   `skill-manager`;
 - orchestrators/control: `skill-builder`, `metaskillpack`;
 - supporting systems: `skill-best-practices`, `skill-marketplace-manager`;
-- prompt engineering: `prompt-optimize` из категории `prompt-skills`.
+- prompt engineering: `prompt-optimize` from the `prompt-skills` category.
 
-### Повторяющаяся структура
+### Recurring Structure
 
 ```text
 skill-name/
-├── SKILL.md                 # тонкий контракт, routing и invariants
+├── SKILL.md                 # thin contract, routing, and invariants
 ├── agents/openai.yaml       # host-facing metadata
 ├── prompts/                 # base + route-specific master prompts
-├── references/              # подробные правила и schemas
+├── references/              # detailed rules and schemas
 ├── scripts/                 # deterministic inventory/validation/comparison
 ├── evals/                   # routing, behavior, scripts, security
-└── README.md                # только где полезна документация пакета
+└── README.md                # only where package documentation is useful
 ```
 
-Не каждый навык содержит все папки. Ресурс добавляется, только если снижает
-повторное рассуждение, даёт детерминированность или нужен как artifact.
+Not every skill includes every directory. A resource is added only if it
+reduces repeated reasoning, provides determinism, or is needed as an artifact.
 
-### Системные паттерны
+### System Patterns
 
-| Паттерн metaskills | Реализация | Почему полезен |
+| Metaskill pattern | Implementation | Why it is useful |
 |---|---|---|
-| Thin router | `SKILL.md` выбирает один route | Не загружает весь portfolio в контекст |
-| Base + specialization | Общий prompt и один route prompt | Общие invariants без копирования |
-| Classification before creation | Архетип/сценарий выбирается по outcome | Структура следует hardest constraint |
-| Specialist boundaries | Evaluator не чинит, doctor не оптимизирует | Сохраняет независимость evidence |
-| Bounded handoff | Target, objective, scope, authority, output | Не даёт downstream расширять задачу |
-| Immutable candidate | Изменение получает новую revision | Baseline и regression воспроизводимы |
-| Layered evidence | Structure, routing, behavior, safety, E2E | Static PASS не выдаётся за качество |
-| Preview before mutation | Inventory/diff/plan до write/install | Ограничивает blast radius |
-| Durable state | Phase ledger и resumable checkpoints | Поддерживает долгие workflows |
-| Lifecycle states | Draft → active → deprecated → retired | Есть migration и retirement |
-| Donor lock | Version + tree hash + snapshot | Composite можно воспроизвести и обновить |
-| Explicit composite | `metaskillpack` включается явно | Не конкурирует со specialist triggers |
+| Thin router | `SKILL.md` selects one route | Keeps the full portfolio out of context |
+| Base + specialization | Shared prompt and one route prompt | Shared invariants without duplication |
+| Classification before creation | Archetype/scenario selected by outcome | Structure follows the hardest constraint |
+| Specialist boundaries | Evaluator does not fix, doctor does not optimize | Preserves independence of evidence |
+| Bounded handoff | Target, objective, scope, authority, output | Prevents downstream task expansion |
+| Immutable candidate | A change gets a new revision | Baseline and regression remain reproducible |
+| Layered evidence | Structure, routing, behavior, safety, E2E | Static PASS is not mistaken for quality |
+| Preview before mutation | Inventory/diff/plan before write/install | Limits blast radius |
+| Durable state | Phase ledger and resumable checkpoints | Supports long-running workflows |
+| Lifecycle states | Draft → active → deprecated → retired | Provides migration and retirement |
+| Donor lock | Version + tree hash + snapshot | Composite can be reproduced and updated |
+| Explicit composite | `metaskillpack` is included explicitly | Does not compete with specialist triggers |
 
-Эти паттерны согласуются с каталогами
-[агентной оркестрации](../skills/agent-skills/agent-best-practices/best-practices/17-agent-and-orchestration-pattern-catalog.md),
-[Agent OS](../skills/agent-skills/agent-best-practices/best-practices/18-agent-os-and-runtime-pattern-catalog.md)
-и [skill design](../skills/agent-skills/agent-best-practices/best-practices/19-skill-design-pattern-catalog.md).
+These patterns align with the catalogs for
+[agent orchestration](../skills/agent-skills/agent-best-practices/best-practices/17-agent-and-orchestration-pattern-catalog.md),
+[Agent OS](../skills/agent-skills/agent-best-practices/best-practices/18-agent-os-and-runtime-pattern-catalog.md),
+and [skill design](../skills/agent-skills/agent-best-practices/best-practices/19-skill-design-pattern-catalog.md).
 
-## Что переносится на agents напрямую
+## What Transfers Directly to Agents
 
-### Worth и duplication gate
+### Worth and duplication gate
 
-До создания агента нужно решить, нужен ли автономный actor. Возможные решения:
+Before creating an agent, the system must determine whether an autonomous actor
+is warranted. Possible decisions:
 
-- `USE_CODE_OR_WORKFLOW` — задача детерминирована;
-- `USE_EXISTING_AGENT` — capability уже покрыта;
-- `EXTEND_EXISTING_AGENT` — граница существующего агента остаётся coherent;
-- `CREATE_NEW_AGENT` — нужны отдельные mission, tools, context или permissions;
-- `KEEP_HUMAN` — решение требует непропорционального human judgment;
-- `RESEARCH` — evidence недостаточно.
+- `USE_CODE_OR_WORKFLOW` — the task is deterministic;
+- `USE_EXISTING_AGENT` — the capability is already covered;
+- `EXTEND_EXISTING_AGENT` — the boundary of an existing agent remains coherent;
+- `CREATE_NEW_AGENT` — separate mission, tools, context, or permissions are required;
+- `KEEP_HUMAN` — the decision requires disproportionate human judgment;
+- `RESEARCH` — the evidence is insufficient.
 
-Это agent-аналог `skill-scout`, но лестница сложности должна начинаться с code,
-одного model call и workflow, а не сразу с нового агента.
+This is the agent analogue of `skill-scout`, but the ladder of complexity
+should start with code, a single model call, and a workflow rather than
+immediately with a new agent.
 
 ### Architect → evaluator → doctor/optimizer → manager
 
-Последовательность переносится почти полностью:
+The sequence transfers almost completely:
 
 ```text
 need/context
@@ -105,209 +107,216 @@ need/context
   → manager publishes/activates/canaries/retires
 ```
 
-После каждого изменения создаётся новая candidate revision; release authority
-не принадлежит author, evaluator или runtime agent.
+After each change, a new candidate revision is created; release authority does
+not belong to the author, evaluator, or runtime agent.
 
 ### Builder as lifecycle orchestrator
 
-`skill-builder` — наиболее полезный образец для `agent-builder`:
+`skill-builder` is the most useful model for `agent-builder`:
 
-- выбирает один primary scenario по observable outcome;
-- предлагает минимальную specialist chain;
-- сохраняет phase ledger и bounded handoffs;
-- не имитирует работу specialists;
-- останавливается на mutation/approval gates;
-- проверяет evidence и фактический target-host state.
+- it selects one primary scenario by observable outcome;
+- it proposes the minimal specialist chain;
+- it maintains a phase ledger and bounded handoffs;
+- it does not imitate the work of specialists;
+- it stops at mutation and approval gates;
+- it validates evidence and the actual target-host state.
 
-Для agents необходимо добавить shadow/canary, SLO, credentials, kill switch,
-incident readiness и observation window.
+For agents, shadow/canary, SLOs, credentials, a kill switch, incident
+readiness, and an observation window must be added.
 
 ### Composite toolkit
 
-`metaskillpack` показывает безопасный способ собрать specialists под одной
-явной командой: root router остаётся тонким, donors read-only, версии и hashes
-зафиксированы, upgrade строит staged candidate. Для agent portfolio подход можно
-реализовать позже как `agentkit`, но только после появления стабильных
-independent donor skills. Ранний monolithic `agentpack` закрепит плохие границы.
+`metaskillpack` demonstrates a safe way to assemble specialists under one
+explicit command: the root router stays thin, donors are read-only, versions
+and hashes are fixed, and upgrades build a staged candidate. For an agent
+portfolio, the approach can later be implemented as `agentkit`, but only after
+stable independent donor skills exist. An early monolithic `agentpack` would
+lock in poor boundaries.
 
-## Что требует адаптации
+## What Requires Adaptation
 
-| Skill-specific предположение | Agent-specific замена |
+| Skill-specific assumption | Agent-specific replacement |
 |---|---|
-| Trigger/description определяет discovery | Route + identity + capability registry + policy |
-| Bundle files — основное состояние | Definition immutable; runtime state отдельно |
-| Host validation | Simulation, trace, sandbox и production-like verification |
+| Trigger/description determines discovery | Route + identity + capability registry + policy |
+| Bundle files are the primary state | Definition is immutable; runtime state is separate |
+| Host validation | Simulation, trace, sandbox, and production-like verification |
 | Install/enable | Register → approve → shadow → canary → activate |
-| Script permissions | Agent/tool/IAM permission envelope и credential lifetime |
+| Script permissions | Agent/tool/IAM permission envelope and credential lifetime |
 | Routing eval | Routing + delegation + handoff + fallback evals |
-| Behavior case | Multi-step outcome, variance, budget и recovery case |
-| Skill conflict | Capability overlap, write-set, shared state и authority conflict |
+| Behavior case | Multi-step outcome, variance, budget, and recovery case |
+| Skill conflict | Capability overlap, write-set, shared state, and authority conflict |
 | Version update | Definition/model/tool/policy/memory compatibility migration |
 | Retirement files | Revoke routes/credentials, drain runs, migrate memory, archive evidence |
 
-### Новые обязательные agent artifacts
+### New mandatory agent artifacts
 
-Agent-oriented skill должен уметь работать хотя бы со следующими контрактами:
+An agent-oriented skill must be able to work with at least the following
+contracts:
 
 - agent card: identity, owner, mission, users, non-goals, risk tier;
 - input/output and handoff schemas;
 - tools, permissions, data classes, network and secret policy;
-- state/memory model, provenance, retention и deletion;
-- runtime loop, budgets, stop, escalation и human oversight;
+- state/memory model, provenance, retention, and deletion;
+- runtime loop, budgets, stop, escalation, and human oversight;
 - deployment topology, model/runtime compatibility;
-- eval plan, traces, baselines и release thresholds;
-- SLO, telemetry, runbook, incident/rollback/kill-switch;
-- lifecycle state, dependencies, replacement и retirement plan.
+- eval plan, traces, baselines, and release thresholds;
+- SLOs, telemetry, runbook, incident/rollback/kill switch;
+- lifecycle state, dependencies, replacement, and retirement plan.
 
-## Рекомендуемый portfolio навыков для agents
+## Recommended Skill Portfolio for Agents
 
-### Первая очередь
+### First wave
 
-| Навык | Primary archetype | Ответственность |
+| Skill | Primary archetype | Responsibility |
 |---|---|---|
-| `agent-architect` | Workflow + evaluation profile | Контракт, паттерн, boundary, risk и candidate definition |
-| `agent-evaluator` | Evaluation/review | Offline, simulation, delegation, safety, resilience и release evidence |
+| `agent-architect` | Workflow + evaluation profile | Contract, pattern, boundary, risk, and candidate definition |
+| `agent-evaluator` | Evaluation/review | Offline, simulation, delegation, safety, resilience, and release evidence |
 | `agent-doctor` | Diagnostic workflow | Symptom → trace → root cause → minimal repair → recovery proof |
-| `agent-manager` | Tool/workflow integration | Inventory, registry, versions, rollout, state и retirement |
-| `agent-builder` | Orchestration/composition | End-to-end scenarios и bounded specialist handoffs |
+| `agent-manager` | Tool/workflow integration | Inventory, registry, versions, rollout, state, and retirement |
+| `agent-builder` | Orchestration/composition | End-to-end scenarios and bounded specialist handoffs |
 
-### Вторая очередь
+### Second wave
 
-| Навык | Когда оправдан |
+| Skill | When it is justified |
 |---|---|
-| `agent-scout` | Появился portfolio и нужен системный worth/duplication gate |
-| `agent-context` | Agent design регулярно требует repository/domain/trace research |
-| `agent-optimizer` | Есть здоровые agents, baselines и измеримые cost/latency/quality targets |
-| `agent-refactor` | Появились merge/split/extract/topology migrations |
-| `agent-best-practices` | Нужен обновляемый evidence corpus отдельно от статичных docs |
+| `agent-scout` | A portfolio exists and a systematic worth/duplication gate is needed |
+| `agent-context` | Agent design regularly requires repository/domain/trace research |
+| `agent-optimizer` | Healthy agents, baselines, and measurable cost/latency/quality targets exist |
+| `agent-refactor` | Merge/split/extract/topology migrations have emerged |
+| `agent-best-practices` | An updatable evidence corpus is needed separately from static docs |
 
-### Третья очередь
+### Third wave
 
-- `agentkit` — explicit composite из version-locked donors;
-- `agent-registry-manager` — только если registry/platform отделился от общего
-  `agent-manager`;
-- `agent-os-manager` — только при реальном multi-tenant runtime и SRE ownership;
-- platform adapters для Codex, Claude Code, Cursor, MCP/A2A — после появления
-  канонического platform-neutral contract.
+- `agentkit` — an explicit composite of version-locked donors;
+- `agent-registry-manager` — only if the registry/platform separates from the
+  general `agent-manager`;
+- `agent-os-manager` — only with a real multi-tenant runtime and SRE ownership;
+- platform adapters for Codex, Claude Code, Cursor, MCP/A2A — after a
+  canonical platform-neutral contract exists.
 
-### Что не стоит делать отдельным навыком сразу
+### What should not become a separate skill immediately
 
-- `subagent-creator`: subagent — deployment/coordination role, а не отдельный
-  lifecycle product;
-- `agent-team-creator`: отдельный creator не нужен; team topology принадлежит
-  существующему `agent-team-architect`, а lifecycle — `agent-team-manager`;
-- отдельный навык на каждый pattern: patterns — decision options, не products;
-- один `agent-supervisor`, который проектирует, запускает, оценивает и одобряет.
+- `subagent-creator`: a subagent is a deployment/coordination role, not a
+  separate lifecycle product;
+- `agent-team-creator`: a separate creator is unnecessary; team topology
+  belongs to the existing `agent-team-architect`, while lifecycle belongs to
+  `agent-team-manager`;
+- a separate skill for every pattern: patterns are decision options, not products;
+- one `agent-supervisor` that designs, runs, evaluates, and approves.
 
-## Архитектура мастер-промптов
+## Master Prompt Architecture
 
-Все prompts используют композицию:
+All prompts use the following composition:
 
 ```text
 agent-skill-base.md + exactly one specialist master prompt
 ```
 
-Base задаёт skill-creation contract, authority, agent asset model, resources,
-evals и completion gates. Specialist prompt задаёт domain-specific routes,
-artifacts, failure model и anti-patterns. Нельзя склеивать все prompts: это
-создаст mega-skill и разрушит trigger precision.
+The base defines the skill-creation contract, authority, agent asset model,
+resources, evals, and completion gates. The specialist prompt defines
+domain-specific routes, artifacts, failure model, and anti-patterns. All
+prompts must not be merged together: that would create a mega-skill and destroy
+trigger precision.
 
-Карта prompts находится в [prompts/README.md](prompts/README.md).
+The prompt map is in [prompts/README.md](prompts/README.md).
 
-## Предлагаемые изменения существующих metaskills
+## Proposed Changes to Existing Metaskills
 
 ### `skill-architect`
 
-Не добавлять `agent` как новый primary archetype. Добавить optional reference
-`agent-system-profile.md`, который применяется, когда продуктом создаваемого
-skill является проектирование или управление agents. Profile должен добавить
-agent card, state/memory, tools/permissions, runtime cycle, observability,
-deployment и retirement checks.
+Do not add `agent` as a new primary archetype. Add an optional reference
+`agent-system-profile.md`, applied when the product of the created skill is
+agent design or agent management. The profile should add agent card,
+state/memory, tools/permissions, runtime cycle, observability, deployment, and
+retirement checks.
 
 ### `skill-evaluator`
 
-Добавить agent-control evaluation profile:
+Add an agent-control evaluation profile:
 
-- delegation/task-envelope и context isolation;
-- partial failure, retry, timeout, cancellation и stale result;
-- tool authority, prompt injection и credential boundaries;
-- memory poisoning, provenance и retention;
-- budget/latency/cost, loop depth и fallback;
-- shadow/canary, SLO и recovery;
-- team-level correlated error и independent-verifier tests.
+- delegation/task-envelope and context isolation;
+- partial failure, retry, timeout, cancellation, and stale result;
+- tool authority, prompt injection, and credential boundaries;
+- memory poisoning, provenance, and retention;
+- budget/latency/cost, loop depth, and fallback;
+- shadow/canary, SLOs, and recovery;
+- team-level correlated error and independent-verifier tests.
 
-Это профиль оценки skill, работающего с agents; сам `skill-evaluator` не должен
-становиться evaluator runtime agents.
+This is an evaluation profile for a skill that works with agents; `skill-evaluator`
+itself must not become an evaluator of runtime agents.
 
 ### `skill-builder`
 
-Добавить scenario `create-agent-lifecycle-skill`: base prompt + выбранный
-agent-specialist prompt → `skill-architect` → `skill-evaluator`. Scenario создаёт
-skill для работы с agents, а не разворачивает сам agent без отдельного запроса.
+Add the `create-agent-lifecycle-skill` scenario:
+base prompt + selected agent-specialist prompt → `skill-architect` →
+`skill-evaluator`. The scenario creates a skill for working with agents; it
+does not deploy the agent itself without a separate request.
 
 ### `skill-scout`
 
-Расширить decision taxonomy для agent opportunities: `USE_CODE_OR_WORKFLOW`,
-`USE_EXISTING_AGENT`, `EXTEND_EXISTING_AGENT`, `CREATE_AGENT_SKILL` и
-`KEEP_HUMAN`. Проверять, не предлагается ли agent там, где достаточно script
-или существующего workflow.
+Extend the decision taxonomy for agent opportunities:
+`USE_CODE_OR_WORKFLOW`, `USE_EXISTING_AGENT`, `EXTEND_EXISTING_AGENT`,
+`CREATE_AGENT_SKILL`, and `KEEP_HUMAN`. Check whether an agent is being
+proposed where a script or existing workflow is sufficient.
 
 ### `skill-harvester`
 
-Добавить harvest units: agent definitions/cards, AGENTS.md, tool schemas,
-handoff contracts, traces, eval datasets, runbooks, policies, incident reports
-и registry manifests. Secrets, hidden reasoning и production memory не должны
-попадать в inbox.
+Add harvest units: agent definitions/cards, `AGENTS.md`, tool schemas, handoff
+contracts, traces, eval datasets, runbooks, policies, incident reports, and
+registry manifests. Secrets, hidden reasoning, and production memory must not
+enter the inbox.
 
 ### `skill-manager`
 
-Не расширять его до управления runtime agents: это нарушит capability boundary
-и permissions. Он может управлять public и agent-private agent-oriented skills,
-их visibility, registry parity и lifecycle, но не runtime agent instances.
-Runtime agents должен обслуживать отдельный `agent-manager`.
+Do not expand it into runtime-agent management: that would violate the
+capability boundary and permissions model. It may manage public and
+agent-private agent-oriented skills, their visibility, registry parity, and
+lifecycle, but not runtime agent instances. Runtime agents should be handled by
+a separate `agent-manager`.
 
 ### `skill-best-practices`
 
-Добавить текущий `agent-best-practices` corpus как declared derived/local
-source либо оставить отдельным managed corpus. Предпочтителен отдельный corpus,
-поскольку update cadence и normative scope для skill format и Agent OS различны.
+Add the current `agent-best-practices` corpus as a declared derived/local
+source, or keep it as a separate managed corpus. A separate corpus is
+preferable because the update cadence and normative scope differ between the
+skill format and Agent OS.
 
 ### Routing/coexistence
 
-Добавить negative-trigger fixtures, различающие:
+Add negative-trigger fixtures that distinguish:
 
-- «оптимизируй skill, который создаёт agents» → `skill-optimizer`;
-- «оптимизируй runtime agent» → будущий `agent-optimizer`;
-- «создай skill для оценки agents» → `skill-architect` с agent evaluator prompt;
-- «оцени этот skill» → `skill-evaluator`;
-- «оцени этого агента» → будущий `agent-evaluator`;
-- «установи agent-oriented skill» → `skill-manager`;
-- «активируй agent definition» → `agent-manager` с отдельным approval.
+- "optimize a skill that creates agents" → `skill-optimizer`;
+- "optimize a runtime agent" → future `agent-optimizer`;
+- "create a skill for evaluating agents" → `skill-architect` with the agent evaluator prompt;
+- "evaluate this skill" → `skill-evaluator`;
+- "evaluate this agent" → future `agent-evaluator`;
+- "install an agent-oriented skill" → `skill-manager`;
+- "activate an agent definition" → `agent-manager` with separate approval.
 
 ## Public/private capability optimization
 
-Идея хранить single-agent skills и commands внутри agent directory
-целесообразна как **scope-minimization pattern**. Она уменьшает global routing
-surface, collision risk и число independently published packages. При этом
-folder nesting не является security boundary: `private` означает scoped loader
-и allowed consumers, а не confidentiality.
+The idea of storing single-agent skills and commands inside the agent directory
+is reasonable as a **scope-minimization pattern**. It reduces the global
+routing surface, collision risk, and the number of independently published
+packages. However, folder nesting is not a security boundary: `private` means a
+scoped loader and allowed consumers, not confidentiality.
 
-Visibility не следует добавлять как primary archetype. После выбора mechanism
-используется placement profile:
+Visibility should not be added as a primary archetype. After choosing the
+mechanism, a placement profile is used:
 
-1. inline rule для tiny instruction;
-2. private command для narrow named action одного agent;
-3. private skill для reusable complex capability одного agent;
-4. public skill для нескольких independent consumers или independent lifecycle;
-5. tool/script либо workflow, если skill abstraction не является минимальной.
+1. inline rule for a tiny instruction;
+2. private command for a narrow named action of one agent;
+3. private skill for a reusable complex capability of one agent;
+4. public skill for multiple independent consumers or an independent lifecycle;
+5. tool/script or workflow if the skill abstraction is not the minimal one.
 
-Все skills регистрируются. Private entry содержит owner agent, allowed
-consumers, canonical locator и `agent_scoped` discoverability. Agent definition
-получает binding из canonical map; global loader не сканирует
-`.agents/definitions/*/skills`. Promotion/demotion выполняет `skill-refactor`
-как versioned consumer migration с evals и rollback.
+All skills are registered. A private entry contains the owner agent, allowed
+consumers, canonical locator, and `agent_scoped` discoverability. The agent
+definition receives a binding from the canonical map; the global loader does
+not scan `.agents/definitions/*/skills`. Promotion/demotion is performed by
+`skill-refactor` as a versioned consumer migration with evals and rollback.
 
-Новые исполняемые prompts находятся в `docs/prompts/`:
+The new executable prompts are in `docs/prompts/`:
 
 - `agent-capability-placement.md`;
 - `agent-private-skill.md`;
@@ -316,31 +325,32 @@ consumers, canonical locator и `agent_scoped` discoverability. Agent definition
 
 ## Recommended rollout
 
-1. Review этого анализа и prompt taxonomy.
-2. Создать `agent-architect` по соответствующему prompt.
-3. Создать независимый `agent-evaluator` и frozen eval dataset.
-4. Создать `agent-manager` только после выбора registry/runtime contracts.
-5. Добавить `agent-doctor`; затем `agent-optimizer` при наличии baselines.
-6. Собрать `agent-builder` после стабилизации specialist handoffs.
-7. Провести routing collision tests со всеми `skill-*` навыками.
-8. Только после двух стабильных release cycles рассмотреть `agentkit`.
+1. Review this analysis and the prompt taxonomy.
+2. Create `agent-architect` from the corresponding prompt.
+3. Create an independent `agent-evaluator` and a frozen eval dataset.
+4. Create `agent-manager` only after selecting registry/runtime contracts.
+5. Add `agent-doctor`; then add `agent-optimizer` once baselines exist.
+6. Assemble `agent-builder` after specialist handoffs stabilize.
+7. Run routing collision tests across all `skill-*` skills.
+8. Consider `agentkit` only after two stable release cycles.
 
-## Критерий успеха
+## Success criterion
 
-Подход считается перенесённым успешно, если новый agent-oriented skill:
+The approach is considered successfully transferred if the new agent-oriented
+skill:
 
-- имеет одну coherent capability и точный trigger;
-- использует общий base и один specialist prompt;
-- создаёт/изменяет immutable agent candidate, а не active runtime напрямую;
-- отделяет author, evaluator, approver и operator;
-- выдаёт typed artifacts и reproducible evidence;
-- проходит negative routing, authority, failure и lifecycle evals;
-- поддерживает rollback, deprecation и retirement;
-- не дублирует существующий metaskill и не превращает skill в неявного
-  автономного агента.
+- has one coherent capability and a precise trigger;
+- uses a shared base and one specialist prompt;
+- creates or modifies an immutable agent candidate, not the active runtime directly;
+- separates author, evaluator, approver, and operator;
+- produces typed artifacts and reproducible evidence;
+- passes negative routing, authority, failure, and lifecycle evals;
+- supports rollback, deprecation, and retirement;
+- does not duplicate an existing metaskill or turn the skill into an implicit
+  autonomous agent.
 
-## Продолжение
+## Continuation
 
-Единый phased plan для project-local agent teams, registries, skill mapping,
-model selection, docs/memory и Agent OS находится в
+A unified phased plan for project-local agent teams, registries, skill mapping,
+model selection, docs/memory, and Agent OS is in
 [AGENT-TEAM-AND-AGENT-OS-PLAN.md](AGENT-TEAM-AND-AGENT-OS-PLAN.md).

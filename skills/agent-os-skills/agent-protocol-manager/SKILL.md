@@ -2,7 +2,7 @@
 name: agent-protocol-manager
 description: Designs, audits and stages explicit ports-and-adapters contracts for MCP, A2A, agent hosts and model/tool providers, including pinned versions, discovery, authentication, capability negotiation, schemas, streaming, cancellation, errors, retries, provenance, conformance and rollback. Use when an agent system needs a governed interoperability boundary or compatibility matrix. Do not use for ordinary API implementation, silently hiding semantic differences, issuing credentials, enabling unsupported features, or deploying adapters without conformance and lifecycle authority.
 metadata:
-  version: "1.0.2"
+  version: "1.0.3"
 ---
 
 # Govern Agent Protocol Boundaries
