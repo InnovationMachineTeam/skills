@@ -1421,8 +1421,8 @@
     },
     {
       "path": "skills/metaskillpack/vendor/skill-marketplace-manager/references/best-practices.md",
-      "sha256": "8d2ad923d004bc4d4a11fa8445fb7b977c8cdc0708e31e87ab0b95b0a2fb1dea",
-      "bytes": 15619
+      "sha256": "fa41464985e311e1f2a9f421ff7ed1b43ea599e7e7a801d642674f2f32c33a35",
+      "bytes": 15617
     },
     {
       "path": "skills/metaskillpack/vendor/skill-marketplace-manager/references/integration-contracts.md",
