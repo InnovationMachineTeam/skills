@@ -266,20 +266,28 @@ innovation, startup operations, marketing, and public speaking, read
    python3 scripts/build_individual_plugins.py . build/plugins
    ```
 
-5. Regenerate all three marketplace manifests:
+5. Reconcile public skill versions and content hashes with the canonical agent
+   asset registry, then regenerate its Markdown view:
+
+   ```bash
+   python3 scripts/manage_agent_assets.py sync-public . --accountable-owner InnovationMachineTeam --write
+   python3 scripts/manage_agent_assets.py render . --write
+   ```
+
+6. Regenerate all three marketplace manifests:
 
    ```bash
    python3 scripts/generate_marketplace.py .
    ```
 
-6. Rebuild the aggregate plugin into a new staging directory:
+7. Rebuild the aggregate plugin into a new staging directory:
 
    ```bash
    python3 scripts/build_aggregate.py . build/im-skills-all
    ```
 
-7. Replace committed generated directories only after staged candidates pass validation.
-8. Run:
+8. Replace committed generated directories only after staged candidates pass validation.
+9. Run:
 
    ```bash
    python3 scripts/validate_documentation.py .
@@ -295,8 +303,8 @@ innovation, startup operations, marketing, and public speaking, read
    codex plugin list --available --json
    ```
 
-9. Run the Codex plugin validator against `plugin/` and every directory under `plugins/`. Validate Cursor paths and manifests with the repository validator, then locally test a representative plugin before public submission.
-10. Obtain review from `@stanislavus86` before release.
+10. Run the Codex plugin validator against `plugin/` and every directory under `plugins/`. Validate Cursor paths and manifests with the repository validator, then locally test a representative plugin before public submission.
+11. Obtain review from `@stanislavus86` before release.
 
 ## Version policy
 

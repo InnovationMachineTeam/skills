@@ -11,6 +11,8 @@ catalog data, registries, and fixtures.
 | Validate marketplace structure | `python3 scripts/validate_marketplace.py .` |
 | Validate canonical documentation links | `python3 scripts/validate_documentation.py .` |
 | Validate agent assets | `python3 scripts/manage_agent_assets.py validate .` |
+| Reconcile public skill hashes | `python3 scripts/manage_agent_assets.py sync-public . --accountable-owner InnovationMachineTeam --write` |
+| Render agent asset registry views | `python3 scripts/manage_agent_assets.py render . --write` |
 | Validate skill dependencies | `python3 scripts/manage_skill_dependencies.py validate` |
 | Audit context and hard-rule classes | `python3 scripts/audit_skill_context.py skills --format json` |
 | Generate skill README usage guides | `python3 scripts/generate_skill_readmes.py .` |

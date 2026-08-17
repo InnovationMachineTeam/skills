@@ -15,7 +15,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
 from generate_agent_adapters import expected_outputs  # noqa: E402
-from manage_agent_assets import content_hash, load_object, transaction, validate  # noqa: E402
+from manage_agent_assets import content_hash, load_object, sync_public, transaction, validate  # noqa: E402
 
 
 FIXTURE = ROOT / "tests" / "fixtures" / "agent-assets"
@@ -32,6 +32,37 @@ class AgentAssetTests(unittest.TestCase):
         self.assertEqual([], validate(FIXTURE, require_catalog=False))
         for path, expected in expected_outputs(FIXTURE).items():
             self.assertEqual(expected, path.read_text(encoding="utf-8"))
+
+    def test_sync_public_reconciles_content_hash_drift(self) -> None:
+        temporary = tempfile.TemporaryDirectory()
+        self.addCleanup(temporary.cleanup)
+        target = Path(temporary.name) / "project"
+        skill = target / "skills" / "testing" / "example-skill"
+        skill.mkdir(parents=True)
+        (target / "docs").mkdir()
+        skill_file = skill / "SKILL.md"
+        skill_file.write_text(
+            "---\nname: example-skill\ndescription: Test fixture.\nmetadata:\n  version: \"1.0.0\"\n---\n",
+            encoding="utf-8",
+        )
+        registry_path = target / "docs" / "AGENT-ASSET-REGISTRY.json"
+        registry_path.write_text(
+            json.dumps({"schema_version": 1, "revision": 1, "updated_at": "2026-01-01T00:00:00Z", "assets": []}),
+            encoding="utf-8",
+        )
+
+        self.assertEqual(0, sync_public(target, "InnovationMachineTeam", True))
+        registry = load_object(registry_path)
+        asset = registry["assets"][0]
+        self.assertEqual(content_hash(skill), asset["content_sha256"])
+        self.assertEqual(2, registry["revision"])
+
+        skill_file.write_text(skill_file.read_text(encoding="utf-8") + "\nChanged.\n", encoding="utf-8")
+        self.assertEqual(0, sync_public(target, "InnovationMachineTeam", True))
+        updated = load_object(registry_path)
+        self.assertEqual(content_hash(skill), updated["assets"][0]["content_sha256"])
+        self.assertEqual(asset["revision"] + 1, updated["assets"][0]["revision"])
+        self.assertEqual(3, updated["revision"])
 
     def test_private_capability_denies_another_agent(self) -> None:
         temporary, target = self.copy_fixture()
